@@ -236,7 +236,7 @@ GetPartsWorldPosition__7DGModelFPCc:
 /* 8001330C 0000F28C  7C 08 03 A6 */	mtlr r0
 /* 80013310 0000F290  4E 80 00 20 */	blr
 
-#rodata
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 "miss$155":
 
@@ -246,7 +246,7 @@ GetPartsWorldPosition__7DGModelFPCc:
 	.4byte 0
 	.4byte 0
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_800662D8:
 

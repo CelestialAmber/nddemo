@@ -167,7 +167,7 @@ SetDirectTex__8DGTexProFPvUsUs9_GXTexFmtUc:
 /* 8001A4FC 0001647C  99 03 00 20 */	stb r8, 0x20(r3)
 /* 8001A500 00016480  4E 80 00 20 */	blr
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066CC0:
 

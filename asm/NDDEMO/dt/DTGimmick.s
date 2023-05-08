@@ -2808,7 +2808,7 @@ AddNumOfCoin__9DTGimmickFs:
 /* 8001FBCC 0001BB4C  B0 A3 00 00 */	sth r5, 0x0(r3)
 /* 8001FBD0 0001BB50  4E 80 00 20 */	blr
 
-#rodata
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 lbl_80064418:
 
@@ -2918,7 +2918,7 @@ lbl_800644F8:
 	.4byte 0xBF800000
 	.4byte 0
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066E18:
 
@@ -3051,7 +3051,7 @@ lbl_80066FE8:
 	.4byte .L_8001FB48
 	.4byte 0
 
-#sdata
+.section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
 lbl_800A8BC8:
 
@@ -3222,7 +3222,7 @@ lbl_800A8C84:
 	# ROM: 0x6A3C4
 	.4byte 0x42000000
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9640:
 
@@ -3365,7 +3365,7 @@ lbl_800A96A8:
 Coin:
 	.skip 0x8000
 
-#sbss
+.section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
 "angle_x$302":
 	.skip 0x4

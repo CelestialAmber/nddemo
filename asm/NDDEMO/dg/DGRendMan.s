@@ -1006,7 +1006,7 @@ GetxfbHeight__9DGRendManFv:
 /* 80017EDC 00013E5C  A0 63 00 08 */	lhz r3, 0x8(r3)
 /* 80017EE0 00013E60  4E 80 00 20 */	blr
 
-#rodata
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 "LightID_Table$195":
 
@@ -1020,7 +1020,7 @@ GetxfbHeight__9DGRendManFv:
 	.4byte 0x00000040
 	.4byte 0x00000080
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066AC0:
 
@@ -1053,7 +1053,7 @@ lbl_80066B68:
 	.balign 4
 	.4byte 0
 
-#sdata
+.section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
 .global m_FirstFrameFlag__9DGRendMan
 m_FirstFrameFlag__9DGRendMan:
@@ -1145,7 +1145,7 @@ m_AdjustForOverscanH__9DGRendMan:
 	# ROM: 0x6A2F4
 	.4byte 0x00100000
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A94E0:
 
@@ -1168,7 +1168,7 @@ lbl_800A94E8:
 "garbage$290":
 	.skip 0xA00
 
-#sbss
+.section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
 .global m_InstanceNum__9DGRendMan
 m_InstanceNum__9DGRendMan:

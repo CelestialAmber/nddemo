@@ -233,7 +233,7 @@ DetachObject__8DGObjManFUs:
 /* 80016010 00011F90  38 21 00 18 */	addi r1, r1, 0x18
 /* 80016014 00011F94  4E 80 00 20 */	blr
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_800669C8:
 

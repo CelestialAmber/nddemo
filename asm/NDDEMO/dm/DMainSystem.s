@@ -13143,7 +13143,7 @@ __ct__5CSongFv:
 /* 80012640 0000E5C0  90 83 00 0C */	stw r4, 0xc(r3)
 /* 80012644 0000E5C4  4E 80 00 20 */	blr
 
-#rodata
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 lbl_80063D20:
 
@@ -13245,7 +13245,7 @@ lbl_80063DD4:
 	.4byte 0x441A0000
 	.4byte 0
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
 lbl_80065088:
@@ -14384,7 +14384,7 @@ lbl_80066220:
 	.4byte 0
 
 
-#sdata
+.section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
 lbl_800A8A80:
 
@@ -14584,7 +14584,7 @@ lbl_800A8B78:
 	.4byte 0x25730A00
 	.4byte 0
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9380:
 
@@ -14939,7 +14939,7 @@ irmodeobj:
 .skip 28
 
 
-#sbss
+.section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
 #the first 3 might belong in main.cpp
 

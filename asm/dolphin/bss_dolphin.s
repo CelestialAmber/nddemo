@@ -6,17 +6,17 @@ OSErrorTable:
 	.skip 0x40
 
 Ecb:
-	.skip 0xC0
+	.skip 0xA8
 
-#.skip 24
+.skip 24
 
 Header:
 	.skip 0x20
 
 Scb:
-	.skip 0x58
+	.skip 0x54
 
-#.skip 4
+.skip 4
 
 Packet:
 	.skip 0x80

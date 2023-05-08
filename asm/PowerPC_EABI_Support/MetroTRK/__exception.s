@@ -1996,3 +1996,6 @@ lbl_80004608:
 /* 80005300 00002300  7C 7A 03 A6 */	mtsrr0 r3
 /* 80005304 00002304  38 60 1F 00 */	li r3, 0x1f00
 /* 80005308 00002308  4C 00 00 64 */	rfi
+
+.global gTRKInterruptVectorTableEnd
+gTRKInterruptVectorTableEnd:

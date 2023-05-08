@@ -277,7 +277,7 @@ Read__5DUDvdFPvUll:
 /* 800129F0 0000E970  38 21 00 28 */	addi r1, r1, 0x28
 /* 800129F4 0000E974  4E 80 00 20 */	blr
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
 lbl_80066248:
@@ -297,7 +297,7 @@ lbl_80066280:
 	.balign 4
 	.4byte 0
 
-#sdata
+.section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
 
 .global m_InitDVD__5DUDvd

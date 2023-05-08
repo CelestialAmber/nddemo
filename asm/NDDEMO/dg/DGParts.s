@@ -1288,7 +1288,7 @@ GetWorldPosition__7DGPartsFv:
 /* 8001716C 000130EC  90 03 00 08 */	stw r0, 0x8(r3)
 /* 80017170 000130F0  4E 80 00 20 */	blr
 
-#rodata
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 lbl_800641D8:
 
@@ -1328,7 +1328,7 @@ lbl_800641D8:
 	.4byte 0
 	.4byte 0
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066A30:
 
@@ -1354,7 +1354,7 @@ lbl_80066A94:
 	.asciz "DGParts::CreateInstance False CreateChild\n"
 	.balign 4
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A94C8:
 

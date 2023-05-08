@@ -215,7 +215,7 @@ GetMipLevel__9DGTextureFv:
 /* 8001AD2C 00016CAC  88 63 00 10 */	lbz r3, 0x10(r3)
 /* 8001AD30 00016CB0  4E 80 00 20 */	blr
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066CD8:
 

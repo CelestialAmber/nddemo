@@ -892,7 +892,7 @@ EnableExpensiveMipMap__10DGModelManFUc:
 /* 80013F3C 0000FEBC  7C 08 03 A6 */	mtlr r0
 /* 80013F40 0000FEC0  4E 80 00 20 */	blr
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
 lbl_80066300:

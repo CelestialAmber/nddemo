@@ -337,7 +337,7 @@ GetDirectionalVec__10DGPositionFR3VecR3Vec:
 /* 8001938C 0001530C  38 21 00 88 */	addi r1, r1, 0x88
 /* 80019390 00015310  4E 80 00 20 */	blr
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9530:
 

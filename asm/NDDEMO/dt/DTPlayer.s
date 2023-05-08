@@ -3622,7 +3622,7 @@ PlayerMove__8DTPlayerFf:
 /* 80022E80 0001EE00  7C 08 03 A6 */	mtlr r0
 /* 80022E84 0001EE04  4E 80 00 20 */	blr
 
-#rodata
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 lbl_80064528:
 
@@ -3644,7 +3644,7 @@ lbl_8006454C:
 	.4byte 0
 	.4byte 0
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 PlyAnimName:
 
@@ -3938,7 +3938,7 @@ lbl_800673DC:
 	.4byte .L_80022350
 	.4byte 0
 
-#sdata
+.section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
 lbl_800A8C88:
 
@@ -3946,7 +3946,7 @@ lbl_800A8C88:
 	.asciz "white"
 	.balign 4
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A96B0:
 

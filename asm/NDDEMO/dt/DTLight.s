@@ -1607,7 +1607,7 @@ SettingMpol__7DTLightFv:
 /* 8001D4C4 00019444  7C 08 03 A6 */	mtlr r0
 /* 8001D4C8 00019448  4E 80 00 20 */	blr
 
-#rodata
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 lbl_800642B0:
 
@@ -1711,7 +1711,7 @@ lbl_8006440C:
 	.4byte 0x428C0000
 	.4byte 0x42480000
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066D80:
 
@@ -1745,7 +1745,7 @@ lbl_80066D80:
 	.asciz "POS_POL3"
 	.balign 4
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9568:
 
@@ -2017,7 +2017,7 @@ lbl_800A963C:
 	# ROM: 0x6A7BC
 	.4byte 0xFFFFFFFF
 
-#sbss
+.section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
 "POS_POL2_lpow$225":
 	.skip 0x4

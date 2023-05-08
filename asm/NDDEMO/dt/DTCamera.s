@@ -4154,7 +4154,7 @@ lbl_80064564:
 	.4byte 0x3F800000
 	.4byte 0
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 iSpilCenter:
 
@@ -4164,7 +4164,7 @@ iSpilCenter:
 	.4byte 0x42C80000
 	.4byte 0
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9790:
 

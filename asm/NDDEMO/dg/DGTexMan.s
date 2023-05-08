@@ -583,7 +583,7 @@ EnableExpensiveMipMap__8DGTexManFUc:
 /* 800186BC 0001463C  98 83 00 11 */	stb r4, 0x11(r3)
 /* 800186C0 00014640  4E 80 00 20 */	blr
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066B88:
 
@@ -620,7 +620,7 @@ lbl_80066C50:
 	.asciz "Error DGTexMan::DetachTexture> Invalid Handle\n"
 	.balign 4
 
-#sdata
+.section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
 lbl_800A8BB8:
 
@@ -634,7 +634,7 @@ lbl_800A8BC0:
 	.asciz ".dtx"
 	.balign 4
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A94F0:
 

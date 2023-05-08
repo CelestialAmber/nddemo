@@ -601,7 +601,7 @@ SetFogColor__8DGCameraFRC8_GXColor:
 /* 80018F10 00014E90  90 03 01 1C */	stw r0, 0x11c(r3)
 /* 80018F14 00014E94  4E 80 00 20 */	blr
 
-#rodata
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 
 lbl_80064280:
@@ -624,7 +624,7 @@ lbl_800642A4:
 	.4byte 0
 	.4byte 0xBF800000
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9500:
 

@@ -517,7 +517,7 @@ StrOut__6DGFontFPCc:
 /* 80019AFC 00015A7C  38 21 00 28 */	addi r1, r1, 0x28
 /* 80019B00 00015A80  4E 80 00 20 */	blr
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066CA8:
 
@@ -526,7 +526,7 @@ lbl_80066CA8:
 	.balign 4
 	.4byte 0
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9548:
 

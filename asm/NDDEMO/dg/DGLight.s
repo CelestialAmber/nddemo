@@ -382,7 +382,7 @@ SetAngleAttenuation_Cos2__7DGLightFff:
 /* 80012FFC 0000EF7C  38 21 00 28 */	addi r1, r1, 0x28
 /* 80013000 0000EF80  4E 80 00 20 */	blr
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9490:
 

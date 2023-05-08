@@ -2188,7 +2188,7 @@ IsNull__8DGObjectFv:
 /* 80015D18 00011C98  4E 80 00 20 */	blr
 
 
-#rodata
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 "GXTEXMAP_TABLE$160":
 
@@ -2424,7 +2424,7 @@ lbl_800641C4:
 	.4byte 0x00000003
 	.4byte 0
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
 lbl_80066690:
@@ -2485,7 +2485,7 @@ lbl_800667D4:
 	.asciz "DGObject::LoadNDMPartsBlock >m_DispList==NULL\n"
 	.balign 4
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 TevOp_TABLE:
 
@@ -2503,7 +2503,7 @@ lbl_800A94C4:
 	# ROM: 0x6A644
 	.4byte 0x009000FF
 
-#sbss
+.section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
 .global lineMode__8DGObject
 lineMode__8DGObject:

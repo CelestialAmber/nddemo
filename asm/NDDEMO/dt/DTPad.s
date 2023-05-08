@@ -154,7 +154,7 @@ IsPush__5DTPadFUsUs:
 /* 8001AF10 00016E90  38 60 00 00 */	li r3, 0x0
 /* 8001AF14 00016E94  4E 80 00 20 */	blr
 
-#data
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 PadChanMask:
 

@@ -545,6 +545,9 @@ OSExceptionInit:
 /* 80027D98 00023D18  7C 08 03 A6 */	mtlr r0
 /* 80027D9C 00023D1C  4E 80 00 20 */	blr
 
+.global __OSDBINTSTART
+__OSDBINTSTART:
+
 __OSDBIntegrator:
 /* 80027DA0 00023D20  38 A0 00 40 */	li r5, 0x40
 /* 80027DA4 00023D24  7C 68 02 A6 */	mflr r3
@@ -555,6 +558,12 @@ __OSDBIntegrator:
 /* 80027DB8 00023D38  38 60 00 30 */	li r3, 0x30
 /* 80027DBC 00023D3C  7C 60 01 24 */	mtmsr r3
 /* 80027DC0 00023D40  4E 80 00 20 */	blr
+
+.global __OSDBINTEND
+__OSDBINTEND:
+
+.global __OSDBJUMPSTART
+__OSDBJUMPSTART:
 
 __OSDBJump:
 /* 80027DC4 00023D44  48 00 00 63 */	bla 0x60
@@ -576,6 +585,9 @@ __OSGetExceptionHandler:
 /* 80027DEC 00023D6C  54 00 10 3A */	slwi r0, r0, 2
 /* 80027DF0 00023D70  7C 63 00 2E */	lwzx r3, r3, r0
 /* 80027DF4 00023D74  4E 80 00 20 */	blr
+
+.global __OSEVStart
+__OSEVStart:
 
 OSExceptionVector:
 /* 80027DF8 00023D78  7C 90 43 A6 */	mtsprg 0, r4
@@ -4256,6 +4268,9 @@ EXIUnlock:
 /* 8002AFE0 00026F60  4E 80 00 20 */	blr
 
 #OSInterrupt
+
+.global __RAS_OSDisableInterrupts_begin
+__RAS_OSDisableInterrupts_begin:
 
 .global OSDisableInterrupts
 OSDisableInterrupts:
@@ -8059,6 +8074,9 @@ OSResetStopwatch:
 /* 8002E3B0 0002A330  4E 80 00 20 */	blr
 
 #OSSync
+
+.global __OSSystemCallVectorStart
+__OSSystemCallVectorStart:
 
 SystemCallVector:
 /* 8002E3B4 0002A334  7D 30 FA A6 */	mfspr r9, HID0

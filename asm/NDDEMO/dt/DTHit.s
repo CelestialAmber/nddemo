@@ -988,7 +988,7 @@ _check_range__5DTHitFP3VecfUlPvSc:
 /* 8001BCA0 00017C20  38 21 00 40 */	addi r1, r1, 0x40
 /* 8001BCA4 00017C24  4E 80 00 20 */	blr
 
-#sdata2
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9560:
 
