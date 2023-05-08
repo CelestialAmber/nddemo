@@ -3,7 +3,6 @@
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 
-.global inpColdMIDIDefaults
 inpColdMIDIDefaults:
 
 	# ROM: 0x61570
@@ -42,7 +41,6 @@ inpColdMIDIDefaults:
 	.4byte 0x40000000
 	.4byte 0x40000000
 
-.global inpWarmMIDIDefaults
 inpWarmMIDIDefaults:
 
 	# ROM: 0x615F8
@@ -81,7 +79,6 @@ inpWarmMIDIDefaults:
 	.4byte 0x40FFFFFF
 	.4byte 0xFFFF0000
 
-.global itdOffTab
 itdOffTab:
 
 	# ROM: 0x61680

@@ -50,9 +50,9 @@ main:
 /* 8000664C 000025CC  48 00 C3 AD */	bl mAlloc__FUl
 /* 80006650 000025D0  3B E3 00 00 */	addi r31, r3, 0x0
 /* 80006654 000025D4  7F E3 FB 79 */	mr. r3, r31
-/* 80006658 000025D8  41 82 00 08 */	beq lbl_80006660
+/* 80006658 000025D8  41 82 00 08 */	beq .L_80006660
 /* 8000665C 000025DC  48 00 01 B5 */	bl __ct__11DMainSystemFv
-lbl_80006660:
+.L_80006660:
 /* 80006660 000025E0  93 ED 83 40 */	stw r31, dm@sda21(r13)
 /* 80006664 000025E4  80 6D 83 40 */	lwz r3, dm@sda21(r13)
 /* 80006668 000025E8  48 00 0B F9 */	bl iSystemInitProc__11DMainSystemFv
@@ -70,16 +70,16 @@ lbl_80006660:
 /* 80006698 00002618  38 7E 02 B0 */	addi r3, r30, 0x2b0
 /* 8000669C 0000261C  48 02 87 D1 */	bl OSResumeThread
 /* 800066A0 00002620  3B E0 00 01 */	li r31, 0x1
-lbl_800066A4:
+.L_800066A4:
 /* 800066A4 00002624  48 02 E3 31 */	bl VIWaitForRetrace
 /* 800066A8 00002628  9B ED 83 48 */	stb r31, v_flag@sda21(r13)
 /* 800066AC 0000262C  38 7E 02 B0 */	addi r3, r30, 0x2b0
 /* 800066B0 00002630  48 02 7E CD */	bl OSIsThreadSuspended
 /* 800066B4 00002634  2C 03 00 00 */	cmpwi r3, 0x0
-/* 800066B8 00002638  41 82 FF EC */	beq lbl_800066A4
+/* 800066B8 00002638  41 82 FF EC */	beq .L_800066A4
 /* 800066BC 0000263C  38 7E 02 B0 */	addi r3, r30, 0x2b0
 /* 800066C0 00002640  48 02 87 AD */	bl OSResumeThread
-/* 800066C4 00002644  4B FF FF E0 */	b lbl_800066A4
+/* 800066C4 00002644  4B FF FF E0 */	b .L_800066A4
 
 idmThread__FPv:
 /* 800066C8 00002648  7C 08 02 A6 */	mflr r0
@@ -89,18 +89,19 @@ idmThread__FPv:
 /* 800066D8 00002658  48 00 05 15 */	bl MainLoop__11DMainSystemFv
 /* 800066DC 0000265C  80 6D 83 40 */	lwz r3, dm@sda21(r13)
 /* 800066E0 00002660  28 03 00 00 */	cmplwi r3, 0x0
-/* 800066E4 00002664  41 82 00 14 */	beq lbl_800066F8
+/* 800066E4 00002664  41 82 00 14 */	beq .L_800066F8
 /* 800066E8 00002668  38 80 00 01 */	li r4, 0x1
 /* 800066EC 0000266C  48 00 03 F9 */	bl __dt__11DMainSystemFv
 /* 800066F0 00002670  38 00 00 00 */	li r0, 0x0
 /* 800066F4 00002674  90 0D 83 40 */	stw r0, dm@sda21(r13)
-lbl_800066F8:
+.L_800066F8:
 /* 800066F8 00002678  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 800066FC 0000267C  38 60 00 00 */	li r3, 0x0
 /* 80006700 00002680  38 21 00 08 */	addi r1, r1, 0x8
 /* 80006704 00002684  7C 08 03 A6 */	mtlr r0
 /* 80006708 00002688  4E 80 00 20 */	blr
 
+.global iMakeMainHeap__Fv
 iMakeMainHeap__Fv:
 /* 8000670C 0000268C  7C 08 02 A6 */	mflr r0
 /* 80006710 00002690  90 01 00 04 */	stw r0, 0x4(r1)
@@ -145,7 +146,6 @@ iMakeMainHeap__Fv:
 /* 800067AC 0000272C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800067B0 00002730  4E 80 00 20 */	blr
 
-.global __sinit_main_cpp
 __sinit_main_cpp:
 /* 800067B4 00002734  7C 08 02 A6 */	mflr r0
 /* 800067B8 00002738  3C 60 80 07 */	lis r3, audio@ha
@@ -163,11 +163,22 @@ __sinit_main_cpp:
 /* 800067E8 00002768  7C 08 03 A6 */	mtlr r0
 /* 800067EC 0000276C  4E 80 00 20 */	blr
 
+#weak
+#from DUMacro.h
+.global __dl__FPv
+__dl__FPv:
+/* 800067F0 00002770  7C 08 02 A6 */	mflr r0
+/* 800067F4 00002774  90 01 00 04 */	stw r0, 0x4(r1)
+/* 800067F8 00002778  94 21 FF F8 */	stwu r1, -0x8(r1)
+/* 800067FC 0000277C  48 00 C2 9D */	bl mFree__FPv
+/* 80006800 00002780  80 01 00 0C */	lwz r0, 0xc(r1)
+/* 80006804 00002784  38 21 00 08 */	addi r1, r1, 0x8
+/* 80006808 00002788  7C 08 03 A6 */	mtlr r0
+/* 8000680C 0000278C  4E 80 00 20 */	blr
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-.global lbl_80065000
 lbl_80065000:
 
 	# ROM: 0x62000
@@ -182,7 +193,6 @@ lbl_80065000:
 	.asciz "Read Audio data\n"
 	.balign 4
 
-.global lbl_80065064
 lbl_80065064:
 
 	# ROM: 0x62064
@@ -191,7 +201,6 @@ lbl_80065064:
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 
-.global lbl_8006D1C0
 lbl_8006D1C0:
 	.skip 0xC
 

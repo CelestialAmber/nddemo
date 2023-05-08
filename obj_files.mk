@@ -151,7 +151,7 @@ asm/PowerPC_EABI_Support/Runtime/runtime.o\
 asm/PowerPC_EABI_Support/Runtime/__init_cpp_exceptions.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/abort_exit.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/ansi_files.o\
-asm/PowerPC_EABI_Support/MSL_C/PPC_EABI/ansi_fp.o\
+asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/ansi_fp.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/buffer_io.o\
 asm/PowerPC_EABI_Support/MSL_C/PPC_EABI/critical_regions.ppc_eabi.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/ctype.o\
@@ -162,14 +162,14 @@ asm/PowerPC_EABI_Support/MSL_C/MSL_Common/mem_funcs.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/misc_io.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/printf.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/string.o\
-asm/PowerPC_EABI_Support/MSL_C/PPC_EABI/uart_console_io.o\
+asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/uart_console_io.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/wchar_io.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_frexp.o\
-asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/hyperbolicsf.o\
-asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/inverse_trig.o\
-asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/trigf.o\
-asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/common_float_tables.o\
-asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/exponentialsf.o
+asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Single_precision/hyperbolicsf.o\
+asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Single_precision/inverse_trig.o\
+asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Single_precision/trigf.o\
+asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Single_precision/common_float_tables.o\
+asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Single_precision/exponentialsf.o
 
 NDEV :=\
 asm/dolphin/AmcExi2Stubs.o\

@@ -2,6 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
+.global __ct__7DTLightFv
 __ct__7DTLightFv:
 /* 8001BCA8 00017C28  7C 08 02 A6 */	mflr r0
 /* 8001BCAC 00017C2C  3C 80 80 01 */	lis r4, __ct__7DGLightFv@ha
@@ -22,6 +23,7 @@ __ct__7DTLightFv:
 /* 8001BCE8 00017C68  7C 08 03 A6 */	mtlr r0
 /* 8001BCEC 00017C6C  4E 80 00 20 */	blr
 
+.global __dt__7DTLightFv
 __dt__7DTLightFv:
 /* 8001BCF0 00017C70  7C 08 02 A6 */	mflr r0
 /* 8001BCF4 00017C74  90 01 00 04 */	stw r0, 0x4(r1)
@@ -30,7 +32,7 @@ __dt__7DTLightFv:
 /* 8001BD00 00017C80  3B E4 00 00 */	addi r31, r4, 0x0
 /* 8001BD04 00017C84  93 C1 00 10 */	stw r30, 0x10(r1)
 /* 8001BD08 00017C88  7C 7E 1B 79 */	mr. r30, r3
-/* 8001BD0C 00017C8C  41 82 00 2C */	beq lbl_8001BD38
+/* 8001BD0C 00017C8C  41 82 00 2C */	beq .L_8001BD38
 /* 8001BD10 00017C90  3C 60 80 01 */	lis r3, __dt__7DGLightFv@ha
 /* 8001BD14 00017C94  38 83 2B A0 */	addi r4, r3, __dt__7DGLightFv@l
 /* 8001BD18 00017C98  38 7E 00 00 */	addi r3, r30, 0x0
@@ -38,10 +40,10 @@ __dt__7DTLightFv:
 /* 8001BD20 00017CA0  38 C0 00 08 */	li r6, 0x8
 /* 8001BD24 00017CA4  48 04 34 39 */	bl __destroy_arr
 /* 8001BD28 00017CA8  7F E0 07 35 */	extsh. r0, r31
-/* 8001BD2C 00017CAC  40 81 00 0C */	ble lbl_8001BD38
+/* 8001BD2C 00017CAC  40 81 00 0C */	ble .L_8001BD38
 /* 8001BD30 00017CB0  7F C3 F3 78 */	mr r3, r30
 /* 8001BD34 00017CB4  4B FF 6D 65 */	bl mFree__FPv
-lbl_8001BD38:
+.L_8001BD38:
 /* 8001BD38 00017CB8  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 8001BD3C 00017CBC  7F C3 F3 78 */	mr r3, r30
 /* 8001BD40 00017CC0  83 E1 00 14 */	lwz r31, 0x14(r1)
@@ -50,56 +52,50 @@ lbl_8001BD38:
 /* 8001BD4C 00017CCC  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001BD50 00017CD0  4E 80 00 20 */	blr
 
+.global Setting__7DTLightFUc
 Setting__7DTLightFUc:
 /* 8001BD54 00017CD4  7C 08 02 A6 */	mflr r0
 /* 8001BD58 00017CD8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001BD5C 00017CDC  54 80 06 3E */	clrlwi r0, r4, 24
 /* 8001BD60 00017CE0  28 00 00 07 */	cmplwi r0, 0x7
 /* 8001BD64 00017CE4  94 21 FF F8 */	stwu r1, -0x8(r1)
-/* 8001BD68 00017CE8  41 81 00 58 */	bgt lbl_8001BDC0
+/* 8001BD68 00017CE8  41 81 00 58 */	bgt .L_8001BDC0
 /* 8001BD6C 00017CEC  3C 80 80 06 */	lis r4, lbl_80066D80@ha
 /* 8001BD70 00017CF0  38 84 6D 80 */	addi r4, r4, lbl_80066D80@l
 /* 8001BD74 00017CF4  54 00 10 3A */	slwi r0, r0, 2
 /* 8001BD78 00017CF8  7C 04 00 2E */	lwzx r0, r4, r0
 /* 8001BD7C 00017CFC  7C 09 03 A6 */	mtctr r0
 /* 8001BD80 00017D00  4E 80 04 20 */	bctr
-.global lbl_8001BD84
-lbl_8001BD84:
+.L_8001BD84:
 /* 8001BD84 00017D04  48 00 01 B9 */	bl SettingEntr__7DTLightFv
-/* 8001BD88 00017D08  48 00 00 38 */	b lbl_8001BDC0
-.global lbl_8001BD8C
-lbl_8001BD8C:
+/* 8001BD88 00017D08  48 00 00 38 */	b .L_8001BDC0
+.L_8001BD8C:
 /* 8001BD8C 00017D0C  48 00 04 C9 */	bl SettingHang__7DTLightFv
-/* 8001BD90 00017D10  48 00 00 30 */	b lbl_8001BDC0
-.global lbl_8001BD94
-lbl_8001BD94:
+/* 8001BD90 00017D10  48 00 00 30 */	b .L_8001BDC0
+.L_8001BD94:
 /* 8001BD94 00017D14  48 00 06 45 */	bl SettingDome__7DTLightFv
-/* 8001BD98 00017D18  48 00 00 28 */	b lbl_8001BDC0
-.global lbl_8001BD9C
-lbl_8001BD9C:
+/* 8001BD98 00017D18  48 00 00 28 */	b .L_8001BDC0
+.L_8001BD9C:
 /* 8001BD9C 00017D1C  48 00 08 FD */	bl SettingCave__7DTLightFv
-/* 8001BDA0 00017D20  48 00 00 20 */	b lbl_8001BDC0
-.global lbl_8001BDA4
-lbl_8001BDA4:
+/* 8001BDA0 00017D20  48 00 00 20 */	b .L_8001BDC0
+.L_8001BDA4:
 /* 8001BDA4 00017D24  48 00 0E A9 */	bl SettingCine__7DTLightFv
-/* 8001BDA8 00017D28  48 00 00 18 */	b lbl_8001BDC0
-.global lbl_8001BDAC
-lbl_8001BDAC:
+/* 8001BDA8 00017D28  48 00 00 18 */	b .L_8001BDC0
+.L_8001BDAC:
 /* 8001BDAC 00017D2C  48 00 11 55 */	bl SettingSpil__7DTLightFv
-/* 8001BDB0 00017D30  48 00 00 10 */	b lbl_8001BDC0
-.global lbl_8001BDB4
-lbl_8001BDB4:
+/* 8001BDB0 00017D30  48 00 00 10 */	b .L_8001BDC0
+.L_8001BDB4:
 /* 8001BDB4 00017D34  48 00 13 81 */	bl SettingEnve__7DTLightFv
-/* 8001BDB8 00017D38  48 00 00 08 */	b lbl_8001BDC0
-.global lbl_8001BDBC
-lbl_8001BDBC:
+/* 8001BDB8 00017D38  48 00 00 08 */	b .L_8001BDC0
+.L_8001BDBC:
 /* 8001BDBC 00017D3C  48 00 16 41 */	bl SettingMpol__7DTLightFv
-lbl_8001BDC0:
+.L_8001BDC0:
 /* 8001BDC0 00017D40  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8001BDC4 00017D44  38 21 00 08 */	addi r1, r1, 0x8
 /* 8001BDC8 00017D48  7C 08 03 A6 */	mtlr r0
 /* 8001BDCC 00017D4C  4E 80 00 20 */	blr
 
+.global SetKuriboLight__7DTLightFv
 SetKuriboLight__7DTLightFv:
 /* 8001BDD0 00017D50  7C 08 02 A6 */	mflr r0
 /* 8001BDD4 00017D54  3C A0 80 06 */	lis r5, lbl_80066D80@ha
@@ -114,7 +110,7 @@ SetKuriboLight__7DTLightFv:
 /* 8001BDF8 00017D78  80 04 0E A0 */	lwz r0, 0xea0(r4)
 /* 8001BDFC 00017D7C  28 00 00 00 */	cmplwi r0, 0x0
 /* 8001BE00 00017D80  7C 1E 03 78 */	mr r30, r0
-/* 8001BE04 00017D84  41 82 01 1C */	beq lbl_8001BF20
+/* 8001BE04 00017D84  41 82 01 1C */	beq .L_8001BF20
 /* 8001BE08 00017D88  80 02 81 E8 */	lwz r0, lbl_800A9568@sda21(r2)
 /* 8001BE0C 00017D8C  38 7D 00 00 */	addi r3, r29, 0x0
 /* 8001BE10 00017D90  38 81 00 18 */	addi r4, r1, 0x18
@@ -185,7 +181,7 @@ SetKuriboLight__7DTLightFv:
 /* 8001BF14 00017E94  3C 63 00 02 */	addis r3, r3, 0x2
 /* 8001BF18 00017E98  38 63 19 78 */	addi r3, r3, 0x1978
 /* 8001BF1C 00017E9C  4B FF BA 91 */	bl AddLight__9DGRendManFP7DGLight
-lbl_8001BF20:
+.L_8001BF20:
 /* 8001BF20 00017EA0  80 01 00 3C */	lwz r0, 0x3c(r1)
 /* 8001BF24 00017EA4  83 E1 00 34 */	lwz r31, 0x34(r1)
 /* 8001BF28 00017EA8  83 C1 00 30 */	lwz r30, 0x30(r1)
@@ -194,6 +190,7 @@ lbl_8001BF20:
 /* 8001BF34 00017EB4  38 21 00 38 */	addi r1, r1, 0x38
 /* 8001BF38 00017EB8  4E 80 00 20 */	blr
 
+.global SettingEntr__7DTLightFv
 SettingEntr__7DTLightFv:
 /* 8001BF3C 00017EBC  7C 08 02 A6 */	mflr r0
 /* 8001BF40 00017EC0  3C 80 80 06 */	lis r4, lbl_800642B0@ha
@@ -394,6 +391,7 @@ SettingEntr__7DTLightFv:
 /* 8001C24C 000181CC  38 21 00 90 */	addi r1, r1, 0x90
 /* 8001C250 000181D0  4E 80 00 20 */	blr
 
+.global SettingHang__7DTLightFv
 SettingHang__7DTLightFv:
 /* 8001C254 000181D4  7C 08 02 A6 */	mflr r0
 /* 8001C258 000181D8  3C 80 80 06 */	lis r4, lbl_800642B0@ha
@@ -493,6 +491,7 @@ SettingHang__7DTLightFv:
 /* 8001C3D0 00018350  38 21 00 58 */	addi r1, r1, 0x58
 /* 8001C3D4 00018354  4E 80 00 20 */	blr
 
+.global SettingDome__7DTLightFv
 SettingDome__7DTLightFv:
 /* 8001C3D8 00018358  7C 08 02 A6 */	mflr r0
 /* 8001C3DC 0001835C  3C 80 80 06 */	lis r4, lbl_800642B0@ha
@@ -671,6 +670,7 @@ SettingDome__7DTLightFv:
 /* 8001C690 00018610  38 21 00 78 */	addi r1, r1, 0x78
 /* 8001C694 00018614  4E 80 00 20 */	blr
 
+.global SettingCave__7DTLightFv
 SettingCave__7DTLightFv:
 /* 8001C698 00018618  7C 08 02 A6 */	mflr r0
 /* 8001C69C 0001861C  3C 80 80 06 */	lis r4, lbl_80066D80@ha
@@ -685,7 +685,7 @@ SettingCave__7DTLightFv:
 /* 8001C6C0 00018640  80 05 0E A0 */	lwz r0, 0xea0(r5)
 /* 8001C6C4 00018644  28 00 00 00 */	cmplwi r0, 0x0
 /* 8001C6C8 00018648  7C 1E 03 78 */	mr r30, r0
-/* 8001C6CC 0001864C  41 82 05 64 */	beq lbl_8001CC30
+/* 8001C6CC 0001864C  41 82 05 64 */	beq .L_8001CC30
 /* 8001C6D0 00018650  38 65 00 00 */	addi r3, r5, 0x0
 /* 8001C6D4 00018654  38 A1 00 50 */	addi r5, r1, 0x50
 /* 8001C6D8 00018658  38 C1 00 44 */	addi r6, r1, 0x44
@@ -871,20 +871,20 @@ SettingCave__7DTLightFv:
 /* 8001C9A8 00018928  4B FF 64 59 */	bl EnableSpecularLight__7DGLightFUc
 /* 8001C9AC 0001892C  88 0D 83 C4 */	lbz r0, "init$226"@sda21(r13)
 /* 8001C9B0 00018930  7C 00 07 75 */	extsb. r0, r0
-/* 8001C9B4 00018934  40 82 00 14 */	bne lbl_8001C9C8
+/* 8001C9B4 00018934  40 82 00 14 */	bne .L_8001C9C8
 /* 8001C9B8 00018938  C0 02 81 F0 */	lfs f0, lbl_800A9570@sda21(r2)
 /* 8001C9BC 0001893C  38 00 00 01 */	li r0, 0x1
 /* 8001C9C0 00018940  98 0D 83 C4 */	stb r0, "init$226"@sda21(r13)
 /* 8001C9C4 00018944  D0 0D 83 C0 */	stfs f0, "POS_POL2_lpow$225"@sda21(r13)
-lbl_8001C9C8:
+.L_8001C9C8:
 /* 8001C9C8 00018948  88 0D 83 CC */	lbz r0, "init$229"@sda21(r13)
 /* 8001C9CC 0001894C  7C 00 07 75 */	extsb. r0, r0
-/* 8001C9D0 00018950  40 82 00 14 */	bne lbl_8001C9E4
+/* 8001C9D0 00018950  40 82 00 14 */	bne .L_8001C9E4
 /* 8001C9D4 00018954  C0 02 82 74 */	lfs f0, lbl_800A95F4@sda21(r2)
 /* 8001C9D8 00018958  38 00 00 01 */	li r0, 0x1
 /* 8001C9DC 0001895C  98 0D 83 CC */	stb r0, "init$229"@sda21(r13)
 /* 8001C9E0 00018960  D0 0D 83 C8 */	stfs f0, "POS_POL2_lpow_add$228"@sda21(r13)
-lbl_8001C9E4:
+.L_8001C9E4:
 /* 8001C9E4 00018964  C0 0D 83 C0 */	lfs f0, "POS_POL2_lpow$225"@sda21(r13)
 /* 8001C9E8 00018968  C0 4D 83 C8 */	lfs f2, "POS_POL2_lpow_add$228"@sda21(r13)
 /* 8001C9EC 0001896C  C0 22 81 F0 */	lfs f1, lbl_800A9570@sda21(r2)
@@ -892,19 +892,19 @@ lbl_8001C9E4:
 /* 8001C9F4 00018974  D0 0D 83 C0 */	stfs f0, "POS_POL2_lpow$225"@sda21(r13)
 /* 8001C9F8 00018978  C0 0D 83 C0 */	lfs f0, "POS_POL2_lpow$225"@sda21(r13)
 /* 8001C9FC 0001897C  FC 00 08 40 */	fcmpo cr0, f0, f1
-/* 8001CA00 00018980  40 80 00 14 */	bge lbl_8001CA14
+/* 8001CA00 00018980  40 80 00 14 */	bge .L_8001CA14
 /* 8001CA04 00018984  FC 00 10 50 */	fneg f0, f2
 /* 8001CA08 00018988  D0 2D 83 C0 */	stfs f1, "POS_POL2_lpow$225"@sda21(r13)
 /* 8001CA0C 0001898C  D0 0D 83 C8 */	stfs f0, "POS_POL2_lpow_add$228"@sda21(r13)
-/* 8001CA10 00018990  48 00 00 1C */	b lbl_8001CA2C
-lbl_8001CA14:
+/* 8001CA10 00018990  48 00 00 1C */	b .L_8001CA2C
+.L_8001CA14:
 /* 8001CA14 00018994  C0 22 82 78 */	lfs f1, lbl_800A95F8@sda21(r2)
 /* 8001CA18 00018998  FC 00 08 40 */	fcmpo cr0, f0, f1
-/* 8001CA1C 0001899C  40 81 00 10 */	ble lbl_8001CA2C
+/* 8001CA1C 0001899C  40 81 00 10 */	ble .L_8001CA2C
 /* 8001CA20 000189A0  FC 00 10 50 */	fneg f0, f2
 /* 8001CA24 000189A4  D0 2D 83 C0 */	stfs f1, "POS_POL2_lpow$225"@sda21(r13)
 /* 8001CA28 000189A8  D0 0D 83 C8 */	stfs f0, "POS_POL2_lpow_add$228"@sda21(r13)
-lbl_8001CA2C:
+.L_8001CA2C:
 /* 8001CA2C 000189AC  C0 42 82 80 */	lfs f2, lbl_800A9600@sda21(r2)
 /* 8001CA30 000189B0  38 7D 00 F0 */	addi r3, r29, 0xf0
 /* 8001CA34 000189B4  C0 0D 83 C0 */	lfs f0, "POS_POL2_lpow$225"@sda21(r13)
@@ -923,23 +923,23 @@ lbl_8001CA2C:
 /* 8001CA68 000189E8  38 9F 00 80 */	addi r4, r31, 0x80
 /* 8001CA6C 000189EC  4B FF 66 55 */	bl GetPartsPtr__7DGModelFPCc
 /* 8001CA70 000189F0  28 03 00 00 */	cmplwi r3, 0x0
-/* 8001CA74 000189F4  41 82 00 3C */	beq lbl_8001CAB0
+/* 8001CA74 000189F4  41 82 00 3C */	beq .L_8001CAB0
 /* 8001CA78 000189F8  4B FF A2 85 */	bl GetVisible__7DGPartsFv
 /* 8001CA7C 000189FC  54 60 06 3F */	clrlwi. r0, r3, 24
-/* 8001CA80 00018A00  41 82 00 1C */	beq lbl_8001CA9C
+/* 8001CA80 00018A00  41 82 00 1C */	beq .L_8001CA9C
 /* 8001CA84 00018A04  80 02 82 5C */	lwz r0, lbl_800A95DC@sda21(r2)
 /* 8001CA88 00018A08  38 7D 00 F0 */	addi r3, r29, 0xf0
 /* 8001CA8C 00018A0C  38 81 00 20 */	addi r4, r1, 0x20
 /* 8001CA90 00018A10  90 01 00 20 */	stw r0, 0x20(r1)
 /* 8001CA94 00018A14  4B FF 63 61 */	bl SetLightColor__7DGLightFRC8_GXColor
-/* 8001CA98 00018A18  48 00 00 18 */	b lbl_8001CAB0
-lbl_8001CA9C:
+/* 8001CA98 00018A18  48 00 00 18 */	b .L_8001CAB0
+.L_8001CA9C:
 /* 8001CA9C 00018A1C  80 02 82 60 */	lwz r0, lbl_800A95E0@sda21(r2)
 /* 8001CAA0 00018A20  38 7D 00 F0 */	addi r3, r29, 0xf0
 /* 8001CAA4 00018A24  38 81 00 1C */	addi r4, r1, 0x1c
 /* 8001CAA8 00018A28  90 01 00 1C */	stw r0, 0x1c(r1)
 /* 8001CAAC 00018A2C  4B FF 63 49 */	bl SetLightColor__7DGLightFRC8_GXColor
-lbl_8001CAB0:
+.L_8001CAB0:
 /* 8001CAB0 00018A30  38 7D 01 2C */	addi r3, r29, 0x12c
 /* 8001CAB4 00018A34  38 80 00 00 */	li r4, 0x0
 /* 8001CAB8 00018A38  4B FF 63 59 */	bl EnableSpotLight__7DGLightFUc
@@ -948,20 +948,20 @@ lbl_8001CAB0:
 /* 8001CAC4 00018A44  4B FF 63 3D */	bl EnableSpecularLight__7DGLightFUc
 /* 8001CAC8 00018A48  88 0D 83 D4 */	lbz r0, "init$244"@sda21(r13)
 /* 8001CACC 00018A4C  7C 00 07 75 */	extsb. r0, r0
-/* 8001CAD0 00018A50  40 82 00 14 */	bne lbl_8001CAE4
+/* 8001CAD0 00018A50  40 82 00 14 */	bne .L_8001CAE4
 /* 8001CAD4 00018A54  C0 02 81 F0 */	lfs f0, lbl_800A9570@sda21(r2)
 /* 8001CAD8 00018A58  38 00 00 01 */	li r0, 0x1
 /* 8001CADC 00018A5C  98 0D 83 D4 */	stb r0, "init$244"@sda21(r13)
 /* 8001CAE0 00018A60  D0 0D 83 D0 */	stfs f0, "POS_POL3_lpow$243"@sda21(r13)
-lbl_8001CAE4:
+.L_8001CAE4:
 /* 8001CAE4 00018A64  88 0D 83 DC */	lbz r0, "init$247"@sda21(r13)
 /* 8001CAE8 00018A68  7C 00 07 75 */	extsb. r0, r0
-/* 8001CAEC 00018A6C  40 82 00 14 */	bne lbl_8001CB00
+/* 8001CAEC 00018A6C  40 82 00 14 */	bne .L_8001CB00
 /* 8001CAF0 00018A70  C0 02 82 74 */	lfs f0, lbl_800A95F4@sda21(r2)
 /* 8001CAF4 00018A74  38 00 00 01 */	li r0, 0x1
 /* 8001CAF8 00018A78  98 0D 83 DC */	stb r0, "init$247"@sda21(r13)
 /* 8001CAFC 00018A7C  D0 0D 83 D8 */	stfs f0, "POS_POL3_lpow_add$246"@sda21(r13)
-lbl_8001CB00:
+.L_8001CB00:
 /* 8001CB00 00018A80  C0 0D 83 D0 */	lfs f0, "POS_POL3_lpow$243"@sda21(r13)
 /* 8001CB04 00018A84  C0 4D 83 D8 */	lfs f2, "POS_POL3_lpow_add$246"@sda21(r13)
 /* 8001CB08 00018A88  C0 22 81 F0 */	lfs f1, lbl_800A9570@sda21(r2)
@@ -969,19 +969,19 @@ lbl_8001CB00:
 /* 8001CB10 00018A90  D0 0D 83 D0 */	stfs f0, "POS_POL3_lpow$243"@sda21(r13)
 /* 8001CB14 00018A94  C0 0D 83 D0 */	lfs f0, "POS_POL3_lpow$243"@sda21(r13)
 /* 8001CB18 00018A98  FC 00 08 40 */	fcmpo cr0, f0, f1
-/* 8001CB1C 00018A9C  40 80 00 14 */	bge lbl_8001CB30
+/* 8001CB1C 00018A9C  40 80 00 14 */	bge .L_8001CB30
 /* 8001CB20 00018AA0  FC 00 10 50 */	fneg f0, f2
 /* 8001CB24 00018AA4  D0 2D 83 D0 */	stfs f1, "POS_POL3_lpow$243"@sda21(r13)
 /* 8001CB28 00018AA8  D0 0D 83 D8 */	stfs f0, "POS_POL3_lpow_add$246"@sda21(r13)
-/* 8001CB2C 00018AAC  48 00 00 1C */	b lbl_8001CB48
-lbl_8001CB30:
+/* 8001CB2C 00018AAC  48 00 00 1C */	b .L_8001CB48
+.L_8001CB30:
 /* 8001CB30 00018AB0  C0 22 82 78 */	lfs f1, lbl_800A95F8@sda21(r2)
 /* 8001CB34 00018AB4  FC 00 08 40 */	fcmpo cr0, f0, f1
-/* 8001CB38 00018AB8  40 81 00 10 */	ble lbl_8001CB48
+/* 8001CB38 00018AB8  40 81 00 10 */	ble .L_8001CB48
 /* 8001CB3C 00018ABC  FC 00 10 50 */	fneg f0, f2
 /* 8001CB40 00018AC0  D0 2D 83 D0 */	stfs f1, "POS_POL3_lpow$243"@sda21(r13)
 /* 8001CB44 00018AC4  D0 0D 83 D8 */	stfs f0, "POS_POL3_lpow_add$246"@sda21(r13)
-lbl_8001CB48:
+.L_8001CB48:
 /* 8001CB48 00018AC8  38 9E 00 00 */	addi r4, r30, 0x0
 /* 8001CB4C 00018ACC  38 61 00 38 */	addi r3, r1, 0x38
 /* 8001CB50 00018AD0  38 BF 00 8C */	addi r5, r31, 0x8c
@@ -1000,23 +1000,23 @@ lbl_8001CB48:
 /* 8001CB84 00018B04  38 9F 00 8C */	addi r4, r31, 0x8c
 /* 8001CB88 00018B08  4B FF 65 39 */	bl GetPartsPtr__7DGModelFPCc
 /* 8001CB8C 00018B0C  28 03 00 00 */	cmplwi r3, 0x0
-/* 8001CB90 00018B10  41 82 00 3C */	beq lbl_8001CBCC
+/* 8001CB90 00018B10  41 82 00 3C */	beq .L_8001CBCC
 /* 8001CB94 00018B14  4B FF A1 69 */	bl GetVisible__7DGPartsFv
 /* 8001CB98 00018B18  54 60 06 3F */	clrlwi. r0, r3, 24
-/* 8001CB9C 00018B1C  41 82 00 1C */	beq lbl_8001CBB8
+/* 8001CB9C 00018B1C  41 82 00 1C */	beq .L_8001CBB8
 /* 8001CBA0 00018B20  80 02 82 64 */	lwz r0, lbl_800A95E4@sda21(r2)
 /* 8001CBA4 00018B24  38 7D 01 2C */	addi r3, r29, 0x12c
 /* 8001CBA8 00018B28  38 81 00 18 */	addi r4, r1, 0x18
 /* 8001CBAC 00018B2C  90 01 00 18 */	stw r0, 0x18(r1)
 /* 8001CBB0 00018B30  4B FF 62 45 */	bl SetLightColor__7DGLightFRC8_GXColor
-/* 8001CBB4 00018B34  48 00 00 18 */	b lbl_8001CBCC
-lbl_8001CBB8:
+/* 8001CBB4 00018B34  48 00 00 18 */	b .L_8001CBCC
+.L_8001CBB8:
 /* 8001CBB8 00018B38  80 02 82 68 */	lwz r0, lbl_800A95E8@sda21(r2)
 /* 8001CBBC 00018B3C  38 7D 01 2C */	addi r3, r29, 0x12c
 /* 8001CBC0 00018B40  38 81 00 14 */	addi r4, r1, 0x14
 /* 8001CBC4 00018B44  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8001CBC8 00018B48  4B FF 62 2D */	bl SetLightColor__7DGLightFRC8_GXColor
-lbl_8001CBCC:
+.L_8001CBCC:
 /* 8001CBCC 00018B4C  80 6D 83 40 */	lwz r3, dm@sda21(r13)
 /* 8001CBD0 00018B50  38 9D 00 3C */	addi r4, r29, 0x3c
 /* 8001CBD4 00018B54  3C 63 00 02 */	addis r3, r3, 0x2
@@ -1042,7 +1042,7 @@ lbl_8001CBCC:
 /* 8001CC24 00018BA4  3C 63 00 02 */	addis r3, r3, 0x2
 /* 8001CC28 00018BA8  38 63 19 30 */	addi r3, r3, 0x1930
 /* 8001CC2C 00018BAC  4B FF AD 81 */	bl AddLight__9DGRendManFP7DGLight
-lbl_8001CC30:
+.L_8001CC30:
 /* 8001CC30 00018BB0  80 01 00 74 */	lwz r0, 0x74(r1)
 /* 8001CC34 00018BB4  83 E1 00 6C */	lwz r31, 0x6c(r1)
 /* 8001CC38 00018BB8  83 C1 00 68 */	lwz r30, 0x68(r1)
@@ -1051,6 +1051,7 @@ lbl_8001CC30:
 /* 8001CC44 00018BC4  38 21 00 70 */	addi r1, r1, 0x70
 /* 8001CC48 00018BC8  4E 80 00 20 */	blr
 
+.global SettingCine__7DTLightFv
 SettingCine__7DTLightFv:
 /* 8001CC4C 00018BCC  7C 08 02 A6 */	mflr r0
 /* 8001CC50 00018BD0  3C 80 80 06 */	lis r4, lbl_800642B0@ha
@@ -1226,6 +1227,7 @@ SettingCine__7DTLightFv:
 /* 8001CEF8 00018E78  38 21 00 78 */	addi r1, r1, 0x78
 /* 8001CEFC 00018E7C  4E 80 00 20 */	blr
 
+.global SettingSpil__7DTLightFv
 SettingSpil__7DTLightFv:
 /* 8001CF00 00018E80  7C 08 02 A6 */	mflr r0
 /* 8001CF04 00018E84  38 80 00 05 */	li r4, 0x5
@@ -1369,6 +1371,7 @@ SettingSpil__7DTLightFv:
 /* 8001D12C 000190AC  7C 08 03 A6 */	mtlr r0
 /* 8001D130 000190B0  4E 80 00 20 */	blr
 
+.global SettingEnve__7DTLightFv
 SettingEnve__7DTLightFv:
 /* 8001D134 000190B4  7C 08 02 A6 */	mflr r0
 /* 8001D138 000190B8  3C 80 80 06 */	lis r4, lbl_800642B0@ha
@@ -1549,6 +1552,7 @@ SettingEnve__7DTLightFv:
 /* 8001D3F4 00019374  38 21 00 88 */	addi r1, r1, 0x88
 /* 8001D3F8 00019378  4E 80 00 20 */	blr
 
+.global SettingMpol__7DTLightFv
 SettingMpol__7DTLightFv:
 /* 8001D3FC 0001937C  7C 08 02 A6 */	mflr r0
 /* 8001D400 00019380  38 80 00 07 */	li r4, 0x7
@@ -1605,7 +1609,6 @@ SettingMpol__7DTLightFv:
 
 #rodata
 
-.global lbl_800642B0
 lbl_800642B0:
 
 	# ROM: 0x612B0
@@ -1673,7 +1676,6 @@ lbl_800642B0:
 	.4byte 0x428C0000
 	.4byte 0x42480000
 
-.global lbl_800643AC
 lbl_800643AC:
 
 	# ROM: 0x613AC
@@ -1702,7 +1704,6 @@ lbl_800643AC:
 	.4byte 0
 	.4byte 0
 
-.global lbl_8006440C
 lbl_8006440C:
 
 	# ROM: 0x6140C
@@ -1712,18 +1713,17 @@ lbl_8006440C:
 
 #data
 
-.global lbl_80066D80
 lbl_80066D80:
 
 	# ROM: 0x63D80
-	.4byte lbl_8001BD84
-	.4byte lbl_8001BD8C
-	.4byte lbl_8001BD94
-	.4byte lbl_8001BD9C
-	.4byte lbl_8001BDA4
-	.4byte lbl_8001BDAC
-	.4byte lbl_8001BDB4
-	.4byte lbl_8001BDBC
+	.4byte .L_8001BD84
+	.4byte .L_8001BD8C
+	.4byte .L_8001BD94
+	.4byte .L_8001BD9C
+	.4byte .L_8001BDA4
+	.4byte .L_8001BDAC
+	.4byte .L_8001BDB4
+	.4byte .L_8001BDBC
 	.asciz "POS_POL1"
 	.balign 4
 	.asciz "POS_kuribo"
@@ -1747,325 +1747,271 @@ lbl_80066D80:
 
 #sdata2
 
-.global lbl_800A9568
 lbl_800A9568:
 
 	# ROM: 0x6A6E8
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A956C
 lbl_800A956C:
 
 	# ROM: 0x6A6EC
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A9570
 lbl_800A9570:
 
 	# ROM: 0x6A6F0
 	.4byte 0x3F800000
 
-.global lbl_800A9574
 lbl_800A9574:
 
 	# ROM: 0x6A6F4
 	.4byte 0x41F00000
 
-.global lbl_800A9578
 lbl_800A9578:
 
 	# ROM: 0x6A6F8
 	.4byte 0x40800000
 
-.global lbl_800A957C
 lbl_800A957C:
 
 	# ROM: 0x6A6FC
 	.4byte 0x43480000
 
-.global lbl_800A9580
 lbl_800A9580:
 
 	# ROM: 0x6A700
 	.4byte 0x41800000
 
-.global lbl_800A9584
 lbl_800A9584:
 
 	# ROM: 0x6A704
 	.4byte 0x41C80000
 
-.global lbl_800A9588
 lbl_800A9588:
 
 	# ROM: 0x6A708
 	.4byte 0x43800000
 
-.global lbl_800A958C
 lbl_800A958C:
 
 	# ROM: 0x6A70C
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A9590
 lbl_800A9590:
 
 	# ROM: 0x6A710
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A9594
 lbl_800A9594:
 
 	# ROM: 0x6A714
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A9598
 lbl_800A9598:
 
 	# ROM: 0x6A718
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A959C
 lbl_800A959C:
 
 	# ROM: 0x6A71C
 	.4byte 0x42480000
 
-.global lbl_800A95A0
 lbl_800A95A0:
 
 	# ROM: 0x6A720
 	.4byte 0x440AC000
 
-.global lbl_800A95A4
 lbl_800A95A4:
 
 	# ROM: 0x6A724
 	.4byte 0x42040000
 
-.global lbl_800A95A8
 lbl_800A95A8:
 
 	# ROM: 0x6A728
 	.4byte 0x41500000
 
-.global lbl_800A95AC
 lbl_800A95AC:
 
 	# ROM: 0x6A72C
 	.4byte 0x43000000
 
-.global lbl_800A95B0
 lbl_800A95B0:
 
 	# ROM: 0x6A730
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A95B4
 lbl_800A95B4:
 
 	# ROM: 0x6A734
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A95B8
 lbl_800A95B8:
 
 	# ROM: 0x6A738
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A95BC
 lbl_800A95BC:
 
 	# ROM: 0x6A73C
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A95C0
 lbl_800A95C0:
 
 	# ROM: 0x6A740
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A95C4
 lbl_800A95C4:
 
 	# ROM: 0x6A744
 	.4byte 0x42800000
 
-.global lbl_800A95C8
 lbl_800A95C8:
 
 	# ROM: 0x6A748
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A95CC
 lbl_800A95CC:
 
 	# ROM: 0x6A74C
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A95D0
 lbl_800A95D0:
 
 	# ROM: 0x6A750
 	.4byte 0x8080FFFF
 
-.global lbl_800A95D4
 lbl_800A95D4:
 
 	# ROM: 0x6A754
 	.4byte 0x80FF80FF
 
-.global lbl_800A95D8
 lbl_800A95D8:
 
 	# ROM: 0x6A758
 	.4byte 0xFF8080FF
 
-.global lbl_800A95DC
 lbl_800A95DC:
 
 	# ROM: 0x6A75C
 	.4byte 0xC0FFFFFF
 
-.global lbl_800A95E0
 lbl_800A95E0:
 
 	# ROM: 0x6A760
 	.4byte 0x000000FF
 
-.global lbl_800A95E4
 lbl_800A95E4:
 
 	# ROM: 0x6A764
 	.4byte 0xC0FFFFFF
 
-.global lbl_800A95E8
 lbl_800A95E8:
 
 	# ROM: 0x6A768
 	.4byte 0x000000FF
 
-.global lbl_800A95EC
 lbl_800A95EC:
 
 	# ROM: 0x6A76C
 	.4byte 0x420C0000
 
-.global lbl_800A95F0
 lbl_800A95F0:
 
 	# ROM: 0x6A770
 	.4byte 0x40900000
 
-.global lbl_800A95F4
 lbl_800A95F4:
 
 	# ROM: 0x6A774
 	.4byte 0x3DCCCCCD
 
-.global lbl_800A95F8
 lbl_800A95F8:
 
 	# ROM: 0x6A778
 	.4byte 0x40000000
 
-.global lbl_800A95FC
 lbl_800A95FC:
 
 	# ROM: 0x6A77C
 	.4byte 0x41B00000
 
-.global lbl_800A9600
 lbl_800A9600:
 
 	# ROM: 0x6A780
 	.4byte 0x40C00000
 
-.global lbl_800A9604
 lbl_800A9604:
 
 	# ROM: 0x6A784
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A9608
 lbl_800A9608:
 
 	# ROM: 0x6A788
 	.4byte 0xC081FFFF
 
-.global lbl_800A960C
 lbl_800A960C:
 
 	# ROM: 0x6A78C
 	.4byte 0xC0C0FFFF
 
-.global lbl_800A9610
 lbl_800A9610:
 
 	# ROM: 0x6A790
 	.4byte 0x42C80000
 
-.global lbl_800A9614
 lbl_800A9614:
 
 	# ROM: 0x6A794
 	.4byte 0x42B40000
 
-.global lbl_800A9618
 lbl_800A9618:
 
 	# ROM: 0x6A798
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A961C
 lbl_800A961C:
 
 	# ROM: 0x6A79C
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A9620
 lbl_800A9620:
 
 	# ROM: 0x6A7A0
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A9624
 lbl_800A9624:
 
 	# ROM: 0x6A7A4
 	.4byte 0x41400000
 
-.global lbl_800A9628
 lbl_800A9628:
 
 	# ROM: 0x6A7A8
 	.4byte 0x41C00000
 
-.global lbl_800A962C
 lbl_800A962C:
 
 	# ROM: 0x6A7AC
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A9630
 lbl_800A9630:
 
 	# ROM: 0x6A7B0
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A9634
 lbl_800A9634:
 
 	# ROM: 0x6A7B4
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A9638
 lbl_800A9638:
 
 	# ROM: 0x6A7B8
 	.4byte 0xFFFFFFFF
 
-.global lbl_800A963C
 lbl_800A963C:
 
 	# ROM: 0x6A7BC
@@ -2073,34 +2019,26 @@ lbl_800A963C:
 
 #sbss
 
-.global "POS_POL2_lpow$225"
 "POS_POL2_lpow$225":
 	.skip 0x4
 
-.global "init$226"
 "init$226":
 	.skip 0x4
 
-.global "POS_POL2_lpow_add$228"
 "POS_POL2_lpow_add$228":
 	.skip 0x4
 
-.global "init$229"
 "init$229":
 	.skip 0x4
 
-.global "POS_POL3_lpow$243"
 "POS_POL3_lpow$243":
 	.skip 0x4
 
-.global "init$244"
 "init$244":
 	.skip 0x4
 
-.global "POS_POL3_lpow_add$246"
 "POS_POL3_lpow_add$246":
 	.skip 0x4
 
-.global "init$247"
 "init$247":
 	.skip 0x4

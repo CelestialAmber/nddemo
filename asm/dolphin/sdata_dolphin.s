@@ -10,116 +10,98 @@ __OSCurrHeap:
 	.4byte 0xFFFFFFFF
 	.4byte 0
 
-.global __OSArenaLo
 __OSArenaLo:
 
 	# ROM: 0x6A3E0
 	.4byte 0xFFFFFFFF
 	.4byte 0
 
-.global lbl_800A8CA8
 lbl_800A8CA8:
 
 	# ROM: 0x6A3E8
 	.4byte 0x0A000000
 	.4byte 0
 
-.global Unit01
 Unit01:
 
 	# ROM: 0x6A3F0
 	.4byte 0
 	.4byte 0x3F800000
 
-.global FirstRead
 FirstRead:
 
 	# ROM: 0x6A3F8
 	.4byte 0x00000001
 	.4byte 0
 
-.global lbl_800A8CC0
 lbl_800A8CC0:
 
 	# ROM: 0x6A400
 	.asciz "dvdfs.c"
 
-.global autoInvalidation
 autoInvalidation:
 
 	# ROM: 0x6A408
 	.4byte 0x00000001
 	.4byte 0
 
-.global lbl_800A8CD0
 lbl_800A8CD0:
 
 	# ROM: 0x6A410
 	.4byte 0x0A000000
 
-.global lbl_800A8CD4
 lbl_800A8CD4:
 
 	# ROM: 0x6A414
 	.4byte 0x4F464600
 
-.global lbl_800A8CD8
 lbl_800A8CD8:
 
 	# ROM: 0x6A418
 	.4byte 0x4F4E0000
 	.4byte 0
 
-.global ClampRegion
 ClampRegion:
 
 	# ROM: 0x6A420
 	.4byte 0x1EB40F48
 	.4byte 0x280F3B1F
 
-.global ResettingChan
 ResettingChan:
 
 	# ROM: 0x6A428
 	.4byte 0x00000020
 
-.global XPatchBits
 XPatchBits:
 
 	# ROM: 0x6A42C
 	.4byte 0xF0000000
 
-.global AnalogMode
 AnalogMode:
 
 	# ROM: 0x6A430
 	.4byte 0x00000300
 
-.global Spec
 Spec:
 
 	# ROM: 0x6A434
 	.4byte 0x00000005
 
-.global MakeStatus
 MakeStatus:
 
 	# ROM: 0x6A438
 	.4byte SPEC2_MakeStatus
 
-.global CmdReadOrigin
 CmdReadOrigin:
 
 	# ROM: 0x6A43C
 	.4byte 0x41000000
 
-.global CmdCalibrate
 CmdCalibrate:
 
 	# ROM: 0x6A440
 	.4byte 0x42000000
 
-.global lbl_800A8D04
 lbl_800A8D04:
 
 	# ROM: 0x6A444
@@ -134,19 +116,16 @@ gx:
 	.4byte gxData
 	.4byte 0
 
-.global "tbl1$214"
 "tbl1$214":
 
 	# ROM: 0x6A458
 	.4byte 0x00040102
 
-.global "tbl2$215"
 "tbl2$215":
 
 	# ROM: 0x6A45C
 	.4byte 0x00080102
 
-.global "tbl3$216"
 "tbl3$216":
 
 	# ROM: 0x6A460

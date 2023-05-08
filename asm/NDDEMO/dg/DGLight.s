@@ -4,6 +4,7 @@
 
 
 
+.global __ct__7DGLightFv
 __ct__7DGLightFv:
 /* 80012B04 0000EA84  7C 08 02 A6 */	mflr r0
 /* 80012B08 0000EA88  38 A0 00 FF */	li r5, 0xff
@@ -45,18 +46,19 @@ __ct__7DGLightFv:
 /* 80012B98 0000EB18  7C 08 03 A6 */	mtlr r0
 /* 80012B9C 0000EB1C  4E 80 00 20 */	blr
 
+.global __dt__7DGLightFv
 __dt__7DGLightFv:
 /* 80012BA0 0000EB20  7C 08 02 A6 */	mflr r0
 /* 80012BA4 0000EB24  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012BA8 0000EB28  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 80012BAC 0000EB2C  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 80012BB0 0000EB30  7C 7F 1B 79 */	mr. r31, r3
-/* 80012BB4 0000EB34  41 82 00 14 */	beq lbl_80012BC8
+/* 80012BB4 0000EB34  41 82 00 14 */	beq .L_80012BC8
 /* 80012BB8 0000EB38  7C 80 07 35 */	extsh. r0, r4
-/* 80012BBC 0000EB3C  40 81 00 0C */	ble lbl_80012BC8
+/* 80012BBC 0000EB3C  40 81 00 0C */	ble .L_80012BC8
 /* 80012BC0 0000EB40  7F E3 FB 78 */	mr r3, r31
 /* 80012BC4 0000EB44  4B FF FE D5 */	bl mFree__FPv
-lbl_80012BC8:
+.L_80012BC8:
 /* 80012BC8 0000EB48  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 80012BCC 0000EB4C  7F E3 FB 78 */	mr r3, r31
 /* 80012BD0 0000EB50  83 E1 00 14 */	lwz r31, 0x14(r1)
@@ -64,6 +66,7 @@ lbl_80012BC8:
 /* 80012BD8 0000EB58  7C 08 03 A6 */	mtlr r0
 /* 80012BDC 0000EB5C  4E 80 00 20 */	blr
 
+.global SetLight__7DGLightF10_GXLightIDR11DGRendState
 SetLight__7DGLightF10_GXLightIDR11DGRendState:
 /* 80012BE0 0000EB60  7C 08 02 A6 */	mflr r0
 /* 80012BE4 0000EB64  90 01 00 04 */	stw r0, 0x4(r1)
@@ -89,7 +92,7 @@ SetLight__7DGLightF10_GXLightIDR11DGRendState:
 /* 80012C34 0000EBB4  48 01 D5 69 */	bl PSVECNormalize
 /* 80012C38 0000EBB8  88 1D 00 37 */	lbz r0, 0x37(r29)
 /* 80012C3C 0000EBBC  28 00 00 00 */	cmplwi r0, 0x0
-/* 80012C40 0000EBC0  40 82 00 9C */	bne lbl_80012CDC
+/* 80012C40 0000EBC0  40 82 00 9C */	bne .L_80012CDC
 /* 80012C44 0000EBC4  38 7F 00 00 */	addi r3, r31, 0x0
 /* 80012C48 0000EBC8  38 9D 00 00 */	addi r4, r29, 0x0
 /* 80012C4C 0000EBCC  38 A1 00 18 */	addi r5, r1, 0x18
@@ -109,7 +112,7 @@ SetLight__7DGLightF10_GXLightIDR11DGRendState:
 /* 80012C84 0000EC04  48 02 AF E1 */	bl GXInitLightDir
 /* 80012C88 0000EC08  88 1D 00 36 */	lbz r0, 0x36(r29)
 /* 80012C8C 0000EC0C  28 00 00 01 */	cmplwi r0, 0x1
-/* 80012C90 0000EC10  40 82 00 28 */	bne lbl_80012CB8
+/* 80012C90 0000EC10  40 82 00 28 */	bne .L_80012CB8
 /* 80012C94 0000EC14  C0 3D 00 28 */	lfs f1, 0x28(r29)
 /* 80012C98 0000EC18  38 61 00 60 */	addi r3, r1, 0x60
 /* 80012C9C 0000EC1C  C0 5D 00 2C */	lfs f2, 0x2c(r29)
@@ -118,8 +121,8 @@ SetLight__7DGLightF10_GXLightIDR11DGRendState:
 /* 80012CA8 0000EC28  C0 BD 00 20 */	lfs f5, 0x20(r29)
 /* 80012CAC 0000EC2C  C0 DD 00 24 */	lfs f6, 0x24(r29)
 /* 80012CB0 0000EC30  48 02 AF 89 */	bl GXInitLightAttn
-/* 80012CB4 0000EC34  48 00 00 70 */	b lbl_80012D24
-lbl_80012CB8:
+/* 80012CB4 0000EC34  48 00 00 70 */	b .L_80012D24
+.L_80012CB8:
 /* 80012CB8 0000EC38  C0 42 81 10 */	lfs f2, lbl_800A9490@sda21(r2)
 /* 80012CBC 0000EC3C  38 61 00 60 */	addi r3, r1, 0x60
 /* 80012CC0 0000EC40  C0 22 81 14 */	lfs f1, lbl_800A9494@sda21(r2)
@@ -128,8 +131,8 @@ lbl_80012CB8:
 /* 80012CCC 0000EC4C  C0 BD 00 20 */	lfs f5, 0x20(r29)
 /* 80012CD0 0000EC50  C0 DD 00 24 */	lfs f6, 0x24(r29)
 /* 80012CD4 0000EC54  48 02 AF 65 */	bl GXInitLightAttn
-/* 80012CD8 0000EC58  48 00 00 4C */	b lbl_80012D24
-lbl_80012CDC:
+/* 80012CD8 0000EC58  48 00 00 4C */	b .L_80012D24
+.L_80012CDC:
 /* 80012CDC 0000EC5C  80 1F 00 68 */	lwz r0, 0x68(r31)
 /* 80012CE0 0000EC60  38 61 00 60 */	addi r3, r1, 0x60
 /* 80012CE4 0000EC64  7C 00 F3 78 */	or r0, r0, r30
@@ -148,7 +151,7 @@ lbl_80012CDC:
 /* 80012D18 0000EC98  FC A0 08 90 */	fmr f5, f1
 /* 80012D1C 0000EC9C  EC C3 20 28 */	fsubs f6, f3, f4
 /* 80012D20 0000ECA0  48 02 AF 19 */	bl GXInitLightAttn
-lbl_80012D24:
+.L_80012D24:
 /* 80012D24 0000ECA4  80 1D 00 18 */	lwz r0, 0x18(r29)
 /* 80012D28 0000ECA8  38 81 00 14 */	addi r4, r1, 0x14
 /* 80012D2C 0000ECAC  38 61 00 60 */	addi r3, r1, 0x60
@@ -165,6 +168,7 @@ lbl_80012D24:
 /* 80012D58 0000ECD8  38 21 00 B0 */	addi r1, r1, 0xb0
 /* 80012D5C 0000ECDC  4E 80 00 20 */	blr
 
+.global SetPosition__7DGLightFRC3Vec
 SetPosition__7DGLightFRC3Vec:
 /* 80012D60 0000ECE0  80 A4 00 00 */	lwz r5, 0x0(r4)
 /* 80012D64 0000ECE4  80 04 00 04 */	lwz r0, 0x4(r4)
@@ -174,6 +178,7 @@ SetPosition__7DGLightFRC3Vec:
 /* 80012D74 0000ECF4  90 03 00 08 */	stw r0, 0x8(r3)
 /* 80012D78 0000ECF8  4E 80 00 20 */	blr
 
+.global AddPosition__7DGLightFRC3Vec
 AddPosition__7DGLightFRC3Vec:
 /* 80012D7C 0000ECFC  C0 23 00 00 */	lfs f1, 0x0(r3)
 /* 80012D80 0000ED00  C0 04 00 00 */	lfs f0, 0x0(r4)
@@ -189,6 +194,7 @@ AddPosition__7DGLightFRC3Vec:
 /* 80012DA8 0000ED28  D0 03 00 08 */	stfs f0, 0x8(r3)
 /* 80012DAC 0000ED2C  4E 80 00 20 */	blr
 
+.global SetDirectionFromObserve__7DGLightFR3Vec
 SetDirectionFromObserve__7DGLightFR3Vec:
 /* 80012DB0 0000ED30  7C 08 02 A6 */	mflr r0
 /* 80012DB4 0000ED34  90 01 00 04 */	stw r0, 0x4(r1)
@@ -208,29 +214,35 @@ SetDirectionFromObserve__7DGLightFR3Vec:
 /* 80012DEC 0000ED6C  7C 08 03 A6 */	mtlr r0
 /* 80012DF0 0000ED70  4E 80 00 20 */	blr
 
+.global SetLightColor__7DGLightFRC8_GXColor
 SetLightColor__7DGLightFRC8_GXColor:
 /* 80012DF4 0000ED74  80 04 00 00 */	lwz r0, 0x0(r4)
 /* 80012DF8 0000ED78  90 03 00 18 */	stw r0, 0x18(r3)
 /* 80012DFC 0000ED7C  4E 80 00 20 */	blr
 
+.global EnableSpecularLight__7DGLightFUc
 EnableSpecularLight__7DGLightFUc:
 /* 80012E00 0000ED80  98 83 00 37 */	stb r4, 0x37(r3)
 /* 80012E04 0000ED84  4E 80 00 20 */	blr
 
+.global SetShininess__7DGLightFf
 SetShininess__7DGLightFf:
 /* 80012E08 0000ED88  D0 23 00 38 */	stfs f1, 0x38(r3)
 /* 80012E0C 0000ED8C  4E 80 00 20 */	blr
 
+.global EnableSpotLight__7DGLightFUc
 EnableSpotLight__7DGLightFUc:
 /* 80012E10 0000ED90  98 83 00 36 */	stb r4, 0x36(r3)
 /* 80012E14 0000ED94  4E 80 00 20 */	blr
 
+.global SetDistanceAttenuation__7DGLightFfff
 SetDistanceAttenuation__7DGLightFfff:
 /* 80012E18 0000ED98  D0 23 00 1C */	stfs f1, 0x1c(r3)
 /* 80012E1C 0000ED9C  D0 43 00 20 */	stfs f2, 0x20(r3)
 /* 80012E20 0000EDA0  D0 63 00 24 */	stfs f3, 0x24(r3)
 /* 80012E24 0000EDA4  4E 80 00 20 */	blr
 
+.global SetDistanceAttenuation_0__7DGLightFf
 SetDistanceAttenuation_0__7DGLightFf:
 /* 80012E28 0000EDA8  D0 23 00 1C */	stfs f1, 0x1c(r3)
 /* 80012E2C 0000EDAC  C0 02 81 10 */	lfs f0, lbl_800A9490@sda21(r2)
@@ -238,6 +250,7 @@ SetDistanceAttenuation_0__7DGLightFf:
 /* 80012E34 0000EDB4  D0 03 00 24 */	stfs f0, 0x24(r3)
 /* 80012E38 0000EDB8  4E 80 00 20 */	blr
 
+.global SetDistanceAttenuation_1__7DGLightFfff
 SetDistanceAttenuation_1__7DGLightFfff:
 /* 80012E3C 0000EDBC  C0 82 81 10 */	lfs f4, lbl_800A9490@sda21(r2)
 /* 80012E40 0000EDC0  FC 04 10 00 */	fcmpu cr0, f4, f2
@@ -249,6 +262,7 @@ SetDistanceAttenuation_1__7DGLightFfff:
 /* 80012E58 0000EDD8  D0 83 00 24 */	stfs f4, 0x24(r3)
 /* 80012E5C 0000EDDC  4E 80 00 20 */	blr
 
+.global SetDistanceAttenuation_2__7DGLightFfff
 SetDistanceAttenuation_2__7DGLightFfff:
 /* 80012E60 0000EDE0  C0 82 81 10 */	lfs f4, lbl_800A9490@sda21(r2)
 /* 80012E64 0000EDE4  FC 04 10 00 */	fcmpu cr0, f4, f2
@@ -261,12 +275,14 @@ SetDistanceAttenuation_2__7DGLightFfff:
 /* 80012E80 0000EE00  D0 03 00 24 */	stfs f0, 0x24(r3)
 /* 80012E84 0000EE04  4E 80 00 20 */	blr
 
+.global SetAngleAttenuation__7DGLightFfff
 SetAngleAttenuation__7DGLightFfff:
 /* 80012E88 0000EE08  D0 23 00 28 */	stfs f1, 0x28(r3)
 /* 80012E8C 0000EE0C  D0 43 00 2C */	stfs f2, 0x2c(r3)
 /* 80012E90 0000EE10  D0 63 00 30 */	stfs f3, 0x30(r3)
 /* 80012E94 0000EE14  4E 80 00 20 */	blr
 
+.global SetAngleAttenuation_Cos__7DGLightFff
 SetAngleAttenuation_Cos__7DGLightFff:
 /* 80012E98 0000EE18  7C 08 02 A6 */	mflr r0
 /* 80012E9C 0000EE1C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -284,7 +300,7 @@ SetAngleAttenuation_Cos__7DGLightFff:
 /* 80012ECC 0000EE4C  C0 62 81 10 */	lfs f3, lbl_800A9490@sda21(r2)
 /* 80012ED0 0000EE50  EC 02 08 28 */	fsubs f0, f2, f1
 /* 80012ED4 0000EE54  FC 03 00 00 */	fcmpu cr0, f3, f0
-/* 80012ED8 0000EE58  41 82 00 20 */	beq lbl_80012EF8
+/* 80012ED8 0000EE58  41 82 00 20 */	beq .L_80012EF8
 /* 80012EDC 0000EE5C  EC 02 00 24 */	fdivs f0, f2, f0
 /* 80012EE0 0000EE60  EC 3F 00 32 */	fmuls f1, f31, f0
 /* 80012EE4 0000EE64  EC 02 00 28 */	fsubs f0, f2, f0
@@ -292,7 +308,7 @@ SetAngleAttenuation_Cos__7DGLightFff:
 /* 80012EEC 0000EE6C  EC 1F 00 32 */	fmuls f0, f31, f0
 /* 80012EF0 0000EE70  D0 7F 00 30 */	stfs f3, 0x30(r31)
 /* 80012EF4 0000EE74  D0 1F 00 28 */	stfs f0, 0x28(r31)
-lbl_80012EF8:
+.L_80012EF8:
 /* 80012EF8 0000EE78  80 01 00 2C */	lwz r0, 0x2c(r1)
 /* 80012EFC 0000EE7C  CB E1 00 20 */	lfd f31, 0x20(r1)
 /* 80012F00 0000EE80  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -300,6 +316,7 @@ lbl_80012EF8:
 /* 80012F08 0000EE88  38 21 00 28 */	addi r1, r1, 0x28
 /* 80012F0C 0000EE8C  4E 80 00 20 */	blr
 
+.global SetAngleAttenuation_Cos2__7DGLightFff
 SetAngleAttenuation_Cos2__7DGLightFff:
 /* 80012F10 0000EE90  7C 08 02 A6 */	mflr r0
 /* 80012F14 0000EE94  90 01 00 04 */	stw r0, 0x4(r1)
@@ -318,12 +335,12 @@ SetAngleAttenuation_Cos2__7DGLightFff:
 /* 80012F48 0000EEC8  C0 42 81 10 */	lfs f2, lbl_800A9490@sda21(r2)
 /* 80012F4C 0000EECC  EC 20 08 28 */	fsubs f1, f0, f1
 /* 80012F50 0000EED0  FC 02 08 00 */	fcmpu cr0, f2, f1
-/* 80012F54 0000EED4  41 82 00 98 */	beq lbl_80012FEC
+/* 80012F54 0000EED4  41 82 00 98 */	beq .L_80012FEC
 /* 80012F58 0000EED8  EC A0 08 24 */	fdivs f5, f0, f1
 /* 80012F5C 0000EEDC  D0 5F 00 2C */	stfs f2, 0x2c(r31)
 /* 80012F60 0000EEE0  EC 9F 01 72 */	fmuls f4, f31, f5
 /* 80012F64 0000EEE4  FC 04 10 40 */	fcmpo cr0, f4, f2
-/* 80012F68 0000EEE8  40 81 00 70 */	ble lbl_80012FD8
+/* 80012F68 0000EEE8  40 81 00 70 */	ble .L_80012FD8
 /* 80012F6C 0000EEEC  FC 20 20 34 */	frsqrte f1, f4
 /* 80012F70 0000EEF0  C8 62 81 28 */	lfd f3, lbl_800A94A8@sda21(r2)
 /* 80012F74 0000EEF4  C8 42 81 30 */	lfd f2, lbl_800A94B0@sda21(r2)
@@ -351,13 +368,13 @@ SetAngleAttenuation_Cos2__7DGLightFff:
 /* 80012FCC 0000EF4C  FC 00 00 18 */	frsp f0, f0
 /* 80012FD0 0000EF50  D0 01 00 14 */	stfs f0, 0x14(r1)
 /* 80012FD4 0000EF54  C0 81 00 14 */	lfs f4, 0x14(r1)
-lbl_80012FD8:
+.L_80012FD8:
 /* 80012FD8 0000EF58  D0 9F 00 30 */	stfs f4, 0x30(r31)
 /* 80012FDC 0000EF5C  C0 02 81 14 */	lfs f0, lbl_800A9494@sda21(r2)
 /* 80012FE0 0000EF60  EC 00 28 28 */	fsubs f0, f0, f5
 /* 80012FE4 0000EF64  EC 1F 00 32 */	fmuls f0, f31, f0
 /* 80012FE8 0000EF68  D0 1F 00 28 */	stfs f0, 0x28(r31)
-lbl_80012FEC:
+.L_80012FEC:
 /* 80012FEC 0000EF6C  80 01 00 2C */	lwz r0, 0x2c(r1)
 /* 80012FF0 0000EF70  CB E1 00 20 */	lfd f31, 0x20(r1)
 /* 80012FF4 0000EF74  83 E1 00 1C */	lwz r31, 0x1c(r1)
@@ -367,50 +384,42 @@ lbl_80012FEC:
 
 #sdata2
 
-.global lbl_800A9490
 lbl_800A9490:
 
 	# ROM: 0x6A610
 	.4byte 0
 
-.global lbl_800A9494
 lbl_800A9494:
 
 	# ROM: 0x6A614
 	.4byte 0x3F800000
 
-.global lbl_800A9498
 lbl_800A9498:
 
 	# ROM: 0x6A618
 	.4byte 0x42000000
 
-.global lbl_800A949C
 lbl_800A949C:
 
 	# ROM: 0x6A61C
 	.4byte 0x3F000000
 
-.global lbl_800A94A0
 lbl_800A94A0:
 
 	# ROM: 0x6A620
 	.4byte 0x40490FDB
 
-.global lbl_800A94A4
 lbl_800A94A4:
 
 	# ROM: 0x6A624
 	.4byte 0x43340000
 
-.global lbl_800A94A8
 lbl_800A94A8:
 
 	# ROM: 0x6A628
 	.4byte 0x3FE00000
 	.4byte 0
 
-.global lbl_800A94B0
 lbl_800A94B0:
 
 	# ROM: 0x6A630

@@ -3,7 +3,6 @@
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 
-.global lbl_80064780
 lbl_80064780:
 
 	# ROM: 0x61780
@@ -20,7 +19,6 @@ gTRKMemMap:
 	.4byte 0x00000001
 	.4byte 0x00000001
 
-.global lbl_800647B0
 lbl_800647B0:
 
 	# ROM: 0x617B0
@@ -30,7 +28,6 @@ lbl_800647B0:
 	.4byte 0x60000000
 	.4byte 0x60000000
 
-.global lbl_800647C4
 lbl_800647C4:
 
 	# ROM: 0x617C4
@@ -40,7 +37,6 @@ lbl_800647C4:
 	.4byte 0x60000000
 	.4byte 0x60000000
 
-.global lbl_800647D8
 lbl_800647D8:
 
 	# ROM: 0x617D8
@@ -51,7 +47,6 @@ lbl_800647D8:
 	.4byte 0x60000000
 	.4byte 0
 
-.global __constants
 __constants:
 
 	# ROM: 0x617F0
@@ -62,7 +57,6 @@ __constants:
 	.4byte 0x41E00000
 	.4byte 0
 
-.global bit_values
 bit_values:
 
 	# ROM: 0x61808
@@ -85,7 +79,6 @@ bit_values:
 	.4byte 0x75154FDD
 	.4byte 0x7F73BF3C
 
-.global digit_values
 digit_values:
 
 	# ROM: 0x61850
@@ -244,7 +237,6 @@ __lower_map:
 	.4byte 0xF8F9FAFB
 	.4byte 0xFCFDFEFF
 
-.global lbl_80064A90
 lbl_80064A90:
 
 	# ROM: 0x61A90
@@ -253,7 +245,6 @@ lbl_80064A90:
 	.4byte 0x66004E61
 	.4byte 0x4E000000
 
-.global "atan_coeff$96"
 "atan_coeff$96":
 
 	# ROM: 0x61AA0
@@ -304,7 +295,6 @@ lbl_80064A90:
 	.4byte 0
 	.4byte 0
 
-.global tmp_float
 tmp_float:
 
 	# ROM: 0x61B58
@@ -476,7 +466,6 @@ __sincos_poly:
 	.4byte 0x3F490FDB
 	.4byte 0
 
-.global __log2_F
 __log2_F:
 
 	# ROM: 0x61DB8

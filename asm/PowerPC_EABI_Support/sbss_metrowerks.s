@@ -11,11 +11,9 @@ __global_destructor_chain:
 __aborting:
 	.skip 0x4
 
-.global atexit_curr_func
 atexit_curr_func:
 	.skip 0x4
 
-.global __atexit_curr_func
 __atexit_curr_func:
 	.skip 0x4
 
@@ -27,6 +25,5 @@ __stdio_exit:
 __console_exit:
 	.skip 0x8
 
-.global "initialized$16"
 "initialized$16":
 	.skip 0x8

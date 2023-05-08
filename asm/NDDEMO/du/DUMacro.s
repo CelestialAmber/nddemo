@@ -23,7 +23,7 @@ mAlloc__FUl:
 /* 80012A34 0000E9B4  38 9B 00 00 */	addi r4, r27, 0x0
 /* 80012A38 0000E9B8  48 01 5C 51 */	bl OSAllocFromHeap
 /* 80012A3C 0000E9BC  7C 7E 1B 79 */	mr. r30, r3
-/* 80012A40 0000E9C0  40 82 00 34 */	bne lbl_80012A74
+/* 80012A40 0000E9C0  40 82 00 34 */	bne .L_80012A74
 /* 80012A44 0000E9C4  38 60 00 00 */	li r3, 0x0
 /* 80012A48 0000E9C8  48 01 5E A5 */	bl OSCheckHeap
 /* 80012A4C 0000E9CC  38 83 00 00 */	addi r4, r3, 0x0
@@ -36,7 +36,7 @@ mAlloc__FUl:
 /* 80012A68 0000E9E8  38 BF 00 28 */	addi r5, r31, 0x28
 /* 80012A6C 0000E9EC  38 80 00 2D */	li r4, 0x2d
 /* 80012A70 0000E9F0  48 01 71 F5 */	bl OSPanic
-lbl_80012A74:
+.L_80012A74:
 /* 80012A74 0000E9F4  38 7D 00 00 */	addi r3, r29, 0x0
 /* 80012A78 0000E9F8  38 9C 00 00 */	addi r4, r28, 0x0
 /* 80012A7C 0000E9FC  48 01 C9 D9 */	bl OSSetThreadPriority
@@ -79,7 +79,6 @@ mFree__FPv:
 
 #data
 
-.global lbl_800662A0
 lbl_800662A0:
 
 	# ROM: 0x632A0

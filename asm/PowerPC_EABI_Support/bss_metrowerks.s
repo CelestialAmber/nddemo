@@ -17,7 +17,6 @@ gTRKBigEndian:
 gTRKMsgBufs:
 	.skip 0x19B0
 
-.global gTRKFramingState
 gTRKFramingState:
 	.skip 0x14
 
@@ -31,7 +30,6 @@ gTRKDispatchTableSize:
 
 .skip 4
 
-.global TRK_saved_exceptionID
 TRK_saved_exceptionID:
 	.skip 0x2
 
@@ -55,28 +53,23 @@ gTRKState:
 gTRKCPUState:
 	.skip 0x430
 
-.global lc_base
 lc_base:
 	.skip 0x4
 
 .skip 4
 
-.global TRK_mainError
 TRK_mainError:
 	.skip 0x4
 
 .skip 4
 
-.global fragmentinfo
 fragmentinfo:
 	.skip 0xC
 
 .skip 4
 
-.global atexit_funcs
 atexit_funcs:
 	.skip 0x100
 
-.global __atexit_funcs
 __atexit_funcs:
 	.skip 0x100

@@ -4,6 +4,7 @@
 
 
 
+.global __ct__8DGCameraFv
 __ct__8DGCameraFv:
 /* 800186C4 00014644  7C 08 02 A6 */	mflr r0
 /* 800186C8 00014648  90 01 00 04 */	stw r0, 0x4(r1)
@@ -78,6 +79,7 @@ __ct__8DGCameraFv:
 /* 800187DC 0001475C  7C 08 03 A6 */	mtlr r0
 /* 800187E0 00014760  4E 80 00 20 */	blr
 
+.global __dt__8DGCameraFv
 __dt__8DGCameraFv:
 /* 800187E4 00014764  7C 08 02 A6 */	mflr r0
 /* 800187E8 00014768  90 01 00 04 */	stw r0, 0x4(r1)
@@ -86,15 +88,15 @@ __dt__8DGCameraFv:
 /* 800187F4 00014774  3B E4 00 00 */	addi r31, r4, 0x0
 /* 800187F8 00014778  93 C1 00 10 */	stw r30, 0x10(r1)
 /* 800187FC 0001477C  7C 7E 1B 79 */	mr. r30, r3
-/* 80018800 00014780  41 82 00 20 */	beq lbl_80018820
+/* 80018800 00014780  41 82 00 20 */	beq .L_80018820
 /* 80018804 00014784  38 7E 00 00 */	addi r3, r30, 0x0
 /* 80018808 00014788  38 80 00 00 */	li r4, 0x0
 /* 8001880C 0001478C  48 00 07 75 */	bl __dt__10DGPositionFv
 /* 80018810 00014790  7F E0 07 35 */	extsh. r0, r31
-/* 80018814 00014794  40 81 00 0C */	ble lbl_80018820
+/* 80018814 00014794  40 81 00 0C */	ble .L_80018820
 /* 80018818 00014798  7F C3 F3 78 */	mr r3, r30
 /* 8001881C 0001479C  4B FF A2 7D */	bl mFree__FPv
-lbl_80018820:
+.L_80018820:
 /* 80018820 000147A0  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 80018824 000147A4  7F C3 F3 78 */	mr r3, r30
 /* 80018828 000147A8  83 E1 00 14 */	lwz r31, 0x14(r1)
@@ -103,6 +105,7 @@ lbl_80018820:
 /* 80018834 000147B4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80018838 000147B8  4E 80 00 20 */	blr
 
+.global SetCameraFrustum__8DGCameraFffff
 SetCameraFrustum__8DGCameraFffff:
 /* 8001883C 000147BC  7C 08 02 A6 */	mflr r0
 /* 80018840 000147C0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -142,6 +145,7 @@ SetCameraFrustum__8DGCameraFffff:
 /* 800188C8 00014848  38 21 00 48 */	addi r1, r1, 0x48
 /* 800188CC 0001484C  4E 80 00 20 */	blr
 
+.global SetCameraFrustumUpper__8DGCameraFffff
 SetCameraFrustumUpper__8DGCameraFffff:
 /* 800188D0 00014850  7C 08 02 A6 */	mflr r0
 /* 800188D4 00014854  FD 00 10 90 */	fmr f8, f2
@@ -166,6 +170,7 @@ SetCameraFrustumUpper__8DGCameraFffff:
 /* 80018920 000148A0  7C 08 03 A6 */	mtlr r0
 /* 80018924 000148A4  4E 80 00 20 */	blr
 
+.global SetCameraFrustumLower__8DGCameraFfffff
 SetCameraFrustumLower__8DGCameraFfffff:
 /* 80018928 000148A8  7C 08 02 A6 */	mflr r0
 /* 8001892C 000148AC  38 83 00 00 */	addi r4, r3, 0x0
@@ -192,6 +197,7 @@ SetCameraFrustumLower__8DGCameraFfffff:
 /* 80018980 00014900  7C 08 03 A6 */	mtlr r0
 /* 80018984 00014904  4E 80 00 20 */	blr
 
+.global SetLightFrustum__8DGCameraFfff
 SetLightFrustum__8DGCameraFfff:
 /* 80018988 00014908  7C 08 02 A6 */	mflr r0
 /* 8001898C 0001490C  FC 00 10 50 */	fneg f0, f2
@@ -243,6 +249,7 @@ SetLightFrustum__8DGCameraFfff:
 /* 80018A44 000149C4  38 21 00 50 */	addi r1, r1, 0x50
 /* 80018A48 000149C8  4E 80 00 20 */	blr
 
+.global SetCamUp__8DGCameraF3Vec
 SetCamUp__8DGCameraF3Vec:
 /* 80018A4C 000149CC  80 A4 00 00 */	lwz r5, 0x0(r4)
 /* 80018A50 000149D0  80 04 00 04 */	lwz r0, 0x4(r4)
@@ -252,6 +259,7 @@ SetCamUp__8DGCameraF3Vec:
 /* 80018A60 000149E0  90 03 01 08 */	stw r0, 0x108(r3)
 /* 80018A64 000149E4  4E 80 00 20 */	blr
 
+.global SetTargetPos__8DGCameraF3Vec
 SetTargetPos__8DGCameraF3Vec:
 /* 80018A68 000149E8  80 A4 00 00 */	lwz r5, 0x0(r4)
 /* 80018A6C 000149EC  80 04 00 04 */	lwz r0, 0x4(r4)
@@ -261,6 +269,7 @@ SetTargetPos__8DGCameraF3Vec:
 /* 80018A7C 000149FC  90 03 01 14 */	stw r0, 0x114(r3)
 /* 80018A80 00014A00  4E 80 00 20 */	blr
 
+.global GetTargetPos__8DGCameraFv
 GetTargetPos__8DGCameraFv:
 /* 80018A84 00014A04  80 A4 01 0C */	lwz r5, 0x10c(r4)
 /* 80018A88 00014A08  80 04 01 10 */	lwz r0, 0x110(r4)
@@ -270,10 +279,12 @@ GetTargetPos__8DGCameraFv:
 /* 80018A98 00014A18  90 03 00 08 */	stw r0, 0x8(r3)
 /* 80018A9C 00014A1C  4E 80 00 20 */	blr
 
+.global SetTargetMode__8DGCameraF26enumDG_RENDMAN_TARGET_MODE
 SetTargetMode__8DGCameraF26enumDG_RENDMAN_TARGET_MODE:
 /* 80018AA0 00014A20  90 83 01 18 */	stw r4, 0x118(r3)
 /* 80018AA4 00014A24  4E 80 00 20 */	blr
 
+.global SetCamera__8DGCameraFRA3_A4_f
 SetCamera__8DGCameraFRA3_A4_f:
 /* 80018AA8 00014A28  7C 08 02 A6 */	mflr r0
 /* 80018AAC 00014A2C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -302,6 +313,7 @@ SetCamera__8DGCameraFRA3_A4_f:
 /* 80018B08 00014A88  38 21 00 20 */	addi r1, r1, 0x20
 /* 80018B0C 00014A8C  4E 80 00 20 */	blr
 
+.global SetProjectionMtx__8DGCameraFv
 SetProjectionMtx__8DGCameraFv:
 /* 80018B10 00014A90  7C 08 02 A6 */	mflr r0
 /* 80018B14 00014A94  38 63 00 58 */	addi r3, r3, 0x58
@@ -314,6 +326,7 @@ SetProjectionMtx__8DGCameraFv:
 /* 80018B30 00014AB0  7C 08 03 A6 */	mtlr r0
 /* 80018B34 00014AB4  4E 80 00 20 */	blr
 
+.global GetViewMtx__8DGCameraFRA3_A4_f
 GetViewMtx__8DGCameraFRA3_A4_f:
 /* 80018B38 00014AB8  7C 08 02 A6 */	mflr r0
 /* 80018B3C 00014ABC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -324,7 +337,7 @@ GetViewMtx__8DGCameraFRA3_A4_f:
 /* 80018B50 00014AD0  7C 7E 1B 78 */	mr r30, r3
 /* 80018B54 00014AD4  80 03 01 18 */	lwz r0, 0x118(r3)
 /* 80018B58 00014AD8  2C 00 00 01 */	cmpwi r0, 0x1
-/* 80018B5C 00014ADC  40 82 00 D4 */	bne lbl_80018C30
+/* 80018B5C 00014ADC  40 82 00 D4 */	bne .L_80018C30
 /* 80018B60 00014AE0  C0 22 81 A8 */	lfs f1, lbl_800A9528@sda21(r2)
 /* 80018B64 00014AE4  38 61 00 34 */	addi r3, r1, 0x34
 /* 80018B68 00014AE8  C0 1E 00 0C */	lfs f0, 0xc(r30)
@@ -376,14 +389,14 @@ GetViewMtx__8DGCameraFRA3_A4_f:
 /* 80018C20 00014BA0  38 A1 00 10 */	addi r5, r1, 0x10
 /* 80018C24 00014BA4  38 C1 00 1C */	addi r6, r1, 0x1c
 /* 80018C28 00014BA8  48 01 71 31 */	bl C_MTXLookAt
-/* 80018C2C 00014BAC  48 00 00 18 */	b lbl_80018C44
-lbl_80018C30:
+/* 80018C2C 00014BAC  48 00 00 18 */	b .L_80018C44
+.L_80018C30:
 /* 80018C30 00014BB0  38 7F 00 00 */	addi r3, r31, 0x0
 /* 80018C34 00014BB4  38 9E 00 00 */	addi r4, r30, 0x0
 /* 80018C38 00014BB8  38 BE 01 00 */	addi r5, r30, 0x100
 /* 80018C3C 00014BBC  38 DE 01 0C */	addi r6, r30, 0x10c
 /* 80018C40 00014BC0  48 01 71 19 */	bl C_MTXLookAt
-lbl_80018C44:
+.L_80018C44:
 /* 80018C44 00014BC4  80 01 00 A4 */	lwz r0, 0xa4(r1)
 /* 80018C48 00014BC8  83 E1 00 9C */	lwz r31, 0x9c(r1)
 /* 80018C4C 00014BCC  83 C1 00 98 */	lwz r30, 0x98(r1)
@@ -391,6 +404,7 @@ lbl_80018C44:
 /* 80018C54 00014BD4  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 80018C58 00014BD8  4E 80 00 20 */	blr
 
+.global GetLightMtx__8DGCameraFRA3_A4_f
 GetLightMtx__8DGCameraFRA3_A4_f:
 /* 80018C5C 00014BDC  7C 08 02 A6 */	mflr r0
 /* 80018C60 00014BE0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -401,7 +415,7 @@ GetLightMtx__8DGCameraFRA3_A4_f:
 /* 80018C74 00014BF4  7C 7E 1B 78 */	mr r30, r3
 /* 80018C78 00014BF8  80 03 01 18 */	lwz r0, 0x118(r3)
 /* 80018C7C 00014BFC  2C 00 00 01 */	cmpwi r0, 0x1
-/* 80018C80 00014C00  40 82 00 D4 */	bne lbl_80018D54
+/* 80018C80 00014C00  40 82 00 D4 */	bne .L_80018D54
 /* 80018C84 00014C04  C0 22 81 A8 */	lfs f1, lbl_800A9528@sda21(r2)
 /* 80018C88 00014C08  38 61 00 40 */	addi r3, r1, 0x40
 /* 80018C8C 00014C0C  C0 1E 00 0C */	lfs f0, 0xc(r30)
@@ -453,14 +467,14 @@ GetLightMtx__8DGCameraFRA3_A4_f:
 /* 80018D44 00014CC4  38 A1 00 88 */	addi r5, r1, 0x88
 /* 80018D48 00014CC8  38 C1 00 7C */	addi r6, r1, 0x7c
 /* 80018D4C 00014CCC  48 01 70 0D */	bl C_MTXLookAt
-/* 80018D50 00014CD0  48 00 00 18 */	b lbl_80018D68
-lbl_80018D54:
+/* 80018D50 00014CD0  48 00 00 18 */	b .L_80018D68
+.L_80018D54:
 /* 80018D54 00014CD4  38 7F 00 00 */	addi r3, r31, 0x0
 /* 80018D58 00014CD8  38 9E 00 00 */	addi r4, r30, 0x0
 /* 80018D5C 00014CDC  38 BE 01 00 */	addi r5, r30, 0x100
 /* 80018D60 00014CE0  38 DE 01 0C */	addi r6, r30, 0x10c
 /* 80018D64 00014CE4  48 01 6F F5 */	bl C_MTXLookAt
-lbl_80018D68:
+.L_80018D68:
 /* 80018D68 00014CE8  38 9F 00 00 */	addi r4, r31, 0x0
 /* 80018D6C 00014CEC  38 BF 00 00 */	addi r5, r31, 0x0
 /* 80018D70 00014CF0  38 7E 00 98 */	addi r3, r30, 0x98
@@ -472,6 +486,7 @@ lbl_80018D68:
 /* 80018D88 00014D08  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 80018D8C 00014D0C  4E 80 00 20 */	blr
 
+.global GetLightMtxYInverse__8DGCameraFRA3_A4_f
 GetLightMtxYInverse__8DGCameraFRA3_A4_f:
 /* 80018D90 00014D10  7C 08 02 A6 */	mflr r0
 /* 80018D94 00014D14  90 01 00 04 */	stw r0, 0x4(r1)
@@ -482,7 +497,7 @@ GetLightMtxYInverse__8DGCameraFRA3_A4_f:
 /* 80018DA8 00014D28  7C 7E 1B 78 */	mr r30, r3
 /* 80018DAC 00014D2C  80 03 01 18 */	lwz r0, 0x118(r3)
 /* 80018DB0 00014D30  2C 00 00 01 */	cmpwi r0, 0x1
-/* 80018DB4 00014D34  40 82 00 D4 */	bne lbl_80018E88
+/* 80018DB4 00014D34  40 82 00 D4 */	bne .L_80018E88
 /* 80018DB8 00014D38  C0 22 81 A8 */	lfs f1, lbl_800A9528@sda21(r2)
 /* 80018DBC 00014D3C  38 61 00 40 */	addi r3, r1, 0x40
 /* 80018DC0 00014D40  C0 1E 00 0C */	lfs f0, 0xc(r30)
@@ -534,14 +549,14 @@ GetLightMtxYInverse__8DGCameraFRA3_A4_f:
 /* 80018E78 00014DF8  38 A1 00 88 */	addi r5, r1, 0x88
 /* 80018E7C 00014DFC  38 C1 00 7C */	addi r6, r1, 0x7c
 /* 80018E80 00014E00  48 01 6E D9 */	bl C_MTXLookAt
-/* 80018E84 00014E04  48 00 00 18 */	b lbl_80018E9C
-lbl_80018E88:
+/* 80018E84 00014E04  48 00 00 18 */	b .L_80018E9C
+.L_80018E88:
 /* 80018E88 00014E08  38 7F 00 00 */	addi r3, r31, 0x0
 /* 80018E8C 00014E0C  38 9E 00 00 */	addi r4, r30, 0x0
 /* 80018E90 00014E10  38 BE 01 00 */	addi r5, r30, 0x100
 /* 80018E94 00014E14  38 DE 01 0C */	addi r6, r30, 0x10c
 /* 80018E98 00014E18  48 01 6E C1 */	bl C_MTXLookAt
-lbl_80018E9C:
+.L_80018E9C:
 /* 80018E9C 00014E1C  38 9F 00 00 */	addi r4, r31, 0x0
 /* 80018EA0 00014E20  38 BF 00 00 */	addi r5, r31, 0x0
 /* 80018EA4 00014E24  38 7E 00 C8 */	addi r3, r30, 0xc8
@@ -553,15 +568,18 @@ lbl_80018E9C:
 /* 80018EBC 00014E3C  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 80018EC0 00014E40  4E 80 00 20 */	blr
 
+.global SetFogType__8DGCameraF10_GXFogType
 SetFogType__8DGCameraF10_GXFogType:
 /* 80018EC4 00014E44  90 83 01 20 */	stw r4, 0x120(r3)
 /* 80018EC8 00014E48  4E 80 00 20 */	blr
 
+.global SetFogRange__8DGCameraFff
 SetFogRange__8DGCameraFff:
 /* 80018ECC 00014E4C  D0 23 01 24 */	stfs f1, 0x124(r3)
 /* 80018ED0 00014E50  D0 43 01 28 */	stfs f2, 0x128(r3)
 /* 80018ED4 00014E54  4E 80 00 20 */	blr
 
+.global SetFogRangeRatio__8DGCameraFff
 SetFogRangeRatio__8DGCameraFff:
 /* 80018ED8 00014E58  C0 63 00 F8 */	lfs f3, 0xf8(r3)
 /* 80018EDC 00014E5C  C0 03 00 FC */	lfs f0, 0xfc(r3)
@@ -577,6 +595,7 @@ SetFogRangeRatio__8DGCameraFff:
 /* 80018F04 00014E84  D0 03 01 28 */	stfs f0, 0x128(r3)
 /* 80018F08 00014E88  4E 80 00 20 */	blr
 
+.global SetFogColor__8DGCameraFRC8_GXColor
 SetFogColor__8DGCameraFRC8_GXColor:
 /* 80018F0C 00014E8C  80 04 00 00 */	lwz r0, 0x0(r4)
 /* 80018F10 00014E90  90 03 01 1C */	stw r0, 0x11c(r3)
@@ -585,7 +604,6 @@ SetFogColor__8DGCameraFRC8_GXColor:
 #rodata
 
 
-.global lbl_80064280
 lbl_80064280:
 
 	# ROM: 0x61280
@@ -599,7 +617,6 @@ lbl_80064280:
 	.4byte 0
 	.4byte 0
 
-.global lbl_800642A4
 lbl_800642A4:
 
 	# ROM: 0x612A4
@@ -609,67 +626,56 @@ lbl_800642A4:
 
 #sdata2
 
-.global lbl_800A9500
 lbl_800A9500:
 
 	# ROM: 0x6A680
 	.4byte 0
 
-.global lbl_800A9504
 lbl_800A9504:
 
 	# ROM: 0x6A684
 	.4byte 0x41C00000
 
-.global lbl_800A9508
 lbl_800A9508:
 
 	# ROM: 0x6A688
 	.4byte 0x42000000
 
-.global lbl_800A950C
 lbl_800A950C:
 
 	# ROM: 0x6A68C
 	.4byte 0x41800000
 
-.global lbl_800A9510
 lbl_800A9510:
 
 	# ROM: 0x6A690
 	.4byte 0x44800000
 
-.global lbl_800A9514
 lbl_800A9514:
 
 	# ROM: 0x6A694
 	.4byte 0
 
-.global lbl_800A9518
 lbl_800A9518:
 
 	# ROM: 0x6A698
 	.4byte 0x3DCCCCCD
 
-.global lbl_800A951C
 lbl_800A951C:
 
 	# ROM: 0x6A69C
 	.4byte 0x3F000000
 
-.global lbl_800A9520
 lbl_800A9520:
 
 	# ROM: 0x6A6A0
 	.4byte 0x40000000
 
-.global lbl_800A9524
 lbl_800A9524:
 
 	# ROM: 0x6A6A4
 	.4byte 0xBF000000
 
-.global lbl_800A9528
 lbl_800A9528:
 
 	# ROM: 0x6A6A8
