@@ -605,8 +605,6 @@ SetFogColor__8DGCameraFRC8_GXColor:
 
 
 lbl_80064280:
-
-	# ROM: 0x61280
 	.4byte 0
 	.4byte 0
 	.4byte 0x44000000
@@ -618,8 +616,6 @@ lbl_80064280:
 	.4byte 0
 
 lbl_800642A4:
-
-	# ROM: 0x612A4
 	.4byte 0
 	.4byte 0
 	.4byte 0xBF800000
@@ -627,57 +623,35 @@ lbl_800642A4:
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9500:
-
-	# ROM: 0x6A680
 	.4byte 0
 
 lbl_800A9504:
-
-	# ROM: 0x6A684
 	.4byte 0x41C00000
 
 lbl_800A9508:
-
-	# ROM: 0x6A688
 	.4byte 0x42000000
 
 lbl_800A950C:
-
-	# ROM: 0x6A68C
 	.4byte 0x41800000
 
 lbl_800A9510:
-
-	# ROM: 0x6A690
 	.4byte 0x44800000
 
 lbl_800A9514:
-
-	# ROM: 0x6A694
 	.4byte 0
 
 lbl_800A9518:
-
-	# ROM: 0x6A698
 	.4byte 0x3DCCCCCD
 
 lbl_800A951C:
-
-	# ROM: 0x6A69C
 	.4byte 0x3F000000
 
 lbl_800A9520:
-
-	# ROM: 0x6A6A0
 	.4byte 0x40000000
 
 lbl_800A9524:
-
-	# ROM: 0x6A6A4
 	.4byte 0xBF000000
 
 lbl_800A9528:
-
-	# ROM: 0x6A6A8
 	.4byte 0x3C8EFA35
 	.4byte 0

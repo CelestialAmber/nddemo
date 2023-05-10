@@ -757,8 +757,6 @@ DBClose:
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
 SendCount:
-
-	# ROM: 0x6A4E0
 	.4byte 0x80000000
 	.4byte 0
 	.4byte 0
@@ -775,8 +773,6 @@ SendCount:
 #800A9B98
 .global _f_sbss2
 _f_sbss2:
-
-	# ROM: 0x6AD18
 	.4byte 0
 	.4byte 0
 

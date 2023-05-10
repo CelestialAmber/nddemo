@@ -239,8 +239,6 @@ GetPartsWorldPosition__7DGModelFPCc:
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 "miss$155":
-
-	# ROM: 0x60E80
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -249,7 +247,5 @@ GetPartsWorldPosition__7DGModelFPCc:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_800662D8:
-
-	# ROM: 0x632D8
 	.asciz "Error DGModel::CreateInstance False\n"
 	.balign 4

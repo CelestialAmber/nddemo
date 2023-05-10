@@ -236,20 +236,14 @@ DetachObject__8DGObjManFUs:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_800669C8:
-
-	# ROM: 0x639C8
 	.asciz "Error DGObjMan::AddObject Faluse\n"
 	.balign 4
 
 lbl_800669EC:
-
-	# ROM: 0x639EC
 	.asciz "Error DGObjMan::AttachObject\n"
 	.balign 4
 
 lbl_80066A0C:
-
-	# ROM: 0x63A0C
 	.asciz "Error DGObjMan::DetachObject\n"
 	.balign 4
 	.4byte 0

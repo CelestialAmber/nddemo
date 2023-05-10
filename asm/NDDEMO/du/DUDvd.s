@@ -281,18 +281,12 @@ Read__5DUDvdFPvUll:
 
 
 lbl_80066248:
-
-	# ROM: 0x63248
 	.asciz "DVD Open False\n"
 
 lbl_80066258:
-
-	# ROM: 0x63258
 	.asciz "Error DUDvd::Read>len=%d,off=%d,ret=%d\n"
 
 lbl_80066280:
-
-	# ROM: 0x63280
 	.asciz "Error DUDvd::Read>fptr=%d\n"
 	.balign 4
 	.4byte 0
@@ -302,7 +296,5 @@ lbl_80066280:
 
 .global m_InitDVD__5DUDvd
 m_InitDVD__5DUDvd:
-
-	# ROM: 0x6A2C0
 	.4byte 0x01000000
 	.4byte 0

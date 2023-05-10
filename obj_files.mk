@@ -94,7 +94,7 @@ MUSYX :=\
 asm/musyx/seq.o\
 asm/musyx/synth.o\
 asm/musyx/seq_api.o\
-asm/musyx/seq_synthapi.o\
+asm/musyx/snd_synthapi.o\
 asm/musyx/stream.o\
 asm/musyx/synthdata.o\
 asm/musyx/synthmacros.o\
@@ -104,7 +104,7 @@ asm/musyx/synth_adsr.o\
 asm/musyx/synth_dbtab.o\
 asm/musyx/s_data.o\
 asm/musyx/hw_dspctrl.o\
-asm/musyx/hw_volctrl.o\
+asm/musyx/hw_volconv.o\
 asm/musyx/snd3d.o\
 asm/musyx/snd_init.o\
 asm/musyx/snd_math.o\
@@ -121,27 +121,27 @@ asm/musyx/chorus_fx.o
 
 
 MW :=\
-asm/PowerPC_EABI_Support/MetroTRK/mainloop.o\
-asm/PowerPC_EABI_Support/MetroTRK/nubevent.o\
-asm/PowerPC_EABI_Support/MetroTRK/nubinit.o\
-asm/PowerPC_EABI_Support/MetroTRK/msg.o\
-asm/PowerPC_EABI_Support/MetroTRK/msgbug.o\
-asm/PowerPC_EABI_Support/MetroTRK/serpool.o\
-asm/PowerPC_EABI_Support/MetroTRK/usr_put.o\
-asm/PowerPC_EABI_Support/MetroTRK/dispatch.o\
-asm/PowerPC_EABI_Support/MetroTRK/msghndlr.o\
-asm/PowerPC_EABI_Support/MetroTRK/support.o\
-asm/PowerPC_EABI_Support/MetroTRK/mutex_TRK.o\
-asm/PowerPC_EABI_Support/MetroTRK/notify.o\
-asm/PowerPC_EABI_Support/MetroTRK/flush_cache.o\
-asm/PowerPC_EABI_Support/MetroTRK/mem_TRK.o\
-asm/PowerPC_EABI_Support/MetroTRK/__exception.o\
-asm/PowerPC_EABI_Support/MetroTRK/targimpl.o\
-asm/PowerPC_EABI_Support/MetroTRK/dolphin_trk.o\
-asm/PowerPC_EABI_Support/MetroTRK/mpc_7xx_603e.o\
-asm/PowerPC_EABI_Support/MetroTRK/main_TRK.o\
-asm/PowerPC_EABI_Support/MetroTRK/dolphin_trk_glue.o\
-asm/PowerPC_EABI_Support/MetroTRK/targcont.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/mainloop.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/nubevent.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/nubinit.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/msg.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/msgbuf.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/serpoll.o\
+asm/PowerPC_EABI_Support/MetroTRK/Os/dolphin/usr_put.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/dispatch.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/msghndlr.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/support.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/mutex_TRK.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/notify.o\
+asm/PowerPC_EABI_Support/MetroTRK/Processor/ppc/Generic/flush_cache.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/mem_TRK.o\
+asm/PowerPC_EABI_Support/MetroTRK/Processor/ppc/Generic/__exception.o\
+asm/PowerPC_EABI_Support/MetroTRK/Processor/ppc/Generic/targimpl.o\
+asm/PowerPC_EABI_Support/MetroTRK/Os/dolphin/dolphin_trk.o\
+asm/PowerPC_EABI_Support/MetroTRK/Processor/ppc/Generic/mpc_7xx_603e.o\
+asm/PowerPC_EABI_Support/MetroTRK/Portable/main_TRK.o\
+asm/PowerPC_EABI_Support/MetroTRK/Os/dolphin/dolphin_trk_glue.o\
+asm/PowerPC_EABI_Support/MetroTRK/Os/dolphin/targcont.o\
 asm/PowerPC_EABI_Support/Runtime/__mem.o\
 asm/PowerPC_EABI_Support/Runtime/__va_arg.o\
 asm/PowerPC_EABI_Support/Runtime/global_destructor_chain.o\
@@ -149,7 +149,7 @@ asm/PowerPC_EABI_Support/Runtime/NMWException.o\
 asm/PowerPC_EABI_Support/Runtime/ExceptionPPC.o\
 asm/PowerPC_EABI_Support/Runtime/runtime.o\
 asm/PowerPC_EABI_Support/Runtime/__init_cpp_exceptions.o\
-asm/PowerPC_EABI_Support/MSL_C/MSL_Common/abort_exit.o\
+asm/PowerPC_EABI_Support/MSL_C/PPC_EABI/abort_exit.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/ansi_files.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/ansi_fp.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/buffer_io.o\

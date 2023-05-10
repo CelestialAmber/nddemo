@@ -5,8 +5,6 @@
 
 .global gTRKDispatchTable
 gTRKDispatchTable:
-
-	# ROM: 0x69D60
 	.4byte TRKDoUnsupported
 	.4byte TRKDoConnect
 	.4byte TRKDoDisconnect
@@ -43,8 +41,6 @@ gTRKDispatchTable:
 	.4byte 0
 
 lbl_8006CDE8:
-
-	# ROM: 0x69DE8
 	.4byte .L_8005BFB8
 	.4byte .L_8005BFD8
 	.4byte .L_8005BFB0
@@ -54,8 +50,6 @@ lbl_8006CDE8:
 	.4byte .L_8005BFD0
 
 lbl_8006CE04:
-
-	# ROM: 0x69E04
 	.4byte .L_8005C1B4
 	.4byte .L_8005C1D4
 	.4byte .L_8005C1AC
@@ -66,23 +60,17 @@ lbl_8006CE04:
 
 .global gTRKRestoreFlags
 gTRKRestoreFlags:
-
-	# ROM: 0x69E20
 	.4byte 0
 	.4byte 0
 	.4byte 0
 
 gTRKExceptionStatus:
-
-	# ROM: 0x69E2C
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0x01000000
 
 gTRKStepStatus:
-
-	# ROM: 0x69E3C
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -90,8 +78,6 @@ gTRKStepStatus:
 	.4byte 0
 
 TRK_ISR_OFFSETS:
-
-	# ROM: 0x69E50
 	.4byte 0x00000100
 	.4byte 0x00000200
 	.4byte 0x00000300
@@ -111,8 +97,6 @@ TRK_ISR_OFFSETS:
 
 .global gDBCommTable
 gDBCommTable:
-
-	# ROM: 0x69E90
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -124,15 +108,11 @@ gDBCommTable:
 
 .global __files
 __files:
-
-	# ROM: 0x69EB0
 	.4byte 0
 	.4byte 0x08800000
 	.4byte 0
 
 lbl_8006CEBC:
-
-	# ROM: 0x69EBC
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -153,8 +133,6 @@ lbl_8006CEBC:
 	.4byte 0
 
 lbl_8006CF04:
-
-	# ROM: 0x69F04
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -175,8 +153,6 @@ lbl_8006CF04:
 	.4byte 0
 
 lbl_8006CF4C:
-
-	# ROM: 0x69F4C
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -194,8 +170,6 @@ lbl_8006CF4C:
 	.4byte 0
 
 lbl_8006CF88:
-
-	# ROM: 0x69F88
 	.4byte .L_800617A4
 	.4byte .L_800617B4
 	.4byte .L_800617B4
@@ -231,8 +205,6 @@ lbl_8006CF88:
 	.4byte .L_800617A4
 
 lbl_8006D00C:
-
-	# ROM: 0x6A00C
 	.4byte .L_80061A34
 	.4byte .L_80061A40
 	.4byte .L_80061A40
@@ -268,8 +240,6 @@ lbl_8006D00C:
 	.4byte .L_80061A34
 
 lbl_8006D090:
-
-	# ROM: 0x6A090
 	.4byte .L_80061F60
 	.4byte .L_80062040
 	.4byte .L_80061F4C
@@ -324,8 +294,6 @@ lbl_8006D090:
 	.4byte .L_80061ECC
 
 lbl_8006D160:
-
-	# ROM: 0x6A160
 	.4byte .L_80061C74
 	.4byte .L_80061CB0
 	.4byte .L_80061CB0
@@ -346,8 +314,6 @@ lbl_8006D160:
 	.4byte 0
 
 __four_over_pi_m1:
-
-	# ROM: 0x6A1A8
 	.4byte 0
 	.4byte 0
 	.4byte 0

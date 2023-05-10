@@ -385,43 +385,27 @@ SetAngleAttenuation_Cos2__7DGLightFff:
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9490:
-
-	# ROM: 0x6A610
 	.4byte 0
 
 lbl_800A9494:
-
-	# ROM: 0x6A614
 	.4byte 0x3F800000
 
 lbl_800A9498:
-
-	# ROM: 0x6A618
 	.4byte 0x42000000
 
 lbl_800A949C:
-
-	# ROM: 0x6A61C
 	.4byte 0x3F000000
 
 lbl_800A94A0:
-
-	# ROM: 0x6A620
 	.4byte 0x40490FDB
 
 lbl_800A94A4:
-
-	# ROM: 0x6A624
 	.4byte 0x43340000
 
 lbl_800A94A8:
-
-	# ROM: 0x6A628
 	.4byte 0x3FE00000
 	.4byte 0
 
 lbl_800A94B0:
-
-	# ROM: 0x6A630
 	.4byte 0x40080000
 	.4byte 0

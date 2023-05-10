@@ -991,11 +991,7 @@ _check_range__5DTHitFP3VecfUlPvSc:
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9560:
-
-	# ROM: 0x6A6E0
 	.4byte 0
 
 lbl_800A9564:
-
-	# ROM: 0x6A6E4
 	.4byte 0x3F800000

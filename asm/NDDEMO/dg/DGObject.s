@@ -2191,8 +2191,6 @@ IsNull__8DGObjectFv:
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 "GXTEXMAP_TABLE$160":
-
-	# ROM: 0x60E90
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2203,8 +2201,6 @@ IsNull__8DGObjectFv:
 	.4byte 0x00000007
 
 TevStageID_TABLE:
-
-	# ROM: 0x60EB0
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2277,8 +2273,6 @@ TevStageID_TABLE:
 	.4byte 0x00000003
 
 TevRegID_TABLE:
-
-	# ROM: 0x60FC8
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000003
@@ -2328,8 +2322,6 @@ TevRegID_TABLE:
 	.4byte 0x0000000D
 
 Compare_TABLE:
-
-	# ROM: 0x61084
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000003
@@ -2404,8 +2396,6 @@ Compare_TABLE:
 	.4byte 0x0000000B
 
 "TEX_AT$288":
-
-	# ROM: 0x611A4
 	.4byte 0x0000000D
 	.4byte 0x0000000E
 	.4byte 0x0000000F
@@ -2416,8 +2406,6 @@ Compare_TABLE:
 	.4byte 0x00000014
 
 lbl_800641C4:
-
-	# ROM: 0x611C4
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2428,8 +2416,6 @@ lbl_800641C4:
 
 
 lbl_80066690:
-
-	# ROM: 0x63690
 	.asciz "Error DGObject::~DGObject ReferCount>0\n"
 	.asciz "Error:SetArrayFormat(m_VCompType)\n"
 	.balign 4
@@ -2441,20 +2427,14 @@ lbl_80066690:
 	.balign 4
 
 lbl_80066748:
-
-	# ROM: 0x63748
 	.asciz "Error DGObject::ExecuteObjStream>%d\n"
 	.balign 4
 
 lbl_80066770:
-
-	# ROM: 0x63770
 	.asciz "Error DGObject::oscmdExtend0>"
 	.balign 4
 
 lbl_80066790:
-
-	# ROM: 0x63790
 	.asciz "Error DGObject::oscmdExtendF>"
 	.balign 4
 	.4byte 0
@@ -2465,8 +2445,6 @@ lbl_80066790:
 	.balign 4
 
 lbl_800667D4:
-
-	# ROM: 0x637D4
 	.asciz "Error DGObject::DecRefer  ReferCount<0\n"
 	.asciz "DGObject::LoadNDMPartsBlock >McrFree(m_PartsBlock);\n"
 	.balign 4
@@ -2488,19 +2466,13 @@ lbl_800667D4:
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 TevOp_TABLE:
-
-	# ROM: 0x6A638
 	.4byte 0
 	.4byte 0x00000001
 
 Bool_TABLE:
-
-	# ROM: 0x6A640
 	.4byte 0x00010000
 
 lbl_800A94C4:
-
-	# ROM: 0x6A644
 	.4byte 0x009000FF
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0

@@ -896,30 +896,20 @@ EnableExpensiveMipMap__10DGModelManFUc:
 
 
 lbl_80066300:
-
-	# ROM: 0x63300
 	.asciz "DGModelMan::DeleteMasterModel >Locked(%d)\n"
 	.balign 4
 
 lbl_8006632C:
-
-	# ROM: 0x6332C
 	.asciz "DGModelMan::DestroyMasterModel> ReferCount not Equal Zero\n"
 	.balign 4
 
 lbl_80066368:
-
-	# ROM: 0x63368
 	.asciz "DGModelMan::CreateInstance >Locked(%d)\n"
 
 lbl_80066390:
-
-	# ROM: 0x63390
 	.asciz "Error DGModelMan::CreateInstance False\n"
 
 lbl_800663B8:
-
-	# ROM: 0x633B8
 	.asciz "Error DGModelMan::CreateAnimeInstance False\n"
 	.balign 4
 	.asciz "DGModelMan::LoadNDM >Locked(%d)\n"
@@ -945,30 +935,20 @@ lbl_800663B8:
 	.balign 4
 
 lbl_800665B4:
-
-	# ROM: 0x635B4
 	.asciz "DGModelMan::LoadDuplicateNDM >Locked(%d)\n"
 	.balign 4
 
 lbl_800665E0:
-
-	# ROM: 0x635E0
 	.asciz "DGModelMan::LoadDuplicateNDM>MasterModel Duplicate [%s]\n"
 	.balign 4
 
 lbl_8006661C:
-
-	# ROM: 0x6361C
 	.asciz "Error DGModelMan::DecRefer ReferCount<0\n"
 	.balign 4
 
 lbl_80066648:
-
-	# ROM: 0x63648
 	.asciz "DGModelMan::LoadFont >Locked(%d)\n"
 	.balign 4
 
 lbl_8006666C:
-
-	# ROM: 0x6366C
 	.asciz "DGModelMan::LoadTexPro >Locked(%d)\n"

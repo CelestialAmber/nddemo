@@ -170,7 +170,5 @@ SetDirectTex__8DGTexProFPvUsUs9_GXTexFmtUc:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066CC0:
-
-	# ROM: 0x63CC0
 	.asciz "DGTexPro::DGTexPro>\n"
 	.balign 4

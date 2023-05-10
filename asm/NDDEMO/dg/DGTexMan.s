@@ -586,14 +586,10 @@ EnableExpensiveMipMap__8DGTexManFUc:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066B88:
-
-	# ROM: 0x63B88
 	.asciz "Error DGTexMan::AddTexture> Full\n"
 	.balign 4
 
 lbl_80066BAC:
-
-	# ROM: 0x63BAC
 	.4byte 0x4572726F
 	.4byte 0x72204447
 	.4byte 0x5465784D
@@ -608,13 +604,9 @@ lbl_80066BAC:
 	.balign 4
 
 lbl_80066C24:
-
-	# ROM: 0x63C24
 	.asciz "Error DGTexMan::GetTexture> Invalid Handle\n"
 
 lbl_80066C50:
-
-	# ROM: 0x63C50
 	.asciz "Error DGTexMan::AttachTexture> Failed\n"
 	.balign 4
 	.asciz "Error DGTexMan::DetachTexture> Invalid Handle\n"
@@ -623,31 +615,21 @@ lbl_80066C50:
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
 lbl_800A8BB8:
-
-	# ROM: 0x6A2F8
 	.asciz "tex/"
 	.balign 4
 
 lbl_800A8BC0:
-
-	# ROM: 0x6A300
 	.asciz ".dtx"
 	.balign 4
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A94F0:
-
-	# ROM: 0x6A670
 	.4byte 0
 
 lbl_800A94F4:
-
-	# ROM: 0x6A674
 	.4byte 0xC0600000
 
 lbl_800A94F8:
-
-	# ROM: 0x6A678
 	.4byte 0x43300000
 	.4byte 0

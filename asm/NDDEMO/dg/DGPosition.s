@@ -340,27 +340,17 @@ GetDirectionalVec__10DGPositionFR3VecR3Vec:
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9530:
-
-	# ROM: 0x6A6B0
 	.4byte 0
 
 lbl_800A9534:
-
-	# ROM: 0x6A6B4
 	.4byte 0x3F800000
 
 lbl_800A9538:
-
-	# ROM: 0x6A6B8
 	.4byte 0x3C8EFA35
 
 lbl_800A953C:
-
-	# ROM: 0x6A6BC
 	.4byte 0x43B40000
 
 lbl_800A9540:
-
-	# ROM: 0x6A6C0
 	.4byte 0xC3B40000
 	.4byte 0

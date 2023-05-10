@@ -4,8 +4,6 @@
 
 
 lbl_800674F0:
-
-	# ROM: 0x644F0
 	.asciz "\nDolphin OS $Revision: 45 $.\n"
 	.balign 4
 	.asciz "Kernel built : %s %s\n"
@@ -56,8 +54,6 @@ lbl_800674F0:
 	.4byte 0
 
 lbl_800676B0:
-
-	# ROM: 0x646B0
 	.asciz "OSCheckHeap: Failed HeapArray in %d"
 	.asciz "OSCheckHeap: Failed 0 <= heap && heap < NumHeaps in %d"
 	.balign 4
@@ -95,8 +91,6 @@ lbl_800676B0:
 	.4byte 0
 
 DSPInitCode:
-
-	# ROM: 0x64A48
 	.4byte 0x029F0010
 	.4byte 0x029F0035
 	.4byte 0x029F0036
@@ -131,8 +125,6 @@ DSPInitCode:
 	.4byte 0
 
 lbl_80067AC8:
-
-	# ROM: 0x64AC8
 	.asciz ">>> L2 INVALIDATE : SHOULD NEVER HAPPEN\n"
 	.balign 4
 	.asciz "Machine check received\n"
@@ -161,8 +153,6 @@ lbl_80067AC8:
 	.4byte 0
 
 lbl_80067CF8:
-
-	# ROM: 0x64CF8
 	.asciz "------------------------- Context 0x%08x -------------------------\n"
 	.asciz "r%-2d  = 0x%08x (%14d)  r%-2d  = 0x%08x (%14d)\n"
 	.asciz "LR   = 0x%08x                   CR   = 0x%08x\n"
@@ -186,14 +176,10 @@ lbl_80067CF8:
 	.asciz "0x%08x:   0x%08x    0x%08x\n"
 
 lbl_80067EAC:
-
-	# ROM: 0x64EAC
 	.asciz "FPU-unavailable handler installed\n"
 	.balign 4
 
 lbl_80067ED0:
-
-	# ROM: 0x64ED0
 	.asciz " in "%s" on line %d.\n"
 	.balign 4
 	.asciz "\nAddress:      Back Chain    LR Save\n"
@@ -212,8 +198,6 @@ lbl_80067ED0:
 	.4byte 0
 
 InterruptPrioTable:
-
-	# ROM: 0x65108
 	.4byte 0x00000100
 	.4byte 0x00000040
 	.4byte 0xF8000000
@@ -228,16 +212,12 @@ InterruptPrioTable:
 	.4byte 0
 
 ResetFunctionInfo:
-
-	# ROM: 0x65138
 	.4byte OnReset
 	.4byte 0x0000007F
 	.4byte 0
 	.4byte 0
 
 Si:
-
-	# ROM: 0x65148
 	.4byte 0xFFFFFFFF
 	.4byte 0
 	.4byte 0
@@ -245,8 +225,6 @@ Si:
 	.4byte 0
 
 Type:
-
-	# ROM: 0x6515C
 	.4byte 0x00000008
 	.4byte 0x00000008
 	.4byte 0x00000008
@@ -267,30 +245,20 @@ Type:
 	.asciz "WaveBird controller"
 
 lbl_80068200:
-
-	# ROM: 0x65200
 	.asciz "DBExceptionDestination\n"
 
 lbl_80068218:
-
-	# ROM: 0x65218
 	.asciz "DVDConvertEntrynumToPath(possibly DVDOpen or DVDChangeDir or DVDOpenDir): specified directory or file (%s) doesn't match standard 8.3 format. This is a temporary restriction and will be removed soon\n"
 
 lbl_800682E0:
-
-	# ROM: 0x652E0
 	.asciz "Warning: DVDOpen(): file '%s' was not found under %s.\n"
 	.balign 4
 
 lbl_80068318:
-
-	# ROM: 0x65318
 	.asciz "DVDRead(): specified area is out of the file  "
 	.balign 4
 
 lbl_80068348:
-
-	# ROM: 0x65348
 	.asciz "app booted via JTAG\n"
 	.balign 4
 	.asciz "load fst\n"
@@ -301,8 +269,6 @@ lbl_80068348:
 	.balign 4
 
 lbl_80068394:
-
-	# ROM: 0x65394
 	.4byte .L_80032A20
 	.4byte .L_800328E0
 	.4byte .L_800328F8
@@ -313,8 +279,6 @@ lbl_80068394:
 	.4byte .L_80032928
 
 lbl_800683B4:
-
-	# ROM: 0x653B4
 	.4byte .L_80032D00
 	.4byte .L_80032ABC
 	.4byte .L_80032B18
@@ -333,8 +297,6 @@ lbl_800683B4:
 	.4byte .L_80032B4C
 
 lbl_800683F4:
-
-	# ROM: 0x653F4
 	.4byte .L_800336B4
 	.4byte .L_800336B4
 	.4byte .L_800336D4
@@ -350,8 +312,6 @@ lbl_800683F4:
 	.4byte .L_800337E0
 
 lbl_80068428:
-
-	# ROM: 0x65428
 	.4byte .L_80033A44
 	.4byte .L_80033A4C
 	.4byte .L_80033A3C
@@ -368,8 +328,6 @@ lbl_80068428:
 	.4byte 0
 
 ErrorTable:
-
-	# ROM: 0x65460
 	.4byte 0
 	.4byte 0x00023A00
 	.4byte 0x00062800
@@ -388,8 +346,6 @@ ErrorTable:
 	.4byte 0x00040800
 
 lbl_800684A0:
-
-	# ROM: 0x654A0
 	.asciz "  Game Name ... %c%c%c%c\n"
 	.balign 4
 	.asciz "  Company ..... %c%c\n"
@@ -399,8 +355,6 @@ lbl_800684A0:
 	.asciz "  Streaming ... %s\n"
 
 timing:
-
-	# ROM: 0x65510
 	.4byte 0x060000F0
 	.4byte 0x00180019
 	.4byte 0x00030002
@@ -483,8 +437,6 @@ timing:
 	.4byte 0x00010000
 
 lbl_80068650:
-
-	# ROM: 0x65650
 	.4byte .L_80034374
 	.4byte .L_8003437C
 	.4byte .L_800343A4
@@ -497,8 +449,6 @@ lbl_80068650:
 	.4byte .L_8003439C
 
 ResetFunctionInfo:
-
-	# ROM: 0x65678
 	.4byte OnReset
 	.4byte 0x0000007F
 	.4byte 0
@@ -519,8 +469,6 @@ ResetFunctionInfo:
 	.balign 4
 
 lbl_800686E0:
-
-	# ROM: 0x656E0
 	.asciz "DSPInit(): Build Date: %s %s\n"
 	.balign 4
 	.asciz "Sep  8 2001"
@@ -528,8 +476,6 @@ lbl_800686E0:
 	.balign 4
 
 lbl_80068718:
-
-	# ROM: 0x65718
 	.asciz "DSP is booting task: 0x%08X\n"
 	.balign 4
 	.asciz "__DSP_boot_task()  : IRAM MMEM ADDR: 0x%08X\n"
@@ -547,8 +493,6 @@ lbl_80068718:
 	.4byte 0
 
 lbl_80068858:
-
-	# ROM: 0x65858
 	.4byte .L_8003B5D4
 	.4byte .L_8003B5EC
 	.4byte .L_8003B60C
@@ -577,8 +521,6 @@ lbl_80068858:
 	.4byte .L_8003B748
 
 lbl_800688C0:
-
-	# ROM: 0x658C0
 	.4byte .L_8003B940
 	.4byte .L_8003B95C
 	.4byte .L_8003B97C
@@ -607,8 +549,6 @@ lbl_800688C0:
 	.4byte .L_8003BAB8
 
 lbl_80068928:
-
-	# ROM: 0x65928
 	.4byte .L_8003BE20
 	.4byte .L_8003BE30
 	.4byte .L_8003BE40
@@ -637,8 +577,6 @@ lbl_80068928:
 	.4byte .L_8003BEE4
 
 lbl_80068990:
-
-	# ROM: 0x65990
 	.4byte .L_8003C0AC
 	.4byte .L_8003C0E8
 	.4byte .L_8003C14C
@@ -658,8 +596,6 @@ lbl_80068990:
 	.4byte .L_8003C0E8
 
 lbl_800689D4:
-
-	# ROM: 0x659D4
 	.4byte .L_8003C6C8
 	.4byte .L_8003C6E8
 	.4byte .L_8003C708
@@ -669,8 +605,6 @@ lbl_800689D4:
 	.4byte .L_8003C780
 
 lbl_800689F0:
-
-	# ROM: 0x659F0
 	.4byte .L_8003C53C
 	.4byte .L_8003C548
 	.4byte .L_8003C554
@@ -696,8 +630,6 @@ lbl_800689F0:
 
 .global GXNtsc240Ds
 GXNtsc240Ds:
-
-	# ROM: 0x65A48
 	.4byte 0x00000001
 	.4byte 0x028000F0
 	.4byte 0x00F00028
@@ -716,8 +648,6 @@ GXNtsc240Ds:
 
 .global GXNtsc240DsAa
 GXNtsc240DsAa:
-
-	# ROM: 0x65A84
 	.4byte 0x00000001
 	.4byte 0x028000F0
 	.4byte 0x00F00028
@@ -736,8 +666,6 @@ GXNtsc240DsAa:
 
 .global GXNtsc240Int
 GXNtsc240Int:
-
-	# ROM: 0x65AC0
 	.4byte 0
 	.4byte 0x028000F0
 	.4byte 0x00F00028
@@ -756,8 +684,6 @@ GXNtsc240Int:
 
 .global GXNtsc240IntAa
 GXNtsc240IntAa:
-
-	# ROM: 0x65AFC
 	.4byte 0
 	.4byte 0x028000F0
 	.4byte 0x00F00028
@@ -776,8 +702,6 @@ GXNtsc240IntAa:
 
 .global GXNtsc480IntDf
 GXNtsc480IntDf:
-
-	# ROM: 0x65B38
 	.4byte 0
 	.4byte 0x028001E0
 	.4byte 0x01E00028
@@ -796,8 +720,6 @@ GXNtsc480IntDf:
 
 .global GXNtsc480Int
 GXNtsc480Int:
-
-	# ROM: 0x65B74
 	.4byte 0
 	.4byte 0x028001E0
 	.4byte 0x01E00028
@@ -816,8 +738,6 @@ GXNtsc480Int:
 
 .global GXNtsc480IntAa
 GXNtsc480IntAa:
-
-	# ROM: 0x65BB0
 	.4byte 0
 	.4byte 0x028000F2
 	.4byte 0x01E00028
@@ -836,8 +756,6 @@ GXNtsc480IntAa:
 
 .global GXNtsc480Prog
 GXNtsc480Prog:
-
-	# ROM: 0x65BEC
 	.4byte 0x00000002
 	.4byte 0x028001E0
 	.4byte 0x01E00028
@@ -856,8 +774,6 @@ GXNtsc480Prog:
 
 .global GXNtsc480ProgAa
 GXNtsc480ProgAa:
-
-	# ROM: 0x65C28
 	.4byte 0x00000002
 	.4byte 0x028000F2
 	.4byte 0x01E00028
@@ -876,8 +792,6 @@ GXNtsc480ProgAa:
 
 .global GXMpal480IntDf
 GXMpal480IntDf:
-
-	# ROM: 0x65C64
 	.4byte 0x00000008
 	.4byte 0x028001E0
 	.4byte 0x01E00028
@@ -896,8 +810,6 @@ GXMpal480IntDf:
 
 .global GXPal528IntDf
 GXPal528IntDf:
-
-	# ROM: 0x65CA0
 	.4byte 0x00000004
 	.4byte 0x02800210
 	.4byte 0x02100028
@@ -916,8 +828,6 @@ GXPal528IntDf:
 	.4byte 0
 
 lbl_80068CE0:
-
-	# ROM: 0x65CE0
 	.4byte .L_8003E3EC
 	.4byte .L_8003E3F8
 	.4byte .L_8003E3F8
@@ -981,8 +891,6 @@ lbl_80068CE0:
 	.4byte .L_8003E404
 
 lbl_80068DD4:
-
-	# ROM: 0x65DD4
 	.4byte .L_8003E540
 	.4byte .L_8003E54C
 	.4byte .L_8003E54C
@@ -1046,8 +954,6 @@ lbl_80068DD4:
 	.4byte .L_8003E558
 
 lbl_80068EC8:
-
-	# ROM: 0x65EC8
 	.4byte .L_8003E790
 	.4byte .L_8003E7A4
 	.4byte .L_8003E7A4
@@ -1066,8 +972,6 @@ lbl_80068EC8:
 	.4byte 0
 
 "c2r$71":
-
-	# ROM: 0x65F08
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0
@@ -1080,8 +984,6 @@ lbl_80068EC8:
 	.4byte 0
 
 "p2f$194":
-
-	# ROM: 0x65F30
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -1092,8 +994,6 @@ lbl_80068EC8:
 	.4byte 0x00000005
 
 lbl_80068F50:
-
-	# ROM: 0x65F50
 	.4byte .L_8004152C
 	.4byte .L_80041548
 	.4byte .L_80041564
@@ -1119,8 +1019,6 @@ lbl_80068F50:
 	.4byte .L_80041840
 
 lbl_80068FAC:
-
-	# ROM: 0x65FAC
 	.4byte .L_800410FC
 	.4byte .L_8004111C
 	.4byte .L_8004113C
@@ -1159,8 +1057,6 @@ lbl_80068FAC:
 	.4byte .L_800414FC
 
 lbl_8006903C:
-
-	# ROM: 0x6603C
 	.4byte .L_80041914
 	.4byte .L_8004196C
 	.4byte .L_8004196C

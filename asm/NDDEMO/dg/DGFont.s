@@ -520,8 +520,6 @@ StrOut__6DGFontFPCc:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066CA8:
-
-	# ROM: 0x63CA8
 	.asciz "DGFont::DGFont>\n"
 	.balign 4
 	.4byte 0
@@ -529,27 +527,17 @@ lbl_80066CA8:
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9548:
-
-	# ROM: 0x6A6C8
 	.4byte 0
 
 lbl_800A954C:
-
-	# ROM: 0x6A6CC
 	.4byte 0x43F00000
 
 lbl_800A9550:
-
-	# ROM: 0x6A6D0
 	.4byte 0x44200000
 
 lbl_800A9554:
-
-	# ROM: 0x6A6D4
 	.4byte 0x3F800000
 
 lbl_800A9558:
-
-	# ROM: 0x6A6D8
 	.4byte 0x43300000
 	.4byte 0

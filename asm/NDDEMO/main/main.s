@@ -180,8 +180,6 @@ __dl__FPv:
 
 
 lbl_80065000:
-
-	# ROM: 0x62000
 	.asciz "audio/nddemo.pol"
 	.balign 4
 	.asciz "audio/nddemo.prj"
@@ -194,8 +192,6 @@ lbl_80065000:
 	.balign 4
 
 lbl_80065064:
-
-	# ROM: 0x62064
 	.asciz "iMakeMainHeap>start=%x / end=%x\n"
 	.balign 4
 

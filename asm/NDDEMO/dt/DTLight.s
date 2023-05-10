@@ -1610,8 +1610,6 @@ SettingMpol__7DTLightFv:
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 lbl_800642B0:
-
-	# ROM: 0x612B0
 	.4byte 0
 	.4byte 0x43160000
 	.4byte 0
@@ -1677,8 +1675,6 @@ lbl_800642B0:
 	.4byte 0x42480000
 
 lbl_800643AC:
-
-	# ROM: 0x613AC
 	.4byte 0
 	.4byte 0x428C0000
 	.4byte 0x42480000
@@ -1705,8 +1701,6 @@ lbl_800643AC:
 	.4byte 0
 
 lbl_8006440C:
-
-	# ROM: 0x6140C
 	.4byte 0
 	.4byte 0x428C0000
 	.4byte 0x42480000
@@ -1714,8 +1708,6 @@ lbl_8006440C:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066D80:
-
-	# ROM: 0x63D80
 	.4byte .L_8001BD84
 	.4byte .L_8001BD8C
 	.4byte .L_8001BD94
@@ -1748,273 +1740,165 @@ lbl_80066D80:
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A9568:
-
-	# ROM: 0x6A6E8
 	.4byte 0xFFFFFFFF
 
 lbl_800A956C:
-
-	# ROM: 0x6A6EC
 	.4byte 0xFFFFFFFF
 
 lbl_800A9570:
-
-	# ROM: 0x6A6F0
 	.4byte 0x3F800000
 
 lbl_800A9574:
-
-	# ROM: 0x6A6F4
 	.4byte 0x41F00000
 
 lbl_800A9578:
-
-	# ROM: 0x6A6F8
 	.4byte 0x40800000
 
 lbl_800A957C:
-
-	# ROM: 0x6A6FC
 	.4byte 0x43480000
 
 lbl_800A9580:
-
-	# ROM: 0x6A700
 	.4byte 0x41800000
 
 lbl_800A9584:
-
-	# ROM: 0x6A704
 	.4byte 0x41C80000
 
 lbl_800A9588:
-
-	# ROM: 0x6A708
 	.4byte 0x43800000
 
 lbl_800A958C:
-
-	# ROM: 0x6A70C
 	.4byte 0xFFFFFFFF
 
 lbl_800A9590:
-
-	# ROM: 0x6A710
 	.4byte 0xFFFFFFFF
 
 lbl_800A9594:
-
-	# ROM: 0x6A714
 	.4byte 0xFFFFFFFF
 
 lbl_800A9598:
-
-	# ROM: 0x6A718
 	.4byte 0xFFFFFFFF
 
 lbl_800A959C:
-
-	# ROM: 0x6A71C
 	.4byte 0x42480000
 
 lbl_800A95A0:
-
-	# ROM: 0x6A720
 	.4byte 0x440AC000
 
 lbl_800A95A4:
-
-	# ROM: 0x6A724
 	.4byte 0x42040000
 
 lbl_800A95A8:
-
-	# ROM: 0x6A728
 	.4byte 0x41500000
 
 lbl_800A95AC:
-
-	# ROM: 0x6A72C
 	.4byte 0x43000000
 
 lbl_800A95B0:
-
-	# ROM: 0x6A730
 	.4byte 0xFFFFFFFF
 
 lbl_800A95B4:
-
-	# ROM: 0x6A734
 	.4byte 0xFFFFFFFF
 
 lbl_800A95B8:
-
-	# ROM: 0x6A738
 	.4byte 0xFFFFFFFF
 
 lbl_800A95BC:
-
-	# ROM: 0x6A73C
 	.4byte 0xFFFFFFFF
 
 lbl_800A95C0:
-
-	# ROM: 0x6A740
 	.4byte 0xFFFFFFFF
 
 lbl_800A95C4:
-
-	# ROM: 0x6A744
 	.4byte 0x42800000
 
 lbl_800A95C8:
-
-	# ROM: 0x6A748
 	.4byte 0xFFFFFFFF
 
 lbl_800A95CC:
-
-	# ROM: 0x6A74C
 	.4byte 0xFFFFFFFF
 
 lbl_800A95D0:
-
-	# ROM: 0x6A750
 	.4byte 0x8080FFFF
 
 lbl_800A95D4:
-
-	# ROM: 0x6A754
 	.4byte 0x80FF80FF
 
 lbl_800A95D8:
-
-	# ROM: 0x6A758
 	.4byte 0xFF8080FF
 
 lbl_800A95DC:
-
-	# ROM: 0x6A75C
 	.4byte 0xC0FFFFFF
 
 lbl_800A95E0:
-
-	# ROM: 0x6A760
 	.4byte 0x000000FF
 
 lbl_800A95E4:
-
-	# ROM: 0x6A764
 	.4byte 0xC0FFFFFF
 
 lbl_800A95E8:
-
-	# ROM: 0x6A768
 	.4byte 0x000000FF
 
 lbl_800A95EC:
-
-	# ROM: 0x6A76C
 	.4byte 0x420C0000
 
 lbl_800A95F0:
-
-	# ROM: 0x6A770
 	.4byte 0x40900000
 
 lbl_800A95F4:
-
-	# ROM: 0x6A774
 	.4byte 0x3DCCCCCD
 
 lbl_800A95F8:
-
-	# ROM: 0x6A778
 	.4byte 0x40000000
 
 lbl_800A95FC:
-
-	# ROM: 0x6A77C
 	.4byte 0x41B00000
 
 lbl_800A9600:
-
-	# ROM: 0x6A780
 	.4byte 0x40C00000
 
 lbl_800A9604:
-
-	# ROM: 0x6A784
 	.4byte 0xFFFFFFFF
 
 lbl_800A9608:
-
-	# ROM: 0x6A788
 	.4byte 0xC081FFFF
 
 lbl_800A960C:
-
-	# ROM: 0x6A78C
 	.4byte 0xC0C0FFFF
 
 lbl_800A9610:
-
-	# ROM: 0x6A790
 	.4byte 0x42C80000
 
 lbl_800A9614:
-
-	# ROM: 0x6A794
 	.4byte 0x42B40000
 
 lbl_800A9618:
-
-	# ROM: 0x6A798
 	.4byte 0xFFFFFFFF
 
 lbl_800A961C:
-
-	# ROM: 0x6A79C
 	.4byte 0xFFFFFFFF
 
 lbl_800A9620:
-
-	# ROM: 0x6A7A0
 	.4byte 0xFFFFFFFF
 
 lbl_800A9624:
-
-	# ROM: 0x6A7A4
 	.4byte 0x41400000
 
 lbl_800A9628:
-
-	# ROM: 0x6A7A8
 	.4byte 0x41C00000
 
 lbl_800A962C:
-
-	# ROM: 0x6A7AC
 	.4byte 0xFFFFFFFF
 
 lbl_800A9630:
-
-	# ROM: 0x6A7B0
 	.4byte 0xFFFFFFFF
 
 lbl_800A9634:
-
-	# ROM: 0x6A7B4
 	.4byte 0xFFFFFFFF
 
 lbl_800A9638:
-
-	# ROM: 0x6A7B8
 	.4byte 0xFFFFFFFF
 
 lbl_800A963C:
-
-	# ROM: 0x6A7BC
 	.4byte 0xFFFFFFFF
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0

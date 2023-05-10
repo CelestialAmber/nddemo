@@ -4,24 +4,18 @@
 
 
 lbl_80064780:
-
-	# ROM: 0x61780
 	.asciz "MetroTRK for Dolphin v0.8"
 	.balign 4
 	.4byte 0
 
 .global gTRKMemMap
 gTRKMemMap:
-
-	# ROM: 0x617A0
 	.4byte 0
 	.4byte 0xFFFFFFFF
 	.4byte 0x00000001
 	.4byte 0x00000001
 
 lbl_800647B0:
-
-	# ROM: 0x617B0
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
@@ -29,8 +23,6 @@ lbl_800647B0:
 	.4byte 0x60000000
 
 lbl_800647C4:
-
-	# ROM: 0x617C4
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
@@ -38,8 +30,6 @@ lbl_800647C4:
 	.4byte 0x60000000
 
 lbl_800647D8:
-
-	# ROM: 0x617D8
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
@@ -48,8 +38,6 @@ lbl_800647D8:
 	.4byte 0
 
 __constants:
-
-	# ROM: 0x617F0
 	.4byte 0
 	.4byte 0
 	.4byte 0x41F00000
@@ -58,8 +46,6 @@ __constants:
 	.4byte 0
 
 bit_values:
-
-	# ROM: 0x61808
 	.4byte 0x40240000
 	.4byte 0
 	.4byte 0x40590000
@@ -80,8 +66,6 @@ bit_values:
 	.4byte 0x7F73BF3C
 
 digit_values:
-
-	# ROM: 0x61850
 	.4byte 0x40240000
 	.4byte 0
 	.4byte 0x40590000
@@ -101,8 +85,6 @@ digit_values:
 
 .global __ctype_map
 __ctype_map:
-
-	# ROM: 0x61890
 	.4byte 0x01010101
 	.4byte 0x01010101
 	.4byte 0x01020202
@@ -170,8 +152,6 @@ __ctype_map:
 
 .global __lower_map
 __lower_map:
-
-	# ROM: 0x61990
 	.4byte 0x00010203
 	.4byte 0x04050607
 	.4byte 0x08090A0B
@@ -238,16 +218,12 @@ __lower_map:
 	.4byte 0xFCFDFEFF
 
 lbl_80064A90:
-
-	# ROM: 0x61A90
 	.4byte 0x002D496E
 	.4byte 0x6600496E
 	.4byte 0x66004E61
 	.4byte 0x4E000000
 
 "atan_coeff$96":
-
-	# ROM: 0x61AA0
 	.4byte 0x3F800000
 	.4byte 0xBEAAAAAA
 	.4byte 0x3E4CCC81
@@ -296,8 +272,6 @@ lbl_80064A90:
 	.4byte 0
 
 tmp_float:
-
-	# ROM: 0x61B58
 	.4byte 0x3E800000
 	.4byte 0x3CBE6080
 	.4byte 0x34372200
@@ -305,8 +279,6 @@ tmp_float:
 
 .global __one_over_F
 __one_over_F:
-
-	# ROM: 0x61B68
 	.4byte 0x3F800000
 	.4byte 0x3F7E03F8
 	.4byte 0x3F7C0FC1
@@ -439,8 +411,6 @@ __one_over_F:
 
 .global __sincos_on_quadrant
 __sincos_on_quadrant:
-
-	# ROM: 0x61D6C
 	.4byte 0
 	.4byte 0x3F800000
 	.4byte 0x3F800000
@@ -452,8 +422,6 @@ __sincos_on_quadrant:
 
 .global __sincos_poly
 __sincos_poly:
-
-	# ROM: 0x61D8C
 	.4byte 0x366CCFAA
 	.4byte 0x34A5E129
 	.4byte 0xB9AAE275
@@ -467,8 +435,6 @@ __sincos_poly:
 	.4byte 0
 
 __log2_F:
-
-	# ROM: 0x61DB8
 	.4byte 0xBEC00000
 	.4byte 0xBEBA406C
 	.4byte 0xBEB48C35

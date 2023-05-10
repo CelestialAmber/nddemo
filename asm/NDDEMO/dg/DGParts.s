@@ -1291,8 +1291,6 @@ GetWorldPosition__7DGPartsFv:
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 lbl_800641D8:
-
-	# ROM: 0x611D8
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -1331,53 +1329,35 @@ lbl_800641D8:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066A30:
-
-	# ROM: 0x63A30
 	.asciz "Error:DGParts::Draw>No TexPro[%d]\n"
 	.balign 4
 
 lbl_80066A54:
-
-	# ROM: 0x63A54
 	.asciz "Error MTXInverse\n"
 	.balign 4
 
 lbl_80066A68:
-
-	# ROM: 0x63A68
 	.asciz "DGParts::CreateInstance False No Object\n"
 	.balign 4
 
 lbl_80066A94:
-
-	# ROM: 0x63A94
 	.asciz "DGParts::CreateInstance False CreateChild\n"
 	.balign 4
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A94C8:
-
-	# ROM: 0x6A648
 	.4byte 0x000000FF
 
 lbl_800A94CC:
-
-	# ROM: 0x6A64C
 	.4byte 0xFFFFFFFF
 
 lbl_800A94D0:
-
-	# ROM: 0x6A650
 	.4byte 0
 
 lbl_800A94D4:
-
-	# ROM: 0x6A654
 	.4byte 0x40490FD8
 
 lbl_800A94D8:
-
-	# ROM: 0x6A658
 	.4byte 0x40C90FD8
 	.4byte 0

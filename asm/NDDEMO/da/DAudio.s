@@ -906,14 +906,10 @@ DelayDeleteBuffer__5CSongFv:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80067410:
-
-	# ROM: 0x64410
 	.asciz "Audio Manager initialized success!!\n"
 	.balign 4
 
 lbl_80067438:
-
-	# ROM: 0x64438
 	.asciz "Audio Manager initialized failed!!\n"
 	.asciz "ERROR: Unable to opne '%s'\n"
 	.asciz "ERROR: Unable to allocate buffer\n"
@@ -922,19 +918,13 @@ lbl_80067438:
 	.balign 4
 
 lbl_800674BC:
-
-	# ROM: 0x644BC
 	.asciz "Stop song %d\n"
 	.balign 4
 
 lbl_800674CC:
-
-	# ROM: 0x644CC
 	.asciz "Play song error %d\n"
 
 lbl_800674E0:
-
-	# ROM: 0x644E0
 	.asciz "Play song %d\n"
 	.balign 4
 
@@ -942,8 +932,6 @@ lbl_800674E0:
 
 .global m_sndHooks
 m_sndHooks:
-
-	# ROM: 0x6A3D0
 	.4byte mAlloc__FUl
 	.4byte mFree__FPv
 
@@ -951,31 +939,19 @@ m_sndHooks:
 
 
 lbl_800A9840:
-
-	# ROM: 0x6A9C0
 	.4byte 0x40A00000
 
 lbl_800A9844:
-
-	# ROM: 0x6A9C4
 	.4byte 0x3DCCCCCD
 
 lbl_800A9848:
-
-	# ROM: 0x6A9C8
 	.4byte 0x3F19999A
 
 lbl_800A984C:
-
-	# ROM: 0x6A9CC
 	.4byte 0x3F666666
 
 lbl_800A9850:
-
-	# ROM: 0x6A9D0
 	.4byte 0
 
 lbl_800A9854:
-
-	# ROM: 0x6A9D4
 	.4byte 0x3F000000

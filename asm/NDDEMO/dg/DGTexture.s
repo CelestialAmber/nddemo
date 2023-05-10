@@ -218,24 +218,16 @@ GetMipLevel__9DGTextureFv:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066CD8:
-
-	# ROM: 0x63CD8
 	.asciz "Error DGTexture::~DGTexture  ReferCount>0\n"
 	.balign 4
 
 lbl_80066D04:
-
-	# ROM: 0x63D04
 	.asciz "Error DGTexture::DecRefer  ReferCount<0\n"
 	.balign 4
 
 lbl_80066D30:
-
-	# ROM: 0x63D30
 	.asciz "DGTexture::LoadDTX>dvd.Open\n"
 	.balign 4
 
 lbl_80066D50:
-
-	# ROM: 0x63D50
 	.asciz "DGTexture::LoadDTX>DTX_VERSION\n"

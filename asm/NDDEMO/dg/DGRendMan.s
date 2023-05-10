@@ -1009,8 +1009,6 @@ GetxfbHeight__9DGRendManFv:
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 "LightID_Table$195":
-
-	# ROM: 0x61260
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000004
@@ -1023,32 +1021,22 @@ GetxfbHeight__9DGRendManFv:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_80066AC0:
-
-	# ROM: 0x63AC0
 	.asciz "fbSize = %d\n"
 	.balign 4
 
 lbl_80066AD0:
-
-	# ROM: 0x63AD0
 	.asciz "Error DrawBegin:Already DrawMode\n"
 	.balign 4
 
 lbl_80066AF4:
-
-	# ROM: 0x63AF4
 	.asciz "Error DrawEnd:Still Not DrawMode\n"
 	.balign 4
 
 lbl_80066B18:
-
-	# ROM: 0x63B18
 	.asciz "Error SetRenderMode:Do Not Call SetRenderMode between DrawBegin And DrawEnd\n"
 	.balign 4
 
 lbl_80066B68:
-
-	# ROM: 0x63B68
 	.asciz "SetDispCopyYScale( 1.0f )\n"
 	.balign 4
 	.4byte 0
@@ -1057,109 +1045,73 @@ lbl_80066B68:
 
 .global m_FirstFrameFlag__9DGRendMan
 m_FirstFrameFlag__9DGRendMan:
-
-	# ROM: 0x6A2C8
 	.byte 0x01
 
 .global m_ChangeRenderModeFlag__9DGRendMan
 m_ChangeRenderModeFlag__9DGRendMan:
-
-	# ROM: 0x6A2C9
 	.byte 0x01, 0x00, 0x00
 
 .global m_BGColor__9DGRendMan
 m_BGColor__9DGRendMan:
-
-	# ROM: 0x6A2CC
 	.4byte 0
 
 .global m_ScissorW__9DGRendMan
 m_ScissorW__9DGRendMan:
-
-	# ROM: 0x6A2D0
 	.4byte 0x00000001
 
 .global m_ScissorH__9DGRendMan
 m_ScissorH__9DGRendMan:
-
-	# ROM: 0x6A2D4
 	.4byte 0x00000001
 
 .global m_ViewportW__9DGRendMan
 m_ViewportW__9DGRendMan:
-
-	# ROM: 0x6A2D8
 	.4byte 0x3F800000
 
 .global m_ViewportH__9DGRendMan
 m_ViewportH__9DGRendMan:
-
-	# ROM: 0x6A2DC
 	.4byte 0x3F800000
 
 .global m_ViewportF__9DGRendMan
 m_ViewportF__9DGRendMan:
-
-	# ROM: 0x6A2E0
 	.4byte 0x3F800000
 
 .global m_DispCopySrcW__9DGRendMan
 m_DispCopySrcW__9DGRendMan:
-
-	# ROM: 0x6A2E4
 	.2byte 0x0001
 
 .global m_DispCopySrcH__9DGRendMan
 m_DispCopySrcH__9DGRendMan:
-
-	# ROM: 0x6A2E6
 	.2byte 0x0001
 
 .global m_DispCopyYScale__9DGRendMan
 m_DispCopyYScale__9DGRendMan:
-
-	# ROM: 0x6A2E8
 	.4byte 0x3F800000
 
 .global m_DispCopyDstW__9DGRendMan
 m_DispCopyDstW__9DGRendMan:
-
-	# ROM: 0x6A2EC
 	.2byte 0x0001
 
 .global m_DispCopyDstH__9DGRendMan
 m_DispCopyDstH__9DGRendMan:
-
-	# ROM: 0x6A2EE
 	.2byte 0x0001
 
 .global m_DispCopyGamma__9DGRendMan
 m_DispCopyGamma__9DGRendMan:
-
-	# ROM: 0x6A2F0
 	.4byte 0x00000001
 
 .global m_AdjustForOverscanH__9DGRendMan
 m_AdjustForOverscanH__9DGRendMan:
-
-	# ROM: 0x6A2F4
 	.4byte 0x00100000
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 lbl_800A94E0:
-
-	# ROM: 0x6A660
 	.4byte 0
 
 lbl_800A94E4:
-
-	# ROM: 0x6A664
 	.4byte 0x3F800000
 
 lbl_800A94E8:
-
-	# ROM: 0x6A668
 	.4byte 0x43300000
 	.4byte 0
 

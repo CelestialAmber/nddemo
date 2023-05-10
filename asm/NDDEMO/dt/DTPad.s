@@ -157,8 +157,6 @@ IsPush__5DTPadFUsUs:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 PadChanMask:
-
-	# ROM: 0x63D70
 	.4byte 0x80000000
 	.4byte 0x40000000
 	.4byte 0x20000000

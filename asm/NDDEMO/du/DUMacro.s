@@ -80,8 +80,6 @@ mFree__FPv:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 lbl_800662A0:
-
-	# ROM: 0x632A0
 	.asciz "Heap free %d blocksize %d\n"
 	.balign 4
 	.asciz "DUMacro.cpp"
