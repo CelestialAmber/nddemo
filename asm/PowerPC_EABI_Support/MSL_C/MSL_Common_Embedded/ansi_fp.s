@@ -1,4 +1,6 @@
+.include "macros.s"
 
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global __num2dec
 __num2dec:
@@ -283,3 +285,66 @@ __num2dec:
 /* 8005FE80 0005BE00  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 8005FE84 0005BE04  38 21 00 68 */	addi r1, r1, 0x68
 /* 8005FE88 0005BE08  4E 80 00 20 */	blr
+
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000
+
+
+bit_values:
+	.4byte 0x40240000
+	.4byte 0
+	.4byte 0x40590000
+	.4byte 0
+	.4byte 0x40C38800
+	.4byte 0
+	.4byte 0x4197D784
+	.4byte 0
+	.4byte 0x4341C379
+	.4byte 0x37E08000
+	.4byte 0x4693B8B5
+	.4byte 0xB5056E17
+	.4byte 0x4D384F03
+	.4byte 0xE93FF9F5
+	.4byte 0x5A827748
+	.4byte 0xF9301D32
+	.4byte 0x75154FDD
+	.4byte 0x7F73BF3C
+
+digit_values:
+	.4byte 0x40240000
+	.4byte 0
+	.4byte 0x40590000
+	.4byte 0
+	.4byte 0x408F4000
+	.4byte 0
+	.4byte 0x40C38800
+	.4byte 0
+	.4byte 0x40F86A00
+	.4byte 0
+	.4byte 0x412E8480
+	.4byte 0
+	.4byte 0x416312D0
+	.4byte 0
+	.4byte 0x4197D784
+	.4byte 0
+
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+lbl_800A9AF8:
+	.4byte 0
+	.4byte 0
+
+lbl_800A9B00:
+	.4byte 0x3FF00000
+	.4byte 0
+
+lbl_800A9B08:
+	.4byte 0x43300000
+	.4byte 0x80000000
+
+lbl_800A9B10:
+	.4byte 0x3FB99999
+	.4byte 0x9999999A
+
+lbl_800A9B18:
+	.4byte 0x40240000
+	.4byte 0

@@ -1,4 +1,6 @@
+.include "macros.s"
 
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global usr_put_initialize
 usr_put_initialize:

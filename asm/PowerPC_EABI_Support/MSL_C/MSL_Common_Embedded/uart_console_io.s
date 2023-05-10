@@ -1,6 +1,6 @@
+.include "macros.s"
 
-
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global __close_console
 __close_console:
@@ -118,3 +118,10 @@ __read_console:
 /* 80062384 0005E304  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80062388 0005E308  38 21 00 30 */	addi r1, r1, 0x30
 /* 8006238C 0005E30C  4E 80 00 20 */	blr
+
+.section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+"initialized$16":
+	.skip 0x4
+
+.skip 4

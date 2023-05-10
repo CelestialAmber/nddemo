@@ -1,4 +1,6 @@
+.include "macros.s"
 
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 GetR2__Fv:
 /* 8005F950 0005B8D0  7C 43 13 78 */	mr r3, r2
@@ -40,3 +42,10 @@ __init_cpp_exceptions:
 /* 8005F9C0 0005B940  38 21 00 08 */	addi r1, r1, 0x8
 /* 8005F9C4 0005B944  7C 08 03 A6 */	mtlr r0
 /* 8005F9C8 0005B948  4E 80 00 20 */	blr
+
+.section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
+
+
+fragmentID:
+	.4byte 0xFFFFFFFE
+	.4byte 0

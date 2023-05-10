@@ -1,5 +1,6 @@
+.include "macros.s"
 
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global TRKInitializeNub
 TRKInitializeNub:
@@ -123,3 +124,18 @@ TRKInitializeEndian:
 .L_8005ACB8:
 /* 8005ACB8 00056C38  38 21 00 10 */	addi r1, r1, 0x10
 /* 8005ACBC 00056C3C  4E 80 00 20 */	blr
+
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000
+
+lbl_80064780:
+	.asciz "MetroTRK for Dolphin v0.8"
+	.balign 4
+	.4byte 0
+
+.section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+.global gTRKBigEndian
+gTRKBigEndian:
+	.skip 0x4
+
+.skip 4

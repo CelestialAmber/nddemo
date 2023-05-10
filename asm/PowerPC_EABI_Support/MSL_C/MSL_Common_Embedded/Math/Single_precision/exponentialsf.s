@@ -1,5 +1,6 @@
+.include "macros.s"
 
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global powf
 powf:
@@ -507,3 +508,196 @@ powf:
 .L_80063220:
 /* 80063220 0005F1A0  38 21 00 90 */	addi r1, r1, 0x90
 /* 80063224 0005F1A4  4E 80 00 20 */	blr
+
+
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000
+
+
+__log2_F:
+	.4byte 0xBEC00000
+	.4byte 0xBEBA406C
+	.4byte 0xBEB48C35
+	.4byte 0xBEAEE32E
+	.4byte 0xBEA9452D
+	.4byte 0xBEA3B205
+	.4byte 0xBE9E298F
+	.4byte 0xBE98ABA0
+	.4byte 0xBE933812
+	.4byte 0xBE8DCEBD
+	.4byte 0xBE886F7B
+	.4byte 0xBE831A28
+	.4byte 0xBE7B9D3C
+	.4byte 0xBE711973
+	.4byte 0xBE66A8B1
+	.4byte 0xBE5C4AB0
+	.4byte 0xBE51FF2E
+	.4byte 0xBE47C5E9
+	.4byte 0xBE3D9EA1
+	.4byte 0xBE338918
+	.4byte 0xBE29850F
+	.4byte 0xBE1F924A
+	.4byte 0xBE15B08E
+	.4byte 0xBE0BDFA1
+	.4byte 0xBE021F4A
+	.4byte 0xBDF0DEA4
+	.4byte 0xBDDD9F05
+	.4byte 0xBDCA7F4A
+	.4byte 0xBDB77F0B
+	.4byte 0xBDA49DE0
+	.4byte 0xBD91DB66
+	.4byte 0xBD7E6E71
+	.4byte 0xBD5961ED
+	.4byte 0xBD349081
+	.4byte 0xBD0FF971
+	.4byte 0xBCD7380E
+	.4byte 0xBC8EEF19
+	.4byte 0xBC0E2D45
+	.4byte 0x38256316
+	.4byte 0x3C0E9C73
+	.4byte 0x3C8DDD45
+	.4byte 0x3CD4011D
+	.4byte 0x3D0CDD83
+	.4byte 0x3D2F861E
+	.4byte 0x3D51FAFE
+	.4byte 0x3D743CBA
+	.4byte 0x3D8B25F6
+	.4byte 0x3D9C1492
+	.4byte 0x3DACEA7C
+	.4byte 0x3DBDA7FB
+	.4byte 0x3DCE4D54
+	.4byte 0x3DDEDACE
+	.4byte 0x3DEF50AD
+	.4byte 0x3DFFAF33
+	.4byte 0x3E07FB51
+	.4byte 0x3E10139E
+	.4byte 0x3E1820A0
+	.4byte 0x3E202276
+	.4byte 0x3E28193F
+	.4byte 0x3E30051A
+	.4byte 0x3E37E624
+	.4byte 0x3E3FBC7A
+	.4byte 0x3E47883A
+	.4byte 0x3E4F4981
+	.4byte 0x3E570069
+	.4byte 0x3E5EAD0F
+	.4byte 0x3E664F8D
+	.4byte 0x3E6DE7FF
+	.4byte 0x3E75767F
+	.4byte 0x3E7CFB27
+	.4byte 0x3E823B08
+	.4byte 0x3E85F3AA
+	.4byte 0x3E89A785
+	.4byte 0x3E8D56A6
+	.4byte 0x3E910118
+	.4byte 0x3E94A6E9
+	.4byte 0x3E984822
+	.4byte 0x3E9BE4D1
+	.4byte 0x3E9F7CFF
+	.4byte 0x3EA310B9
+	.4byte 0x3EA6A009
+	.4byte 0x3EAA2AFA
+	.4byte 0x3EADB197
+	.4byte 0x3EB133EA
+	.4byte 0x3EB4B1FD
+	.4byte 0x3EB82BDC
+	.4byte 0x3EBBA190
+	.4byte 0x3EBF1322
+	.4byte 0x3EC2809D
+	.4byte 0x3EC5EA0B
+	.4byte 0x3EC94F75
+	.4byte 0x3ECCB0E4
+	.4byte 0x3ED00E61
+	.4byte 0x3ED367F7
+	.4byte 0x3ED6BDAD
+	.4byte 0x3EDA0F8D
+	.4byte 0x3EDD5DA0
+	.4byte 0x3EE0A7EE
+	.4byte 0x3EE3EE7F
+	.4byte 0x3EE7315D
+	.4byte 0x3EEA708F
+	.4byte 0x3EEDAC1E
+	.4byte 0x3EF0E412
+	.4byte 0x3EF41873
+	.4byte 0x3EF74949
+	.4byte 0x3EFA769B
+	.4byte 0x3EFDA072
+	.4byte 0x3F00636A
+	.4byte 0x3F01F4E5
+	.4byte 0x3F0384AD
+	.4byte 0x3F0512C7
+	.4byte 0x3F069F35
+	.4byte 0x3F0829FB
+	.4byte 0x3F09B31E
+	.4byte 0x3F0B3A9F
+	.4byte 0x3F0CC083
+	.4byte 0x3F0E44CD
+	.4byte 0x3F0FC781
+	.4byte 0x3F1148A1
+	.4byte 0x3F12C832
+	.4byte 0x3F144636
+	.4byte 0x3F15C2B0
+	.4byte 0x3F173DA4
+	.4byte 0x3F18B714
+	.4byte 0x3F1A2F04
+	.4byte 0x3F1BA578
+	.4byte 0x3F1D1A71
+	.4byte 0x3F1E8DF2
+	.4byte 0x3F200000
+	.4byte 0x3F317218
+	.4byte 0x3E75FDF0
+	.4byte 0x3D635854
+	.4byte 0x3C1D9561
+	.4byte 0x3AAEBE2F
+	.4byte 0x3921805E
+	.4byte 0x3781E214
+	.4byte 0x35B3C15F
+	.4byte 0x33DD30D7
+	.4byte 0x3F7FFFFE
+	.4byte 0x3EFFFFFF
+	.4byte 0x3E2AAB03
+	.4byte 0x3D2AAAE6
+	.4byte 0x3C0874AA
+	.4byte 0x3AB5F6D0
+	.4byte 0x3956A4B8
+	.4byte 0x37D5E715
+
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
+
+#weak
+"__log2e_m1$localstatic0$__log2f__Ff":	.4byte 0x3ED20000
+	.4byte 0x3D054765
+
+lbl_800A9B68:
+	.4byte 0xBF38AA80
+
+lbl_800A9B6C:
+	.4byte 0x3EF637A6
+
+_inf:
+	.4byte 0x7F800000
+
+_nan:
+	.4byte 0x7FFFFFFF
+
+lbl_800A9B78:
+	.4byte 0
+
+lbl_800A9B7C:
+	.4byte 0x3FB00000
+
+lbl_800A9B80:
+	.4byte 0x3F400000
+
+lbl_800A9B84:
+	.4byte 0x3E800000
+
+lbl_800A9B88:
+	.4byte 0x3F800000
+
+lbl_800A9B8C:
+	.4byte 0x80000000
+
+lbl_800A9B90:
+	.4byte 0x43300000
+	.4byte 0x80000000
+

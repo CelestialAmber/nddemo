@@ -14577,20 +14577,6 @@ irmodeobj:
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
-#the first 3 might belong in main.cpp
-
-.global dm
-dm:
-	.skip 0x4
-
-.global autoDemoFlag
-autoDemoFlag:
-	.skip 0x4
-
-.global v_flag
-v_flag:
-	.skip 0x8
-
 MSecGX:
 	.skip 0x4
 
@@ -14614,10 +14600,14 @@ bg_stimer:
 	.skip 0x1
 
 "init$810":
-	.skip 0x2
+	.skip 0x1
+
+.skip 1
 
 "time$812":
 	.skip 0x4
 
 "init$813":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3

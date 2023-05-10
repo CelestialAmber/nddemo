@@ -1,4 +1,6 @@
+.include "macros.s"
 
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 TRKSetBufferUsed:
 /* 8005ACE8 00056C68  90 83 00 04 */	stw r4, 0x4(r3)
@@ -634,3 +636,9 @@ TRKReadBuffer_ui32:
 /* 8005B524 000574A4  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B528 000574A8  7C 08 03 A6 */	mtlr r0
 /* 8005B52C 000574AC  4E 80 00 20 */	blr
+
+.section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+.global gTRKMsgBufs
+gTRKMsgBufs:
+	.skip 0x19B0

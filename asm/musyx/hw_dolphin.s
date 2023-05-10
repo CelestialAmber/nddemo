@@ -420,14 +420,18 @@ salDspInitIsDone:
 	.skip 0x4
 
 hwIrqLevel:
-	.skip 0x4
+	.skip 0x2
+
+.skip 2
 
 oldState:
 	.skip 0x4
 
 .global salAIBufferIndex
 salAIBufferIndex:
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 

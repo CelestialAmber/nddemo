@@ -3490,7 +3490,9 @@ sndActive:
 	.skip 0x1
 
 synthJobTableIndex:
-	.skip 0x3
+	.skip 0x1
+
+.skip 2
 
 .global synthITDDefault
 synthITDDefault:
@@ -3526,7 +3528,9 @@ synthHasSurround:
 
 .global synthIsMono
 synthIsMono:
-	.skip 0x3
+	.skip 0x1
+
+.skip 2
 
 .global synthVoice
 synthVoice:
@@ -3538,7 +3542,9 @@ synthMessageCallback:
 
 .global synthIdleWaitActive
 synthIdleWaitActive:
-	.skip 0x8
+	.skip 0x1
+
+.skip 7
 
 .global synthRealTime
 synthRealTime:

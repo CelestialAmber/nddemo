@@ -1,5 +1,6 @@
+.include "macros.s"
 
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global TRKMessageIntoReply
 TRKMessageIntoReply:
@@ -1414,3 +1415,24 @@ TRKDoStop:
 /* 8005CA2C 000589AC  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005CA30 000589B0  7C 08 03 A6 */	mtlr r0
 /* 8005CA34 000589B4  4E 80 00 20 */	blr
+
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0
+
+
+lbl_8006CDE8:
+	.4byte .L_8005BFB8
+	.4byte .L_8005BFD8
+	.4byte .L_8005BFB0
+	.4byte .L_8005BFD8
+	.4byte .L_8005BFC0
+	.4byte .L_8005BFC8
+	.4byte .L_8005BFD0
+
+lbl_8006CE04:
+	.4byte .L_8005C1B4
+	.4byte .L_8005C1D4
+	.4byte .L_8005C1AC
+	.4byte .L_8005C1D4
+	.4byte .L_8005C1BC
+	.4byte .L_8005C1C4
+	.4byte .L_8005C1CC

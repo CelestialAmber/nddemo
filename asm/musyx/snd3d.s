@@ -1623,7 +1623,9 @@ startListNumnum:
 	.skip 0x1
 
 runListNum:
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 

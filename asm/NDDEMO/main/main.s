@@ -176,6 +176,10 @@ __dl__FPv:
 /* 80006808 00002788  7C 08 03 A6 */	mtlr r0
 /* 8000680C 0000278C  4E 80 00 20 */	blr
 
+#ctors
+
+.4byte __sinit_main_cpp
+
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
@@ -203,3 +207,19 @@ lbl_8006D1C0:
 .global audio
 audio:
 	.skip 0x2A4
+
+.section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
+
+.global dm
+dm:
+	.skip 0x4
+
+.global autoDemoFlag
+autoDemoFlag:
+	.skip 0x4
+
+.global v_flag
+v_flag:
+	.skip 0x1
+
+.skip 7

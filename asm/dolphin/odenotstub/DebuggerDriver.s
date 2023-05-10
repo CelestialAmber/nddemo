@@ -2,7 +2,6 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-
 DBGEXIImm:
 /* 80063258 0005F1D8  94 21 FF B8 */	stwu r1, -0x48(r1)
 /* 8006325C 0005F1DC  28 05 00 00 */	cmplwi r5, 0x0
@@ -795,4 +794,6 @@ pEXIInputFlag:
 	.skip 0x4
 
 EXIInputFlag:
-	.skip 0xC
+	.skip 0x1
+
+.skip 0xB

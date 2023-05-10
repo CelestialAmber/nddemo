@@ -1,4 +1,6 @@
+.include "macros.s"
 
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global atanf
 atanf:
@@ -203,3 +205,73 @@ atan2f:
 /* 80062774 0005E6F4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80062778 0005E6F8  7C 08 03 A6 */	mtlr r0
 /* 8006277C 0005E6FC  4E 80 00 20 */	blr
+
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000
+
+"atan_coeff$96":
+	.4byte 0x3F800000
+	.4byte 0xBEAAAAAA
+	.4byte 0x3E4CCC81
+	.4byte 0xBE123E7D
+	.4byte 0x3DE21F95
+	.4byte 0xBDAD417C
+	.4byte 0x3D41186D
+	.4byte 0x40DA826B
+	.4byte 0x404F5958
+	.4byte 0x40000000
+	.4byte 0x3FB925AB
+	.4byte 0x3F95F61A
+	.4byte 0x3F851081
+	.4byte 0x36EF692F
+	.4byte 0x355C1DF9
+	.4byte 0
+	.4byte 0x35291D45
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x3EC90EAA
+	.4byte 0x3F16CBE4
+	.4byte 0x3F490FDA
+	.4byte 0x3F7B53C5
+	.4byte 0x3F96CBE2
+	.4byte 0x3FAFEDD9
+	.4byte 0
+	.4byte 0x37185D99
+	.4byte 0x32C59189
+	.4byte 0x33874A9E
+	.4byte 0x353CFA83
+	.4byte 0x348637BD
+	.4byte 0x35541063
+	.4byte 0x401A8277
+	.4byte 0x3FBF90C7
+	.4byte 0x3F800000
+	.4byte 0x3F2B0DC1
+	.4byte 0x3ED413CD
+	.4byte 0x3E4BAFAF
+	.4byte 0x3516DC59
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+lbl_800A9B30:
+	.4byte 0x401A827A
+
+lbl_800A9B34:
+	.4byte 0x3F800000
+
+lbl_800A9B38:
+	.4byte 0x3ED413CD
+
+lbl_800A9B3C:
+	.4byte 0x3FC90FDB
+
+lbl_800A9B40:
+	.4byte 0
+
+lbl_800A9B44:
+	.4byte 0x40490FDB

@@ -1,5 +1,6 @@
+.include "macros.s"
 
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global cosf
 cosf:
@@ -236,3 +237,46 @@ __sinit_trigf_c:
 /* 80062ADC 0005EA5C  C0 04 00 0C */	lfs f0, 0xc(r4)
 /* 80062AE0 0005EA60  D0 03 00 0C */	stfs f0, 0xc(r3)
 /* 80062AE4 0005EA64  4E 80 00 20 */	blr
+
+#ctors
+
+.4byte __sinit_trigf_c
+.4byte 0
+.4byte 0
+.4byte 0
+.4byte 0
+.4byte 0
+
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000
+
+tmp_float:
+	.4byte 0x3E800000
+	.4byte 0x3CBE6080
+	.4byte 0x34372200
+	.4byte 0x2DA44152
+
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0
+
+__four_over_pi_m1:
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+lbl_800A9B48:
+	.4byte 0x3F22F983
+
+lbl_800A9B4C:
+	.4byte 0x3F000000
+
+lbl_800A9B50:
+	.4byte 0x39B504F3
+	.4byte 0
+
+lbl_800A9B58:
+	.4byte 0x43300000
+	.4byte 0x80000000

@@ -3679,7 +3679,9 @@ curSeqId:
 	.skip 0x4
 
 curFadeOutState:
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 seq_next_id:
 	.skip 0x4

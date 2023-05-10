@@ -1,5 +1,6 @@
+.include "macros.s"
 
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global __TRK_get_MSR
 __TRK_get_MSR:
@@ -1608,3 +1609,81 @@ TRKTargetSetInputPendingPtr:
 /* 8005E670 0005A5F0  38 84 83 88 */	addi r4, r4, gTRKState@l
 /* 8005E674 0005A5F4  90 64 00 A0 */	stw r3, 0xa0(r4)
 /* 8005E678 0005A5F8  4E 80 00 20 */	blr
+
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000
+
+
+.global gTRKMemMap
+gTRKMemMap:
+	.4byte 0
+	.4byte 0xFFFFFFFF
+	.4byte 0x00000001
+	.4byte 0x00000001
+
+lbl_800647B0:
+	.4byte 0x60000000
+	.4byte 0x60000000
+	.4byte 0x60000000
+	.4byte 0x60000000
+	.4byte 0x60000000
+
+lbl_800647C4:
+	.4byte 0x60000000
+	.4byte 0x60000000
+	.4byte 0x60000000
+	.4byte 0x60000000
+	.4byte 0x60000000
+
+lbl_800647D8:
+	.4byte 0x60000000
+	.4byte 0x60000000
+	.4byte 0x60000000
+	.4byte 0x60000000
+	.4byte 0x60000000
+	.4byte 0
+
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0
+
+.global gTRKRestoreFlags
+gTRKRestoreFlags:
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+gTRKExceptionStatus:
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0x01000000
+
+gTRKStepStatus:
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+TRK_saved_exceptionID:
+	.skip 0x2
+
+.skip 2
+
+.global gTRKSaveState
+gTRKSaveState:
+	.skip 0x94
+
+.global TRKvalue128_temp
+TRKvalue128_temp:
+	.skip 0x10
+
+.global gTRKState
+gTRKState:
+	.skip 0xA4
+
+.skip 4
+
+.global gTRKCPUState
+gTRKCPUState:
+	.skip 0x430

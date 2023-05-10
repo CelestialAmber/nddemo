@@ -1,5 +1,6 @@
+.include "macros.s"
 
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global __cvt_fp2unsigned
 __cvt_fp2unsigned:
@@ -412,3 +413,13 @@ __cvt_dbl_usll:
 .L_8005F948:
 /* 8005F948 0005B8C8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8005F94C 0005B8CC  4E 80 00 20 */	blr
+
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000
+
+__constants:
+	.4byte 0
+	.4byte 0
+	.4byte 0x41F00000
+	.4byte 0
+	.4byte 0x41E00000
+	.4byte 0

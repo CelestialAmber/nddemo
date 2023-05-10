@@ -1,4 +1,6 @@
+.include "macros.s"
 
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global strchr
 strchr:
@@ -129,3 +131,9 @@ strlen:
 /* 80062204 0005E184  40 82 FF F4 */	bne .L_800621F8
 /* 80062208 0005E188  7C 83 23 78 */	mr r3, r4
 /* 8006220C 0005E18C  4E 80 00 20 */	blr
+
+.section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
+
+K1:	.4byte 0x80808080
+
+K2:	.4byte 0xFEFEFEFF

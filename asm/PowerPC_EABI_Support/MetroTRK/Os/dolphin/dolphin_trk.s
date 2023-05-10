@@ -183,3 +183,30 @@ __TRK_reset:
 /* 80005320 00002320  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 80005324 00002324  7C 08 03 A6 */	mtlr r0
 /* 80005328 00002328  4E 80 00 20 */	blr
+
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0
+
+TRK_ISR_OFFSETS:
+	.4byte 0x00000100
+	.4byte 0x00000200
+	.4byte 0x00000300
+	.4byte 0x00000400
+	.4byte 0x00000500
+	.4byte 0x00000600
+	.4byte 0x00000700
+	.4byte 0x00000800
+	.4byte 0x00000900
+	.4byte 0x00000C00
+	.4byte 0x00000D00
+	.4byte 0x00000F00
+	.4byte 0x00001300
+	.4byte 0x00001400
+	.4byte 0x00001700
+	.4byte 0
+
+.section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+lc_base:
+	.skip 0x4
+
+.skip 4

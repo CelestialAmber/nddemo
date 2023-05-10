@@ -1,4 +1,6 @@
+.include "macros.s"
 
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global TRKInitializeDispatcher
 TRKInitializeDispatcher:
@@ -44,3 +46,51 @@ TRKDispatchMessage:
 /* 8005B788 00057708  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B78C 0005770C  7C 08 03 A6 */	mtlr r0
 /* 8005B790 00057710  4E 80 00 20 */	blr
+
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0
+
+
+.global gTRKDispatchTable
+gTRKDispatchTable:
+	.4byte TRKDoUnsupported
+	.4byte TRKDoConnect
+	.4byte TRKDoDisconnect
+	.4byte TRKDoReset
+	.4byte TRKDoVersions
+	.4byte TRKDoSupportMask
+	.4byte TRKDoCPUType
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoReadMemory
+	.4byte TRKDoWriteMemory
+	.4byte TRKDoReadRegisters
+	.4byte TRKDoWriteRegisters
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoFlushCache
+	.4byte TRKDoUnsupported
+	.4byte TRKDoContinue
+	.4byte TRKDoStep
+	.4byte TRKDoStop
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte TRKDoUnsupported
+	.4byte 0
+	.4byte 0
+
+.section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+.global gTRKDispatchTableSize
+gTRKDispatchTableSize:
+	.skip 0x4
+
+.skip 4

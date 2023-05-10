@@ -2479,4 +2479,6 @@ lbl_800A94C4:
 
 .global lineMode__8DGObject
 lineMode__8DGObject:
-	.skip 0x8
+	.skip 0x4
+
+.skip 4

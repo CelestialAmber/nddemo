@@ -3217,19 +3217,25 @@ Coin:
 	.skip 0x4
 
 "init$303":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 "angle_z$305":
 	.skip 0x4
 
 "init$306":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 "add_x$308":
 	.skip 0x4
 
 "init$309":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 "add_z$311":
 	.skip 0x4
@@ -3253,13 +3259,17 @@ Coin:
 	.skip 0x1
 
 "init$331":
-	.skip 0x2
+	.skip 0x1
+
+.skip 1
 
 "POS_POL2_lpow$346":
 	.skip 0x4
 
 "init$347":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 "POS_POL2_lpow_add$349":
 	.skip 0x4
@@ -3283,16 +3293,22 @@ Coin:
 	.skip 0x1
 
 "init$365":
-	.skip 0x2
+	.skip 0x1
+
+.skip 1
 
 "POS_POL3_lpow$380":
 	.skip 0x4
 
 "init$381":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 "POS_POL3_lpow_add$383":
 	.skip 0x4
 
 "init$384":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3

@@ -1,6 +1,6 @@
+.include "macros.s"
 
-
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global frexp
 frexp:
@@ -47,3 +47,9 @@ frexp:
 .L_800624A4:
 /* 800624A4 0005E424  38 21 00 18 */	addi r1, r1, 0x18
 /* 800624A8 0005E428  4E 80 00 20 */	blr
+
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+lbl_800A9B28:
+	.4byte 0x43500000
+	.4byte 0

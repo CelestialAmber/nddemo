@@ -3679,7 +3679,9 @@ dspVoice:
 
 .global salMessageCallback
 salMessageCallback:
-	.skip 0x8
+	.skip 0x4
+
+.skip 4
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 

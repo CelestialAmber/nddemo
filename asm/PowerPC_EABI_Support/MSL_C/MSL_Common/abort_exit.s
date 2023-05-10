@@ -1,4 +1,6 @@
+.include "macros.s"
 
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global exit
 exit:
@@ -77,3 +79,33 @@ exit:
 /* 8005FACC 0005BA4C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8005FAD0 0005BA50  7C 08 03 A6 */	mtlr r0
 /* 8005FAD4 0005BA54  4E 80 00 20 */	blr
+
+.section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
+
+atexit_funcs:
+	.skip 0x100
+
+__atexit_funcs:
+	.skip 0x100
+
+.section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.global __aborting
+__aborting:
+	.skip 0x4
+
+atexit_curr_func:
+	.skip 0x4
+
+__atexit_curr_func:
+	.skip 0x4
+
+.global __stdio_exit
+__stdio_exit:
+	.skip 0x4
+
+.global __console_exit
+__console_exit:
+	.skip 0x4
+
+.skip 4

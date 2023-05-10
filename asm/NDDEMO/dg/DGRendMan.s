@@ -1128,7 +1128,9 @@ m_InstanceNum__9DGRendMan:
 
 .global m_DrawReadyFlag__9DGRendMan
 m_DrawReadyFlag__9DGRendMan:
-	.skip 0x3
+	.skip 0x1
+
+.skip 2
 
 .global m_GpFIFO_Size__9DGRendMan
 m_GpFIFO_Size__9DGRendMan:
@@ -1196,7 +1198,9 @@ m_DispCopySrcY__9DGRendMan:
 
 .global m_AdjustForOverscanW__9DGRendMan
 m_AdjustForOverscanW__9DGRendMan:
-	.skip 0x4
+	.skip 0x2
+
+.skip 2
 
 .global m_progressive__9DGRendMan
 m_progressive__9DGRendMan:

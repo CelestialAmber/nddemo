@@ -554,7 +554,9 @@ aramFreeStreamBuffers:
 	.skip 0x4
 
 aramIdleStreamBuffers:
-	.skip 0x8
+	.skip 0x4
+
+.skip 4
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 

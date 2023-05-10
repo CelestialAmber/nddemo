@@ -2122,8 +2122,6 @@ dataFXGroups:
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-
-
 dataSmpSDirNum:
 	.skip 0x2
 
@@ -2173,7 +2171,9 @@ dataFXGroupNum:
 	.skip 0x4
 
 "result$605":
-	.skip 0x8
+	.skip 0x4
+
+.skip 4
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 

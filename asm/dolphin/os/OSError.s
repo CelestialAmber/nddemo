@@ -1,0 +1,269 @@
+.include "macros.s"
+
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
+
+.global OSReport
+OSReport:
+/* 80029BE4 00025B64  7C 08 02 A6 */	mflr r0
+/* 80029BE8 00025B68  90 01 00 04 */	stw r0, 0x4(r1)
+/* 80029BEC 00025B6C  94 21 FF 88 */	stwu r1, -0x78(r1)
+/* 80029BF0 00025B70  40 86 00 24 */	bne cr1, .L_80029C14
+/* 80029BF4 00025B74  D8 21 00 28 */	stfd f1, 0x28(r1)
+/* 80029BF8 00025B78  D8 41 00 30 */	stfd f2, 0x30(r1)
+/* 80029BFC 00025B7C  D8 61 00 38 */	stfd f3, 0x38(r1)
+/* 80029C00 00025B80  D8 81 00 40 */	stfd f4, 0x40(r1)
+/* 80029C04 00025B84  D8 A1 00 48 */	stfd f5, 0x48(r1)
+/* 80029C08 00025B88  D8 C1 00 50 */	stfd f6, 0x50(r1)
+/* 80029C0C 00025B8C  D8 E1 00 58 */	stfd f7, 0x58(r1)
+/* 80029C10 00025B90  D9 01 00 60 */	stfd f8, 0x60(r1)
+.L_80029C14:
+/* 80029C14 00025B94  90 61 00 08 */	stw r3, 0x8(r1)
+/* 80029C18 00025B98  3C 00 01 00 */	lis r0, 0x100
+/* 80029C1C 00025B9C  90 81 00 0C */	stw r4, 0xc(r1)
+/* 80029C20 00025BA0  38 81 00 6C */	addi r4, r1, 0x6c
+/* 80029C24 00025BA4  90 A1 00 10 */	stw r5, 0x10(r1)
+/* 80029C28 00025BA8  90 C1 00 14 */	stw r6, 0x14(r1)
+/* 80029C2C 00025BAC  90 E1 00 18 */	stw r7, 0x18(r1)
+/* 80029C30 00025BB0  91 01 00 1C */	stw r8, 0x1c(r1)
+/* 80029C34 00025BB4  91 21 00 20 */	stw r9, 0x20(r1)
+/* 80029C38 00025BB8  91 41 00 24 */	stw r10, 0x24(r1)
+/* 80029C3C 00025BBC  90 01 00 6C */	stw r0, 0x6c(r1)
+/* 80029C40 00025BC0  38 01 00 80 */	addi r0, r1, 0x80
+/* 80029C44 00025BC4  90 01 00 70 */	stw r0, 0x70(r1)
+/* 80029C48 00025BC8  38 01 00 08 */	addi r0, r1, 0x8
+/* 80029C4C 00025BCC  90 01 00 74 */	stw r0, 0x74(r1)
+/* 80029C50 00025BD0  48 03 6B 81 */	bl vprintf
+/* 80029C54 00025BD4  80 01 00 7C */	lwz r0, 0x7c(r1)
+/* 80029C58 00025BD8  38 21 00 78 */	addi r1, r1, 0x78
+/* 80029C5C 00025BDC  7C 08 03 A6 */	mtlr r0
+/* 80029C60 00025BE0  4E 80 00 20 */	blr
+
+.global OSPanic
+OSPanic:
+/* 80029C64 00025BE4  7C 08 02 A6 */	mflr r0
+/* 80029C68 00025BE8  90 01 00 04 */	stw r0, 0x4(r1)
+/* 80029C6C 00025BEC  94 21 FF 70 */	stwu r1, -0x90(r1)
+/* 80029C70 00025BF0  93 E1 00 8C */	stw r31, 0x8c(r1)
+/* 80029C74 00025BF4  93 C1 00 88 */	stw r30, 0x88(r1)
+/* 80029C78 00025BF8  93 A1 00 84 */	stw r29, 0x84(r1)
+/* 80029C7C 00025BFC  93 81 00 80 */	stw r28, 0x80(r1)
+/* 80029C80 00025C00  40 86 00 24 */	bne cr1, .L_80029CA4
+/* 80029C84 00025C04  D8 21 00 28 */	stfd f1, 0x28(r1)
+/* 80029C88 00025C08  D8 41 00 30 */	stfd f2, 0x30(r1)
+/* 80029C8C 00025C0C  D8 61 00 38 */	stfd f3, 0x38(r1)
+/* 80029C90 00025C10  D8 81 00 40 */	stfd f4, 0x40(r1)
+/* 80029C94 00025C14  D8 A1 00 48 */	stfd f5, 0x48(r1)
+/* 80029C98 00025C18  D8 C1 00 50 */	stfd f6, 0x50(r1)
+/* 80029C9C 00025C1C  D8 E1 00 58 */	stfd f7, 0x58(r1)
+/* 80029CA0 00025C20  D9 01 00 60 */	stfd f8, 0x60(r1)
+.L_80029CA4:
+/* 80029CA4 00025C24  90 61 00 08 */	stw r3, 0x8(r1)
+/* 80029CA8 00025C28  3B 83 00 00 */	addi r28, r3, 0x0
+/* 80029CAC 00025C2C  3B C4 00 00 */	addi r30, r4, 0x0
+/* 80029CB0 00025C30  90 81 00 0C */	stw r4, 0xc(r1)
+/* 80029CB4 00025C34  3B A5 00 00 */	addi r29, r5, 0x0
+/* 80029CB8 00025C38  90 A1 00 10 */	stw r5, 0x10(r1)
+/* 80029CBC 00025C3C  90 C1 00 14 */	stw r6, 0x14(r1)
+/* 80029CC0 00025C40  3C C0 80 06 */	lis r6, lbl_80067ED0@ha
+/* 80029CC4 00025C44  3B E6 7E D0 */	addi r31, r6, lbl_80067ED0@l
+/* 80029CC8 00025C48  90 E1 00 18 */	stw r7, 0x18(r1)
+/* 80029CCC 00025C4C  91 01 00 1C */	stw r8, 0x1c(r1)
+/* 80029CD0 00025C50  91 21 00 20 */	stw r9, 0x20(r1)
+/* 80029CD4 00025C54  91 41 00 24 */	stw r10, 0x24(r1)
+/* 80029CD8 00025C58  48 00 13 0D */	bl OSDisableInterrupts
+/* 80029CDC 00025C5C  3C 00 03 00 */	lis r0, 0x300
+/* 80029CE0 00025C60  90 01 00 74 */	stw r0, 0x74(r1)
+/* 80029CE4 00025C64  38 01 00 98 */	addi r0, r1, 0x98
+/* 80029CE8 00025C68  38 81 00 74 */	addi r4, r1, 0x74
+/* 80029CEC 00025C6C  90 01 00 78 */	stw r0, 0x78(r1)
+/* 80029CF0 00025C70  38 01 00 08 */	addi r0, r1, 0x8
+/* 80029CF4 00025C74  38 7D 00 00 */	addi r3, r29, 0x0
+/* 80029CF8 00025C78  90 01 00 7C */	stw r0, 0x7c(r1)
+/* 80029CFC 00025C7C  48 03 6A D5 */	bl vprintf
+/* 80029D00 00025C80  38 7F 00 00 */	addi r3, r31, 0x0
+/* 80029D04 00025C84  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029D08 00025C88  38 9C 00 00 */	addi r4, r28, 0x0
+/* 80029D0C 00025C8C  38 BE 00 00 */	addi r5, r30, 0x0
+/* 80029D10 00025C90  4B FF FE D5 */	bl OSReport
+/* 80029D14 00025C94  38 7F 00 18 */	addi r3, r31, 0x18
+/* 80029D18 00025C98  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029D1C 00025C9C  4B FF FE C9 */	bl OSReport
+/* 80029D20 00025CA0  3B C0 00 00 */	li r30, 0x0
+/* 80029D24 00025CA4  4B FF FA 65 */	bl OSGetStackPointer
+/* 80029D28 00025CA8  7C 7D 1B 78 */	mr r29, r3
+/* 80029D2C 00025CAC  48 00 00 20 */	b .L_80029D4C
+.L_80029D30:
+/* 80029D30 00025CB0  80 BD 00 00 */	lwz r5, 0x0(r29)
+/* 80029D34 00025CB4  7F A4 EB 78 */	mr r4, r29
+/* 80029D38 00025CB8  80 DD 00 04 */	lwz r6, 0x4(r29)
+/* 80029D3C 00025CBC  38 7F 00 40 */	addi r3, r31, 0x40
+/* 80029D40 00025CC0  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029D44 00025CC4  4B FF FE A1 */	bl OSReport
+/* 80029D48 00025CC8  83 BD 00 00 */	lwz r29, 0x0(r29)
+.L_80029D4C:
+/* 80029D4C 00025CCC  28 1D 00 00 */	cmplwi r29, 0x0
+/* 80029D50 00025CD0  41 82 00 1C */	beq .L_80029D6C
+/* 80029D54 00025CD4  3C 1D 00 01 */	addis r0, r29, 0x1
+/* 80029D58 00025CD8  28 00 FF FF */	cmplwi r0, 0xffff
+/* 80029D5C 00025CDC  41 82 00 10 */	beq .L_80029D6C
+/* 80029D60 00025CE0  28 1E 00 10 */	cmplwi r30, 0x10
+/* 80029D64 00025CE4  3B DE 00 01 */	addi r30, r30, 0x1
+/* 80029D68 00025CE8  41 80 FF C8 */	blt .L_80029D30
+.L_80029D6C:
+/* 80029D6C 00025CEC  4B FF D9 55 */	bl PPCHalt
+/* 80029D70 00025CF0  80 01 00 94 */	lwz r0, 0x94(r1)
+/* 80029D74 00025CF4  83 E1 00 8C */	lwz r31, 0x8c(r1)
+/* 80029D78 00025CF8  83 C1 00 88 */	lwz r30, 0x88(r1)
+/* 80029D7C 00025CFC  7C 08 03 A6 */	mtlr r0
+/* 80029D80 00025D00  83 A1 00 84 */	lwz r29, 0x84(r1)
+/* 80029D84 00025D04  83 81 00 80 */	lwz r28, 0x80(r1)
+/* 80029D88 00025D08  38 21 00 90 */	addi r1, r1, 0x90
+/* 80029D8C 00025D0C  4E 80 00 20 */	blr
+
+.global OSSetErrorHandler
+OSSetErrorHandler:
+/* 80029D90 00025D10  3C A0 80 08 */	lis r5, OSErrorTable@ha
+/* 80029D94 00025D14  54 63 13 BA */	clrlslwi r3, r3, 16, 2
+/* 80029D98 00025D18  38 05 FF C0 */	addi r0, r5, OSErrorTable@l
+/* 80029D9C 00025D1C  7C A0 1A 14 */	add r5, r0, r3
+/* 80029DA0 00025D20  80 65 00 00 */	lwz r3, 0x0(r5)
+/* 80029DA4 00025D24  90 85 00 00 */	stw r4, 0x0(r5)
+/* 80029DA8 00025D28  4E 80 00 20 */	blr
+
+.global __OSUnhandledException
+__OSUnhandledException:
+/* 80029DAC 00025D2C  7C 08 02 A6 */	mflr r0
+/* 80029DB0 00025D30  90 01 00 04 */	stw r0, 0x4(r1)
+/* 80029DB4 00025D34  94 21 FF D0 */	stwu r1, -0x30(r1)
+/* 80029DB8 00025D38  BF 61 00 1C */	stmw r27, 0x1c(r1)
+/* 80029DBC 00025D3C  7C 9C 23 78 */	mr r28, r4
+/* 80029DC0 00025D40  3B 63 00 00 */	addi r27, r3, 0x0
+/* 80029DC4 00025D44  3B A5 00 00 */	addi r29, r5, 0x0
+/* 80029DC8 00025D48  3B C6 00 00 */	addi r30, r6, 0x0
+/* 80029DCC 00025D4C  80 04 01 9C */	lwz r0, 0x19c(r4)
+/* 80029DD0 00025D50  3C 80 80 06 */	lis r4, lbl_80067ED0@ha
+/* 80029DD4 00025D54  3B E4 7E D0 */	addi r31, r4, lbl_80067ED0@l
+/* 80029DD8 00025D58  54 00 07 BD */	rlwinm. r0, r0, 0, 30, 30
+/* 80029DDC 00025D5C  40 82 00 18 */	bne .L_80029DF4
+/* 80029DE0 00025D60  38 7F 00 5C */	addi r3, r31, 0x5c
+/* 80029DE4 00025D64  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029DE8 00025D68  57 64 06 3E */	clrlwi r4, r27, 24
+/* 80029DEC 00025D6C  4B FF FD F9 */	bl OSReport
+/* 80029DF0 00025D70  48 00 00 68 */	b .L_80029E58
+.L_80029DF4:
+/* 80029DF4 00025D74  57 63 06 3E */	clrlwi r3, r27, 24
+/* 80029DF8 00025D78  3C 80 80 08 */	lis r4, OSErrorTable@ha
+/* 80029DFC 00025D7C  57 65 15 BA */	clrlslwi r5, r27, 24, 2
+/* 80029E00 00025D80  38 04 FF C0 */	addi r0, r4, OSErrorTable@l
+/* 80029E04 00025D84  7C 80 2A 14 */	add r4, r0, r5
+/* 80029E08 00025D88  81 84 00 00 */	lwz r12, 0x0(r4)
+/* 80029E0C 00025D8C  28 0C 00 00 */	cmplwi r12, 0x0
+/* 80029E10 00025D90  41 82 00 24 */	beq .L_80029E34
+/* 80029E14 00025D94  7D 88 03 A6 */	mtlr r12
+/* 80029E18 00025D98  38 9C 00 00 */	addi r4, r28, 0x0
+/* 80029E1C 00025D9C  38 BD 00 00 */	addi r5, r29, 0x0
+/* 80029E20 00025DA0  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029E24 00025DA4  38 DE 00 00 */	addi r6, r30, 0x0
+/* 80029E28 00025DA8  4E 80 00 21 */	blrl
+/* 80029E2C 00025DAC  7F 83 E3 78 */	mr r3, r28
+/* 80029E30 00025DB0  4B FF F8 81 */	bl OSLoadContext
+.L_80029E34:
+/* 80029E34 00025DB4  57 60 06 3E */	clrlwi r0, r27, 24
+/* 80029E38 00025DB8  28 00 00 08 */	cmplwi r0, 0x8
+/* 80029E3C 00025DBC  40 82 00 0C */	bne .L_80029E48
+/* 80029E40 00025DC0  7F 83 E3 78 */	mr r3, r28
+/* 80029E44 00025DC4  4B FF F8 6D */	bl OSLoadContext
+.L_80029E48:
+/* 80029E48 00025DC8  38 7F 00 7C */	addi r3, r31, 0x7c
+/* 80029E4C 00025DCC  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029E50 00025DD0  57 64 06 3E */	clrlwi r4, r27, 24
+/* 80029E54 00025DD4  4B FF FD 91 */	bl OSReport
+.L_80029E58:
+/* 80029E58 00025DD8  38 6D 82 28 */	addi r3, r13, lbl_800A8CA8@sda21
+/* 80029E5C 00025DDC  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029E60 00025DE0  4B FF FD 85 */	bl OSReport
+/* 80029E64 00025DE4  7F 83 E3 78 */	mr r3, r28
+/* 80029E68 00025DE8  4B FF FA 09 */	bl OSDumpContext
+/* 80029E6C 00025DEC  38 9D 00 00 */	addi r4, r29, 0x0
+/* 80029E70 00025DF0  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029E74 00025DF4  38 BE 00 00 */	addi r5, r30, 0x0
+/* 80029E78 00025DF8  38 7F 00 94 */	addi r3, r31, 0x94
+/* 80029E7C 00025DFC  4B FF FD 69 */	bl OSReport
+/* 80029E80 00025E00  57 60 06 3E */	clrlwi r0, r27, 24
+/* 80029E84 00025E04  2C 00 00 04 */	cmpwi r0, 0x4
+/* 80029E88 00025E08  41 82 00 80 */	beq .L_80029F08
+/* 80029E8C 00025E0C  40 80 00 14 */	bge .L_80029EA0
+/* 80029E90 00025E10  2C 00 00 02 */	cmpwi r0, 0x2
+/* 80029E94 00025E14  41 82 00 1C */	beq .L_80029EB0
+/* 80029E98 00025E18  40 80 00 30 */	bge .L_80029EC8
+/* 80029E9C 00025E1C  48 00 00 6C */	b .L_80029F08
+.L_80029EA0:
+/* 80029EA0 00025E20  2C 00 00 06 */	cmpwi r0, 0x6
+/* 80029EA4 00025E24  41 82 00 50 */	beq .L_80029EF4
+/* 80029EA8 00025E28  40 80 00 60 */	bge .L_80029F08
+/* 80029EAC 00025E2C  48 00 00 30 */	b .L_80029EDC
+.L_80029EB0:
+/* 80029EB0 00025E30  80 9C 01 98 */	lwz r4, 0x198(r28)
+/* 80029EB4 00025E34  38 BE 00 00 */	addi r5, r30, 0x0
+/* 80029EB8 00025E38  38 7F 00 C4 */	addi r3, r31, 0xc4
+/* 80029EBC 00025E3C  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029EC0 00025E40  4B FF FD 25 */	bl OSReport
+/* 80029EC4 00025E44  48 00 00 44 */	b .L_80029F08
+.L_80029EC8:
+/* 80029EC8 00025E48  80 9C 01 98 */	lwz r4, 0x198(r28)
+/* 80029ECC 00025E4C  38 7F 01 24 */	addi r3, r31, 0x124
+/* 80029ED0 00025E50  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029ED4 00025E54  4B FF FD 11 */	bl OSReport
+/* 80029ED8 00025E58  48 00 00 30 */	b .L_80029F08
+.L_80029EDC:
+/* 80029EDC 00025E5C  80 9C 01 98 */	lwz r4, 0x198(r28)
+/* 80029EE0 00025E60  38 BE 00 00 */	addi r5, r30, 0x0
+/* 80029EE4 00025E64  38 7F 01 70 */	addi r3, r31, 0x170
+/* 80029EE8 00025E68  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029EEC 00025E6C  4B FF FC F9 */	bl OSReport
+/* 80029EF0 00025E70  48 00 00 18 */	b .L_80029F08
+.L_80029EF4:
+/* 80029EF4 00025E74  80 9C 01 98 */	lwz r4, 0x198(r28)
+/* 80029EF8 00025E78  38 BE 00 00 */	addi r5, r30, 0x0
+/* 80029EFC 00025E7C  38 7F 01 D4 */	addi r3, r31, 0x1d4
+/* 80029F00 00025E80  4C C6 31 82 */	crclr 4*cr1+eq
+/* 80029F04 00025E84  4B FF FC E1 */	bl OSReport
+.L_80029F08:
+/* 80029F08 00025E88  4B FF D7 B9 */	bl PPCHalt
+/* 80029F0C 00025E8C  BB 61 00 1C */	lmw r27, 0x1c(r1)
+/* 80029F10 00025E90  80 01 00 34 */	lwz r0, 0x34(r1)
+/* 80029F14 00025E94  38 21 00 30 */	addi r1, r1, 0x30
+/* 80029F18 00025E98  7C 08 03 A6 */	mtlr r0
+/* 80029F1C 00025E9C  4E 80 00 20 */	blr
+
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0
+
+
+lbl_80067ED0:
+	.asciz " in "%s" on line %d.\n"
+	.balign 4
+	.asciz "\nAddress:      Back Chain    LR Save\n"
+	.balign 4
+	.asciz "0x%08x:   0x%08x    0x%08x\n"
+	.asciz "Non-recoverable Exception %d"
+	.balign 4
+	.asciz "Unhandled Exception %d"
+	.balign 4
+	.asciz "\nDSISR= 0x%08x                   DAR  = 0x%08x\n"
+	.asciz "\nInstruction at 0x%x (read from SRR0) attempted to access invalid address 0x%x (read from DAR)\n"
+	.asciz "\nAttempted to fetch instruction from invalid address 0x%x (read from SRR0)\n"
+	.asciz "\nInstruction at 0x%x (read from SRR0) attempted to access unaligned address 0x%x (read from DAR)\n"
+	.balign 4
+	.asciz "\nProgram exception : Possible illegal instruction/operation at or around 0x%x (read from SRR0)\n"
+	.4byte 0
+
+.section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
+
+lbl_800A8CA8:
+	.4byte 0x0A000000
+	.4byte 0
+
+.section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+OSErrorTable:
+	.skip 0x40

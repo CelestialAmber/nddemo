@@ -4073,22 +4073,30 @@ lbl_800A9788:
 	.skip 0x4
 
 "init$293":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 "cnt$416":
 	.skip 0x4
 
 "init$417":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 "cnt$499":
 	.skip 0x4
 
 "init$500":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 "cnt$538":
 	.skip 0x4
 
 "init$539":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3

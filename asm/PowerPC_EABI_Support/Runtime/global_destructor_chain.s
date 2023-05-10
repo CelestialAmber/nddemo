@@ -1,5 +1,6 @@
+.include "macros.s"
 
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global __destroy_global_chain
 __destroy_global_chain:
@@ -23,3 +24,20 @@ __destroy_global_chain:
 /* 8005F138 0005B0B8  38 21 00 08 */	addi r1, r1, 0x8
 /* 8005F13C 0005B0BC  7C 08 03 A6 */	mtlr r0
 /* 8005F140 0005B0C0  4E 80 00 20 */	blr
+
+.global __register_global_object
+__register_global_object:
+/* 8005F144 0005B0C4  80 0D 88 B8 */	lwz r0, __global_destructor_chain@sda21(r13)
+/* 8005F148 0005B0C8  90 05 00 00 */	stw r0, 0x0(r5)
+/* 8005F14C 0005B0CC  90 85 00 04 */	stw r4, 0x4(r5)
+/* 8005F150 0005B0D0  90 65 00 08 */	stw r3, 0x8(r5)
+/* 8005F154 0005B0D4  90 AD 88 B8 */	stw r5, __global_destructor_chain@sda21(r13)
+/* 8005F158 0005B0D8  4E 80 00 20 */	blr
+
+.section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.global __global_destructor_chain
+__global_destructor_chain:
+	.skip 0x4
+
+.skip 4

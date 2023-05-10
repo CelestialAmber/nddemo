@@ -1907,22 +1907,30 @@ lbl_800A963C:
 	.skip 0x4
 
 "init$226":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 "POS_POL2_lpow_add$228":
 	.skip 0x4
 
 "init$229":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 "POS_POL3_lpow$243":
 	.skip 0x4
 
 "init$244":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3
 
 "POS_POL3_lpow_add$246":
 	.skip 0x4
 
 "init$247":
-	.skip 0x4
+	.skip 0x1
+
+.skip 3

@@ -1,5 +1,6 @@
+.include "macros.s"
 
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global sprintf
 sprintf:
@@ -1898,3 +1899,169 @@ parse_format:
 /* 8006207C 0005DFFC  83 A1 00 2C */	lwz r29, 0x2c(r1)
 /* 80062080 0005E000  38 21 00 38 */	addi r1, r1, 0x38
 /* 80062084 0005E004  4E 80 00 20 */	blr
+
+.section .rodata, "wa"  # 0x80063D20 - 0x80065000
+
+lbl_80064A90:
+	.4byte 0x002D496E
+	.4byte 0x6600496E
+	.4byte 0x66004E61
+	.4byte 0x4E000000
+
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0
+
+lbl_8006CF88:
+	.4byte .L_800617A4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_80061744
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_80061744
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_8006177C
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_80061790
+	.4byte .L_800617B4
+	.4byte .L_800617B4
+	.4byte .L_800617A4
+
+lbl_8006D00C:
+	.4byte .L_80061A34
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_800619FC
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_800619FC
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A14
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A24
+	.4byte .L_80061A40
+	.4byte .L_80061A40
+	.4byte .L_80061A34
+
+lbl_8006D090:
+	.4byte .L_80061F60
+	.4byte .L_80062040
+	.4byte .L_80061F4C
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80061ECC
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80061FC4
+	.4byte .L_80061ECC
+	.4byte .L_80061F60
+	.4byte .L_80061F14
+	.4byte .L_80061F4C
+	.4byte .L_80062040
+	.4byte .L_80061ECC
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80062028
+	.4byte .L_80061ECC
+	.4byte .L_80061FA0
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80061FFC
+	.4byte .L_80062040
+	.4byte .L_80061ECC
+	.4byte .L_80062040
+	.4byte .L_80062040
+	.4byte .L_80061ECC
+
+lbl_8006D160:
+	.4byte .L_80061C74
+	.4byte .L_80061CB0
+	.4byte .L_80061CB0
+	.4byte .L_80061C8C
+	.4byte .L_80061CB0
+	.4byte .L_80061CB0
+	.4byte .L_80061CB0
+	.4byte .L_80061CB0
+	.4byte .L_80061CB0
+	.4byte .L_80061CB0
+	.4byte .L_80061CB0
+	.4byte .L_80061C68
+	.4byte .L_80061CB0
+	.4byte .L_80061C5C
+	.4byte .L_80061CB0
+	.4byte .L_80061CB0
+	.4byte .L_80061C98
+	.4byte 0
+
+.section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
+
+lbl_800A8D90:
+	.4byte 0
+	.4byte 0
+
+.section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+lbl_800A9B20:
+	.4byte 0
+	.4byte 0

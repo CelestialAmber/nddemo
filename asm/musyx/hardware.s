@@ -1341,7 +1341,9 @@ salAuxFrame:
 
 .global salFrame
 salFrame:
-	.skip 0x2
+	.skip 0x1
+
+.skip 1
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 

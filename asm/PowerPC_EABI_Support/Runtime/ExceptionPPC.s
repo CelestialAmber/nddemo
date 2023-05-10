@@ -1,6 +1,6 @@
+.include "macros.s"
 
-
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global __unregister_fragment
 __unregister_fragment:
@@ -40,3 +40,10 @@ __register_fragment:
 /* 8005F3F4 0005B374  38 60 FF FF */	li r3, -0x1
 .L_8005F3F8:
 /* 8005F3F8 0005B378  4E 80 00 20 */	blr
+
+.section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+fragmentinfo:
+	.skip 0xC
+
+.skip 4

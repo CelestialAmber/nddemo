@@ -1,5 +1,6 @@
+.include "macros.s"
 
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global TRKLoadContext
 TRKLoadContext:
@@ -258,3 +259,16 @@ TRK_board_display:
 /* 8005EFC8 0005AF48  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005EFCC 0005AF4C  7C 08 03 A6 */	mtlr r0
 /* 8005EFD0 0005AF50  4E 80 00 20 */	blr
+
+.section .data, "wa"  # 0x80065000 - 0x8006D1C0
+
+.global gDBCommTable
+gDBCommTable:
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0

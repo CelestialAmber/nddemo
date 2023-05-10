@@ -149,7 +149,7 @@ asm/PowerPC_EABI_Support/Runtime/NMWException.o\
 asm/PowerPC_EABI_Support/Runtime/ExceptionPPC.o\
 asm/PowerPC_EABI_Support/Runtime/runtime.o\
 asm/PowerPC_EABI_Support/Runtime/__init_cpp_exceptions.o\
-asm/PowerPC_EABI_Support/MSL_C/PPC_EABI/abort_exit.o\
+asm/PowerPC_EABI_Support/MSL_C/MSL_Common/abort_exit.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/ansi_files.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/ansi_fp.o\
 asm/PowerPC_EABI_Support/MSL_C/MSL_Common/buffer_io.o\

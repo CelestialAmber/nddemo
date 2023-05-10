@@ -1,5 +1,6 @@
+.include "macros.s"
 
-
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global TRKTestForPacket
 TRKTestForPacket:
@@ -139,3 +140,12 @@ TRKInitializeSerialHandler:
 TRKTerminateSerialHandler:
 /* 8005B6F0 00057670  38 60 00 00 */	li r3, 0x0
 /* 8005B6F4 00057674  4E 80 00 20 */	blr
+
+.section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+gTRKFramingState:
+	.skip 0x14
+
+.global gTRKInputPendingPtr
+gTRKInputPendingPtr:
+	.skip 0x4

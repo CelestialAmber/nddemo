@@ -1,14 +1,6 @@
+.include "macros.s"
 
-
-
-.global __register_global_object
-__register_global_object:
-/* 8005F144 0005B0C4  80 0D 88 B8 */	lwz r0, __global_destructor_chain@sda21(r13)
-/* 8005F148 0005B0C8  90 05 00 00 */	stw r0, 0x0(r5)
-/* 8005F14C 0005B0CC  90 85 00 04 */	stw r4, 0x4(r5)
-/* 8005F150 0005B0D0  90 65 00 08 */	stw r3, 0x8(r5)
-/* 8005F154 0005B0D4  90 AD 88 B8 */	stw r5, __global_destructor_chain@sda21(r13)
-/* 8005F158 0005B0D8  4E 80 00 20 */	blr
+.section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .global __destroy_arr
 __destroy_arr:
@@ -170,3 +162,43 @@ __dt__26__partial_array_destructorFv:
 /* 8005F380 0005B300  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8005F384 0005B304  38 21 00 20 */	addi r1, r1, 0x20
 /* 8005F388 0005B308  4E 80 00 20 */	blr
+
+.section extab_, "wa"  # 0x80005520 - 0x80005BC0 ; 0x000006A0
+
+lbl_80005B88:
+	.4byte 0x20080000
+	.4byte 0
+
+lbl_80005B90:
+	.4byte 0x20080000
+	.4byte 0x00000064
+	.4byte 0x00000010
+	.4byte 0
+	.4byte 0x8200001C
+	.4byte __dt__26__partial_array_destructorFv
+
+lbl_80005BA8:
+	.4byte 0x18080000
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0 ; 0x000009E0
+
+
+lbl_8000655C:
+    .4byte __destroy_arr
+    .4byte 0x00000078
+    .4byte lbl_80005B88
+
+lbl_80006568:
+    .4byte __construct_array
+    .4byte 0x00000100
+    .4byte lbl_80005B90
+
+lbl_80006574:
+    .4byte __dt__26__partial_array_destructorFv
+    .4byte 0x000000B8
+    .4byte lbl_80005BA8
