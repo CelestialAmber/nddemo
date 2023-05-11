@@ -1,4 +1,4 @@
-.include "macros.s"
+.include "macros.inc"
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 

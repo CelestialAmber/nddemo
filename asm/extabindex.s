@@ -1,4 +1,4 @@
-.include "macros.s"
+.include "macros.inc"
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0 ; 0x000009E0
 

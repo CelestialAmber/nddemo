@@ -1,4 +1,4 @@
-.include "macros.s"
+.include "macros.inc"
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
@@ -240,7 +240,7 @@ __OSUnhandledException:
 
 
 lbl_80067ED0:
-	.asciz " in "%s" on line %d.\n"
+	.asciz " in \"%s\" on line %d.\n"
 	.balign 4
 	.asciz "\nAddress:      Back Chain    LR Save\n"
 	.balign 4

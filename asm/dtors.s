@@ -1,4 +1,4 @@
-.include "macros.s"
+.include "macros.inc"
 
 .section .dtors, "wa"  # 0x80063D00 - 0x80063D20 ; 0x00000020
 

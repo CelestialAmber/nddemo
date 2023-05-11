@@ -1,4 +1,4 @@
-.include "macros.s"
+.include "macros.inc"
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

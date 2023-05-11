@@ -1,4 +1,4 @@
-.include "macros.s"
+.include "macros.inc"
 
 .section .init, "ax"  # 0x80003100 - 0x80005520 ; 0x00002420
 
