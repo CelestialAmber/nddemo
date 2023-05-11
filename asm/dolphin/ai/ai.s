@@ -642,34 +642,44 @@
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-__AIS_Callback:
+.obj __AIS_Callback, local
 	.skip 0x4
+.endobj __AIS_Callback
 
-__AID_Callback:
+.obj __AID_Callback, local
 	.skip 0x4
+.endobj __AID_Callback
 
-__CallbackStack:
+.obj __CallbackStack, local
 	.skip 0x4
+.endobj __CallbackStack
 
-__OldStack:
+.obj __OldStack, local
 	.skip 0x4
+.endobj __OldStack
 
-__AI_init_flag:
+.obj __AI_init_flag, local
 	.skip 0x4
+.endobj __AI_init_flag
 
 .skip 4
 
-bound_32KHz:
+.obj bound_32KHz, local
 	.skip 0x8
+.endobj bound_32KHz
 
-bound_48KHz:
+.obj bound_48KHz, local
 	.skip 0x8
+.endobj bound_48KHz
 
-min_wait:
+.obj min_wait, local
 	.skip 0x8
+.endobj min_wait
 
-max_wait:
+.obj max_wait, local
 	.skip 0x8
+.endobj max_wait
 
-buffer:
+.obj buffer, local
 	.skip 0x8
+.endobj buffer

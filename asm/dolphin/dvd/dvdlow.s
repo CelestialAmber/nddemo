@@ -1024,74 +1024,95 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-FirstRead:
+.obj FirstRead, local
 	.4byte 0x00000001
 	.4byte 0
+.endobj FirstRead
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-CommandList:
+.obj CommandList, local
 	.skip 0x3C
+.endobj CommandList
 
 .skip 4
 
-AlarmForWA:
+.obj AlarmForWA, local
 	.skip 0x28
+.endobj AlarmForWA
 
-AlarmForTimeout:
+.obj AlarmForTimeout, local
 	.skip 0x28
+.endobj AlarmForTimeout
 
-AlarmForBreak:
+.obj AlarmForBreak, local
 	.skip 0x28
+.endobj AlarmForBreak
 
-Prev:
+.obj Prev, local
 	.skip 0xC
+.endobj Prev
 
-Curr:
+.obj Curr, local
 	.skip 0xC
+.endobj Curr
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-StopAtNextInt:
+.obj StopAtNextInt, local
 	.skip 0x4
+.endobj StopAtNextInt
 
-LastLength:
+.obj LastLength, local
 	.skip 0x4
+.endobj LastLength
 
-Callback:
+.obj Callback, local
 	.skip 0x4
+.endobj Callback
 
-ResetCoverCallback:
+.obj ResetCoverCallback, local
 	.skip 0x4
+.endobj ResetCoverCallback
 
-LastResetEnd:
+.obj LastResetEnd, local
 	.skip 0x8
+.endobj LastResetEnd
 
-ResetOccurred:
+.obj ResetOccurred, local
 	.skip 0x4
+.endobj ResetOccurred
 
-WaitingCoverClose:
+.obj WaitingCoverClose, local
 	.skip 0x4
+.endobj WaitingCoverClose
 
-Breaking:
+.obj Breaking, local
 	.skip 0x4
+.endobj Breaking
 
-WorkAroundType:
+.obj WorkAroundType, local
 	.skip 0x4
+.endobj WorkAroundType
 
-WorkAroundSeekLocation:
+.obj WorkAroundSeekLocation, local
 	.skip 0x4
+.endobj WorkAroundSeekLocation
 
 .skip 4
 
-LastReadFinished:
+.obj LastReadFinished, local
 	.skip 0x8
+.endobj LastReadFinished
 
-LastReadIssued:
+.obj LastReadIssued, local
 	.skip 0x8
+.endobj LastReadIssued
 
-LastCommandWasRead:
+.obj LastCommandWasRead, local
 	.skip 0x4
+.endobj LastCommandWasRead
 
-NextCommandNumber:
+.obj NextCommandNumber, local
 	.skip 0x4
+.endobj NextCommandNumber

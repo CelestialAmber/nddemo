@@ -24,13 +24,15 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-__OSArenaLo:
+.obj __OSArenaLo, local
 	.4byte 0xFFFFFFFF
 	.4byte 0
+.endobj __OSArenaLo
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-__OSArenaHi:
+.obj __OSArenaHi, local
 	.skip 0x4
+.endobj __OSArenaHi
 
 .skip 4

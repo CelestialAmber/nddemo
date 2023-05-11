@@ -391,95 +391,115 @@
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005658:
+.obj lbl_80005658, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_80005658
 
-lbl_80005660:
+.obj lbl_80005660, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005660
 
-lbl_80005668:
+.obj lbl_80005668, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005668
 
-lbl_80005670:
+.obj lbl_80005670, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_80005670
 
-lbl_80005678:
+.obj lbl_80005678, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005678
 
-lbl_80005680:
+.obj lbl_80005680, local
 	.4byte 0x50080000
 	.4byte 0
+.endobj lbl_80005680
 
-lbl_80005688:
+.obj lbl_80005688, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_80005688
 
-lbl_80005690:
+.obj lbl_80005690, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_80005690
 
-lbl_80005698:
+.obj lbl_80005698, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005698
 
-lbl_800056A0:
+.obj lbl_800056A0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800056A0
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_80005D94:
+.obj lbl_80005D94, local
 	.4byte sndFXCtrl14
 	.4byte 0x00000060
 	.4byte lbl_80005658
+.endobj lbl_80005D94
 
-lbl_80005DA0:
+.obj lbl_80005DA0, local
     .4byte sndFXStartEx
     .4byte 0x00000080
     .4byte lbl_80005660
+.endobj lbl_80005DA0
 
-lbl_80005DAC:
+.obj lbl_80005DAC, local
     .4byte sndFXCheck
     .4byte 0x00000044
     .4byte lbl_80005668
+.endobj lbl_80005DAC
 
-lbl_80005DB8:
+.obj lbl_80005DB8, local
     .4byte sndVolume
     .4byte 0x00000060
     .4byte lbl_80005670
+.endobj lbl_80005DB8
 
-lbl_80005DC4:
+.obj lbl_80005DC4, local
     .4byte sndMasterVolume
     .4byte 0x00000094
     .4byte lbl_80005678
+.endobj lbl_80005DC4
 
-lbl_80005DD0:
+.obj lbl_80005DD0, local
     .4byte sndSetAuxProcessingCallbacks
     .4byte 0x00000168
     .4byte lbl_80005680
+.endobj lbl_80005DD0
 
-lbl_80005DDC:
+.obj lbl_80005DDC, local
     .4byte synthActivateStudio
     .4byte 0x000000AC
     .4byte lbl_80005688
+.endobj lbl_80005DDC
 
-lbl_80005DE8:
+.obj lbl_80005DE8, local
     .4byte synthDeactivateStudio
     .4byte 0x000000F0
     .4byte lbl_80005690
+.endobj lbl_80005DE8
 
-lbl_80005DF4:
+.obj lbl_80005DF4, local
     .4byte synthAddStudioInput
     .4byte 0x00000020
     .4byte lbl_80005698
+.endobj lbl_80005DF4
 
-lbl_80005E00:
+.obj lbl_80005E00, local
     .4byte synthRemoveStudioInput
     .4byte 0x00000020
     .4byte lbl_800056A0
+.endobj lbl_80005E00

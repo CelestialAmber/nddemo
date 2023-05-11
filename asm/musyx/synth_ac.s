@@ -92,7 +92,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-toneup_tab:
+.obj toneup_tab, local
 	.4byte 0x3F800000
 	.4byte 0x3F879C80
 	.4byte 0x3F8FACD8
@@ -221,8 +221,9 @@ toneup_tab:
 	.4byte 0x44AADC0E
 	.4byte 0x44B504F9
 	.4byte 0x44BFC88D
+.endobj toneup_tab
 
-tonedown_tab:
+.obj tonedown_tab, local
 	.4byte 0x3F800000
 	.4byte 0x3F71A1C0
 	.4byte 0x3F6411F0
@@ -351,31 +352,37 @@ tonedown_tab:
 	.4byte 0x3A3FC000
 	.4byte 0x3A350000
 	.4byte 0x3A2AC000
+.endobj tonedown_tab
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
-lbl_800A99D0:
+.obj lbl_800A99D0, local
 	.4byte 0x3F879C7D
 	.4byte 0
+.endobj lbl_800A99D0
 
-lbl_800A99D8:
+.obj lbl_800A99D8, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A99D8
 
-lbl_800A99E0:
+.obj lbl_800A99E0, local
 	.4byte 0x45800000
 	.4byte 0
+.endobj lbl_800A99E0
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005868:
+.obj lbl_80005868, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005868
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
-lbl_800060AC:
+.obj lbl_800060AC, local
     .4byte sndGetPitch
     .4byte 0x000000F0
     .4byte lbl_80005868
+.endobj lbl_800060AC

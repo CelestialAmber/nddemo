@@ -905,53 +905,64 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-lbl_80067410:
+.obj lbl_80067410, local
 	.asciz "Audio Manager initialized success!!\n"
 	.balign 4
+.endobj lbl_80067410
 
-lbl_80067438:
+.obj lbl_80067438, local
 	.asciz "Audio Manager initialized failed!!\n"
 	.asciz "ERROR: Unable to opne '%s'\n"
 	.asciz "ERROR: Unable to allocate buffer\n"
 	.balign 4
 	.asciz "ERROR: Read data failed '%s'\n"
 	.balign 4
+.endobj lbl_80067438
 
-lbl_800674BC:
+.obj lbl_800674BC, local
 	.asciz "Stop song %d\n"
 	.balign 4
+.endobj lbl_800674BC
 
-lbl_800674CC:
+.obj lbl_800674CC, local
 	.asciz "Play song error %d\n"
+.endobj lbl_800674CC
 
-lbl_800674E0:
+.obj lbl_800674E0, local
 	.asciz "Play song %d\n"
 	.balign 4
+.endobj lbl_800674E0
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
-.global m_sndHooks
-m_sndHooks:
+.obj m_sndHooks, global
 	.4byte mAlloc__FUl
 	.4byte mFree__FPv
+.endobj m_sndHooks
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 
-lbl_800A9840:
+.obj lbl_800A9840, local
 	.4byte 0x40A00000
+.endobj lbl_800A9840
 
-lbl_800A9844:
+.obj lbl_800A9844, local
 	.4byte 0x3DCCCCCD
+.endobj lbl_800A9844
 
-lbl_800A9848:
+.obj lbl_800A9848, local
 	.4byte 0x3F19999A
+.endobj lbl_800A9848
 
-lbl_800A984C:
+.obj lbl_800A984C, local
 	.4byte 0x3F666666
+.endobj lbl_800A984C
 
-lbl_800A9850:
+.obj lbl_800A9850, local
 	.4byte 0
+.endobj lbl_800A9850
 
-lbl_800A9854:
+.obj lbl_800A9854, local
 	.4byte 0x3F000000
+.endobj lbl_800A9854

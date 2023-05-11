@@ -276,32 +276,42 @@
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-__ARQRequestQueueHi:
+.obj __ARQRequestQueueHi, local
 	.skip 0x4
+.endobj __ARQRequestQueueHi
 
-__ARQRequestTailHi:
+.obj __ARQRequestTailHi, local
 	.skip 0x4
+.endobj __ARQRequestTailHi
 
-__ARQRequestQueueLo:
+.obj __ARQRequestQueueLo, local
 	.skip 0x4
+.endobj __ARQRequestQueueLo
 
-__ARQRequestTailLo:
+.obj __ARQRequestTailLo, local
 	.skip 0x4
+.endobj __ARQRequestTailLo
 
-__ARQRequestPendingHi:
+.obj __ARQRequestPendingHi, local
 	.skip 0x4
+.endobj __ARQRequestPendingHi
 
-__ARQRequestPendingLo:
+.obj __ARQRequestPendingLo, local
 	.skip 0x4
+.endobj __ARQRequestPendingLo
 
-__ARQCallbackHi:
+.obj __ARQCallbackHi, local
 	.skip 0x4
+.endobj __ARQCallbackHi
 
-__ARQCallbackLo:
+.obj __ARQCallbackLo, local
 	.skip 0x4
+.endobj __ARQCallbackLo
 
-__ARQChunkSize:
+.obj __ARQChunkSize, local
 	.skip 0x4
+.endobj __ARQChunkSize
 
-__ARQ_init_flag:
+.obj __ARQ_init_flag, local
 	.skip 0x4
+.endobj __ARQ_init_flag

@@ -1700,7 +1700,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-timing:
+.obj timing, local
 	.4byte 0x060000F0
 	.4byte 0x00180019
 	.4byte 0x00030002
@@ -1781,8 +1781,9 @@ timing:
 	.4byte 0x0013000F
 	.4byte 0x000C0008
 	.4byte 0x00010000
+.endobj timing
 
-lbl_80068650:
+.obj lbl_80068650, local
 	.4byte .L_80034374
 	.4byte .L_8003437C
 	.4byte .L_800343A4
@@ -1793,65 +1794,82 @@ lbl_80068650:
 	.4byte .L_800343AC
 	.4byte .L_80034394
 	.4byte .L_8003439C
+.endobj lbl_80068650
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-regs:
+.obj regs, local
 	.skip 0x76
+.endobj regs
 
 .skip 2
 
-shdwRegs:
+.obj shdwRegs, local
 	.skip 0x76
+.endobj shdwRegs
 
 .skip 2
 
-HorVer:
+.obj HorVer, local
 	.skip 0x58
+.endobj HorVer
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-retraceCount:
+.obj retraceCount, local
 	.skip 0x4
+.endobj retraceCount
 
-flushFlag:
+.obj flushFlag, local
 	.skip 0x4
+.endobj flushFlag
 
-retraceQueue:
+.obj retraceQueue, local
 	.skip 0x8
+.endobj retraceQueue
 
-PreCB:
+.obj PreCB, local
 	.skip 0x4
+.endobj PreCB
 
-PostCB:
+.obj PostCB, local
 	.skip 0x4
+.endobj PostCB
 
-encoderType:
+.obj encoderType, local
 	.skip 0x4
+.endobj encoderType
 
-displayOffsetH:
+.obj displayOffsetH, local
 	.skip 0x2
+.endobj displayOffsetH
 
-displayOffsetV:
+.obj displayOffsetV, local
 	.skip 0x2
+.endobj displayOffsetV
 
-changeMode:
+.obj changeMode, local
 	.skip 0x4
+.endobj changeMode
 
 .skip 4
 
-changed:
+.obj changed, local
 	.skip 0x8
+.endobj changed
 
-shdwChangeMode:
+.obj shdwChangeMode, local
 	.skip 0x4
+.endobj shdwChangeMode
 
 .skip 4
 
-shdwChanged:
+.obj shdwChanged, local
 	.skip 0x8
+.endobj shdwChanged
 
-FBSet:
+.obj FBSet, local
 	.skip 0x4
+.endobj FBSet
 
 .skip 4

@@ -280,21 +280,24 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-lbl_80066248:
+.obj lbl_80066248, local
 	.asciz "DVD Open False\n"
+.endobj lbl_80066248
 
-lbl_80066258:
+.obj lbl_80066258, local
 	.asciz "Error DUDvd::Read>len=%d,off=%d,ret=%d\n"
+.endobj lbl_80066258
 
-lbl_80066280:
+.obj lbl_80066280, local
 	.asciz "Error DUDvd::Read>fptr=%d\n"
 	.balign 4
 	.4byte 0
+.endobj lbl_80066280
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
 
-.global m_InitDVD__5DUDvd
-m_InitDVD__5DUDvd:
+.obj m_InitDVD__5DUDvd, global
 	.4byte 0x01000000
 	.4byte 0
+.endobj m_InitDVD__5DUDvd

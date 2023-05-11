@@ -195,7 +195,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-DSPInitCode:
+.obj DSPInitCode, local
 	.4byte 0x029F0010
 	.4byte 0x029F0035
 	.4byte 0x029F0036
@@ -228,3 +228,4 @@ DSPInitCode:
 	.4byte 0x02FF02FF
 	.4byte 0
 	.4byte 0
+.endobj DSPInitCode

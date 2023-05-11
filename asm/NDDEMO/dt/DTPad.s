@@ -156,8 +156,9 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-PadChanMask:
+.obj PadChanMask, local
 	.4byte 0x80000000
 	.4byte 0x40000000
 	.4byte 0x20000000
 	.4byte 0x10000000
+.endobj PadChanMask

@@ -493,83 +493,101 @@
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
 
-lbl_800A99E8:
+.obj lbl_800A99E8, local
 	.4byte 0x447A0000
+.endobj lbl_800A99E8
 
-lbl_800A99EC:
+.obj lbl_800A99EC, local
 	.4byte 0x40000000
+.endobj lbl_800A99EC
 
-lbl_800A99F0:
+.obj lbl_800A99F0, local
 	.4byte 0x325A740E
 	.4byte 0
+.endobj lbl_800A99F0
 
-lbl_800A99F8:
+.obj lbl_800A99F8, local
 	.4byte 0x43300000
 	.4byte 0x80000000
+.endobj lbl_800A99F8
 
-lbl_800A9A00:
+.obj lbl_800A9A00, local
 	.4byte 0x39A9C84A
 	.4byte 0
+.endobj lbl_800A9A00
 
-lbl_800A9A08:
+.obj lbl_800A9A08, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A9A08
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005870:
+.obj lbl_80005870, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005870
 
-lbl_80005878:
+.obj lbl_80005878, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005878
 
-lbl_80005880:
+.obj lbl_80005880, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005880
 
-lbl_80005888:
+.obj lbl_80005888, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005888
 
-lbl_80005890:
+.obj lbl_80005890, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005890
 
-lbl_80005898:
+.obj lbl_80005898, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005898
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
-lbl_800060B8:
+.obj lbl_800060B8, local
     .4byte adsrConvertTimeCents
     .4byte 0x00000054
     .4byte lbl_80005870
+.endobj lbl_800060B8
 
-lbl_800060C4:
+.obj lbl_800060C4, local
     .4byte adsrSetup
     .4byte 0x00000028
     .4byte lbl_80005878
+.endobj lbl_800060C4
 
-lbl_800060D0:
+.obj lbl_800060D0, local
     .4byte adsrStartRelease
     .4byte 0x00000154
     .4byte lbl_80005880
+.endobj lbl_800060D0
 
-lbl_800060DC:
+.obj lbl_800060DC, local
     .4byte adsrRelease
     .4byte 0x00000044
     .4byte lbl_80005888
+.endobj lbl_800060DC
 
-lbl_800060E8:
+.obj lbl_800060E8, local
     .4byte adsrHandle
     .4byte 0x000001A0
     .4byte lbl_80005890
+.endobj lbl_800060E8
 
-lbl_800060F4:
+.obj lbl_800060F4, local
     .4byte adsrHandleLowPrecision
     .4byte 0x00000084
     .4byte lbl_80005898
+.endobj lbl_800060F4

@@ -388,182 +388,221 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-dsp_task:
+.obj dsp_task, local
 	.skip 0x50
+.endobj dsp_task
 
 .skip 0x10
 
-dram_image:
+.obj dram_image, local
 	.skip 0x2000
+.endobj dram_image
 
 
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
 
-userCallback:
+.obj userCallback, local
 	.skip 0x4
+.endobj userCallback
 
-salAIBufferBase:
+.obj salAIBufferBase, local
 	.skip 0x4
+.endobj salAIBufferBase
 
-salDspIsDone:
+.obj salDspIsDone, local
 	.skip 0x4
+.endobj salDspIsDone
 
-salLogicIsWaiting:
+.obj salLogicIsWaiting, local
 	.skip 0x4
+.endobj salLogicIsWaiting
 
-salLogicActive:
+.obj salLogicActive, local
 	.skip 0x4
+.endobj salLogicActive
 
-salLastTick:
+.obj salLastTick, local
 	.skip 0x4
+.endobj salLastTick
 
-salDspInitIsDone:
+.obj salDspInitIsDone, local
 	.skip 0x4
+.endobj salDspInitIsDone
 
-hwIrqLevel:
+.obj hwIrqLevel, local
 	.skip 0x2
+.endobj hwIrqLevel
 
 .skip 2
 
-oldState:
+.obj oldState, local
 	.skip 0x4
+.endobj oldState
 
-.global salAIBufferIndex
-salAIBufferIndex:
+.obj salAIBufferIndex, global
 	.skip 0x1
+.endobj salAIBufferIndex
 
 .skip 3
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005AD8:
+.obj lbl_80005AD8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005AD8
 
-lbl_80005AE0:
+.obj lbl_80005AE0, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005AE0
 
-lbl_80005AE8:
+.obj lbl_80005AE8, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005AE8
 
-lbl_80005AF0:
+.obj lbl_80005AF0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005AF0
 
-lbl_80005AF8:
+.obj lbl_80005AF8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005AF8
 
-lbl_80005B00:
+.obj lbl_80005B00, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005B00
 
-lbl_80005B08:
+.obj lbl_80005B08, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005B08
 
-lbl_80005B10:
+.obj lbl_80005B10, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005B10
 
-lbl_80005B18:
+.obj lbl_80005B18, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005B18
 
-lbl_80005B20:
+.obj lbl_80005B20, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005B20
 
-lbl_80005B28:
+.obj lbl_80005B28, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005B28
 
-lbl_80005B30:
+.obj lbl_80005B30, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005B30
 
-lbl_80005B38:
+.obj lbl_80005B38, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005B38
 
-lbl_80005B40:
+.obj lbl_80005B40, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005B40
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_80006454:
+.obj lbl_80006454, local
     .4byte salCallback
     .4byte 0x000000A4
     .4byte lbl_80005AD8
+.endobj lbl_80006454
 
-lbl_80006460:
+.obj lbl_80006460, local
     .4byte dspResumeCallback
     .4byte 0x00000068
     .4byte lbl_80005AE0
+.endobj lbl_80006460
 
-lbl_8000646C:
+.obj lbl_8000646C, local
     .4byte salInitAi
     .4byte 0x000000CC
     .4byte lbl_80005AE8
+.endobj lbl_8000646C
 
-lbl_80006478:
+.obj lbl_80006478, local
     .4byte salStartAi
     .4byte 0x00000020
     .4byte lbl_80005AF0
+.endobj lbl_80006478
 
-lbl_80006484:
+.obj lbl_80006484, local
     .4byte salExitAi
     .4byte 0x00000034
     .4byte lbl_80005AF8
+.endobj lbl_80006484
 
-lbl_80006490:
+.obj lbl_80006490, local
     .4byte salInitDsp
     .4byte 0x000000C0
     .4byte lbl_80005B00
+.endobj lbl_80006490
 
-lbl_8000649C:
+.obj lbl_8000649C, local
     .4byte salExitDsp
     .4byte 0x00000034
     .4byte lbl_80005B08
+.endobj lbl_8000649C
 
-lbl_800064A8:
+.obj lbl_800064A8, local
     .4byte salCtrlDsp
     .4byte 0x00000074
     .4byte lbl_80005B10
+.endobj lbl_800064A8
 
-lbl_800064B4:
+.obj lbl_800064B4, local
     .4byte salGetStartDelay
     .4byte 0x0000004C
     .4byte lbl_80005B18
+.endobj lbl_800064B4
 
-lbl_800064C0:
+.obj lbl_800064C0, local
     .4byte hwInitIrq
     .4byte 0x0000002C
     .4byte lbl_80005B20
+.endobj lbl_800064C0
 
-lbl_800064CC:
+.obj lbl_800064CC, local
     .4byte hwEnableIrq
     .4byte 0x00000038
     .4byte lbl_80005B28
+.endobj lbl_800064CC
 
-lbl_800064D8:
+.obj lbl_800064D8, local
     .4byte hwDisableIrq
     .4byte 0x00000038
     .4byte lbl_80005B30
+.endobj lbl_800064D8
 
-lbl_800064E4:
+.obj lbl_800064E4, local
     .4byte hwIRQEnterCritical
     .4byte 0x00000020
     .4byte lbl_80005B38
+.endobj lbl_800064E4
 
-lbl_800064F0:
+.obj lbl_800064F0, local
     .4byte hwIRQLeaveCritical
     .4byte 0x00000020
     .4byte lbl_80005B40
+.endobj lbl_800064F0

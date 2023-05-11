@@ -482,5 +482,6 @@
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-AlarmQueue:
+.obj AlarmQueue, local
 	.skip 0x8
+.endobj AlarmQueue

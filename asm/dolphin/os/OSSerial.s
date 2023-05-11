@@ -1638,14 +1638,15 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-Si:
+.obj Si, local
 	.4byte 0xFFFFFFFF
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj Si
 
-Type:
+.obj Type, local
 	.4byte 0x00000008
 	.4byte 0x00000008
 	.4byte 0x00000008
@@ -1664,51 +1665,63 @@ Type:
 	.asciz "Wireless receiver"
 	.balign 4
 	.asciz "WaveBird controller"
+.endobj Type
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
 
-Packet:
+.obj Packet, local
 	.skip 0x80
+.endobj Packet
 
-Alarm:
+.obj Alarm, local
 	.skip 0xA0
+.endobj Alarm
 
-TypeTime:
+.obj TypeTime, local
 	.skip 0x20
+.endobj TypeTime
 
-XferTime:
+.obj XferTime, local
 	.skip 0x20
+.endobj XferTime
 
-TypeCallback:
+.obj TypeCallback, local
 	.skip 0x40
+.endobj TypeCallback
 
-RDSTHandler:
+.obj RDSTHandler, local
 	.skip 0x10
+.endobj RDSTHandler
 
-InputBufferValid:
+.obj InputBufferValid, local
 	.skip 0x10
+.endobj InputBufferValid
 
-InputBuffer:
+.obj InputBuffer, local
 	.skip 0x20
+.endobj InputBuffer
 
-"cmdFixDevice$329":
+.obj "cmdFixDevice$329", local
 	.skip 0x10
+.endobj "cmdFixDevice$329"
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-"cmdTypeAndStatus$75":
+.obj "cmdTypeAndStatus$75", local
 	.skip 0x4
+.endobj "cmdTypeAndStatus$75"
 
-"cmdTypeAndStatus$374":
+.obj "cmdTypeAndStatus$374", local
 	.skip 0x4
+.endobj "cmdTypeAndStatus$374"
 
-.global SIDelay
-SIDelay:
+.obj SIDelay, global
 	.skip 0x8
+.endobj SIDelay
 
-.global __PADFixBits
-__PADFixBits:
+.obj __PADFixBits, global
 	.skip 0x4
+.endobj __PADFixBits
 
 .skip 4

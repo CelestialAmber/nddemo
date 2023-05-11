@@ -49,6 +49,7 @@
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
 
-fragmentID:
+.obj fragmentID, local
 	.4byte 0xFFFFFFFE
 	.4byte 0
+.endobj fragmentID

@@ -181,7 +181,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-lbl_80065000:
+.obj lbl_80065000, local
 	.asciz "audio/nddemo.pol"
 	.balign 4
 	.asciz "audio/nddemo.prj"
@@ -192,32 +192,35 @@ lbl_80065000:
 	.balign 4
 	.asciz "Read Audio data\n"
 	.balign 4
+.endobj lbl_80065000
 
-lbl_80065064:
+.obj lbl_80065064, local
 	.asciz "iMakeMainHeap>start=%x / end=%x\n"
 	.balign 4
+.endobj lbl_80065064
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 
-lbl_8006D1C0:
+.obj lbl_8006D1C0, local
 	.skip 0xC
+.endobj lbl_8006D1C0
 
-.global audio
-audio:
+.obj audio, global
 	.skip 0x2A4
+.endobj audio
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
-.global dm
-dm:
+.obj dm, global
 	.skip 0x4
+.endobj dm
 
-.global autoDemoFlag
-autoDemoFlag:
+.obj autoDemoFlag, global
 	.skip 0x4
+.endobj autoDemoFlag
 
-.global v_flag
-v_flag:
+.obj v_flag, global
 	.skip 0x1
+.endobj v_flag
 
 .skip 7

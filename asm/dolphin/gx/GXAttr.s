@@ -1468,7 +1468,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-lbl_80068858:
+.obj lbl_80068858, local
 	.4byte .L_8003B5D4
 	.4byte .L_8003B5EC
 	.4byte .L_8003B60C
@@ -1495,8 +1495,9 @@ lbl_80068858:
 	.4byte .L_8003B8B8
 	.4byte .L_8003B8B8
 	.4byte .L_8003B748
+.endobj lbl_80068858
 
-lbl_800688C0:
+.obj lbl_800688C0, local
 	.4byte .L_8003B940
 	.4byte .L_8003B95C
 	.4byte .L_8003B97C
@@ -1523,8 +1524,9 @@ lbl_800688C0:
 	.4byte .L_8003BC2C
 	.4byte .L_8003BC2C
 	.4byte .L_8003BAB8
+.endobj lbl_800688C0
 
-lbl_80068928:
+.obj lbl_80068928, local
 	.4byte .L_8003BE20
 	.4byte .L_8003BE30
 	.4byte .L_8003BE40
@@ -1551,8 +1553,9 @@ lbl_80068928:
 	.4byte .L_8003BFA8
 	.4byte .L_8003BFA8
 	.4byte .L_8003BEE4
+.endobj lbl_80068928
 
-lbl_80068990:
+.obj lbl_80068990, local
 	.4byte .L_8003C0AC
 	.4byte .L_8003C0E8
 	.4byte .L_8003C14C
@@ -1570,8 +1573,9 @@ lbl_80068990:
 	.4byte .L_8003C398
 	.4byte .L_8003C398
 	.4byte .L_8003C0E8
+.endobj lbl_80068990
 
-lbl_800689D4:
+.obj lbl_800689D4, local
 	.4byte .L_8003C6C8
 	.4byte .L_8003C6E8
 	.4byte .L_8003C708
@@ -1579,8 +1583,9 @@ lbl_800689D4:
 	.4byte .L_8003C748
 	.4byte .L_8003C760
 	.4byte .L_8003C780
+.endobj lbl_800689D4
 
-lbl_800689F0:
+.obj lbl_800689F0, local
 	.4byte .L_8003C53C
 	.4byte .L_8003C548
 	.4byte .L_8003C554
@@ -1603,15 +1608,19 @@ lbl_800689F0:
 	.4byte .L_8003C56C
 	.4byte .L_8003C574
 	.4byte 0
+.endobj lbl_800689F0
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-"tbl1$214":
+.obj "tbl1$214", local
 	.4byte 0x00040102
+.endobj "tbl1$214"
 
-"tbl2$215":
+.obj "tbl2$215", local
 	.4byte 0x00080102
+.endobj "tbl2$215"
 
-"tbl3$216":
+.obj "tbl3$216", local
 	.4byte 0x000C0102
 	.4byte 0
+.endobj "tbl3$216"

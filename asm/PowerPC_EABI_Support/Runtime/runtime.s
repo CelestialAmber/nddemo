@@ -416,10 +416,11 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
-__constants:
+.obj __constants, local
 	.4byte 0
 	.4byte 0
 	.4byte 0x41F00000
 	.4byte 0
 	.4byte 0x41E00000
 	.4byte 0
+.endobj __constants

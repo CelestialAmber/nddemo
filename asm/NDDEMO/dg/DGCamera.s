@@ -604,7 +604,7 @@
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 
-lbl_80064280:
+.obj lbl_80064280, local
 	.4byte 0
 	.4byte 0
 	.4byte 0x44000000
@@ -614,44 +614,57 @@ lbl_80064280:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj lbl_80064280
 
-lbl_800642A4:
+.obj lbl_800642A4, local
 	.4byte 0
 	.4byte 0
 	.4byte 0xBF800000
+.endobj lbl_800642A4
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
-lbl_800A9500:
+.obj lbl_800A9500, local
 	.4byte 0
+.endobj lbl_800A9500
 
-lbl_800A9504:
+.obj lbl_800A9504, local
 	.4byte 0x41C00000
+.endobj lbl_800A9504
 
-lbl_800A9508:
+.obj lbl_800A9508, local
 	.4byte 0x42000000
+.endobj lbl_800A9508
 
-lbl_800A950C:
+.obj lbl_800A950C, local
 	.4byte 0x41800000
+.endobj lbl_800A950C
 
-lbl_800A9510:
+.obj lbl_800A9510, local
 	.4byte 0x44800000
+.endobj lbl_800A9510
 
-lbl_800A9514:
+.obj lbl_800A9514, local
 	.4byte 0
+.endobj lbl_800A9514
 
-lbl_800A9518:
+.obj lbl_800A9518, local
 	.4byte 0x3DCCCCCD
+.endobj lbl_800A9518
 
-lbl_800A951C:
+.obj lbl_800A951C, local
 	.4byte 0x3F000000
+.endobj lbl_800A951C
 
-lbl_800A9520:
+.obj lbl_800A9520, local
 	.4byte 0x40000000
+.endobj lbl_800A9520
 
-lbl_800A9524:
+.obj lbl_800A9524, local
 	.4byte 0xBF000000
+.endobj lbl_800A9524
 
-lbl_800A9528:
+.obj lbl_800A9528, local
 	.4byte 0x3C8EFA35
 	.4byte 0
+.endobj lbl_800A9528

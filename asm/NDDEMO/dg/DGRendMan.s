@@ -1008,7 +1008,7 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
-"LightID_Table$195":
+.obj "LightID_Table$195", local
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000004
@@ -1017,191 +1017,201 @@
 	.4byte 0x00000020
 	.4byte 0x00000040
 	.4byte 0x00000080
+.endobj "LightID_Table$195"
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-lbl_80066AC0:
+.obj lbl_80066AC0, local
 	.asciz "fbSize = %d\n"
 	.balign 4
+.endobj lbl_80066AC0
 
-lbl_80066AD0:
+.obj lbl_80066AD0, local
 	.asciz "Error DrawBegin:Already DrawMode\n"
 	.balign 4
+.endobj lbl_80066AD0
 
-lbl_80066AF4:
+.obj lbl_80066AF4, local
 	.asciz "Error DrawEnd:Still Not DrawMode\n"
 	.balign 4
+.endobj lbl_80066AF4
 
-lbl_80066B18:
+.obj lbl_80066B18, local
 	.asciz "Error SetRenderMode:Do Not Call SetRenderMode between DrawBegin And DrawEnd\n"
 	.balign 4
+.endobj lbl_80066B18
 
-lbl_80066B68:
+.obj lbl_80066B68, local
 	.asciz "SetDispCopyYScale( 1.0f )\n"
 	.balign 4
 	.4byte 0
+.endobj lbl_80066B68
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
-.global m_FirstFrameFlag__9DGRendMan
-m_FirstFrameFlag__9DGRendMan:
+.obj m_FirstFrameFlag__9DGRendMan, global
 	.byte 0x01
+.endobj m_FirstFrameFlag__9DGRendMan
 
-.global m_ChangeRenderModeFlag__9DGRendMan
-m_ChangeRenderModeFlag__9DGRendMan:
+.obj m_ChangeRenderModeFlag__9DGRendMan, global
 	.byte 0x01, 0x00, 0x00
+.endobj m_ChangeRenderModeFlag__9DGRendMan
 
-.global m_BGColor__9DGRendMan
-m_BGColor__9DGRendMan:
+.obj m_BGColor__9DGRendMan, global
 	.4byte 0
+.endobj m_BGColor__9DGRendMan
 
-.global m_ScissorW__9DGRendMan
-m_ScissorW__9DGRendMan:
+.obj m_ScissorW__9DGRendMan, global
 	.4byte 0x00000001
+.endobj m_ScissorW__9DGRendMan
 
-.global m_ScissorH__9DGRendMan
-m_ScissorH__9DGRendMan:
+.obj m_ScissorH__9DGRendMan, global
 	.4byte 0x00000001
+.endobj m_ScissorH__9DGRendMan
 
-.global m_ViewportW__9DGRendMan
-m_ViewportW__9DGRendMan:
+.obj m_ViewportW__9DGRendMan, global
 	.4byte 0x3F800000
+.endobj m_ViewportW__9DGRendMan
 
-.global m_ViewportH__9DGRendMan
-m_ViewportH__9DGRendMan:
+.obj m_ViewportH__9DGRendMan, global
 	.4byte 0x3F800000
+.endobj m_ViewportH__9DGRendMan
 
-.global m_ViewportF__9DGRendMan
-m_ViewportF__9DGRendMan:
+.obj m_ViewportF__9DGRendMan, global
 	.4byte 0x3F800000
+.endobj m_ViewportF__9DGRendMan
 
-.global m_DispCopySrcW__9DGRendMan
-m_DispCopySrcW__9DGRendMan:
+.obj m_DispCopySrcW__9DGRendMan, global
 	.2byte 0x0001
+.endobj m_DispCopySrcW__9DGRendMan
 
-.global m_DispCopySrcH__9DGRendMan
-m_DispCopySrcH__9DGRendMan:
+.obj m_DispCopySrcH__9DGRendMan, global
 	.2byte 0x0001
+.endobj m_DispCopySrcH__9DGRendMan
 
-.global m_DispCopyYScale__9DGRendMan
-m_DispCopyYScale__9DGRendMan:
+.obj m_DispCopyYScale__9DGRendMan, global
 	.4byte 0x3F800000
+.endobj m_DispCopyYScale__9DGRendMan
 
-.global m_DispCopyDstW__9DGRendMan
-m_DispCopyDstW__9DGRendMan:
+.obj m_DispCopyDstW__9DGRendMan, global
 	.2byte 0x0001
+.endobj m_DispCopyDstW__9DGRendMan
 
-.global m_DispCopyDstH__9DGRendMan
-m_DispCopyDstH__9DGRendMan:
+.obj m_DispCopyDstH__9DGRendMan, global
 	.2byte 0x0001
+.endobj m_DispCopyDstH__9DGRendMan
 
-.global m_DispCopyGamma__9DGRendMan
-m_DispCopyGamma__9DGRendMan:
+.obj m_DispCopyGamma__9DGRendMan, global
 	.4byte 0x00000001
+.endobj m_DispCopyGamma__9DGRendMan
 
-.global m_AdjustForOverscanH__9DGRendMan
-m_AdjustForOverscanH__9DGRendMan:
+.obj m_AdjustForOverscanH__9DGRendMan, global
 	.4byte 0x00100000
+.endobj m_AdjustForOverscanH__9DGRendMan
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
-lbl_800A94E0:
+.obj lbl_800A94E0, local
 	.4byte 0
+.endobj lbl_800A94E0
 
-lbl_800A94E4:
+.obj lbl_800A94E4, local
 	.4byte 0x3F800000
+.endobj lbl_800A94E4
 
-lbl_800A94E8:
+.obj lbl_800A94E8, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A94E8
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 
-"garbage$290":
+.obj "garbage$290", local
 	.skip 0xA00
+.endobj "garbage$290"
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
-.global m_InstanceNum__9DGRendMan
-m_InstanceNum__9DGRendMan:
+.obj m_InstanceNum__9DGRendMan, global
 	.skip 0x1
+.endobj m_InstanceNum__9DGRendMan
 
-.global m_DrawReadyFlag__9DGRendMan
-m_DrawReadyFlag__9DGRendMan:
+.obj m_DrawReadyFlag__9DGRendMan, global
 	.skip 0x1
+.endobj m_DrawReadyFlag__9DGRendMan
 
 .skip 2
 
-.global m_GpFIFO_Size__9DGRendMan
-m_GpFIFO_Size__9DGRendMan:
+.obj m_GpFIFO_Size__9DGRendMan, global
 	.skip 0x4
+.endobj m_GpFIFO_Size__9DGRendMan
 
-.global m_GpFIFO__9DGRendMan
-m_GpFIFO__9DGRendMan:
+.obj m_GpFIFO__9DGRendMan, global
 	.skip 0x4
+.endobj m_GpFIFO__9DGRendMan
 
-.global m_GpFIFO_Obj__9DGRendMan
-m_GpFIFO_Obj__9DGRendMan:
+.obj m_GpFIFO_Obj__9DGRendMan, global
 	.skip 0x4
+.endobj m_GpFIFO_Obj__9DGRendMan
 
-.global m_BaseRenderMode__9DGRendMan
-m_BaseRenderMode__9DGRendMan:
+.obj m_BaseRenderMode__9DGRendMan, global
 	.skip 0x4
+.endobj m_BaseRenderMode__9DGRendMan
 
-.global m_RenderMode__9DGRendMan
-m_RenderMode__9DGRendMan:
+.obj m_RenderMode__9DGRendMan, global
 	.skip 0x4
+.endobj m_RenderMode__9DGRendMan
 
-.global m_CurrentBuf__9DGRendMan
-m_CurrentBuf__9DGRendMan:
+.obj m_CurrentBuf__9DGRendMan, global
 	.skip 0x4
+.endobj m_CurrentBuf__9DGRendMan
 
-.global m_FrameBuf1__9DGRendMan
-m_FrameBuf1__9DGRendMan:
+.obj m_FrameBuf1__9DGRendMan, global
 	.skip 0x4
+.endobj m_FrameBuf1__9DGRendMan
 
-.global m_FrameBuf2__9DGRendMan
-m_FrameBuf2__9DGRendMan:
+.obj m_FrameBuf2__9DGRendMan, global
 	.skip 0x4
+.endobj m_FrameBuf2__9DGRendMan
 
-.global m_BGZValue__9DGRendMan
-m_BGZValue__9DGRendMan:
+.obj m_BGZValue__9DGRendMan, global
 	.skip 0x4
+.endobj m_BGZValue__9DGRendMan
 
-.global m_ScissorX__9DGRendMan
-m_ScissorX__9DGRendMan:
+.obj m_ScissorX__9DGRendMan, global
 	.skip 0x4
+.endobj m_ScissorX__9DGRendMan
 
-.global m_ScissorY__9DGRendMan
-m_ScissorY__9DGRendMan:
+.obj m_ScissorY__9DGRendMan, global
 	.skip 0x4
+.endobj m_ScissorY__9DGRendMan
 
-.global m_ViewportX__9DGRendMan
-m_ViewportX__9DGRendMan:
+.obj m_ViewportX__9DGRendMan, global
 	.skip 0x4
+.endobj m_ViewportX__9DGRendMan
 
-.global m_ViewportY__9DGRendMan
-m_ViewportY__9DGRendMan:
+.obj m_ViewportY__9DGRendMan, global
 	.skip 0x4
+.endobj m_ViewportY__9DGRendMan
 
-.global m_ViewportN__9DGRendMan
-m_ViewportN__9DGRendMan:
+.obj m_ViewportN__9DGRendMan, global
 	.skip 0x4
+.endobj m_ViewportN__9DGRendMan
 
-.global m_DispCopySrcX__9DGRendMan
-m_DispCopySrcX__9DGRendMan:
+.obj m_DispCopySrcX__9DGRendMan, global
 	.skip 0x2
+.endobj m_DispCopySrcX__9DGRendMan
 
-.global m_DispCopySrcY__9DGRendMan
-m_DispCopySrcY__9DGRendMan:
+.obj m_DispCopySrcY__9DGRendMan, global
 	.skip 0x2
+.endobj m_DispCopySrcY__9DGRendMan
 
-.global m_AdjustForOverscanW__9DGRendMan
-m_AdjustForOverscanW__9DGRendMan:
+.obj m_AdjustForOverscanW__9DGRendMan, global
 	.skip 0x2
+.endobj m_AdjustForOverscanW__9DGRendMan
 
 .skip 2
 
-.global m_progressive__9DGRendMan
-m_progressive__9DGRendMan:
+.obj m_progressive__9DGRendMan, global
 	.skip 0x4
+.endobj m_progressive__9DGRendMan

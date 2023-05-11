@@ -79,10 +79,11 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-lbl_800662A0:
+.obj lbl_800662A0, local
 	.asciz "Heap free %d blocksize %d\n"
 	.balign 4
 	.asciz "DUMacro.cpp"
 	.asciz "No memory\n"
 	.balign 4
 	.4byte 0
+.endobj lbl_800662A0

@@ -491,7 +491,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-lbl_800676B0:
+.obj lbl_800676B0, local
 	.asciz "OSCheckHeap: Failed HeapArray in %d"
 	.asciz "OSCheckHeap: Failed 0 <= heap && heap < NumHeaps in %d"
 	.balign 4
@@ -527,25 +527,30 @@ lbl_800676B0:
 	.asciz "--------Free\n"
 	.balign 4
 	.4byte 0
+.endobj lbl_800676B0
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-.global __OSCurrHeap
-__OSCurrHeap:
+.obj __OSCurrHeap, global
 	.4byte 0xFFFFFFFF
 	.4byte 0
+.endobj __OSCurrHeap
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-HeapArray:
+.obj HeapArray, local
 	.skip 0x4
+.endobj HeapArray
 
-NumHeaps:
+.obj NumHeaps, local
 	.skip 0x4
+.endobj NumHeaps
 
-ArenaStart:
+.obj ArenaStart, local
 	.skip 0x4
+.endobj ArenaStart
 
-ArenaEnd:
+.obj ArenaEnd, local
 	.skip 0x4
+.endobj ArenaEnd

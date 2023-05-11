@@ -262,8 +262,7 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
-.global gDBCommTable
-gDBCommTable:
+.obj gDBCommTable, global
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -272,3 +271,4 @@ gDBCommTable:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj gDBCommTable

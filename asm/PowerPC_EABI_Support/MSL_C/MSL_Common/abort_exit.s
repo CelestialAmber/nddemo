@@ -82,30 +82,34 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 
-atexit_funcs:
+.obj atexit_funcs, local
 	.skip 0x100
+.endobj atexit_funcs
 
-__atexit_funcs:
+.obj __atexit_funcs, local
 	.skip 0x100
+.endobj __atexit_funcs
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-.global __aborting
-__aborting:
+.obj __aborting, global
 	.skip 0x4
+.endobj __aborting
 
-atexit_curr_func:
+.obj atexit_curr_func, local
 	.skip 0x4
+.endobj atexit_curr_func
 
-__atexit_curr_func:
+.obj __atexit_curr_func, local
 	.skip 0x4
+.endobj __atexit_curr_func
 
-.global __stdio_exit
-__stdio_exit:
+.obj __stdio_exit, global
 	.skip 0x4
+.endobj __stdio_exit
 
-.global __console_exit
-__console_exit:
+.obj __console_exit, global
 	.skip 0x4
+.endobj __console_exit
 
 .skip 4

@@ -522,82 +522,100 @@
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
 
-aramQueue:
+.obj aramQueue, local
 	.skip 0x200
+.endobj aramQueue
 
-aramStreamBuffers:
+.obj aramStreamBuffers, local
 	.skip 0x400
+.endobj aramStreamBuffers
 
 .skip 0x18
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-aramTop:
+.obj aramTop, local
 	.skip 0x4
+.endobj aramTop
 
-aramWrite:
+.obj aramWrite, local
 	.skip 0x4
+.endobj aramWrite
 
-aramStream:
+.obj aramStream, local
 	.skip 0x4
+.endobj aramStream
 
-aramQueueWrite:
+.obj aramQueueWrite, local
 	.skip 0x1
+.endobj aramQueueWrite
 
-aramQueueValid:
+.obj aramQueueValid, local
 	.skip 0x1
+.endobj aramQueueValid
 
 .skip 2
 
-aramUsedStreamBuffers:
+.obj aramUsedStreamBuffers, local
 	.skip 0x4
+.endobj aramUsedStreamBuffers
 
-aramFreeStreamBuffers:
+.obj aramFreeStreamBuffers, local
 	.skip 0x4
+.endobj aramFreeStreamBuffers
 
-aramIdleStreamBuffers:
+.obj aramIdleStreamBuffers, local
 	.skip 0x4
+.endobj aramIdleStreamBuffers
 
 .skip 4
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_80006424:
+.obj lbl_80006424, local
     .4byte aramUploadData
     .4byte 0x00000170
     .4byte lbl_80005AB8
+.endobj lbl_80006424
 
-lbl_80006430:
+.obj lbl_80006430, local
     .4byte aramInit
     .4byte 0x0000031C
     .4byte lbl_80005AC0
+.endobj lbl_80006430
 
-lbl_8000643C:
+.obj lbl_8000643C, local
     .4byte aramGetZeroBuffer
     .4byte 0x00000020
     .4byte lbl_80005AC8
+.endobj lbl_8000643C
 
-lbl_80006448:
+.obj lbl_80006448, local
     .4byte aramStoreData
     .4byte 0x00000178
     .4byte lbl_80005AD0
+.endobj lbl_80006448
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005AB8:
+.obj lbl_80005AB8, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_80005AB8
 
-lbl_80005AC0:
+.obj lbl_80005AC0, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_80005AC0
 
-lbl_80005AC8:
+.obj lbl_80005AC8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005AC8
 
-lbl_80005AD0:
+.obj lbl_80005AD0, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_80005AD0

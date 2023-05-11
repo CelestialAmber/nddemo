@@ -4240,7 +4240,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-"kf$475":
+.obj "kf$475", local
 	.4byte 0x100010F3
 	.4byte 0x11F51307
 	.4byte 0x1428155B
@@ -4401,8 +4401,9 @@
 	.4byte 0x80000020
 	.4byte 0x80000040
 	.4byte 0x80000080
+.endobj "kf$475"
 
-lbl_80069368:
+.obj lbl_80069368, local
 	.4byte .L_8004C650
 	.4byte .L_8004C668
 	.4byte .L_8004C680
@@ -4517,307 +4518,375 @@ lbl_80069368:
 	.4byte .L_8004D7C8
 	.4byte .L_8004D624
 	.4byte .L_8004D6F4
+.endobj lbl_80069368
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
 
-lbl_800A99A8:
+.obj lbl_800A99A8, local
 	.4byte 0x45800000
+.endobj lbl_800A99A8
 
-lbl_800A99AC:
+.obj lbl_800A99AC, local
 	.4byte 0x34000000
+.endobj lbl_800A99AC
 
-lbl_800A99B0:
+.obj lbl_800A99B0, local
 	.4byte 0x3C000000
 	.4byte 0
+.endobj lbl_800A99B0
 
-lbl_800A99B8:
+.obj lbl_800A99B8, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A99B8
 
-lbl_800A99C0:
+.obj lbl_800A99C0, local
 	.4byte 0x43300000
 	.4byte 0x80000000
+.endobj lbl_800A99C0
 
-lbl_800A99C8:
+.obj lbl_800A99C8, local
 	.4byte 0x447FC000
+.endobj lbl_800A99C8
 
-lbl_800A99CC:
+.obj lbl_800A99CC, local
 	.4byte 0x3F800000
+.endobj lbl_800A99CC
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-"newsmp$412":
+.obj "newsmp$412", local
 	.skip 0x20
+.endobj "newsmp$412"
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-DebugMacroSteps:
+.obj DebugMacroSteps, local
 	.skip 0x1
+.endobj DebugMacroSteps
 
 .skip 3
 
-macActiveMacroRoot:
+.obj macActiveMacroRoot, local
 	.skip 0x4
+.endobj macActiveMacroRoot
 
-macTimeQueueRoot:
+.obj macTimeQueueRoot, local
 	.skip 0x4
+.endobj macTimeQueueRoot
 
 .skip 4
 
-macRealTime:
+.obj macRealTime, local
 	.skip 0x8
+.endobj macRealTime
 
-"cstep$1061":
+.obj "cstep$1061", local
 	.skip 0x8
+.endobj "cstep$1061"
 
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005760:
+.obj lbl_80005760, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005760
 
-lbl_80005768:
+.obj lbl_80005768, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_80005768
 
-lbl_80005770:
+.obj lbl_80005770, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005770
 
-lbl_80005778:
+.obj lbl_80005778, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005778
 
-lbl_80005780:
+.obj lbl_80005780, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005780
 
-lbl_80005788:
+.obj lbl_80005788, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005788
 
-lbl_80005790:
+.obj lbl_80005790, local
 	.4byte 0x30080000
 	.4byte 0
+.endobj lbl_80005790
 
-lbl_80005798:
+.obj lbl_80005798, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_80005798
 
-lbl_800057A0:
+.obj lbl_800057A0, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_800057A0
 
-lbl_800057A8:
+.obj lbl_800057A8, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_800057A8
 
-lbl_800057B0:
+.obj lbl_800057B0, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_800057B0
 
-lbl_800057B8:
+.obj lbl_800057B8, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_800057B8
 
-lbl_800057C0:
+.obj lbl_800057C0, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_800057C0
 
-lbl_800057C8:
+.obj lbl_800057C8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800057C8
 
-lbl_800057D0:
+.obj lbl_800057D0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800057D0
 
-lbl_800057D8:
+.obj lbl_800057D8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800057D8
 
-lbl_800057E0:
+.obj lbl_800057E0, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_800057E0
 
-lbl_800057E8:
+.obj lbl_800057E8, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_800057E8
 
-lbl_800057F0:
+.obj lbl_800057F0, local
 	.4byte 0x30080000
 	.4byte 0
+.endobj lbl_800057F0
 
-lbl_800057F8:
+.obj lbl_800057F8, local
 	.4byte 0x90C80000
 	.4byte 0
+.endobj lbl_800057F8
 
-lbl_80005800:
+.obj lbl_80005800, local
 	.4byte 0x30080000
 	.4byte 0
+.endobj lbl_80005800
 
-lbl_80005808:
+.obj lbl_80005808, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005808
 
-lbl_80005810:
+.obj lbl_80005810, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005810
 
-lbl_80005818:
+.obj lbl_80005818, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005818
 
-lbl_80005820:
+.obj lbl_80005820, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005820
 
-lbl_80005828:
+.obj lbl_80005828, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005828
 
-lbl_80005830:
+.obj lbl_80005830, local
 	.4byte 0x90080000
 	.4byte 0
+.endobj lbl_80005830
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_80005F20:
+.obj lbl_80005F20, local
     .4byte mcmdWait
     .4byte 0x00000308
     .4byte lbl_80005760
+.endobj lbl_80005F20
 
-lbl_80005F2C:
+.obj lbl_80005F2C, local
     .4byte mcmdLoop
     .4byte 0x00000158
     .4byte lbl_80005768
+.endobj lbl_80005F2C
 
-lbl_80005F38:
+.obj lbl_80005F38, local
     .4byte mcmdPlayMacro
     .4byte 0x00000198
     .4byte lbl_80005770
+.endobj lbl_80005F38
 
-lbl_80005F44:
+.obj lbl_80005F44, local
     .4byte mcmdStartSample
     .4byte 0x000001E4
     .4byte lbl_80005778
+.endobj lbl_80005F44
 
-lbl_80005F50:
+.obj lbl_80005F50, local
     .4byte mcmdVibrato
     .4byte 0x00000180
     .4byte lbl_80005780
+.endobj lbl_80005F50
 
-lbl_80005F5C:
+.obj lbl_80005F5C, local
     .4byte mcmdSetADSR
     .4byte 0x00000258
     .4byte lbl_80005788
+.endobj lbl_80005F5C
 
-lbl_80005F68:
+.obj lbl_80005F68, local
     .4byte mcmdSetPitchADSR
     .4byte 0x00000280
     .4byte lbl_80005790
+.endobj lbl_80005F68
 
-lbl_80005F74:
+.obj lbl_80005F74, local
     .4byte DoPanningSetup
     .4byte 0x000000A0
     .4byte lbl_80005798
+.endobj lbl_80005F74
 
-lbl_80005F80:
+.obj lbl_80005F80, local
     .4byte TranslateVolume
     .4byte 0x00000080
     .4byte lbl_800057A0
+.endobj lbl_80005F80
 
-lbl_80005F8C:
+.obj lbl_80005F8C, local
     .4byte DoEnvelopeCalculation
     .4byte 0x0000012C
     .4byte lbl_800057A8
+.endobj lbl_80005F8C
 
-lbl_80005F98:
+.obj lbl_80005F98, local
     .4byte mcmdRandomKey
     .4byte 0x000001A0
     .4byte lbl_800057B0
+.endobj lbl_80005F98
 
-lbl_80005FA4:
+.obj lbl_80005FA4, local
     .4byte SelectSource
     .4byte 0x00000134
     .4byte lbl_800057B8
+.endobj lbl_80005FA4
 
-lbl_80005FB0:
+.obj lbl_80005FB0, local
     .4byte mcmdPortamento
     .4byte 0x0000011C
     .4byte lbl_800057C0
+.endobj lbl_80005FB0
 
-lbl_80005FBC:
+.obj lbl_80005FBC, local
     .4byte varGet32
     .4byte 0x00000064
     .4byte lbl_800057C8
+.endobj lbl_80005FBC
 
-lbl_80005FC8:
+.obj lbl_80005FC8, local
     .4byte varGet
     .4byte 0x00000068
     .4byte lbl_800057D0
+.endobj lbl_80005FC8
 
-lbl_80005FD4:
+.obj lbl_80005FD4, local
     .4byte varSet32
     .4byte 0x00000064
     .4byte lbl_800057D8
+.endobj lbl_80005FD4
 
-lbl_80005FE0:
+.obj lbl_80005FE0, local
     .4byte mcmdVarCalculation
     .4byte 0x00000130
     .4byte lbl_800057E0
+.endobj lbl_80005FE0
 
-lbl_80005FEC:
+.obj lbl_80005FEC, local
     .4byte mcmdSendMessage
     .4byte 0x00000234
     .4byte lbl_800057E8
+.endobj lbl_80005FEC
 
-lbl_80005FF8:
+.obj lbl_80005FF8, local
     .4byte mcmdSetKeyGroup
     .4byte 0x000000D4
     .4byte lbl_800057F0
+.endobj lbl_80005FF8
 
-lbl_80006004:
+.obj lbl_80006004, local
     .4byte macHandleActive
     .4byte 0x000014B4
     .4byte lbl_800057F8
+.endobj lbl_80006004
 
-lbl_80006010:
+.obj lbl_80006010, local
     .4byte macHandle
     .4byte 0x00000148
     .4byte lbl_80005800
+.endobj lbl_80006010
 
-lbl_8000601C:
+.obj lbl_8000601C, local
     .4byte macSampleEndNotify
     .4byte 0x000000B0
     .4byte lbl_80005808
+.endobj lbl_8000601C
 
-lbl_80006028:
+.obj lbl_80006028, local
     .4byte macSetExternalKeyoff
     .4byte 0x000000F4
     .4byte lbl_80005810
+.endobj lbl_80006028
 
-lbl_80006034:
+.obj lbl_80006034, local
     .4byte macSetPedalState
     .4byte 0x0000010C
     .4byte lbl_80005818
+.endobj lbl_80006034
 
-lbl_80006040:
+.obj lbl_80006040, local
     .4byte UnYieldMacro
     .4byte 0x000000DC
     .4byte lbl_80005820
+.endobj lbl_80006040
 
-lbl_8000604C:
+.obj lbl_8000604C, local
     .4byte macMakeActive
     .4byte 0x00000108
     .4byte lbl_80005828
+.endobj lbl_8000604C
 
-lbl_80006058:
+.obj lbl_80006058, local
     .4byte macStart
     .4byte 0x00000310
     .4byte lbl_80005830
+.endobj lbl_80006058

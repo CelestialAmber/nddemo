@@ -26,7 +26,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-TRK_mainError:
+.obj TRK_mainError, local
 	.skip 0x4
+.endobj TRK_mainError
 
 .skip 4

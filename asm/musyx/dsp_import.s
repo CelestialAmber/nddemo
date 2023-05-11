@@ -3,8 +3,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-.global dspSlave
-dspSlave:
+.obj dspSlave, global
 	.4byte 0
 	.4byte 0x029F0C10
 	.4byte 0x029F0C1F
@@ -1661,11 +1660,12 @@ dspSlave:
 	.4byte 0x0CE602DF
 	.4byte 0
 	.4byte 0
+.endobj dspSlave
 
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-.global dspSlaveLength
-dspSlaveLength:
+.obj dspSlaveLength, global
 	.4byte 0x19E00000
 	.4byte 0
+.endobj dspSlaveLength

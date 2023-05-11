@@ -813,8 +813,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-.global GXNtsc240Ds
-GXNtsc240Ds:
+.obj GXNtsc240Ds, global
 	.4byte 0x00000001
 	.4byte 0x028000F0
 	.4byte 0x00F00028
@@ -830,9 +829,9 @@ GXNtsc240Ds:
 	.4byte 0x06060000
 	.4byte 0x15161500
 	.4byte 0
+.endobj GXNtsc240Ds
 
-.global GXNtsc240DsAa
-GXNtsc240DsAa:
+.obj GXNtsc240DsAa, global
 	.4byte 0x00000001
 	.4byte 0x028000F0
 	.4byte 0x00F00028
@@ -848,9 +847,9 @@ GXNtsc240DsAa:
 	.4byte 0x090A0000
 	.4byte 0x15161500
 	.4byte 0
+.endobj GXNtsc240DsAa
 
-.global GXNtsc240Int
-GXNtsc240Int:
+.obj GXNtsc240Int, global
 	.4byte 0
 	.4byte 0x028000F0
 	.4byte 0x00F00028
@@ -866,9 +865,9 @@ GXNtsc240Int:
 	.4byte 0x06060000
 	.4byte 0x15161500
 	.4byte 0
+.endobj GXNtsc240Int
 
-.global GXNtsc240IntAa
-GXNtsc240IntAa:
+.obj GXNtsc240IntAa, global
 	.4byte 0
 	.4byte 0x028000F0
 	.4byte 0x00F00028
@@ -884,9 +883,9 @@ GXNtsc240IntAa:
 	.4byte 0x090A0000
 	.4byte 0x15161500
 	.4byte 0
+.endobj GXNtsc240IntAa
 
-.global GXNtsc480IntDf
-GXNtsc480IntDf:
+.obj GXNtsc480IntDf, global
 	.4byte 0
 	.4byte 0x028001E0
 	.4byte 0x01E00028
@@ -902,9 +901,9 @@ GXNtsc480IntDf:
 	.4byte 0x06060808
 	.4byte 0x0A0C0A08
 	.4byte 0x08000000
+.endobj GXNtsc480IntDf
 
-.global GXNtsc480Int
-GXNtsc480Int:
+.obj GXNtsc480Int, global
 	.4byte 0
 	.4byte 0x028001E0
 	.4byte 0x01E00028
@@ -920,9 +919,9 @@ GXNtsc480Int:
 	.4byte 0x06060000
 	.4byte 0x15161500
 	.4byte 0
+.endobj GXNtsc480Int
 
-.global GXNtsc480IntAa
-GXNtsc480IntAa:
+.obj GXNtsc480IntAa, global
 	.4byte 0
 	.4byte 0x028000F2
 	.4byte 0x01E00028
@@ -938,9 +937,9 @@ GXNtsc480IntAa:
 	.4byte 0x090A0408
 	.4byte 0x0C100C08
 	.4byte 0x04000000
+.endobj GXNtsc480IntAa
 
-.global GXNtsc480Prog
-GXNtsc480Prog:
+.obj GXNtsc480Prog, global
 	.4byte 0x00000002
 	.4byte 0x028001E0
 	.4byte 0x01E00028
@@ -956,9 +955,9 @@ GXNtsc480Prog:
 	.4byte 0x06060000
 	.4byte 0x15161500
 	.4byte 0
+.endobj GXNtsc480Prog
 
-.global GXNtsc480ProgAa
-GXNtsc480ProgAa:
+.obj GXNtsc480ProgAa, global
 	.4byte 0x00000002
 	.4byte 0x028000F2
 	.4byte 0x01E00028
@@ -974,9 +973,9 @@ GXNtsc480ProgAa:
 	.4byte 0x090A0408
 	.4byte 0x0C100C08
 	.4byte 0x04000000
+.endobj GXNtsc480ProgAa
 
-.global GXMpal480IntDf
-GXMpal480IntDf:
+.obj GXMpal480IntDf, global
 	.4byte 0x00000008
 	.4byte 0x028001E0
 	.4byte 0x01E00028
@@ -992,9 +991,9 @@ GXMpal480IntDf:
 	.4byte 0x06060808
 	.4byte 0x0A0C0A08
 	.4byte 0x08000000
+.endobj GXMpal480IntDf
 
-.global GXPal528IntDf
-GXPal528IntDf:
+.obj GXPal528IntDf, global
 	.4byte 0x00000004
 	.4byte 0x02800210
 	.4byte 0x02100028
@@ -1011,13 +1010,16 @@ GXPal528IntDf:
 	.4byte 0x0A0C0A08
 	.4byte 0x08000000
 	.4byte 0
+.endobj GXPal528IntDf
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
-lbl_800A98B0:
+.obj lbl_800A98B0, local
 	.4byte 0x43800000
 	.4byte 0
+.endobj lbl_800A98B0
 
-lbl_800A98B8:
+.obj lbl_800A98B8, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A98B8

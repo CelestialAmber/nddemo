@@ -1121,54 +1121,62 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-.global gx
-gx:
+.obj gx, global
 	.4byte gxData
 	.4byte 0
+.endobj gx
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
-lbl_800A9890:
+.obj lbl_800A9890, local
 	.4byte 0x404040FF
+.endobj lbl_800A9890
 
-lbl_800A9894:
+.obj lbl_800A9894, local
 	.4byte 0
+.endobj lbl_800A9894
 
-lbl_800A9898:
+.obj lbl_800A9898, local
 	.4byte 0xFFFFFFFF
+.endobj lbl_800A9898
 
-lbl_800A989C:
+.obj lbl_800A989C, local
 	.4byte 0x3F800000
+.endobj lbl_800A989C
 
-lbl_800A98A0:
+.obj lbl_800A98A0, local
 	.4byte 0
+.endobj lbl_800A98A0
 
-lbl_800A98A4:
+.obj lbl_800A98A4, local
 	.4byte 0x3DCCCCCD
+.endobj lbl_800A98A4
 
-lbl_800A98A8:
+.obj lbl_800A98A8, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A98A8
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-gxData:
+.obj gxData, local
 	.skip 0x4F4
+.endobj gxData
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-.global __piReg
-__piReg:
+.obj __piReg, global
 	.skip 0x4
+.endobj __piReg
 
-.global __cpReg
-__cpReg:
+.obj __cpReg, global
 	.skip 0x4
+.endobj __cpReg
 
-.global __peReg
-__peReg:
+.obj __peReg, global
 	.skip 0x4
+.endobj __peReg
 
-.global __memReg
-__memReg:
+.obj __memReg, global
 	.skip 0x4
+.endobj __memReg

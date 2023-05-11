@@ -143,9 +143,10 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-gTRKFramingState:
+.obj gTRKFramingState, local
 	.skip 0x14
+.endobj gTRKFramingState
 
-.global gTRKInputPendingPtr
-gTRKInputPendingPtr:
+.obj gTRKInputPendingPtr, global
 	.skip 0x4
+.endobj gTRKInputPendingPtr

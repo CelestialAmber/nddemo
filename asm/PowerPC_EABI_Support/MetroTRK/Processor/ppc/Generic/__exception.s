@@ -2,11 +2,11 @@
 
 .section .init, "ax"
 
-.global gTRKInterruptVectorTable
-gTRKInterruptVectorTable:
+.obj gTRKInterruptVectorTable, global
 .string "Metrowerks Target Resident Kernel for PowerPC"
 .balign 4, 0
 .fill 0xD0
+.endobj gTRKInterruptVectorTable
 
 #############################################
 # Interrupt vector slot 0x0000 is reserved. #

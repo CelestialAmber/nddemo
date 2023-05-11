@@ -519,7 +519,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-musyx_vol_tab:
+.obj musyx_vol_tab, local
 	.4byte 0
 	.4byte 0x380000FD
 	.4byte 0x3920015F
@@ -658,45 +658,56 @@ musyx_vol_tab:
 	.4byte 0x3F800000
 	.4byte 0x3F800000
 	.4byte 0
+.endobj musyx_vol_tab
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
 
-lbl_800A9A10:
+.obj lbl_800A9A10, local
 	.4byte 0x42FE0000
+.endobj lbl_800A9A10
 
-lbl_800A9A14:
+.obj lbl_800A9A14, local
 	.4byte 0x3F800000
+.endobj lbl_800A9A14
 
-lbl_800A9A18:
+.obj lbl_800A9A18, local
 	.4byte 0x3F3538EF
 	.4byte 0
+.endobj lbl_800A9A18
 
-lbl_800A9A20:
+.obj lbl_800A9A20, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A9A20
 
-lbl_800A9A28:
+.obj lbl_800A9A28, local
 	.4byte 0x34820821
+.endobj lbl_800A9A28
 
-lbl_800A9A2C:
+.obj lbl_800A9A2C, local
 	.4byte 0x40000000
+.endobj lbl_800A9A2C
 
-lbl_800A9A30:
+.obj lbl_800A9A30, local
 	.4byte 0x3F441B33
+.endobj lbl_800A9A30
 
-lbl_800A9A34:
+.obj lbl_800A9A34, local
 	.4byte 0
+.endobj lbl_800A9A34
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
-lbl_80005910:
+.obj lbl_80005910, local
 	.4byte 0x73080000
 	.4byte 0
+.endobj lbl_80005910
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
-lbl_800061A8:
+.obj lbl_800061A8, local
     .4byte salCalcVolume
     .4byte 0x00000798
     .4byte lbl_80005910
+.endobj lbl_800061A8

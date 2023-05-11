@@ -585,11 +585,12 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-lbl_80066B88:
+.obj lbl_80066B88, local
 	.asciz "Error DGTexMan::AddTexture> Full\n"
 	.balign 4
+.endobj lbl_80066B88
 
-lbl_80066BAC:
+.obj lbl_80066BAC, local
 	.4byte 0x4572726F
 	.4byte 0x72204447
 	.4byte 0x5465784D
@@ -602,34 +603,42 @@ lbl_80066BAC:
 	.asciz "Already Exist Texture [%s]\n"
 	.asciz "Error DGTexMan::LoadTexture> Load Failed\n"
 	.balign 4
+.endobj lbl_80066BAC
 
-lbl_80066C24:
+.obj lbl_80066C24, local
 	.asciz "Error DGTexMan::GetTexture> Invalid Handle\n"
+.endobj lbl_80066C24
 
-lbl_80066C50:
+.obj lbl_80066C50, local
 	.asciz "Error DGTexMan::AttachTexture> Failed\n"
 	.balign 4
 	.asciz "Error DGTexMan::DetachTexture> Invalid Handle\n"
 	.balign 4
+.endobj lbl_80066C50
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
-lbl_800A8BB8:
+.obj lbl_800A8BB8, local
 	.asciz "tex/"
 	.balign 4
+.endobj lbl_800A8BB8
 
-lbl_800A8BC0:
+.obj lbl_800A8BC0, local
 	.asciz ".dtx"
 	.balign 4
+.endobj lbl_800A8BC0
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
-lbl_800A94F0:
+.obj lbl_800A94F0, local
 	.4byte 0
+.endobj lbl_800A94F0
 
-lbl_800A94F4:
+.obj lbl_800A94F4, local
 	.4byte 0xC0600000
+.endobj lbl_800A94F4
 
-lbl_800A94F8:
+.obj lbl_800A94F8, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A94F8

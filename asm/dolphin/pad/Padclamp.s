@@ -171,6 +171,7 @@
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
 
-ClampRegion:
+.obj ClampRegion, local
 	.4byte 0x1EB40F48
 	.4byte 0x280F3B1F
+.endobj ClampRegion

@@ -165,36 +165,42 @@
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0 ; 0x000006A0
 
-lbl_80005B88:
+.obj lbl_80005B88, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005B88
 
-lbl_80005B90:
+.obj lbl_80005B90, local
 	.4byte 0x20080000
 	.4byte 0x00000064
 	.4byte 0x00000010
 	.4byte 0
 	.4byte 0x8200001C
 	.4byte __dt__26__partial_array_destructorFv
+.endobj lbl_80005B90
 
-lbl_80005BA8:
+.obj lbl_80005BA8, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_80005BA8
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0 ; 0x000009E0
 
 
-lbl_8000655C:
+.obj lbl_8000655C, local
     .4byte __destroy_arr
     .4byte 0x00000078
     .4byte lbl_80005B88
+.endobj lbl_8000655C
 
-lbl_80006568:
+.obj lbl_80006568, local
     .4byte __construct_array
     .4byte 0x00000100
     .4byte lbl_80005B90
+.endobj lbl_80006568
 
-lbl_80006574:
+.obj lbl_80006574, local
     .4byte __dt__26__partial_array_destructorFv
     .4byte 0x000000B8
     .4byte lbl_80005BA8
+.endobj lbl_80006574

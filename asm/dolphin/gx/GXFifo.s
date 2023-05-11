@@ -465,36 +465,43 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-.global FifoObj
-FifoObj:
+.obj FifoObj, global
 	.skip 0x80
+.endobj FifoObj
 
 .skip 4
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-CPUFifo:
+.obj CPUFifo, local
 	.skip 0x4
+.endobj CPUFifo
 
-GPFifo:
+.obj GPFifo, local
 	.skip 0x4
+.endobj GPFifo
 
-__GXCurrentThread:
+.obj __GXCurrentThread, local
 	.skip 0x4
+.endobj __GXCurrentThread
 
-CPGPLinked:
+.obj CPGPLinked, local
 	.skip 0x1
+.endobj CPGPLinked
 
 .skip 3
 
-GXOverflowSuspendInProgress:
+.obj GXOverflowSuspendInProgress, local
 	.skip 0x4
+.endobj GXOverflowSuspendInProgress
 
-BreakPointCB:
+.obj BreakPointCB, local
 	.skip 0x4
+.endobj BreakPointCB
 
-__GXOverflowCount:
+.obj __GXOverflowCount, local
 	.skip 0x4
+.endobj __GXOverflowCount
 
 .skip 4

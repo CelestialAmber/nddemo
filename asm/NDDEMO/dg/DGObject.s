@@ -2190,7 +2190,7 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
-"GXTEXMAP_TABLE$160":
+.obj "GXTEXMAP_TABLE$160", local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2199,8 +2199,9 @@
 	.4byte 0x00000005
 	.4byte 0x00000006
 	.4byte 0x00000007
+.endobj "GXTEXMAP_TABLE$160"
 
-TevStageID_TABLE:
+.obj TevStageID_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2271,8 +2272,9 @@ TevStageID_TABLE:
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000003
+.endobj TevStageID_TABLE
 
-TevRegID_TABLE:
+.obj TevRegID_TABLE, local
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000003
@@ -2320,8 +2322,9 @@ TevRegID_TABLE:
 	.4byte 0x00000004
 	.4byte 0x0000000B
 	.4byte 0x0000000D
+.endobj TevRegID_TABLE
 
-Compare_TABLE:
+.obj Compare_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000003
@@ -2394,8 +2397,9 @@ Compare_TABLE:
 	.4byte 0x00000009
 	.4byte 0x0000000A
 	.4byte 0x0000000B
+.endobj Compare_TABLE
 
-"TEX_AT$288":
+.obj "TEX_AT$288", local
 	.4byte 0x0000000D
 	.4byte 0x0000000E
 	.4byte 0x0000000F
@@ -2404,18 +2408,20 @@ Compare_TABLE:
 	.4byte 0x00000012
 	.4byte 0x00000013
 	.4byte 0x00000014
+.endobj "TEX_AT$288"
 
-lbl_800641C4:
+.obj lbl_800641C4, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000003
 	.4byte 0
+.endobj lbl_800641C4
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-lbl_80066690:
+.obj lbl_80066690, local
 	.asciz "Error DGObject::~DGObject ReferCount>0\n"
 	.asciz "Error:SetArrayFormat(m_VCompType)\n"
 	.balign 4
@@ -2425,16 +2431,19 @@ lbl_80066690:
 	.balign 4
 	.asciz "Error:SetArrayFormat(m_TCompType)\n"
 	.balign 4
+.endobj lbl_80066690
 
-lbl_80066748:
+.obj lbl_80066748, local
 	.asciz "Error DGObject::ExecuteObjStream>%d\n"
 	.balign 4
+.endobj lbl_80066748
 
-lbl_80066770:
+.obj lbl_80066770, local
 	.asciz "Error DGObject::oscmdExtend0>"
 	.balign 4
+.endobj lbl_80066770
 
-lbl_80066790:
+.obj lbl_80066790, local
 	.asciz "Error DGObject::oscmdExtendF>"
 	.balign 4
 	.4byte 0
@@ -2443,8 +2452,9 @@ lbl_80066790:
 	.4byte 0x00000002
 	.asciz "Primitive error\n"
 	.balign 4
+.endobj lbl_80066790
 
-lbl_800667D4:
+.obj lbl_800667D4, local
 	.asciz "Error DGObject::DecRefer  ReferCount<0\n"
 	.asciz "DGObject::LoadNDMPartsBlock >McrFree(m_PartsBlock);\n"
 	.balign 4
@@ -2462,23 +2472,27 @@ lbl_800667D4:
 	.balign 4
 	.asciz "DGObject::LoadNDMPartsBlock >m_DispList==NULL\n"
 	.balign 4
+.endobj lbl_800667D4
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
-TevOp_TABLE:
+.obj TevOp_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
+.endobj TevOp_TABLE
 
-Bool_TABLE:
+.obj Bool_TABLE, local
 	.4byte 0x00010000
+.endobj Bool_TABLE
 
-lbl_800A94C4:
+.obj lbl_800A94C4, local
 	.4byte 0x009000FF
+.endobj lbl_800A94C4
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
-.global lineMode__8DGObject
-lineMode__8DGObject:
+.obj lineMode__8DGObject, global
 	.skip 0x4
+.endobj lineMode__8DGObject
 
 .skip 4

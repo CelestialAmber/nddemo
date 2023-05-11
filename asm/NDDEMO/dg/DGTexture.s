@@ -217,17 +217,21 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-lbl_80066CD8:
+.obj lbl_80066CD8, local
 	.asciz "Error DGTexture::~DGTexture  ReferCount>0\n"
 	.balign 4
+.endobj lbl_80066CD8
 
-lbl_80066D04:
+.obj lbl_80066D04, local
 	.asciz "Error DGTexture::DecRefer  ReferCount<0\n"
 	.balign 4
+.endobj lbl_80066D04
 
-lbl_80066D30:
+.obj lbl_80066D30, local
 	.asciz "DGTexture::LoadDTX>dvd.Open\n"
 	.balign 4
+.endobj lbl_80066D30
 
-lbl_80066D50:
+.obj lbl_80066D50, local
 	.asciz "DGTexture::LoadDTX>DTX_VERSION\n"
+.endobj lbl_80066D50

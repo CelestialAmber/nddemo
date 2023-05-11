@@ -108,7 +108,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-ErrorTable:
+.obj ErrorTable, local
 	.4byte 0
 	.4byte 0x00023A00
 	.4byte 0x00062800
@@ -125,3 +125,4 @@ ErrorTable:
 	.4byte 0x00020401
 	.4byte 0x00020400
 	.4byte 0x00040800
+.endobj ErrorTable

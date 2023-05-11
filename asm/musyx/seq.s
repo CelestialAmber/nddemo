@@ -3644,7 +3644,7 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-lbl_80069098:
+.obj lbl_80069098, local
 	.4byte .L_80043B98
 	.4byte .L_80043BC8
 	.4byte .L_80043BEC
@@ -3665,153 +3665,181 @@ lbl_80069098:
 	.4byte .L_80043C14
 	.4byte .L_80043CA0
 	.4byte .L_80043C2C
+.endobj lbl_80069098
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-seqNote:
+.obj seqNote, local
 	.skip 0x1400
+.endobj seqNote
 
-.global seqInstance
-seqInstance:
+.obj seqInstance, global
 	.skip 0xBD20
+.endobj seqInstance
 
-.global seqMIDIPriority
-seqMIDIPriority:
+.obj seqMIDIPriority, global
 	.skip 0x100
+.endobj seqMIDIPriority
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-cseq:
+.obj cseq, local
 	.skip 0x4
+.endobj cseq
 
-noteFree:
+.obj noteFree, local
 	.skip 0x4
+.endobj noteFree
 
-curSeqId:
+.obj curSeqId, local
 	.skip 0x4
+.endobj curSeqId
 
-curFadeOutState:
+.obj curFadeOutState, local
 	.skip 0x1
+.endobj curFadeOutState
 
 .skip 3
 
-seq_next_id:
+.obj seq_next_id, local
 	.skip 0x4
+.endobj seq_next_id
 
-.global seqFreeRoot
-seqFreeRoot:
+.obj seqFreeRoot, global
 	.skip 0x4
+.endobj seqFreeRoot
 
-.global seqPausedRoot
-seqPausedRoot:
+.obj seqPausedRoot, global
 	.skip 0x4
+.endobj seqPausedRoot
 
-.global seqActiveRoot
-seqActiveRoot:
+.obj seqActiveRoot, global
 	.skip 0x4
+.endobj seqActiveRoot
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005520:
+.obj lbl_80005520, local
 	.4byte 0x58080000
 	.4byte 0
+.endobj lbl_80005520
 
-lbl_80005528:
+.obj lbl_80005528, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005528
 
-lbl_80005530:
+.obj lbl_80005530, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005530
 
-lbl_80005538:
+.obj lbl_80005538, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005538
 
-lbl_80005540:
+.obj lbl_80005540, local
 	.4byte 0x30080000
 	.4byte 0
+.endobj lbl_80005540
 
-lbl_80005548:
+.obj lbl_80005548, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_80005548
 
-lbl_80005550:
+.obj lbl_80005550, local
 	.4byte 0x40080000
 	.4byte 0
+.endobj lbl_80005550
 
-lbl_80005558:
+.obj lbl_80005558, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005558
 
-lbl_80005560:
+.obj lbl_80005560, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_80005560
 
-lbl_80005568:
+.obj lbl_80005568, local
 	.4byte 0x30080000
 	.4byte 0
+.endobj lbl_80005568
 
-lbl_80005570:
+.obj lbl_80005570, local
 	.4byte 0x58080000
 	.4byte 0
+.endobj lbl_80005570
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
-.global lbl_80005BC0
-lbl_80005BC0:
+.obj lbl_80005BC0, global
 	.4byte seqStartPlay
 	.4byte 0x00000AA4
 	.4byte lbl_80005520
+.endobj lbl_80005BC0
 
-lbl_80005BCC:
+.obj lbl_80005BCC, local
 	.4byte HandleMasterTrack
 	.4byte 0x0000009C
 	.4byte lbl_80005528
+.endobj lbl_80005BCC
 
-lbl_80005BD8:
+.obj lbl_80005BD8, local
 	.4byte seqPause
 	.4byte 0x00000190
 	.4byte lbl_80005530
+.endobj lbl_80005BD8
 
-lbl_80005BE4:
+.obj lbl_80005BE4, local
 	.4byte seqStop
 	.4byte 0x000001D4
 	.4byte lbl_80005538
+.endobj lbl_80005BE4
 
-lbl_80005BF0:
+.obj lbl_80005BF0, local
 	.4byte seqVolume
 	.4byte 0x0000019C
 	.4byte lbl_80005540
+.endobj lbl_80005BF0
 
-lbl_80005BFC:
+.obj lbl_80005BFC, local
 	.4byte seqCrossFade
 	.4byte 0x00000534
 	.4byte lbl_80005548
+.endobj lbl_80005BFC
 
-lbl_80005C08:
+.obj lbl_80005C08, local
 	.4byte HandleEvent
 	.4byte 0x00000778
 	.4byte lbl_80005550
+.endobj lbl_80005C08
 
-lbl_80005C14:
+.obj lbl_80005C14, local
 	.4byte InitTrackEvents
 	.4byte 0x000000A8
 	.4byte lbl_80005558
+.endobj lbl_80005C14
 
-lbl_80005C20:
+.obj lbl_80005C20, local
 	.4byte InitTrackEventsSection
 	.4byte 0x000000C4
 	.4byte lbl_80005560
+.endobj lbl_80005C20
 
-lbl_80005C2C:
+.obj lbl_80005C2C, local
 	.4byte HandleTrackEvents
 	.4byte 0x0000017C
 	.4byte lbl_80005568
+.endobj lbl_80005C2C
 
-lbl_80005C38:
+.obj lbl_80005C38, local
 	.4byte seqHandle
 	.4byte 0x00000744
 	.4byte lbl_80005570
+.endobj lbl_80005C38

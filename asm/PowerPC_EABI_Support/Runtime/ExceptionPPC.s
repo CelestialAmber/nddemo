@@ -43,7 +43,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-fragmentinfo:
+.obj fragmentinfo, local
 	.skip 0xC
+.endobj fragmentinfo
 
 .skip 4

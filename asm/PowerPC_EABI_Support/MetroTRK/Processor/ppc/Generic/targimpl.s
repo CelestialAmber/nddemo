@@ -1618,77 +1618,83 @@
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
 
-.global gTRKMemMap
-gTRKMemMap:
+.obj gTRKMemMap, global
 	.4byte 0
 	.4byte 0xFFFFFFFF
 	.4byte 0x00000001
 	.4byte 0x00000001
+.endobj gTRKMemMap
 
-lbl_800647B0:
+.obj lbl_800647B0, local
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
+.endobj lbl_800647B0
 
-lbl_800647C4:
+.obj lbl_800647C4, local
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
+.endobj lbl_800647C4
 
-lbl_800647D8:
+.obj lbl_800647D8, local
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0x60000000
 	.4byte 0
+.endobj lbl_800647D8
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
-.global gTRKRestoreFlags
-gTRKRestoreFlags:
+.obj gTRKRestoreFlags, global
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj gTRKRestoreFlags
 
-gTRKExceptionStatus:
+.obj gTRKExceptionStatus, local
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0x01000000
+.endobj gTRKExceptionStatus
 
-gTRKStepStatus:
+.obj gTRKStepStatus, local
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj gTRKStepStatus
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-TRK_saved_exceptionID:
+.obj TRK_saved_exceptionID, local
 	.skip 0x2
+.endobj TRK_saved_exceptionID
 
 .skip 2
 
-.global gTRKSaveState
-gTRKSaveState:
+.obj gTRKSaveState, global
 	.skip 0x94
+.endobj gTRKSaveState
 
-.global TRKvalue128_temp
-TRKvalue128_temp:
+.obj TRKvalue128_temp, global
 	.skip 0x10
+.endobj TRKvalue128_temp
 
-.global gTRKState
-gTRKState:
+.obj gTRKState, global
 	.skip 0xA4
+.endobj gTRKState
 
 .skip 4
 
-.global gTRKCPUState
-gTRKCPUState:
+.obj gTRKCPUState, global
 	.skip 0x430
+.endobj gTRKCPUState

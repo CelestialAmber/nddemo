@@ -2,8 +2,7 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
-.global __one_over_F
-__one_over_F:
+.obj __one_over_F, global
 	.4byte 0x3F800000
 	.4byte 0x3F7E03F8
 	.4byte 0x3F7C0FC1
@@ -133,9 +132,9 @@ __one_over_F:
 	.4byte 0x3F010204
 	.4byte 0x3F008080
 	.4byte 0x3F000000
+.endobj __one_over_F
 
-.global __sincos_on_quadrant
-__sincos_on_quadrant:
+.obj __sincos_on_quadrant, global
 	.4byte 0
 	.4byte 0x3F800000
 	.4byte 0x3F800000
@@ -144,9 +143,9 @@ __sincos_on_quadrant:
 	.4byte 0xBF800000
 	.4byte 0xBF800000
 	.4byte 0
+.endobj __sincos_on_quadrant
 
-.global __sincos_poly
-__sincos_poly:
+.obj __sincos_poly, global
 	.4byte 0x366CCFAA
 	.4byte 0x34A5E129
 	.4byte 0xB9AAE275
@@ -158,3 +157,4 @@ __sincos_poly:
 	.4byte 0x3F800000
 	.4byte 0x3F490FDB
 	.4byte 0
+.endobj __sincos_poly

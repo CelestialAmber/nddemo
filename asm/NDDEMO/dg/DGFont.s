@@ -519,25 +519,31 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-lbl_80066CA8:
+.obj lbl_80066CA8, local
 	.asciz "DGFont::DGFont>\n"
 	.balign 4
 	.4byte 0
+.endobj lbl_80066CA8
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
-lbl_800A9548:
+.obj lbl_800A9548, local
 	.4byte 0
+.endobj lbl_800A9548
 
-lbl_800A954C:
+.obj lbl_800A954C, local
 	.4byte 0x43F00000
+.endobj lbl_800A954C
 
-lbl_800A9550:
+.obj lbl_800A9550, local
 	.4byte 0x44200000
+.endobj lbl_800A9550
 
-lbl_800A9554:
+.obj lbl_800A9554, local
 	.4byte 0x3F800000
+.endobj lbl_800A9554
 
-lbl_800A9558:
+.obj lbl_800A9558, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A9558

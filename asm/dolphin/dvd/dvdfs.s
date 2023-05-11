@@ -579,44 +579,53 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
-lbl_80068218:
+.obj lbl_80068218, local
 	.asciz "DVDConvertEntrynumToPath(possibly DVDOpen or DVDChangeDir or DVDOpenDir): specified directory or file (%s) doesn't match standard 8.3 format. This is a temporary restriction and will be removed soon\n"
+.endobj lbl_80068218
 
-lbl_800682E0:
+.obj lbl_800682E0, local
 	.asciz "Warning: DVDOpen(): file '%s' was not found under %s.\n"
 	.balign 4
+.endobj lbl_800682E0
 
-lbl_80068318:
+.obj lbl_80068318, local
 	.asciz "DVDRead(): specified area is out of the file  "
 	.balign 4
+.endobj lbl_80068318
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-lbl_800A8CC0:
+.obj lbl_800A8CC0, local
 	.asciz "dvdfs.c"
+.endobj lbl_800A8CC0
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-BootInfo:
+.obj BootInfo, local
 	.skip 0x4
+.endobj BootInfo
 
-FstStart:
+.obj FstStart, local
 	.skip 0x4
+.endobj FstStart
 
-FstStringStart:
+.obj FstStringStart, local
 	.skip 0x4
+.endobj FstStringStart
 
-MaxEntryNum:
+.obj MaxEntryNum, local
 	.skip 0x4
+.endobj MaxEntryNum
 
-currentDirectory:
+.obj currentDirectory, local
 	.skip 0x4
+.endobj currentDirectory
 
-.global __DVDLongFileNameFlag
-__DVDLongFileNameFlag:
+.obj __DVDLongFileNameFlag, global
 	.skip 0x4
+.endobj __DVDLongFileNameFlag
 
-.global __DVDThreadQueue
-__DVDThreadQueue:
+.obj __DVDThreadQueue, global
 	.skip 0x8
+.endobj __DVDThreadQueue

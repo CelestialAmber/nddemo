@@ -877,7 +877,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-"lens$115":
+.obj "lens$115", local
 	.4byte 0x000006FD
 	.4byte 0x000007CF
 	.4byte 0x0000091D
@@ -886,71 +886,89 @@
 	.4byte 0x0000002F
 	.4byte 0x00000049
 	.4byte 0x00000043
+.endobj "lens$115"
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
 
-lbl_800A9AB0:
+.obj lbl_800A9AB0, local
 	.4byte 0
+.endobj lbl_800A9AB0
 
-lbl_800A9AB4:
+.obj lbl_800A9AB4, local
 	.4byte 0x3F800000
+.endobj lbl_800A9AB4
 
-lbl_800A9AB8:
+.obj lbl_800A9AB8, local
 	.4byte 0x3C23D70A
+.endobj lbl_800A9AB8
 
-lbl_800A9ABC:
+.obj lbl_800A9ABC, local
 	.4byte 0x41200000
+.endobj lbl_800A9ABC
 
-lbl_800A9AC0:
+.obj lbl_800A9AC0, local
 	.4byte 0x3DCCCCCD
+.endobj lbl_800A9AC0
 
-lbl_800A9AC4:
+.obj lbl_800A9AC4, local
 	.4byte 0x46FA0000
+.endobj lbl_800A9AC4
 
-lbl_800A9AC8:
+.obj lbl_800A9AC8, local
 	.4byte 0x3D4CCCCD
+.endobj lbl_800A9AC8
 
-lbl_800A9ACC:
+.obj lbl_800A9ACC, local
 	.4byte 0x3F4CCCCD
+.endobj lbl_800A9ACC
 
-lbl_800A9AD0:
+.obj lbl_800A9AD0, local
 	.4byte 0x43300000
 	.4byte 0x80000000
+.endobj lbl_800A9AD0
 
-i2fMagic:
+.obj i2fMagic, local
 	.4byte 0x43300000
 	.4byte 0x80000000
+.endobj i2fMagic
 
-value0_6:
+.obj value0_6, local
 	.4byte 0x3F19999A
+.endobj value0_6
 
-value0_3:
+.obj value0_3, local
 	.4byte 0x3E99999A
+.endobj value0_3
 
-lbl_800A9AE8:
+.obj lbl_800A9AE8, local
 	.4byte 0x3F000000
 	.4byte 0
+.endobj lbl_800A9AE8
 
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
-lbl_80005B68:
+.obj lbl_80005B68, local
 	.4byte 0x82080000
 	.4byte 0
+.endobj lbl_80005B68
 
-lbl_80005B70:
+.obj lbl_80005B70, local
 	.4byte 0x28C80000
 	.4byte 0
+.endobj lbl_80005B70
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
-lbl_8000652C:
+.obj lbl_8000652C, local
     .4byte ReverbHICreate
     .4byte 0x000004CC
     .4byte lbl_80005B68
+.endobj lbl_8000652C
 
-lbl_80006538:
+.obj lbl_80006538, local
     .4byte ReverbHICallback
     .4byte 0x000000F8
     .4byte lbl_80005B70
+.endobj lbl_80006538

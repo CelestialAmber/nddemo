@@ -1058,7 +1058,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-lbl_80068CE0:
+.obj lbl_80068CE0, local
 	.4byte .L_8003E3EC
 	.4byte .L_8003E3F8
 	.4byte .L_8003E3F8
@@ -1120,8 +1120,9 @@ lbl_80068CE0:
 	.4byte .L_8003E3F8
 	.4byte .L_8003E410
 	.4byte .L_8003E404
+.endobj lbl_80068CE0
 
-lbl_80068DD4:
+.obj lbl_80068DD4, local
 	.4byte .L_8003E540
 	.4byte .L_8003E54C
 	.4byte .L_8003E54C
@@ -1183,8 +1184,9 @@ lbl_80068DD4:
 	.4byte .L_8003E54C
 	.4byte .L_8003E564
 	.4byte .L_8003E558
+.endobj lbl_80068DD4
 
-lbl_80068EC8:
+.obj lbl_80068EC8, local
 	.4byte .L_8003E790
 	.4byte .L_8003E7A4
 	.4byte .L_8003E7A4
@@ -1201,75 +1203,84 @@ lbl_80068EC8:
 	.4byte .L_8003E7F4
 	.4byte .L_8003E7E0
 	.4byte 0
+.endobj lbl_80068EC8
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
 
-.global GXTexMode0Ids
-GXTexMode0Ids:
+.obj GXTexMode0Ids, global
 	.4byte 0x80818283
 	.4byte 0xA0A1A2A3
+.endobj GXTexMode0Ids
 
-.global GXTexMode1Ids
-GXTexMode1Ids:
+.obj GXTexMode1Ids, global
 	.4byte 0x84858687
 	.4byte 0xA4A5A6A7
+.endobj GXTexMode1Ids
 
-.global GXTexImage0Ids
-GXTexImage0Ids:
+.obj GXTexImage0Ids, global
 	.4byte 0x88898A8B
 	.4byte 0xA8A9AAAB
+.endobj GXTexImage0Ids
 
-.global GXTexImage1Ids
-GXTexImage1Ids:
+.obj GXTexImage1Ids, global
 	.4byte 0x8C8D8E8F
 	.4byte 0xACADAEAF
+.endobj GXTexImage1Ids
 
-.global GXTexImage2Ids
-GXTexImage2Ids:
+.obj GXTexImage2Ids, global
 	.4byte 0x90919293
 	.4byte 0xB0B1B2B3
+.endobj GXTexImage2Ids
 
-.global GXTexImage3Ids
-GXTexImage3Ids:
+.obj GXTexImage3Ids, global
 	.4byte 0x94959697
 	.4byte 0xB4B5B6B7
+.endobj GXTexImage3Ids
 
-.global GXTexTlutIds
-GXTexTlutIds:
+.obj GXTexTlutIds, global
 	.4byte 0x98999A9B
 	.4byte 0xB8B9BABB
+.endobj GXTexTlutIds
 
-.global GX2HWFiltConv
-GX2HWFiltConv:
+.obj GX2HWFiltConv, global
 	.4byte 0x00040105
 	.4byte 0x02060000
+.endobj GX2HWFiltConv
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
 
-lbl_800A98E0:
+.obj lbl_800A98E0, local
 	.4byte 0x41800000
 	.4byte 0
+.endobj lbl_800A98E0
 
-lbl_800A98E8:
+.obj lbl_800A98E8, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A98E8
 
-lbl_800A98F0:
+.obj lbl_800A98F0, local
 	.4byte 0xC0800000
+.endobj lbl_800A98F0
 
-lbl_800A98F4:
+.obj lbl_800A98F4, local
 	.4byte 0x40800000
+.endobj lbl_800A98F4
 
-lbl_800A98F8:
+.obj lbl_800A98F8, local
 	.4byte 0x407F5C29
+.endobj lbl_800A98F8
 
-lbl_800A98FC:
+.obj lbl_800A98FC, local
 	.4byte 0x42000000
+.endobj lbl_800A98FC
 
-lbl_800A9900:
+.obj lbl_800A9900, local
 	.4byte 0
+.endobj lbl_800A9900
 
-lbl_800A9904:
+.obj lbl_800A9904, local
 	.4byte 0x41200000
+.endobj lbl_800A9904

@@ -3399,375 +3399,437 @@
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
 
-lbl_800A9958:
+.obj lbl_800A9958, local
 	.4byte 0x34010204
+.endobj lbl_800A9958
 
-lbl_800A995C:
+.obj lbl_800A995C, local
 	.4byte 0x3C010204
+.endobj lbl_800A995C
 
-lbl_800A9960:
+.obj lbl_800A9960, local
 	.4byte 0x39000000
+.endobj lbl_800A9960
 
-lbl_800A9964:
+.obj lbl_800A9964, local
 	.4byte 0x39800000
+.endobj lbl_800A9964
 
-lbl_800A9968:
+.obj lbl_800A9968, local
 	.4byte 0x3F800000
+.endobj lbl_800A9968
 
-lbl_800A996C:
+.obj lbl_800A996C, local
 	.4byte 0x32800200
+.endobj lbl_800A996C
 
-lbl_800A9970:
+.obj lbl_800A9970, local
 	.4byte 0x3E4CCCCD
+.endobj lbl_800A9970
 
-lbl_800A9974:
+.obj lbl_800A9974, local
 	.4byte 0x38800200
+.endobj lbl_800A9974
 
-lbl_800A9978:
+.obj lbl_800A9978, local
 	.4byte 0x46FFFE00
 	.4byte 0
+.endobj lbl_800A9978
 
-lbl_800A9980:
+.obj lbl_800A9980, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A9980
 
-lbl_800A9988:
+.obj lbl_800A9988, local
 	.4byte 0x43300000
 	.4byte 0x80000000
+.endobj lbl_800A9988
 
-lbl_800A9990:
+.obj lbl_800A9990, local
 	.4byte 0
+.endobj lbl_800A9990
 
-lbl_800A9994:
+.obj lbl_800A9994, local
 	.4byte 0x44A00000
+.endobj lbl_800A9994
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
 
-synthTicksPerSecond:
+.obj synthTicksPerSecond, local
 	.skip 0x240
+.endobj synthTicksPerSecond
 
-synthJobTable:
+.obj synthJobTable, local
 	.skip 0x180
+.endobj synthJobTable
 
-.global synthInfo
-synthInfo:
+.obj synthInfo, global
 	.skip 0x214
+.endobj synthInfo
 
-.global synthMasterFader
-synthMasterFader:
+.obj synthMasterFader, global
 	.skip 0x600
+.endobj synthMasterFader
 
-.global synthTrackVolume
-synthTrackVolume:
+.obj synthTrackVolume, global
 	.skip 0x40
+.endobj synthTrackVolume
 
-.global synthAuxAUser
-synthAuxAUser:
+.obj synthAuxAUser, global
 	.skip 0x10
+.endobj synthAuxAUser
 
-.global synthAuxACallback
-synthAuxACallback:
+.obj synthAuxACallback, global
 	.skip 0x10
+.endobj synthAuxACallback
 
-.global synthAuxBUser
-synthAuxBUser:
+.obj synthAuxBUser, global
 	.skip 0x10
+.endobj synthAuxBUser
 
-.global synthAuxBCallback
-synthAuxBCallback:
+.obj synthAuxBCallback, global
 	.skip 0x10
+.endobj synthAuxBCallback
 
-.global synthGlobalVariable
-synthGlobalVariable:
+.obj synthGlobalVariable, global
 	.skip 0x40
+.endobj synthGlobalVariable
 
-.global inpAuxB
-inpAuxB:
+.obj inpAuxB, global
 	.skip 0x240
+.endobj inpAuxB
 
-.global inpAuxA
-inpAuxA:
+.obj inpAuxA, global
 	.skip 0x240
+.endobj inpAuxA
 
 .skip 4
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-.global sndActive
-sndActive:
+.obj sndActive, global
 	.skip 0x1
+.endobj sndActive
 
-synthJobTableIndex:
+.obj synthJobTableIndex, local
 	.skip 0x1
+.endobj synthJobTableIndex
 
 .skip 2
 
-.global synthITDDefault
-synthITDDefault:
+.obj synthITDDefault, global
 	.skip 0x8
+.endobj synthITDDefault
 
-.global synthAuxBMIDISet
-synthAuxBMIDISet:
+.obj synthAuxBMIDISet, global
 	.skip 0x4
+.endobj synthAuxBMIDISet
 
-.global synthAuxBMIDI
-synthAuxBMIDI:
+.obj synthAuxBMIDI, global
 	.skip 0x4
+.endobj synthAuxBMIDI
 
-.global synthAuxAMIDISet
-synthAuxAMIDISet:
+.obj synthAuxAMIDISet, global
 	.skip 0x4
+.endobj synthAuxAMIDISet
 
-.global synthAuxAMIDI
-synthAuxAMIDI:
+.obj synthAuxAMIDI, global
 	.skip 0x4
+.endobj synthAuxAMIDI
 
-.global synthMasterFaderPauseActiveFlags
-synthMasterFaderPauseActiveFlags:
+.obj synthMasterFaderPauseActiveFlags, global
 	.skip 0x4
+.endobj synthMasterFaderPauseActiveFlags
 
-.global synthMasterFaderActiveFlags
-synthMasterFaderActiveFlags:
+.obj synthMasterFaderActiveFlags, global
 	.skip 0x4
+.endobj synthMasterFaderActiveFlags
 
-.global synthHasSurround
-synthHasSurround:
+.obj synthHasSurround, global
 	.skip 0x1
+.endobj synthHasSurround
 
-.global synthIsMono
-synthIsMono:
+.obj synthIsMono, global
 	.skip 0x1
+.endobj synthIsMono
 
 .skip 2
 
-.global synthVoice
-synthVoice:
+.obj synthVoice, global
 	.skip 0x4
+.endobj synthVoice
 
-.global synthMessageCallback
-synthMessageCallback:
+.obj synthMessageCallback, global
 	.skip 0x4
+.endobj synthMessageCallback
 
-.global synthIdleWaitActive
-synthIdleWaitActive:
+.obj synthIdleWaitActive, global
 	.skip 0x1
+.endobj synthIdleWaitActive
 
 .skip 7
 
-.global synthRealTime
-synthRealTime:
+.obj synthRealTime, global
 	.skip 0x8
+.endobj synthRealTime
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005578:
+.obj lbl_80005578, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005578
 
-lbl_80005580:
+.obj lbl_80005580, local
 	.4byte 0x70080000
 	.4byte 0
+.endobj lbl_80005580
 
-lbl_80005588:
+.obj lbl_80005588, local
 	.4byte 0x90080000
 	.4byte 0
+.endobj lbl_80005588
 
-lbl_80005590:
+.obj lbl_80005590, local
 	.4byte 0x88080000
 	.4byte 0
+.endobj lbl_80005590
 
-lbl_80005598:
+.obj lbl_80005598, local
 	.4byte 0x70080000
 	.4byte 0
+.endobj lbl_80005598
 
-lbl_800055A0:
+.obj lbl_800055A0, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_800055A0
 
-lbl_800055A8:
+.obj lbl_800055A8, local
 	.4byte 0x20C80000
 	.4byte 0
+.endobj lbl_800055A8
 
-lbl_800055B0:
+.obj lbl_800055B0, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_800055B0
 
-lbl_800055B8:
+.obj lbl_800055B8, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_800055B8
 
-lbl_800055C0:
+.obj lbl_800055C0, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_800055C0
 
-lbl_800055C8:
+.obj lbl_800055C8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800055C8
 
-lbl_800055D0:
+.obj lbl_800055D0, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_800055D0
 
-lbl_800055D8:
+.obj lbl_800055D8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800055D8
 
-lbl_800055E0:
+.obj lbl_800055E0, local
 	.4byte 0x60480000
 	.4byte 0
+.endobj lbl_800055E0
 
-lbl_800055E8:
+.obj lbl_800055E8, local
 	.4byte 0x48080000
 	.4byte 0
+.endobj lbl_800055E8
 
-lbl_800055F0:
+.obj lbl_800055F0, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_800055F0
 
-lbl_800055F8:
+.obj lbl_800055F8, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_800055F8
 
-lbl_80005600:
+.obj lbl_80005600, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005600
 
-lbl_80005608:
+.obj lbl_80005608, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005608
 
-lbl_80005610:
+.obj lbl_80005610, local
 	.4byte 0x31080000
 	.4byte 0
+.endobj lbl_80005610
 
-lbl_80005618:
+.obj lbl_80005618, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005618
 
-lbl_80005620:
+.obj lbl_80005620, local
 	.4byte 0x90080000
 	.4byte 0
+.endobj lbl_80005620
 
-lbl_80005628:
+.obj lbl_80005628, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005628
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
-lbl_80005C44:
+.obj lbl_80005C44, local
 	.4byte synthInitPortamento
 	.4byte 0x000000AC
 	.4byte lbl_80005578
+.endobj lbl_80005C44
 
-lbl_80005C50:
+.obj lbl_80005C50, local
 	.4byte do_voice_portamento
 	.4byte 0x000001F8
 	.4byte lbl_80005580
+.endobj lbl_80005C50
 
-lbl_80005C5C:
+.obj lbl_80005C5C, local
 	.4byte StartLayer
 	.4byte 0x000003EC
 	.4byte lbl_80005588
+.endobj lbl_80005C5C
 
-lbl_80005C68:
+.obj lbl_80005C68, local
 	.4byte StartKeymap
 	.4byte 0x00000244
 	.4byte lbl_80005590
+.endobj lbl_80005C68
 
-lbl_80005C74:
+.obj lbl_80005C74, local
 	.4byte synthStartSound
 	.4byte 0x000001CC
 	.4byte lbl_80005598
+.endobj lbl_80005C74
 
-lbl_80005C80:
+.obj lbl_80005C80, local
 	.4byte LowPrecisionHandler
 	.4byte 0x000007CC
 	.4byte lbl_800055A0
+.endobj lbl_80005C80
 
-lbl_80005C8C:
+.obj lbl_80005C8C, local
 	.4byte ZeroOffsetHandler
 	.4byte 0x00000698
 	.4byte lbl_800055A8
+.endobj lbl_80005C8C
 
-lbl_80005C98:
+.obj lbl_80005C98, local
 	.4byte EventHandler
 	.4byte 0x00000190
 	.4byte lbl_800055B0
+.endobj lbl_80005C98
 
-lbl_80005CA4:
+.obj lbl_80005CA4, local
 	.4byte synthStartSynthJobHandling
 	.4byte 0x00000064
 	.4byte lbl_800055B8
+.endobj lbl_80005CA4
 
-lbl_80005CB0:
+.obj lbl_80005CB0, local
 	.4byte synthForceLowPrecisionUpdate
 	.4byte 0x00000044
 	.4byte lbl_800055C0
+.endobj lbl_80005CB0
 
-lbl_80005CBC:
+.obj lbl_80005CBC, local
 	.4byte synthKeyStateUpdate
 	.4byte 0x00000028
 	.4byte lbl_800055C8
+.endobj lbl_80005CBC
 
-lbl_80005CC8:
+.obj lbl_80005CC8, local
 	.4byte HandleJobQueue
 	.4byte 0x0000007C
 	.4byte lbl_800055D0
+.endobj lbl_80005CC8
 
-lbl_80005CD4:
+.obj lbl_80005CD4, local
 	.4byte HandleFaderTermination
 	.4byte 0x0000006C
 	.4byte lbl_800055D8
+.endobj lbl_80005CD4
 
-lbl_80005CE0:
+.obj lbl_80005CE0, local
 	.4byte synthHandle
 	.4byte 0x00000318
 	.4byte lbl_800055E0
+.endobj lbl_80005CE0
 
-lbl_80005CEC:
+.obj lbl_80005CEC, local
 	.4byte synthFXStart
 	.4byte 0x00000204
 	.4byte lbl_800055E8
+.endobj lbl_80005CEC
 
-lbl_80005CF8:
+.obj lbl_80005CF8, local
 	.4byte synthFXSetCtrl
 	.4byte 0x000000E8
 	.4byte lbl_800055F0
+.endobj lbl_80005CF8
 
-lbl_80005D04:
+.obj lbl_80005D04, local
 	.4byte synthFXSetCtrl14
 	.4byte 0x000000E8
 	.4byte lbl_800055F8
+.endobj lbl_80005D04
 
-lbl_80005D10:
+.obj lbl_80005D10, local
 	.4byte synthFXCloneMidiSetup
 	.4byte 0x00000084
 	.4byte lbl_80005600
+.endobj lbl_80005D10
 
-lbl_80005D1C:
+.obj lbl_80005D1C, local
 	.4byte synthSendKeyOff
 	.4byte 0x0000008C
 	.4byte lbl_80005608
+.endobj lbl_80005D1C
 
-lbl_80005D28:
+.obj lbl_80005D28, local
 	.4byte synthVolume
 	.4byte 0x00000410
 	.4byte lbl_80005610
+.endobj lbl_80005D28
 
-lbl_80005D34:
+.obj lbl_80005D34, local
 	.4byte synthHWMessageHandler
 	.4byte 0x00000060
 	.4byte lbl_80005618
+.endobj lbl_80005D34
 
-lbl_80005D40:
+.obj lbl_80005D40, local
 	.4byte synthInit
 	.4byte 0x000004EC
 	.4byte lbl_80005620
+.endobj lbl_80005D40
 
-lbl_80005D4C:
+.obj lbl_80005D4C, local
 	.4byte synthExit
 	.4byte 0x00000024
 	.4byte lbl_80005628
+.endobj lbl_80005D4C

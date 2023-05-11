@@ -235,15 +235,18 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-lbl_800669C8:
+.obj lbl_800669C8, local
 	.asciz "Error DGObjMan::AddObject Faluse\n"
 	.balign 4
+.endobj lbl_800669C8
 
-lbl_800669EC:
+.obj lbl_800669EC, local
 	.asciz "Error DGObjMan::AttachObject\n"
 	.balign 4
+.endobj lbl_800669EC
 
-lbl_80066A0C:
+.obj lbl_80066A0C, local
 	.asciz "Error DGObjMan::DetachObject\n"
 	.balign 4
 	.4byte 0
+.endobj lbl_80066A0C

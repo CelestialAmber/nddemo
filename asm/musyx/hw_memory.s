@@ -31,24 +31,28 @@
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
-lbl_80005B48:
+.obj lbl_80005B48, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005B48
 
-lbl_80005B50:
+.obj lbl_80005B50, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005B50
 
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_800064FC:
+.obj lbl_800064FC, local
     .4byte salMalloc
     .4byte 0x00000028
     .4byte lbl_80005B48
+.endobj lbl_800064FC
 
-lbl_80006508:
+.obj lbl_80006508, local
     .4byte salFree
     .4byte 0x0000002C
     .4byte lbl_80005B50
+.endobj lbl_80006508

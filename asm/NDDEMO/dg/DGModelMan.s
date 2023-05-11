@@ -895,21 +895,25 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-lbl_80066300:
+.obj lbl_80066300, local
 	.asciz "DGModelMan::DeleteMasterModel >Locked(%d)\n"
 	.balign 4
+.endobj lbl_80066300
 
-lbl_8006632C:
+.obj lbl_8006632C, local
 	.asciz "DGModelMan::DestroyMasterModel> ReferCount not Equal Zero\n"
 	.balign 4
+.endobj lbl_8006632C
 
-lbl_80066368:
+.obj lbl_80066368, local
 	.asciz "DGModelMan::CreateInstance >Locked(%d)\n"
+.endobj lbl_80066368
 
-lbl_80066390:
+.obj lbl_80066390, local
 	.asciz "Error DGModelMan::CreateInstance False\n"
+.endobj lbl_80066390
 
-lbl_800663B8:
+.obj lbl_800663B8, local
 	.asciz "Error DGModelMan::CreateAnimeInstance False\n"
 	.balign 4
 	.asciz "DGModelMan::LoadNDM >Locked(%d)\n"
@@ -933,22 +937,28 @@ lbl_800663B8:
 	.balign 4
 	.asciz "Error DGModelMan::LoadNDM>OpenFalse [%s]\n"
 	.balign 4
+.endobj lbl_800663B8
 
-lbl_800665B4:
+.obj lbl_800665B4, local
 	.asciz "DGModelMan::LoadDuplicateNDM >Locked(%d)\n"
 	.balign 4
+.endobj lbl_800665B4
 
-lbl_800665E0:
+.obj lbl_800665E0, local
 	.asciz "DGModelMan::LoadDuplicateNDM>MasterModel Duplicate [%s]\n"
 	.balign 4
+.endobj lbl_800665E0
 
-lbl_8006661C:
+.obj lbl_8006661C, local
 	.asciz "Error DGModelMan::DecRefer ReferCount<0\n"
 	.balign 4
+.endobj lbl_8006661C
 
-lbl_80066648:
+.obj lbl_80066648, local
 	.asciz "DGModelMan::LoadFont >Locked(%d)\n"
 	.balign 4
+.endobj lbl_80066648
 
-lbl_8006666C:
+.obj lbl_8006666C, local
 	.asciz "DGModelMan::LoadTexPro >Locked(%d)\n"
+.endobj lbl_8006666C

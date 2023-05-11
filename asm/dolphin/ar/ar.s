@@ -1181,33 +1181,42 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
-lbl_800A9880:
+.obj lbl_800A9880, local
 	.4byte 0x43440000
+.endobj lbl_800A9880
 
-lbl_800A9884:
+.obj lbl_800A9884, local
 	.4byte 0x4D411E7A
+.endobj lbl_800A9884
 
-lbl_800A9888:
+.obj lbl_800A9888, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A9888
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-__AR_Callback:
+.obj __AR_Callback, local
 	.skip 0x4
+.endobj __AR_Callback
 
-__AR_Size:
+.obj __AR_Size, local
 	.skip 0x4
+.endobj __AR_Size
 
-__AR_StackPointer:
+.obj __AR_StackPointer, local
 	.skip 0x4
+.endobj __AR_StackPointer
 
-__AR_FreeBlocks:
+.obj __AR_FreeBlocks, local
 	.skip 0x4
+.endobj __AR_FreeBlocks
 
-__AR_BlockLength:
+.obj __AR_BlockLength, local
 	.skip 0x4
+.endobj __AR_BlockLength
 
-__AR_init_flag:
+.obj __AR_init_flag, local
 	.skip 0x4
+.endobj __AR_init_flag

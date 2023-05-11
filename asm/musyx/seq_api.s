@@ -123,49 +123,59 @@
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005630:
+.obj lbl_80005630, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005630
 
-lbl_80005638:
+.obj lbl_80005638, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005638
 
-lbl_80005640:
+.obj lbl_80005640, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005640
 
-lbl_80005648:
+.obj lbl_80005648, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_80005648
 
-lbl_80005650:
+.obj lbl_80005650, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005650
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
-lbl_80005D58:
+.obj lbl_80005D58, local
 	.4byte sndSeqGetValid
 	.4byte 0x0000002C
 	.4byte lbl_80005630
+.endobj lbl_80005D58
 
-lbl_80005D64:
+.obj lbl_80005D64, local
 	.4byte sndSeqSpeed
 	.4byte 0x00000048
 	.4byte lbl_80005638
+.endobj lbl_80005D64
 
-lbl_80005D70:
+.obj lbl_80005D70, local
 	.4byte sndSeqContinue
 	.4byte 0x00000038
 	.4byte lbl_80005640
+.endobj lbl_80005D70
 
-lbl_80005D7C:
+.obj lbl_80005D7C, local
 	.4byte sndSeqMute
 	.4byte 0x00000058
 	.4byte lbl_80005648
+.endobj lbl_80005D7C
 
-lbl_80005D88:
+.obj lbl_80005D88, local
 	.4byte sndSeqVolume
 	.4byte 0x00000068
 	.4byte lbl_80005650
+.endobj lbl_80005D88

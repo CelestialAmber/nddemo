@@ -186,7 +186,7 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
-TRK_ISR_OFFSETS:
+.obj TRK_ISR_OFFSETS, local
 	.4byte 0x00000100
 	.4byte 0x00000200
 	.4byte 0x00000300
@@ -203,10 +203,12 @@ TRK_ISR_OFFSETS:
 	.4byte 0x00001400
 	.4byte 0x00001700
 	.4byte 0
+.endobj TRK_ISR_OFFSETS
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-lc_base:
+.obj lc_base, local
 	.skip 0x4
+.endobj lc_base
 
 .skip 4

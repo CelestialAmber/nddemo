@@ -573,7 +573,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-Scb:
+.obj Scb, local
 	.skip 0x54
+.endobj Scb
 
 .skip 4

@@ -1532,165 +1532,207 @@
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
 
-lbl_800A9A38:
+.obj lbl_800A9A38, local
 	.4byte 0
 	.4byte 0
+.endobj lbl_800A9A38
 
-lbl_800A9A40:
+.obj lbl_800A9A40, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A9A40
 
-lbl_800A9A48:
+.obj lbl_800A9A48, local
 	.4byte 0xBF800000
+.endobj lbl_800A9A48
 
-lbl_800A9A4C:
+.obj lbl_800A9A4C, local
 	.4byte 0x34010204
+.endobj lbl_800A9A4C
 
-lbl_800A9A50:
+.obj lbl_800A9A50, local
 	.4byte 0x3FE00000
 	.4byte 0
+.endobj lbl_800A9A50
 
-lbl_800A9A58:
+.obj lbl_800A9A58, local
 	.4byte 0x42FE0000
+.endobj lbl_800A9A58
 
-lbl_800A9A5C:
+.obj lbl_800A9A5C, local
 	.4byte 0x3F800000
+.endobj lbl_800A9A5C
 
-lbl_800A9A60:
+.obj lbl_800A9A60, local
 	.4byte 0x40080000
 	.4byte 0
+.endobj lbl_800A9A60
 
-lbl_800A9A68:
+.obj lbl_800A9A68, local
 	.4byte 0x3C888889
+.endobj lbl_800A9A68
 
-lbl_800A9A6C:
+.obj lbl_800A9A6C, local
 	.4byte 0x42800000
+.endobj lbl_800A9A6C
 
-lbl_800A9A70:
+.obj lbl_800A9A70, local
 	.4byte 0x46000000
+.endobj lbl_800A9A70
 
-lbl_800A9A74:
+.obj lbl_800A9A74, local
 	.4byte 0x3DA3D70A
+.endobj lbl_800A9A74
 
-lbl_800A9A78:
+.obj lbl_800A9A78, local
 	.4byte 0x3E19999A
+.endobj lbl_800A9A78
 
-lbl_800A9A7C:
+.obj lbl_800A9A7C, local
 	.4byte 0x3E99999A
+.endobj lbl_800A9A7C
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-"tmp_em$514":
+.obj "tmp_em$514", local
 	.skip 0x50
+.endobj "tmp_em$514"
 
-startGroup:
+.obj startGroup, local
 	.skip 0x180
+.endobj startGroup
 
-startListNum:
+.obj startListNum, local
 	.skip 0x380
+.endobj startListNum
 
-runList:
+.obj runList, local
 	.skip 0x180
+.endobj runList
 
-"em$893":
+.obj "em$893", local
 	.skip 0x50
+.endobj "em$893"
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-s3dCallCnt:
+.obj s3dCallCnt, local
 	.skip 0x1
+.endobj s3dCallCnt
 
 .skip 3
 
-s3dEmitterRoot:
+.obj s3dEmitterRoot, local
 	.skip 0x4
+.endobj s3dEmitterRoot
 
-s3dListenerRoot:
+.obj s3dListenerRoot, local
 	.skip 0x4
+.endobj s3dListenerRoot
 
-s3dRoomRoot:
+.obj s3dRoomRoot, local
 	.skip 0x4
+.endobj s3dRoomRoot
 
-s3dDoorRoot:
+.obj s3dDoorRoot, local
 	.skip 0x4
+.endobj s3dDoorRoot
 
-snd_used_studios:
+.obj snd_used_studios, local
 	.skip 0x4
+.endobj snd_used_studios
 
-snd_base_studio:
+.obj snd_base_studio, local
 	.skip 0x1
+.endobj snd_base_studio
 
-snd_max_studios:
+.obj snd_max_studios, local
 	.skip 0x1
+.endobj snd_max_studios
 
-startGroupNum:
+.obj startGroupNum, local
 	.skip 0x1
+.endobj startGroupNum
 
-startListNumnum:
+.obj startListNumnum, local
 	.skip 0x1
+.endobj startListNumnum
 
-runListNum:
+.obj runListNum, local
 	.skip 0x1
+.endobj runListNum
 
 .skip 3
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005918:
+.obj lbl_80005918, local
 	.4byte 0x41080000
 	.4byte 0
+.endobj lbl_80005918
 
-lbl_80005920:
+.obj lbl_80005920, local
 	.4byte 0x10880000
 	.4byte 0
+.endobj lbl_80005920
 
-lbl_80005928:
+.obj lbl_80005928, local
 	.4byte 0x42080000
 	.4byte 0
+.endobj lbl_80005928
 
-lbl_80005930:
+.obj lbl_80005930, local
 	.4byte 0x20C80000
 	.4byte 0
+.endobj lbl_80005930
 
-lbl_80005938:
+.obj lbl_80005938, local
 	.4byte 0x21080000
 	.4byte 0
+.endobj lbl_80005938
 
-lbl_80005940:
+.obj lbl_80005940, local
 	.4byte 0x18C80000
 	.4byte 0
+.endobj lbl_80005940
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_800061B4:
+.obj lbl_800061B4, local
     .4byte CheckRoomStatus
     .4byte 0x000003DC
     .4byte lbl_80005918
+.endobj lbl_800061B4
 
-lbl_800061C0:
+.obj lbl_800061C0, local
     .4byte CheckDoorStatus
     .4byte 0x000001DC
     .4byte lbl_80005920
+.endobj lbl_800061C0
 
-lbl_800061CC:
+.obj lbl_800061CC, local
     .4byte CalcEmitter
     .4byte 0x000004BC
     .4byte lbl_80005928
+.endobj lbl_800061CC
 
-lbl_800061D8:
+.obj lbl_800061D8, local
     .4byte SetFXParameters
     .4byte 0x00000220
     .4byte lbl_80005930
+.endobj lbl_800061D8
 
-lbl_800061E4:
+.obj lbl_800061E4, local
     .4byte StartContinousEmitters
     .4byte 0x000001EC
     .4byte lbl_80005938
+.endobj lbl_800061E4
 
-lbl_800061F0:
+.obj lbl_800061F0, local
     .4byte s3dHandle
     .4byte 0x00000364
     .4byte lbl_80005940
+.endobj lbl_800061F0

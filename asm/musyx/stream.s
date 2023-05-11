@@ -599,54 +599,65 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
-lbl_800A9998:
+.obj lbl_800A9998, local
 	.4byte 0x45800000
+.endobj lbl_800A9998
 
-lbl_800A999C:
+.obj lbl_800A999C, local
 	.4byte 0x3C010204
+.endobj lbl_800A999C
 
-lbl_800A99A0:
+.obj lbl_800A99A0, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A99A0
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-streamInfo:
+.obj streamInfo, local
 	.skip 0x1800
+.endobj streamInfo
 
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-streamCallCnt:
+.obj streamCallCnt, local
 	.skip 0x1
+.endobj streamCallCnt
 
-streamCallDelay:
+.obj streamCallDelay, local
 	.skip 0x1
+.endobj streamCallDelay
 
 .skip 2
 
-nextPublicID:
+.obj nextPublicID, local
 	.skip 0x4
+.endobj nextPublicID
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
-lbl_800056A8:
+.obj lbl_800056A8, local
 	.4byte 0x40C80000
 	.4byte 0
+.endobj lbl_800056A8
 
-lbl_800056B0:
+.obj lbl_800056B0, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_800056B0
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_80005E0C:
+.obj lbl_80005E0C, local
     .4byte streamHandle
     .4byte 0x0000072C
     .4byte lbl_800056A8
+.endobj lbl_80005E0C
 
-lbl_80005E18:
+.obj lbl_80005E18, local
     .4byte streamKill
     .4byte 0x00000084
     .4byte lbl_800056B0
+.endobj lbl_80005E18

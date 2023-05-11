@@ -267,19 +267,24 @@
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-ResetCallback:
+.obj ResetCallback, local
 	.skip 0x4
+.endobj ResetCallback
 
-Down:
+.obj Down, local
 	.skip 0x4
+.endobj Down
 
-LastState:
+.obj LastState, local
 	.skip 0x4
+.endobj LastState
 
 .skip 4
 
-HoldUp:
+.obj HoldUp, local
 	.skip 0x8
+.endobj HoldUp
 
-HoldDown:
+.obj HoldDown, local
 	.skip 0x8
+.endobj HoldDown

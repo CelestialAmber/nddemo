@@ -241,32 +241,38 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
-tmp_float:
+.obj tmp_float, local
 	.4byte 0x3E800000
 	.4byte 0x3CBE6080
 	.4byte 0x34372200
 	.4byte 0x2DA44152
+.endobj tmp_float
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
-__four_over_pi_m1:
+.obj __four_over_pi_m1, local
 	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj __four_over_pi_m1
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
-lbl_800A9B48:
+.obj lbl_800A9B48, local
 	.4byte 0x3F22F983
+.endobj lbl_800A9B48
 
-lbl_800A9B4C:
+.obj lbl_800A9B4C, local
 	.4byte 0x3F000000
+.endobj lbl_800A9B4C
 
-lbl_800A9B50:
+.obj lbl_800A9B50, local
 	.4byte 0x39B504F3
 	.4byte 0
+.endobj lbl_800A9B50
 
-lbl_800A9B58:
+.obj lbl_800A9B58, local
 	.4byte 0x43300000
 	.4byte 0x80000000
+.endobj lbl_800A9B58

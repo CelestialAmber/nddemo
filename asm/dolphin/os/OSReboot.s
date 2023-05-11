@@ -162,18 +162,22 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-Header:
+.obj Header, local
 	.skip 0x20
+.endobj Header
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-SaveStart:
+.obj SaveStart, local
 	.skip 0x4
+.endobj SaveStart
 
-SaveEnd:
+.obj SaveEnd, local
 	.skip 0x4
+.endobj SaveEnd
 
-Prepared:
+.obj Prepared, local
 	.skip 0x4
+.endobj Prepared
 
 .skip 4

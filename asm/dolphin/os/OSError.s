@@ -239,7 +239,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-lbl_80067ED0:
+.obj lbl_80067ED0, local
 	.asciz " in \"%s\" on line %d.\n"
 	.balign 4
 	.asciz "\nAddress:      Back Chain    LR Save\n"
@@ -256,14 +256,17 @@ lbl_80067ED0:
 	.balign 4
 	.asciz "\nProgram exception : Possible illegal instruction/operation at or around 0x%x (read from SRR0)\n"
 	.4byte 0
+.endobj lbl_80067ED0
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-lbl_800A8CA8:
+.obj lbl_800A8CA8, local
 	.4byte 0x0A000000
 	.4byte 0
+.endobj lbl_800A8CA8
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-OSErrorTable:
+.obj OSErrorTable, local
 	.skip 0x40
+.endobj OSErrorTable

@@ -1781,96 +1781,118 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-ResetFunctionInfo:
+.obj ResetFunctionInfo, local
 	.4byte OnReset
 	.4byte 0x0000007F
 	.4byte 0
 	.4byte 0
+.endobj ResetFunctionInfo
 
-XYNTSC:
+.obj XYNTSC, local
 	.4byte 0xF7020E13
 	.4byte 0x1D092507
 	.4byte 0x34054104
 	.4byte 0x57035703
 	.4byte 0x57038302
 	.4byte 0x83028302
+.endobj XYNTSC
 
-XYPAL:
+.obj XYPAL, local
 	.4byte 0x94030D18
 	.4byte 0x1A0C2708
 	.4byte 0x34063E05
 	.4byte 0x4E046803
 	.4byte 0x68036803
 	.4byte 0x68039C02
+.endobj XYPAL
 
 	.asciz "PADSetSamplingRate: unknown TV format"
 	.balign 4
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-ResettingChan:
+.obj ResettingChan, local
 	.4byte 0x00000020
+.endobj ResettingChan
 
-XPatchBits:
+.obj XPatchBits, local
 	.4byte 0xF0000000
+.endobj XPatchBits
 
-AnalogMode:
+.obj AnalogMode, local
 	.4byte 0x00000300
+.endobj AnalogMode
 
-Spec:
+.obj Spec, local
 	.4byte 0x00000005
+.endobj Spec
 
-MakeStatus:
+.obj MakeStatus, local
 	.4byte SPEC2_MakeStatus
+.endobj MakeStatus
 
-CmdReadOrigin:
+.obj CmdReadOrigin, local
 	.4byte 0x41000000
+.endobj CmdReadOrigin
 
-CmdCalibrate:
+.obj CmdCalibrate, local
 	.4byte 0x42000000
+.endobj CmdCalibrate
 
-lbl_800A8D04:
+.obj lbl_800A8D04, local
 	.asciz "Pad.c"
 	.balign 4
 	.4byte 0
+.endobj lbl_800A8D04
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-Type:
+.obj Type, local
 	.skip 0x10
+.endobj Type
 
-Origin:
+.obj Origin, local
 	.skip 0x40
+.endobj Origin
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-Initialized:
+.obj Initialized, local
 	.skip 0x4
+.endobj Initialized
 
-EnabledBits:
+.obj EnabledBits, local
 	.skip 0x4
+.endobj EnabledBits
 
-ResettingBits:
+.obj ResettingBits, local
 	.skip 0x4
+.endobj ResettingBits
 
-RecalibrateBits:
+.obj RecalibrateBits, local
 	.skip 0x4
+.endobj RecalibrateBits
 
-WaitingBits:
+.obj WaitingBits, local
 	.skip 0x4
+.endobj WaitingBits
 
-CheckingBits:
+.obj CheckingBits, local
 	.skip 0x4
+.endobj CheckingBits
 
-PendingBits:
+.obj PendingBits, local
 	.skip 0x4
+.endobj PendingBits
 
-SamplingCallback:
+.obj SamplingCallback, local
 	.skip 0x4
+.endobj SamplingCallback
 
-"recalibrated$404":
+.obj "recalibrated$404", local
 	.skip 0x4
+.endobj "recalibrated$404"
 
-.global __PADSpec
-__PADSpec:
+.obj __PADSpec, global
 	.skip 0x4
+.endobj __PADSpec

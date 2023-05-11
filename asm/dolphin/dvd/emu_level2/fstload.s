@@ -161,7 +161,7 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
-lbl_800684A0:
+.obj lbl_800684A0, local
 	.asciz "  Game Name ... %c%c%c%c\n"
 	.balign 4
 	.asciz "  Company ..... %c%c\n"
@@ -169,34 +169,43 @@ lbl_800684A0:
 	.asciz "  Disk # ...... %d\n"
 	.asciz "  Game ver .... %d\n"
 	.asciz "  Streaming ... %s\n"
+.endobj lbl_800684A0
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-lbl_800A8CD0:
+.obj lbl_800A8CD0, local
 	.4byte 0x0A000000
+.endobj lbl_800A8CD0
 
-lbl_800A8CD4:
+.obj lbl_800A8CD4, local
 	.4byte 0x4F464600
+.endobj lbl_800A8CD4
 
-lbl_800A8CD8:
+.obj lbl_800A8CD8, local
 	.4byte 0x4F4E0000
 	.4byte 0
+.endobj lbl_800A8CD8
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-bb2Buf:
+.obj bb2Buf, local
 	.skip 0x40
+.endobj bb2Buf
 
-"block$16":
+.obj "block$16", local
 	.skip 0x30
+.endobj "block$16"
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-status:
+.obj status, local
 	.skip 0x4
+.endobj status
 
-bb2:
+.obj bb2, local
 	.skip 0x4
+.endobj bb2
 
-idTmp:
+.obj idTmp, local
 	.skip 0x8
+.endobj idTmp

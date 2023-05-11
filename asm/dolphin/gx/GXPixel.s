@@ -520,7 +520,7 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
-"p2f$194":
+.obj "p2f$194", local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -529,31 +529,39 @@
 	.4byte 0x00000004
 	.4byte 0x00000004
 	.4byte 0x00000005
+.endobj "p2f$194"
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
-lbl_800A9910:
+.obj lbl_800A9910, local
 	.4byte 0
+.endobj lbl_800A9910
 
-lbl_800A9914:
+.obj lbl_800A9914, local
 	.4byte 0x3F000000
+.endobj lbl_800A9914
 
-lbl_800A9918:
+.obj lbl_800A9918, local
 	.4byte 0x3FF00000
 	.4byte 0
+.endobj lbl_800A9918
 
-lbl_800A9920:
+.obj lbl_800A9920, local
 	.4byte 0x40000000
 	.4byte 0
+.endobj lbl_800A9920
 
-lbl_800A9928:
+.obj lbl_800A9928, local
 	.4byte 0x3FE00000
 	.4byte 0
+.endobj lbl_800A9928
 
-lbl_800A9930:
+.obj lbl_800A9930, local
 	.4byte 0x4B00001E
 	.4byte 0
+.endobj lbl_800A9930
 
-lbl_800A9938:
+.obj lbl_800A9938, local
 	.4byte 0x43300000
 	.4byte 0x80000000
+.endobj lbl_800A9938

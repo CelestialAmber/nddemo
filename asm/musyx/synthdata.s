@@ -2093,284 +2093,353 @@
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
 
-dataSmpSDirs:
+.obj dataSmpSDirs, local
 	.skip 0x600
+.endobj dataSmpSDirs
 
-dataCurveTab:
+.obj dataCurveTab, local
 	.skip 0x4000
+.endobj dataCurveTab
 
-dataKeymapTab:
+.obj dataKeymapTab, local
 	.skip 0x800
+.endobj dataKeymapTab
 
-dataLayerTab:
+.obj dataLayerTab, local
 	.skip 0xC00
+.endobj dataLayerTab
 
-dataMacMainTab:
+.obj dataMacMainTab, local
 	.skip 0x800
+.endobj dataMacMainTab
 
-dataMacSubTabMem:
+.obj dataMacSubTabMem, local
 	.skip 0x4000
+.endobj dataMacSubTabMem
 
-dataFXGroups:
+.obj dataFXGroups, local
 	.skip 0x400
+.endobj dataFXGroups
 
-"key$568":
+.obj "key$568", local
 	.skip 0x20
+.endobj "key$568"
 
-"key$604":
+.obj "key$604", local
 	.skip 0xC
+.endobj "key$604"
 
-"key$612":
+.obj "key$612", local
 	.skip 10
+.endobj "key$612"
 
 .skip 2
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-dataSmpSDirNum:
+.obj dataSmpSDirNum, local
 	.skip 0x2
+.endobj dataSmpSDirNum
 
-dataCurveNum:
+.obj dataCurveNum, local
 	.skip 0x2
+.endobj dataCurveNum
 
-dataKeymapNum:
+.obj dataKeymapNum, local
 	.skip 0x2
+.endobj dataKeymapNum
 
-dataLayerNum:
+.obj dataLayerNum, local
 	.skip 0x2
+.endobj dataLayerNum
 
-dataMacTotal:
+.obj dataMacTotal, local
 	.skip 0x2
+.endobj dataMacTotal
 
-dataFXGroupNum:
+.obj dataFXGroupNum, local
 	.skip 0x2
+.endobj dataFXGroupNum
 
-"base$554":
+.obj "base$554", local
 	.skip 0x4
+.endobj "base$554"
 
-"main$555":
+.obj "main$555", local
 	.skip 0x4
+.endobj "main$555"
 
-"key$556":
+.obj "key$556", local
 	.skip 0x8
+.endobj "key$556"
 
-"result$557":
+.obj "result$557", local
 	.skip 0x4
+.endobj "result$557"
 
-"result$569":
+.obj "result$569", local
 	.skip 0x4
+.endobj "result$569"
 
-"sheader$570":
+.obj "sheader$570", local
 	.skip 0x4
+.endobj "sheader$570"
 
-"key$589":
+.obj "key$589", local
 	.skip 0x8
+.endobj "key$589"
 
-"result$590":
+.obj "result$590", local
 	.skip 0x4
+.endobj "result$590"
 
-"key$596":
+.obj "key$596", local
 	.skip 0x8
+.endobj "key$596"
 
-"result$597":
+.obj "result$597", local
 	.skip 0x4
+.endobj "result$597"
 
-"result$605":
+.obj "result$605", local
 	.skip 0x4
+.endobj "result$605"
 
 .skip 4
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_800056B8:
+.obj lbl_800056B8, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_800056B8
 
-lbl_800056C0:
+.obj lbl_800056C0, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_800056C0
 
-lbl_800056C8:
+.obj lbl_800056C8, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_800056C8
 
-lbl_800056D0:
+.obj lbl_800056D0, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_800056D0
 
-lbl_800056D8:
+.obj lbl_800056D8, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_800056D8
 
-lbl_800056E0:
+.obj lbl_800056E0, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_800056E0
 
-lbl_800056E8:
+.obj lbl_800056E8, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_800056E8
 
-lbl_800056F0:
+.obj lbl_800056F0, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_800056F0
 
-lbl_800056F8:
+.obj lbl_800056F8, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_800056F8
 
-lbl_80005700:
+.obj lbl_80005700, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_80005700
 
-lbl_80005708:
+.obj lbl_80005708, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005708
 
-lbl_80005710:
+.obj lbl_80005710, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_80005710
 
-lbl_80005718:
+.obj lbl_80005718, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005718
 
-lbl_80005720:
+.obj lbl_80005720, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005720
 
-lbl_80005728:
+.obj lbl_80005728, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_80005728
 
-lbl_80005730:
+.obj lbl_80005730, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005730
 
-lbl_80005738:
+.obj lbl_80005738, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005738
 
-lbl_80005740:
+.obj lbl_80005740, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005740
 
-lbl_80005748:
+.obj lbl_80005748, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005748
 
-lbl_80005750:
+.obj lbl_80005750, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005750
 
-lbl_80005758:
+.obj lbl_80005758, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005758
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_80005E24:
+.obj lbl_80005E24, local
     .4byte dataInsertKeymap
     .4byte 0x000001F0
     .4byte lbl_800056B8
+.endobj lbl_80005E24
 
-lbl_80005E30:
+.obj lbl_80005E30, local
     .4byte dataRemoveKeymap
     .4byte 0x00000184
     .4byte lbl_800056C0
+.endobj lbl_80005E30
 
-lbl_80005E3C:
+.obj lbl_80005E3C, local
     .4byte dataInsertLayer
     .4byte 0x00000248
     .4byte lbl_800056C8
+.endobj lbl_80005E3C
 
-lbl_80005E48:
+.obj lbl_80005E48, local
     .4byte dataRemoveLayer
     .4byte 0x000001CC
     .4byte lbl_800056D0
+.endobj lbl_80005E48
 
-lbl_80005E54:
+.obj lbl_80005E54, local
     .4byte dataInsertCurve
     .4byte 0x000001F8
     .4byte lbl_800056D8
+.endobj lbl_80005E54
 
-lbl_80005E60:
+.obj lbl_80005E60, local
     .4byte dataRemoveCurve
     .4byte 0x00000184
     .4byte lbl_800056E0
+.endobj lbl_80005E60
 
-lbl_80005E6C:
+.obj lbl_80005E6C, local
     .4byte dataInsertSDir
     .4byte 0x0000016C
     .4byte lbl_800056E8
+.endobj lbl_80005E6C
 
-lbl_80005E78:
+.obj lbl_80005E78, local
     .4byte dataRemoveSDir
     .4byte 0x00000288
     .4byte lbl_800056F0
+.endobj lbl_80005E78
 
-lbl_80005E84:
+.obj lbl_80005E84, local
     .4byte dataAddSampleReference
     .4byte 0x000000D8
     .4byte lbl_800056F8
+.endobj lbl_80005E84
 
-lbl_80005E90:
+.obj lbl_80005E90, local
     .4byte dataRemoveSampleReference
     .4byte 0x000000E8
     .4byte lbl_80005700
+.endobj lbl_80005E90
 
-lbl_80005E9C:
+.obj lbl_80005E9C, local
     .4byte dataInsertFX
     .4byte 0x00000128
     .4byte lbl_80005708
+.endobj lbl_80005E9C
 
-lbl_80005EA8:
+.obj lbl_80005EA8, local
     .4byte dataInsertMacro
     .4byte 0x00000310
     .4byte lbl_80005710
+.endobj lbl_80005EA8
 
-lbl_80005EB4:
+.obj lbl_80005EB4, local
     .4byte dataRemoveMacro
     .4byte 0x0000029C
     .4byte lbl_80005718
+.endobj lbl_80005EB4
 
-lbl_80005EC0:
+.obj lbl_80005EC0, local
     .4byte dataGetMacro
     .4byte 0x00000094
     .4byte lbl_80005720
+.endobj lbl_80005EC0
 
-lbl_80005ECC:
+.obj lbl_80005ECC, local
     .4byte dataGetSample
     .4byte 0x00000128
     .4byte lbl_80005728
+.endobj lbl_80005ECC
 
-lbl_80005ED8:
+.obj lbl_80005ED8, local
     .4byte dataGetCurve
     .4byte 0x00000060
     .4byte lbl_80005730
+.endobj lbl_80005ED8
 
-lbl_80005EE4:
+.obj lbl_80005EE4, local
     .4byte dataGetKeymap
     .4byte 0x00000060
     .4byte lbl_80005738
+.endobj lbl_80005EE4
 
-lbl_80005EF0:
+.obj lbl_80005EF0, local
     .4byte dataGetLayer
     .4byte 0x00000080
     .4byte lbl_80005740
+.endobj lbl_80005EF0
 
-lbl_80005EFC:
+.obj lbl_80005EFC, local
     .4byte dataGetFX
     .4byte 0x000000A8
     .4byte lbl_80005748
+.endobj lbl_80005EFC
 
-lbl_80005F08:
+.obj lbl_80005F08, local
     .4byte dataInit
     .4byte 0x000000E4
     .4byte lbl_80005750
+.endobj lbl_80005F08
 
-lbl_80005F14:
+.obj lbl_80005F14, local
     .4byte dataExit
     .4byte 0x00000020
     .4byte lbl_80005758
+.endobj lbl_80005F14

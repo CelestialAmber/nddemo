@@ -53,23 +53,27 @@
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
-lbl_80005B58:
+.obj lbl_80005B58, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005B58
 
-lbl_80005B60:
+.obj lbl_80005B60, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005B60
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_80006514:
+.obj lbl_80006514, local
     .4byte sndAuxCallbackReverbHI
     .4byte 0x0000005C
     .4byte lbl_80005B58
+.endobj lbl_80006514
 
-lbl_80006520:
+.obj lbl_80006520, local
     .4byte sndAuxCallbackPrepareReverbHI
     .4byte 0x00000040
     .4byte lbl_80005B60
+.endobj lbl_80006520

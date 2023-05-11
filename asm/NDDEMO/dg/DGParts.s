@@ -1290,7 +1290,7 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
-lbl_800641D8:
+.obj lbl_800641D8, local
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -1325,39 +1325,49 @@ lbl_800641D8:
 	.4byte 0x00000001
 	.4byte 0
 	.4byte 0
+.endobj lbl_800641D8
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-lbl_80066A30:
+.obj lbl_80066A30, local
 	.asciz "Error:DGParts::Draw>No TexPro[%d]\n"
 	.balign 4
+.endobj lbl_80066A30
 
-lbl_80066A54:
+.obj lbl_80066A54, local
 	.asciz "Error MTXInverse\n"
 	.balign 4
+.endobj lbl_80066A54
 
-lbl_80066A68:
+.obj lbl_80066A68, local
 	.asciz "DGParts::CreateInstance False No Object\n"
 	.balign 4
+.endobj lbl_80066A68
 
-lbl_80066A94:
+.obj lbl_80066A94, local
 	.asciz "DGParts::CreateInstance False CreateChild\n"
 	.balign 4
+.endobj lbl_80066A94
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
-lbl_800A94C8:
+.obj lbl_800A94C8, local
 	.4byte 0x000000FF
+.endobj lbl_800A94C8
 
-lbl_800A94CC:
+.obj lbl_800A94CC, local
 	.4byte 0xFFFFFFFF
+.endobj lbl_800A94CC
 
-lbl_800A94D0:
+.obj lbl_800A94D0, local
 	.4byte 0
+.endobj lbl_800A94D0
 
-lbl_800A94D4:
+.obj lbl_800A94D4, local
 	.4byte 0x40490FD8
+.endobj lbl_800A94D4
 
-lbl_800A94D8:
+.obj lbl_800A94D8, local
 	.4byte 0x40C90FD8
 	.4byte 0
+.endobj lbl_800A94D8

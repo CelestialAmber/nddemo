@@ -13152,7 +13152,7 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
-lbl_80063D20:
+.obj lbl_80063D20, local
 	.4byte 0
 	.4byte 0x3F800000
 	.4byte 0
@@ -13195,13 +13195,15 @@ lbl_80063D20:
 	.4byte 0xC0A00000
 	.4byte 0x40A00000
 	.4byte 0
+.endobj lbl_80063D20
 
-lbl_80063DC8:
+.obj lbl_80063DC8, local
 	.4byte 0xC31EAE14
 	.4byte 0xC2BE0000
 	.4byte 0x42B0851F
+.endobj lbl_80063DC8
 
-lbl_80063DD4:
+.obj lbl_80063DD4, local
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -13245,132 +13247,164 @@ lbl_80063DD4:
 	.4byte 0
 	.4byte 0x441A0000
 	.4byte 0
+.endobj lbl_80063DD4
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-lbl_80065088:
+.obj lbl_80065088, local
 	.asciz "ARROW.NDM"
 	.balign 4
+.endobj lbl_80065088
 
-lbl_80065094:
+.obj lbl_80065094, local
 	.asciz "STG_ENTR.NDM"
 	.balign 4
+.endobj lbl_80065094
 
-lbl_800650A4:
+.obj lbl_800650A4, local
 	.asciz "STG_ENTR.BGH"
 	.balign 4
+.endobj lbl_800650A4
 
-lbl_800650B4:
+.obj lbl_800650B4, local
 	.asciz "STG_ENTR.MCD"
 	.balign 4
+.endobj lbl_800650B4
 
-lbl_800650C4:
+.obj lbl_800650C4, local
 	.asciz "STG_HANG.NDM"
 	.balign 4
+.endobj lbl_800650C4
 
-lbl_800650D4:
+.obj lbl_800650D4, local
 	.asciz "STG_HANG.BGH"
 	.balign 4
+.endobj lbl_800650D4
 
-lbl_800650E4:
+.obj lbl_800650E4, local
 	.asciz "STG_HANG.MCD"
 	.balign 4
+.endobj lbl_800650E4
 
-lbl_800650F4:
+.obj lbl_800650F4, local
 	.asciz "BIPLANE.NDM"
+.endobj lbl_800650F4
 
-lbl_80065100:
+.obj lbl_80065100, local
 	.asciz "STG_DOME.NDM"
 	.balign 4
+.endobj lbl_80065100
 
-lbl_80065110:
+.obj lbl_80065110, local
 	.asciz "STG_DOME.BGH"
 	.balign 4
+.endobj lbl_80065110
 
-lbl_80065120:
+.obj lbl_80065120, local
 	.asciz "STG_DOME.MCD"
 	.balign 4
+.endobj lbl_80065120
 
-lbl_80065130:
+.obj lbl_80065130, local
 	.asciz "STG_CAVE.NDM"
 	.balign 4
+.endobj lbl_80065130
 
-lbl_80065140:
+.obj lbl_80065140, local
 	.asciz "STG_CAVE.BGH"
 	.balign 4
+.endobj lbl_80065140
 
-lbl_80065150:
+.obj lbl_80065150, local
 	.asciz "STG_CAVE.MCD"
 	.balign 4
+.endobj lbl_80065150
 
-lbl_80065160:
+.obj lbl_80065160, local
 	.asciz "KURIBO.NDM"
 	.balign 4
+.endobj lbl_80065160
 
-lbl_8006516C:
+.obj lbl_8006516C, local
 	.asciz "STG_CINE.NDM"
 	.balign 4
+.endobj lbl_8006516C
 
-lbl_8006517C:
+.obj lbl_8006517C, local
 	.asciz "STG_CINE.BGH"
 	.balign 4
+.endobj lbl_8006517C
 
-lbl_8006518C:
+.obj lbl_8006518C, local
 	.asciz "STG_CINE.MCD"
 	.balign 4
+.endobj lbl_8006518C
 
-lbl_8006519C:
+.obj lbl_8006519C, local
 	.asciz "STG_SPIL.NDM"
 	.balign 4
+.endobj lbl_8006519C
 
-lbl_800651AC:
+.obj lbl_800651AC, local
 	.asciz "STG_SPIL.BGH"
 	.balign 4
+.endobj lbl_800651AC
 
-lbl_800651BC:
+.obj lbl_800651BC, local
 	.asciz "STG_SPIL.MCD"
 	.balign 4
+.endobj lbl_800651BC
 
-lbl_800651CC:
+.obj lbl_800651CC, local
 	.asciz "STG_ENVE.NDM"
 	.balign 4
+.endobj lbl_800651CC
 
-lbl_800651DC:
+.obj lbl_800651DC, local
 	.asciz "STG_ENVE.BGH"
 	.balign 4
+.endobj lbl_800651DC
 
-lbl_800651EC:
+.obj lbl_800651EC, local
 	.asciz "STG_ENVE.MCD"
 	.balign 4
+.endobj lbl_800651EC
 
-lbl_800651FC:
+.obj lbl_800651FC, local
 	.asciz "STG_MPOL.NDM"
 	.balign 4
+.endobj lbl_800651FC
 
-lbl_8006520C:
+.obj lbl_8006520C, local
 	.asciz "STG_MPOL.BGH"
 	.balign 4
+.endobj lbl_8006520C
 
-lbl_8006521C:
+.obj lbl_8006521C, local
 	.asciz "STG_MPOL.MCD"
 	.balign 4
+.endobj lbl_8006521C
 
-lbl_8006522C:
+.obj lbl_8006522C, local
 	.asciz "MPOL_CAM.MCD"
 	.balign 4
+.endobj lbl_8006522C
 
-lbl_8006523C:
+.obj lbl_8006523C, local
 	.asciz "COIN.NDM"
 	.balign 4
+.endobj lbl_8006523C
 
-lbl_80065248:
+.obj lbl_80065248, local
 	.asciz "STG_OPEN.NDM"
 	.balign 4
+.endobj lbl_80065248
 
-lbl_80065258:
+.obj lbl_80065258, local
 	.asciz "STG_OPEN.MCD"
 	.balign 4
+.endobj lbl_80065258
 
 iFileNameData:	.4byte lbl_80065088
 	.4byte lbl_80065094
@@ -13407,38 +13441,46 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte lbl_80065248
 	.4byte lbl_80065258
 
-lbl_800652F0:
+.obj lbl_800652F0, local
 	.asciz "audio/gcdemo.sng"
 	.balign 4
+.endobj lbl_800652F0
 
-lbl_80065304:
+.obj lbl_80065304, local
 	.asciz "audio/entrance.sng"
 	.balign 4
+.endobj lbl_80065304
 
-lbl_80065318:
+.obj lbl_80065318, local
 	.asciz "audio/dome.sng"
 	.balign 4
+.endobj lbl_80065318
 
-lbl_80065328:
+.obj lbl_80065328, local
 	.asciz "audio/spiral.sng"
 	.balign 4
+.endobj lbl_80065328
 
-lbl_8006533C:
+.obj lbl_8006533C, local
 	.asciz "audio/hangar.sng"
 	.balign 4
+.endobj lbl_8006533C
 
-lbl_80065350:
+.obj lbl_80065350, local
 	.asciz "audio/cave.sng"
 	.balign 4
+.endobj lbl_80065350
 
-lbl_80065360:
+.obj lbl_80065360, local
 	.asciz "audio/cinema.sng"
 	.balign 4
+.endobj lbl_80065360
 
-lbl_80065374:
+.obj lbl_80065374, local
 	.asciz "audio/metal.sng"
+.endobj lbl_80065374
 
-lbl_80065384:
+.obj lbl_80065384, local
 	.asciz "audio/coins.sng"
 	.4byte lbl_800652F0
 	.4byte lbl_80065304
@@ -13452,9 +13494,9 @@ lbl_80065384:
 	.4byte 0x00020501
 	.4byte 0x03000406
 	.4byte 0x0700FF00
+.endobj lbl_80065384
 
-.global stPerf0
-stPerf0:
+.obj stPerf0, global
 	.4byte 0x0B545249
 	.asciz "ANGLES"
 	.balign 4
@@ -13520,9 +13562,9 @@ stPerf0:
 	.4byte 0x23000000
 	.4byte 0
 	.4byte 0
+.endobj stPerf0
 
-.global stPerf1
-stPerf1:
+.obj stPerf1, global
 	.4byte 0x10564552
 	.asciz "TICES "
 	.balign 4
@@ -13587,8 +13629,9 @@ stPerf1:
 	.4byte 0x16000000
 	.4byte 0
 	.4byte 0
+.endobj stPerf1
 
-lbl_800655E0:
+.obj lbl_800655E0, local
 	.4byte .L_80007154
 	.4byte .L_8000715C
 	.4byte .L_80007164
@@ -13630,8 +13673,9 @@ lbl_800655E0:
 	.balign 4
 	.asciz "CAM_MODE_SPIL"
 	.balign 4
+.endobj lbl_800655E0
 
-lbl_800656F8:
+.obj lbl_800656F8, local
 	.4byte .L_80007A64
 	.4byte .L_80007A74
 	.4byte .L_80007A84
@@ -13640,8 +13684,9 @@ lbl_800656F8:
 	.4byte .L_80007AB4
 	.4byte .L_80007AC4
 	.4byte .L_80007AD4
+.endobj lbl_800656F8
 
-lbl_80065718:
+.obj lbl_80065718, local
 	.4byte .L_80007BC0
 	.4byte .L_80007C0C
 	.4byte .L_80007C58
@@ -13652,8 +13697,9 @@ lbl_80065718:
 	.4byte .L_80007DE8
 	.4byte .L_80007E64
 	.4byte .L_80007E38
+.endobj lbl_80065718
 
-lbl_80065740:
+.obj lbl_80065740, local
 	.4byte .L_80007F0C
 	.4byte .L_80007F50
 	.4byte .L_80007F98
@@ -13664,8 +13710,9 @@ lbl_80065740:
 	.4byte .L_800080F8
 	.4byte .L_8000815C
 	.4byte .L_80008140
+.endobj lbl_80065740
 
-lbl_80065768:
+.obj lbl_80065768, local
 	.4byte .L_80008394
 	.4byte .L_800083C4
 	.4byte .L_80008414
@@ -13677,8 +13724,9 @@ lbl_80065768:
 	.4byte .L_800084EC
 	.4byte .L_80008680
 	.4byte .L_80008508
+.endobj lbl_80065768
 
-lbl_80065794:
+.obj lbl_80065794, local
 	.4byte .L_80008298
 	.4byte .L_800082A8
 	.4byte .L_800082B8
@@ -13687,8 +13735,9 @@ lbl_80065794:
 	.4byte .L_800082E8
 	.4byte .L_800082F8
 	.4byte .L_80008308
+.endobj lbl_80065794
 
-lbl_800657B4:
+.obj lbl_800657B4, local
 	.4byte .L_800081CC
 	.4byte .L_800081DC
 	.4byte .L_800081EC
@@ -13697,8 +13746,9 @@ lbl_800657B4:
 	.4byte .L_8000821C
 	.4byte .L_8000822C
 	.4byte .L_8000823C
+.endobj lbl_800657B4
 
-lbl_800657D4:
+.obj lbl_800657D4, local
 	.4byte .L_800086CC
 	.4byte .L_800086E4
 	.4byte .L_8000871C
@@ -13732,8 +13782,9 @@ lbl_800657D4:
 	.4byte .L_80008AF8
 	.4byte .L_80008BB0
 	.4byte .L_80008BF8
+.endobj lbl_800657D4
 
-lbl_80065858:
+.obj lbl_80065858, local
 	.4byte .L_80008EEC
 	.4byte .L_80008F04
 	.4byte .L_80008F3C
@@ -13756,8 +13807,9 @@ lbl_80065858:
 	.4byte .L_80009208
 	.4byte .L_80009090
 	.4byte .L_80009174
+.endobj lbl_80065858
 
-lbl_800658B0:
+.obj lbl_800658B0, local
 	.4byte .L_80009460
 	.4byte .L_80009478
 	.4byte .L_800094BC
@@ -13780,8 +13832,9 @@ lbl_800658B0:
 	.4byte .L_80009778
 	.4byte .L_80009608
 	.4byte .L_800096E4
+.endobj lbl_800658B0
 
-lbl_80065908:
+.obj lbl_80065908, local
 	.4byte .L_80009F44
 	.4byte .L_80009F5C
 	.4byte .L_80009FA0
@@ -13804,8 +13857,9 @@ lbl_80065908:
 	.4byte .L_8000A2A8
 	.4byte .L_8000A128
 	.4byte .L_8000A20C
+.endobj lbl_80065908
 
-lbl_80065960:
+.obj lbl_80065960, local
 	.4byte .L_8000B048
 	.4byte .L_8000B060
 	.4byte .L_8000B0A4
@@ -13828,8 +13882,9 @@ lbl_80065960:
 	.4byte .L_8000B360
 	.4byte .L_8000B1F0
 	.4byte .L_8000B2CC
+.endobj lbl_80065960
 
-lbl_800659B8:
+.obj lbl_800659B8, local
 	.4byte .L_8000B528
 	.4byte .L_8000B540
 	.4byte .L_8000B584
@@ -13852,8 +13907,9 @@ lbl_800659B8:
 	.4byte .L_8000B840
 	.4byte .L_8000B6D0
 	.4byte .L_8000B7AC
+.endobj lbl_800659B8
 
-lbl_80065A10:
+.obj lbl_80065A10, local
 	.4byte .L_8000B9DC
 	.4byte .L_8000B9F8
 	.4byte .L_8000BA58
@@ -13876,8 +13932,9 @@ lbl_80065A10:
 	.4byte .L_8000BDD8
 	.4byte .L_8000BC0C
 	.4byte .L_8000BD08
+.endobj lbl_80065A10
 
-lbl_80065A68:
+.obj lbl_80065A68, local
 	.4byte .L_8000C090
 	.4byte .L_8000C0DC
 	.4byte .L_8000C160
@@ -13997,8 +14054,9 @@ lbl_80065A68:
 	.4byte 0xC3398000
 	.4byte 0x42200000
 	.4byte 0xC2FF0000
+.endobj lbl_80065A68
 
-lbl_80065C44:
+.obj lbl_80065C44, local
 	.4byte .L_8000EEF0
 	.4byte .L_8000ED94
 	.4byte .L_8000EDD4
@@ -14010,8 +14068,9 @@ lbl_80065C44:
 	.asciz "DMainSystem.cpp"
 	.asciz "DEMO: invalid TV format\n"
 	.balign 4
+.endobj lbl_80065C44
 
-lbl_80065C90:
+.obj lbl_80065C90, local
 	.4byte .L_8000F0B0
 	.4byte .L_8000F0C4
 	.4byte .L_8000F0D8
@@ -14022,8 +14081,9 @@ lbl_80065C90:
 	.4byte .L_8000F13C
 	.asciz "Next room %d\n"
 	.balign 4
+.endobj lbl_80065C90
 
-lbl_80065CC0:
+.obj lbl_80065CC0, local
 	.4byte .L_8000F364
 	.4byte .L_8000F3C0
 	.4byte .L_8000F430
@@ -14032,8 +14092,9 @@ lbl_80065CC0:
 	.4byte .L_8000F56C
 	.4byte .L_8000F5C8
 	.4byte .L_8000F624
+.endobj lbl_80065CC0
 
-lbl_80065CE0:
+.obj lbl_80065CE0, local
 	.4byte .L_8000F6D0
 	.4byte .L_8000F6E4
 	.4byte .L_8000F6F8
@@ -14042,12 +14103,14 @@ lbl_80065CE0:
 	.4byte .L_8000F734
 	.4byte .L_8000F748
 	.4byte .L_8000F75C
+.endobj lbl_80065CE0
 
-lbl_80065D00:
+.obj lbl_80065D00, local
 	.asciz "Now Loading..."
 	.balign 4
+.endobj lbl_80065D00
 
-lbl_80065D10:
+.obj lbl_80065D10, local
 	.4byte .L_8000F8D0
 	.4byte .L_8000F97C
 	.4byte .L_8000FA1C
@@ -14056,8 +14119,9 @@ lbl_80065D10:
 	.4byte .L_8000FACC
 	.4byte .L_8000FB84
 	.4byte .L_8000FC14
+.endobj lbl_80065D10
 
-lbl_80065D30:
+.obj lbl_80065D30, local
 	.4byte .L_800101BC
 	.4byte .L_80010218
 	.4byte .L_80010288
@@ -14066,8 +14130,9 @@ lbl_80065D30:
 	.4byte .L_800103C4
 	.4byte .L_80010420
 	.4byte .L_8001047C
+.endobj lbl_80065D30
 
-lbl_80065D50:
+.obj lbl_80065D50, local
 	.4byte .L_8000FDD0
 	.4byte .L_8000FE2C
 	.4byte .L_8000FE9C
@@ -14076,8 +14141,9 @@ lbl_80065D50:
 	.4byte .L_8000FFD8
 	.4byte .L_80010034
 	.4byte .L_80010090
+.endobj lbl_80065D50
 
-lbl_80065D70:
+.obj lbl_80065D70, local
 	.4byte .L_80010560
 	.4byte .L_80010578
 	.4byte .L_80010590
@@ -14087,44 +14153,54 @@ lbl_80065D70:
 	.4byte .L_800105F0
 	.4byte .L_80010608
 	.4byte .L_80010620
+.endobj lbl_80065D70
 
-lbl_80065D94:
+.obj lbl_80065D94, local
 	.asciz "Expensive\n"
 	.balign 4
 	.4byte lbl_800A8B24
 	.4byte lbl_800A8B2C
 	.4byte lbl_80065D94
+.endobj lbl_80065D94
 
-lbl_80065DAC:
+.obj lbl_80065DAC, local
 	.asciz "GXNtsc240Ds\n"
 	.balign 4
+.endobj lbl_80065DAC
 
-lbl_80065DBC:
+.obj lbl_80065DBC, local
 	.asciz "GXNtsc240DsAa\n"
 	.balign 4
+.endobj lbl_80065DBC
 
-lbl_80065DCC:
+.obj lbl_80065DCC, local
 	.asciz "GXNtsc240Int\n"
 	.balign 4
+.endobj lbl_80065DCC
 
-lbl_80065DDC:
+.obj lbl_80065DDC, local
 	.asciz "GXNtsc240IntAa\n"
+.endobj lbl_80065DDC
 
-lbl_80065DEC:
+.obj lbl_80065DEC, local
 	.asciz "GXNtsc480IntDf\n"
+.endobj lbl_80065DEC
 
-lbl_80065DFC:
+.obj lbl_80065DFC, local
 	.asciz "GXNtsc480Int\n"
 	.balign 4
+.endobj lbl_80065DFC
 
-lbl_80065E0C:
+.obj lbl_80065E0C, local
 	.asciz "GXNtsc480IntAa\n"
+.endobj lbl_80065E0C
 
-lbl_80065E1C:
+.obj lbl_80065E1C, local
 	.asciz "GXNtsc480Prog\n"
 	.balign 4
+.endobj lbl_80065E1C
 
-lbl_80065E2C:
+.obj lbl_80065E2C, local
 	.asciz "GXNtsc480ProgAa\n"
 	.balign 4
 	.4byte lbl_80065DAC
@@ -14215,8 +14291,9 @@ lbl_80065E2C:
 	.asciz "del STG_MPOL : start\n"
 	.balign 4
 	.asciz "del STG_MPOL : end\n"
+.endobj lbl_80065E2C
 
-lbl_80066220:
+.obj lbl_80066220, local
 	.4byte .L_80011EB0
 	.4byte .L_80011F74
 	.4byte .L_80012054
@@ -14227,394 +14304,507 @@ lbl_80066220:
 	.4byte .L_80012504
 	.4byte .L_80012600
 	.4byte 0
+.endobj lbl_80066220
 
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
-lbl_800A8A80:
+.obj lbl_800A8A80, local
 	.asciz "MARIO00"
+.endobj lbl_800A8A80
 
-lbl_800A8A88:
+.obj lbl_800A8A88, local
 	.asciz "T_STAR"
 	.balign 4
+.endobj lbl_800A8A88
 
-lbl_800A8A90:
+.obj lbl_800A8A90, local
 	.asciz "T_HART"
 	.balign 4
+.endobj lbl_800A8A90
 
-lbl_800A8A98:
+.obj lbl_800A8A98, local
 	.asciz "xfb %X\n"
+.endobj lbl_800A8A98
 
-lbl_800A8AA0:
+.obj lbl_800A8AA0, local
 	.asciz "fontY4a"
+.endobj lbl_800A8AA0
 
-lbl_800A8AA8:
+.obj lbl_800A8AA8, local
 	.asciz "title01"
+.endobj lbl_800A8AA8
 
-lbl_800A8AB0:
+.obj lbl_800A8AB0, local
 	.asciz "render"
 	.balign 4
+.endobj lbl_800A8AB0
 
-lbl_800A8AB8:
+.obj lbl_800A8AB8, local
 	.asciz "V1.08"
 	.balign 4
+.endobj lbl_800A8AB8
 
-lbl_800A8AC0:
+.obj lbl_800A8AC0, local
 	.asciz "File : "
+.endobj lbl_800A8AC0
 
-lbl_800A8AC8:
+.obj lbl_800A8AC8, local
 	.4byte 0x58000000
+.endobj lbl_800A8AC8
 
-lbl_800A8ACC:
+.obj lbl_800A8ACC, local
 	.4byte 0x2B000000
+.endobj lbl_800A8ACC
 
-lbl_800A8AD0:
+.obj lbl_800A8AD0, local
 	.4byte 0x4F000000
+.endobj lbl_800A8AD0
 
-lbl_800A8AD4:
+.obj lbl_800A8AD4, local
 	.4byte 0x20000000
+.endobj lbl_800A8AD4
 
-lbl_800A8AD8:
+.obj lbl_800A8AD8, local
 	.asciz " %3d\n"
 	.balign 4
+.endobj lbl_800A8AD8
 
-lbl_800A8AE0:
+.obj lbl_800A8AE0, local
 	.asciz "j_movie"
+.endobj lbl_800A8AE0
 
-lbl_800A8AE8:
+.obj lbl_800A8AE8, local
 	.asciz "t_movie"
+.endobj lbl_800A8AE8
 
-lbl_800A8AF0:
+.obj lbl_800A8AF0, local
 	.asciz "j_star"
 	.balign 4
+.endobj lbl_800A8AF0
 
-lbl_800A8AF8:
+.obj lbl_800A8AF8, local
 	.asciz "t_star"
 	.balign 4
+.endobj lbl_800A8AF8
 
-lbl_800A8B00:
+.obj lbl_800A8B00, local
 	.asciz "j_hart"
 	.balign 4
+.endobj lbl_800A8B00
 
-lbl_800A8B08:
+.obj lbl_800A8B08, local
 	.asciz "t_hart"
 	.balign 4
+.endobj lbl_800A8B08
 
-lbl_800A8B10:
+.obj lbl_800A8B10, local
 	.asciz "white_L"
+.endobj lbl_800A8B10
 
-lbl_800A8B18:
+.obj lbl_800A8B18, local
 	.asciz "delete"
 	.balign 4
+.endobj lbl_800A8B18
 
-lbl_800A8B20:
+.obj lbl_800A8B20, local
 	.4byte 0x3D3E0000
+.endobj lbl_800A8B20
 
-lbl_800A8B24:
+.obj lbl_800A8B24, local
 	.asciz "OFF\n"
 	.balign 4
+.endobj lbl_800A8B24
 
-lbl_800A8B2C:
+.obj lbl_800A8B2C, local
 	.asciz "Normal\n"
+.endobj lbl_800A8B2C
 
-lbl_800A8B34:
+.obj lbl_800A8B34, local
 	.4byte 0x4F4E0A00
+.endobj lbl_800A8B34
 
-textOnOff:
+.obj textOnOff, local
 	.4byte lbl_800A8B24
 	.4byte lbl_800A8B34
+.endobj textOnOff
 
-lbl_800A8B40:
+.obj lbl_800A8B40, local
 	.asciz "1.0\n"
 	.balign 4
+.endobj lbl_800A8B40
 
-lbl_800A8B48:
+.obj lbl_800A8B48, local
 	.asciz "1.7\n"
 	.balign 4
+.endobj lbl_800A8B48
 
-lbl_800A8B50:
+.obj lbl_800A8B50, local
 	.asciz "2.2\n"
 	.balign 4
+.endobj lbl_800A8B50
 
-lbl_800A8B58:
+.obj lbl_800A8B58, local
 	.4byte 0x0A000000
+.endobj lbl_800A8B58
 
-lbl_800A8B5C:
+.obj lbl_800A8B5C, local
 	.asciz "DOME\n"
 	.balign 4
+.endobj lbl_800A8B5C
 
-lbl_800A8B64:
+.obj lbl_800A8B64, local
 	.asciz "HANGAR\n"
+.endobj lbl_800A8B64
 
-lbl_800A8B6C:
+.obj lbl_800A8B6C, local
 	.asciz "CAVE\n"
 	.balign 4
+.endobj lbl_800A8B6C
 
-lbl_800A8B74:
+.obj lbl_800A8B74, local
 	.4byte 0x25730000
+.endobj lbl_800A8B74
 
-lbl_800A8B78:
+.obj lbl_800A8B78, local
 	.4byte 0x25730A00
 	.4byte 0
+.endobj lbl_800A8B78
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
-lbl_800A9380:
+.obj lbl_800A9380, local
 	.4byte 0x3FC00000
+.endobj lbl_800A9380
 
-lbl_800A9384:
+.obj lbl_800A9384, local
 	.4byte 0x40000000
+.endobj lbl_800A9384
 
-lbl_800A9388:
+.obj lbl_800A9388, local
 	.4byte 0x44800000
 	.4byte 0
+.endobj lbl_800A9388
 
-lbl_800A9390:
+.obj lbl_800A9390, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A9390
 
-lbl_800A9398:
+.obj lbl_800A9398, local
 	.4byte 0
+.endobj lbl_800A9398
 
-lbl_800A939C:
+.obj lbl_800A939C, local
 	.4byte 0
+.endobj lbl_800A939C
 
-lbl_800A93A0:
+.obj lbl_800A93A0, local
 	.4byte 0x42480000
+.endobj lbl_800A93A0
 
-lbl_800A93A4:
+.obj lbl_800A93A4, local
 	.4byte 0x43800000
+.endobj lbl_800A93A4
 
-lbl_800A93A8:
+.obj lbl_800A93A8, local
 	.4byte 0
+.endobj lbl_800A93A8
 
-lbl_800A93AC:
+.obj lbl_800A93AC, local
 	.4byte 0x3F800000
+.endobj lbl_800A93AC
 
-lbl_800A93B0:
+.obj lbl_800A93B0, local
 	.4byte 0x41100000
+.endobj lbl_800A93B0
 
-lbl_800A93B4:
+.obj lbl_800A93B4, local
 	.4byte 0x41C80000
+.endobj lbl_800A93B4
 
-lbl_800A93B8:
+.obj lbl_800A93B8, local
 	.4byte 0x41200000
+.endobj lbl_800A93B8
 
-lbl_800A93BC:
+.obj lbl_800A93BC, local
 	.4byte 0x3F333333
+.endobj lbl_800A93BC
 
-lbl_800A93C0:
+.obj lbl_800A93C0, local
 	.4byte 0x3E000000
+.endobj lbl_800A93C0
 
-lbl_800A93C4:
+.obj lbl_800A93C4, local
 	.4byte 0
+.endobj lbl_800A93C4
 
-lbl_800A93C8:
+.obj lbl_800A93C8, local
 	.4byte 0
+.endobj lbl_800A93C8
 
-lbl_800A93CC:
+.obj lbl_800A93CC, local
 	.4byte 0
+.endobj lbl_800A93CC
 
-lbl_800A93D0:
+.obj lbl_800A93D0, local
 	.4byte 0
+.endobj lbl_800A93D0
 
-lbl_800A93D4:
+.obj lbl_800A93D4, local
 	.4byte 0x425D999A
+.endobj lbl_800A93D4
 
-lbl_800A93D8:
+.obj lbl_800A93D8, local
 	.4byte 0x42200000
+.endobj lbl_800A93D8
 
-lbl_800A93DC:
+.obj lbl_800A93DC, local
 	.4byte 0xC2FF3333
+.endobj lbl_800A93DC
 
-lbl_800A93E0:
+.obj lbl_800A93E0, local
 	.4byte 0x41F00000
+.endobj lbl_800A93E0
 
-lbl_800A93E4:
+.obj lbl_800A93E4, local
 	.4byte 0
+.endobj lbl_800A93E4
 
-lbl_800A93E8:
+.obj lbl_800A93E8, local
 	.4byte 0x43400000
+.endobj lbl_800A93E8
 
-lbl_800A93EC:
+.obj lbl_800A93EC, local
 	.4byte 0x44000000
+.endobj lbl_800A93EC
 
-lbl_800A93F0:
+.obj lbl_800A93F0, local
 	.4byte 0xFFFFFFFF
+.endobj lbl_800A93F0
 
-lbl_800A93F4:
+.obj lbl_800A93F4, local
 	.4byte 0xC081FFFF
+.endobj lbl_800A93F4
 
-lbl_800A93F8:
+.obj lbl_800A93F8, local
 	.4byte 0xC0C0FFFF
+.endobj lbl_800A93F8
 
-lbl_800A93FC:
+.obj lbl_800A93FC, local
 	.4byte 0x43B40000
+.endobj lbl_800A93FC
 
-lbl_800A9400:
+.obj lbl_800A9400, local
 	.4byte 0x40490FD8
+.endobj lbl_800A9400
 
-lbl_800A9404:
+.obj lbl_800A9404, local
 	.4byte 0x43340000
+.endobj lbl_800A9404
 
-lbl_800A9408:
+.obj lbl_800A9408, local
 	.4byte 0x40400000
+.endobj lbl_800A9408
 
-lbl_800A940C:
+.obj lbl_800A940C, local
 	.4byte 0x420C0000
+.endobj lbl_800A940C
 
-lbl_800A9410:
+.obj lbl_800A9410, local
 	.4byte 0x40900000
+.endobj lbl_800A9410
 
-lbl_800A9414:
+.obj lbl_800A9414, local
 	.4byte 0x42C80000
+.endobj lbl_800A9414
 
-lbl_800A9418:
+.obj lbl_800A9418, local
 	.4byte 0x42B40000
+.endobj lbl_800A9418
 
-lbl_800A941C:
+.obj lbl_800A941C, local
 	.4byte 0x40200000
+.endobj lbl_800A941C
 
-lbl_800A9420:
+.obj lbl_800A9420, local
 	.4byte 0x40A00000
+.endobj lbl_800A9420
 
-lbl_800A9424:
+.obj lbl_800A9424, local
 	.4byte 0x42A00000
+.endobj lbl_800A9424
 
-lbl_800A9428:
+.obj lbl_800A9428, local
 	.4byte 0x43300000
 	.4byte 0x80000000
+.endobj lbl_800A9428
 
-lbl_800A9430:
+.obj lbl_800A9430, local
 	.4byte 0
+.endobj lbl_800A9430
 
-lbl_800A9434:
+.obj lbl_800A9434, local
 	.4byte 0xFFFFFF00
+.endobj lbl_800A9434
 
-lbl_800A9438:
+.obj lbl_800A9438, local
 	.4byte 0xFFFFFF00
+.endobj lbl_800A9438
 
-lbl_800A943C:
+.obj lbl_800A943C, local
 	.4byte 0x3CCCCCCD
+.endobj lbl_800A943C
 
-lbl_800A9440:
+.obj lbl_800A9440, local
 	.4byte 0x3DCCCCCD
+.endobj lbl_800A9440
 
-lbl_800A9444:
+.obj lbl_800A9444, local
 	.4byte 0x3C888889
+.endobj lbl_800A9444
 
-lbl_800A9448:
+.obj lbl_800A9448, local
 	.4byte 0xFFFFFF00
+.endobj lbl_800A9448
 
-lbl_800A944C:
+.obj lbl_800A944C, local
 	.4byte 0x434AC73D
+.endobj lbl_800A944C
 
-lbl_800A9450:
+.obj lbl_800A9450, local
 	.4byte 0x4397639E
+.endobj lbl_800A9450
 
-lbl_800A9454:
+.obj lbl_800A9454, local
 	.4byte 0x3D0F5C29
+.endobj lbl_800A9454
 
-lbl_800A9458:
+.obj lbl_800A9458, local
 	.4byte 0
+.endobj lbl_800A9458
 
-lbl_800A945C:
+.obj lbl_800A945C, local
 	.4byte 0x000000FF
+.endobj lbl_800A945C
 
-lbl_800A9460:
+.obj lbl_800A9460, local
 	.4byte 0x404040FF
+.endobj lbl_800A9460
 
-lbl_800A9464:
+.obj lbl_800A9464, local
 	.4byte 0x4B1900FF
+.endobj lbl_800A9464
 
-lbl_800A9468:
+.obj lbl_800A9468, local
 	.4byte 0x00327DFF
+.endobj lbl_800A9468
 
-lbl_800A946C:
+.obj lbl_800A946C, local
 	.4byte 0x3E2AAAAB
+.endobj lbl_800A946C
 
-lbl_800A9470:
+.obj lbl_800A9470, local
 	.4byte 0xBF555556
+.endobj lbl_800A9470
 
-lbl_800A9474:
+.obj lbl_800A9474, local
 	.4byte 0x42855C29
+.endobj lbl_800A9474
 
-lbl_800A9478:
+.obj lbl_800A9478, local
 	.4byte 0xC0000000
+.endobj lbl_800A9478
 
-lbl_800A947C:
+.obj lbl_800A947C, local
 	.4byte 0xC1000000
+.endobj lbl_800A947C
 
-lbl_800A9480:
+.obj lbl_800A9480, local
 	.4byte 0x3B4CCCCD
+.endobj lbl_800A9480
 
-lbl_800A9484:
+.obj lbl_800A9484, local
 	.4byte 0x3B888889
+.endobj lbl_800A9484
 
-lbl_800A9488:
+.obj lbl_800A9488, local
 	.4byte 0xBF733333
+.endobj lbl_800A9488
 
-lbl_800A948C:
+.obj lbl_800A948C, local
 	.4byte 0xBF800000
+.endobj lbl_800A948C
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 
 #might be in main.cpp
-.global dmThread
-dmThread:
+.obj dmThread, global
 	.skip 0x310
+.endobj dmThread
 
 #8006d780
-.global dmThreadStack
-dmThreadStack:
+.obj dmThreadStack, global
 	.skip 0x8000
+.endobj dmThreadStack
 
-SwMsec:
+.obj SwMsec, local
 	.skip 0x38
+.endobj SwMsec
 
-.global bgThread
-bgThread:
+.obj bgThread, global
 	.skip 0x1DB0
+.endobj bgThread
 
-irmodeobj:
+.obj irmodeobj, local
 	.skip 0x3C
+.endobj irmodeobj
 
 .skip 28
 
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
-MSecGX:
+.obj MSecGX, local
 	.skip 0x4
+.endobj MSecGX
 
-iMSecGX:
+.obj iMSecGX, local
 	.skip 0x4
+.endobj iMSecGX
 
-MSecCPU:
+.obj MSecCPU, local
 	.skip 0x4
+.endobj MSecCPU
 
-triCnt:
+.obj triCnt, local
 	.skip 0x4
+.endobj triCnt
 
-verCnt:
+.obj verCnt, local
 	.skip 0x4
+.endobj verCnt
 
-.global bg_stimer
-bg_stimer:
+.obj bg_stimer, global
 	.skip 0x1
+.endobj bg_stimer
 
-"cammode$809":
+.obj "cammode$809", local
 	.skip 0x1
+.endobj "cammode$809"
 
-"init$810":
+.obj "init$810", local
 	.skip 0x1
+.endobj "init$810"
 
 .skip 1
 
-"time$812":
+.obj "time$812", local
 	.skip 0x4
+.endobj "time$812"
 
-"init$813":
+.obj "init$813", local
 	.skip 0x1
+.endobj "init$813"
 
 .skip 3

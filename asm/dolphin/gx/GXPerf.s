@@ -737,7 +737,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-lbl_80068F50:
+.obj lbl_80068F50, local
 	.4byte .L_8004152C
 	.4byte .L_80041548
 	.4byte .L_80041564
@@ -761,8 +761,9 @@ lbl_80068F50:
 	.4byte .L_80041818
 	.4byte .L_80041828
 	.4byte .L_80041840
+.endobj lbl_80068F50
 
-lbl_80068FAC:
+.obj lbl_80068FAC, local
 	.4byte .L_800410FC
 	.4byte .L_8004111C
 	.4byte .L_8004113C
@@ -799,8 +800,9 @@ lbl_80068FAC:
 	.4byte .L_800414C4
 	.4byte .L_800414E0
 	.4byte .L_800414FC
+.endobj lbl_80068FAC
 
-lbl_8006903C:
+.obj lbl_8006903C, local
 	.4byte .L_80041914
 	.4byte .L_8004196C
 	.4byte .L_8004196C
@@ -824,3 +826,4 @@ lbl_8006903C:
 	.4byte .L_80041974
 	.4byte .L_8004196C
 	.4byte .L_8004197C
+.endobj lbl_8006903C

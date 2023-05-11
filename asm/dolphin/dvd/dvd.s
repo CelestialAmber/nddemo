@@ -2616,7 +2616,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-lbl_80068348:
+.obj lbl_80068348, local
 	.asciz "app booted via JTAG\n"
 	.balign 4
 	.asciz "load fst\n"
@@ -2625,8 +2625,9 @@ lbl_80068348:
 	.balign 4
 	.asciz "bootrom\n"
 	.balign 4
+.endobj lbl_80068348
 
-lbl_80068394:
+.obj lbl_80068394, local
 	.4byte .L_80032A20
 	.4byte .L_800328E0
 	.4byte .L_800328F8
@@ -2635,8 +2636,9 @@ lbl_80068394:
 	.4byte .L_80032A04
 	.4byte .L_80032958
 	.4byte .L_80032928
+.endobj lbl_80068394
 
-lbl_800683B4:
+.obj lbl_800683B4, local
 	.4byte .L_80032D00
 	.4byte .L_80032ABC
 	.4byte .L_80032B18
@@ -2653,8 +2655,9 @@ lbl_800683B4:
 	.4byte .L_80032CB0
 	.4byte .L_80032CD8
 	.4byte .L_80032B4C
+.endobj lbl_800683B4
 
-lbl_800683F4:
+.obj lbl_800683F4, local
 	.4byte .L_800336B4
 	.4byte .L_800336B4
 	.4byte .L_800336D4
@@ -2668,8 +2671,9 @@ lbl_800683F4:
 	.4byte .L_800338AC
 	.4byte .L_800336B4
 	.4byte .L_800337E0
+.endobj lbl_800683F4
 
-lbl_80068428:
+.obj lbl_80068428, local
 	.4byte .L_80033A44
 	.4byte .L_80033A4C
 	.4byte .L_80033A3C
@@ -2684,79 +2688,101 @@ lbl_80068428:
 	.4byte .L_80033A3C
 	.4byte .L_80033A44
 	.4byte 0
+.endobj lbl_80068428
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-autoInvalidation:
+.obj autoInvalidation, local
 	.4byte 0x00000001
 	.4byte 0
+.endobj autoInvalidation
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
 
-tmpBuffer:
+.obj tmpBuffer, local
 	.skip 0x80
+.endobj tmpBuffer
 
-DummyCommandBlock:
+.obj DummyCommandBlock, local
 	.skip 0x30
+.endobj DummyCommandBlock
 
-ResetAlarm:
+.obj ResetAlarm, local
 	.skip 0x28
+.endobj ResetAlarm
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-executing:
+.obj executing, local
 	.skip 0x4
+.endobj executing
 
-currID:
+.obj currID, local
 	.skip 0x4
+.endobj currID
 
-bootInfo:
+.obj bootInfo, local
 	.skip 0x4
+.endobj bootInfo
 
-PauseFlag:
+.obj PauseFlag, local
 	.skip 0x4
+.endobj PauseFlag
 
-PausingFlag:
+.obj PausingFlag, local
 	.skip 0x4
+.endobj PausingFlag
 
-AutoFinishing:
+.obj AutoFinishing, local
 	.skip 0x4
+.endobj AutoFinishing
 
-FatalErrorFlag:
+.obj FatalErrorFlag, local
 	.skip 0x4
+.endobj FatalErrorFlag
 
-CurrCommand:
+.obj CurrCommand, local
 	.skip 0x4
+.endobj CurrCommand
 
-Canceling:
+.obj Canceling, local
 	.skip 0x4
+.endobj Canceling
 
-CancelCallback:
+.obj CancelCallback, local
 	.skip 0x4
+.endobj CancelCallback
 
-ResumeFromHere:
+.obj ResumeFromHere, local
 	.skip 0x4
+.endobj ResumeFromHere
 
-CancelLastError:
+.obj CancelLastError, local
 	.skip 0x4
+.endobj CancelLastError
 
-LastError:
+.obj LastError, local
 	.skip 0x4
+.endobj LastError
 
-NumInternalRetry:
+.obj NumInternalRetry, local
 	.skip 0x4
+.endobj NumInternalRetry
 
-ResetRequired:
+.obj ResetRequired, local
 	.skip 0x4
+.endobj ResetRequired
 
-FirstTimeInBootrom:
+.obj FirstTimeInBootrom, local
 	.skip 0x4
+.endobj FirstTimeInBootrom
 
-DVDInitialized:
+.obj DVDInitialized, local
 	.skip 0x4
+.endobj DVDInitialized
 
-.global LastState
-LastState:
+.obj LastState, global
 	.skip 0x4
+.endobj LastState

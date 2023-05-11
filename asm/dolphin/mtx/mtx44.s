@@ -87,14 +87,18 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
-lbl_800A9868:
+.obj lbl_800A9868, local
 	.4byte 0x3F800000
+.endobj lbl_800A9868
 
-lbl_800A986C:
+.obj lbl_800A986C, local
 	.4byte 0x40000000
+.endobj lbl_800A986C
 
-lbl_800A9870:
+.obj lbl_800A9870, local
 	.4byte 0
+.endobj lbl_800A9870
 
-lbl_800A9874:
+.obj lbl_800A9874, local
 	.4byte 0xBF800000
+.endobj lbl_800A9874

@@ -634,7 +634,7 @@ __OSEVStart:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-lbl_800674F0:
+.obj lbl_800674F0, local
 	.asciz "\nDolphin OS $Revision: 45 $.\n"
 	.balign 4
 	.asciz "Kernel built : %s %s\n"
@@ -659,8 +659,9 @@ lbl_800674F0:
 	.balign 4
 	.asciz "Arena : 0x%x - 0x%x\n"
 	.balign 4
+.endobj lbl_800674F0
 
-__OSExceptionLocations:
+.obj __OSExceptionLocations, local
 	.4byte 0x00000100
 	.4byte 0x00000200
 	.4byte 0x00000300
@@ -676,6 +677,7 @@ __OSExceptionLocations:
 	.4byte 0x00001300
 	.4byte 0x00001400
 	.4byte 0x00001700
+.endobj __OSExceptionLocations
 
 	.asciz "Installing OSDBIntegrator\n"
 	.balign 4
@@ -690,18 +692,22 @@ __OSExceptionLocations:
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-BootInfo:
+.obj BootInfo, local
 	.skip 0x4
+.endobj BootInfo
 
-BI2DebugFlag:
+.obj BI2DebugFlag, local
 	.skip 0x4
+.endobj BI2DebugFlag
 
-AreWeInitialized:
+.obj AreWeInitialized, local
 	.skip 0x4
+.endobj AreWeInitialized
 
-OSExceptionTable:
+.obj OSExceptionTable, local
 	.skip 0x4
+.endobj OSExceptionTable
 
-.global __OSStartTime
-__OSStartTime:
+.obj __OSStartTime, global
 	.skip 0x8
+.endobj __OSStartTime

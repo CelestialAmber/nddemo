@@ -1144,7 +1144,7 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
-itdOffTab:
+.obj itdOffTab, local
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -1209,242 +1209,290 @@ itdOffTab:
 	.4byte 0x00200020
 	.4byte 0x00200020
 	.4byte 0x00200020
+.endobj itdOffTab
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
-"dspSRCType$202":
+.obj "dspSRCType$202", local
 	.4byte 0x00000001
 	.4byte 0x00020000
+.endobj "dspSRCType$202"
 
-"dspCoefSel$204":
+.obj "dspCoefSel$204", local
 	.4byte 0x00000001
 	.4byte 0x00020000
+.endobj "dspCoefSel$204"
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005A18:
+.obj lbl_80005A18, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005A18
 
-lbl_80005A20:
+.obj lbl_80005A20, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_80005A20
 
-lbl_80005A28:
+.obj lbl_80005A28, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005A28
 
-lbl_80005A30:
+.obj lbl_80005A30, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_80005A30
 
-lbl_80005A38:
+.obj lbl_80005A38, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_80005A38
 
-lbl_80005A40:
+.obj lbl_80005A40, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005A40
 
-lbl_80005A48:
+.obj lbl_80005A48, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005A48
 
-lbl_80005A50:
+.obj lbl_80005A50, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005A50
 
-lbl_80005A58:
+.obj lbl_80005A58, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005A58
 
-lbl_80005A60:
+.obj lbl_80005A60, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005A60
 
-lbl_80005A68:
+.obj lbl_80005A68, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005A68
 
-lbl_80005A70:
+.obj lbl_80005A70, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005A70
 
-lbl_80005A78:
+.obj lbl_80005A78, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005A78
 
-lbl_80005A80:
+.obj lbl_80005A80, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005A80
 
-lbl_80005A88:
+.obj lbl_80005A88, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005A88
 
-lbl_80005A90:
+.obj lbl_80005A90, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005A90
 
-lbl_80005A98:
+.obj lbl_80005A98, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005A98
 
-lbl_80005AA0:
+.obj lbl_80005AA0, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005AA0
 
-lbl_80005AA8:
+.obj lbl_80005AA8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005AA8
 
-lbl_80005AB0:
+.obj lbl_80005AB0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005AB0
 
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
 
-lbl_800A9A98:
+.obj lbl_800A9A98, local
 	.4byte 0x3F800000
+.endobj lbl_800A9A98
 
-lbl_800A9A9C:
+.obj lbl_800A9A9C, local
 	.4byte 0x46FFFE00
+.endobj lbl_800A9A9C
 
-lbl_800A9AA0:
+.obj lbl_800A9AA0, local
 	.4byte 0x45800000
 	.4byte 0
+.endobj lbl_800A9AA0
 
-lbl_800A9AA8:
+.obj lbl_800A9AA8, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A9AA8
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-salTimeOffset:
+.obj salTimeOffset, local
 	.skip 0x1
+.endobj salTimeOffset
 
 .skip 3
 
-.global salHooks
-salHooks:
+.obj salHooks, global
 	.skip 0x8
+.endobj salHooks
 
-.global salNumVoices
-salNumVoices:
+.obj salNumVoices, global
 	.skip 0x1
+.endobj salNumVoices
 
-.global salAuxFrame
-salAuxFrame:
+.obj salAuxFrame, global
 	.skip 0x1
+.endobj salAuxFrame
 
-.global salFrame
-salFrame:
+.obj salFrame, global
 	.skip 0x1
+.endobj salFrame
 
 .skip 1
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_80006334:
+.obj lbl_80006334, local
     .4byte snd_handle_irq
     .4byte 0x00000158
     .4byte lbl_80005A18
+.endobj lbl_80006334
 
-lbl_80006340:
+.obj lbl_80006340, local
     .4byte hwInit
     .4byte 0x000000B4
     .4byte lbl_80005A20
+.endobj lbl_80006340
 
-lbl_8000634C:
+.obj lbl_8000634C, local
     .4byte hwExit
     .4byte 0x00000034
     .4byte lbl_80005A28
+.endobj lbl_8000634C
 
-lbl_80006358:
+.obj lbl_80006358, local
     .4byte hwInitSamplePlayback
     .4byte 0x000001AC
     .4byte lbl_80005A30
+.endobj lbl_80006358
 
-lbl_80006364:
+.obj lbl_80006364, local
     .4byte hwSetADSR
     .4byte 0x000001B0
     .4byte lbl_80005A38
+.endobj lbl_80006364
 
-lbl_80006370:
+.obj lbl_80006370, local
     .4byte hwStart
     .4byte 0x0000003C
     .4byte lbl_80005A40
+.endobj lbl_80006370
 
-lbl_8000637C:
+.obj lbl_8000637C, local
     .4byte hwSetVolume
     .4byte 0x000002D0
     .4byte lbl_80005A48
+.endobj lbl_8000637C
 
-lbl_80006388:
+.obj lbl_80006388, local
     .4byte hwOff
     .4byte 0x0000002C
     .4byte lbl_80005A50
+.endobj lbl_80006388
 
-lbl_80006394:
+.obj lbl_80006394, local
     .4byte hwActivateStudio
     .4byte 0x00000020
     .4byte lbl_80005A58
+.endobj lbl_80006394
 
-lbl_800063A0:
+.obj lbl_800063A0, local
     .4byte hwDeactivateStudio
     .4byte 0x00000020
     .4byte lbl_80005A60
+.endobj lbl_800063A0
 
-lbl_800063AC:
+.obj lbl_800063AC, local
     .4byte hwAddInput
     .4byte 0x00000034
     .4byte lbl_80005A68
+.endobj lbl_800063AC
 
-lbl_800063B8:
+.obj lbl_800063B8, local
     .4byte hwRemoveInput
     .4byte 0x00000034
     .4byte lbl_80005A70
+.endobj lbl_800063B8
 
-lbl_800063C4:
+.obj lbl_800063C4, local
     .4byte hwFlushStream
     .4byte 0x00000090
     .4byte lbl_80005A78
+.endobj lbl_800063C4
 
-lbl_800063D0:
+.obj lbl_800063D0, local
     .4byte hwGetStreamPlayBuffer
     .4byte 0x00000024
     .4byte lbl_80005A80
+.endobj lbl_800063D0
 
-lbl_800063DC:
+.obj lbl_800063DC, local
     .4byte hwFrq2Pitch
     .4byte 0x0000005C
     .4byte lbl_80005A88
+.endobj lbl_800063DC
 
-lbl_800063E8:
+.obj lbl_800063E8, local
     .4byte hwInitSampleMem
     .4byte 0x00000024
     .4byte lbl_80005A90
+.endobj lbl_800063E8
 
-lbl_800063F4:
+.obj lbl_800063F4, local
     .4byte hwExitSampleMem
     .4byte 0x00000020
     .4byte lbl_80005A98
+.endobj lbl_800063F4
 
-lbl_80006400:
+.obj lbl_80006400, local
     .4byte hwSaveSample
     .4byte 0x00000094
     .4byte lbl_80005AA0
+.endobj lbl_80006400
 
-lbl_8000640C:
+.obj lbl_8000640C, local
     .4byte hwRemoveSample
     .4byte 0x00000084
     .4byte lbl_80005AA8
+.endobj lbl_8000640C
 
-lbl_80006418:
+.obj lbl_80006418, local
     .4byte hwSyncSampleMem
     .4byte 0x00000020
     .4byte lbl_80005AB0
+.endobj lbl_80006418

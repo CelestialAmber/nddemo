@@ -3592,7 +3592,7 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-dspMixerCycles:
+.obj dspMixerCycles, local
 	.4byte 0x05BE0B7C
 	.4byte 0x0B7C113A
 	.4byte 0x08B6116C
@@ -3607,167 +3607,188 @@ dspMixerCycles:
 	.4byte 0x0E740E74
 	.4byte 0x045B0000
 	.4byte 0
+.endobj dspMixerCycles
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-.global dspStudio
-dspStudio:
+.obj dspStudio, global
 	.skip 0x5E0
+.endobj dspStudio
 
-"voices$345":
+.obj "voices$345", local
 	.skip 0x100
+.endobj "voices$345"
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-dspARAMZeroBuffer:
+.obj dspARAMZeroBuffer, local
 	.skip 0x4
+.endobj dspARAMZeroBuffer
 
-.global dspCmdLastLoad
-dspCmdLastLoad:
+.obj dspCmdLastLoad, global
 	.skip 0x4
+.endobj dspCmdLastLoad
 
-.global dspCmdLastBase
-dspCmdLastBase:
+.obj dspCmdLastBase, global
 	.skip 0x4
+.endobj dspCmdLastBase
 
-.global dspCmdLastSize
-dspCmdLastSize:
+.obj dspCmdLastSize, global
 	.skip 0x2
+.endobj dspCmdLastSize
 
 .skip 2
 
-.global dspCmdCurBase
-dspCmdCurBase:
+.obj dspCmdCurBase, global
 	.skip 0x4
+.endobj dspCmdCurBase
 
-.global dspCmdMaxPtr
-dspCmdMaxPtr:
+.obj dspCmdMaxPtr, global
 	.skip 0x4
+.endobj dspCmdMaxPtr
 
-.global dspCmdPtr
-dspCmdPtr:
+.obj dspCmdPtr, global
 	.skip 0x4
+.endobj dspCmdPtr
 
-.global dspCmdFirstSize
-dspCmdFirstSize:
+.obj dspCmdFirstSize, global
 	.skip 0x2
+.endobj dspCmdFirstSize
 
 .skip 2
 
-.global dspCmdList
-dspCmdList:
+.obj dspCmdList, global
 	.skip 0x4
+.endobj dspCmdList
 
-.global dspHRTFOn
-dspHRTFOn:
+.obj dspHRTFOn, global
 	.skip 0x4
+.endobj dspHRTFOn
 
-.global dspHrtfHistoryBuffer
-dspHrtfHistoryBuffer:
+.obj dspHrtfHistoryBuffer, global
 	.skip 0x4
+.endobj dspHrtfHistoryBuffer
 
-.global dspSurround
-dspSurround:
+.obj dspSurround, global
 	.skip 0x4
+.endobj dspSurround
 
-.global dspITDBuffer
-dspITDBuffer:
+.obj dspITDBuffer, global
 	.skip 0x4
+.endobj dspITDBuffer
 
-.global dspVoice
-dspVoice:
+.obj dspVoice, global
 	.skip 0x4
+.endobj dspVoice
 
-.global salMessageCallback
-salMessageCallback:
+.obj salMessageCallback, global
 	.skip 0x4
+.endobj salMessageCallback
 
 .skip 4
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_800058C8:
+.obj lbl_800058C8, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_800058C8
 
-lbl_800058D0:
+.obj lbl_800058D0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800058D0
 
-lbl_800058D8:
+.obj lbl_800058D8, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_800058D8
 
-lbl_800058E0:
+.obj lbl_800058E0, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_800058E0
 
-lbl_800058E8:
+.obj lbl_800058E8, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_800058E8
 
-lbl_800058F0:
+.obj lbl_800058F0, local
 	.4byte 0x90080000
 	.4byte 0
+.endobj lbl_800058F0
 
-lbl_800058F8:
+.obj lbl_800058F8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800058F8
 
-lbl_80005900:
+.obj lbl_80005900, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005900
 
-lbl_80005908:
+.obj lbl_80005908, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005908
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_8000613C:
+.obj lbl_8000613C, local
     .4byte salInitDspCtrl
     .4byte 0x00000378
     .4byte lbl_800058C8
+.endobj lbl_8000613C
 
-lbl_80006148:
+.obj lbl_80006148, local
     .4byte salInitHRTFBuffer
     .4byte 0x00000038
     .4byte lbl_800058D0
+.endobj lbl_80006148
 
-lbl_80006154:
+.obj lbl_80006154, local
     .4byte salExitDspCtrl
     .4byte 0x000000D8
     .4byte lbl_800058D8
+.endobj lbl_80006154
 
-lbl_80006160:
+.obj lbl_80006160, local
     .4byte salActivateStudio
     .4byte 0x00000108
     .4byte lbl_800058E0
+.endobj lbl_80006160
 
-lbl_8000616C:
+.obj lbl_8000616C, local
     .4byte SortVoices
     .4byte 0x000000FC
     .4byte lbl_800058E8
+.endobj lbl_8000616C
 
-lbl_80006178:
+.obj lbl_80006178, local
     .4byte salBuildCommandList
     .4byte 0x0000251C
     .4byte lbl_800058F0
+.endobj lbl_80006178
 
-lbl_80006184:
+.obj lbl_80006184, local
     .4byte salSynthSendMessage
     .4byte 0x0000003C
     .4byte lbl_800058F8
+.endobj lbl_80006184
 
-lbl_80006190:
+.obj lbl_80006190, local
     .4byte salActivateVoice
     .4byte 0x000000A0
     .4byte lbl_80005900
+.endobj lbl_80006190
 
-lbl_8000619C:
+.obj lbl_8000619C, local
     .4byte salHandleAuxProcessing
     .4byte 0x0000015C
     .4byte lbl_80005908
+.endobj lbl_8000619C

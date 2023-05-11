@@ -55,8 +55,7 @@
 
 .section .init, "ax"  # 0x80003100 - 0x80005520 ; 0x00002420
 
-.global _rom_copy_info
-_rom_copy_info:
+.obj _rom_copy_info, global
     .4byte 0x80003100,0x80003100,0x0000240C
     .4byte 0x80005520,0x80005520,0x00000690
     .4byte 0x80005BC0,0x80005BC0,0x000009E0
@@ -68,9 +67,10 @@ _rom_copy_info:
     .4byte 0x800A8A80,0x800A8A80,0x00000321
     .4byte 0x800A9380,0x800A9380,0x00000818
     .4byte 0x00000000,0x00000000,0x00000000
+.endobj _rom_copy_info
 
-.global _bss_init_info
-_bss_init_info:
+.obj _bss_init_info, global
     .4byte 0x8006D1C0,0x0003B8C0
     .4byte 0x800A8DC0,0x000005B5
     .4byte 0x00000000,0x00000000
+.endobj _bss_init_info

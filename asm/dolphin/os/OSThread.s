@@ -1284,27 +1284,34 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-RunQueue:
+.obj RunQueue, local
 	.skip 0x100
+.endobj RunQueue
 
-IdleThread:
+.obj IdleThread, local
 	.skip 0x310
+.endobj IdleThread
 
-DefaultThread:
+.obj DefaultThread, local
 	.skip 0x310
+.endobj DefaultThread
 
-IdleContext:
+.obj IdleContext, local
 	.skip 0x2C8
+.endobj IdleContext
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-RunQueueBits:
+.obj RunQueueBits, local
 	.skip 0x4
+.endobj RunQueueBits
 
-RunQueueHint:
+.obj RunQueueHint, local
 	.skip 0x4
+.endobj RunQueueHint
 
-Reschedule:
+.obj Reschedule, local
 	.skip 0x4
+.endobj Reschedule
 
 .skip 4

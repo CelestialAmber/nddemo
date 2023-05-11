@@ -1608,121 +1608,139 @@
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
 
-vidList:
+.obj vidList, local
 	.skip 0x800
+.endobj vidList
 
-synth_last_started:
+.obj synth_last_started, local
 	.skip 0x80
+.endobj synth_last_started
 
-synth_last_fxstarted:
+.obj synth_last_fxstarted, local
 	.skip 0x40
+.endobj synth_last_fxstarted
 
-.global voicePrioSortVoices
-voicePrioSortVoices:
+.obj voicePrioSortVoices, global
 	.skip 0x100
+.endobj voicePrioSortVoices
 
-.global voicePrioSortVoicesRoot
-voicePrioSortVoicesRoot:
+.obj voicePrioSortVoicesRoot, global
 	.skip 0x100
+.endobj voicePrioSortVoicesRoot
 
-.global voicePrioSortRootList
-voicePrioSortRootList:
+.obj voicePrioSortRootList, global
 	.skip 0x400
+.endobj voicePrioSortRootList
 
-.global voiceList
-voiceList:
+.obj voiceList, global
 	.skip 0x100
+.endobj voiceList
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-vidCurrentId:
+.obj vidCurrentId, local
 	.skip 0x4
+.endobj vidCurrentId
 
-vidRoot:
+.obj vidRoot, local
 	.skip 0x4
+.endobj vidRoot
 
-vidFree:
+.obj vidFree, local
 	.skip 0x4
+.endobj vidFree
 
-.global voicePrioSortRootListRoot
-voicePrioSortRootListRoot:
+.obj voicePrioSortRootListRoot, global
 	.skip 0x2
+.endobj voicePrioSortRootListRoot
 
-.global voiceMusicRunning
-voiceMusicRunning:
+.obj voiceMusicRunning, global
 	.skip 0x1
+.endobj voiceMusicRunning
 
-.global voiceFxRunning
-voiceFxRunning:
+.obj voiceFxRunning, global
 	.skip 0x1
+.endobj voiceFxRunning
 
-.global voiceListInsert
-voiceListInsert:
+.obj voiceListInsert, global
 	.skip 0x1
+.endobj voiceListInsert
 
-.global voiceListRoot
-voiceListRoot:
+.obj voiceListRoot, global
 	.skip 0x1
+.endobj voiceListRoot
 
 .skip 6
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005838:
+.obj lbl_80005838, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005838
 
-lbl_80005840:
+.obj lbl_80005840, local
 	.4byte 0x30080000
 	.4byte 0
+.endobj lbl_80005840
 
-lbl_80005848:
+.obj lbl_80005848, local
 	.4byte 0x08080000
 	.4byte 0
+.endobj lbl_80005848
 
-lbl_80005850:
+.obj lbl_80005850, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005850
 
-lbl_80005858:
+.obj lbl_80005858, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005858
 
-lbl_80005860:
+.obj lbl_80005860, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005860
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_80006064:
+.obj lbl_80006064, local
     .4byte vidRemoveVoiceReferences
     .4byte 0x00000354
     .4byte lbl_80005838
+.endobj lbl_80006064
 
-lbl_80006070:
+.obj lbl_80006070, local
     .4byte voiceSetPriority
     .4byte 0x00000190
     .4byte lbl_80005840
+.endobj lbl_80006070
 
-lbl_8000607C:
+.obj lbl_8000607C, local
     .4byte voiceFree
     .4byte 0x000000E4
     .4byte lbl_80005848
+.endobj lbl_8000607C
 
-lbl_80006088:
+.obj lbl_80006088, local
     .4byte voiceUnblock
     .4byte 0x00000080
     .4byte lbl_80005850
+.endobj lbl_80006088
 
-lbl_80006094:
+.obj lbl_80006094, local
     .4byte voiceKill
     .4byte 0x000000A0
     .4byte lbl_80005858
+.endobj lbl_80006094
 
-lbl_800060A0:
+.obj lbl_800060A0, local
     .4byte voiceKillSound
     .4byte 0x00000110
     .4byte lbl_80005860
+.endobj lbl_800060A0

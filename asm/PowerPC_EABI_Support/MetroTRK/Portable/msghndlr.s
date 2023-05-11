@@ -1419,7 +1419,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-lbl_8006CDE8:
+.obj lbl_8006CDE8, local
 	.4byte .L_8005BFB8
 	.4byte .L_8005BFD8
 	.4byte .L_8005BFB0
@@ -1427,8 +1427,9 @@ lbl_8006CDE8:
 	.4byte .L_8005BFC0
 	.4byte .L_8005BFC8
 	.4byte .L_8005BFD0
+.endobj lbl_8006CDE8
 
-lbl_8006CE04:
+.obj lbl_8006CE04, local
 	.4byte .L_8005C1B4
 	.4byte .L_8005C1D4
 	.4byte .L_8005C1AC
@@ -1436,3 +1437,4 @@ lbl_8006CE04:
 	.4byte .L_8005C1BC
 	.4byte .L_8005C1C4
 	.4byte .L_8005C1CC
+.endobj lbl_8006CE04

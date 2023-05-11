@@ -19,8 +19,7 @@
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
 
-.global __ctype_map
-__ctype_map:
+.obj __ctype_map, global
 	.4byte 0x01010101
 	.4byte 0x01010101
 	.4byte 0x01020202
@@ -85,9 +84,9 @@ __ctype_map:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj __ctype_map
 
-.global __lower_map
-__lower_map:
+.obj __lower_map, global
 	.4byte 0x00010203
 	.4byte 0x04050607
 	.4byte 0x08090A0B
@@ -152,3 +151,4 @@ __lower_map:
 	.4byte 0xF4F5F6F7
 	.4byte 0xF8F9FAFB
 	.4byte 0xFCFDFEFF
+.endobj __lower_map

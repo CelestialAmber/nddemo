@@ -183,7 +183,8 @@
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-serEnabled:
+.obj serEnabled, local
 	.skip 0x4
+.endobj serEnabled
 
 .skip 4

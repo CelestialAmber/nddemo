@@ -640,6 +640,6 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-.global gTRKMsgBufs
-gTRKMsgBufs:
+.obj gTRKMsgBufs, global
 	.skip 0x19B0
+.endobj gTRKMsgBufs

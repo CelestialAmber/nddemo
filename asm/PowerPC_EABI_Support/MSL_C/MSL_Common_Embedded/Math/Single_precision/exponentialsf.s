@@ -513,7 +513,7 @@
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
 
-__log2_F:
+.obj __log2_F, local
 	.4byte 0xBEC00000
 	.4byte 0xBEBA406C
 	.4byte 0xBEB48C35
@@ -660,6 +660,7 @@ __log2_F:
 	.4byte 0x3AB5F6D0
 	.4byte 0x3956A4B8
 	.4byte 0x37D5E715
+.endobj __log2_F
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
@@ -667,37 +668,48 @@ __log2_F:
 "__log2e_m1$localstatic0$__log2f__Ff":	.4byte 0x3ED20000
 	.4byte 0x3D054765
 
-lbl_800A9B68:
+.obj lbl_800A9B68, local
 	.4byte 0xBF38AA80
+.endobj lbl_800A9B68
 
-lbl_800A9B6C:
+.obj lbl_800A9B6C, local
 	.4byte 0x3EF637A6
+.endobj lbl_800A9B6C
 
-_inf:
+.obj _inf, local
 	.4byte 0x7F800000
+.endobj _inf
 
-_nan:
+.obj _nan, local
 	.4byte 0x7FFFFFFF
+.endobj _nan
 
-lbl_800A9B78:
+.obj lbl_800A9B78, local
 	.4byte 0
+.endobj lbl_800A9B78
 
-lbl_800A9B7C:
+.obj lbl_800A9B7C, local
 	.4byte 0x3FB00000
+.endobj lbl_800A9B7C
 
-lbl_800A9B80:
+.obj lbl_800A9B80, local
 	.4byte 0x3F400000
+.endobj lbl_800A9B80
 
-lbl_800A9B84:
+.obj lbl_800A9B84, local
 	.4byte 0x3E800000
+.endobj lbl_800A9B84
 
-lbl_800A9B88:
+.obj lbl_800A9B88, local
 	.4byte 0x3F800000
+.endobj lbl_800A9B88
 
-lbl_800A9B8C:
+.obj lbl_800A9B8C, local
 	.4byte 0x80000000
+.endobj lbl_800A9B8C
 
-lbl_800A9B90:
+.obj lbl_800A9B90, local
 	.4byte 0x43300000
 	.4byte 0x80000000
+.endobj lbl_800A9B90
 

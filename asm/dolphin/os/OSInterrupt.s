@@ -654,7 +654,7 @@ __RAS_OSDisableInterrupts_begin:
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
-InterruptPrioTable:
+.obj InterruptPrioTable, local
 	.4byte 0x00000100
 	.4byte 0x00000040
 	.4byte 0xF8000000
@@ -667,10 +667,12 @@ InterruptPrioTable:
 	.4byte 0x00004000
 	.4byte 0xFFFFFFFF
 	.4byte 0
+.endobj InterruptPrioTable
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-InterruptHandlerTable:
+.obj InterruptHandlerTable, local
 	.skip 0x4
+.endobj InterruptHandlerTable
 
 .skip 4

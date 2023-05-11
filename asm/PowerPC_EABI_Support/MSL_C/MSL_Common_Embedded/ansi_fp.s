@@ -289,7 +289,7 @@
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
 
-bit_values:
+.obj bit_values, local
 	.4byte 0x40240000
 	.4byte 0
 	.4byte 0x40590000
@@ -308,8 +308,9 @@ bit_values:
 	.4byte 0xF9301D32
 	.4byte 0x75154FDD
 	.4byte 0x7F73BF3C
+.endobj bit_values
 
-digit_values:
+.obj digit_values, local
 	.4byte 0x40240000
 	.4byte 0
 	.4byte 0x40590000
@@ -326,25 +327,31 @@ digit_values:
 	.4byte 0
 	.4byte 0x4197D784
 	.4byte 0
+.endobj digit_values
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
-lbl_800A9AF8:
+.obj lbl_800A9AF8, local
 	.4byte 0
 	.4byte 0
+.endobj lbl_800A9AF8
 
-lbl_800A9B00:
+.obj lbl_800A9B00, local
 	.4byte 0x3FF00000
 	.4byte 0
+.endobj lbl_800A9B00
 
-lbl_800A9B08:
+.obj lbl_800A9B08, local
 	.4byte 0x43300000
 	.4byte 0x80000000
+.endobj lbl_800A9B08
 
-lbl_800A9B10:
+.obj lbl_800A9B10, local
 	.4byte 0x3FB99999
 	.4byte 0x9999999A
+.endobj lbl_800A9B10
 
-lbl_800A9B18:
+.obj lbl_800A9B18, local
 	.4byte 0x40240000
 	.4byte 0
+.endobj lbl_800A9B18

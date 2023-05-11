@@ -164,14 +164,16 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
-lbl_800686E0:
+.obj lbl_800686E0, local
 	.asciz "DSPInit(): Build Date: %s %s\n"
 	.balign 4
 	.asciz "Sep  8 2001"
 	.asciz "01:51:48"
 	.balign 4
+.endobj lbl_800686E0
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-__DSP_init_flag:
+.obj __DSP_init_flag, local
 	.skip 0x8
+.endobj __DSP_init_flag

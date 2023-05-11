@@ -3,8 +3,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
 
-.global dspAttenuationTab
-dspAttenuationTab:
+.obj dspAttenuationTab, global
 	.4byte 0x7FFF78D6
 	.4byte 0x72136BB1
 	.4byte 0x65AB5FFB
@@ -102,9 +101,9 @@ dspAttenuationTab:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj dspAttenuationTab
 
-.global dspScale2IndexTab
-dspScale2IndexTab:
+.obj dspScale2IndexTab, global
 	.4byte 0xC1786C65
 	.4byte 0x605C5957
 	.4byte 0x5452504F
@@ -361,9 +360,9 @@ dspScale2IndexTab:
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj dspScale2IndexTab
 
-.global dspDLSVolTab
-dspDLSVolTab:
+.obj dspDLSVolTab, global
 	.4byte 0
 	.4byte 0x388205FF
 	.4byte 0x398205FF
@@ -493,3 +492,4 @@ dspDLSVolTab:
 	.4byte 0x3F7BFC01
 	.4byte 0x3F800000
 	.4byte 0x3F800000
+.endobj dspDLSVolTab

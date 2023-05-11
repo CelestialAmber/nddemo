@@ -121,7 +121,8 @@
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-"initialized$16":
+.obj "initialized$16", local
 	.skip 0x4
+.endobj "initialized$16"
 
 .skip 4

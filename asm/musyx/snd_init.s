@@ -82,22 +82,26 @@
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
-lbl_80005948:
+.obj lbl_80005948, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005948
 
-lbl_80005950:
+.obj lbl_80005950, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005950
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
-lbl_800061FC:
+.obj lbl_800061FC, local
     .4byte sndInit
     .4byte 0x000000D8
     .4byte lbl_80005948
+.endobj lbl_800061FC
 
-lbl_80006208:
+.obj lbl_80006208, local
     .4byte sndQuit
     .4byte 0x00000034
     .4byte lbl_80005950
+.endobj lbl_80006208

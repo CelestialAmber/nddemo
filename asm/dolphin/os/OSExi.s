@@ -1211,7 +1211,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-Ecb:
+.obj Ecb, local
 	.skip 0xA8
+.endobj Ecb
 
 .skip 24

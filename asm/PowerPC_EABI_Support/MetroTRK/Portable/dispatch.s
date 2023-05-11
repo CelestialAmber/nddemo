@@ -50,8 +50,7 @@
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 
-.global gTRKDispatchTable
-gTRKDispatchTable:
+.obj gTRKDispatchTable, global
 	.4byte TRKDoUnsupported
 	.4byte TRKDoConnect
 	.4byte TRKDoDisconnect
@@ -86,11 +85,12 @@ gTRKDispatchTable:
 	.4byte TRKDoUnsupported
 	.4byte 0
 	.4byte 0
+.endobj gTRKDispatchTable
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-.global gTRKDispatchTableSize
-gTRKDispatchTableSize:
+.obj gTRKDispatchTableSize, global
 	.skip 0x4
+.endobj gTRKDispatchTableSize
 
 .skip 4

@@ -443,16 +443,20 @@
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
 
-lbl_800A9940:
+.obj lbl_800A9940, local
 	.4byte 0x3F000000
 	.4byte 0
+.endobj lbl_800A9940
 
-lbl_800A9948:
+.obj lbl_800A9948, local
 	.4byte 0x43300000
 	.4byte 0
+.endobj lbl_800A9948
 
-lbl_800A9950:
+.obj lbl_800A9950, local
 	.4byte 0x43AB0000
+.endobj lbl_800A9950
 
-lbl_800A9954:
+.obj lbl_800A9954, local
 	.4byte 0x4B7FFFFF
+.endobj lbl_800A9954

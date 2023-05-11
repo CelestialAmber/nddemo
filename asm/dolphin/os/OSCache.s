@@ -361,7 +361,7 @@
 
 
 
-lbl_80067AC8:
+.obj lbl_80067AC8, local
 	.asciz ">>> L2 INVALIDATE : SHOULD NEVER HAPPEN\n"
 	.balign 4
 	.asciz "Machine check received\n"
@@ -388,3 +388,4 @@ lbl_80067AC8:
 	.asciz "Locked cache machine check handler installed\n"
 	.balign 4
 	.4byte 0
+.endobj lbl_80067AC8

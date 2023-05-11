@@ -762,26 +762,33 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
-SendCount:
+.obj SendCount, local
 	.byte 0x80
+.endobj SendCount
 
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
-MTRCallback:
+.obj MTRCallback, local
 	.skip 0x4
+.endobj MTRCallback
 
-DBGCallback:
+.obj DBGCallback, local
 	.skip 0x4
+.endobj DBGCallback
 
-SendMailData:
+.obj SendMailData, local
 	.skip 0x4
+.endobj SendMailData
 
-RecvDataLeng:
+.obj RecvDataLeng, local
 	.skip 0x4
+.endobj RecvDataLeng
 
-pEXIInputFlag:
+.obj pEXIInputFlag, local
 	.skip 0x4
+.endobj pEXIInputFlag
 
-EXIInputFlag:
+.obj EXIInputFlag, local
 	.skip 0x1
+.endobj EXIInputFlag

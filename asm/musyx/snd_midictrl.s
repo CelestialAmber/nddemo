@@ -2081,7 +2081,7 @@
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
 
-inpColdMIDIDefaults:
+.obj inpColdMIDIDefaults, local
 	.4byte 0
 	.4byte 0x0000007F
 	.4byte 0x0000407F
@@ -2116,8 +2116,9 @@ inpColdMIDIDefaults:
 	.4byte 0
 	.4byte 0x40000000
 	.4byte 0x40000000
+.endobj inpColdMIDIDefaults
 
-inpWarmMIDIDefaults:
+.obj inpWarmMIDIDefaults, local
 	.4byte 0xFF00FFFF
 	.4byte 0xFFFFFFFF
 	.4byte 0xFFFFFF7F
@@ -2152,22 +2153,25 @@ inpWarmMIDIDefaults:
 	.4byte 0xFFFFFFFF
 	.4byte 0x40FFFFFF
 	.4byte 0xFFFF0000
+.endobj inpWarmMIDIDefaults
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
-"dirtyMask$732":
+.obj "dirtyMask$732", local
 	.4byte 0x80000001
 	.4byte 0x80000002
 	.4byte 0x80000004
 	.4byte 0x80000008
+.endobj "dirtyMask$732"
 
-"dirtyMask$745":
+.obj "dirtyMask$745", local
 	.4byte 0x80000010
 	.4byte 0x80000020
 	.4byte 0x80000040
 	.4byte 0x80000080
+.endobj "dirtyMask$745"
 
-lbl_8006A338:
+.obj lbl_8006A338, local
 	.4byte .L_80057220
 	.4byte .L_80057228
 	.4byte .L_80057230
@@ -2178,237 +2182,291 @@ lbl_8006A338:
 	.4byte .L_80057258
 	.4byte .L_80057260
 	.4byte 0
+.endobj lbl_8006A338
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
-midi_lastNote:
+.obj midi_lastNote, local
 	.skip 0x80
+.endobj midi_lastNote
 
-fx_lastNote:
+.obj fx_lastNote, local
 	.skip 0x40
+.endobj fx_lastNote
 
-midi_ctrl:
+.obj midi_ctrl, local
 	.skip 0x4300
+.endobj midi_ctrl
 
-fx_ctrl:
+.obj fx_ctrl, local
 	.skip 0x2180
+.endobj fx_ctrl
 
-midi_portstate:
+.obj midi_portstate, local
 	.skip 0x80
+.endobj midi_portstate
 
-fx_portstate:
+.obj fx_portstate, local
 	.skip 0x40
+.endobj fx_portstate
 
-inpGlobalMIDIDirtyFlags:
+.obj inpGlobalMIDIDirtyFlags, local
 	.skip 0x200
+.endobj inpGlobalMIDIDirtyFlags
 
-inpChannelDefaults:
+.obj inpChannelDefaults, local
 	.skip 0x80
+.endobj inpChannelDefaults
 
-inpFXChannelDefaults:
+.obj inpFXChannelDefaults, local
 	.skip 0x40
+.endobj inpFXChannelDefaults
 
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_80005958:
+.obj lbl_80005958, local
 	.4byte 0x38080000
 	.4byte 0
+.endobj lbl_80005958
 
-lbl_80005960:
+.obj lbl_80005960, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005960
 
-lbl_80005968:
+.obj lbl_80005968, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_80005968
 
-lbl_80005970:
+.obj lbl_80005970, local
 	.4byte 0x20080000
 	.4byte 0
+.endobj lbl_80005970
 
-lbl_80005978:
+.obj lbl_80005978, local
 	.4byte 0x40080000
 	.4byte 0
+.endobj lbl_80005978
 
-lbl_80005980:
+.obj lbl_80005980, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005980
 
-lbl_80005988:
+.obj lbl_80005988, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005988
 
-lbl_80005990:
+.obj lbl_80005990, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005990
 
-lbl_80005998:
+.obj lbl_80005998, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_80005998
 
-lbl_800059A0:
+.obj lbl_800059A0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800059A0
 
-lbl_800059A8:
+.obj lbl_800059A8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800059A8
 
-lbl_800059B0:
+.obj lbl_800059B0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800059B0
 
-lbl_800059B8:
+.obj lbl_800059B8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800059B8
 
-lbl_800059C0:
+.obj lbl_800059C0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800059C0
 
-lbl_800059C8:
+.obj lbl_800059C8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800059C8
 
-lbl_800059D0:
+.obj lbl_800059D0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800059D0
 
-lbl_800059D8:
+.obj lbl_800059D8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800059D8
 
-lbl_800059E0:
+.obj lbl_800059E0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800059E0
 
-lbl_800059E8:
+.obj lbl_800059E8, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800059E8
 
-lbl_800059F0:
+.obj lbl_800059F0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800059F0
 
-lbl_800059F8:
+.obj lbl_800059F8, local
 	.4byte 0x10080000
 	.4byte 0
+.endobj lbl_800059F8
 
-lbl_80005A00:
+.obj lbl_80005A00, local
 	.4byte 0x18080000
 	.4byte 0
+.endobj lbl_80005A00
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_80006214:
+.obj lbl_80006214, local
     .4byte inpSetMidiCtrl
     .4byte 0x000005D0
     .4byte lbl_80005958
+.endobj lbl_80006214
 
-lbl_80006220:
+.obj lbl_80006220, local
     .4byte inpSetMidiCtrl14
     .4byte 0x00000128
     .4byte lbl_80005960
+.endobj lbl_80006220
 
-lbl_8000622C:
+.obj lbl_8000622C, local
     .4byte inpResetMidiCtrl
     .4byte 0x00000104
     .4byte lbl_80005968
+.endobj lbl_8000622C
 
-lbl_80006238:
+.obj lbl_80006238, local
     .4byte inpAddCtrl
     .4byte 0x0000009C
     .4byte lbl_80005970
+.endobj lbl_80006238
 
-lbl_80006244:
+.obj lbl_80006244, local
     .4byte _GetInputValue
     .4byte 0x00000488
     .4byte lbl_80005978
+.endobj lbl_80006244
 
-lbl_80006250:
+.obj lbl_80006250, local
     .4byte inpGetVolume
     .4byte 0x00000048
     .4byte lbl_80005980
+.endobj lbl_80006250
 
-lbl_8000625C:
+.obj lbl_8000625C, local
     .4byte inpGetPanning
     .4byte 0x00000048
     .4byte lbl_80005988
+.endobj lbl_8000625C
 
-lbl_80006268:
+.obj lbl_80006268, local
     .4byte inpGetSurPanning
     .4byte 0x00000048
     .4byte lbl_80005990
+.endobj lbl_80006268
 
-lbl_80006274:
+.obj lbl_80006274, local
     .4byte inpGetPitchBend
     .4byte 0x00000048
     .4byte lbl_80005998
+.endobj lbl_80006274
 
-lbl_80006280:
+.obj lbl_80006280, local
     .4byte inpGetDoppler
     .4byte 0x00000048
     .4byte lbl_800059A0
+.endobj lbl_80006280
 
-lbl_8000628C:
+.obj lbl_8000628C, local
     .4byte inpGetModulation
     .4byte 0x00000048
     .4byte lbl_800059A8
+.endobj lbl_8000628C
 
-lbl_80006298:
+.obj lbl_80006298, local
     .4byte inpGetPedal
     .4byte 0x00000048
     .4byte lbl_800059B0
+.endobj lbl_80006298
 
-lbl_800062A4:
+.obj lbl_800062A4, local
     .4byte inpGetPortamento
     .4byte 0x00000048
     .4byte lbl_800059B8
+.endobj lbl_800062A4
 
-lbl_800062B0:
+.obj lbl_800062B0, local
     .4byte inpGetPreAuxA
     .4byte 0x00000048
     .4byte lbl_800059C0
+.endobj lbl_800062B0
 
-lbl_800062BC:
+.obj lbl_800062BC, local
     .4byte inpGetReverb
     .4byte 0x00000048
     .4byte lbl_800059C8
+.endobj lbl_800062BC
 
-lbl_800062C8:
+.obj lbl_800062C8, local
     .4byte inpGetPreAuxB
     .4byte 0x00000048
     .4byte lbl_800059D0
+.endobj lbl_800062C8
 
-lbl_800062D4:
+.obj lbl_800062D4, local
     .4byte inpGetPostAuxB
     .4byte 0x00000048
     .4byte lbl_800059D8
+.endobj lbl_800062D4
 
-lbl_800062E0:
+.obj lbl_800062E0, local
     .4byte inpGetTremolo
     .4byte 0x00000048
     .4byte lbl_800059E0
+.endobj lbl_800062E0
 
-lbl_800062EC:
+.obj lbl_800062EC, local
     .4byte inpGetAuxA
     .4byte 0x000000BC
     .4byte lbl_800059E8
+.endobj lbl_800062EC
 
-lbl_800062F8:
+.obj lbl_800062F8, local
     .4byte inpGetAuxB
     .4byte 0x000000BC
     .4byte lbl_800059F0
+.endobj lbl_800062F8
 
-lbl_80006304:
+.obj lbl_80006304, local
     .4byte inpGetExCtrl
     .4byte 0x000000A0
     .4byte lbl_800059F8
+.endobj lbl_80006304
 
-lbl_80006310:
+.obj lbl_80006310, local
     .4byte inpSetExCtrl
     .4byte 0x00000098
     .4byte lbl_80005A00
+.endobj lbl_80006310

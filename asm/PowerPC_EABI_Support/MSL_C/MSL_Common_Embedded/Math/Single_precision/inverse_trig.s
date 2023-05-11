@@ -208,7 +208,7 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
-"atan_coeff$96":
+.obj "atan_coeff$96", local
 	.4byte 0x3F800000
 	.4byte 0xBEAAAAAA
 	.4byte 0x3E4CCC81
@@ -255,23 +255,30 @@
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj "atan_coeff$96"
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
-lbl_800A9B30:
+.obj lbl_800A9B30, local
 	.4byte 0x401A827A
+.endobj lbl_800A9B30
 
-lbl_800A9B34:
+.obj lbl_800A9B34, local
 	.4byte 0x3F800000
+.endobj lbl_800A9B34
 
-lbl_800A9B38:
+.obj lbl_800A9B38, local
 	.4byte 0x3ED413CD
+.endobj lbl_800A9B38
 
-lbl_800A9B3C:
+.obj lbl_800A9B3C, local
 	.4byte 0x3FC90FDB
+.endobj lbl_800A9B3C
 
-lbl_800A9B40:
+.obj lbl_800A9B40, local
 	.4byte 0
+.endobj lbl_800A9B40
 
-lbl_800A9B44:
+.obj lbl_800A9B44, local
 	.4byte 0x40490FDB
+.endobj lbl_800A9B44

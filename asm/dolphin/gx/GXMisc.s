@@ -365,18 +365,22 @@
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
-TokenCB:
+.obj TokenCB, local
 	.skip 0x4
+.endobj TokenCB
 
-DrawDoneCB:
+.obj DrawDoneCB, local
 	.skip 0x4
+.endobj DrawDoneCB
 
-DrawDone:
+.obj DrawDone, local
 	.skip 0x1
+.endobj DrawDone
 
 .skip 3
 
-FinishQueue:
+.obj FinishQueue, local
 	.skip 0x8
+.endobj FinishQueue
 
 .skip 4

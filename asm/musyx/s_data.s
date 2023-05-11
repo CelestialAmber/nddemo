@@ -422,64 +422,76 @@
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
 
-gs:
+.obj gs, local
 	.skip 0x400
+.endobj gs
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
 
-sp:
+.obj sp, local
 	.skip 0x2
+.endobj sp
 
 .skip 6
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 
 
-lbl_800058A0:
+.obj lbl_800058A0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800058A0
 
-lbl_800058A8:
+.obj lbl_800058A8, local
 	.4byte 0x28080000
 	.4byte 0
+.endobj lbl_800058A8
 
-lbl_800058B0:
+.obj lbl_800058B0, local
 	.4byte 0x30080000
 	.4byte 0
+.endobj lbl_800058B0
 
-lbl_800058B8:
+.obj lbl_800058B8, local
 	.4byte 0x38080000
 	.4byte 0
+.endobj lbl_800058B8
 
-lbl_800058C0:
+.obj lbl_800058C0, local
 	.4byte 0x00080000
 	.4byte 0
+.endobj lbl_800058C0
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
 
-lbl_80006100:
+.obj lbl_80006100, local
     .4byte InsertData
     .4byte 0x000001F0
     .4byte lbl_800058A0
+.endobj lbl_80006100
 
-lbl_8000610C:
+.obj lbl_8000610C, local
     .4byte ScanIDList
     .4byte 0x0000009C
     .4byte lbl_800058A8
+.endobj lbl_8000610C
 
-lbl_80006118:
+.obj lbl_80006118, local
     .4byte sndPushGroup
     .4byte 0x0000016C
     .4byte lbl_800058B0
+.endobj lbl_80006118
 
-lbl_80006124:
+.obj lbl_80006124, local
     .4byte seqPlaySong
     .4byte 0x00000140
     .4byte lbl_800058B8
+.endobj lbl_80006124
 
-lbl_80006130:
+.obj lbl_80006130, local
     .4byte sndSeqPlayEx
     .4byte 0x00000028
     .4byte lbl_800058C0
+.endobj lbl_80006130
