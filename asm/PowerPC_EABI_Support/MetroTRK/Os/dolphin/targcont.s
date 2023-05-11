@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global TRKTargetContinue
-TRKTargetContinue:
+.fn TRKTargetContinue, global
 /* 8005EFD4 0005AF54  7C 08 02 A6 */	mflr r0
 /* 8005EFD8 0005AF58  38 60 00 00 */	li r3, 0x0
 /* 8005EFDC 0005AF5C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -17,3 +16,4 @@ TRKTargetContinue:
 /* 8005EFFC 0005AF7C  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005F000 0005AF80  7C 08 03 A6 */	mtlr r0
 /* 8005F004 0005AF84  4E 80 00 20 */	blr
+.endfn TRKTargetContinue

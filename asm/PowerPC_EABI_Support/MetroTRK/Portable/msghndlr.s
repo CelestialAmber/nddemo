@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global TRKMessageIntoReply
-TRKMessageIntoReply:
+.fn TRKMessageIntoReply, global
 /* 8005B794 00057714  7C 08 02 A6 */	mflr r0
 /* 8005B798 00057718  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005B79C 0005771C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -44,9 +43,9 @@ TRKMessageIntoReply:
 /* 8005B820 000577A0  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B824 000577A4  7C 08 03 A6 */	mtlr r0
 /* 8005B828 000577A8  4E 80 00 20 */	blr
+.endfn TRKMessageIntoReply
 
-.global TRKSendACK
-TRKSendACK:
+.fn TRKSendACK, global
 /* 8005B82C 000577AC  7C 08 02 A6 */	mflr r0
 /* 8005B830 000577B0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005B834 000577B4  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -69,9 +68,9 @@ TRKSendACK:
 /* 8005B870 000577F0  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B874 000577F4  7C 08 03 A6 */	mtlr r0
 /* 8005B878 000577F8  4E 80 00 20 */	blr
+.endfn TRKSendACK
 
-.global TRKStandardACK
-TRKStandardACK:
+.fn TRKStandardACK, global
 /* 8005B87C 000577FC  7C 08 02 A6 */	mflr r0
 /* 8005B880 00057800  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005B884 00057804  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -85,9 +84,9 @@ TRKStandardACK:
 /* 8005B8A4 00057824  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B8A8 00057828  7C 08 03 A6 */	mtlr r0
 /* 8005B8AC 0005782C  4E 80 00 20 */	blr
+.endfn TRKStandardACK
 
-.global TRKDoUnsupported
-TRKDoUnsupported:
+.fn TRKDoUnsupported, global
 /* 8005B8B0 00057830  7C 08 02 A6 */	mflr r0
 /* 8005B8B4 00057834  38 80 00 80 */	li r4, 0x80
 /* 8005B8B8 00057838  90 01 00 04 */	stw r0, 0x4(r1)
@@ -98,9 +97,9 @@ TRKDoUnsupported:
 /* 8005B8CC 0005784C  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B8D0 00057850  7C 08 03 A6 */	mtlr r0
 /* 8005B8D4 00057854  4E 80 00 20 */	blr
+.endfn TRKDoUnsupported
 
-.global TRKDoConnect
-TRKDoConnect:
+.fn TRKDoConnect, global
 /* 8005B8D8 00057858  7C 08 02 A6 */	mflr r0
 /* 8005B8DC 0005785C  38 80 00 80 */	li r4, 0x80
 /* 8005B8E0 00057860  90 01 00 04 */	stw r0, 0x4(r1)
@@ -111,9 +110,9 @@ TRKDoConnect:
 /* 8005B8F4 00057874  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B8F8 00057878  7C 08 03 A6 */	mtlr r0
 /* 8005B8FC 0005787C  4E 80 00 20 */	blr
+.endfn TRKDoConnect
 
-.global TRKDoDisconnect
-TRKDoDisconnect:
+.fn TRKDoDisconnect, global
 /* 8005B900 00057880  7C 08 02 A6 */	mflr r0
 /* 8005B904 00057884  38 80 00 80 */	li r4, 0x80
 /* 8005B908 00057888  90 01 00 04 */	stw r0, 0x4(r1)
@@ -135,9 +134,9 @@ TRKDoDisconnect:
 /* 8005B944 000578C4  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B948 000578C8  7C 08 03 A6 */	mtlr r0
 /* 8005B94C 000578CC  4E 80 00 20 */	blr
+.endfn TRKDoDisconnect
 
-.global TRKDoReset
-TRKDoReset:
+.fn TRKDoReset, global
 /* 8005B950 000578D0  7C 08 02 A6 */	mflr r0
 /* 8005B954 000578D4  38 80 00 80 */	li r4, 0x80
 /* 8005B958 000578D8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -150,9 +149,9 @@ TRKDoReset:
 /* 8005B974 000578F4  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B978 000578F8  7C 08 03 A6 */	mtlr r0
 /* 8005B97C 000578FC  4E 80 00 20 */	blr
+.endfn TRKDoReset
 
-.global TRKDoVersions
-TRKDoVersions:
+.fn TRKDoVersions, global
 /* 8005B980 00057900  7C 08 02 A6 */	mflr r0
 /* 8005B984 00057904  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005B988 00057908  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -261,9 +260,9 @@ TRKDoVersions:
 /* 8005BAF8 00057A78  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005BAFC 00057A7C  7C 08 03 A6 */	mtlr r0
 /* 8005BB00 00057A80  4E 80 00 20 */	blr
+.endfn TRKDoVersions
 
-.global TRKDoSupportMask
-TRKDoSupportMask:
+.fn TRKDoSupportMask, global
 /* 8005BB04 00057A84  7C 08 02 A6 */	mflr r0
 /* 8005BB08 00057A88  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005BB0C 00057A8C  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -325,9 +324,9 @@ TRKDoSupportMask:
 /* 8005BBD4 00057B54  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005BBD8 00057B58  7C 08 03 A6 */	mtlr r0
 /* 8005BBDC 00057B5C  4E 80 00 20 */	blr
+.endfn TRKDoSupportMask
 
-.global TRKDoCPUType
-TRKDoCPUType:
+.fn TRKDoCPUType, global
 /* 8005BBE0 00057B60  7C 08 02 A6 */	mflr r0
 /* 8005BBE4 00057B64  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005BBE8 00057B68  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -490,9 +489,9 @@ TRKDoCPUType:
 /* 8005BE18 00057D98  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005BE1C 00057D9C  7C 08 03 A6 */	mtlr r0
 /* 8005BE20 00057DA0  4E 80 00 20 */	blr
+.endfn TRKDoCPUType
 
-.global TRKDoReadMemory
-TRKDoReadMemory:
+.fn TRKDoReadMemory, global
 /* 8005BE24 00057DA4  7C 08 02 A6 */	mflr r0
 /* 8005BE28 00057DA8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005BE2C 00057DAC  94 21 F7 E0 */	stwu r1, -0x820(r1)
@@ -634,9 +633,9 @@ TRKDoReadMemory:
 /* 8005C000 00057F80  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005C004 00057F84  7C 08 03 A6 */	mtlr r0
 /* 8005C008 00057F88  4E 80 00 20 */	blr
+.endfn TRKDoReadMemory
 
-.global TRKDoWriteMemory
-TRKDoWriteMemory:
+.fn TRKDoWriteMemory, global
 /* 8005C00C 00057F8C  7C 08 02 A6 */	mflr r0
 /* 8005C010 00057F90  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005C014 00057F94  94 21 F7 E0 */	stwu r1, -0x820(r1)
@@ -786,9 +785,9 @@ TRKDoWriteMemory:
 /* 8005C1FC 0005817C  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005C200 00058180  7C 08 03 A6 */	mtlr r0
 /* 8005C204 00058184  4E 80 00 20 */	blr
+.endfn TRKDoWriteMemory
 
-.global TRKDoReadRegisters
-TRKDoReadRegisters:
+.fn TRKDoReadRegisters, global
 /* 8005C208 00058188  7C 08 02 A6 */	mflr r0
 /* 8005C20C 0005818C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005C210 00058190  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -942,9 +941,9 @@ TRKDoReadRegisters:
 /* 8005C400 00058380  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005C404 00058384  7C 08 03 A6 */	mtlr r0
 /* 8005C408 00058388  4E 80 00 20 */	blr
+.endfn TRKDoReadRegisters
 
-.global TRKDoWriteRegisters
-TRKDoWriteRegisters:
+.fn TRKDoWriteRegisters, global
 /* 8005C40C 0005838C  7C 08 02 A6 */	mflr r0
 /* 8005C410 00058390  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005C414 00058394  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1100,9 +1099,9 @@ TRKDoWriteRegisters:
 /* 8005C608 00058588  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005C60C 0005858C  7C 08 03 A6 */	mtlr r0
 /* 8005C610 00058590  4E 80 00 20 */	blr
+.endfn TRKDoWriteRegisters
 
-.global TRKDoFlushCache
-TRKDoFlushCache:
+.fn TRKDoFlushCache, global
 /* 8005C614 00058594  7C 08 02 A6 */	mflr r0
 /* 8005C618 00058598  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005C61C 0005859C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1193,9 +1192,9 @@ TRKDoFlushCache:
 /* 8005C740 000586C0  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005C744 000586C4  7C 08 03 A6 */	mtlr r0
 /* 8005C748 000586C8  4E 80 00 20 */	blr
+.endfn TRKDoFlushCache
 
-.global TRKDoContinue
-TRKDoContinue:
+.fn TRKDoContinue, global
 /* 8005C74C 000586CC  7C 08 02 A6 */	mflr r0
 /* 8005C750 000586D0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005C754 000586D4  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -1223,9 +1222,9 @@ TRKDoContinue:
 /* 8005C7A4 00058724  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005C7A8 00058728  7C 08 03 A6 */	mtlr r0
 /* 8005C7AC 0005872C  4E 80 00 20 */	blr
+.endfn TRKDoContinue
 
-.global TRKDoStep
-TRKDoStep:
+.fn TRKDoStep, global
 /* 8005C7B0 00058730  7C 08 02 A6 */	mflr r0
 /* 8005C7B4 00058734  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005C7B8 00058738  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1372,9 +1371,9 @@ TRKDoStep:
 /* 8005C9A8 00058928  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005C9AC 0005892C  7C 08 03 A6 */	mtlr r0
 /* 8005C9B0 00058930  4E 80 00 20 */	blr
+.endfn TRKDoStep
 
-.global TRKDoStop
-TRKDoStop:
+.fn TRKDoStop, global
 /* 8005C9B4 00058934  7C 08 02 A6 */	mflr r0
 /* 8005C9B8 00058938  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005C9BC 0005893C  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -1415,6 +1414,7 @@ TRKDoStop:
 /* 8005CA2C 000589AC  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005CA30 000589B0  7C 08 03 A6 */	mtlr r0
 /* 8005CA34 000589B4  4E 80 00 20 */	blr
+.endfn TRKDoStop
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

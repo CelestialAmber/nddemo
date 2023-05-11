@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-__VIRetraceHandler:
+.fn __VIRetraceHandler, local
 /* 8003413C 000300BC  7C 08 02 A6 */	mflr r0
 /* 80034140 000300C0  3C 60 CC 00 */	lis r3, 0xCC002030@ha
 /* 80034144 000300C4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -152,8 +152,9 @@ __VIRetraceHandler:
 /* 80034340 000302C0  38 21 02 F8 */	addi r1, r1, 0x2f8
 /* 80034344 000302C4  7C 08 03 A6 */	mtlr r0
 /* 80034348 000302C8  4E 80 00 20 */	blr
+.endfn __VIRetraceHandler
 
-getTiming:
+.fn getTiming, local
 /* 8003434C 000302CC  28 03 00 09 */	cmplwi r3, 0x9
 /* 80034350 000302D0  3C 80 80 07 */	lis r4, timing@ha
 /* 80034354 000302D4  38 A4 85 10 */	addi r5, r4, timing@l
@@ -188,9 +189,9 @@ getTiming:
 .L_800343AC:
 /* 800343AC 0003032C  38 60 00 00 */	li r3, 0x0
 /* 800343B0 00030330  4E 80 00 20 */	blr
+.endfn getTiming
 
-.global __VIInit
-__VIInit:
+.fn __VIInit, global
 /* 800343B4 00030334  7C 08 02 A6 */	mflr r0
 /* 800343B8 00030338  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800343BC 0003033C  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -318,9 +319,9 @@ __VIInit:
 /* 80034590 00030510  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80034594 00030514  38 21 00 30 */	addi r1, r1, 0x30
 /* 80034598 00030518  4E 80 00 20 */	blr
+.endfn __VIInit
 
-.global VIInit
-VIInit:
+.fn VIInit, global
 /* 8003459C 0003051C  7C 08 02 A6 */	mflr r0
 /* 800345A0 00030520  3C 60 CC 00 */	lis r3, 0xCC002000@ha
 /* 800345A4 00030524  90 01 00 04 */	stw r0, 0x4(r1)
@@ -612,9 +613,9 @@ VIInit:
 /* 800349C8 00030948  38 21 00 20 */	addi r1, r1, 0x20
 /* 800349CC 0003094C  7C 08 03 A6 */	mtlr r0
 /* 800349D0 00030950  4E 80 00 20 */	blr
+.endfn VIInit
 
-.global VIWaitForRetrace
-VIWaitForRetrace:
+.fn VIWaitForRetrace, global
 /* 800349D4 00030954  7C 08 02 A6 */	mflr r0
 /* 800349D8 00030958  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800349DC 0003095C  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -637,8 +638,9 @@ VIWaitForRetrace:
 /* 80034A1C 0003099C  7C 08 03 A6 */	mtlr r0
 /* 80034A20 000309A0  38 21 00 10 */	addi r1, r1, 0x10
 /* 80034A24 000309A4  4E 80 00 20 */	blr
+.endfn VIWaitForRetrace
 
-setFbbRegs:
+.fn setFbbRegs, local
 /* 80034A28 000309A8  94 21 FF B8 */	stwu r1, -0x48(r1)
 /* 80034A2C 000309AC  3D 20 80 08 */	lis r9, regs@ha
 /* 80034A30 000309B0  39 29 0F 48 */	addi r9, r9, regs@l
@@ -831,8 +833,9 @@ setFbbRegs:
 /* 80034CF0 00030C70  83 E1 00 44 */	lwz r31, 0x44(r1)
 /* 80034CF4 00030C74  38 21 00 48 */	addi r1, r1, 0x48
 /* 80034CF8 00030C78  4E 80 00 20 */	blr
+.endfn setFbbRegs
 
-setVerticalRegs:
+.fn setVerticalRegs, local
 /* 80034CFC 00030C7C  94 21 FF D8 */	stwu r1, -0x28(r1)
 /* 80034D00 00030C80  54 A0 06 3E */	clrlwi r0, r5, 24
 /* 80034D04 00030C84  3D 60 80 08 */	lis r11, regs@ha
@@ -942,9 +945,9 @@ setVerticalRegs:
 /* 80034E90 00030E10  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80034E94 00030E14  38 21 00 28 */	addi r1, r1, 0x28
 /* 80034E98 00030E18  4E 80 00 20 */	blr
+.endfn setVerticalRegs
 
-.global VIConfigure
-VIConfigure:
+.fn VIConfigure, global
 /* 80034E9C 00030E1C  7C 08 02 A6 */	mflr r0
 /* 80034EA0 00030E20  3C 80 80 08 */	lis r4, regs@ha
 /* 80034EA4 00030E24  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1402,9 +1405,9 @@ VIConfigure:
 /* 80035520 000314A0  38 21 00 80 */	addi r1, r1, 0x80
 /* 80035524 000314A4  7C 08 03 A6 */	mtlr r0
 /* 80035528 000314A8  4E 80 00 20 */	blr
+.endfn VIConfigure
 
-.global VIFlush
-VIFlush:
+.fn VIFlush, global
 /* 8003552C 000314AC  7C 08 02 A6 */	mflr r0
 /* 80035530 000314B0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80035534 000314B4  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -1480,9 +1483,9 @@ VIFlush:
 /* 8003563C 000315BC  38 21 00 28 */	addi r1, r1, 0x28
 /* 80035640 000315C0  7C 08 03 A6 */	mtlr r0
 /* 80035644 000315C4  4E 80 00 20 */	blr
+.endfn VIFlush
 
-.global VISetNextFrameBuffer
-VISetNextFrameBuffer:
+.fn VISetNextFrameBuffer, global
 /* 80035648 000315C8  7C 08 02 A6 */	mflr r0
 /* 8003564C 000315CC  3C 80 80 08 */	lis r4, regs@ha
 /* 80035650 000315D0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1510,9 +1513,9 @@ VISetNextFrameBuffer:
 /* 800356A8 00031628  7C 08 03 A6 */	mtlr r0
 /* 800356AC 0003162C  38 21 00 18 */	addi r1, r1, 0x18
 /* 800356B0 00031630  4E 80 00 20 */	blr
+.endfn VISetNextFrameBuffer
 
-.global VISetBlack
-VISetBlack:
+.fn VISetBlack, global
 /* 800356B4 00031634  7C 08 02 A6 */	mflr r0
 /* 800356B8 00031638  3C 80 80 08 */	lis r4, regs@ha
 /* 800356BC 0003163C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1544,8 +1547,9 @@ VISetBlack:
 /* 80035724 000316A4  7C 08 03 A6 */	mtlr r0
 /* 80035728 000316A8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8003572C 000316AC  4E 80 00 20 */	blr
+.endfn VISetBlack
 
-getCurrentFieldEvenOdd:
+.fn getCurrentFieldEvenOdd, local
 /* 80035730 000316B0  7C 08 02 A6 */	mflr r0
 /* 80035734 000316B4  3C 60 CC 00 */	lis r3, 0xCC002000@ha
 /* 80035738 000316B8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1598,9 +1602,9 @@ getCurrentFieldEvenOdd:
 /* 800357E0 00031760  38 21 00 08 */	addi r1, r1, 0x8
 /* 800357E4 00031764  7C 08 03 A6 */	mtlr r0
 /* 800357E8 00031768  4E 80 00 20 */	blr
+.endfn getCurrentFieldEvenOdd
 
-.global VIGetNextField
-VIGetNextField:
+.fn VIGetNextField, global
 /* 800357EC 0003176C  7C 08 02 A6 */	mflr r0
 /* 800357F0 00031770  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800357F4 00031774  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -1667,15 +1671,15 @@ VIGetNextField:
 /* 800358D4 00031854  38 21 00 28 */	addi r1, r1, 0x28
 /* 800358D8 00031858  7C 08 03 A6 */	mtlr r0
 /* 800358DC 0003185C  4E 80 00 20 */	blr
+.endfn VIGetNextField
 
-.global VIGetTvFormat
-VIGetTvFormat:
+.fn VIGetTvFormat, global
 /* 800358E0 00031860  3C 60 80 00 */	lis r3, 0x800000CC@ha
 /* 800358E4 00031864  80 63 00 CC */	lwz r3, 0x800000CC@l(r3)
 /* 800358E8 00031868  4E 80 00 20 */	blr
+.endfn VIGetTvFormat
 
-.global VIGetDTVStatus
-VIGetDTVStatus:
+.fn VIGetDTVStatus, global
 /* 800358EC 0003186C  7C 08 02 A6 */	mflr r0
 /* 800358F0 00031870  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800358F4 00031874  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -1691,6 +1695,7 @@ VIGetDTVStatus:
 /* 8003591C 0003189C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80035920 000318A0  7C 08 03 A6 */	mtlr r0
 /* 80035924 000318A4  4E 80 00 20 */	blr
+.endfn VIGetDTVStatus
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

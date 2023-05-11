@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__7DTLightFv
-__ct__7DTLightFv:
+.fn __ct__7DTLightFv, global
 /* 8001BCA8 00017C28  7C 08 02 A6 */	mflr r0
 /* 8001BCAC 00017C2C  3C 80 80 01 */	lis r4, __ct__7DGLightFv@ha
 /* 8001BCB0 00017C30  90 01 00 04 */	stw r0, 0x4(r1)
@@ -22,9 +21,9 @@ __ct__7DTLightFv:
 /* 8001BCE4 00017C64  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001BCE8 00017C68  7C 08 03 A6 */	mtlr r0
 /* 8001BCEC 00017C6C  4E 80 00 20 */	blr
+.endfn __ct__7DTLightFv
 
-.global __dt__7DTLightFv
-__dt__7DTLightFv:
+.fn __dt__7DTLightFv, global
 /* 8001BCF0 00017C70  7C 08 02 A6 */	mflr r0
 /* 8001BCF4 00017C74  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001BCF8 00017C78  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -51,9 +50,9 @@ __dt__7DTLightFv:
 /* 8001BD48 00017CC8  7C 08 03 A6 */	mtlr r0
 /* 8001BD4C 00017CCC  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001BD50 00017CD0  4E 80 00 20 */	blr
+.endfn __dt__7DTLightFv
 
-.global Setting__7DTLightFUc
-Setting__7DTLightFUc:
+.fn Setting__7DTLightFUc, global
 /* 8001BD54 00017CD4  7C 08 02 A6 */	mflr r0
 /* 8001BD58 00017CD8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001BD5C 00017CDC  54 80 06 3E */	clrlwi r0, r4, 24
@@ -94,9 +93,9 @@ Setting__7DTLightFUc:
 /* 8001BDC4 00017D44  38 21 00 08 */	addi r1, r1, 0x8
 /* 8001BDC8 00017D48  7C 08 03 A6 */	mtlr r0
 /* 8001BDCC 00017D4C  4E 80 00 20 */	blr
+.endfn Setting__7DTLightFUc
 
-.global SetKuriboLight__7DTLightFv
-SetKuriboLight__7DTLightFv:
+.fn SetKuriboLight__7DTLightFv, global
 /* 8001BDD0 00017D50  7C 08 02 A6 */	mflr r0
 /* 8001BDD4 00017D54  3C A0 80 06 */	lis r5, lbl_80066D80@ha
 /* 8001BDD8 00017D58  90 01 00 04 */	stw r0, 0x4(r1)
@@ -189,9 +188,9 @@ SetKuriboLight__7DTLightFv:
 /* 8001BF30 00017EB0  83 A1 00 2C */	lwz r29, 0x2c(r1)
 /* 8001BF34 00017EB4  38 21 00 38 */	addi r1, r1, 0x38
 /* 8001BF38 00017EB8  4E 80 00 20 */	blr
+.endfn SetKuriboLight__7DTLightFv
 
-.global SettingEntr__7DTLightFv
-SettingEntr__7DTLightFv:
+.fn SettingEntr__7DTLightFv, global
 /* 8001BF3C 00017EBC  7C 08 02 A6 */	mflr r0
 /* 8001BF40 00017EC0  3C 80 80 06 */	lis r4, lbl_800642B0@ha
 /* 8001BF44 00017EC4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -390,9 +389,9 @@ SettingEntr__7DTLightFv:
 /* 8001C248 000181C8  7C 08 03 A6 */	mtlr r0
 /* 8001C24C 000181CC  38 21 00 90 */	addi r1, r1, 0x90
 /* 8001C250 000181D0  4E 80 00 20 */	blr
+.endfn SettingEntr__7DTLightFv
 
-.global SettingHang__7DTLightFv
-SettingHang__7DTLightFv:
+.fn SettingHang__7DTLightFv, global
 /* 8001C254 000181D4  7C 08 02 A6 */	mflr r0
 /* 8001C258 000181D8  3C 80 80 06 */	lis r4, lbl_800642B0@ha
 /* 8001C25C 000181DC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -490,9 +489,9 @@ SettingHang__7DTLightFv:
 /* 8001C3CC 0001834C  7C 08 03 A6 */	mtlr r0
 /* 8001C3D0 00018350  38 21 00 58 */	addi r1, r1, 0x58
 /* 8001C3D4 00018354  4E 80 00 20 */	blr
+.endfn SettingHang__7DTLightFv
 
-.global SettingDome__7DTLightFv
-SettingDome__7DTLightFv:
+.fn SettingDome__7DTLightFv, global
 /* 8001C3D8 00018358  7C 08 02 A6 */	mflr r0
 /* 8001C3DC 0001835C  3C 80 80 06 */	lis r4, lbl_800642B0@ha
 /* 8001C3E0 00018360  90 01 00 04 */	stw r0, 0x4(r1)
@@ -669,9 +668,9 @@ SettingDome__7DTLightFv:
 /* 8001C68C 0001860C  7C 08 03 A6 */	mtlr r0
 /* 8001C690 00018610  38 21 00 78 */	addi r1, r1, 0x78
 /* 8001C694 00018614  4E 80 00 20 */	blr
+.endfn SettingDome__7DTLightFv
 
-.global SettingCave__7DTLightFv
-SettingCave__7DTLightFv:
+.fn SettingCave__7DTLightFv, global
 /* 8001C698 00018618  7C 08 02 A6 */	mflr r0
 /* 8001C69C 0001861C  3C 80 80 06 */	lis r4, lbl_80066D80@ha
 /* 8001C6A0 00018620  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1050,9 +1049,9 @@ SettingCave__7DTLightFv:
 /* 8001CC40 00018BC0  83 A1 00 64 */	lwz r29, 0x64(r1)
 /* 8001CC44 00018BC4  38 21 00 70 */	addi r1, r1, 0x70
 /* 8001CC48 00018BC8  4E 80 00 20 */	blr
+.endfn SettingCave__7DTLightFv
 
-.global SettingCine__7DTLightFv
-SettingCine__7DTLightFv:
+.fn SettingCine__7DTLightFv, global
 /* 8001CC4C 00018BCC  7C 08 02 A6 */	mflr r0
 /* 8001CC50 00018BD0  3C 80 80 06 */	lis r4, lbl_800642B0@ha
 /* 8001CC54 00018BD4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1226,9 +1225,9 @@ SettingCine__7DTLightFv:
 /* 8001CEF4 00018E74  7C 08 03 A6 */	mtlr r0
 /* 8001CEF8 00018E78  38 21 00 78 */	addi r1, r1, 0x78
 /* 8001CEFC 00018E7C  4E 80 00 20 */	blr
+.endfn SettingCine__7DTLightFv
 
-.global SettingSpil__7DTLightFv
-SettingSpil__7DTLightFv:
+.fn SettingSpil__7DTLightFv, global
 /* 8001CF00 00018E80  7C 08 02 A6 */	mflr r0
 /* 8001CF04 00018E84  38 80 00 05 */	li r4, 0x5
 /* 8001CF08 00018E88  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1370,9 +1369,9 @@ SettingSpil__7DTLightFv:
 /* 8001D128 000190A8  38 21 00 88 */	addi r1, r1, 0x88
 /* 8001D12C 000190AC  7C 08 03 A6 */	mtlr r0
 /* 8001D130 000190B0  4E 80 00 20 */	blr
+.endfn SettingSpil__7DTLightFv
 
-.global SettingEnve__7DTLightFv
-SettingEnve__7DTLightFv:
+.fn SettingEnve__7DTLightFv, global
 /* 8001D134 000190B4  7C 08 02 A6 */	mflr r0
 /* 8001D138 000190B8  3C 80 80 06 */	lis r4, lbl_800642B0@ha
 /* 8001D13C 000190BC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1551,9 +1550,9 @@ SettingEnve__7DTLightFv:
 /* 8001D3F0 00019370  7C 08 03 A6 */	mtlr r0
 /* 8001D3F4 00019374  38 21 00 88 */	addi r1, r1, 0x88
 /* 8001D3F8 00019378  4E 80 00 20 */	blr
+.endfn SettingEnve__7DTLightFv
 
-.global SettingMpol__7DTLightFv
-SettingMpol__7DTLightFv:
+.fn SettingMpol__7DTLightFv, global
 /* 8001D3FC 0001937C  7C 08 02 A6 */	mflr r0
 /* 8001D400 00019380  38 80 00 07 */	li r4, 0x7
 /* 8001D404 00019384  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1606,6 +1605,7 @@ SettingMpol__7DTLightFv:
 /* 8001D4C0 00019440  38 21 00 40 */	addi r1, r1, 0x40
 /* 8001D4C4 00019444  7C 08 03 A6 */	mtlr r0
 /* 8001D4C8 00019448  4E 80 00 20 */	blr
+.endfn SettingMpol__7DTLightFv
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 

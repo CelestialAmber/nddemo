@@ -4,8 +4,7 @@
 
 
 
-.global sndAuxCallbackReverbHI
-sndAuxCallbackReverbHI:
+.fn sndAuxCallbackReverbHI, global
 /* 8005911C 0005509C  7C 08 02 A6 */	mflr r0
 /* 80059120 000550A0  38 E4 00 00 */	addi r7, r4, 0x0
 /* 80059124 000550A4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -31,9 +30,9 @@ sndAuxCallbackReverbHI:
 /* 8005916C 000550EC  38 21 00 08 */	addi r1, r1, 0x8
 /* 80059170 000550F0  7C 08 03 A6 */	mtlr r0
 /* 80059174 000550F4  4E 80 00 20 */	blr
+.endfn sndAuxCallbackReverbHI
 
-.global sndAuxCallbackPrepareReverbHI
-sndAuxCallbackPrepareReverbHI:
+.fn sndAuxCallbackPrepareReverbHI, global
 /* 80059178 000550F8  7C 08 02 A6 */	mflr r0
 /* 8005917C 000550FC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80059180 00055100  38 00 00 00 */	li r0, 0x0
@@ -50,6 +49,7 @@ sndAuxCallbackPrepareReverbHI:
 /* 800591AC 0005512C  38 21 00 08 */	addi r1, r1, 0x8
 /* 800591B0 00055130  7C 08 03 A6 */	mtlr r0
 /* 800591B4 00055134  4E 80 00 20 */	blr
+.endfn sndAuxCallbackPrepareReverbHI
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 

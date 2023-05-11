@@ -2,16 +2,15 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global DCEnable
-DCEnable:
+.fn DCEnable, global
 /* 80028F00 00024E80  7C 00 04 AC */	sync
 /* 80028F04 00024E84  7C 70 FA A6 */	mfspr r3, HID0
 /* 80028F08 00024E88  60 63 40 00 */	ori r3, r3, 0x4000
 /* 80028F0C 00024E8C  7C 70 FB A6 */	mtspr HID0, r3
 /* 80028F10 00024E90  4E 80 00 20 */	blr
+.endfn DCEnable
 
-.global DCInvalidateRange
-DCInvalidateRange:
+.fn DCInvalidateRange, global
 /* 80028F14 00024E94  28 04 00 00 */	cmplwi r4, 0x0
 /* 80028F18 00024E98  4C 81 00 20 */	blelr
 /* 80028F1C 00024E9C  54 65 06 FF */	clrlwi. r5, r3, 27
@@ -26,9 +25,9 @@ DCInvalidateRange:
 /* 80028F38 00024EB8  38 63 00 20 */	addi r3, r3, 0x20
 /* 80028F3C 00024EBC  42 00 FF F8 */	bdnz .L_80028F34
 /* 80028F40 00024EC0  4E 80 00 20 */	blr
+.endfn DCInvalidateRange
 
-.global DCFlushRange
-DCFlushRange:
+.fn DCFlushRange, global
 /* 80028F44 00024EC4  28 04 00 00 */	cmplwi r4, 0x0
 /* 80028F48 00024EC8  4C 81 00 20 */	blelr
 /* 80028F4C 00024ECC  54 65 06 FF */	clrlwi. r5, r3, 27
@@ -44,9 +43,9 @@ DCFlushRange:
 /* 80028F6C 00024EEC  42 00 FF F8 */	bdnz .L_80028F64
 /* 80028F70 00024EF0  44 00 00 02 */	sc
 /* 80028F74 00024EF4  4E 80 00 20 */	blr
+.endfn DCFlushRange
 
-.global DCStoreRange
-DCStoreRange:
+.fn DCStoreRange, global
 /* 80028F78 00024EF8  28 04 00 00 */	cmplwi r4, 0x0
 /* 80028F7C 00024EFC  4C 81 00 20 */	blelr
 /* 80028F80 00024F00  54 65 06 FF */	clrlwi. r5, r3, 27
@@ -62,9 +61,9 @@ DCStoreRange:
 /* 80028FA0 00024F20  42 00 FF F8 */	bdnz .L_80028F98
 /* 80028FA4 00024F24  44 00 00 02 */	sc
 /* 80028FA8 00024F28  4E 80 00 20 */	blr
+.endfn DCStoreRange
 
-.global DCFlushRangeNoSync
-DCFlushRangeNoSync:
+.fn DCFlushRangeNoSync, global
 /* 80028FAC 00024F2C  28 04 00 00 */	cmplwi r4, 0x0
 /* 80028FB0 00024F30  4C 81 00 20 */	blelr
 /* 80028FB4 00024F34  54 65 06 FF */	clrlwi. r5, r3, 27
@@ -79,9 +78,9 @@ DCFlushRangeNoSync:
 /* 80028FD0 00024F50  38 63 00 20 */	addi r3, r3, 0x20
 /* 80028FD4 00024F54  42 00 FF F8 */	bdnz .L_80028FCC
 /* 80028FD8 00024F58  4E 80 00 20 */	blr
+.endfn DCFlushRangeNoSync
 
-.global DCStoreRangeNoSync
-DCStoreRangeNoSync:
+.fn DCStoreRangeNoSync, global
 /* 80028FDC 00024F5C  28 04 00 00 */	cmplwi r4, 0x0
 /* 80028FE0 00024F60  4C 81 00 20 */	blelr
 /* 80028FE4 00024F64  54 65 06 FF */	clrlwi. r5, r3, 27
@@ -96,9 +95,9 @@ DCStoreRangeNoSync:
 /* 80029000 00024F80  38 63 00 20 */	addi r3, r3, 0x20
 /* 80029004 00024F84  42 00 FF F8 */	bdnz .L_80028FFC
 /* 80029008 00024F88  4E 80 00 20 */	blr
+.endfn DCStoreRangeNoSync
 
-.global ICInvalidateRange
-ICInvalidateRange:
+.fn ICInvalidateRange, global
 /* 8002900C 00024F8C  28 04 00 00 */	cmplwi r4, 0x0
 /* 80029010 00024F90  4C 81 00 20 */	blelr
 /* 80029014 00024F94  54 65 06 FF */	clrlwi. r5, r3, 27
@@ -115,24 +114,24 @@ ICInvalidateRange:
 /* 80029038 00024FB8  7C 00 04 AC */	sync
 /* 8002903C 00024FBC  4C 00 01 2C */	isync
 /* 80029040 00024FC0  4E 80 00 20 */	blr
+.endfn ICInvalidateRange
 
-.global ICFlashInvalidate
-ICFlashInvalidate:
+.fn ICFlashInvalidate, global
 /* 80029044 00024FC4  7C 70 FA A6 */	mfspr r3, HID0
 /* 80029048 00024FC8  60 63 08 00 */	ori r3, r3, 0x800
 /* 8002904C 00024FCC  7C 70 FB A6 */	mtspr HID0, r3
 /* 80029050 00024FD0  4E 80 00 20 */	blr
+.endfn ICFlashInvalidate
 
-.global ICEnable
-ICEnable:
+.fn ICEnable, global
 /* 80029054 00024FD4  4C 00 01 2C */	isync
 /* 80029058 00024FD8  7C 70 FA A6 */	mfspr r3, HID0
 /* 8002905C 00024FDC  60 63 80 00 */	ori r3, r3, 0x8000
 /* 80029060 00024FE0  7C 70 FB A6 */	mtspr HID0, r3
 /* 80029064 00024FE4  4E 80 00 20 */	blr
+.endfn ICEnable
 
-.global LCDisable
-LCDisable:
+.fn LCDisable, global
 /* 80029068 00024FE8  3C 60 E0 00 */	lis r3, 0xE0000020@ha
 /* 8002906C 00024FEC  38 80 02 00 */	li r4, 0x200
 /* 80029070 00024FF0  7C 89 03 A6 */	mtctr r4
@@ -144,9 +143,9 @@ LCDisable:
 /* 80029084 00025004  54 84 01 04 */	rlwinm r4, r4, 0, 4, 2
 /* 80029088 00025008  7C 98 E3 A6 */	mtspr HID2, r4
 /* 8002908C 0002500C  4E 80 00 20 */	blr
+.endfn LCDisable
 
-.global L2GlobalInvalidate
-L2GlobalInvalidate:
+.fn L2GlobalInvalidate, global
 /* 80029090 00025010  7C 08 02 A6 */	mflr r0
 /* 80029094 00025014  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80029098 00025018  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -191,9 +190,9 @@ L2GlobalInvalidate:
 /* 8002911C 0002509C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80029120 000250A0  7C 08 03 A6 */	mtlr r0
 /* 80029124 000250A4  4E 80 00 20 */	blr
+.endfn L2GlobalInvalidate
 
-.global DMAErrorHandler
-DMAErrorHandler:
+.fn DMAErrorHandler, global
 /* 80029128 000250A8  7C 08 02 A6 */	mflr r0
 /* 8002912C 000250AC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80029130 000250B0  94 21 FF 80 */	stwu r1, -0x80(r1)
@@ -289,9 +288,9 @@ DMAErrorHandler:
 /* 8002927C 000251FC  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 80029280 00025200  38 21 00 80 */	addi r1, r1, 0x80
 /* 80029284 00025204  4E 80 00 20 */	blr
+.endfn DMAErrorHandler
 
-.global __OSCacheInit
-__OSCacheInit:
+.fn __OSCacheInit, global
 /* 80029288 00025208  7C 08 02 A6 */	mflr r0
 /* 8002928C 0002520C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80029290 00025210  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -356,6 +355,7 @@ __OSCacheInit:
 /* 80029370 000252F0  7C 08 03 A6 */	mtlr r0
 /* 80029374 000252F4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80029378 000252F8  4E 80 00 20 */	blr
+.endfn __OSCacheInit
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

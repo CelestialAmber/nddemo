@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global exit
-exit:
+.fn exit, global
 /* 8005F9CC 0005B94C  7C 08 02 A6 */	mflr r0
 /* 8005F9D0 0005B950  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005F9D4 0005B954  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -27,9 +26,9 @@ exit:
 /* 8005FA14 0005B994  80 0D 88 C4 */	lwz r0, atexit_curr_func@sda21(r13)
 /* 8005FA18 0005B998  2C 00 00 00 */	cmpwi r0, 0x0
 /* 8005FA1C 0005B99C  41 81 FF D8 */	bgt .L_8005F9F4
-/* 8005FA20 0005B9A0  4B FF F6 DD */	bl __destroy_global_chain
-/* 8005FA24 0005B9A4  3C 60 80 06 */	lis r3, __destroy_global_chain_reference@ha
-/* 8005FA28 0005B9A8  38 03 3D 00 */	addi r0, r3, __destroy_global_chain_reference@l
+/* 8005FA20 0005B9A0  4B FF F6 DD */	bl __destroy_global_chain_
+/* 8005FA24 0005B9A4  3C 60 80 06 */	lis r3, __destroy_global_chain_reference_@ha
+/* 8005FA28 0005B9A8  38 03 3D 00 */	addi r0, r3, __destroy_global_chain_reference_@l
 /* 8005FA2C 0005B9AC  7C 1F 03 78 */	mr r31, r0
 /* 8005FA30 0005B9B0  48 00 00 10 */	b .L_8005FA40
 .L_8005FA34:
@@ -79,6 +78,7 @@ exit:
 /* 8005FACC 0005BA4C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8005FAD0 0005BA50  7C 08 03 A6 */	mtlr r0
 /* 8005FAD4 0005BA54  4E 80 00 20 */	blr
+.endfn exit
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 

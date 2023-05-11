@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __num2dec
-__num2dec:
+.fn __num2dec, global
 /* 8005FAD8 0005BA58  7C 08 02 A6 */	mflr r0
 /* 8005FADC 0005BA5C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005FAE0 0005BA60  94 21 FF 98 */	stwu r1, -0x68(r1)
@@ -285,6 +284,7 @@ __num2dec:
 /* 8005FE80 0005BE00  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 8005FE84 0005BE04  38 21 00 68 */	addi r1, r1, 0x68
 /* 8005FE88 0005BE08  4E 80 00 20 */	blr
+.endfn __num2dec
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 

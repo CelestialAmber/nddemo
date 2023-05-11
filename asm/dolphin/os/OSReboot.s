@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-Run:
+.fn Run, local
 /* 8002BA00 00027980  7C 08 02 A6 */	mflr r0
 /* 8002BA04 00027984  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002BA08 00027988  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -19,14 +19,15 @@ Run:
 /* 8002BA34 000279B4  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002BA38 000279B8  7C 08 03 A6 */	mtlr r0
 /* 8002BA3C 000279BC  4E 80 00 20 */	blr
+.endfn Run
 
-Callback:
+.fn Callback, local
 /* 8002BA40 000279C0  38 00 00 01 */	li r0, 0x1
 /* 8002BA44 000279C4  90 0D 84 90 */	stw r0, Prepared@sda21(r13)
 /* 8002BA48 000279C8  4E 80 00 20 */	blr
+.endfn Callback
 
-.global __OSReboot
-__OSReboot:
+.fn __OSReboot, global
 /* 8002BA4C 000279CC  7C 08 02 A6 */	mflr r0
 /* 8002BA50 000279D0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002BA54 000279D4  94 21 FC B8 */	stwu r1, -0x348(r1)
@@ -157,6 +158,7 @@ __OSReboot:
 /* 8002BC0C 00027B8C  83 A1 03 3C */	lwz r29, 0x33c(r1)
 /* 8002BC10 00027B90  38 21 03 48 */	addi r1, r1, 0x348
 /* 8002BC14 00027B94  4E 80 00 20 */	blr
+.endfn __OSReboot
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

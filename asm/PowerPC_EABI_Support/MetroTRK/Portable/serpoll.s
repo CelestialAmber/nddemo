@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global TRKTestForPacket
-TRKTestForPacket:
+.fn TRKTestForPacket, global
 /* 8005B530 000574B0  7C 08 02 A6 */	mflr r0
 /* 8005B534 000574B4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005B538 000574B8  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -64,9 +63,9 @@ TRKTestForPacket:
 /* 8005B5F4 00057574  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B5F8 00057578  7C 08 03 A6 */	mtlr r0
 /* 8005B5FC 0005757C  4E 80 00 20 */	blr
+.endfn TRKTestForPacket
 
-.global TRKGetInput
-TRKGetInput:
+.fn TRKGetInput, global
 /* 8005B600 00057580  7C 08 02 A6 */	mflr r0
 /* 8005B604 00057584  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005B608 00057588  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -100,9 +99,9 @@ TRKGetInput:
 /* 8005B670 000575F0  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B674 000575F4  7C 08 03 A6 */	mtlr r0
 /* 8005B678 000575F8  4E 80 00 20 */	blr
+.endfn TRKGetInput
 
-.global TRKProcessInput
-TRKProcessInput:
+.fn TRKProcessInput, global
 /* 8005B67C 000575FC  7C 08 02 A6 */	mflr r0
 /* 8005B680 00057600  38 80 00 02 */	li r4, 0x2
 /* 8005B684 00057604  90 01 00 04 */	stw r0, 0x4(r1)
@@ -123,9 +122,9 @@ TRKProcessInput:
 /* 8005B6C0 00057640  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B6C4 00057644  7C 08 03 A6 */	mtlr r0
 /* 8005B6C8 00057648  4E 80 00 20 */	blr
+.endfn TRKProcessInput
 
-.global TRKInitializeSerialHandler
-TRKInitializeSerialHandler:
+.fn TRKInitializeSerialHandler, global
 /* 8005B6CC 0005764C  3C 60 80 0B */	lis r3, gTRKFramingState@ha
 /* 8005B6D0 00057650  38 83 82 C0 */	addi r4, r3, gTRKFramingState@l
 /* 8005B6D4 00057654  38 00 FF FF */	li r0, -0x1
@@ -135,11 +134,12 @@ TRKInitializeSerialHandler:
 /* 8005B6E4 00057664  98 04 00 08 */	stb r0, 0x8(r4)
 /* 8005B6E8 00057668  90 04 00 0C */	stw r0, 0xc(r4)
 /* 8005B6EC 0005766C  4E 80 00 20 */	blr
+.endfn TRKInitializeSerialHandler
 
-.global TRKTerminateSerialHandler
-TRKTerminateSerialHandler:
+.fn TRKTerminateSerialHandler, global
 /* 8005B6F0 00057670  38 60 00 00 */	li r3, 0x0
 /* 8005B6F4 00057674  4E 80 00 20 */	blr
+.endfn TRKTerminateSerialHandler
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

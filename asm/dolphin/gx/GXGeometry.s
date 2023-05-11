@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __GXSetDirtyState
-__GXSetDirtyState:
+.fn __GXSetDirtyState, global
 /* 8003CCE4 00038C64  7C 08 02 A6 */	mflr r0
 /* 8003CCE8 00038C68  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8003CCEC 00038C6C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -44,9 +43,9 @@ __GXSetDirtyState:
 /* 8003CD64 00038CE4  38 21 00 08 */	addi r1, r1, 0x8
 /* 8003CD68 00038CE8  7C 08 03 A6 */	mtlr r0
 /* 8003CD6C 00038CEC  4E 80 00 20 */	blr
+.endfn __GXSetDirtyState
 
-.global GXBegin
-GXBegin:
+.fn GXBegin, global
 /* 8003CD70 00038CF0  7C 08 02 A6 */	mflr r0
 /* 8003CD74 00038CF4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8003CD78 00038CF8  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -109,9 +108,9 @@ GXBegin:
 /* 8003CE40 00038DC0  38 21 00 28 */	addi r1, r1, 0x28
 /* 8003CE44 00038DC4  7C 08 03 A6 */	mtlr r0
 /* 8003CE48 00038DC8  4E 80 00 20 */	blr
+.endfn GXBegin
 
-.global __GXSendFlushPrim
-__GXSendFlushPrim:
+.fn __GXSendFlushPrim, global
 /* 8003CE4C 00038DCC  80 6D 82 90 */	lwz r3, gx@sda21(r13)
 /* 8003CE50 00038DD0  38 00 00 98 */	li r0, 0x98
 /* 8003CE54 00038DD4  3C A0 CC 01 */	lis r5, 0xCC008000@ha
@@ -150,9 +149,9 @@ __GXSendFlushPrim:
 /* 8003CEC8 00038E48  38 00 00 01 */	li r0, 0x1
 /* 8003CECC 00038E4C  B0 03 00 02 */	sth r0, 0x2(r3)
 /* 8003CED0 00038E50  4E 80 00 20 */	blr
+.endfn __GXSendFlushPrim
 
-.global GXSetLineWidth
-GXSetLineWidth:
+.fn GXSetLineWidth, global
 /* 8003CED4 00038E54  80 AD 82 90 */	lwz r5, gx@sda21(r13)
 /* 8003CED8 00038E58  54 86 80 1E */	slwi r6, r4, 16
 /* 8003CEDC 00038E5C  38 80 00 61 */	li r4, 0x61
@@ -175,9 +174,9 @@ GXSetLineWidth:
 /* 8003CF20 00038EA0  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 8003CF24 00038EA4  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 8003CF28 00038EA8  4E 80 00 20 */	blr
+.endfn GXSetLineWidth
 
-.global GXSetPointSize
-GXSetPointSize:
+.fn GXSetPointSize, global
 /* 8003CF2C 00038EAC  80 AD 82 90 */	lwz r5, gx@sda21(r13)
 /* 8003CF30 00038EB0  54 86 98 18 */	slwi r6, r4, 19
 /* 8003CF34 00038EB4  84 05 00 7C */	lwzu r0, 0x7c(r5)
@@ -199,9 +198,9 @@ GXSetPointSize:
 /* 8003CF74 00038EF4  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 8003CF78 00038EF8  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 8003CF7C 00038EFC  4E 80 00 20 */	blr
+.endfn GXSetPointSize
 
-.global GXEnableTexOffsets
-GXEnableTexOffsets:
+.fn GXEnableTexOffsets, global
 /* 8003CF80 00038F00  80 0D 82 90 */	lwz r0, gx@sda21(r13)
 /* 8003CF84 00038F04  54 67 10 3A */	slwi r7, r3, 2
 /* 8003CF88 00038F08  7C C0 3A 14 */	add r6, r0, r7
@@ -227,9 +226,9 @@ GXEnableTexOffsets:
 /* 8003CFD8 00038F58  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 8003CFDC 00038F5C  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 8003CFE0 00038F60  4E 80 00 20 */	blr
+.endfn GXEnableTexOffsets
 
-.global GXSetCullMode
-GXSetCullMode:
+.fn GXSetCullMode, global
 /* 8003CFE4 00038F64  2C 03 00 02 */	cmpwi r3, 0x2
 /* 8003CFE8 00038F68  41 82 00 1C */	beq .L_8003D004
 /* 8003CFEC 00038F6C  40 80 00 1C */	bge .L_8003D008
@@ -253,9 +252,9 @@ GXSetCullMode:
 /* 8003D028 00038FA8  60 00 00 04 */	ori r0, r0, 0x4
 /* 8003D02C 00038FAC  90 03 04 F0 */	stw r0, 0x4f0(r3)
 /* 8003D030 00038FB0  4E 80 00 20 */	blr
+.endfn GXSetCullMode
 
-.global GXSetCoPlanar
-GXSetCoPlanar:
+.fn GXSetCoPlanar, global
 /* 8003D034 00038FB4  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 8003D038 00038FB8  54 60 99 58 */	clrlslwi r0, r3, 24, 19
 /* 8003D03C 00038FBC  38 A0 00 61 */	li r5, 0x61
@@ -273,9 +272,9 @@ GXSetCoPlanar:
 /* 8003D06C 00038FEC  80 03 02 04 */	lwz r0, 0x204(r3)
 /* 8003D070 00038FF0  90 04 80 00 */	stw r0, -0x8000(r4)
 /* 8003D074 00038FF4  4E 80 00 20 */	blr
+.endfn GXSetCoPlanar
 
-.global __GXSetGenMode
-__GXSetGenMode:
+.fn __GXSetGenMode, global
 /* 8003D078 00038FF8  38 00 00 61 */	li r0, 0x61
 /* 8003D07C 00038FFC  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 8003D080 00039000  3C A0 CC 01 */	lis r5, 0xCC008000@ha
@@ -285,3 +284,4 @@ __GXSetGenMode:
 /* 8003D090 00039010  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 8003D094 00039014  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 8003D098 00039018  4E 80 00 20 */	blr
+.endfn __GXSetGenMode

@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global __ct__9DGRendManFUl
-__ct__9DGRendManFUl:
+.fn __ct__9DGRendManFUl, global
 /* 80017174 000130F4  7C 08 02 A6 */	mflr r0
 /* 80017178 000130F8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001717C 000130FC  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -102,9 +101,9 @@ __ct__9DGRendManFUl:
 /* 800172E4 00013264  38 21 00 30 */	addi r1, r1, 0x30
 /* 800172E8 00013268  7C 08 03 A6 */	mtlr r0
 /* 800172EC 0001326C  4E 80 00 20 */	blr
+.endfn __ct__9DGRendManFUl
 
-.global __dt__9DGRendManFv
-__dt__9DGRendManFv:
+.fn __dt__9DGRendManFv, global
 /* 800172F0 00013270  7C 08 02 A6 */	mflr r0
 /* 800172F4 00013274  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800172F8 00013278  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -160,9 +159,9 @@ __dt__9DGRendManFv:
 /* 800173AC 0001332C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800173B0 00013330  38 21 00 20 */	addi r1, r1, 0x20
 /* 800173B4 00013334  4E 80 00 20 */	blr
+.endfn __dt__9DGRendManFv
 
-.global DrawBegin__9DGRendManFv
-DrawBegin__9DGRendManFv:
+.fn DrawBegin__9DGRendManFv, global
 /* 800173B8 00013338  7C 08 02 A6 */	mflr r0
 /* 800173BC 0001333C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800173C0 00013340  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -183,9 +182,9 @@ DrawBegin__9DGRendManFv:
 /* 800173F4 00013374  38 21 00 08 */	addi r1, r1, 0x8
 /* 800173F8 00013378  7C 08 03 A6 */	mtlr r0
 /* 800173FC 0001337C  4E 80 00 20 */	blr
+.endfn DrawBegin__9DGRendManFv
 
-.global DrawEnd__9DGRendManFUcUc
-DrawEnd__9DGRendManFUcUc:
+.fn DrawEnd__9DGRendManFUcUc, global
 /* 80017400 00013380  7C 08 02 A6 */	mflr r0
 /* 80017404 00013384  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80017408 00013388  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -241,9 +240,9 @@ DrawEnd__9DGRendManFUcUc:
 /* 800174B4 00013434  38 21 00 18 */	addi r1, r1, 0x18
 /* 800174B8 00013438  7C 08 03 A6 */	mtlr r0
 /* 800174BC 0001343C  4E 80 00 20 */	blr
+.endfn DrawEnd__9DGRendManFUcUc
 
-.global Draw__9DGRendManF19enumRendManDrawMode
-Draw__9DGRendManF19enumRendManDrawMode:
+.fn Draw__9DGRendManF19enumRendManDrawMode, global
 /* 800174C0 00013440  7C 08 02 A6 */	mflr r0
 /* 800174C4 00013444  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800174C8 00013448  94 21 FF 10 */	stwu r1, -0xf0(r1)
@@ -467,9 +466,9 @@ Draw__9DGRendManF19enumRendManDrawMode:
 /* 800177D4 00013754  38 21 00 F0 */	addi r1, r1, 0xf0
 /* 800177D8 00013758  7C 08 03 A6 */	mtlr r0
 /* 800177DC 0001375C  4E 80 00 20 */	blr
+.endfn Draw__9DGRendManF19enumRendManDrawMode
 
-.global CopyRenderingBuffer__9DGRendManFUc
-CopyRenderingBuffer__9DGRendManFUc:
+.fn CopyRenderingBuffer__9DGRendManFUc, global
 /* 800177E0 00013760  7C 08 02 A6 */	mflr r0
 /* 800177E4 00013764  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800177E8 00013768  54 80 06 3E */	clrlwi r0, r4, 24
@@ -532,9 +531,9 @@ CopyRenderingBuffer__9DGRendManFUc:
 /* 800178C4 00013844  7C 08 03 A6 */	mtlr r0
 /* 800178C8 00013848  38 21 00 18 */	addi r1, r1, 0x18
 /* 800178CC 0001384C  4E 80 00 20 */	blr
+.endfn CopyRenderingBuffer__9DGRendManFUc
 
-.global ClearRenderingList__9DGRendManFv
-ClearRenderingList__9DGRendManFv:
+.fn ClearRenderingList__9DGRendManFv, global
 /* 800178D0 00013850  7C 08 02 A6 */	mflr r0
 /* 800178D4 00013854  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800178D8 00013858  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -561,9 +560,9 @@ ClearRenderingList__9DGRendManFv:
 /* 80017920 000138A0  7C 08 03 A6 */	mtlr r0
 /* 80017924 000138A4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80017928 000138A8  4E 80 00 20 */	blr
+.endfn ClearRenderingList__9DGRendManFv
 
-.global AddModel__9DGRendManFP7DGModel
-AddModel__9DGRendManFP7DGModel:
+.fn AddModel__9DGRendManFP7DGModel, global
 /* 8001792C 000138AC  7C 08 02 A6 */	mflr r0
 /* 80017930 000138B0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80017934 000138B4  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -599,9 +598,9 @@ AddModel__9DGRendManFP7DGModel:
 /* 800179A0 00013920  7C 08 03 A6 */	mtlr r0
 /* 800179A4 00013924  38 21 00 20 */	addi r1, r1, 0x20
 /* 800179A8 00013928  4E 80 00 20 */	blr
+.endfn AddModel__9DGRendManFP7DGModel
 
-.global AddLight__9DGRendManFP7DGLight
-AddLight__9DGRendManFP7DGLight:
+.fn AddLight__9DGRendManFP7DGLight, global
 /* 800179AC 0001392C  80 03 00 1C */	lwz r0, 0x1c(r3)
 /* 800179B0 00013930  90 03 00 20 */	stw r0, 0x20(r3)
 /* 800179B4 00013934  80 03 00 18 */	lwz r0, 0x18(r3)
@@ -618,21 +617,21 @@ AddLight__9DGRendManFP7DGLight:
 /* 800179E0 00013960  90 03 00 08 */	stw r0, 0x8(r3)
 /* 800179E4 00013964  90 83 00 04 */	stw r4, 0x4(r3)
 /* 800179E8 00013968  4E 80 00 20 */	blr
+.endfn AddLight__9DGRendManFP7DGLight
 
-.global AddCamera__9DGRendManFP8DGCamera
-AddCamera__9DGRendManFP8DGCamera:
+.fn AddCamera__9DGRendManFP8DGCamera, global
 /* 800179EC 0001396C  90 83 00 24 */	stw r4, 0x24(r3)
 /* 800179F0 00013970  4E 80 00 20 */	blr
+.endfn AddCamera__9DGRendManFP8DGCamera
 
-.global SetTexProjection__9DGRendManFUcP8DGTexPro
-SetTexProjection__9DGRendManFUcP8DGTexPro:
+.fn SetTexProjection__9DGRendManFUcP8DGTexPro, global
 /* 800179F4 00013974  54 80 15 BA */	clrlslwi r0, r4, 24, 2
 /* 800179F8 00013978  7C 63 02 14 */	add r3, r3, r0
 /* 800179FC 0001397C  90 A3 00 28 */	stw r5, 0x28(r3)
 /* 80017A00 00013980  4E 80 00 20 */	blr
+.endfn SetTexProjection__9DGRendManFUcP8DGTexPro
 
-.global SetRenderMode__9DGRendManFP16_GXRenderModeObj
-SetRenderMode__9DGRendManFP16_GXRenderModeObj:
+.fn SetRenderMode__9DGRendManFP16_GXRenderModeObj, global
 /* 80017A04 00013984  7C 08 02 A6 */	mflr r0
 /* 80017A08 00013988  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80017A0C 0001398C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -678,14 +677,14 @@ SetRenderMode__9DGRendManFP16_GXRenderModeObj:
 /* 80017AA4 00013A24  7C 08 03 A6 */	mtlr r0
 /* 80017AA8 00013A28  38 21 00 18 */	addi r1, r1, 0x18
 /* 80017AAC 00013A2C  4E 80 00 20 */	blr
+.endfn SetRenderMode__9DGRendManFP16_GXRenderModeObj
 
-.global GetBaseRenderMode__9DGRendManFv
-GetBaseRenderMode__9DGRendManFv:
+.fn GetBaseRenderMode__9DGRendManFv, global
 /* 80017AB0 00013A30  80 6D 83 88 */	lwz r3, m_BaseRenderMode__9DGRendMan@sda21(r13)
 /* 80017AB4 00013A34  4E 80 00 20 */	blr
+.endfn GetBaseRenderMode__9DGRendManFv
 
-.global DisplaySetting__9DGRendManFv
-DisplaySetting__9DGRendManFv:
+.fn DisplaySetting__9DGRendManFv, global
 /* 80017AB8 00013A38  7C 08 02 A6 */	mflr r0
 /* 80017ABC 00013A3C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80017AC0 00013A40  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -820,17 +819,17 @@ DisplaySetting__9DGRendManFv:
 /* 80017C9C 00013C1C  7C 08 03 A6 */	mtlr r0
 /* 80017CA0 00013C20  38 21 00 18 */	addi r1, r1, 0x18
 /* 80017CA4 00013C24  4E 80 00 20 */	blr
+.endfn DisplaySetting__9DGRendManFv
 
-.global SetScissor__9DGRendManFUlUlUlUl
-SetScissor__9DGRendManFUlUlUlUl:
+.fn SetScissor__9DGRendManFUlUlUlUl, global
 /* 80017CA8 00013C28  90 8D 83 A0 */	stw r4, m_ScissorX__9DGRendMan@sda21(r13)
 /* 80017CAC 00013C2C  90 AD 83 A4 */	stw r5, m_ScissorY__9DGRendMan@sda21(r13)
 /* 80017CB0 00013C30  90 CD 81 10 */	stw r6, m_ScissorW__9DGRendMan@sda21(r13)
 /* 80017CB4 00013C34  90 ED 81 14 */	stw r7, m_ScissorH__9DGRendMan@sda21(r13)
 /* 80017CB8 00013C38  4E 80 00 20 */	blr
+.endfn SetScissor__9DGRendManFUlUlUlUl
 
-.global SetScissorDefault__9DGRendManFv
-SetScissorDefault__9DGRendManFv:
+.fn SetScissorDefault__9DGRendManFv, global
 /* 80017CBC 00013C3C  80 6D 83 8C */	lwz r3, m_RenderMode__9DGRendMan@sda21(r13)
 /* 80017CC0 00013C40  38 00 00 00 */	li r0, 0x0
 /* 80017CC4 00013C44  A0 83 00 06 */	lhz r4, 0x6(r3)
@@ -840,9 +839,9 @@ SetScissorDefault__9DGRendManFv:
 /* 80017CD4 00013C54  90 6D 81 10 */	stw r3, m_ScissorW__9DGRendMan@sda21(r13)
 /* 80017CD8 00013C58  90 8D 81 14 */	stw r4, m_ScissorH__9DGRendMan@sda21(r13)
 /* 80017CDC 00013C5C  4E 80 00 20 */	blr
+.endfn SetScissorDefault__9DGRendManFv
 
-.global SetViewport__9DGRendManFffffff
-SetViewport__9DGRendManFffffff:
+.fn SetViewport__9DGRendManFffffff, global
 /* 80017CE0 00013C60  D0 2D 83 A8 */	stfs f1, m_ViewportX__9DGRendMan@sda21(r13)
 /* 80017CE4 00013C64  D0 4D 83 AC */	stfs f2, m_ViewportY__9DGRendMan@sda21(r13)
 /* 80017CE8 00013C68  D0 6D 81 18 */	stfs f3, m_ViewportW__9DGRendMan@sda21(r13)
@@ -850,9 +849,9 @@ SetViewport__9DGRendManFffffff:
 /* 80017CF0 00013C70  D0 AD 83 B0 */	stfs f5, m_ViewportN__9DGRendMan@sda21(r13)
 /* 80017CF4 00013C74  D0 CD 81 20 */	stfs f6, m_ViewportF__9DGRendMan@sda21(r13)
 /* 80017CF8 00013C78  4E 80 00 20 */	blr
+.endfn SetViewport__9DGRendManFffffff
 
-.global SetViewportDefault__9DGRendManFv
-SetViewportDefault__9DGRendManFv:
+.fn SetViewportDefault__9DGRendManFv, global
 /* 80017CFC 00013C7C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80017D00 00013C80  3C 60 43 30 */	lis r3, 0x4330
 /* 80017D04 00013C84  80 AD 83 8C */	lwz r5, m_RenderMode__9DGRendMan@sda21(r13)
@@ -877,9 +876,9 @@ SetViewportDefault__9DGRendManFv:
 /* 80017D50 00013CD0  D0 2D 83 B0 */	stfs f1, m_ViewportN__9DGRendMan@sda21(r13)
 /* 80017D54 00013CD4  D0 0D 81 20 */	stfs f0, m_ViewportF__9DGRendMan@sda21(r13)
 /* 80017D58 00013CD8  4E 80 00 20 */	blr
+.endfn SetViewportDefault__9DGRendManFv
 
-.global SetDispCopySrcDefault__9DGRendManFv
-SetDispCopySrcDefault__9DGRendManFv:
+.fn SetDispCopySrcDefault__9DGRendManFv, global
 /* 80017D5C 00013CDC  80 6D 83 8C */	lwz r3, m_RenderMode__9DGRendMan@sda21(r13)
 /* 80017D60 00013CE0  38 00 00 00 */	li r0, 0x0
 /* 80017D64 00013CE4  A0 83 00 06 */	lhz r4, 0x6(r3)
@@ -889,9 +888,9 @@ SetDispCopySrcDefault__9DGRendManFv:
 /* 80017D74 00013CF4  B0 6D 81 24 */	sth r3, m_DispCopySrcW__9DGRendMan@sda21(r13)
 /* 80017D78 00013CF8  B0 8D 81 26 */	sth r4, m_DispCopySrcH__9DGRendMan@sda21(r13)
 /* 80017D7C 00013CFC  4E 80 00 20 */	blr
+.endfn SetDispCopySrcDefault__9DGRendManFv
 
-.global SetDispCopyYScaleDefault__9DGRendManFv
-SetDispCopyYScaleDefault__9DGRendManFv:
+.fn SetDispCopyYScaleDefault__9DGRendManFv, global
 /* 80017D80 00013D00  7C 08 02 A6 */	mflr r0
 /* 80017D84 00013D04  3C 60 80 07 */	lis r3, GXNtsc480IntAa@ha
 /* 80017D88 00013D08  90 01 00 04 */	stw r0, 0x4(r1)
@@ -931,18 +930,18 @@ SetDispCopyYScaleDefault__9DGRendManFv:
 /* 80017E04 00013D84  38 21 00 20 */	addi r1, r1, 0x20
 /* 80017E08 00013D88  7C 08 03 A6 */	mtlr r0
 /* 80017E0C 00013D8C  4E 80 00 20 */	blr
+.endfn SetDispCopyYScaleDefault__9DGRendManFv
 
-.global SetDispCopyDstDefault__9DGRendManFv
-SetDispCopyDstDefault__9DGRendManFv:
+.fn SetDispCopyDstDefault__9DGRendManFv, global
 /* 80017E10 00013D90  80 8D 83 8C */	lwz r4, m_RenderMode__9DGRendMan@sda21(r13)
 /* 80017E14 00013D94  A0 64 00 08 */	lhz r3, 0x8(r4)
 /* 80017E18 00013D98  A0 04 00 04 */	lhz r0, 0x4(r4)
 /* 80017E1C 00013D9C  B0 0D 81 2C */	sth r0, m_DispCopyDstW__9DGRendMan@sda21(r13)
 /* 80017E20 00013DA0  B0 6D 81 2E */	sth r3, m_DispCopyDstH__9DGRendMan@sda21(r13)
 /* 80017E24 00013DA4  4E 80 00 20 */	blr
+.endfn SetDispCopyDstDefault__9DGRendManFv
 
-.global SetDispCopyGamma__9DGRendManF8_GXGamma
-SetDispCopyGamma__9DGRendManF8_GXGamma:
+.fn SetDispCopyGamma__9DGRendManF8_GXGamma, global
 /* 80017E28 00013DA8  7C 08 02 A6 */	mflr r0
 /* 80017E2C 00013DAC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80017E30 00013DB0  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -953,9 +952,9 @@ SetDispCopyGamma__9DGRendManF8_GXGamma:
 /* 80017E44 00013DC4  38 21 00 08 */	addi r1, r1, 0x8
 /* 80017E48 00013DC8  7C 08 03 A6 */	mtlr r0
 /* 80017E4C 00013DCC  4E 80 00 20 */	blr
+.endfn SetDispCopyGamma__9DGRendManF8_GXGamma
 
-.global SetAdjustForOverscanDefault__9DGRendManFv
-SetAdjustForOverscanDefault__9DGRendManFv:
+.fn SetAdjustForOverscanDefault__9DGRendManFv, global
 /* 80017E50 00013DD0  3C 60 80 07 */	lis r3, GXNtsc240Ds@ha
 /* 80017E54 00013DD4  80 8D 83 88 */	lwz r4, m_BaseRenderMode__9DGRendMan@sda21(r13)
 /* 80017E58 00013DD8  38 03 8A 48 */	addi r0, r3, GXNtsc240Ds@l
@@ -988,23 +987,24 @@ SetAdjustForOverscanDefault__9DGRendManFv:
 /* 80017EB8 00013E38  B0 0D 83 B8 */	sth r0, m_AdjustForOverscanW__9DGRendMan@sda21(r13)
 /* 80017EBC 00013E3C  B0 0D 81 34 */	sth r0, m_AdjustForOverscanH__9DGRendMan@sda21(r13)
 /* 80017EC0 00013E40  4E 80 00 20 */	blr
+.endfn SetAdjustForOverscanDefault__9DGRendManFv
 
-.global SetBGColor__9DGRendManF8_GXColor
-SetBGColor__9DGRendManF8_GXColor:
+.fn SetBGColor__9DGRendManF8_GXColor, global
 /* 80017EC4 00013E44  80 04 00 00 */	lwz r0, 0x0(r4)
 /* 80017EC8 00013E48  90 0D 81 0C */	stw r0, m_BGColor__9DGRendMan@sda21(r13)
 /* 80017ECC 00013E4C  4E 80 00 20 */	blr
+.endfn SetBGColor__9DGRendManF8_GXColor
 
-.global SetBGZValue__9DGRendManFUl
-SetBGZValue__9DGRendManFUl:
+.fn SetBGZValue__9DGRendManFUl, global
 /* 80017ED0 00013E50  90 8D 83 9C */	stw r4, m_BGZValue__9DGRendMan@sda21(r13)
 /* 80017ED4 00013E54  4E 80 00 20 */	blr
+.endfn SetBGZValue__9DGRendManFUl
 
-.global GetxfbHeight__9DGRendManFv
-GetxfbHeight__9DGRendManFv:
+.fn GetxfbHeight__9DGRendManFv, global
 /* 80017ED8 00013E58  80 6D 83 8C */	lwz r3, m_RenderMode__9DGRendMan@sda21(r13)
 /* 80017EDC 00013E5C  A0 63 00 08 */	lhz r3, 0x8(r3)
 /* 80017EE0 00013E60  4E 80 00 20 */	blr
+.endfn GetxfbHeight__9DGRendManFv
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 

@@ -4,8 +4,7 @@
 
 
 
-.global salApplyMatrix
-salApplyMatrix:
+.fn salApplyMatrix, global
 /* 80055694 00051614  C0 63 00 00 */	lfs f3, 0x0(r3)
 /* 80055698 00051618  C0 44 00 00 */	lfs f2, 0x0(r4)
 /* 8005569C 0005161C  C0 23 00 04 */	lfs f1, 0x4(r3)
@@ -49,9 +48,9 @@ salApplyMatrix:
 /* 80055734 000516B4  EC 04 00 2A */	fadds f0, f4, f0
 /* 80055738 000516B8  D0 05 00 08 */	stfs f0, 0x8(r5)
 /* 8005573C 000516BC  4E 80 00 20 */	blr
+.endfn salApplyMatrix
 
-.global salNormalizeVector
-salNormalizeVector:
+.fn salNormalizeVector, global
 /* 80055740 000516C0  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 80055744 000516C4  C0 23 00 00 */	lfs f1, 0x0(r3)
 /* 80055748 000516C8  C0 03 00 04 */	lfs f0, 0x4(r3)
@@ -98,6 +97,7 @@ salNormalizeVector:
 /* 800557E8 00051768  EC 00 08 24 */	fdivs f0, f0, f1
 /* 800557EC 0005176C  D0 03 00 08 */	stfs f0, 0x8(r3)
 /* 800557F0 00051770  4E 80 00 20 */	blr
+.endfn salNormalizeVector
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 

@@ -2,13 +2,12 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __close_console
-__close_console:
+.fn __close_console, global
 /* 80062210 0005E190  38 60 00 00 */	li r3, 0x0
 /* 80062214 0005E194  4E 80 00 20 */	blr
+.endfn __close_console
 
-.global __write_console
-__write_console:
+.fn __write_console, global
 /* 80062218 0005E198  7C 08 02 A6 */	mflr r0
 /* 8006221C 0005E19C  38 60 00 00 */	li r3, 0x0
 /* 80062220 0005E1A0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -51,9 +50,9 @@ __write_console:
 /* 800622A4 0005E224  7C 08 03 A6 */	mtlr r0
 /* 800622A8 0005E228  38 21 00 28 */	addi r1, r1, 0x28
 /* 800622AC 0005E22C  4E 80 00 20 */	blr
+.endfn __write_console
 
-.global __read_console
-__read_console:
+.fn __read_console, global
 /* 800622B0 0005E230  7C 08 02 A6 */	mflr r0
 /* 800622B4 0005E234  38 60 00 00 */	li r3, 0x0
 /* 800622B8 0005E238  90 01 00 04 */	stw r0, 0x4(r1)
@@ -118,6 +117,7 @@ __read_console:
 /* 80062384 0005E304  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80062388 0005E308  38 21 00 30 */	addi r1, r1, 0x30
 /* 8006238C 0005E30C  4E 80 00 20 */	blr
+.endfn __read_console
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 

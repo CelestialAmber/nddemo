@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global OSReport
-OSReport:
+.fn OSReport, global
 /* 80029BE4 00025B64  7C 08 02 A6 */	mflr r0
 /* 80029BE8 00025B68  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80029BEC 00025B6C  94 21 FF 88 */	stwu r1, -0x78(r1)
@@ -37,9 +36,9 @@ OSReport:
 /* 80029C58 00025BD8  38 21 00 78 */	addi r1, r1, 0x78
 /* 80029C5C 00025BDC  7C 08 03 A6 */	mtlr r0
 /* 80029C60 00025BE0  4E 80 00 20 */	blr
+.endfn OSReport
 
-.global OSPanic
-OSPanic:
+.fn OSPanic, global
 /* 80029C64 00025BE4  7C 08 02 A6 */	mflr r0
 /* 80029C68 00025BE8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80029C6C 00025BEC  94 21 FF 70 */	stwu r1, -0x90(r1)
@@ -119,9 +118,9 @@ OSPanic:
 /* 80029D84 00025D04  83 81 00 80 */	lwz r28, 0x80(r1)
 /* 80029D88 00025D08  38 21 00 90 */	addi r1, r1, 0x90
 /* 80029D8C 00025D0C  4E 80 00 20 */	blr
+.endfn OSPanic
 
-.global OSSetErrorHandler
-OSSetErrorHandler:
+.fn OSSetErrorHandler, global
 /* 80029D90 00025D10  3C A0 80 08 */	lis r5, OSErrorTable@ha
 /* 80029D94 00025D14  54 63 13 BA */	clrlslwi r3, r3, 16, 2
 /* 80029D98 00025D18  38 05 FF C0 */	addi r0, r5, OSErrorTable@l
@@ -129,9 +128,9 @@ OSSetErrorHandler:
 /* 80029DA0 00025D20  80 65 00 00 */	lwz r3, 0x0(r5)
 /* 80029DA4 00025D24  90 85 00 00 */	stw r4, 0x0(r5)
 /* 80029DA8 00025D28  4E 80 00 20 */	blr
+.endfn OSSetErrorHandler
 
-.global __OSUnhandledException
-__OSUnhandledException:
+.fn __OSUnhandledException, global
 /* 80029DAC 00025D2C  7C 08 02 A6 */	mflr r0
 /* 80029DB0 00025D30  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80029DB4 00025D34  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -235,6 +234,7 @@ __OSUnhandledException:
 /* 80029F14 00025E94  38 21 00 30 */	addi r1, r1, 0x30
 /* 80029F18 00025E98  7C 08 03 A6 */	mtlr r0
 /* 80029F1C 00025E9C  4E 80 00 20 */	blr
+.endfn __OSUnhandledException
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

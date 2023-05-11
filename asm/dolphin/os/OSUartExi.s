@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global InitializeUART
-InitializeUART:
+.fn InitializeUART, global
 /* 8002F5A0 0002B520  7C 08 02 A6 */	mflr r0
 /* 8002F5A4 0002B524  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002F5A8 0002B528  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -24,14 +23,14 @@ InitializeUART:
 /* 8002F5DC 0002B55C  38 21 00 08 */	addi r1, r1, 0x8
 /* 8002F5E0 0002B560  7C 08 03 A6 */	mtlr r0
 /* 8002F5E4 0002B564  4E 80 00 20 */	blr
+.endfn InitializeUART
 
-.global ReadUARTN
-ReadUARTN:
+.fn ReadUARTN, global
 /* 8002F5E8 0002B568  38 60 00 04 */	li r3, 0x4
 /* 8002F5EC 0002B56C  4E 80 00 20 */	blr
+.endfn ReadUARTN
 
-.global WriteUARTN
-WriteUARTN:
+.fn WriteUARTN, global
 /* 8002F5F0 0002B570  7C 08 02 A6 */	mflr r0
 /* 8002F5F4 0002B574  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002F5F8 0002B578  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -180,6 +179,7 @@ WriteUARTN:
 /* 8002F7E4 0002B764  38 21 00 30 */	addi r1, r1, 0x30
 /* 8002F7E8 0002B768  7C 08 03 A6 */	mtlr r0
 /* 8002F7EC 0002B76C  4E 80 00 20 */	blr
+.endfn WriteUARTN
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 

@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__5DTHitFv
-__ct__5DTHitFv:
+.fn __ct__5DTHitFv, global
 /* 8001AF18 00016E98  38 80 00 00 */	li r4, 0x0
 /* 8001AF1C 00016E9C  98 83 00 00 */	stb r4, 0x0(r3)
 /* 8001AF20 00016EA0  38 00 00 03 */	li r0, 0x3
@@ -38,9 +37,9 @@ __ct__5DTHitFv:
 /* 8001AF94 00016F14  90 83 01 30 */	stw r4, 0x130(r3)
 /* 8001AF98 00016F18  90 83 01 54 */	stw r4, 0x154(r3)
 /* 8001AF9C 00016F1C  4E 80 00 20 */	blr
+.endfn __ct__5DTHitFv
 
-.global __dt__5DTHitFv
-__dt__5DTHitFv:
+.fn __dt__5DTHitFv, global
 /* 8001AFA0 00016F20  7C 08 02 A6 */	mflr r0
 /* 8001AFA4 00016F24  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001AFA8 00016F28  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -58,9 +57,9 @@ __dt__5DTHitFv:
 /* 8001AFD4 00016F54  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001AFD8 00016F58  7C 08 03 A6 */	mtlr r0
 /* 8001AFDC 00016F5C  4E 80 00 20 */	blr
+.endfn __dt__5DTHitFv
 
-.global set_current_room_number__5DTHitFSc
-set_current_room_number__5DTHitFSc:
+.fn set_current_room_number__5DTHitFSc, global
 /* 8001AFE0 00016F60  7C 80 07 74 */	extsb r0, r4
 /* 8001AFE4 00016F64  2C 00 00 08 */	cmpwi r0, 0x8
 /* 8001AFE8 00016F68  41 80 00 0C */	blt .L_8001AFF4
@@ -70,14 +69,14 @@ set_current_room_number__5DTHitFSc:
 /* 8001AFF4 00016F74  98 83 00 01 */	stb r4, 0x1(r3)
 /* 8001AFF8 00016F78  38 60 00 00 */	li r3, 0x0
 /* 8001AFFC 00016F7C  4E 80 00 20 */	blr
+.endfn set_current_room_number__5DTHitFSc
 
-.global get_current_room_number__5DTHitFv
-get_current_room_number__5DTHitFv:
+.fn get_current_room_number__5DTHitFv, global
 /* 8001B000 00016F80  88 63 00 01 */	lbz r3, 0x1(r3)
 /* 8001B004 00016F84  4E 80 00 20 */	blr
+.endfn get_current_room_number__5DTHitFv
 
-.global set_hit_data__5DTHitFScPv
-set_hit_data__5DTHitFScPv:
+.fn set_hit_data__5DTHitFScPv, global
 /* 8001B008 00016F88  28 05 00 00 */	cmplwi r5, 0x0
 /* 8001B00C 00016F8C  38 00 00 00 */	li r0, 0x0
 /* 8001B010 00016F90  40 82 00 20 */	bne .L_8001B030
@@ -169,9 +168,9 @@ set_hit_data__5DTHitFScPv:
 .L_8001B13C:
 /* 8001B13C 000170BC  7C 03 03 78 */	mr r3, r0
 /* 8001B140 000170C0  4E 80 00 20 */	blr
+.endfn set_hit_data__5DTHitFScPv
 
-.global get_hit_data__5DTHitFSc
-get_hit_data__5DTHitFSc:
+.fn get_hit_data__5DTHitFSc, global
 /* 8001B144 000170C4  7C 80 07 74 */	extsb r0, r4
 /* 8001B148 000170C8  2C 00 00 08 */	cmpwi r0, 0x8
 /* 8001B14C 000170CC  41 80 00 0C */	blt .L_8001B158
@@ -182,29 +181,29 @@ get_hit_data__5DTHitFSc:
 /* 8001B15C 000170DC  7C 63 02 14 */	add r3, r3, r0
 /* 8001B160 000170E0  80 63 00 58 */	lwz r3, 0x58(r3)
 /* 8001B164 000170E4  4E 80 00 20 */	blr
+.endfn get_hit_data__5DTHitFSc
 
-.global get_ground_status__5DTHitFv
-get_ground_status__5DTHitFv:
+.fn get_ground_status__5DTHitFv, global
 /* 8001B168 000170E8  80 63 00 08 */	lwz r3, 0x8(r3)
 /* 8001B16C 000170EC  4E 80 00 20 */	blr
+.endfn get_ground_status__5DTHitFv
 
-.global get_ground_data__5DTHitFv
-get_ground_data__5DTHitFv:
+.fn get_ground_data__5DTHitFv, global
 /* 8001B170 000170F0  80 63 00 04 */	lwz r3, 0x4(r3)
 /* 8001B174 000170F4  4E 80 00 20 */	blr
+.endfn get_ground_data__5DTHitFv
 
-.global get_wall_hit_count__5DTHitFv
-get_wall_hit_count__5DTHitFv:
+.fn get_wall_hit_count__5DTHitFv, global
 /* 8001B178 000170F8  88 63 00 54 */	lbz r3, 0x54(r3)
 /* 8001B17C 000170FC  4E 80 00 20 */	blr
+.endfn get_wall_hit_count__5DTHitFv
 
-.global get_wall_status__5DTHitFv
-get_wall_status__5DTHitFv:
+.fn get_wall_status__5DTHitFv, global
 /* 8001B180 00017100  38 63 00 34 */	addi r3, r3, 0x34
 /* 8001B184 00017104  4E 80 00 20 */	blr
+.endfn get_wall_status__5DTHitFv
 
-.global check_ground__5DTHitFP3VecPf
-check_ground__5DTHitFP3VecPf:
+.fn check_ground__5DTHitFP3VecPf, global
 /* 8001B188 00017108  7C 08 02 A6 */	mflr r0
 /* 8001B18C 0001710C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001B190 00017110  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -288,9 +287,9 @@ check_ground__5DTHitFP3VecPf:
 /* 8001B2A8 00017228  38 21 00 40 */	addi r1, r1, 0x40
 /* 8001B2AC 0001722C  7C 08 03 A6 */	mtlr r0
 /* 8001B2B0 00017230  4E 80 00 20 */	blr
+.endfn check_ground__5DTHitFP3VecPf
 
-.global _check_y_pos__5DTHitFP3VecPfPv
-_check_y_pos__5DTHitFP3VecPfPv:
+.fn _check_y_pos__5DTHitFP3VecPfPv, global
 /* 8001B2B4 00017234  80 06 00 00 */	lwz r0, 0x0(r6)
 /* 8001B2B8 00017238  38 C6 00 04 */	addi r6, r6, 0x4
 /* 8001B2BC 0001723C  38 E0 FF FF */	li r7, -0x1
@@ -367,9 +366,9 @@ _check_y_pos__5DTHitFP3VecPfPv:
 .L_8001B3CC:
 /* 8001B3CC 0001734C  7C E3 3B 78 */	mr r3, r7
 /* 8001B3D0 00017350  4E 80 00 20 */	blr
+.endfn _check_y_pos__5DTHitFP3VecPfPv
 
-.global check_roof__5DTHitFP3VecPf
-check_roof__5DTHitFP3VecPf:
+.fn check_roof__5DTHitFP3VecPf, global
 /* 8001B3D4 00017354  7C 08 02 A6 */	mflr r0
 /* 8001B3D8 00017358  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001B3DC 0001735C  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -453,9 +452,9 @@ check_roof__5DTHitFP3VecPf:
 /* 8001B4F4 00017474  38 21 00 40 */	addi r1, r1, 0x40
 /* 8001B4F8 00017478  7C 08 03 A6 */	mtlr r0
 /* 8001B4FC 0001747C  4E 80 00 20 */	blr
+.endfn check_roof__5DTHitFP3VecPf
 
-.global _check_roof_y_pos__5DTHitFP3VecPfPv
-_check_roof_y_pos__5DTHitFP3VecPfPv:
+.fn _check_roof_y_pos__5DTHitFP3VecPfPv, global
 /* 8001B500 00017480  81 26 00 00 */	lwz r9, 0x0(r6)
 /* 8001B504 00017484  38 E6 00 04 */	addi r7, r6, 0x4
 /* 8001B508 00017488  39 00 FF FF */	li r8, -0x1
@@ -537,9 +536,9 @@ _check_roof_y_pos__5DTHitFP3VecPfPv:
 .L_8001B62C:
 /* 8001B62C 000175AC  7D 03 43 78 */	mr r3, r8
 /* 8001B630 000175B0  4E 80 00 20 */	blr
+.endfn _check_roof_y_pos__5DTHitFP3VecPfPv
 
-.global check_wall__5DTHitFP3VecfP3VecSc
-check_wall__5DTHitFP3VecfP3VecSc:
+.fn check_wall__5DTHitFP3VecfP3VecSc, global
 /* 8001B634 000175B4  7C 08 02 A6 */	mflr r0
 /* 8001B638 000175B8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001B63C 000175BC  94 21 FF 98 */	stwu r1, -0x68(r1)
@@ -646,9 +645,9 @@ check_wall__5DTHitFP3VecfP3VecSc:
 /* 8001B7B8 00017738  38 21 00 68 */	addi r1, r1, 0x68
 /* 8001B7BC 0001773C  7C 08 03 A6 */	mtlr r0
 /* 8001B7C0 00017740  4E 80 00 20 */	blr
+.endfn check_wall__5DTHitFP3VecfP3VecSc
 
-.global _wall_check_one_area__5DTHitFfScUlP3Vec
-_wall_check_one_area__5DTHitFfScUlP3Vec:
+.fn _wall_check_one_area__5DTHitFfScUlP3Vec, global
 /* 8001B7C4 00017744  7C 08 02 A6 */	mflr r0
 /* 8001B7C8 00017748  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001B7CC 0001774C  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -699,9 +698,9 @@ _wall_check_one_area__5DTHitFfScUlP3Vec:
 /* 8001B870 000177F0  38 21 00 48 */	addi r1, r1, 0x48
 /* 8001B874 000177F4  7C 08 03 A6 */	mtlr r0
 /* 8001B878 000177F8  4E 80 00 20 */	blr
+.endfn _wall_check_one_area__5DTHitFfScUlP3Vec
 
-.global _check_range__5DTHitFP3VecfUlPvSc
-_check_range__5DTHitFP3VecfUlPvSc:
+.fn _check_range__5DTHitFP3VecfUlPvSc, global
 /* 8001B87C 000177FC  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8001B880 00017800  39 00 00 00 */	li r8, 0x0
 /* 8001B884 00017804  DB E1 00 38 */	stfd f31, 0x38(r1)
@@ -987,6 +986,7 @@ _check_range__5DTHitFP3VecfUlPvSc:
 /* 8001BC9C 00017C1C  CB C1 00 30 */	lfd f30, 0x30(r1)
 /* 8001BCA0 00017C20  38 21 00 40 */	addi r1, r1, 0x40
 /* 8001BCA4 00017C24  4E 80 00 20 */	blr
+.endfn _check_range__5DTHitFP3VecfUlPvSc
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 

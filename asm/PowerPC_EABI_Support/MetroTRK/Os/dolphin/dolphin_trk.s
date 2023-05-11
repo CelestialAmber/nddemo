@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global InitMetroTRK
-InitMetroTRK:
+.fn InitMetroTRK, global
 /* 8005E67C 0005A5FC  38 21 FF FC */	addi r1, r1, -0x4
 /* 8005E680 0005A600  90 61 00 00 */	stw r3, 0x0(r1)
 /* 8005E684 0005A604  3C 60 80 0A */	lis r3, gTRKCPUState@h
@@ -42,9 +41,9 @@ InitMetroTRK:
 /* 8005E708 0005A688  4E 80 00 20 */	blr
 .L_8005E70C:
 /* 8005E70C 0005A68C  48 00 05 28 */	b TRK_main
+.endfn InitMetroTRK
 
-.global EnableMetroTRKInterrupts
-EnableMetroTRKInterrupts:
+.fn EnableMetroTRKInterrupts, global
 /* 8005E710 0005A690  7C 08 02 A6 */	mflr r0
 /* 8005E714 0005A694  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005E718 0005A698  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -53,9 +52,9 @@ EnableMetroTRKInterrupts:
 /* 8005E724 0005A6A4  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005E728 0005A6A8  7C 08 03 A6 */	mtlr r0
 /* 8005E72C 0005A6AC  4E 80 00 20 */	blr
+.endfn EnableMetroTRKInterrupts
 
-.global TRKTargetTranslate
-TRKTargetTranslate:
+.fn TRKTargetTranslate, global
 /* 8005E730 0005A6B0  3C 80 80 0B */	lis r4, lc_base@ha
 /* 8005E734 0005A6B4  38 84 88 60 */	addi r4, r4, lc_base@l
 /* 8005E738 0005A6B8  80 84 00 00 */	lwz r4, 0x0(r4)
@@ -76,9 +75,9 @@ TRKTargetTranslate:
 /* 8005E770 0005A6F0  64 03 80 00 */	oris r3, r0, 0x8000
 .L_8005E774:
 /* 8005E774 0005A6F4  4E 80 00 20 */	blr
+.endfn TRKTargetTranslate
 
-.global TRK_copy_vector
-TRK_copy_vector:
+.fn TRK_copy_vector, global
 /* 8005E778 0005A6F8  7C 08 02 A6 */	mflr r0
 /* 8005E77C 0005A6FC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005E780 0005A700  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -103,9 +102,9 @@ TRK_copy_vector:
 /* 8005E7CC 0005A74C  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005E7D0 0005A750  7C 08 03 A6 */	mtlr r0
 /* 8005E7D4 0005A754  4E 80 00 20 */	blr
+.endfn TRK_copy_vector
 
-.global __TRK_copy_vectors
-__TRK_copy_vectors:
+.fn __TRK_copy_vectors, global
 /* 8005E7D8 0005A758  7C 08 02 A6 */	mflr r0
 /* 8005E7DC 0005A75C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005E7E0 0005A760  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -147,9 +146,9 @@ __TRK_copy_vectors:
 /* 8005E860 0005A7E0  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005E864 0005A7E4  7C 08 03 A6 */	mtlr r0
 /* 8005E868 0005A7E8  4E 80 00 20 */	blr
+.endfn __TRK_copy_vectors
 
-.global TRKInitializeTarget
-TRKInitializeTarget:
+.fn TRKInitializeTarget, global
 /* 8005E86C 0005A7EC  7C 08 02 A6 */	mflr r0
 /* 8005E870 0005A7F0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005E874 0005A7F4  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -170,11 +169,11 @@ TRKInitializeTarget:
 /* 8005E8B0 0005A830  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005E8B4 0005A834  7C 08 03 A6 */	mtlr r0
 /* 8005E8B8 0005A838  4E 80 00 20 */	blr
+.endfn TRKInitializeTarget
 
 .section .init, "ax"  # 0x80003100 - 0x80005520 ; 0x00002420
 
-.global __TRK_reset
-__TRK_reset:
+.fn __TRK_reset, global
 /* 8000530C 0000230C  7C 08 02 A6 */	mflr r0
 /* 80005310 00002310  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80005314 00002314  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -183,6 +182,7 @@ __TRK_reset:
 /* 80005320 00002320  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 80005324 00002324  7C 08 03 A6 */	mtlr r0
 /* 80005328 00002328  4E 80 00 20 */	blr
+.endfn __TRK_reset
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

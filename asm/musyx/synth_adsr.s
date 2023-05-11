@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global adsrConvertTimeCents
-adsrConvertTimeCents:
+.fn adsrConvertTimeCents, global
 /* 8004F9F0 0004B970  7C 08 02 A6 */	mflr r0
 /* 8004F9F4 0004B974  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004F9F8 0004B978  6C 60 80 00 */	xoris r0, r3, 0x8000
@@ -26,8 +25,9 @@ adsrConvertTimeCents:
 /* 8004FA38 0004B9B8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004FA3C 0004B9BC  7C 08 03 A6 */	mtlr r0
 /* 8004FA40 0004B9C0  4E 80 00 20 */	blr
+.endfn adsrConvertTimeCents
 
-salChangeADSRState:
+.fn salChangeADSRState, local
 /* 8004FA44 0004B9C4  88 83 00 00 */	lbz r4, 0x0(r3)
 /* 8004FA48 0004B9C8  38 00 00 00 */	li r0, 0x0
 /* 8004FA4C 0004B9CC  2C 04 00 01 */	cmpwi r4, 0x1
@@ -198,9 +198,9 @@ salChangeADSRState:
 .L_8004FCA8:
 /* 8004FCA8 0004BC28  7C 03 03 78 */	mr r3, r0
 /* 8004FCAC 0004BC2C  4E 80 00 20 */	blr
+.endfn salChangeADSRState
 
-.global adsrSetup
-adsrSetup:
+.fn adsrSetup, global
 /* 8004FCB0 0004BC30  7C 08 02 A6 */	mflr r0
 /* 8004FCB4 0004BC34  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004FCB8 0004BC38  38 00 00 00 */	li r0, 0x0
@@ -211,9 +211,9 @@ adsrSetup:
 /* 8004FCCC 0004BC4C  38 21 00 08 */	addi r1, r1, 0x8
 /* 8004FCD0 0004BC50  7C 08 03 A6 */	mtlr r0
 /* 8004FCD4 0004BC54  4E 80 00 20 */	blr
+.endfn adsrSetup
 
-.global adsrStartRelease
-adsrStartRelease:
+.fn adsrStartRelease, global
 /* 8004FCD8 0004BC58  7C 08 02 A6 */	mflr r0
 /* 8004FCDC 0004BC5C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004FCE0 0004BC60  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -306,9 +306,9 @@ adsrStartRelease:
 /* 8004FE20 0004BDA0  38 21 00 28 */	addi r1, r1, 0x28
 /* 8004FE24 0004BDA4  7C 08 03 A6 */	mtlr r0
 /* 8004FE28 0004BDA8  4E 80 00 20 */	blr
+.endfn adsrStartRelease
 
-.global adsrRelease
-adsrRelease:
+.fn adsrRelease, global
 /* 8004FE2C 0004BDAC  7C 08 02 A6 */	mflr r0
 /* 8004FE30 0004BDB0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004FE34 0004BDB4  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -329,9 +329,9 @@ adsrRelease:
 /* 8004FE64 0004BDE4  38 21 00 08 */	addi r1, r1, 0x8
 /* 8004FE68 0004BDE8  7C 08 03 A6 */	mtlr r0
 /* 8004FE6C 0004BDEC  4E 80 00 20 */	blr
+.endfn adsrRelease
 
-.global adsrHandle
-adsrHandle:
+.fn adsrHandle, global
 /* 8004FE70 0004BDF0  7C 08 02 A6 */	mflr r0
 /* 8004FE74 0004BDF4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004FE78 0004BDF8  38 00 00 00 */	li r0, 0x0
@@ -448,9 +448,9 @@ adsrHandle:
 /* 80050004 0004BF84  38 21 00 08 */	addi r1, r1, 0x8
 /* 80050008 0004BF88  7C 08 03 A6 */	mtlr r0
 /* 8005000C 0004BF8C  4E 80 00 20 */	blr
+.endfn adsrHandle
 
-.global adsrHandleLowPrecision
-adsrHandleLowPrecision:
+.fn adsrHandleLowPrecision, global
 /* 80050010 0004BF90  7C 08 02 A6 */	mflr r0
 /* 80050014 0004BF94  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80050018 0004BF98  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -488,6 +488,7 @@ adsrHandleLowPrecision:
 /* 80050088 0004C008  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 8005008C 0004C00C  38 21 00 28 */	addi r1, r1, 0x28
 /* 80050090 0004C010  4E 80 00 20 */	blr
+.endfn adsrHandleLowPrecision
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 

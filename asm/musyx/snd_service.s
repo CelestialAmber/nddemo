@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global sndRand
-sndRand:
+.fn sndRand, global
 /* 800573A0 00053320  3C 60 A8 35 */	lis r3, 0xA8351D63@ha
 /* 800573A4 00053324  80 8D 82 E8 */	lwz r4, last_rnd@sda21(r13)
 /* 800573A8 00053328  38 03 1D 63 */	addi r0, r3, 0xA8351D63@l
@@ -13,9 +12,9 @@ sndRand:
 /* 800573B4 00053334  80 0D 82 E8 */	lwz r0, last_rnd@sda21(r13)
 /* 800573B8 00053338  54 03 D4 3E */	extrwi r3, r0, 16, 10
 /* 800573BC 0005333C  4E 80 00 20 */	blr
+.endfn sndRand
 
-.global sndSin
-sndSin:
+.fn sndSin, global
 /* 800573C0 00053340  54 60 05 3E */	clrlwi r0, r3, 20
 /* 800573C4 00053344  28 00 04 00 */	cmplwi r0, 0x400
 /* 800573C8 00053348  3C 60 80 07 */	lis r3, sndSintab@ha
@@ -46,9 +45,9 @@ sndSin:
 /* 80057420 000533A0  7C 03 02 AE */	lhax r0, r3, r0
 /* 80057424 000533A4  7C 60 00 D0 */	neg r3, r0
 /* 80057428 000533A8  4E 80 00 20 */	blr
+.endfn sndSin
 
-.global sndBSearch
-sndBSearch:
+.fn sndBSearch, global
 /* 8005742C 000533AC  7C 08 02 A6 */	mflr r0
 /* 80057430 000533B0  2C 05 00 00 */	cmpwi r5, 0x0
 /* 80057434 000533B4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -93,16 +92,16 @@ sndBSearch:
 /* 800574B8 00053438  38 21 00 48 */	addi r1, r1, 0x48
 /* 800574BC 0005343C  7C 08 03 A6 */	mtlr r0
 /* 800574C0 00053440  4E 80 00 20 */	blr
+.endfn sndBSearch
 
-.global sndConvertMs
-sndConvertMs:
+.fn sndConvertMs, global
 /* 800574C4 00053444  80 03 00 00 */	lwz r0, 0x0(r3)
 /* 800574C8 00053448  54 00 40 2E */	slwi r0, r0, 8
 /* 800574CC 0005344C  90 03 00 00 */	stw r0, 0x0(r3)
 /* 800574D0 00053450  4E 80 00 20 */	blr
+.endfn sndConvertMs
 
-.global sndConvertTicks
-sndConvertTicks:
+.fn sndConvertTicks, global
 /* 800574D4 00053454  7C 08 02 A6 */	mflr r0
 /* 800574D8 00053458  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800574DC 0005345C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -121,11 +120,12 @@ sndConvertTicks:
 /* 80057510 00053490  38 21 00 18 */	addi r1, r1, 0x18
 /* 80057514 00053494  7C 08 03 A6 */	mtlr r0
 /* 80057518 00053498  4E 80 00 20 */	blr
+.endfn sndConvertTicks
 
-.global sndConvert2Ms
-sndConvert2Ms:
+.fn sndConvert2Ms, global
 /* 8005751C 0005349C  54 63 C2 3E */	srwi r3, r3, 8
 /* 80057520 000534A0  4E 80 00 20 */	blr
+.endfn sndConvert2Ms
 
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0

@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __cvt_fp2unsigned
-__cvt_fp2unsigned:
+.fn __cvt_fp2unsigned, global
 /* 8005F3FC 0005B37C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8005F400 0005B380  3C 80 80 06 */	lis r4, __constants@h
 /* 8005F404 0005B384  60 84 47 F0 */	ori r4, r4, __constants@l
@@ -29,9 +28,9 @@ __cvt_fp2unsigned:
 .L_8005F450:
 /* 8005F450 0005B3D0  38 21 00 10 */	addi r1, r1, 0x10
 /* 8005F454 0005B3D4  4E 80 00 20 */	blr
+.endfn __cvt_fp2unsigned
 
-.global __div2u
-__div2u:
+.fn __div2u, global
 /* 8005F458 0005B3D8  2C 03 00 00 */	cmpwi r3, 0x0
 /* 8005F45C 0005B3DC  7C 60 00 34 */	cntlzw r0, r3
 /* 8005F460 0005B3E0  7C 89 00 34 */	cntlzw r9, r4
@@ -100,9 +99,9 @@ __div2u:
 /* 8005F538 0005B4B8  38 80 00 00 */	li r4, 0x0
 /* 8005F53C 0005B4BC  38 60 00 00 */	li r3, 0x0
 /* 8005F540 0005B4C0  4E 80 00 20 */	blr
+.endfn __div2u
 
-.global __div2i
-__div2i:
+.fn __div2i, global
 /* 8005F544 0005B4C4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8005F548 0005B4C8  54 69 00 01 */	clrrwi. r9, r3, 31
 /* 8005F54C 0005B4CC  41 82 00 0C */	beq .L_8005F558
@@ -194,9 +193,9 @@ __div2i:
 .L_8005F674:
 /* 8005F674 0005B5F4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8005F678 0005B5F8  4E 80 00 20 */	blr
+.endfn __div2i
 
-.global __mod2u
-__mod2u:
+.fn __mod2u, global
 /* 8005F67C 0005B5FC  2C 03 00 00 */	cmpwi r3, 0x0
 /* 8005F680 0005B600  7C 60 00 34 */	cntlzw r0, r3
 /* 8005F684 0005B604  7C 89 00 34 */	cntlzw r9, r4
@@ -263,9 +262,9 @@ __mod2u:
 /* 8005F758 0005B6D8  4E 80 00 20 */	blr
 .L_8005F75C:
 /* 8005F75C 0005B6DC  4E 80 00 20 */	blr
+.endfn __mod2u
 
-.global __shl2i
-__shl2i:
+.fn __shl2i, global
 /* 8005F760 0005B6E0  21 05 00 20 */	subfic r8, r5, 0x20
 /* 8005F764 0005B6E4  31 25 FF E0 */	addic r9, r5, -0x20
 /* 8005F768 0005B6E8  7C 63 28 30 */	slw r3, r3, r5
@@ -275,9 +274,9 @@ __shl2i:
 /* 8005F778 0005B6F8  7C 63 53 78 */	or r3, r3, r10
 /* 8005F77C 0005B6FC  7C 84 28 30 */	slw r4, r4, r5
 /* 8005F780 0005B700  4E 80 00 20 */	blr
+.endfn __shl2i
 
-.global __shr2u
-__shr2u:
+.fn __shr2u, global
 /* 8005F784 0005B704  21 05 00 20 */	subfic r8, r5, 0x20
 /* 8005F788 0005B708  31 25 FF E0 */	addic r9, r5, -0x20
 /* 8005F78C 0005B70C  7C 84 2C 30 */	srw r4, r4, r5
@@ -287,9 +286,9 @@ __shr2u:
 /* 8005F79C 0005B71C  7C 84 53 78 */	or r4, r4, r10
 /* 8005F7A0 0005B720  7C 63 2C 30 */	srw r3, r3, r5
 /* 8005F7A4 0005B724  4E 80 00 20 */	blr
+.endfn __shr2u
 
-.global __shr2i
-__shr2i:
+.fn __shr2i, global
 /* 8005F7A8 0005B728  21 05 00 20 */	subfic r8, r5, 0x20
 /* 8005F7AC 0005B72C  35 25 FF E0 */	addic. r9, r5, -0x20
 /* 8005F7B0 0005B730  7C 84 2C 30 */	srw r4, r4, r5
@@ -301,9 +300,9 @@ __shr2i:
 .L_8005F7C8:
 /* 8005F7C8 0005B748  7C 63 2E 30 */	sraw r3, r3, r5
 /* 8005F7CC 0005B74C  4E 80 00 20 */	blr
+.endfn __shr2i
 
-.global __cvt_sll_flt
-__cvt_sll_flt:
+.fn __cvt_sll_flt, global
 /* 8005F7D0 0005B750  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8005F7D4 0005B754  54 65 00 01 */	clrrwi. r5, r3, 31
 /* 8005F7D8 0005B758  41 82 00 0C */	beq .L_8005F7E4
@@ -353,9 +352,9 @@ __cvt_sll_flt:
 /* 8005F878 0005B7F8  FC 20 08 18 */	frsp f1, f1
 /* 8005F87C 0005B7FC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8005F880 0005B800  4E 80 00 20 */	blr
+.endfn __cvt_sll_flt
 
-.global __cvt_dbl_usll
-__cvt_dbl_usll:
+.fn __cvt_dbl_usll, global
 /* 8005F884 0005B804  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8005F888 0005B808  D8 21 00 08 */	stfd f1, 0x8(r1)
 /* 8005F88C 0005B80C  80 61 00 08 */	lwz r3, 0x8(r1)
@@ -413,6 +412,7 @@ __cvt_dbl_usll:
 .L_8005F948:
 /* 8005F948 0005B8C8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8005F94C 0005B8CC  4E 80 00 20 */	blr
+.endfn __cvt_dbl_usll
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 

@@ -4,13 +4,13 @@
 
 
 
-.global dataInitStack
-dataInitStack:
+.fn dataInitStack, global
 /* 80050094 0004C014  38 00 00 00 */	li r0, 0x0
 /* 80050098 0004C018  B0 0D 87 F8 */	sth r0, sp@sda21(r13)
 /* 8005009C 0004C01C  4E 80 00 20 */	blr
+.endfn dataInitStack
 
-InsertData:
+.fn InsertData, local
 /* 800500A0 0004C020  7C 08 02 A6 */	mflr r0
 /* 800500A4 0004C024  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800500A8 0004C028  54 A0 06 3E */	clrlwi r0, r5, 24
@@ -163,8 +163,9 @@ InsertData:
 /* 80050284 0004C204  38 21 00 08 */	addi r1, r1, 0x8
 /* 80050288 0004C208  7C 08 03 A6 */	mtlr r0
 /* 8005028C 0004C20C  4E 80 00 20 */	blr
+.endfn InsertData
 
-ScanIDList:
+.fn ScanIDList, local
 /* 80050290 0004C210  7C 08 02 A6 */	mflr r0
 /* 80050294 0004C214  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80050298 0004C218  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -209,9 +210,9 @@ ScanIDList:
 /* 80050320 0004C2A0  38 21 00 30 */	addi r1, r1, 0x30
 /* 80050324 0004C2A4  7C 08 03 A6 */	mtlr r0
 /* 80050328 0004C2A8  4E 80 00 20 */	blr
+.endfn ScanIDList
 
-.global sndPushGroup
-sndPushGroup:
+.fn sndPushGroup, global
 /* 8005032C 0004C2AC  7C 08 02 A6 */	mflr r0
 /* 80050330 0004C2B0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80050334 0004C2B4  94 21 FF C8 */	stwu r1, -0x38(r1)
@@ -310,9 +311,9 @@ sndPushGroup:
 /* 8005048C 0004C40C  38 21 00 38 */	addi r1, r1, 0x38
 /* 80050490 0004C410  7C 08 03 A6 */	mtlr r0
 /* 80050494 0004C414  4E 80 00 20 */	blr
+.endfn sndPushGroup
 
-.global seqPlaySong
-seqPlaySong:
+.fn seqPlaySong, global
 /* 80050498 0004C418  7C 08 02 A6 */	mflr r0
 /* 8005049C 0004C41C  3D 20 80 0A */	lis r9, gs@ha
 /* 800504A0 0004C420  90 01 00 04 */	stw r0, 0x4(r1)
@@ -403,9 +404,9 @@ seqPlaySong:
 /* 800505CC 0004C54C  38 21 00 40 */	addi r1, r1, 0x40
 /* 800505D0 0004C550  7C 08 03 A6 */	mtlr r0
 /* 800505D4 0004C554  4E 80 00 20 */	blr
+.endfn seqPlaySong
 
-.global sndSeqPlayEx
-sndSeqPlayEx:
+.fn sndSeqPlayEx, global
 /* 800505D8 0004C558  7C 08 02 A6 */	mflr r0
 /* 800505DC 0004C55C  39 07 00 00 */	addi r8, r7, 0x0
 /* 800505E0 0004C560  90 01 00 04 */	stw r0, 0x4(r1)
@@ -416,6 +417,7 @@ sndSeqPlayEx:
 /* 800505F4 0004C574  38 21 00 08 */	addi r1, r1, 0x8
 /* 800505F8 0004C578  7C 08 03 A6 */	mtlr r0
 /* 800505FC 0004C57C  4E 80 00 20 */	blr
+.endfn sndSeqPlayEx
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

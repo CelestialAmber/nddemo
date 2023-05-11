@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global fwide
-fwide:
+.fn fwide, global
 /* 80062390 0005E310  A0 03 00 04 */	lhz r0, 0x4(r3)
 /* 80062394 0005E314  54 00 D7 7F */	extrwi. r0, r0, 3, 23
 /* 80062398 0005E318  40 82 00 0C */	bne .L_800623A4
@@ -43,3 +42,4 @@ fwide:
 .L_80062408:
 /* 80062408 0005E388  38 60 FF FF */	li r3, -0x1
 /* 8006240C 0005E38C  4E 80 00 20 */	blr
+.endfn fwide

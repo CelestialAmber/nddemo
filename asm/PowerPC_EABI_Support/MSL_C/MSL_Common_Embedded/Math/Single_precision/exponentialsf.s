@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global powf
-powf:
+.fn powf, global
 /* 80062AE8 0005EA68  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 80062AEC 0005EA6C  3C 60 80 06 */	lis r3, __log2_F@ha
 /* 80062AF0 0005EA70  38 63 4D B8 */	addi r3, r3, __log2_F@l
@@ -508,6 +507,7 @@ powf:
 .L_80063220:
 /* 80063220 0005F1A0  38 21 00 90 */	addi r1, r1, 0x90
 /* 80063224 0005F1A4  4E 80 00 20 */	blr
+.endfn powf
 
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000

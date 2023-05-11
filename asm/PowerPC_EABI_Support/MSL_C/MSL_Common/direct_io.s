@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global fwrite
-fwrite:
+.fn fwrite, global
 /* 8005FFB8 0005BF38  7C 08 02 A6 */	mflr r0
 /* 8005FFBC 0005BF3C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005FFC0 0005BF40  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -216,3 +215,4 @@ fwrite:
 /* 80060288 0005C208  38 21 00 48 */	addi r1, r1, 0x48
 /* 8006028C 0005C20C  7C 08 03 A6 */	mtlr r0
 /* 80060290 0005C210  4E 80 00 20 */	blr
+.endfn fwrite

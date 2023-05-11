@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global synthSetBpm
-synthSetBpm:
+.fn synthSetBpm, global
 /* 80044BD8 00040B58  54 80 06 3E */	clrlwi r0, r4, 24
 /* 80044BDC 00040B5C  28 00 00 FF */	cmplwi r0, 0xff
 /* 80044BE0 00040B60  40 82 00 08 */	bne .L_80044BE8
@@ -24,9 +23,9 @@ synthSetBpm:
 /* 80044C14 00040B94  7C 63 02 14 */	add r3, r3, r0
 /* 80044C18 00040B98  90 83 00 00 */	stw r4, 0x0(r3)
 /* 80044C1C 00040B9C  4E 80 00 20 */	blr
+.endfn synthSetBpm
 
-.global synthGetTicksPerSecond
-synthGetTicksPerSecond:
+.fn synthGetTicksPerSecond, global
 /* 80044C20 00040BA0  88 83 01 22 */	lbz r4, 0x122(r3)
 /* 80044C24 00040BA4  28 04 00 FF */	cmplwi r4, 0xff
 /* 80044C28 00040BA8  40 82 00 08 */	bne .L_80044C30
@@ -41,9 +40,9 @@ synthGetTicksPerSecond:
 /* 80044C48 00040BC8  7C 63 02 14 */	add r3, r3, r0
 /* 80044C4C 00040BCC  80 63 00 00 */	lwz r3, 0x0(r3)
 /* 80044C50 00040BD0  4E 80 00 20 */	blr
+.endfn synthGetTicksPerSecond
 
-.global synthInitPortamento
-synthInitPortamento:
+.fn synthInitPortamento, global
 /* 80044C54 00040BD4  7C 08 02 A6 */	mflr r0
 /* 80044C58 00040BD8  38 C0 00 00 */	li r6, 0x0
 /* 80044C5C 00040BDC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -92,8 +91,9 @@ synthInitPortamento:
 /* 80044CF4 00040C74  38 21 00 08 */	addi r1, r1, 0x8
 /* 80044CF8 00040C78  7C 08 03 A6 */	mtlr r0
 /* 80044CFC 00040C7C  4E 80 00 20 */	blr
+.endfn synthInitPortamento
 
-do_voice_portamento:
+.fn do_voice_portamento, local
 /* 80044D00 00040C80  7C 08 02 A6 */	mflr r0
 /* 80044D04 00040C84  3C C0 51 EC */	lis r6, 0x51ec
 /* 80044D08 00040C88  90 01 00 04 */	stw r0, 0x4(r1)
@@ -225,8 +225,9 @@ do_voice_portamento:
 /* 80044EEC 00040E6C  38 21 00 48 */	addi r1, r1, 0x48
 /* 80044EF0 00040E70  7C 08 03 A6 */	mtlr r0
 /* 80044EF4 00040E74  4E 80 00 20 */	blr
+.endfn do_voice_portamento
 
-StartLayer:
+.fn StartLayer, local
 /* 80044EF8 00040E78  7C 08 02 A6 */	mflr r0
 /* 80044EFC 00040E7C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80044F00 00040E80  94 21 FF 78 */	stwu r1, -0x88(r1)
@@ -499,8 +500,9 @@ StartLayer:
 /* 800452D8 00041258  38 21 00 88 */	addi r1, r1, 0x88
 /* 800452DC 0004125C  7C 08 03 A6 */	mtlr r0
 /* 800452E0 00041260  4E 80 00 20 */	blr
+.endfn StartLayer
 
-StartKeymap:
+.fn StartKeymap, local
 /* 800452E4 00041264  7C 08 02 A6 */	mflr r0
 /* 800452E8 00041268  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800452EC 0004126C  94 21 FF 80 */	stwu r1, -0x80(r1)
@@ -661,9 +663,9 @@ StartKeymap:
 /* 8004551C 0004149C  38 21 00 80 */	addi r1, r1, 0x80
 /* 80045520 000414A0  7C 08 03 A6 */	mtlr r0
 /* 80045524 000414A4  4E 80 00 20 */	blr
+.endfn StartKeymap
 
-.global synthStartSound
-synthStartSound:
+.fn synthStartSound, global
 /* 80045528 000414A8  7C 08 02 A6 */	mflr r0
 /* 8004552C 000414AC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80045530 000414B0  94 21 FF 90 */	stwu r1, -0x70(r1)
@@ -789,8 +791,9 @@ synthStartSound:
 /* 800456E8 00041668  38 21 00 70 */	addi r1, r1, 0x70
 /* 800456EC 0004166C  7C 08 03 A6 */	mtlr r0
 /* 800456F0 00041670  4E 80 00 20 */	blr
+.endfn synthStartSound
 
-LowPrecisionHandler:
+.fn LowPrecisionHandler, local
 /* 800456F4 00041674  7C 08 02 A6 */	mflr r0
 /* 800456F8 00041678  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800456FC 0004167C  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -1333,8 +1336,9 @@ LowPrecisionHandler:
 /* 80045EB4 00041E34  38 21 00 30 */	addi r1, r1, 0x30
 /* 80045EB8 00041E38  7C 08 03 A6 */	mtlr r0
 /* 80045EBC 00041E3C  4E 80 00 20 */	blr
+.endfn LowPrecisionHandler
 
-ZeroOffsetHandler:
+.fn ZeroOffsetHandler, local
 /* 80045EC0 00041E40  7C 08 02 A6 */	mflr r0
 /* 80045EC4 00041E44  3C A0 80 09 */	lis r5, synthTicksPerSecond@ha
 /* 80045EC8 00041E48  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1785,8 +1789,9 @@ ZeroOffsetHandler:
 /* 8004654C 000424CC  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 80046550 000424D0  38 21 00 78 */	addi r1, r1, 0x78
 /* 80046554 000424D4  4E 80 00 20 */	blr
+.endfn ZeroOffsetHandler
 
-EventHandler:
+.fn EventHandler, local
 /* 80046558 000424D8  7C 08 02 A6 */	mflr r0
 /* 8004655C 000424DC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80046560 000424E0  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1891,8 +1896,9 @@ EventHandler:
 /* 800466DC 0004265C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800466E0 00042660  38 21 00 20 */	addi r1, r1, 0x20
 /* 800466E4 00042664  4E 80 00 20 */	blr
+.endfn EventHandler
 
-synthAddJob:
+.fn synthAddJob, local
 /* 800466E8 00042668  88 0D 87 31 */	lbz r0, synthJobTableIndex@sda21(r13)
 /* 800466EC 0004266C  54 A5 C2 3E */	srwi r5, r5, 8
 /* 800466F0 00042670  3C E0 80 09 */	lis r7, synthTicksPerSecond@ha
@@ -1989,9 +1995,9 @@ synthAddJob:
 /* 8004682C 000427AC  90 04 00 04 */	stw r0, 0x4(r4)
 /* 80046830 000427B0  90 89 00 00 */	stw r4, 0x0(r9)
 /* 80046834 000427B4  4E 80 00 20 */	blr
+.endfn synthAddJob
 
-.global synthStartSynthJobHandling
-synthStartSynthJobHandling:
+.fn synthStartSynthJobHandling, global
 /* 80046838 000427B8  7C 08 02 A6 */	mflr r0
 /* 8004683C 000427BC  38 80 00 00 */	li r4, 0x0
 /* 80046840 000427C0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2017,9 +2023,9 @@ synthStartSynthJobHandling:
 /* 80046890 00042810  38 21 00 18 */	addi r1, r1, 0x18
 /* 80046894 00042814  7C 08 03 A6 */	mtlr r0
 /* 80046898 00042818  4E 80 00 20 */	blr
+.endfn synthStartSynthJobHandling
 
-.global synthForceLowPrecisionUpdate
-synthForceLowPrecisionUpdate:
+.fn synthForceLowPrecisionUpdate, global
 /* 8004689C 0004281C  7C 08 02 A6 */	mflr r0
 /* 800468A0 00042820  38 80 00 00 */	li r4, 0x0
 /* 800468A4 00042824  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2037,9 +2043,9 @@ synthForceLowPrecisionUpdate:
 /* 800468D4 00042854  38 21 00 18 */	addi r1, r1, 0x18
 /* 800468D8 00042858  7C 08 03 A6 */	mtlr r0
 /* 800468DC 0004285C  4E 80 00 20 */	blr
+.endfn synthForceLowPrecisionUpdate
 
-.global synthKeyStateUpdate
-synthKeyStateUpdate:
+.fn synthKeyStateUpdate, global
 /* 800468E0 00042860  7C 08 02 A6 */	mflr r0
 /* 800468E4 00042864  38 80 00 02 */	li r4, 0x2
 /* 800468E8 00042868  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2050,8 +2056,9 @@ synthKeyStateUpdate:
 /* 800468FC 0004287C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80046900 00042880  7C 08 03 A6 */	mtlr r0
 /* 80046904 00042884  4E 80 00 20 */	blr
+.endfn synthKeyStateUpdate
 
-HandleJobQueue:
+.fn HandleJobQueue, local
 /* 80046908 00042888  7C 08 02 A6 */	mflr r0
 /* 8004690C 0004288C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80046910 00042890  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -2085,8 +2092,9 @@ HandleJobQueue:
 /* 80046978 000428F8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8004697C 000428FC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80046980 00042900  4E 80 00 20 */	blr
+.endfn HandleJobQueue
 
-HandleFaderTermination:
+.fn HandleFaderTermination, local
 /* 80046984 00042904  7C 08 02 A6 */	mflr r0
 /* 80046988 00042908  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004698C 0004290C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -2119,9 +2127,9 @@ HandleFaderTermination:
 /* 800469E4 00042964  38 21 00 08 */	addi r1, r1, 0x8
 /* 800469E8 00042968  7C 08 03 A6 */	mtlr r0
 /* 800469EC 0004296C  4E 80 00 20 */	blr
+.endfn HandleFaderTermination
 
-.global synthHandle
-synthHandle:
+.fn synthHandle, global
 /* 800469F0 00042970  7C 08 02 A6 */	mflr r0
 /* 800469F4 00042974  3C 80 80 09 */	lis r4, synthTicksPerSecond@ha
 /* 800469F8 00042978  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2336,9 +2344,9 @@ synthHandle:
 /* 80046CFC 00042C7C  38 21 00 60 */	addi r1, r1, 0x60
 /* 80046D00 00042C80  7C 08 03 A6 */	mtlr r0
 /* 80046D04 00042C84  4E 80 00 20 */	blr
+.endfn synthHandle
 
-.global synthFXStart
-synthFXStart:
+.fn synthFXStart, global
 /* 80046D08 00042C88  7C 08 02 A6 */	mflr r0
 /* 80046D0C 00042C8C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80046D10 00042C90  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -2481,9 +2489,9 @@ synthFXStart:
 /* 80046F00 00042E80  38 21 00 60 */	addi r1, r1, 0x60
 /* 80046F04 00042E84  7C 08 03 A6 */	mtlr r0
 /* 80046F08 00042E88  4E 80 00 20 */	blr
+.endfn synthFXStart
 
-.global synthFXSetCtrl
-synthFXSetCtrl:
+.fn synthFXSetCtrl, global
 /* 80046F0C 00042E8C  7C 08 02 A6 */	mflr r0
 /* 80046F10 00042E90  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80046F14 00042E94  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -2548,9 +2556,9 @@ synthFXSetCtrl:
 /* 80046FE8 00042F68  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80046FEC 00042F6C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80046FF0 00042F70  4E 80 00 20 */	blr
+.endfn synthFXSetCtrl
 
-.global synthFXSetCtrl14
-synthFXSetCtrl14:
+.fn synthFXSetCtrl14, global
 /* 80046FF4 00042F74  7C 08 02 A6 */	mflr r0
 /* 80046FF8 00042F78  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80046FFC 00042F7C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -2615,9 +2623,9 @@ synthFXSetCtrl14:
 /* 800470D0 00043050  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800470D4 00043054  38 21 00 20 */	addi r1, r1, 0x20
 /* 800470D8 00043058  4E 80 00 20 */	blr
+.endfn synthFXSetCtrl14
 
-.global synthFXCloneMidiSetup
-synthFXCloneMidiSetup:
+.fn synthFXCloneMidiSetup, global
 /* 800470DC 0004305C  7C 08 02 A6 */	mflr r0
 /* 800470E0 00043060  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800470E4 00043064  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -2651,9 +2659,9 @@ synthFXCloneMidiSetup:
 /* 80047154 000430D4  7C 08 03 A6 */	mtlr r0
 /* 80047158 000430D8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004715C 000430DC  4E 80 00 20 */	blr
+.endfn synthFXCloneMidiSetup
 
-.global synthSendKeyOff
-synthSendKeyOff:
+.fn synthSendKeyOff, global
 /* 80047160 000430E0  7C 08 02 A6 */	mflr r0
 /* 80047164 000430E4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047168 000430E8  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -2693,9 +2701,9 @@ synthSendKeyOff:
 /* 800471E0 00043160  7C 08 03 A6 */	mtlr r0
 /* 800471E4 00043164  38 21 00 18 */	addi r1, r1, 0x18
 /* 800471E8 00043168  4E 80 00 20 */	blr
+.endfn synthSendKeyOff
 
-.global synthVolume
-synthVolume:
+.fn synthVolume, global
 /* 800471EC 0004316C  7C 08 02 A6 */	mflr r0
 /* 800471F0 00043170  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800471F4 00043174  54 80 04 3F */	clrlwi. r0, r4, 16
@@ -2983,9 +2991,9 @@ synthVolume:
 /* 800475F0 00043570  CB 81 00 40 */	lfd f28, 0x40(r1)
 /* 800475F4 00043574  38 21 00 60 */	addi r1, r1, 0x60
 /* 800475F8 00043578  4E 80 00 20 */	blr
+.endfn synthVolume
 
-.global synthIsFadeOutActive
-synthIsFadeOutActive:
+.fn synthIsFadeOutActive, global
 /* 800475FC 0004357C  54 65 06 3E */	clrlwi r5, r3, 24
 /* 80047600 00043580  1C 85 00 30 */	mulli r4, r5, 0x30
 /* 80047604 00043584  3C 60 80 09 */	lis r3, synthTicksPerSecond@ha
@@ -3008,9 +3016,9 @@ synthIsFadeOutActive:
 .L_80047648:
 /* 80047648 000435C8  38 60 00 00 */	li r3, 0x0
 /* 8004764C 000435CC  4E 80 00 20 */	blr
+.endfn synthIsFadeOutActive
 
-.global synthSetMusicVolumeType
-synthSetMusicVolumeType:
+.fn synthSetMusicVolumeType, global
 /* 80047650 000435D0  88 0D 87 30 */	lbz r0, sndActive@sda21(r13)
 /* 80047654 000435D4  28 00 00 00 */	cmplwi r0, 0x0
 /* 80047658 000435D8  4D 82 00 20 */	beqlr
@@ -3021,8 +3029,9 @@ synthSetMusicVolumeType:
 /* 8004766C 000435EC  7C 63 02 14 */	add r3, r3, r0
 /* 80047670 000435F0  98 83 00 2D */	stb r4, 0x2d(r3)
 /* 80047674 000435F4  4E 80 00 20 */	blr
+.endfn synthSetMusicVolumeType
 
-synthHWMessageHandler:
+.fn synthHWMessageHandler, local
 /* 80047678 000435F8  7C 08 02 A6 */	mflr r0
 /* 8004767C 000435FC  2C 03 00 01 */	cmpwi r3, 0x1
 /* 80047680 00043600  90 01 00 04 */	stw r0, 0x4(r1)
@@ -3050,9 +3059,9 @@ synthHWMessageHandler:
 /* 800476CC 0004364C  38 21 00 08 */	addi r1, r1, 0x8
 /* 800476D0 00043650  7C 08 03 A6 */	mtlr r0
 /* 800476D4 00043654  4E 80 00 20 */	blr
+.endfn synthHWMessageHandler
 
-.global synthInit
-synthInit:
+.fn synthInit, global
 /* 800476D8 00043658  7C 08 02 A6 */	mflr r0
 /* 800476DC 0004365C  3C A0 80 09 */	lis r5, synthTicksPerSecond@ha
 /* 800476E0 00043660  90 01 00 04 */	stw r0, 0x4(r1)
@@ -3373,9 +3382,9 @@ synthInit:
 /* 80047BB8 00043B38  38 21 00 80 */	addi r1, r1, 0x80
 /* 80047BBC 00043B3C  7C 08 03 A6 */	mtlr r0
 /* 80047BC0 00043B40  4E 80 00 20 */	blr
+.endfn synthInit
 
-.global synthExit
-synthExit:
+.fn synthExit, global
 /* 80047BC4 00043B44  7C 08 02 A6 */	mflr r0
 /* 80047BC8 00043B48  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047BCC 00043B4C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -3385,6 +3394,7 @@ synthExit:
 /* 80047BDC 00043B5C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80047BE0 00043B60  7C 08 03 A6 */	mtlr r0
 /* 80047BE4 00043B64  4E 80 00 20 */	blr
+.endfn synthExit
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 

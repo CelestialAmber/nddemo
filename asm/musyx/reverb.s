@@ -4,8 +4,7 @@
 
 
 
-.global ReverbHICreate
-ReverbHICreate:
+.fn ReverbHICreate, global
 /* 800591B8 00055138  7C 08 02 A6 */	mflr r0
 /* 800591BC 0005513C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800591C0 00055140  94 21 FF 40 */	stwu r1, -0xc0(r1)
@@ -339,8 +338,9 @@ ReverbHICreate:
 /* 80059678 000555F8  CB 01 00 80 */	lfd f24, 0x80(r1)
 /* 8005967C 000555FC  38 21 00 C0 */	addi r1, r1, 0xc0
 /* 80059680 00055600  4E 80 00 20 */	blr
+.endfn ReverbHICreate
 
-DoCrossTalk:
+.fn DoCrossTalk, local
 /* 80059684 00055604  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80059688 00055608  D9 C1 00 28 */	stfd f14, 0x28(r1)
 /* 8005968C 0005560C  3C A0 80 0B */	lis r5, i2fMagic@ha
@@ -442,8 +442,9 @@ DoCrossTalk:
 /* 80059808 00055788  C9 C1 00 28 */	lfd f14, 0x28(r1)
 /* 8005980C 0005578C  38 21 00 30 */	addi r1, r1, 0x30
 /* 80059810 00055790  4E 80 00 20 */	blr
+.endfn DoCrossTalk
 
-HandleReverb:
+.fn HandleReverb, local
 /* 80059814 00055794  94 21 FF 40 */	stwu r1, -0xc0(r1)
 /* 80059818 00055798  BD C1 00 08 */	stmw r14, 0x8(r1)
 /* 8005981C 0005579C  D9 C1 00 60 */	stfd f14, 0x60(r1)
@@ -796,9 +797,9 @@ HandleReverb:
 /* 80059D14 00055C94  B9 C1 00 08 */	lmw r14, 0x8(r1)
 /* 80059D18 00055C98  38 21 00 C0 */	addi r1, r1, 0xc0
 /* 80059D1C 00055C9C  4E 80 00 20 */	blr
+.endfn HandleReverb
 
-.global ReverbHICallback
-ReverbHICallback:
+.fn ReverbHICallback, global
 /* 80059D20 00055CA0  7C 08 02 A6 */	mflr r0
 /* 80059D24 00055CA4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80059D28 00055CA8  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -871,6 +872,7 @@ ReverbHICallback:
 /* 80059E0C 00055D8C  CB A1 00 30 */	lfd f29, 0x30(r1)
 /* 80059E10 00055D90  38 21 00 48 */	addi r1, r1, 0x48
 /* 80059E14 00055D94  4E 80 00 20 */	blr
+.endfn ReverbHICallback
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

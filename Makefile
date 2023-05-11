@@ -62,8 +62,8 @@ O_FILES := $(NDDEMO) $(DOLPHIN) $(MUSYX) \
 # Tools
 #-------------------------------------------------------------------------------
 
-MWCC_VERSION := 1.1
-MWLD_VERSION := 1.1
+MWCC_VERSION := 1.2.5
+MWLD_VERSION := 1.2.5
 CONSOLE := GC
 
 # Programs
@@ -71,7 +71,6 @@ ifeq ($(WINDOWS),1)
   WINE :=
   AS      := $(DEVKITPPC)/bin/powerpc-eabi-as.exe
   CPP     := $(DEVKITPPC)/bin/powerpc-eabi-cpp.exe -P
-  SHA1SUM := sha1sum
   PYTHON  := python
 else
   WIBO   := $(shell command -v wibo 2> /dev/null)
@@ -92,8 +91,9 @@ else
 endif
 CC      = $(WINE) tools/mwcc_compiler/$(CONSOLE)/$(MWCC_VERSION)/mwcceppc.exe
 LD      := $(WINE) tools/mwcc_compiler/$(CONSOLE)/$(MWLD_VERSION)/mwldeppc.exe
-ELF2DOL := tools/elf2dol
-ELF2REL := tools/elf2rel
+DTK     := tools/dtk
+ELF2DOL := $(DTK) elf2dol
+SHASUM  := $(DTK) shasum
 
 # Options
 INCLUDES := -i include/
@@ -108,7 +108,7 @@ ifeq ($(VERBOSE),0)
 # this set of LDFLAGS generates no warnings.
 LDFLAGS := $(MAPGEN) -fp hard -nodefaults -w off
 endif
-CFLAGS   = -Cpp_exceptions off -enum int -inline on -use_lmw_stmw on -proc gekko -fp hard -O4,p -nodefaults -func_align 4 $(INCLUDES)
+CFLAGS   = -Cpp_exceptions off -enum int -inline on -use_lmw_stmw on -proc gekko -fp hard -O4,p -nodefaults $(INCLUDES)
 ifeq ($(NON_MATCHING),1)
 CFLAGS += -DNON_MATCHING
 endif
@@ -138,14 +138,12 @@ DUMMY != mkdir -p $(ALL_DIRS)
 # DUMMY != mkdir -p $(EPI_DIRS)
 # endif
 
-.PHONY: tools
-
 $(LDSCRIPT_DOL): ldscript.lcf
 	$(QUIET) $(CPP) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
-$(DOL): $(ELF) | tools
+$(DOL): $(ELF) | $(DTK)
 	$(QUIET) $(ELF2DOL) $< $@
-	$(QUIET) $(SHA1SUM) -c sha1/$(NAME).$(VERSION).sha1
+	$(QUIET) $(SHA1SUM) -c sha1/$(NAME).sha1
 ifneq ($(findstring -map,$(LDFLAGS)),)
 	$(QUIET) $(PYTHON) tools/calcprogress.py $@ $(MAP)
 endif
@@ -153,9 +151,11 @@ endif
 clean:
 	rm -f -d -r build
 	rm -f -d -r epilogue
-	find . -name '*.o' -exec rm {} +
-	find . -name 'ctx.c' -exec rm {} +
-	find ./include -name "*.s" -type f -delete
+
+
+$(DTK): tools/dtk_version
+	@echo "Downloading $@"
+	$(QUIET) $(PYTHON) tools/download_dtk.py $< $@
 
 # ELF creation makefile instructions
 ifeq ($(EPILOGUE_PROCESS),1)
@@ -172,14 +172,17 @@ endif
 
 $(BUILD_DIR)/%.o: %.s
 	@echo Assembling $<
+	$(QUIET) mkdir -p $(dir $@)
 	$(QUIET) $(AS) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/%.o: %.c
 	@echo "Compiling " $<
-	$(QUIET) $(CC) $(CFLAGS) -lang=c99 -c -o $@ $<
+	$(QUIET) mkdir -p $(dir $@)
+	$(QUIET) $(CC) $(CFLAGS) -lang=c -c -o $@ $<
 	
 $(BUILD_DIR)/%.o: %.cpp
 	@echo "Compiling " $<
+	$(QUIET) mkdir -p $(dir $@)
 	$(QUIET) $(CC) $(CFLAGS) -lang=c++ -c -o $@ $<
 
 ### Debug Print ###

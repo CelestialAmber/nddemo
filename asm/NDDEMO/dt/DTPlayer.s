@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__8DTPlayerFv
-__ct__8DTPlayerFv:
+.fn __ct__8DTPlayerFv, global
 /* 8001FBD4 0001BB54  7C 08 02 A6 */	mflr r0
 /* 8001FBD8 0001BB58  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001FBDC 0001BB5C  94 21 FF 88 */	stwu r1, -0x78(r1)
@@ -139,9 +138,9 @@ __ct__8DTPlayerFv:
 /* 8001FDE4 0001BD64  83 A1 00 6C */	lwz r29, 0x6c(r1)
 /* 8001FDE8 0001BD68  38 21 00 78 */	addi r1, r1, 0x78
 /* 8001FDEC 0001BD6C  4E 80 00 20 */	blr
+.endfn __ct__8DTPlayerFv
 
-.global __dt__8DTPlayerFv
-__dt__8DTPlayerFv:
+.fn __dt__8DTPlayerFv, global
 /* 8001FDF0 0001BD70  7C 08 02 A6 */	mflr r0
 /* 8001FDF4 0001BD74  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001FDF8 0001BD78  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -178,20 +177,20 @@ __dt__8DTPlayerFv:
 /* 8001FE68 0001BDE8  7C 08 03 A6 */	mtlr r0
 /* 8001FE6C 0001BDEC  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001FE70 0001BDF0  4E 80 00 20 */	blr
+.endfn __dt__8DTPlayerFv
 
-.global InitAction__8DTPlayerFv
-InitAction__8DTPlayerFv:
+.fn InitAction__8DTPlayerFv, global
 /* 8001FE74 0001BDF4  38 00 00 00 */	li r0, 0x0
 /* 8001FE78 0001BDF8  B0 03 00 0A */	sth r0, 0xa(r3)
 /* 8001FE7C 0001BDFC  4E 80 00 20 */	blr
+.endfn InitAction__8DTPlayerFv
 
-.global GetPosition__8DTPlayerFv
-GetPosition__8DTPlayerFv:
+.fn GetPosition__8DTPlayerFv, global
 /* 8001FE80 0001BE00  38 63 00 10 */	addi r3, r3, 0x10
 /* 8001FE84 0001BE04  4E 80 00 20 */	blr
+.endfn GetPosition__8DTPlayerFv
 
-.global SetPosition__8DTPlayerF3Vec
-SetPosition__8DTPlayerF3Vec:
+.fn SetPosition__8DTPlayerF3Vec, global
 /* 8001FE88 0001BE08  C0 04 00 00 */	lfs f0, 0x0(r4)
 /* 8001FE8C 0001BE0C  D0 03 00 10 */	stfs f0, 0x10(r3)
 /* 8001FE90 0001BE10  C0 04 00 04 */	lfs f0, 0x4(r4)
@@ -199,9 +198,9 @@ SetPosition__8DTPlayerF3Vec:
 /* 8001FE98 0001BE18  C0 04 00 08 */	lfs f0, 0x8(r4)
 /* 8001FE9C 0001BE1C  D0 03 00 18 */	stfs f0, 0x18(r3)
 /* 8001FEA0 0001BE20  4E 80 00 20 */	blr
+.endfn SetPosition__8DTPlayerF3Vec
 
-.global SetRotation__8DTPlayerF3Vec
-SetRotation__8DTPlayerF3Vec:
+.fn SetRotation__8DTPlayerF3Vec, global
 /* 8001FEA4 0001BE24  C0 04 00 00 */	lfs f0, 0x0(r4)
 /* 8001FEA8 0001BE28  D0 03 00 1C */	stfs f0, 0x1c(r3)
 /* 8001FEAC 0001BE2C  C0 04 00 04 */	lfs f0, 0x4(r4)
@@ -209,14 +208,14 @@ SetRotation__8DTPlayerF3Vec:
 /* 8001FEB4 0001BE34  C0 04 00 08 */	lfs f0, 0x8(r4)
 /* 8001FEB8 0001BE38  D0 03 00 24 */	stfs f0, 0x24(r3)
 /* 8001FEBC 0001BE3C  4E 80 00 20 */	blr
+.endfn SetRotation__8DTPlayerF3Vec
 
-.global GetAngle__8DTPlayerFv
-GetAngle__8DTPlayerFv:
+.fn GetAngle__8DTPlayerFv, global
 /* 8001FEC0 0001BE40  C0 23 00 20 */	lfs f1, 0x20(r3)
 /* 8001FEC4 0001BE44  4E 80 00 20 */	blr
+.endfn GetAngle__8DTPlayerFv
 
-.global GetSpilShadowCamPos__8DTPlayerFv
-GetSpilShadowCamPos__8DTPlayerFv:
+.fn GetSpilShadowCamPos__8DTPlayerFv, global
 /* 8001FEC8 0001BE48  7C 08 02 A6 */	mflr r0
 /* 8001FECC 0001BE4C  38 84 01 6C */	addi r4, r4, 0x16c
 /* 8001FED0 0001BE50  90 01 00 04 */	stw r0, 0x4(r1)
@@ -229,9 +228,9 @@ GetSpilShadowCamPos__8DTPlayerFv:
 /* 8001FEEC 0001BE6C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001FEF0 0001BE70  7C 08 03 A6 */	mtlr r0
 /* 8001FEF4 0001BE74  4E 80 00 20 */	blr
+.endfn GetSpilShadowCamPos__8DTPlayerFv
 
-.global CreateShadow__8DTPlayerFv
-CreateShadow__8DTPlayerFv:
+.fn CreateShadow__8DTPlayerFv, global
 /* 8001FEF8 0001BE78  7C 08 02 A6 */	mflr r0
 /* 8001FEFC 0001BE7C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001FF00 0001BE80  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -375,9 +374,9 @@ CreateShadow__8DTPlayerFv:
 /* 80020120 0001C0A0  7C 08 03 A6 */	mtlr r0
 /* 80020124 0001C0A4  38 21 00 48 */	addi r1, r1, 0x48
 /* 80020128 0001C0A8  4E 80 00 20 */	blr
+.endfn CreateShadow__8DTPlayerFv
 
-.global GetShadowPro__8DTPlayerFi
-GetShadowPro__8DTPlayerFi:
+.fn GetShadowPro__8DTPlayerFi, global
 /* 8002012C 0001C0AC  7C 08 02 A6 */	mflr r0
 /* 80020130 0001C0B0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80020134 0001C0B4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -408,9 +407,9 @@ GetShadowPro__8DTPlayerFi:
 /* 8002018C 0001C10C  7C 08 03 A6 */	mtlr r0
 /* 80020190 0001C110  38 21 00 18 */	addi r1, r1, 0x18
 /* 80020194 0001C114  4E 80 00 20 */	blr
+.endfn GetShadowPro__8DTPlayerFi
 
-.global CreateSpilShadow__8DTPlayerFv
-CreateSpilShadow__8DTPlayerFv:
+.fn CreateSpilShadow__8DTPlayerFv, global
 /* 80020198 0001C118  7C 08 02 A6 */	mflr r0
 /* 8002019C 0001C11C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800201A0 0001C120  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -569,9 +568,9 @@ CreateSpilShadow__8DTPlayerFv:
 /* 800203FC 0001C37C  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80020400 0001C380  38 21 00 60 */	addi r1, r1, 0x60
 /* 80020404 0001C384  4E 80 00 20 */	blr
+.endfn CreateSpilShadow__8DTPlayerFv
 
-.global GetSpilShadowPro__8DTPlayerFi
-GetSpilShadowPro__8DTPlayerFi:
+.fn GetSpilShadowPro__8DTPlayerFi, global
 /* 80020408 0001C388  7C 08 02 A6 */	mflr r0
 /* 8002040C 0001C38C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80020410 0001C390  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -611,9 +610,9 @@ GetSpilShadowPro__8DTPlayerFi:
 /* 80020484 0001C404  7C 08 03 A6 */	mtlr r0
 /* 80020488 0001C408  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002048C 0001C40C  4E 80 00 20 */	blr
+.endfn GetSpilShadowPro__8DTPlayerFi
 
-.global Action__8DTPlayerFv
-Action__8DTPlayerFv:
+.fn Action__8DTPlayerFv, global
 /* 80020490 0001C410  7C 08 02 A6 */	mflr r0
 /* 80020494 0001C414  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80020498 0001C418  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -778,9 +777,9 @@ Action__8DTPlayerFv:
 /* 800206A4 0001C624  38 21 00 28 */	addi r1, r1, 0x28
 /* 800206A8 0001C628  7C 08 03 A6 */	mtlr r0
 /* 800206AC 0001C62C  4E 80 00 20 */	blr
+.endfn Action__8DTPlayerFv
 
-.global Rolling__8DTPlayerFUc
-Rolling__8DTPlayerFUc:
+.fn Rolling__8DTPlayerFUc, global
 /* 800206B0 0001C630  7C 08 02 A6 */	mflr r0
 /* 800206B4 0001C634  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800206B8 0001C638  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -836,9 +835,9 @@ Rolling__8DTPlayerFUc:
 /* 80020774 0001C6F4  38 21 00 28 */	addi r1, r1, 0x28
 /* 80020778 0001C6F8  7C 08 03 A6 */	mtlr r0
 /* 8002077C 0001C6FC  4E 80 00 20 */	blr
+.endfn Rolling__8DTPlayerFUc
 
-.global act_init__8DTPlayerFv
-act_init__8DTPlayerFv:
+.fn act_init__8DTPlayerFv, global
 /* 80020780 0001C700  80 8D 83 40 */	lwz r4, dm@sda21(r13)
 /* 80020784 0001C704  80 04 0C 28 */	lwz r0, 0xc28(r4)
 /* 80020788 0001C708  90 03 00 00 */	stw r0, 0x0(r3)
@@ -850,9 +849,9 @@ act_init__8DTPlayerFv:
 /* 800207A0 0001C720  38 00 00 00 */	li r0, 0x0
 /* 800207A4 0001C724  B0 03 00 0C */	sth r0, 0xc(r3)
 /* 800207A8 0001C728  4E 80 00 20 */	blr
+.endfn act_init__8DTPlayerFv
 
-.global act_idle_init__8DTPlayerFv
-act_idle_init__8DTPlayerFv:
+.fn act_idle_init__8DTPlayerFv, global
 /* 800207AC 0001C72C  7C 08 02 A6 */	mflr r0
 /* 800207B0 0001C730  38 80 00 00 */	li r4, 0x0
 /* 800207B4 0001C734  90 01 00 04 */	stw r0, 0x4(r1)
@@ -913,9 +912,9 @@ act_idle_init__8DTPlayerFv:
 /* 80020884 0001C804  38 21 00 30 */	addi r1, r1, 0x30
 /* 80020888 0001C808  7C 08 03 A6 */	mtlr r0
 /* 8002088C 0001C80C  4E 80 00 20 */	blr
+.endfn act_idle_init__8DTPlayerFv
 
-.global act_idle__8DTPlayerFv
-act_idle__8DTPlayerFv:
+.fn act_idle__8DTPlayerFv, global
 /* 80020890 0001C810  7C 08 02 A6 */	mflr r0
 /* 80020894 0001C814  38 80 00 00 */	li r4, 0x0
 /* 80020898 0001C818  90 01 00 04 */	stw r0, 0x4(r1)
@@ -975,9 +974,9 @@ act_idle__8DTPlayerFv:
 /* 80020960 0001C8E0  38 21 00 30 */	addi r1, r1, 0x30
 /* 80020964 0001C8E4  7C 08 03 A6 */	mtlr r0
 /* 80020968 0001C8E8  4E 80 00 20 */	blr
+.endfn act_idle__8DTPlayerFv
 
-.global act_idle2_init__8DTPlayerFv
-act_idle2_init__8DTPlayerFv:
+.fn act_idle2_init__8DTPlayerFv, global
 /* 8002096C 0001C8EC  7C 08 02 A6 */	mflr r0
 /* 80020970 0001C8F0  38 80 00 03 */	li r4, 0x3
 /* 80020974 0001C8F4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1019,9 +1018,9 @@ act_idle2_init__8DTPlayerFv:
 /* 80020A00 0001C980  38 21 00 30 */	addi r1, r1, 0x30
 /* 80020A04 0001C984  7C 08 03 A6 */	mtlr r0
 /* 80020A08 0001C988  4E 80 00 20 */	blr
+.endfn act_idle2_init__8DTPlayerFv
 
-.global act_idle2__8DTPlayerFv
-act_idle2__8DTPlayerFv:
+.fn act_idle2__8DTPlayerFv, global
 /* 80020A0C 0001C98C  7C 08 02 A6 */	mflr r0
 /* 80020A10 0001C990  38 80 00 00 */	li r4, 0x0
 /* 80020A14 0001C994  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1080,9 +1079,9 @@ act_idle2__8DTPlayerFv:
 /* 80020AD8 0001CA58  38 21 00 30 */	addi r1, r1, 0x30
 /* 80020ADC 0001CA5C  7C 08 03 A6 */	mtlr r0
 /* 80020AE0 0001CA60  4E 80 00 20 */	blr
+.endfn act_idle2__8DTPlayerFv
 
-.global act_walk_init__8DTPlayerFv
-act_walk_init__8DTPlayerFv:
+.fn act_walk_init__8DTPlayerFv, global
 /* 80020AE4 0001CA64  7C 08 02 A6 */	mflr r0
 /* 80020AE8 0001CA68  38 80 00 00 */	li r4, 0x0
 /* 80020AEC 0001CA6C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1103,9 +1102,9 @@ act_walk_init__8DTPlayerFv:
 /* 80020B28 0001CAA8  38 21 00 18 */	addi r1, r1, 0x18
 /* 80020B2C 0001CAAC  7C 08 03 A6 */	mtlr r0
 /* 80020B30 0001CAB0  4E 80 00 20 */	blr
+.endfn act_walk_init__8DTPlayerFv
 
-.global act_walk__8DTPlayerFv
-act_walk__8DTPlayerFv:
+.fn act_walk__8DTPlayerFv, global
 /* 80020B34 0001CAB4  7C 08 02 A6 */	mflr r0
 /* 80020B38 0001CAB8  38 80 00 00 */	li r4, 0x0
 /* 80020B3C 0001CABC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1200,9 +1199,9 @@ act_walk__8DTPlayerFv:
 /* 80020C8C 0001CC0C  38 21 00 48 */	addi r1, r1, 0x48
 /* 80020C90 0001CC10  7C 08 03 A6 */	mtlr r0
 /* 80020C94 0001CC14  4E 80 00 20 */	blr
+.endfn act_walk__8DTPlayerFv
 
-.global act_open_init__8DTPlayerFv
-act_open_init__8DTPlayerFv:
+.fn act_open_init__8DTPlayerFv, global
 /* 80020C98 0001CC18  7C 08 02 A6 */	mflr r0
 /* 80020C9C 0001CC1C  38 80 00 04 */	li r4, 0x4
 /* 80020CA0 0001CC20  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1233,9 +1232,9 @@ act_open_init__8DTPlayerFv:
 /* 80020D04 0001CC84  38 21 00 18 */	addi r1, r1, 0x18
 /* 80020D08 0001CC88  7C 08 03 A6 */	mtlr r0
 /* 80020D0C 0001CC8C  4E 80 00 20 */	blr
+.endfn act_open_init__8DTPlayerFv
 
-.global act_open__8DTPlayerFv
-act_open__8DTPlayerFv:
+.fn act_open__8DTPlayerFv, global
 /* 80020D10 0001CC90  7C 08 02 A6 */	mflr r0
 /* 80020D14 0001CC94  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80020D18 0001CC98  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1379,9 +1378,9 @@ act_open__8DTPlayerFv:
 /* 80020F10 0001CE90  38 21 00 18 */	addi r1, r1, 0x18
 /* 80020F14 0001CE94  7C 08 03 A6 */	mtlr r0
 /* 80020F18 0001CE98  4E 80 00 20 */	blr
+.endfn act_open__8DTPlayerFv
 
-.global act_dokan_out_init__8DTPlayerFv
-act_dokan_out_init__8DTPlayerFv:
+.fn act_dokan_out_init__8DTPlayerFv, global
 /* 80020F1C 0001CE9C  7C 08 02 A6 */	mflr r0
 /* 80020F20 0001CEA0  38 80 00 06 */	li r4, 0x6
 /* 80020F24 0001CEA4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1404,9 +1403,9 @@ act_dokan_out_init__8DTPlayerFv:
 /* 80020F68 0001CEE8  38 21 00 18 */	addi r1, r1, 0x18
 /* 80020F6C 0001CEEC  7C 08 03 A6 */	mtlr r0
 /* 80020F70 0001CEF0  4E 80 00 20 */	blr
+.endfn act_dokan_out_init__8DTPlayerFv
 
-.global act_dokan_out__8DTPlayerFv
-act_dokan_out__8DTPlayerFv:
+.fn act_dokan_out__8DTPlayerFv, global
 /* 80020F74 0001CEF4  7C 08 02 A6 */	mflr r0
 /* 80020F78 0001CEF8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80020F7C 0001CEFC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1484,9 +1483,9 @@ act_dokan_out__8DTPlayerFv:
 /* 8002107C 0001CFFC  38 21 00 18 */	addi r1, r1, 0x18
 /* 80021080 0001D000  7C 08 03 A6 */	mtlr r0
 /* 80021084 0001D004  4E 80 00 20 */	blr
+.endfn act_dokan_out__8DTPlayerFv
 
-.global act_dokan_in_init__8DTPlayerFv
-act_dokan_in_init__8DTPlayerFv:
+.fn act_dokan_in_init__8DTPlayerFv, global
 /* 80021088 0001D008  7C 08 02 A6 */	mflr r0
 /* 8002108C 0001D00C  3C 80 80 06 */	lis r4, PlyAnimName@ha
 /* 80021090 0001D010  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1536,9 +1535,9 @@ act_dokan_in_init__8DTPlayerFv:
 /* 80021138 0001D0B8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002113C 0001D0BC  7C 08 03 A6 */	mtlr r0
 /* 80021140 0001D0C0  4E 80 00 20 */	blr
+.endfn act_dokan_in_init__8DTPlayerFv
 
-.global act_dokan_in__8DTPlayerFv
-act_dokan_in__8DTPlayerFv:
+.fn act_dokan_in__8DTPlayerFv, global
 /* 80021144 0001D0C4  A0 A3 00 0E */	lhz r5, 0xe(r3)
 /* 80021148 0001D0C8  2C 05 00 01 */	cmpwi r5, 0x1
 /* 8002114C 0001D0CC  41 82 00 44 */	beq .L_80021190
@@ -1564,9 +1563,9 @@ act_dokan_in__8DTPlayerFv:
 /* 80021194 0001D114  98 03 02 C1 */	stb r0, 0x2c1(r3)
 /* 80021198 0001D118  B0 03 00 0A */	sth r0, 0xa(r3)
 /* 8002119C 0001D11C  4E 80 00 20 */	blr
+.endfn act_dokan_in__8DTPlayerFv
 
-.global act_go_enter_init__8DTPlayerFv
-act_go_enter_init__8DTPlayerFv:
+.fn act_go_enter_init__8DTPlayerFv, global
 /* 800211A0 0001D120  7C 08 02 A6 */	mflr r0
 /* 800211A4 0001D124  38 80 00 00 */	li r4, 0x0
 /* 800211A8 0001D128  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1597,9 +1596,9 @@ act_go_enter_init__8DTPlayerFv:
 /* 8002120C 0001D18C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80021210 0001D190  7C 08 03 A6 */	mtlr r0
 /* 80021214 0001D194  4E 80 00 20 */	blr
+.endfn act_go_enter_init__8DTPlayerFv
 
-.global act_go_enter_next__8DTPlayerFv
-act_go_enter_next__8DTPlayerFv:
+.fn act_go_enter_next__8DTPlayerFv, global
 /* 80021218 0001D198  A0 83 02 C2 */	lhz r4, 0x2c2(r3)
 /* 8002121C 0001D19C  28 04 00 00 */	cmplwi r4, 0x0
 /* 80021220 0001D1A0  41 82 00 10 */	beq .L_80021230
@@ -1613,18 +1612,18 @@ act_go_enter_next__8DTPlayerFv:
 /* 8002123C 0001D1BC  38 00 00 01 */	li r0, 0x1
 /* 80021240 0001D1C0  B0 03 00 0A */	sth r0, 0xa(r3)
 /* 80021244 0001D1C4  4E 80 00 20 */	blr
+.endfn act_go_enter_next__8DTPlayerFv
 
-.global OpeningInit__8DTPlayerFv
-OpeningInit__8DTPlayerFv:
+.fn OpeningInit__8DTPlayerFv, global
 /* 80021248 0001D1C8  80 8D 83 40 */	lwz r4, dm@sda21(r13)
 /* 8002124C 0001D1CC  38 00 00 11 */	li r0, 0x11
 /* 80021250 0001D1D0  80 84 0C 28 */	lwz r4, 0xc28(r4)
 /* 80021254 0001D1D4  90 83 00 00 */	stw r4, 0x0(r3)
 /* 80021258 0001D1D8  B0 03 00 0A */	sth r0, 0xa(r3)
 /* 8002125C 0001D1DC  4E 80 00 20 */	blr
+.endfn OpeningInit__8DTPlayerFv
 
-.global act_opening_init__8DTPlayerFv
-act_opening_init__8DTPlayerFv:
+.fn act_opening_init__8DTPlayerFv, global
 /* 80021260 0001D1E0  7C 08 02 A6 */	mflr r0
 /* 80021264 0001D1E4  38 80 00 09 */	li r4, 0x9
 /* 80021268 0001D1E8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1645,9 +1644,9 @@ act_opening_init__8DTPlayerFv:
 /* 800212A4 0001D224  38 21 00 18 */	addi r1, r1, 0x18
 /* 800212A8 0001D228  7C 08 03 A6 */	mtlr r0
 /* 800212AC 0001D22C  4E 80 00 20 */	blr
+.endfn act_opening_init__8DTPlayerFv
 
-.global act_opening__8DTPlayerFv
-act_opening__8DTPlayerFv:
+.fn act_opening__8DTPlayerFv, global
 /* 800212B0 0001D230  7C 08 02 A6 */	mflr r0
 /* 800212B4 0001D234  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800212B8 0001D238  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1797,27 +1796,27 @@ act_opening__8DTPlayerFv:
 /* 800214CC 0001D44C  38 21 00 18 */	addi r1, r1, 0x18
 /* 800214D0 0001D450  7C 08 03 A6 */	mtlr r0
 /* 800214D4 0001D454  4E 80 00 20 */	blr
+.endfn act_opening__8DTPlayerFv
 
-.global MpolModeInit__8DTPlayerFv
-MpolModeInit__8DTPlayerFv:
+.fn MpolModeInit__8DTPlayerFv, global
 /* 800214D8 0001D458  80 8D 83 40 */	lwz r4, dm@sda21(r13)
 /* 800214DC 0001D45C  38 00 00 13 */	li r0, 0x13
 /* 800214E0 0001D460  80 84 0C 28 */	lwz r4, 0xc28(r4)
 /* 800214E4 0001D464  90 83 00 00 */	stw r4, 0x0(r3)
 /* 800214E8 0001D468  B0 03 00 0A */	sth r0, 0xa(r3)
 /* 800214EC 0001D46C  4E 80 00 20 */	blr
+.endfn MpolModeInit__8DTPlayerFv
 
-.global SpilModeInit__8DTPlayerFv
-SpilModeInit__8DTPlayerFv:
+.fn SpilModeInit__8DTPlayerFv, global
 /* 800214F0 0001D470  80 8D 83 40 */	lwz r4, dm@sda21(r13)
 /* 800214F4 0001D474  38 00 00 17 */	li r0, 0x17
 /* 800214F8 0001D478  80 84 0C 28 */	lwz r4, 0xc28(r4)
 /* 800214FC 0001D47C  90 83 00 00 */	stw r4, 0x0(r3)
 /* 80021500 0001D480  B0 03 00 0A */	sth r0, 0xa(r3)
 /* 80021504 0001D484  4E 80 00 20 */	blr
+.endfn SpilModeInit__8DTPlayerFv
 
-.global act_mpol_init__8DTPlayerFv
-act_mpol_init__8DTPlayerFv:
+.fn act_mpol_init__8DTPlayerFv, global
 /* 80021508 0001D488  7C 08 02 A6 */	mflr r0
 /* 8002150C 0001D48C  3C 80 80 06 */	lis r4, iVec_MPOL_movie@ha
 /* 80021510 0001D490  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1833,9 +1832,9 @@ act_mpol_init__8DTPlayerFv:
 /* 80021538 0001D4B8  38 21 00 08 */	addi r1, r1, 0x8
 /* 8002153C 0001D4BC  7C 08 03 A6 */	mtlr r0
 /* 80021540 0001D4C0  4E 80 00 20 */	blr
+.endfn act_mpol_init__8DTPlayerFv
 
-.global act_mpol__8DTPlayerFv
-act_mpol__8DTPlayerFv:
+.fn act_mpol__8DTPlayerFv, global
 /* 80021544 0001D4C4  7C 08 02 A6 */	mflr r0
 /* 80021548 0001D4C8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002154C 0001D4CC  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -2087,9 +2086,9 @@ act_mpol__8DTPlayerFv:
 /* 800218DC 0001D85C  38 21 00 40 */	addi r1, r1, 0x40
 /* 800218E0 0001D860  7C 08 03 A6 */	mtlr r0
 /* 800218E4 0001D864  4E 80 00 20 */	blr
+.endfn act_mpol__8DTPlayerFv
 
-.global act_spil_init__8DTPlayerFv
-act_spil_init__8DTPlayerFv:
+.fn act_spil_init__8DTPlayerFv, global
 /* 800218E8 0001D868  7C 08 02 A6 */	mflr r0
 /* 800218EC 0001D86C  38 80 00 07 */	li r4, 0x7
 /* 800218F0 0001D870  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2110,9 +2109,9 @@ act_spil_init__8DTPlayerFv:
 /* 8002192C 0001D8AC  38 21 00 18 */	addi r1, r1, 0x18
 /* 80021930 0001D8B0  7C 08 03 A6 */	mtlr r0
 /* 80021934 0001D8B4  4E 80 00 20 */	blr
+.endfn act_spil_init__8DTPlayerFv
 
-.global act_spil__8DTPlayerFv
-act_spil__8DTPlayerFv:
+.fn act_spil__8DTPlayerFv, global
 /* 80021938 0001D8B8  7C 08 02 A6 */	mflr r0
 /* 8002193C 0001D8BC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80021940 0001D8C0  94 21 FF 98 */	stwu r1, -0x68(r1)
@@ -2357,9 +2356,9 @@ act_spil__8DTPlayerFv:
 /* 80021CB0 0001DC30  38 21 00 68 */	addi r1, r1, 0x68
 /* 80021CB4 0001DC34  7C 08 03 A6 */	mtlr r0
 /* 80021CB8 0001DC38  4E 80 00 20 */	blr
+.endfn act_spil__8DTPlayerFv
 
-.global act_movie_spil_init__8DTPlayerFv
-act_movie_spil_init__8DTPlayerFv:
+.fn act_movie_spil_init__8DTPlayerFv, global
 /* 80021CBC 0001DC3C  7C 08 02 A6 */	mflr r0
 /* 80021CC0 0001DC40  38 80 00 07 */	li r4, 0x7
 /* 80021CC4 0001DC44  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2380,9 +2379,9 @@ act_movie_spil_init__8DTPlayerFv:
 /* 80021D00 0001DC80  38 21 00 18 */	addi r1, r1, 0x18
 /* 80021D04 0001DC84  7C 08 03 A6 */	mtlr r0
 /* 80021D08 0001DC88  4E 80 00 20 */	blr
+.endfn act_movie_spil_init__8DTPlayerFv
 
-.global act_movie_spil__8DTPlayerFv
-act_movie_spil__8DTPlayerFv:
+.fn act_movie_spil__8DTPlayerFv, global
 /* 80021D0C 0001DC8C  7C 08 02 A6 */	mflr r0
 /* 80021D10 0001DC90  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80021D14 0001DC94  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -2610,9 +2609,9 @@ act_movie_spil__8DTPlayerFv:
 /* 80022044 0001DFC4  38 21 00 60 */	addi r1, r1, 0x60
 /* 80022048 0001DFC8  7C 08 03 A6 */	mtlr r0
 /* 8002204C 0001DFCC  4E 80 00 20 */	blr
+.endfn act_movie_spil__8DTPlayerFv
 
-.global _iCheckDoor__8DTPlayerFv
-_iCheckDoor__8DTPlayerFv:
+.fn _iCheckDoor__8DTPlayerFv, global
 /* 80022050 0001DFD0  7C 08 02 A6 */	mflr r0
 /* 80022054 0001DFD4  3C A0 80 06 */	lis r5, PlyAnimName@ha
 /* 80022058 0001DFD8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2858,9 +2857,9 @@ _iCheckDoor__8DTPlayerFv:
 /* 800223B4 0001E334  38 21 00 48 */	addi r1, r1, 0x48
 /* 800223B8 0001E338  7C 08 03 A6 */	mtlr r0
 /* 800223BC 0001E33C  4E 80 00 20 */	blr
+.endfn _iCheckDoor__8DTPlayerFv
 
-.global _iSetDoorStartEnd__8DTPlayerFPf
-_iSetDoorStartEnd__8DTPlayerFPf:
+.fn _iSetDoorStartEnd__8DTPlayerFPf, global
 /* 800223C0 0001E340  C0 04 00 00 */	lfs f0, 0x0(r4)
 /* 800223C4 0001E344  D0 03 02 A0 */	stfs f0, 0x2a0(r3)
 /* 800223C8 0001E348  C4 04 00 04 */	lfsu f0, 0x4(r4)
@@ -2874,9 +2873,9 @@ _iSetDoorStartEnd__8DTPlayerFPf:
 /* 800223E8 0001E368  C0 04 00 0C */	lfs f0, 0xc(r4)
 /* 800223EC 0001E36C  D0 03 02 B4 */	stfs f0, 0x2b4(r3)
 /* 800223F0 0001E370  4E 80 00 20 */	blr
+.endfn _iSetDoorStartEnd__8DTPlayerFPf
 
-.global _iCheckDokan__8DTPlayerFv
-_iCheckDokan__8DTPlayerFv:
+.fn _iCheckDokan__8DTPlayerFv, global
 /* 800223F4 0001E374  7C 08 02 A6 */	mflr r0
 /* 800223F8 0001E378  3C A0 80 06 */	lis r5, PlyAnimName@ha
 /* 800223FC 0001E37C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2973,9 +2972,9 @@ _iCheckDokan__8DTPlayerFv:
 /* 80022548 0001E4C8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8002254C 0001E4CC  38 21 00 30 */	addi r1, r1, 0x30
 /* 80022550 0001E4D0  4E 80 00 20 */	blr
+.endfn _iCheckDokan__8DTPlayerFv
 
-.global _iSetDokanCenter__8DTPlayerFPfPf
-_iSetDokanCenter__8DTPlayerFPfPf:
+.fn _iSetDokanCenter__8DTPlayerFPfPf, global
 /* 80022554 0001E4D4  C0 04 00 00 */	lfs f0, 0x0(r4)
 /* 80022558 0001E4D8  28 05 00 00 */	cmplwi r5, 0x0
 /* 8002255C 0001E4DC  D0 03 02 A0 */	stfs f0, 0x2a0(r3)
@@ -2999,9 +2998,9 @@ _iSetDokanCenter__8DTPlayerFPfPf:
 /* 800225A0 0001E520  C0 04 00 08 */	lfs f0, 0x8(r4)
 /* 800225A4 0001E524  D0 03 02 B4 */	stfs f0, 0x2b4(r3)
 /* 800225A8 0001E528  4E 80 00 20 */	blr
+.endfn _iSetDokanCenter__8DTPlayerFPfPf
 
-.global stickCheck__8DTPlayerFv
-stickCheck__8DTPlayerFv:
+.fn stickCheck__8DTPlayerFv, global
 /* 800225AC 0001E52C  7C 08 02 A6 */	mflr r0
 /* 800225B0 0001E530  38 80 00 00 */	li r4, 0x0
 /* 800225B4 0001E534  90 01 00 04 */	stw r0, 0x4(r1)
@@ -3059,9 +3058,9 @@ stickCheck__8DTPlayerFv:
 /* 80022674 0001E5F4  38 21 00 28 */	addi r1, r1, 0x28
 /* 80022678 0001E5F8  7C 08 03 A6 */	mtlr r0
 /* 8002267C 0001E5FC  4E 80 00 20 */	blr
+.endfn stickCheck__8DTPlayerFv
 
-.global Vec2Angle__8DTPlayerFff
-Vec2Angle__8DTPlayerFff:
+.fn Vec2Angle__8DTPlayerFff, global
 /* 80022680 0001E600  7C 08 02 A6 */	mflr r0
 /* 80022684 0001E604  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80022688 0001E608  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -3131,9 +3130,9 @@ Vec2Angle__8DTPlayerFff:
 /* 80022764 0001E6E4  7C 08 03 A6 */	mtlr r0
 /* 80022768 0001E6E8  38 21 00 28 */	addi r1, r1, 0x28
 /* 8002276C 0001E6EC  4E 80 00 20 */	blr
+.endfn Vec2Angle__8DTPlayerFff
 
-.global GetCamAngle__8DTPlayerFv
-GetCamAngle__8DTPlayerFv:
+.fn GetCamAngle__8DTPlayerFv, global
 /* 80022770 0001E6F0  7C 08 02 A6 */	mflr r0
 /* 80022774 0001E6F4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80022778 0001E6F8  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -3210,9 +3209,9 @@ GetCamAngle__8DTPlayerFv:
 /* 80022888 0001E808  38 21 00 60 */	addi r1, r1, 0x60
 /* 8002288C 0001E80C  7C 08 03 A6 */	mtlr r0
 /* 80022890 0001E810  4E 80 00 20 */	blr
+.endfn GetCamAngle__8DTPlayerFv
 
-.global _iPointMove__8DTPlayerFP3Vecf
-_iPointMove__8DTPlayerFP3Vecf:
+.fn _iPointMove__8DTPlayerFP3Vecf, global
 /* 80022894 0001E814  7C 08 02 A6 */	mflr r0
 /* 80022898 0001E818  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002289C 0001E81C  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -3261,9 +3260,9 @@ _iPointMove__8DTPlayerFP3Vecf:
 /* 80022940 0001E8C0  83 C1 00 30 */	lwz r30, 0x30(r1)
 /* 80022944 0001E8C4  38 21 00 40 */	addi r1, r1, 0x40
 /* 80022948 0001E8C8  4E 80 00 20 */	blr
+.endfn _iPointMove__8DTPlayerFP3Vecf
 
-.global Animation__8DTPlayerFi
-Animation__8DTPlayerFi:
+.fn Animation__8DTPlayerFi, global
 /* 8002294C 0001E8CC  7C 08 02 A6 */	mflr r0
 /* 80022950 0001E8D0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80022954 0001E8D4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3302,9 +3301,9 @@ Animation__8DTPlayerFi:
 /* 800229C8 0001E948  7C 08 03 A6 */	mtlr r0
 /* 800229CC 0001E94C  38 21 00 18 */	addi r1, r1, 0x18
 /* 800229D0 0001E950  4E 80 00 20 */	blr
+.endfn Animation__8DTPlayerFi
 
-.global RevAnimation__8DTPlayerFi
-RevAnimation__8DTPlayerFi:
+.fn RevAnimation__8DTPlayerFi, global
 /* 800229D4 0001E954  7C 08 02 A6 */	mflr r0
 /* 800229D8 0001E958  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800229DC 0001E95C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3343,9 +3342,9 @@ RevAnimation__8DTPlayerFi:
 /* 80022A50 0001E9D0  7C 08 03 A6 */	mtlr r0
 /* 80022A54 0001E9D4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80022A58 0001E9D8  4E 80 00 20 */	blr
+.endfn RevAnimation__8DTPlayerFi
 
-.global SetAnimation__8DTPlayerFUc
-SetAnimation__8DTPlayerFUc:
+.fn SetAnimation__8DTPlayerFUc, global
 /* 80022A5C 0001E9DC  7C 08 02 A6 */	mflr r0
 /* 80022A60 0001E9E0  3C A0 80 06 */	lis r5, PlyAnimName@ha
 /* 80022A64 0001E9E4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -3369,9 +3368,9 @@ SetAnimation__8DTPlayerFUc:
 /* 80022AAC 0001EA2C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80022AB0 0001EA30  7C 08 03 A6 */	mtlr r0
 /* 80022AB4 0001EA34  4E 80 00 20 */	blr
+.endfn SetAnimation__8DTPlayerFUc
 
-.global normalize__8DTPlayerFP3VecP3Vec
-normalize__8DTPlayerFP3VecP3Vec:
+.fn normalize__8DTPlayerFP3VecP3Vec, global
 /* 80022AB8 0001EA38  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 80022ABC 0001EA3C  C0 24 00 00 */	lfs f1, 0x0(r4)
 /* 80022AC0 0001EA40  C0 04 00 04 */	lfs f0, 0x4(r4)
@@ -3427,9 +3426,9 @@ normalize__8DTPlayerFP3VecP3Vec:
 /* 80022B84 0001EB04  D0 05 00 08 */	stfs f0, 0x8(r5)
 /* 80022B88 0001EB08  38 21 00 18 */	addi r1, r1, 0x18
 /* 80022B8C 0001EB0C  4E 80 00 20 */	blr
+.endfn normalize__8DTPlayerFP3VecP3Vec
 
-.global PlayerMove__8DTPlayerFf
-PlayerMove__8DTPlayerFf:
+.fn PlayerMove__8DTPlayerFf, global
 /* 80022B90 0001EB10  7C 08 02 A6 */	mflr r0
 /* 80022B94 0001EB14  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80022B98 0001EB18  94 21 FE D8 */	stwu r1, -0x128(r1)
@@ -3621,6 +3620,7 @@ PlayerMove__8DTPlayerFf:
 /* 80022E7C 0001EDFC  38 21 01 28 */	addi r1, r1, 0x128
 /* 80022E80 0001EE00  7C 08 03 A6 */	mtlr r0
 /* 80022E84 0001EE04  4E 80 00 20 */	blr
+.endfn PlayerMove__8DTPlayerFf
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 

@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __unregister_fragment
-__unregister_fragment:
+.fn __unregister_fragment, global
 /* 8005F38C 0005B30C  2C 03 00 00 */	cmpwi r3, 0x0
 /* 8005F390 0005B310  41 80 00 2C */	blt .L_8005F3BC
 /* 8005F394 0005B314  2C 03 00 01 */	cmpwi r3, 0x1
@@ -18,9 +17,9 @@ __unregister_fragment:
 /* 8005F3B8 0005B338  90 03 00 08 */	stw r0, 0x8(r3)
 .L_8005F3BC:
 /* 8005F3BC 0005B33C  4E 80 00 20 */	blr
+.endfn __unregister_fragment
 
-.global __register_fragment
-__register_fragment:
+.fn __register_fragment, global
 /* 8005F3C0 0005B340  3C A0 80 0B */	lis r5, fragmentinfo@ha
 /* 8005F3C4 0005B344  38 A5 88 70 */	addi r5, r5, fragmentinfo@l
 /* 8005F3C8 0005B348  48 00 00 04 */	b .L_8005F3CC
@@ -40,6 +39,7 @@ __register_fragment:
 /* 8005F3F4 0005B374  38 60 FF FF */	li r3, -0x1
 .L_8005F3F8:
 /* 8005F3F8 0005B378  4E 80 00 20 */	blr
+.endfn __register_fragment
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

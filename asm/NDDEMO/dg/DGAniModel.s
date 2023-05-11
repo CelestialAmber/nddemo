@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__10DGAniModelFP8DGObjMan
-__ct__10DGAniModelFP8DGObjMan:
+.fn __ct__10DGAniModelFP8DGObjMan, global
 /* 8001A504 00016484  7C 08 02 A6 */	mflr r0
 /* 8001A508 00016488  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001A50C 0001648C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -26,9 +25,9 @@ __ct__10DGAniModelFP8DGObjMan:
 /* 8001A550 000164D0  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001A554 000164D4  7C 08 03 A6 */	mtlr r0
 /* 8001A558 000164D8  4E 80 00 20 */	blr
+.endfn __ct__10DGAniModelFP8DGObjMan
 
-.global __dt__10DGAniModelFv
-__dt__10DGAniModelFv:
+.fn __dt__10DGAniModelFv, global
 /* 8001A55C 000164DC  7C 08 02 A6 */	mflr r0
 /* 8001A560 000164E0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001A564 000164E4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -60,9 +59,9 @@ __dt__10DGAniModelFv:
 /* 8001A5C4 00016544  7C 08 03 A6 */	mtlr r0
 /* 8001A5C8 00016548  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001A5CC 0001654C  4E 80 00 20 */	blr
+.endfn __dt__10DGAniModelFv
 
-.global DeleteAniModelArray__10DGAniModelFv
-DeleteAniModelArray__10DGAniModelFv:
+.fn DeleteAniModelArray__10DGAniModelFv, global
 /* 8001A5D0 00016550  7C 08 02 A6 */	mflr r0
 /* 8001A5D4 00016554  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001A5D8 00016558  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -145,9 +144,9 @@ DeleteAniModelArray__10DGAniModelFv:
 /* 8001A6E8 00016668  38 21 00 30 */	addi r1, r1, 0x30
 /* 8001A6EC 0001666C  7C 08 03 A6 */	mtlr r0
 /* 8001A6F0 00016670  4E 80 00 20 */	blr
+.endfn DeleteAniModelArray__10DGAniModelFv
 
-.global ReconstructToAnimodelStruct__10DGAniModelFv
-ReconstructToAnimodelStruct__10DGAniModelFv:
+.fn ReconstructToAnimodelStruct__10DGAniModelFv, global
 /* 8001A6F4 00016674  7C 08 02 A6 */	mflr r0
 /* 8001A6F8 00016678  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001A6FC 0001667C  38 00 00 01 */	li r0, 0x1
@@ -309,9 +308,9 @@ ReconstructToAnimodelStruct__10DGAniModelFv:
 /* 8001A94C 000168CC  38 21 00 38 */	addi r1, r1, 0x38
 /* 8001A950 000168D0  7C 08 03 A6 */	mtlr r0
 /* 8001A954 000168D4  4E 80 00 20 */	blr
+.endfn ReconstructToAnimodelStruct__10DGAniModelFv
 
-.global GetAniType__10DGAniModelFPCc
-GetAniType__10DGAniModelFPCc:
+.fn GetAniType__10DGAniModelFPCc, global
 /* 8001A958 000168D8  7C 08 02 A6 */	mflr r0
 /* 8001A95C 000168DC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001A960 000168E0  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -356,9 +355,9 @@ GetAniType__10DGAniModelFPCc:
 /* 8001A9E8 00016968  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8001A9EC 0001696C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8001A9F0 00016970  4E 80 00 20 */	blr
+.endfn GetAniType__10DGAniModelFPCc
 
-.global NumOfAniTypePat__10DGAniModelFUs
-NumOfAniTypePat__10DGAniModelFUs:
+.fn NumOfAniTypePat__10DGAniModelFUs, global
 /* 8001A9F4 00016974  A0 03 00 62 */	lhz r0, 0x62(r3)
 /* 8001A9F8 00016978  54 84 04 3E */	clrlwi r4, r4, 16
 /* 8001A9FC 0001697C  7C 04 00 40 */	cmplw r4, r0
@@ -370,9 +369,9 @@ NumOfAniTypePat__10DGAniModelFUs:
 .L_8001AA14:
 /* 8001AA14 00016994  38 60 00 00 */	li r3, 0x0
 /* 8001AA18 00016998  4E 80 00 20 */	blr
+.endfn NumOfAniTypePat__10DGAniModelFUs
 
-.global SetAniPat__10DGAniModelFUsUs
-SetAniPat__10DGAniModelFUsUs:
+.fn SetAniPat__10DGAniModelFUsUs, global
 /* 8001AA1C 0001699C  A0 03 00 62 */	lhz r0, 0x62(r3)
 /* 8001AA20 000169A0  54 88 04 3E */	clrlwi r8, r4, 16
 /* 8001AA24 000169A4  7C 08 00 40 */	cmplw r8, r0
@@ -400,3 +399,4 @@ SetAniPat__10DGAniModelFUsUs:
 /* 8001AA78 000169F8  B0 03 00 72 */	sth r0, 0x72(r3)
 /* 8001AA7C 000169FC  90 03 00 5C */	stw r0, 0x5c(r3)
 /* 8001AA80 00016A00  4E 80 00 20 */	blr
+.endfn SetAniPat__10DGAniModelFUsUs

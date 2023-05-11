@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global GXSetFog
-GXSetFog:
+.fn GXSetFog, global
 /* 80040208 0003C188  7C 08 02 A6 */	mflr r0
 /* 8004020C 0003C18C  FC 04 18 00 */	fcmpu cr0, f4, f3
 /* 80040210 0003C190  90 01 00 04 */	stw r0, 0x4(r1)
@@ -120,9 +119,9 @@ GXSetFog:
 /* 800403AC 0003C32C  83 A1 00 3C */	lwz r29, 0x3c(r1)
 /* 800403B0 0003C330  38 21 00 48 */	addi r1, r1, 0x48
 /* 800403B4 0003C334  4E 80 00 20 */	blr
+.endfn GXSetFog
 
-.global GXSetFogRangeAdj
-GXSetFogRangeAdj:
+.fn GXSetFogRangeAdj, global
 /* 800403B8 0003C338  54 60 06 3F */	clrlwi. r0, r3, 24
 /* 800403BC 0003C33C  41 82 00 C0 */	beq .L_8004047C
 /* 800403C0 0003C340  A1 05 00 02 */	lhz r8, 0x2(r5)
@@ -188,9 +187,9 @@ GXSetFogRangeAdj:
 /* 800404AC 0003C42C  90 A3 80 00 */	stw r5, -0x8000(r3)
 /* 800404B0 0003C430  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 800404B4 0003C434  4E 80 00 20 */	blr
+.endfn GXSetFogRangeAdj
 
-.global GXSetBlendMode
-GXSetBlendMode:
+.fn GXSetBlendMode, global
 /* 800404B8 0003C438  2C 03 00 01 */	cmpwi r3, 0x1
 /* 800404BC 0003C43C  39 20 00 01 */	li r9, 0x1
 /* 800404C0 0003C440  41 82 00 10 */	beq .L_800404D0
@@ -257,9 +256,9 @@ GXSetBlendMode:
 /* 800405B0 0003C530  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 800405B4 0003C534  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 800405B8 0003C538  4E 80 00 20 */	blr
+.endfn GXSetBlendMode
 
-.global GXSetColorUpdate
-GXSetColorUpdate:
+.fn GXSetColorUpdate, global
 /* 800405BC 0003C53C  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 800405C0 0003C540  54 60 1D 78 */	clrlslwi r0, r3, 24, 3
 /* 800405C4 0003C544  38 60 00 61 */	li r3, 0x61
@@ -276,9 +275,9 @@ GXSetColorUpdate:
 /* 800405F0 0003C570  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 800405F4 0003C574  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 800405F8 0003C578  4E 80 00 20 */	blr
+.endfn GXSetColorUpdate
 
-.global GXSetAlphaUpdate
-GXSetAlphaUpdate:
+.fn GXSetAlphaUpdate, global
 /* 800405FC 0003C57C  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 80040600 0003C580  54 60 25 36 */	clrlslwi r0, r3, 24, 4
 /* 80040604 0003C584  38 60 00 61 */	li r3, 0x61
@@ -295,9 +294,9 @@ GXSetAlphaUpdate:
 /* 80040630 0003C5B0  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 80040634 0003C5B4  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 80040638 0003C5B8  4E 80 00 20 */	blr
+.endfn GXSetAlphaUpdate
 
-.global GXSetZMode
-GXSetZMode:
+.fn GXSetZMode, global
 /* 8004063C 0003C5BC  80 CD 82 90 */	lwz r6, gx@sda21(r13)
 /* 80040640 0003C5C0  54 60 06 3E */	clrlwi r0, r3, 24
 /* 80040644 0003C5C4  80 66 01 D8 */	lwz r3, 0x1d8(r6)
@@ -328,9 +327,9 @@ GXSetZMode:
 /* 800406A8 0003C628  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 800406AC 0003C62C  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 800406B0 0003C630  4E 80 00 20 */	blr
+.endfn GXSetZMode
 
-.global GXSetZCompLoc
-GXSetZCompLoc:
+.fn GXSetZCompLoc, global
 /* 800406B4 0003C634  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 800406B8 0003C638  54 60 34 B2 */	clrlslwi r0, r3, 24, 6
 /* 800406BC 0003C63C  38 60 00 61 */	li r3, 0x61
@@ -347,9 +346,9 @@ GXSetZCompLoc:
 /* 800406E8 0003C668  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 800406EC 0003C66C  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 800406F0 0003C670  4E 80 00 20 */	blr
+.endfn GXSetZCompLoc
 
-.global GXSetPixelFmt
-GXSetPixelFmt:
+.fn GXSetPixelFmt, global
 /* 800406F4 0003C674  80 ED 82 90 */	lwz r7, gx@sda21(r13)
 /* 800406F8 0003C678  3C A0 80 07 */	lis r5, "p2f$194"@ha
 /* 800406FC 0003C67C  54 66 10 3A */	slwi r6, r3, 2
@@ -422,9 +421,9 @@ GXSetPixelFmt:
 /* 800407F8 0003C778  38 00 00 00 */	li r0, 0x0
 /* 800407FC 0003C77C  B0 03 00 02 */	sth r0, 0x2(r3)
 /* 80040800 0003C780  4E 80 00 20 */	blr
+.endfn GXSetPixelFmt
 
-.global GXSetDither
-GXSetDither:
+.fn GXSetDither, global
 /* 80040804 0003C784  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 80040808 0003C788  54 60 15 BA */	clrlslwi r0, r3, 24, 2
 /* 8004080C 0003C78C  38 60 00 61 */	li r3, 0x61
@@ -441,9 +440,9 @@ GXSetDither:
 /* 80040838 0003C7B8  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 8004083C 0003C7BC  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 80040840 0003C7C0  4E 80 00 20 */	blr
+.endfn GXSetDither
 
-.global GXSetDstAlpha
-GXSetDstAlpha:
+.fn GXSetDstAlpha, global
 /* 80040844 0003C7C4  80 AD 82 90 */	lwz r5, gx@sda21(r13)
 /* 80040848 0003C7C8  54 66 44 2E */	clrlslwi r6, r3, 24, 8
 /* 8004084C 0003C7CC  84 05 01 D4 */	lwzu r0, 0x1d4(r5)
@@ -465,9 +464,9 @@ GXSetDstAlpha:
 /* 8004088C 0003C80C  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 80040890 0003C810  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 80040894 0003C814  4E 80 00 20 */	blr
+.endfn GXSetDstAlpha
 
-.global GXSetFieldMask
-GXSetFieldMask:
+.fn GXSetFieldMask, global
 /* 80040898 0003C818  54 80 06 3E */	clrlwi r0, r4, 24
 /* 8004089C 0003C81C  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 800408A0 0003C820  54 05 07 FA */	rlwinm r5, r0, 0, 31, 29
@@ -482,9 +481,9 @@ GXSetFieldMask:
 /* 800408C4 0003C844  90 A3 80 00 */	stw r5, -0x8000(r3)
 /* 800408C8 0003C848  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 800408CC 0003C84C  4E 80 00 20 */	blr
+.endfn GXSetFieldMask
 
-.global GXSetFieldMode
-GXSetFieldMode:
+.fn GXSetFieldMode, global
 /* 800408D0 0003C850  7C 08 02 A6 */	mflr r0
 /* 800408D4 0003C854  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800408D8 0003C858  54 80 B0 92 */	clrlslwi r0, r4, 24, 22
@@ -517,6 +516,7 @@ GXSetFieldMode:
 /* 80040944 0003C8C4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80040948 0003C8C8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004094C 0003C8CC  4E 80 00 20 */	blr
+.endfn GXSetFieldMode
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

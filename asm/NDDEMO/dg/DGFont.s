@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__6DGFontFP8DGTexManPCcUcUcUccc
-__ct__6DGFontFP8DGTexManPCcUcUcUccc:
+.fn __ct__6DGFontFP8DGTexManPCcUcUcUccc, global
 /* 80019394 00015314  7C 08 02 A6 */	mflr r0
 /* 80019398 00015318  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001939C 0001531C  94 21 FF C8 */	stwu r1, -0x38(r1)
@@ -72,9 +71,9 @@ __ct__6DGFontFP8DGTexManPCcUcUcUccc:
 /* 8001948C 0001540C  38 21 00 38 */	addi r1, r1, 0x38
 /* 80019490 00015410  7C 08 03 A6 */	mtlr r0
 /* 80019494 00015414  4E 80 00 20 */	blr
+.endfn __ct__6DGFontFP8DGTexManPCcUcUcUccc
 
-.global Begin__6DGFontFP9DGRendMan
-Begin__6DGFontFP9DGRendMan:
+.fn Begin__6DGFontFP9DGRendMan, global
 /* 80019498 00015418  7C 08 02 A6 */	mflr r0
 /* 8001949C 0001541C  38 A0 00 00 */	li r5, 0x0
 /* 800194A0 00015420  90 01 00 04 */	stw r0, 0x4(r1)
@@ -241,9 +240,9 @@ Begin__6DGFontFP9DGRendMan:
 /* 80019708 00015688  83 A1 00 7C */	lwz r29, 0x7c(r1)
 /* 8001970C 0001568C  38 21 00 90 */	addi r1, r1, 0x90
 /* 80019710 00015690  4E 80 00 20 */	blr
+.endfn Begin__6DGFontFP9DGRendMan
 
-.global End__6DGFontFv
-End__6DGFontFv:
+.fn End__6DGFontFv, global
 /* 80019714 00015694  7C 08 02 A6 */	mflr r0
 /* 80019718 00015698  38 80 00 01 */	li r4, 0x1
 /* 8001971C 0001569C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -262,29 +261,29 @@ End__6DGFontFv:
 /* 80019750 000156D0  38 21 00 08 */	addi r1, r1, 0x8
 /* 80019754 000156D4  7C 08 03 A6 */	mtlr r0
 /* 80019758 000156D8  4E 80 00 20 */	blr
+.endfn End__6DGFontFv
 
-.global SetPosition__6DGFontFss
-SetPosition__6DGFontFss:
+.fn SetPosition__6DGFontFss, global
 /* 8001975C 000156DC  B0 83 00 10 */	sth r4, 0x10(r3)
 /* 80019760 000156E0  B0 83 00 12 */	sth r4, 0x12(r3)
 /* 80019764 000156E4  B0 A3 00 14 */	sth r5, 0x14(r3)
 /* 80019768 000156E8  4E 80 00 20 */	blr
+.endfn SetPosition__6DGFontFss
 
-.global SetSize__6DGFontFs
-SetSize__6DGFontFs:
+.fn SetSize__6DGFontFs, global
 /* 8001976C 000156EC  B0 83 00 16 */	sth r4, 0x16(r3)
 /* 80019770 000156F0  4E 80 00 20 */	blr
+.endfn SetSize__6DGFontFs
 
-.global SetColor__6DGFontFUcUcUcUc
-SetColor__6DGFontFUcUcUcUc:
+.fn SetColor__6DGFontFUcUcUcUc, global
 /* 80019774 000156F4  98 83 00 18 */	stb r4, 0x18(r3)
 /* 80019778 000156F8  98 A3 00 19 */	stb r5, 0x19(r3)
 /* 8001977C 000156FC  98 C3 00 1A */	stb r6, 0x1a(r3)
 /* 80019780 00015700  98 E3 00 1B */	stb r7, 0x1b(r3)
 /* 80019784 00015704  4E 80 00 20 */	blr
+.endfn SetColor__6DGFontFUcUcUcUc
 
-.global CharOut__6DGFontFc
-CharOut__6DGFontFc:
+.fn CharOut__6DGFontFc, global
 /* 80019788 00015708  7C 08 02 A6 */	mflr r0
 /* 8001978C 0001570C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80019790 00015710  94 21 FF 20 */	stwu r1, -0xe0(r1)
@@ -457,9 +456,9 @@ CharOut__6DGFontFc:
 /* 80019A28 000159A8  83 81 00 D0 */	lwz r28, 0xd0(r1)
 /* 80019A2C 000159AC  38 21 00 E0 */	addi r1, r1, 0xe0
 /* 80019A30 000159B0  4E 80 00 20 */	blr
+.endfn CharOut__6DGFontFc
 
-.global StrOut__6DGFontFPCc
-StrOut__6DGFontFPCc:
+.fn StrOut__6DGFontFPCc, global
 /* 80019A34 000159B4  7C 08 02 A6 */	mflr r0
 /* 80019A38 000159B8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80019A3C 000159BC  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -516,6 +515,7 @@ StrOut__6DGFontFPCc:
 /* 80019AF8 00015A78  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 80019AFC 00015A7C  38 21 00 28 */	addi r1, r1, 0x28
 /* 80019B00 00015A80  4E 80 00 20 */	blr
+.endfn StrOut__6DGFontFPCc
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-WriteSramCallback:
+.fn WriteSramCallback, local
 /* 8002C2F8 00028278  7C 08 02 A6 */	mflr r0
 /* 8002C2FC 0002827C  3C 60 80 08 */	lis r3, Scb@ha
 /* 8002C300 00028280  90 01 00 04 */	stw r0, 0x4(r1)
@@ -28,8 +28,9 @@ WriteSramCallback:
 /* 8002C34C 000282CC  7C 08 03 A6 */	mtlr r0
 /* 8002C350 000282D0  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002C354 000282D4  4E 80 00 20 */	blr
+.endfn WriteSramCallback
 
-WriteSram:
+.fn WriteSram, local
 /* 8002C358 000282D8  7C 08 02 A6 */	mflr r0
 /* 8002C35C 000282DC  3C C0 80 03 */	lis r6, WriteSramCallback@ha
 /* 8002C360 000282E0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -103,9 +104,9 @@ WriteSram:
 /* 8002C464 000283E4  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 8002C468 000283E8  38 21 00 28 */	addi r1, r1, 0x28
 /* 8002C46C 000283EC  4E 80 00 20 */	blr
+.endfn WriteSram
 
-.global __OSInitSram
-__OSInitSram:
+.fn __OSInitSram, global
 /* 8002C470 000283F0  7C 08 02 A6 */	mflr r0
 /* 8002C474 000283F4  3C 60 80 08 */	lis r3, Scb@ha
 /* 8002C478 000283F8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -186,9 +187,9 @@ __OSInitSram:
 /* 8002C598 00028518  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002C59C 0002851C  7C 08 03 A6 */	mtlr r0
 /* 8002C5A0 00028520  4E 80 00 20 */	blr
+.endfn __OSInitSram
 
-.global __OSLockSram
-__OSLockSram:
+.fn __OSLockSram, global
 /* 8002C5A4 00028524  7C 08 02 A6 */	mflr r0
 /* 8002C5A8 00028528  3C 60 80 08 */	lis r3, Scb@ha
 /* 8002C5AC 0002852C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -214,9 +215,9 @@ __OSLockSram:
 /* 8002C5F4 00028574  38 21 00 10 */	addi r1, r1, 0x10
 /* 8002C5F8 00028578  7C 08 03 A6 */	mtlr r0
 /* 8002C5FC 0002857C  4E 80 00 20 */	blr
+.endfn __OSLockSram
 
-.global __OSLockSramEx
-__OSLockSramEx:
+.fn __OSLockSramEx, global
 /* 8002C600 00028580  7C 08 02 A6 */	mflr r0
 /* 8002C604 00028584  3C 60 80 08 */	lis r3, Scb@ha
 /* 8002C608 00028588  90 01 00 04 */	stw r0, 0x4(r1)
@@ -242,8 +243,9 @@ __OSLockSramEx:
 /* 8002C650 000285D0  38 21 00 10 */	addi r1, r1, 0x10
 /* 8002C654 000285D4  7C 08 03 A6 */	mtlr r0
 /* 8002C658 000285D8  4E 80 00 20 */	blr
+.endfn __OSLockSramEx
 
-UnlockSram:
+.fn UnlockSram, local
 /* 8002C65C 000285DC  7C 08 02 A6 */	mflr r0
 /* 8002C660 000285E0  2C 03 00 00 */	cmpwi r3, 0x0
 /* 8002C664 000285E4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -448,9 +450,9 @@ UnlockSram:
 /* 8002C958 000288D8  38 21 00 30 */	addi r1, r1, 0x30
 /* 8002C95C 000288DC  7C 08 03 A6 */	mtlr r0
 /* 8002C960 000288E0  4E 80 00 20 */	blr
+.endfn UnlockSram
 
-.global __OSUnlockSram
-__OSUnlockSram:
+.fn __OSUnlockSram, global
 /* 8002C964 000288E4  7C 08 02 A6 */	mflr r0
 /* 8002C968 000288E8  38 80 00 00 */	li r4, 0x0
 /* 8002C96C 000288EC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -460,9 +462,9 @@ __OSUnlockSram:
 /* 8002C97C 000288FC  38 21 00 08 */	addi r1, r1, 0x8
 /* 8002C980 00028900  7C 08 03 A6 */	mtlr r0
 /* 8002C984 00028904  4E 80 00 20 */	blr
+.endfn __OSUnlockSram
 
-.global __OSUnlockSramEx
-__OSUnlockSramEx:
+.fn __OSUnlockSramEx, global
 /* 8002C988 00028908  7C 08 02 A6 */	mflr r0
 /* 8002C98C 0002890C  38 80 00 14 */	li r4, 0x14
 /* 8002C990 00028910  90 01 00 04 */	stw r0, 0x4(r1)
@@ -472,16 +474,16 @@ __OSUnlockSramEx:
 /* 8002C9A0 00028920  38 21 00 08 */	addi r1, r1, 0x8
 /* 8002C9A4 00028924  7C 08 03 A6 */	mtlr r0
 /* 8002C9A8 00028928  4E 80 00 20 */	blr
+.endfn __OSUnlockSramEx
 
-.global __OSSyncSram
-__OSSyncSram:
+.fn __OSSyncSram, global
 /* 8002C9AC 0002892C  3C 60 80 08 */	lis r3, Scb@ha
 /* 8002C9B0 00028930  38 63 00 E0 */	addi r3, r3, Scb@l
 /* 8002C9B4 00028934  80 63 00 4C */	lwz r3, 0x4c(r3)
 /* 8002C9B8 00028938  4E 80 00 20 */	blr
+.endfn __OSSyncSram
 
-.global OSGetWirelessID
-OSGetWirelessID:
+.fn OSGetWirelessID, global
 /* 8002C9BC 0002893C  7C 08 02 A6 */	mflr r0
 /* 8002C9C0 00028940  3C 80 80 08 */	lis r4, Scb@ha
 /* 8002C9C4 00028944  90 01 00 04 */	stw r0, 0x4(r1)
@@ -517,9 +519,9 @@ OSGetWirelessID:
 /* 8002CA34 000289B4  7C 08 03 A6 */	mtlr r0
 /* 8002CA38 000289B8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002CA3C 000289BC  4E 80 00 20 */	blr
+.endfn OSGetWirelessID
 
-.global OSSetWirelessID
-OSSetWirelessID:
+.fn OSSetWirelessID, global
 /* 8002CA40 000289C0  7C 08 02 A6 */	mflr r0
 /* 8002CA44 000289C4  3C A0 80 08 */	lis r5, Scb@ha
 /* 8002CA48 000289C8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -567,6 +569,7 @@ OSSetWirelessID:
 /* 8002CAE0 00028A60  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 8002CAE4 00028A64  38 21 00 28 */	addi r1, r1, 0x28
 /* 8002CAE8 00028A68  4E 80 00 20 */	blr
+.endfn OSSetWirelessID
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

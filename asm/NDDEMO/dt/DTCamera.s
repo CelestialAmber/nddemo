@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__8DTCameraFv
-__ct__8DTCameraFv:
+.fn __ct__8DTCameraFv, global
 /* 80022E88 0001EE08  7C 08 02 A6 */	mflr r0
 /* 80022E8C 0001EE0C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80022E90 0001EE10  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -99,9 +98,9 @@ __ct__8DTCameraFv:
 /* 80022FE8 0001EF68  38 21 00 20 */	addi r1, r1, 0x20
 /* 80022FEC 0001EF6C  7C 08 03 A6 */	mtlr r0
 /* 80022FF0 0001EF70  4E 80 00 20 */	blr
+.endfn __ct__8DTCameraFv
 
-.global __dt__8DTCameraFv
-__dt__8DTCameraFv:
+.fn __dt__8DTCameraFv, global
 /* 80022FF4 0001EF74  7C 08 02 A6 */	mflr r0
 /* 80022FF8 0001EF78  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80022FFC 0001EF7C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -125,19 +124,19 @@ __dt__8DTCameraFv:
 /* 80023040 0001EFC0  7C 08 03 A6 */	mtlr r0
 /* 80023044 0001EFC4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80023048 0001EFC8  4E 80 00 20 */	blr
+.endfn __dt__8DTCameraFv
 
-.global set_bgh_handle__8DTCameraFPv
-set_bgh_handle__8DTCameraFPv:
+.fn set_bgh_handle__8DTCameraFPv, global
 /* 8002304C 0001EFCC  90 83 05 10 */	stw r4, 0x510(r3)
 /* 80023050 0001EFD0  4E 80 00 20 */	blr
+.endfn set_bgh_handle__8DTCameraFPv
 
-.global set_hit_enable_flag__8DTCameraFSc
-set_hit_enable_flag__8DTCameraFSc:
+.fn set_hit_enable_flag__8DTCameraFSc, global
 /* 80023054 0001EFD4  98 83 05 0C */	stb r4, 0x50c(r3)
 /* 80023058 0001EFD8  4E 80 00 20 */	blr
+.endfn set_hit_enable_flag__8DTCameraFSc
 
-.global set_mode__8DTCameraFSc
-set_mode__8DTCameraFSc:
+.fn set_mode__8DTCameraFSc, global
 /* 8002305C 0001EFDC  7C 08 02 A6 */	mflr r0
 /* 80023060 0001EFE0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80023064 0001EFE4  7C 80 07 74 */	extsb r0, r4
@@ -166,34 +165,34 @@ set_mode__8DTCameraFSc:
 /* 800230B8 0001F038  38 21 00 28 */	addi r1, r1, 0x28
 /* 800230BC 0001F03C  7C 08 03 A6 */	mtlr r0
 /* 800230C0 0001F040  4E 80 00 20 */	blr
+.endfn set_mode__8DTCameraFSc
 
-.global get_mode__8DTCameraFv
-get_mode__8DTCameraFv:
+.fn get_mode__8DTCameraFv, global
 /* 800230C4 0001F044  88 63 01 2C */	lbz r3, 0x12c(r3)
 /* 800230C8 0001F048  4E 80 00 20 */	blr
+.endfn get_mode__8DTCameraFv
 
-.global set_speed__8DTCameraFffff
-set_speed__8DTCameraFffff:
+.fn set_speed__8DTCameraFffff, global
 /* 800230CC 0001F04C  D0 23 01 80 */	stfs f1, 0x180(r3)
 /* 800230D0 0001F050  D0 43 01 84 */	stfs f2, 0x184(r3)
 /* 800230D4 0001F054  D0 63 02 40 */	stfs f3, 0x240(r3)
 /* 800230D8 0001F058  D0 83 02 44 */	stfs f4, 0x244(r3)
 /* 800230DC 0001F05C  4E 80 00 20 */	blr
+.endfn set_speed__8DTCameraFffff
 
-.global set_eye_offset__8DTCameraFff
-set_eye_offset__8DTCameraFff:
+.fn set_eye_offset__8DTCameraFff, global
 /* 800230E0 0001F060  D0 23 01 88 */	stfs f1, 0x188(r3)
 /* 800230E4 0001F064  D0 43 01 8C */	stfs f2, 0x18c(r3)
 /* 800230E8 0001F068  4E 80 00 20 */	blr
+.endfn set_eye_offset__8DTCameraFff
 
-.global set_at_offset__8DTCameraFff
-set_at_offset__8DTCameraFff:
+.fn set_at_offset__8DTCameraFff, global
 /* 800230EC 0001F06C  D0 23 01 90 */	stfs f1, 0x190(r3)
 /* 800230F0 0001F070  D0 43 01 94 */	stfs f2, 0x194(r3)
 /* 800230F4 0001F074  4E 80 00 20 */	blr
+.endfn set_at_offset__8DTCameraFff
 
-.global move__8DTCameraFP9PADStatus
-move__8DTCameraFP9PADStatus:
+.fn move__8DTCameraFP9PADStatus, global
 /* 800230F8 0001F078  7C 08 02 A6 */	mflr r0
 /* 800230FC 0001F07C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80023100 0001F080  94 21 FF 70 */	stwu r1, -0x90(r1)
@@ -364,9 +363,9 @@ move__8DTCameraFP9PADStatus:
 /* 80023368 0001F2E8  7C 08 03 A6 */	mtlr r0
 /* 8002336C 0001F2EC  38 21 00 90 */	addi r1, r1, 0x90
 /* 80023370 0001F2F0  4E 80 00 20 */	blr
+.endfn move__8DTCameraFP9PADStatus
 
-.global set_detach_eye__8DTCameraFv
-set_detach_eye__8DTCameraFv:
+.fn set_detach_eye__8DTCameraFv, global
 /* 80023374 0001F2F4  7C 08 02 A6 */	mflr r0
 /* 80023378 0001F2F8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002337C 0001F2FC  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -401,9 +400,9 @@ set_detach_eye__8DTCameraFv:
 /* 800233F0 0001F370  38 21 00 30 */	addi r1, r1, 0x30
 /* 800233F4 0001F374  7C 08 03 A6 */	mtlr r0
 /* 800233F8 0001F378  4E 80 00 20 */	blr
+.endfn set_detach_eye__8DTCameraFv
 
-.global set_detach_at__8DTCameraFv
-set_detach_at__8DTCameraFv:
+.fn set_detach_at__8DTCameraFv, global
 /* 800233FC 0001F37C  7C 08 02 A6 */	mflr r0
 /* 80023400 0001F380  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80023404 0001F384  94 21 FF 58 */	stwu r1, -0xa8(r1)
@@ -492,9 +491,9 @@ set_detach_at__8DTCameraFv:
 /* 80023548 0001F4C8  38 21 00 A8 */	addi r1, r1, 0xa8
 /* 8002354C 0001F4CC  7C 08 03 A6 */	mtlr r0
 /* 80023550 0001F4D0  4E 80 00 20 */	blr
+.endfn set_detach_at__8DTCameraFv
 
-.global get_delta__8DTCameraFP9PADStatus
-get_delta__8DTCameraFP9PADStatus:
+.fn get_delta__8DTCameraFP9PADStatus, global
 /* 80023554 0001F4D4  7C 08 02 A6 */	mflr r0
 /* 80023558 0001F4D8  3C A0 80 06 */	lis r5, lbl_80064564@ha
 /* 8002355C 0001F4DC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -643,9 +642,9 @@ get_delta__8DTCameraFP9PADStatus:
 /* 80023788 0001F708  7C 08 03 A6 */	mtlr r0
 /* 8002378C 0001F70C  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 80023790 0001F710  4E 80 00 20 */	blr
+.endfn get_delta__8DTCameraFP9PADStatus
 
-.global _Vec2Angle__8DTCameraFff
-_Vec2Angle__8DTCameraFff:
+.fn _Vec2Angle__8DTCameraFff, global
 /* 80023794 0001F714  7C 08 02 A6 */	mflr r0
 /* 80023798 0001F718  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002379C 0001F71C  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -715,9 +714,9 @@ _Vec2Angle__8DTCameraFff:
 /* 80023878 0001F7F8  7C 08 03 A6 */	mtlr r0
 /* 8002387C 0001F7FC  38 21 00 28 */	addi r1, r1, 0x28
 /* 80023880 0001F800  4E 80 00 20 */	blr
+.endfn _Vec2Angle__8DTCameraFff
 
-.global move__8DTCameraFScP3VecfP9PADStatus
-move__8DTCameraFScP3VecfP9PADStatus:
+.fn move__8DTCameraFScP3VecfP9PADStatus, global
 /* 80023884 0001F804  7C 08 02 A6 */	mflr r0
 /* 80023888 0001F808  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002388C 0001F80C  94 21 FD C0 */	stwu r1, -0x240(r1)
@@ -1373,9 +1372,9 @@ move__8DTCameraFScP3VecfP9PADStatus:
 /* 80024250 000201D0  38 21 02 40 */	addi r1, r1, 0x240
 /* 80024254 000201D4  7C 08 03 A6 */	mtlr r0
 /* 80024258 000201D8  4E 80 00 20 */	blr
+.endfn move__8DTCameraFScP3VecfP9PADStatus
 
-.global set_trail_offset__8DTCameraFP9PADStatus
-set_trail_offset__8DTCameraFP9PADStatus:
+.fn set_trail_offset__8DTCameraFP9PADStatus, global
 /* 8002425C 000201DC  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 80024260 000201E0  38 C0 00 00 */	li r6, 0x0
 /* 80024264 000201E4  88 A4 00 05 */	lbz r5, 0x5(r4)
@@ -1484,9 +1483,9 @@ set_trail_offset__8DTCameraFP9PADStatus:
 .L_800243DC:
 /* 800243DC 0002035C  38 21 00 18 */	addi r1, r1, 0x18
 /* 800243E0 00020360  4E 80 00 20 */	blr
+.endfn set_trail_offset__8DTCameraFP9PADStatus
 
-.global get_next_rotation__8DTCameraFfSc
-get_next_rotation__8DTCameraFfSc:
+.fn get_next_rotation__8DTCameraFfSc, global
 /* 800243E4 00020364  7C 80 07 75 */	extsb. r0, r4
 /* 800243E8 00020368  94 21 FF D8 */	stwu r1, -0x28(r1)
 /* 800243EC 0002036C  40 82 01 08 */	bne .L_800244F4
@@ -1561,9 +1560,9 @@ get_next_rotation__8DTCameraFfSc:
 .L_800244F4:
 /* 800244F4 00020474  38 21 00 28 */	addi r1, r1, 0x28
 /* 800244F8 00020478  4E 80 00 20 */	blr
+.endfn get_next_rotation__8DTCameraFfSc
 
-.global _check_bg__8DTCameraFP3Vec
-_check_bg__8DTCameraFP3Vec:
+.fn _check_bg__8DTCameraFP3Vec, global
 /* 800244FC 0002047C  7C 08 02 A6 */	mflr r0
 /* 80024500 00020480  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80024504 00020484  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1624,9 +1623,9 @@ _check_bg__8DTCameraFP3Vec:
 /* 800245D4 00020554  7C 08 03 A6 */	mtlr r0
 /* 800245D8 00020558  38 21 00 20 */	addi r1, r1, 0x20
 /* 800245DC 0002055C  4E 80 00 20 */	blr
+.endfn _check_bg__8DTCameraFP3Vec
 
-.global get_next_position__8DTCameraFP3VecP3Vec
-get_next_position__8DTCameraFP3VecP3Vec:
+.fn get_next_position__8DTCameraFP3VecP3Vec, global
 /* 800245E0 00020560  7C 08 02 A6 */	mflr r0
 /* 800245E4 00020564  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800245E8 00020568  94 21 FF 60 */	stwu r1, -0xa0(r1)
@@ -1826,9 +1825,9 @@ get_next_position__8DTCameraFP3VecP3Vec:
 /* 800248CC 0002084C  83 A1 00 94 */	lwz r29, 0x94(r1)
 /* 800248D0 00020850  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 800248D4 00020854  4E 80 00 20 */	blr
+.endfn get_next_position__8DTCameraFP3VecP3Vec
 
-.global get_next_at_position__8DTCameraFP3VecP3Vec
-get_next_at_position__8DTCameraFP3VecP3Vec:
+.fn get_next_at_position__8DTCameraFP3VecP3Vec, global
 /* 800248D8 00020858  7C 08 02 A6 */	mflr r0
 /* 800248DC 0002085C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800248E0 00020860  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -1882,9 +1881,9 @@ get_next_at_position__8DTCameraFP3VecP3Vec:
 /* 800249A0 00020920  38 21 00 60 */	addi r1, r1, 0x60
 /* 800249A4 00020924  7C 08 03 A6 */	mtlr r0
 /* 800249A8 00020928  4E 80 00 20 */	blr
+.endfn get_next_at_position__8DTCameraFP3VecP3Vec
 
-.global move__8DTCameraFP9PADStatusPfSc
-move__8DTCameraFP9PADStatusPfSc:
+.fn move__8DTCameraFP9PADStatusPfSc, global
 /* 800249AC 0002092C  7C 08 02 A6 */	mflr r0
 /* 800249B0 00020930  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800249B4 00020934  94 21 FD 88 */	stwu r1, -0x278(r1)
@@ -3066,9 +3065,9 @@ move__8DTCameraFP9PADStatusPfSc:
 /* 80025ABC 00021A3C  38 21 02 78 */	addi r1, r1, 0x278
 /* 80025AC0 00021A40  7C 08 03 A6 */	mtlr r0
 /* 80025AC4 00021A44  4E 80 00 20 */	blr
+.endfn move__8DTCameraFP9PADStatusPfSc
 
-.global set_current_room_number__8DTCameraFSc
-set_current_room_number__8DTCameraFSc:
+.fn set_current_room_number__8DTCameraFSc, global
 /* 80025AC8 00021A48  7C 80 07 74 */	extsb r0, r4
 /* 80025ACC 00021A4C  2C 00 00 10 */	cmpwi r0, 0x10
 /* 80025AD0 00021A50  40 80 00 18 */	bge .L_80025AE8
@@ -3080,9 +3079,9 @@ set_current_room_number__8DTCameraFSc:
 .L_80025AE8:
 /* 80025AE8 00021A68  38 60 FF FF */	li r3, -0x1
 /* 80025AEC 00021A6C  4E 80 00 20 */	blr
+.endfn set_current_room_number__8DTCameraFSc
 
-.global set_mcd_data__8DTCameraFScPv
-set_mcd_data__8DTCameraFScPv:
+.fn set_mcd_data__8DTCameraFScPv, global
 /* 80025AF0 00021A70  7C 86 07 74 */	extsb r6, r4
 /* 80025AF4 00021A74  2C 06 00 10 */	cmpwi r6, 0x10
 /* 80025AF8 00021A78  38 E0 FF FF */	li r7, -0x1
@@ -3130,9 +3129,9 @@ set_mcd_data__8DTCameraFScPv:
 .L_80025B98:
 /* 80025B98 00021B18  7C E3 3B 78 */	mr r3, r7
 /* 80025B9C 00021B1C  4E 80 00 20 */	blr
+.endfn set_mcd_data__8DTCameraFScPv
 
-.global _get_pad_trg__8DTCameraFP9PADStatus
-_get_pad_trg__8DTCameraFP9PADStatus:
+.fn _get_pad_trg__8DTCameraFP9PADStatus, global
 /* 80025BA0 00021B20  A0 A4 00 00 */	lhz r5, 0x0(r4)
 /* 80025BA4 00021B24  A0 03 05 08 */	lhz r0, 0x508(r3)
 /* 80025BA8 00021B28  7C A0 02 78 */	xor r0, r5, r0
@@ -3141,9 +3140,9 @@ _get_pad_trg__8DTCameraFP9PADStatus:
 /* 80025BB4 00021B34  A0 04 00 00 */	lhz r0, 0x0(r4)
 /* 80025BB8 00021B38  B0 03 05 08 */	sth r0, 0x508(r3)
 /* 80025BBC 00021B3C  4E 80 00 20 */	blr
+.endfn _get_pad_trg__8DTCameraFP9PADStatus
 
-.global move__8DTCameraFP3VecfP3VecP3Vec
-move__8DTCameraFP3VecfP3VecP3Vec:
+.fn move__8DTCameraFP3VecfP3VecP3Vec, global
 /* 80025BC0 00021B40  7C 08 02 A6 */	mflr r0
 /* 80025BC4 00021B44  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80025BC8 00021B48  94 21 FE 48 */	stwu r1, -0x1b8(r1)
@@ -3503,9 +3502,9 @@ move__8DTCameraFP3VecfP3VecP3Vec:
 /* 80026130 000220B0  83 C1 01 A8 */	lwz r30, 0x1a8(r1)
 /* 80026134 000220B4  38 21 01 B8 */	addi r1, r1, 0x1b8
 /* 80026138 000220B8  4E 80 00 20 */	blr
+.endfn move__8DTCameraFP3VecfP3VecP3Vec
 
-.global move__8DTCameraFfP9PADStatusP3Vec
-move__8DTCameraFfP9PADStatusP3Vec:
+.fn move__8DTCameraFfP9PADStatusP3Vec, global
 /* 8002613C 000220BC  7C 08 02 A6 */	mflr r0
 /* 80026140 000220C0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80026144 000220C4  94 21 FE 38 */	stwu r1, -0x1c8(r1)
@@ -4061,9 +4060,9 @@ move__8DTCameraFfP9PADStatusP3Vec:
 /* 80026968 000228E8  83 A1 01 B4 */	lwz r29, 0x1b4(r1)
 /* 8002696C 000228EC  38 21 01 C8 */	addi r1, r1, 0x1c8
 /* 80026970 000228F0  4E 80 00 20 */	blr
+.endfn move__8DTCameraFfP9PADStatusP3Vec
 
-.global _get_spil_eye_pos__8DTCameraFP3VecP3Vec
-_get_spil_eye_pos__8DTCameraFP3VecP3Vec:
+.fn _get_spil_eye_pos__8DTCameraFP3VecP3Vec, global
 /* 80026974 000228F4  94 21 FF D8 */	stwu r1, -0x28(r1)
 /* 80026978 000228F8  3C 60 80 06 */	lis r3, iSpilCenter@ha
 /* 8002697C 000228FC  C4 03 74 00 */	lfsu f0, iSpilCenter@l(r3)
@@ -4136,6 +4135,7 @@ _get_spil_eye_pos__8DTCameraFP3VecP3Vec:
 /* 80026A84 00022A04  D0 05 00 08 */	stfs f0, 0x8(r5)
 /* 80026A88 00022A08  38 21 00 28 */	addi r1, r1, 0x28
 /* 80026A8C 00022A0C  4E 80 00 20 */	blr
+.endfn _get_spil_eye_pos__8DTCameraFP3VecP3Vec
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 

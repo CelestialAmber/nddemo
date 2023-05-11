@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global GXFlush
-GXFlush:
+.fn GXFlush, global
 /* 8003C81C 0003879C  7C 08 02 A6 */	mflr r0
 /* 8003C820 000387A0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8003C824 000387A4  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -28,9 +27,9 @@ GXFlush:
 /* 8003C86C 000387EC  38 21 00 08 */	addi r1, r1, 0x8
 /* 8003C870 000387F0  7C 08 03 A6 */	mtlr r0
 /* 8003C874 000387F4  4E 80 00 20 */	blr
+.endfn GXFlush
 
-.global GXSetDrawSync
-GXSetDrawSync:
+.fn GXSetDrawSync, global
 /* 8003C878 000387F8  7C 08 02 A6 */	mflr r0
 /* 8003C87C 000387FC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8003C880 00038800  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -78,9 +77,9 @@ GXSetDrawSync:
 /* 8003C924 000388A4  7C 08 03 A6 */	mtlr r0
 /* 8003C928 000388A8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8003C92C 000388AC  4E 80 00 20 */	blr
+.endfn GXSetDrawSync
 
-.global GXDrawDone
-GXDrawDone:
+.fn GXDrawDone, global
 /* 8003C930 000388B0  7C 08 02 A6 */	mflr r0
 /* 8003C934 000388B4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8003C938 000388B8  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -115,9 +114,9 @@ GXDrawDone:
 /* 8003C9A4 00038924  38 21 00 18 */	addi r1, r1, 0x18
 /* 8003C9A8 00038928  7C 08 03 A6 */	mtlr r0
 /* 8003C9AC 0003892C  4E 80 00 20 */	blr
+.endfn GXDrawDone
 
-.global GXPixModeSync
-GXPixModeSync:
+.fn GXPixModeSync, global
 /* 8003C9B0 00038930  38 00 00 61 */	li r0, 0x61
 /* 8003C9B4 00038934  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 8003C9B8 00038938  3C A0 CC 01 */	lis r5, 0xCC008000@ha
@@ -127,25 +126,25 @@ GXPixModeSync:
 /* 8003C9C8 00038948  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 8003C9CC 0003894C  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 8003C9D0 00038950  4E 80 00 20 */	blr
+.endfn GXPixModeSync
 
-.global GXPokeAlphaMode
-GXPokeAlphaMode:
+.fn GXPokeAlphaMode, global
 /* 8003C9D4 00038954  80 AD 86 D0 */	lwz r5, __peReg@sda21(r13)
 /* 8003C9D8 00038958  54 80 06 3E */	clrlwi r0, r4, 24
 /* 8003C9DC 0003895C  50 60 40 2E */	rlwimi r0, r3, 8, 0, 23
 /* 8003C9E0 00038960  B0 05 00 06 */	sth r0, 0x6(r5)
 /* 8003C9E4 00038964  4E 80 00 20 */	blr
+.endfn GXPokeAlphaMode
 
-.global GXPokeAlphaRead
-GXPokeAlphaRead:
+.fn GXPokeAlphaRead, global
 /* 8003C9E8 00038968  54 60 07 B8 */	rlwinm r0, r3, 0, 30, 28
 /* 8003C9EC 0003896C  80 6D 86 D0 */	lwz r3, __peReg@sda21(r13)
 /* 8003C9F0 00038970  60 00 00 04 */	ori r0, r0, 0x4
 /* 8003C9F4 00038974  B0 03 00 08 */	sth r0, 0x8(r3)
 /* 8003C9F8 00038978  4E 80 00 20 */	blr
+.endfn GXPokeAlphaRead
 
-.global GXPokeAlphaUpdate
-GXPokeAlphaUpdate:
+.fn GXPokeAlphaUpdate, global
 /* 8003C9FC 0003897C  80 8D 86 D0 */	lwz r4, __peReg@sda21(r13)
 /* 8003CA00 00038980  54 60 25 36 */	clrlslwi r0, r3, 24, 4
 /* 8003CA04 00038984  A4 64 00 02 */	lhzu r3, 0x2(r4)
@@ -153,9 +152,9 @@ GXPokeAlphaUpdate:
 /* 8003CA0C 0003898C  7C 60 03 78 */	or r0, r3, r0
 /* 8003CA10 00038990  B0 04 00 00 */	sth r0, 0x0(r4)
 /* 8003CA14 00038994  4E 80 00 20 */	blr
+.endfn GXPokeAlphaUpdate
 
-.global GXPokeBlendMode
-GXPokeBlendMode:
+.fn GXPokeBlendMode, global
 /* 8003CA18 00038998  80 ED 86 D0 */	lwz r7, __peReg@sda21(r13)
 /* 8003CA1C 0003899C  2C 03 00 01 */	cmpwi r3, 0x1
 /* 8003CA20 000389A0  39 20 00 01 */	li r9, 0x1
@@ -191,9 +190,9 @@ GXPokeBlendMode:
 /* 8003CA94 00038A14  64 00 41 00 */	oris r0, r0, 0x4100
 /* 8003CA98 00038A18  B0 0A 00 00 */	sth r0, 0x0(r10)
 /* 8003CA9C 00038A1C  4E 80 00 20 */	blr
+.endfn GXPokeBlendMode
 
-.global GXPokeColorUpdate
-GXPokeColorUpdate:
+.fn GXPokeColorUpdate, global
 /* 8003CAA0 00038A20  80 8D 86 D0 */	lwz r4, __peReg@sda21(r13)
 /* 8003CAA4 00038A24  54 60 1D 78 */	clrlslwi r0, r3, 24, 3
 /* 8003CAA8 00038A28  A4 64 00 02 */	lhzu r3, 0x2(r4)
@@ -201,17 +200,17 @@ GXPokeColorUpdate:
 /* 8003CAB0 00038A30  7C 60 03 78 */	or r0, r3, r0
 /* 8003CAB4 00038A34  B0 04 00 00 */	sth r0, 0x0(r4)
 /* 8003CAB8 00038A38  4E 80 00 20 */	blr
+.endfn GXPokeColorUpdate
 
-.global GXPokeDstAlpha
-GXPokeDstAlpha:
+.fn GXPokeDstAlpha, global
 /* 8003CABC 00038A3C  80 AD 86 D0 */	lwz r5, __peReg@sda21(r13)
 /* 8003CAC0 00038A40  54 60 44 2E */	clrlslwi r0, r3, 24, 8
 /* 8003CAC4 00038A44  50 80 06 3E */	rlwimi r0, r4, 0, 24, 31
 /* 8003CAC8 00038A48  B0 05 00 04 */	sth r0, 0x4(r5)
 /* 8003CACC 00038A4C  4E 80 00 20 */	blr
+.endfn GXPokeDstAlpha
 
-.global GXPokeDither
-GXPokeDither:
+.fn GXPokeDither, global
 /* 8003CAD0 00038A50  80 8D 86 D0 */	lwz r4, __peReg@sda21(r13)
 /* 8003CAD4 00038A54  54 60 15 BA */	clrlslwi r0, r3, 24, 2
 /* 8003CAD8 00038A58  A4 64 00 02 */	lhzu r3, 0x2(r4)
@@ -219,9 +218,9 @@ GXPokeDither:
 /* 8003CAE0 00038A60  7C 60 03 78 */	or r0, r3, r0
 /* 8003CAE4 00038A64  B0 04 00 00 */	sth r0, 0x0(r4)
 /* 8003CAE8 00038A68  4E 80 00 20 */	blr
+.endfn GXPokeDither
 
-.global GXPokeZMode
-GXPokeZMode:
+.fn GXPokeZMode, global
 /* 8003CAEC 00038A6C  54 60 06 3E */	clrlwi r0, r3, 24
 /* 8003CAF0 00038A70  80 6D 86 D0 */	lwz r3, __peReg@sda21(r13)
 /* 8003CAF4 00038A74  54 06 07 F6 */	rlwinm r6, r0, 0, 31, 27
@@ -232,8 +231,9 @@ GXPokeZMode:
 /* 8003CB08 00038A88  7C 80 03 78 */	or r0, r4, r0
 /* 8003CB0C 00038A8C  B0 03 00 00 */	sth r0, 0x0(r3)
 /* 8003CB10 00038A90  4E 80 00 20 */	blr
+.endfn GXPokeZMode
 
-GXTokenInterruptHandler:
+.fn GXTokenInterruptHandler, local
 /* 8003CB14 00038A94  7C 08 02 A6 */	mflr r0
 /* 8003CB18 00038A98  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8003CB1C 00038A9C  94 21 FD 20 */	stwu r1, -0x2e0(r1)
@@ -269,9 +269,9 @@ GXTokenInterruptHandler:
 /* 8003CB90 00038B10  7C 08 03 A6 */	mtlr r0
 /* 8003CB94 00038B14  38 21 02 E0 */	addi r1, r1, 0x2e0
 /* 8003CB98 00038B18  4E 80 00 20 */	blr
+.endfn GXTokenInterruptHandler
 
-.global GXSetDrawDoneCallback
-GXSetDrawDoneCallback:
+.fn GXSetDrawDoneCallback, global
 /* 8003CB9C 00038B1C  7C 08 02 A6 */	mflr r0
 /* 8003CBA0 00038B20  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8003CBA4 00038B24  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -289,8 +289,9 @@ GXSetDrawDoneCallback:
 /* 8003CBD4 00038B54  7C 08 03 A6 */	mtlr r0
 /* 8003CBD8 00038B58  38 21 00 18 */	addi r1, r1, 0x18
 /* 8003CBDC 00038B5C  4E 80 00 20 */	blr
+.endfn GXSetDrawDoneCallback
 
-GXFinishInterruptHandler:
+.fn GXFinishInterruptHandler, local
 /* 8003CBE0 00038B60  7C 08 02 A6 */	mflr r0
 /* 8003CBE4 00038B64  38 60 00 01 */	li r3, 0x1
 /* 8003CBE8 00038B68  90 01 00 04 */	stw r0, 0x4(r1)
@@ -325,9 +326,9 @@ GXFinishInterruptHandler:
 /* 8003CC58 00038BD8  38 21 02 E0 */	addi r1, r1, 0x2e0
 /* 8003CC5C 00038BDC  7C 08 03 A6 */	mtlr r0
 /* 8003CC60 00038BE0  4E 80 00 20 */	blr
+.endfn GXFinishInterruptHandler
 
-.global __GXPEInit
-__GXPEInit:
+.fn __GXPEInit, global
 /* 8003CC64 00038BE4  7C 08 02 A6 */	mflr r0
 /* 8003CC68 00038BE8  3C 60 80 04 */	lis r3, GXTokenInterruptHandler@ha
 /* 8003CC6C 00038BEC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -360,6 +361,7 @@ __GXPEInit:
 /* 8003CCD8 00038C58  38 21 00 08 */	addi r1, r1, 0x8
 /* 8003CCDC 00038C5C  7C 08 03 A6 */	mtlr r0
 /* 8003CCE0 00038C60  4E 80 00 20 */	blr
+.endfn __GXPEInit
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 

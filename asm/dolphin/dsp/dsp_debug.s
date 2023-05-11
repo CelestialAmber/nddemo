@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __DSP_debug_printf
-__DSP_debug_printf:
+.fn __DSP_debug_printf, global
 /* 80039474 000353F4  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 80039478 000353F8  40 86 00 24 */	bne cr1, .L_8003949C
 /* 8003947C 000353FC  D8 21 00 28 */	stfd f1, 0x28(r1)
@@ -25,3 +24,4 @@ __DSP_debug_printf:
 /* 800394B8 00035438  91 41 00 24 */	stw r10, 0x24(r1)
 /* 800394BC 0003543C  38 21 00 70 */	addi r1, r1, 0x70
 /* 800394C0 00035440  4E 80 00 20 */	blr
+.endfn __DSP_debug_printf

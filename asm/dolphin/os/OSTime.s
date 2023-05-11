@@ -2,22 +2,21 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global OSGetTime
-OSGetTime:
+.fn OSGetTime, global
 /* 8002F51C 0002B49C  7C 6D 42 E6 */	mftb r3, 269
 /* 8002F520 0002B4A0  7C 8C 42 E6 */	mftb r4, 268
 /* 8002F524 0002B4A4  7C AD 42 E6 */	mftb r5, 269
 /* 8002F528 0002B4A8  7C 03 28 00 */	cmpw r3, r5
 /* 8002F52C 0002B4AC  40 82 FF F0 */	bne OSGetTime
 /* 8002F530 0002B4B0  4E 80 00 20 */	blr
+.endfn OSGetTime
 
-.global OSGetTick
-OSGetTick:
+.fn OSGetTick, global
 /* 8002F534 0002B4B4  7C 6C 42 E6 */	mftb r3, 268
 /* 8002F538 0002B4B8  4E 80 00 20 */	blr
+.endfn OSGetTick
 
-.global __OSGetSystemTime
-__OSGetSystemTime:
+.fn __OSGetSystemTime, global
 /* 8002F53C 0002B4BC  7C 08 02 A6 */	mflr r0
 /* 8002F540 0002B4C0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002F544 0002B4C4  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -43,3 +42,4 @@ __OSGetSystemTime:
 /* 8002F594 0002B514  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8002F598 0002B518  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002F59C 0002B51C  4E 80 00 20 */	blr
+.endfn __OSGetSystemTime

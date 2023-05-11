@@ -4,7 +4,7 @@
 
 
 
-ResetNotes:
+.fn ResetNotes, local
 /* 800419AC 0003D92C  80 A3 0E 64 */	lwz r5, 0xe64(r3)
 /* 800419B0 0003D930  28 05 00 00 */	cmplwi r5, 0x0
 /* 800419B4 0003D934  41 82 00 40 */	beq .L_800419F4
@@ -49,8 +49,9 @@ ResetNotes:
 /* 80041A34 0003D9B4  90 8D 87 14 */	stw r4, noteFree@sda21(r13)
 /* 80041A38 0003D9B8  90 03 0E 68 */	stw r0, 0xe68(r3)
 /* 80041A3C 0003D9BC  4E 80 00 20 */	blr
+.endfn ResetNotes
 
-AllocateNote:
+.fn AllocateNote, local
 /* 80041A40 0003D9C0  80 CD 87 14 */	lwz r6, noteFree@sda21(r13)
 /* 80041A44 0003D9C4  28 06 00 00 */	cmplwi r6, 0x0
 /* 80041A48 0003D9C8  41 82 00 A8 */	beq .L_80041AF0
@@ -106,8 +107,9 @@ AllocateNote:
 .L_80041AF0:
 /* 80041AF0 0003DA70  7C C3 33 78 */	mr r3, r6
 /* 80041AF4 0003DA74  4E 80 00 20 */	blr
+.endfn AllocateNote
 
-seqFreeKeyOffNote:
+.fn seqFreeKeyOffNote, local
 /* 80041AF8 0003DA78  80 83 00 00 */	lwz r4, 0x0(r3)
 /* 80041AFC 0003DA7C  28 04 00 00 */	cmplwi r4, 0x0
 /* 80041B00 0003DA80  41 82 00 0C */	beq .L_80041B0C
@@ -136,8 +138,9 @@ seqFreeKeyOffNote:
 /* 80041B4C 0003DACC  90 03 00 04 */	stw r0, 0x4(r3)
 /* 80041B50 0003DAD0  90 6D 87 14 */	stw r3, noteFree@sda21(r13)
 /* 80041B54 0003DAD4  4E 80 00 20 */	blr
+.endfn seqFreeKeyOffNote
 
-GetPublicId:
+.fn GetPublicId, local
 /* 80041B58 0003DAD8  80 AD 87 2C */	lwz r5, seqActiveRoot@sda21(r13)
 /* 80041B5C 0003DADC  80 CD 87 28 */	lwz r6, seqPausedRoot@sda21(r13)
 .L_80041B60:
@@ -186,9 +189,9 @@ GetPublicId:
 /* 80041BE8 0003DB68  90 E3 00 0C */	stw r7, 0xc(r3)
 /* 80041BEC 0003DB6C  7C E3 3B 78 */	mr r3, r7
 /* 80041BF0 0003DB70  4E 80 00 20 */	blr
+.endfn GetPublicId
 
-.global seqGetPrivateId
-seqGetPrivateId:
+.fn seqGetPrivateId, global
 /* 80041BF4 0003DB74  80 AD 87 2C */	lwz r5, seqActiveRoot@sda21(r13)
 /* 80041BF8 0003DB78  54 64 00 7E */	clrlwi r4, r3, 1
 /* 80041BFC 0003DB7C  48 00 00 24 */	b .L_80041C20
@@ -222,9 +225,9 @@ seqGetPrivateId:
 /* 80041C54 0003DBD4  40 82 FF DC */	bne .L_80041C30
 /* 80041C58 0003DBD8  38 60 FF FF */	li r3, -0x1
 /* 80041C5C 0003DBDC  4E 80 00 20 */	blr
+.endfn seqGetPrivateId
 
-.global seqStartPlay
-seqStartPlay:
+.fn seqStartPlay, global
 /* 80041C60 0003DBE0  7C 08 02 A6 */	mflr r0
 /* 80041C64 0003DBE4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80041C68 0003DBE8  94 21 FF 68 */	stwu r1, -0x98(r1)
@@ -957,8 +960,9 @@ seqStartPlay:
 /* 800426F8 0003E678  38 21 00 98 */	addi r1, r1, 0x98
 /* 800426FC 0003E67C  7C 08 03 A6 */	mtlr r0
 /* 80042700 0003E680  4E 80 00 20 */	blr
+.endfn seqStartPlay
 
-HandleMasterTrack:
+.fn HandleMasterTrack, local
 /* 80042704 0003E684  7C 08 02 A6 */	mflr r0
 /* 80042708 0003E688  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004270C 0003E68C  54 60 06 3E */	clrlwi r0, r3, 24
@@ -1001,8 +1005,9 @@ HandleMasterTrack:
 /* 80042794 0003E714  7C 08 03 A6 */	mtlr r0
 /* 80042798 0003E718  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004279C 0003E71C  4E 80 00 20 */	blr
+.endfn HandleMasterTrack
 
-StartPause:
+.fn StartPause, local
 /* 800427A0 0003E720  80 83 00 04 */	lwz r4, 0x4(r3)
 /* 800427A4 0003E724  28 04 00 00 */	cmplwi r4, 0x0
 /* 800427A8 0003E728  41 82 00 10 */	beq .L_800427B8
@@ -1032,9 +1037,9 @@ StartPause:
 /* 800427F8 0003E778  90 6D 87 28 */	stw r3, seqPausedRoot@sda21(r13)
 /* 800427FC 0003E77C  98 03 00 08 */	stb r0, 0x8(r3)
 /* 80042800 0003E780  4E 80 00 20 */	blr
+.endfn StartPause
 
-.global seqPause
-seqPause:
+.fn seqPause, global
 /* 80042804 0003E784  7C 08 02 A6 */	mflr r0
 /* 80042808 0003E788  54 65 00 7E */	clrlwi r5, r3, 1
 /* 8004280C 0003E78C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1152,9 +1157,9 @@ seqPause:
 /* 80042988 0003E908  7C 08 03 A6 */	mtlr r0
 /* 8004298C 0003E90C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80042990 0003E910  4E 80 00 20 */	blr
+.endfn seqPause
 
-.global seqStop
-seqStop:
+.fn seqStop, global
 /* 80042994 0003E914  7C 08 02 A6 */	mflr r0
 /* 80042998 0003E918  3C 80 80 08 */	lis r4, seqNote@ha
 /* 8004299C 0003E91C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1293,9 +1298,9 @@ seqStop:
 /* 80042B5C 0003EADC  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80042B60 0003EAE0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80042B64 0003EAE4  4E 80 00 20 */	blr
+.endfn seqStop
 
-.global seqSpeed
-seqSpeed:
+.fn seqSpeed, global
 /* 80042B68 0003EAE8  3C A0 80 08 */	lis r5, seqNote@ha
 /* 80042B6C 0003EAEC  80 CD 87 2C */	lwz r6, seqActiveRoot@sda21(r13)
 /* 80042B70 0003EAF0  38 A5 16 58 */	addi r5, r5, seqNote@l
@@ -1359,9 +1364,9 @@ seqSpeed:
 /* 80042C38 0003EBB8  98 03 22 D6 */	stb r0, 0x22d6(r3)
 /* 80042C3C 0003EBBC  B0 83 22 D4 */	sth r4, 0x22d4(r3)
 /* 80042C40 0003EBC0  4E 80 00 20 */	blr
+.endfn seqSpeed
 
-.global seqContinue
-seqContinue:
+.fn seqContinue, global
 /* 80042C44 0003EBC4  80 8D 87 2C */	lwz r4, seqActiveRoot@sda21(r13)
 /* 80042C48 0003EBC8  54 65 00 7E */	clrlwi r5, r3, 1
 /* 80042C4C 0003EBCC  48 00 00 20 */	b .L_80042C6C
@@ -1441,9 +1446,9 @@ seqContinue:
 /* 80042D44 0003ECC4  54 00 07 76 */	rlwinm r0, r0, 0, 29, 27
 /* 80042D48 0003ECC8  98 03 0E D6 */	stb r0, 0xed6(r3)
 /* 80042D4C 0003ECCC  4E 80 00 20 */	blr
+.endfn seqContinue
 
-.global seqMute
-seqMute:
+.fn seqMute, global
 /* 80042D50 0003ECD0  3C C0 80 08 */	lis r6, seqNote@ha
 /* 80042D54 0003ECD4  80 ED 87 2C */	lwz r7, seqActiveRoot@sda21(r13)
 /* 80042D58 0003ECD8  38 C6 16 58 */	addi r6, r6, seqNote@l
@@ -1497,9 +1502,9 @@ seqMute:
 /* 80042DF8 0003ED78  90 83 22 CC */	stw r4, 0x22cc(r3)
 /* 80042DFC 0003ED7C  90 A3 22 D0 */	stw r5, 0x22d0(r3)
 /* 80042E00 0003ED80  4E 80 00 20 */	blr
+.endfn seqMute
 
-.global seqVolume
-seqVolume:
+.fn seqVolume, global
 /* 80042E04 0003ED84  7C 08 02 A6 */	mflr r0
 /* 80042E08 0003ED88  3D 00 80 08 */	lis r8, seqNote@ha
 /* 80042E0C 0003ED8C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1619,9 +1624,9 @@ seqVolume:
 /* 80042F94 0003EF14  38 21 00 30 */	addi r1, r1, 0x30
 /* 80042F98 0003EF18  7C 08 03 A6 */	mtlr r0
 /* 80042F9C 0003EF1C  4E 80 00 20 */	blr
+.endfn seqVolume
 
-.global seqCrossFade
-seqCrossFade:
+.fn seqCrossFade, global
 /* 80042FA0 0003EF20  7C 08 02 A6 */	mflr r0
 /* 80042FA4 0003EF24  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80042FA8 0003EF28  94 21 FF A8 */	stwu r1, -0x58(r1)
@@ -1991,8 +1996,9 @@ seqCrossFade:
 /* 800434C8 0003F448  38 21 00 58 */	addi r1, r1, 0x58
 /* 800434CC 0003F44C  7C 08 03 A6 */	mtlr r0
 /* 800434D0 0003F450  4E 80 00 20 */	blr
+.endfn seqCrossFade
 
-GetStreamValue:
+.fn GetStreamValue, local
 /* 800434D4 0003F454  88 C3 00 00 */	lbz r6, 0x0(r3)
 /* 800434D8 0003F458  88 E3 00 01 */	lbz r7, 0x1(r3)
 /* 800434DC 0003F45C  28 06 00 80 */	cmplwi r6, 0x80
@@ -2038,8 +2044,9 @@ GetStreamValue:
 /* 8004356C 0003F4EC  B0 05 00 00 */	sth r0, 0x0(r5)
 /* 80043570 0003F4F0  38 63 00 01 */	addi r3, r3, 0x1
 /* 80043574 0003F4F4  4E 80 00 20 */	blr
+.endfn GetStreamValue
 
-GenerateNextTrackEvent:
+.fn GenerateNextTrackEvent, local
 /* 80043578 0003F4F8  54 66 06 3E */	clrlwi r6, r3, 24
 /* 8004357C 0003F4FC  80 ED 87 10 */	lwz r7, cseq@sda21(r13)
 /* 80043580 0003F500  54 64 1D 78 */	clrlslwi r4, r3, 24, 3
@@ -2189,8 +2196,9 @@ GenerateNextTrackEvent:
 .L_80043788:
 /* 80043788 0003F708  38 60 00 00 */	li r3, 0x0
 /* 8004378C 0003F70C  4E 80 00 20 */	blr
+.endfn GenerateNextTrackEvent
 
-InsertGlobalEvent:
+.fn InsertGlobalEvent, local
 /* 80043790 0003F710  80 C3 00 14 */	lwz r6, 0x14(r3)
 /* 80043794 0003F714  38 E0 00 00 */	li r7, 0x0
 /* 80043798 0003F718  48 00 00 40 */	b .L_800437D8
@@ -2227,8 +2235,9 @@ InsertGlobalEvent:
 /* 800437F8 0003F778  38 00 00 00 */	li r0, 0x0
 /* 800437FC 0003F77C  90 04 00 00 */	stw r0, 0x0(r4)
 /* 80043800 0003F780  4E 80 00 20 */	blr
+.endfn InsertGlobalEvent
 
-HandleEvent:
+.fn HandleEvent, local
 /* 80043804 0003F784  7C 08 02 A6 */	mflr r0
 /* 80043808 0003F788  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004380C 0003F78C  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -2752,8 +2761,9 @@ HandleEvent:
 /* 80043F70 0003FEF0  38 21 00 60 */	addi r1, r1, 0x60
 /* 80043F74 0003FEF4  7C 08 03 A6 */	mtlr r0
 /* 80043F78 0003FEF8  4E 80 00 20 */	blr
+.endfn HandleEvent
 
-InitTrackEvents:
+.fn InitTrackEvents, local
 /* 80043F7C 0003FEFC  7C 08 02 A6 */	mflr r0
 /* 80043F80 0003FF00  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80043F84 0003FF04  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -2802,8 +2812,9 @@ InitTrackEvents:
 /* 80044018 0003FF98  38 21 00 10 */	addi r1, r1, 0x10
 /* 8004401C 0003FF9C  7C 08 03 A6 */	mtlr r0
 /* 80044020 0003FFA0  4E 80 00 20 */	blr
+.endfn InitTrackEvents
 
-InitTrackEventsSection:
+.fn InitTrackEventsSection, local
 /* 80044024 0003FFA4  7C 08 02 A6 */	mflr r0
 /* 80044028 0003FFA8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004402C 0003FFAC  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -2859,8 +2870,9 @@ InitTrackEventsSection:
 /* 800440DC 0004005C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800440E0 00040060  38 21 00 20 */	addi r1, r1, 0x20
 /* 800440E4 00040064  4E 80 00 20 */	blr
+.endfn InitTrackEventsSection
 
-HandleTrackEvents:
+.fn HandleTrackEvents, local
 /* 800440E8 00040068  7C 08 02 A6 */	mflr r0
 /* 800440EC 0004006C  3C A0 10 62 */	lis r5, 0x1062
 /* 800440F0 00040070  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2965,9 +2977,9 @@ HandleTrackEvents:
 /* 80044258 000401D8  38 21 00 38 */	addi r1, r1, 0x38
 /* 8004425C 000401DC  7C 08 03 A6 */	mtlr r0
 /* 80044260 000401E0  4E 80 00 20 */	blr
+.endfn HandleTrackEvents
 
-.global seqHandle
-seqHandle:
+.fn seqHandle, global
 /* 80044264 000401E4  7C 08 02 A6 */	mflr r0
 /* 80044268 000401E8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004426C 000401EC  94 21 FF A8 */	stwu r1, -0x58(r1)
@@ -3471,9 +3483,9 @@ seqHandle:
 /* 8004499C 0004091C  38 21 00 58 */	addi r1, r1, 0x58
 /* 800449A0 00040920  7C 08 03 A6 */	mtlr r0
 /* 800449A4 00040924  4E 80 00 20 */	blr
+.endfn seqHandle
 
-.global seqInit
-seqInit:
+.fn seqInit, global
 /* 800449A8 00040928  3C 60 80 08 */	lis r3, seqNote@ha
 /* 800449AC 0004092C  38 E3 16 58 */	addi r7, r3, seqNote@l
 /* 800449B0 00040930  38 80 00 00 */	li r4, 0x0
@@ -3628,6 +3640,7 @@ seqInit:
 /* 80044BCC 00040B4C  90 04 00 00 */	stw r0, 0x0(r4)
 /* 80044BD0 00040B50  90 0D 87 20 */	stw r0, seq_next_id@sda21(r13)
 /* 80044BD4 00040B54  4E 80 00 20 */	blr
+.endfn seqInit
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
@@ -3747,7 +3760,7 @@ lbl_80005570:
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
 
-
+.global lbl_80005BC0
 lbl_80005BC0:
 	.4byte seqStartPlay
 	.4byte 0x00000AA4

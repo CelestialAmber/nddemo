@@ -3,7 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-mcmdWait:
+.fn mcmdWait, local
 /* 8004A7D4 00046754  7C 08 02 A6 */	mflr r0
 /* 8004A7D8 00046758  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004A7DC 0004675C  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -217,8 +217,9 @@ mcmdWait:
 /* 8004AAD0 00046A50  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 8004AAD4 00046A54  38 21 00 28 */	addi r1, r1, 0x28
 /* 8004AAD8 00046A58  4E 80 00 20 */	blr
+.endfn mcmdWait
 
-mcmdLoop:
+.fn mcmdLoop, local
 /* 8004AADC 00046A5C  7C 08 02 A6 */	mflr r0
 /* 8004AAE0 00046A60  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004AAE4 00046A64  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -313,8 +314,9 @@ mcmdLoop:
 /* 8004AC28 00046BA8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8004AC2C 00046BAC  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004AC30 00046BB0  4E 80 00 20 */	blr
+.endfn mcmdLoop
 
-mcmdPlayMacro:
+.fn mcmdPlayMacro, local
 /* 8004AC34 00046BB4  7C 08 02 A6 */	mflr r0
 /* 8004AC38 00046BB8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004AC3C 00046BBC  94 21 FF C8 */	stwu r1, -0x38(r1)
@@ -424,8 +426,9 @@ mcmdPlayMacro:
 /* 8004ADC0 00046D40  7C 08 03 A6 */	mtlr r0
 /* 8004ADC4 00046D44  38 21 00 38 */	addi r1, r1, 0x38
 /* 8004ADC8 00046D48  4E 80 00 20 */	blr
+.endfn mcmdPlayMacro
 
-mcmdStartSample:
+.fn mcmdStartSample, local
 /* 8004ADCC 00046D4C  7C 08 02 A6 */	mflr r0
 /* 8004ADD0 00046D50  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004ADD4 00046D54  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -556,8 +559,9 @@ mcmdStartSample:
 /* 8004AFA4 00046F24  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8004AFA8 00046F28  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004AFAC 00046F2C  4E 80 00 20 */	blr
+.endfn mcmdStartSample
 
-mcmdVibrato:
+.fn mcmdVibrato, local
 /* 8004AFB0 00046F30  7C 08 02 A6 */	mflr r0
 /* 8004AFB4 00046F34  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004AFB8 00046F38  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -666,8 +670,9 @@ mcmdVibrato:
 /* 8004B124 000470A4  7C 08 03 A6 */	mtlr r0
 /* 8004B128 000470A8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004B12C 000470AC  4E 80 00 20 */	blr
+.endfn mcmdVibrato
 
-DoSetPitch:
+.fn DoSetPitch, local
 /* 8004B130 000470B0  80 03 01 2C */	lwz r0, 0x12c(r3)
 /* 8004B134 000470B4  3C 80 80 07 */	lis r4, "kf$475"@ha
 /* 8004B138 000470B8  80 E3 01 28 */	lwz r7, 0x128(r3)
@@ -779,8 +784,9 @@ DoSetPitch:
 /* 8004B2B4 00047234  7C 00 07 74 */	extsb r0, r0
 /* 8004B2B8 00047238  98 03 01 32 */	stb r0, 0x132(r3)
 /* 8004B2BC 0004723C  4E 80 00 20 */	blr
+.endfn DoSetPitch
 
-mcmdSetADSR:
+.fn mcmdSetADSR, local
 /* 8004B2C0 00047240  7C 08 02 A6 */	mflr r0
 /* 8004B2C4 00047244  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004B2C8 00047248  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -936,8 +942,9 @@ mcmdSetADSR:
 /* 8004B50C 0004748C  7C 08 03 A6 */	mtlr r0
 /* 8004B510 00047490  38 21 00 48 */	addi r1, r1, 0x48
 /* 8004B514 00047494  4E 80 00 20 */	blr
+.endfn mcmdSetADSR
 
-mcmdSetPitchADSR:
+.fn mcmdSetPitchADSR, local
 /* 8004B518 00047498  7C 08 02 A6 */	mflr r0
 /* 8004B51C 0004749C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004B520 000474A0  94 21 FF A8 */	stwu r1, -0x58(r1)
@@ -1104,8 +1111,9 @@ mcmdSetPitchADSR:
 /* 8004B78C 0004770C  38 21 00 58 */	addi r1, r1, 0x58
 /* 8004B790 00047710  7C 08 03 A6 */	mtlr r0
 /* 8004B794 00047714  4E 80 00 20 */	blr
+.endfn mcmdSetPitchADSR
 
-DoPanningSetup:
+.fn DoPanningSetup, local
 /* 8004B798 00047718  7C 08 02 A6 */	mflr r0
 /* 8004B79C 0004771C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004B7A0 00047720  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -1148,8 +1156,9 @@ DoPanningSetup:
 /* 8004B82C 000477AC  38 21 00 30 */	addi r1, r1, 0x30
 /* 8004B830 000477B0  7C 08 03 A6 */	mtlr r0
 /* 8004B834 000477B4  4E 80 00 20 */	blr
+.endfn DoPanningSetup
 
-TranslateVolume:
+.fn TranslateVolume, local
 /* 8004B838 000477B8  7C 08 02 A6 */	mflr r0
 /* 8004B83C 000477BC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004B840 000477C0  54 80 04 3E */	clrlwi r0, r4, 16
@@ -1184,8 +1193,9 @@ TranslateVolume:
 /* 8004B8AC 0004782C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004B8B0 00047830  7C 08 03 A6 */	mtlr r0
 /* 8004B8B4 00047834  4E 80 00 20 */	blr
+.endfn TranslateVolume
 
-DoEnvelopeCalculation:
+.fn DoEnvelopeCalculation, local
 /* 8004B8B8 00047838  7C 08 02 A6 */	mflr r0
 /* 8004B8BC 0004783C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004B8C0 00047840  94 21 FF C8 */	stwu r1, -0x38(r1)
@@ -1267,8 +1277,9 @@ DoEnvelopeCalculation:
 /* 8004B9D8 00047958  38 21 00 38 */	addi r1, r1, 0x38
 /* 8004B9DC 0004795C  7C 08 03 A6 */	mtlr r0
 /* 8004B9E0 00047960  4E 80 00 20 */	blr
+.endfn DoEnvelopeCalculation
 
-mcmdRandomKey:
+.fn mcmdRandomKey, local
 /* 8004B9E4 00047964  7C 08 02 A6 */	mflr r0
 /* 8004B9E8 00047968  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004B9EC 0004796C  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -1384,8 +1395,9 @@ mcmdRandomKey:
 /* 8004BB78 00047AF8  38 21 00 28 */	addi r1, r1, 0x28
 /* 8004BB7C 00047AFC  7C 08 03 A6 */	mtlr r0
 /* 8004BB80 00047B00  4E 80 00 20 */	blr
+.endfn mcmdRandomKey
 
-SelectSource:
+.fn SelectSource, local
 /* 8004BB84 00047B04  7C 08 02 A6 */	mflr r0
 /* 8004BB88 00047B08  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004BB8C 00047B0C  38 00 00 00 */	li r0, 0x0
@@ -1469,8 +1481,9 @@ SelectSource:
 /* 8004BCAC 00047C2C  7C 08 03 A6 */	mtlr r0
 /* 8004BCB0 00047C30  38 21 00 30 */	addi r1, r1, 0x30
 /* 8004BCB4 00047C34  4E 80 00 20 */	blr
+.endfn SelectSource
 
-mcmdPortamento:
+.fn mcmdPortamento, local
 /* 8004BCB8 00047C38  7C 08 02 A6 */	mflr r0
 /* 8004BCBC 00047C3C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004BCC0 00047C40  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1548,9 +1561,9 @@ mcmdPortamento:
 /* 8004BDC8 00047D48  7C 08 03 A6 */	mtlr r0
 /* 8004BDCC 00047D4C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004BDD0 00047D50  4E 80 00 20 */	blr
+.endfn mcmdPortamento
 
-.global varGet32
-varGet32:
+.fn varGet32, global
 /* 8004BDD4 00047D54  7C 08 02 A6 */	mflr r0
 /* 8004BDD8 00047D58  28 04 00 00 */	cmplwi r4, 0x0
 /* 8004BDDC 00047D5C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1579,9 +1592,9 @@ varGet32:
 /* 8004BE2C 00047DAC  38 21 00 08 */	addi r1, r1, 0x8
 /* 8004BE30 00047DB0  7C 08 03 A6 */	mtlr r0
 /* 8004BE34 00047DB4  4E 80 00 20 */	blr
+.endfn varGet32
 
-.global varGet
-varGet:
+.fn varGet, global
 /* 8004BE38 00047DB8  7C 08 02 A6 */	mflr r0
 /* 8004BE3C 00047DBC  28 04 00 00 */	cmplwi r4, 0x0
 /* 8004BE40 00047DC0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1611,9 +1624,9 @@ varGet:
 /* 8004BE94 00047E14  38 21 00 08 */	addi r1, r1, 0x8
 /* 8004BE98 00047E18  7C 08 03 A6 */	mtlr r0
 /* 8004BE9C 00047E1C  4E 80 00 20 */	blr
+.endfn varGet
 
-.global varSet32
-varSet32:
+.fn varSet32, global
 /* 8004BEA0 00047E20  7C 08 02 A6 */	mflr r0
 /* 8004BEA4 00047E24  28 04 00 00 */	cmplwi r4, 0x0
 /* 8004BEA8 00047E28  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1642,8 +1655,9 @@ varSet32:
 /* 8004BEF8 00047E78  38 21 00 08 */	addi r1, r1, 0x8
 /* 8004BEFC 00047E7C  7C 08 03 A6 */	mtlr r0
 /* 8004BF00 00047E80  4E 80 00 20 */	blr
+.endfn varSet32
 
-mcmdVarCalculation:
+.fn mcmdVarCalculation, local
 /* 8004BF04 00047E84  7C 08 02 A6 */	mflr r0
 /* 8004BF08 00047E88  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004BF0C 00047E8C  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -1733,8 +1747,9 @@ mcmdVarCalculation:
 /* 8004C028 00047FA8  38 21 00 30 */	addi r1, r1, 0x30
 /* 8004C02C 00047FAC  7C 08 03 A6 */	mtlr r0
 /* 8004C030 00047FB0  4E 80 00 20 */	blr
+.endfn mcmdVarCalculation
 
-mcmdSendMessage:
+.fn mcmdSendMessage, local
 /* 8004C034 00047FB4  7C 08 02 A6 */	mflr r0
 /* 8004C038 00047FB8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004C03C 00047FBC  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -1886,8 +1901,9 @@ mcmdSendMessage:
 /* 8004C25C 000481DC  38 21 00 30 */	addi r1, r1, 0x30
 /* 8004C260 000481E0  7C 08 03 A6 */	mtlr r0
 /* 8004C264 000481E4  4E 80 00 20 */	blr
+.endfn mcmdSendMessage
 
-mcmdSetKeyGroup:
+.fn mcmdSetKeyGroup, local
 /* 8004C268 000481E8  7C 08 02 A6 */	mflr r0
 /* 8004C26C 000481EC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004C270 000481F0  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -1946,8 +1962,9 @@ mcmdSetKeyGroup:
 /* 8004C330 000482B0  38 21 00 28 */	addi r1, r1, 0x28
 /* 8004C334 000482B4  7C 08 03 A6 */	mtlr r0
 /* 8004C338 000482B8  4E 80 00 20 */	blr
+.endfn mcmdSetKeyGroup
 
-macHandleActive:
+.fn macHandleActive, local
 /* 8004C33C 000482BC  7C 08 02 A6 */	mflr r0
 /* 8004C340 000482C0  38 C0 00 03 */	li r6, 0x3
 /* 8004C344 000482C4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -3421,9 +3438,9 @@ macHandleActive:
 /* 8004D7E4 00049764  CB A1 00 C8 */	lfd f29, 0xc8(r1)
 /* 8004D7E8 00049768  38 21 00 E0 */	addi r1, r1, 0xe0
 /* 8004D7EC 0004976C  4E 80 00 20 */	blr
+.endfn macHandleActive
 
-.global macHandle
-macHandle:
+.fn macHandle, global
 /* 8004D7F0 00049770  7C 08 02 A6 */	mflr r0
 /* 8004D7F4 00049774  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004D7F8 00049778  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -3514,9 +3531,9 @@ macHandle:
 /* 8004D92C 000498AC  38 21 00 30 */	addi r1, r1, 0x30
 /* 8004D930 000498B0  7C 08 03 A6 */	mtlr r0
 /* 8004D934 000498B4  4E 80 00 20 */	blr
+.endfn macHandle
 
-.global macSampleEndNotify
-macSampleEndNotify:
+.fn macSampleEndNotify, global
 /* 8004D938 000498B8  7C 08 02 A6 */	mflr r0
 /* 8004D93C 000498BC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004D940 000498C0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3564,9 +3581,9 @@ macSampleEndNotify:
 /* 8004D9DC 0004995C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004D9E0 00049960  7C 08 03 A6 */	mtlr r0
 /* 8004D9E4 00049964  4E 80 00 20 */	blr
+.endfn macSampleEndNotify
 
-.global macSetExternalKeyoff
-macSetExternalKeyoff:
+.fn macSetExternalKeyoff, global
 /* 8004D9E8 00049968  7C 08 02 A6 */	mflr r0
 /* 8004D9EC 0004996C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004D9F0 00049970  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3632,9 +3649,9 @@ macSetExternalKeyoff:
 /* 8004DAD0 00049A50  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004DAD4 00049A54  7C 08 03 A6 */	mtlr r0
 /* 8004DAD8 00049A58  4E 80 00 20 */	blr
+.endfn macSetExternalKeyoff
 
-.global macSetPedalState
-macSetPedalState:
+.fn macSetPedalState, global
 /* 8004DADC 00049A5C  7C 08 02 A6 */	mflr r0
 /* 8004DAE0 00049A60  28 04 00 00 */	cmplwi r4, 0x0
 /* 8004DAE4 00049A64  90 01 00 04 */	stw r0, 0x4(r1)
@@ -3707,8 +3724,9 @@ macSetPedalState:
 /* 8004DBDC 00049B5C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004DBE0 00049B60  7C 08 03 A6 */	mtlr r0
 /* 8004DBE4 00049B64  4E 80 00 20 */	blr
+.endfn macSetPedalState
 
-TimeQueueAdd:
+.fn TimeQueueAdd, local
 /* 8004DBE8 00049B68  80 ED 87 C8 */	lwz r7, macTimeQueueRoot@sda21(r13)
 /* 8004DBEC 00049B6C  39 00 00 00 */	li r8, 0x0
 /* 8004DBF0 00049B70  48 00 00 0C */	b .L_8004DBFC
@@ -3757,8 +3775,9 @@ TimeQueueAdd:
 .L_8004DC84:
 /* 8004DC84 00049C04  90 67 00 48 */	stw r3, 0x48(r7)
 /* 8004DC88 00049C08  4E 80 00 20 */	blr
+.endfn TimeQueueAdd
 
-UnYieldMacro:
+.fn UnYieldMacro, local
 /* 8004DC8C 00049C0C  7C 08 02 A6 */	mflr r0
 /* 8004DC90 00049C10  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004DC94 00049C14  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3819,9 +3838,9 @@ UnYieldMacro:
 /* 8004DD5C 00049CDC  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004DD60 00049CE0  7C 08 03 A6 */	mtlr r0
 /* 8004DD64 00049CE4  4E 80 00 20 */	blr
+.endfn UnYieldMacro
 
-.global macMakeActive
-macMakeActive:
+.fn macMakeActive, global
 /* 8004DD68 00049CE8  7C 08 02 A6 */	mflr r0
 /* 8004DD6C 00049CEC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004DD70 00049CF0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3894,9 +3913,9 @@ macMakeActive:
 /* 8004DE64 00049DE4  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004DE68 00049DE8  7C 08 03 A6 */	mtlr r0
 /* 8004DE6C 00049DEC  4E 80 00 20 */	blr
+.endfn macMakeActive
 
-.global macMakeInactive
-macMakeInactive:
+.fn macMakeInactive, global
 /* 8004DE70 00049DF0  80 03 00 4C */	lwz r0, 0x4c(r3)
 /* 8004DE74 00049DF4  7C 00 20 00 */	cmpw r0, r4
 /* 8004DE78 00049DF8  4D 82 00 20 */	beqlr
@@ -3967,9 +3986,9 @@ macMakeInactive:
 .L_8004DF64:
 /* 8004DF64 00049EE4  90 83 00 4C */	stw r4, 0x4c(r3)
 /* 8004DF68 00049EE8  4E 80 00 20 */	blr
+.endfn macMakeInactive
 
-.global macStart
-macStart:
+.fn macStart, global
 /* 8004DF6C 00049EEC  7C 08 02 A6 */	mflr r0
 /* 8004DF70 00049EF0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004DF74 00049EF4  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -4184,9 +4203,9 @@ macStart:
 /* 8004E270 0004A1F0  38 21 00 60 */	addi r1, r1, 0x60
 /* 8004E274 0004A1F4  7C 08 03 A6 */	mtlr r0
 /* 8004E278 0004A1F8  4E 80 00 20 */	blr
+.endfn macStart
 
-.global macInit
-macInit:
+.fn macInit, global
 /* 8004E27C 0004A1FC  38 E0 00 00 */	li r7, 0x0
 /* 8004E280 0004A200  90 ED 87 D4 */	stw r7, macRealTime+4@sda21(r13)
 /* 8004E284 0004A204  3C 60 80 09 */	lis r3, synthInfo@ha
@@ -4215,6 +4234,7 @@ macInit:
 /* 8004E2D8 0004A258  7C 09 00 40 */	cmplw r9, r0
 /* 8004E2DC 0004A25C  41 80 FF CC */	blt .L_8004E2A8
 /* 8004E2E0 0004A260  4E 80 00 20 */	blr
+.endfn macInit
 
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0

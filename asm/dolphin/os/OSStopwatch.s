@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global OSInitStopwatch
-OSInitStopwatch:
+.fn OSInitStopwatch, global
 /* 8002E1E8 0002A168  90 83 00 00 */	stw r4, 0x0(r3)
 /* 8002E1EC 0002A16C  38 80 00 00 */	li r4, 0x0
 /* 8002E1F0 0002A170  38 00 FF FF */	li r0, -0x1
@@ -15,9 +14,9 @@ OSInitStopwatch:
 /* 8002E208 0002A188  90 83 00 24 */	stw r4, 0x24(r3)
 /* 8002E20C 0002A18C  90 83 00 20 */	stw r4, 0x20(r3)
 /* 8002E210 0002A190  4E 80 00 20 */	blr
+.endfn OSInitStopwatch
 
-.global OSStartStopwatch
-OSStartStopwatch:
+.fn OSStartStopwatch, global
 /* 8002E214 0002A194  7C 08 02 A6 */	mflr r0
 /* 8002E218 0002A198  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002E21C 0002A19C  38 00 00 01 */	li r0, 0x1
@@ -33,9 +32,9 @@ OSStartStopwatch:
 /* 8002E244 0002A1C4  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002E248 0002A1C8  7C 08 03 A6 */	mtlr r0
 /* 8002E24C 0002A1CC  4E 80 00 20 */	blr
+.endfn OSStartStopwatch
 
-.global OSStopStopwatch
-OSStopStopwatch:
+.fn OSStopStopwatch, global
 /* 8002E250 0002A1D0  7C 08 02 A6 */	mflr r0
 /* 8002E254 0002A1D4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002E258 0002A1D8  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -89,9 +88,9 @@ OSStopStopwatch:
 /* 8002E310 0002A290  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002E314 0002A294  7C 08 03 A6 */	mtlr r0
 /* 8002E318 0002A298  4E 80 00 20 */	blr
+.endfn OSStopStopwatch
 
-.global OSCheckStopwatch
-OSCheckStopwatch:
+.fn OSCheckStopwatch, global
 /* 8002E31C 0002A29C  7C 08 02 A6 */	mflr r0
 /* 8002E320 0002A2A0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002E324 0002A2A4  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -121,9 +120,9 @@ OSCheckStopwatch:
 /* 8002E380 0002A300  7C 08 03 A6 */	mtlr r0
 /* 8002E384 0002A304  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002E388 0002A308  4E 80 00 20 */	blr
+.endfn OSCheckStopwatch
 
-.global OSResetStopwatch
-OSResetStopwatch:
+.fn OSResetStopwatch, global
 /* 8002E38C 0002A30C  38 80 00 00 */	li r4, 0x0
 /* 8002E390 0002A310  90 83 00 0C */	stw r4, 0xc(r3)
 /* 8002E394 0002A314  38 00 FF FF */	li r0, -0x1
@@ -134,3 +133,4 @@ OSResetStopwatch:
 /* 8002E3A8 0002A328  90 83 00 24 */	stw r4, 0x24(r3)
 /* 8002E3AC 0002A32C  90 83 00 20 */	stw r4, 0x20(r3)
 /* 8002E3B0 0002A330  4E 80 00 20 */	blr
+.endfn OSResetStopwatch

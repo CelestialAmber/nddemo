@@ -5,7 +5,7 @@
 .global __OSSystemCallVectorStart
 __OSSystemCallVectorStart:
 
-SystemCallVector:
+.fn SystemCallVector, local
 /* 8002E3B4 0002A334  7D 30 FA A6 */	mfspr r9, HID0
 /* 8002E3B8 0002A338  61 2A 00 08 */	ori r10, r9, 0x8
 /* 8002E3BC 0002A33C  7D 50 FB A6 */	mtspr HID0, r10
@@ -13,13 +13,13 @@ SystemCallVector:
 /* 8002E3C4 0002A344  7C 00 04 AC */	sync
 /* 8002E3C8 0002A348  7D 30 FB A6 */	mtspr HID0, r9
 /* 8002E3CC 0002A34C  4C 00 00 64 */	rfi
+.endfn SystemCallVector
 
-.global __OSSystemCallVectorEnd
-__OSSystemCallVectorEnd:
+.fn __OSSystemCallVectorEnd, global
 /* 8002E3D0 0002A350  60 00 00 00 */	nop
+.endfn __OSSystemCallVectorEnd
 
-.global __OSInitSystemCall
-__OSInitSystemCall:
+.fn __OSInitSystemCall, global
 /* 8002E3D4 0002A354  7C 08 02 A6 */	mflr r0
 /* 8002E3D8 0002A358  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002E3DC 0002A35C  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -45,3 +45,4 @@ __OSInitSystemCall:
 /* 8002E42C 0002A3AC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8002E430 0002A3B0  7C 08 03 A6 */	mtlr r0
 /* 8002E434 0002A3B4  4E 80 00 20 */	blr
+.endfn __OSInitSystemCall

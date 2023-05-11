@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global TRKSuppAccessFile
-TRKSuppAccessFile:
+.fn TRKSuppAccessFile, global
 /* 8005CA38 000589B8  7C 08 02 A6 */	mflr r0
 /* 8005CA3C 000589BC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005CA40 000589C0  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -215,9 +214,9 @@ TRKSuppAccessFile:
 /* 8005CD04 00058C84  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005CD08 00058C88  7C 08 03 A6 */	mtlr r0
 /* 8005CD0C 00058C8C  4E 80 00 20 */	blr
+.endfn TRKSuppAccessFile
 
-.global TRKRequestSend
-TRKRequestSend:
+.fn TRKRequestSend, global
 /* 8005CD10 00058C90  7C 08 02 A6 */	mflr r0
 /* 8005CD14 00058C94  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005CD18 00058C98  38 00 FF FF */	li r0, -0x1
@@ -336,3 +335,4 @@ TRKRequestSend:
 /* 8005CEA8 00058E28  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005CEAC 00058E2C  7C 08 03 A6 */	mtlr r0
 /* 8005CEB0 00058E30  4E 80 00 20 */	blr
+.endfn TRKRequestSend

@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-__GXXfVtxSpecs:
+.fn __GXXfVtxSpecs, local
 /* 8003B45C 000373DC  80 AD 82 90 */	lwz r5, gx@sda21(r13)
 /* 8003B460 000373E0  80 85 00 14 */	lwz r4, 0x14(r5)
 /* 8003B464 000373E4  54 80 9F BF */	extrwi. r0, r4, 2, 17
@@ -112,9 +112,9 @@ __GXXfVtxSpecs:
 /* 8003B5A8 00037528  38 00 00 01 */	li r0, 0x1
 /* 8003B5AC 0003752C  B0 03 00 02 */	sth r0, 0x2(r3)
 /* 8003B5B0 00037530  4E 80 00 20 */	blr
+.endfn __GXXfVtxSpecs
 
-.global GXSetVtxDesc
-GXSetVtxDesc:
+.fn GXSetVtxDesc, global
 /* 8003B5B4 00037534  28 03 00 19 */	cmplwi r3, 0x19
 /* 8003B5B8 00037538  41 81 03 00 */	bgt .L_8003B8B8
 /* 8003B5BC 0003753C  3C A0 80 07 */	lis r5, lbl_80068858@ha
@@ -359,9 +359,9 @@ GXSetVtxDesc:
 /* 8003B908 00037888  60 00 00 08 */	ori r0, r0, 0x8
 /* 8003B90C 0003788C  90 03 04 F0 */	stw r0, 0x4f0(r3)
 /* 8003B910 00037890  4E 80 00 20 */	blr
+.endfn GXSetVtxDesc
 
-.global GXSetVtxDescv
-GXSetVtxDescv:
+.fn GXSetVtxDescv, global
 /* 8003B914 00037894  3C 80 80 07 */	lis r4, lbl_800688C0@ha
 /* 8003B918 00037898  38 84 88 C0 */	addi r4, r4, lbl_800688C0@l
 /* 8003B91C 0003789C  48 00 03 14 */	b .L_8003BC30
@@ -617,9 +617,9 @@ GXSetVtxDescv:
 /* 8003BC8C 00037C0C  60 00 00 08 */	ori r0, r0, 0x8
 /* 8003BC90 00037C10  90 03 04 F0 */	stw r0, 0x4f0(r3)
 /* 8003BC94 00037C14  4E 80 00 20 */	blr
+.endfn GXSetVtxDescv
 
-.global __GXSetVCD
-__GXSetVCD:
+.fn __GXSetVCD, global
 /* 8003BC98 00037C18  7C 08 02 A6 */	mflr r0
 /* 8003BC9C 00037C1C  38 C0 00 08 */	li r6, 0x8
 /* 8003BCA0 00037C20  90 01 00 04 */	stw r0, 0x4(r1)
@@ -711,9 +711,9 @@ __GXSetVCD:
 /* 8003BDF4 00037D74  38 21 00 20 */	addi r1, r1, 0x20
 /* 8003BDF8 00037D78  7C 08 03 A6 */	mtlr r0
 /* 8003BDFC 00037D7C  4E 80 00 20 */	blr
+.endfn __GXSetVCD
 
-.global GXGetVtxDesc
-GXGetVtxDesc:
+.fn GXGetVtxDesc, global
 /* 8003BE00 00037D80  28 03 00 19 */	cmplwi r3, 0x19
 /* 8003BE04 00037D84  41 81 01 A4 */	bgt .L_8003BFA8
 /* 8003BE08 00037D88  3C A0 80 07 */	lis r5, lbl_80068928@ha
@@ -849,9 +849,9 @@ GXGetVtxDesc:
 .L_8003BFAC:
 /* 8003BFAC 00037F2C  90 04 00 00 */	stw r0, 0x0(r4)
 /* 8003BFB0 00037F30  4E 80 00 20 */	blr
+.endfn GXGetVtxDesc
 
-.global GXGetVtxDescv
-GXGetVtxDescv:
+.fn GXGetVtxDescv, global
 /* 8003BFB4 00037F34  7C 08 02 A6 */	mflr r0
 /* 8003BFB8 00037F38  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8003BFBC 00037F3C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -881,9 +881,9 @@ GXGetVtxDescv:
 /* 8003C018 00037F98  38 21 00 20 */	addi r1, r1, 0x20
 /* 8003C01C 00037F9C  7C 08 03 A6 */	mtlr r0
 /* 8003C020 00037FA0  4E 80 00 20 */	blr
+.endfn GXGetVtxDescv
 
-.global GXClearVtxDesc
-GXClearVtxDesc:
+.fn GXClearVtxDesc, global
 /* 8003C024 00037FA4  80 6D 82 90 */	lwz r3, gx@sda21(r13)
 /* 8003C028 00037FA8  38 80 00 00 */	li r4, 0x0
 /* 8003C02C 00037FAC  90 83 00 14 */	stw r4, 0x14(r3)
@@ -903,9 +903,9 @@ GXClearVtxDesc:
 /* 8003C064 00037FE4  60 00 00 08 */	ori r0, r0, 0x8
 /* 8003C068 00037FE8  90 03 04 F0 */	stw r0, 0x4f0(r3)
 /* 8003C06C 00037FEC  4E 80 00 20 */	blr
+.endfn GXClearVtxDesc
 
-.global GXSetVtxAttrFmt
-GXSetVtxAttrFmt:
+.fn GXSetVtxAttrFmt, global
 /* 8003C070 00037FF0  38 04 FF F7 */	addi r0, r4, -0x9
 /* 8003C074 00037FF4  81 0D 82 90 */	lwz r8, gx@sda21(r13)
 /* 8003C078 00037FF8  54 64 10 3A */	slwi r4, r3, 2
@@ -1135,9 +1135,9 @@ GXSetVtxAttrFmt:
 /* 8003C3C0 00038340  7C 60 03 78 */	or r0, r3, r0
 /* 8003C3C4 00038344  98 04 04 EE */	stb r0, 0x4ee(r4)
 /* 8003C3C8 00038348  4E 80 00 20 */	blr
+.endfn GXSetVtxAttrFmt
 
-.global __GXSetVAT
-__GXSetVAT:
+.fn __GXSetVAT, global
 /* 8003C3CC 0003834C  81 4D 82 90 */	lwz r10, gx@sda21(r13)
 /* 8003C3D0 00038350  39 80 00 00 */	li r12, 0x0
 /* 8003C3D4 00038354  39 60 00 00 */	li r11, 0x0
@@ -1180,9 +1180,9 @@ __GXSetVAT:
 /* 8003C45C 000383DC  38 00 00 00 */	li r0, 0x0
 /* 8003C460 000383E0  98 03 04 EE */	stb r0, 0x4ee(r3)
 /* 8003C464 000383E4  4E 80 00 20 */	blr
+.endfn __GXSetVAT
 
-.global GXSetArray
-GXSetArray:
+.fn GXSetArray, global
 /* 8003C468 000383E8  2C 03 00 19 */	cmpwi r3, 0x19
 /* 8003C46C 000383EC  40 82 00 08 */	bne .L_8003C474
 /* 8003C470 000383F0  38 60 00 0A */	li r3, 0xa
@@ -1220,16 +1220,16 @@ GXSetArray:
 /* 8003C4E8 00038468  7C 63 02 14 */	add r3, r3, r0
 /* 8003C4EC 0003846C  90 83 00 98 */	stw r4, 0x98(r3)
 /* 8003C4F0 00038470  4E 80 00 20 */	blr
+.endfn GXSetArray
 
-.global GXInvalidateVtxCache
-GXInvalidateVtxCache:
+.fn GXInvalidateVtxCache, global
 /* 8003C4F4 00038474  38 00 00 48 */	li r0, 0x48
 /* 8003C4F8 00038478  3C 60 CC 01 */	lis r3, 0xCC008000@ha
 /* 8003C4FC 0003847C  98 03 80 00 */	stb r0, 0xCC008000@l(r3)
 /* 8003C500 00038480  4E 80 00 20 */	blr
+.endfn GXInvalidateVtxCache
 
-.global GXSetTexCoordGen2
-GXSetTexCoordGen2:
+.fn GXSetTexCoordGen2, global
 /* 8003C504 00038484  7C 08 02 A6 */	mflr r0
 /* 8003C508 00038488  28 05 00 14 */	cmplwi r5, 0x14
 /* 8003C50C 0003848C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1442,9 +1442,9 @@ GXSetTexCoordGen2:
 /* 8003C7C8 00038748  38 21 00 08 */	addi r1, r1, 0x8
 /* 8003C7CC 0003874C  7C 08 03 A6 */	mtlr r0
 /* 8003C7D0 00038750  4E 80 00 20 */	blr
+.endfn GXSetTexCoordGen2
 
-.global GXSetNumTexGens
-GXSetNumTexGens:
+.fn GXSetNumTexGens, global
 /* 8003C7D4 00038754  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 8003C7D8 00038758  54 67 06 3E */	clrlwi r7, r3, 24
 /* 8003C7DC 0003875C  38 60 00 10 */	li r3, 0x10
@@ -1463,6 +1463,7 @@ GXSetNumTexGens:
 /* 8003C810 00038790  60 00 00 04 */	ori r0, r0, 0x4
 /* 8003C814 00038794  90 03 04 F0 */	stw r0, 0x4f0(r3)
 /* 8003C818 00038798  4E 80 00 20 */	blr
+.endfn GXSetNumTexGens
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

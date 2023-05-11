@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global sndSeqGetValid
-sndSeqGetValid:
+.fn sndSeqGetValid, global
 /* 80047BE8 00043B68  7C 08 02 A6 */	mflr r0
 /* 80047BEC 00043B6C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047BF0 00043B70  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -16,9 +15,9 @@ sndSeqGetValid:
 /* 80047C08 00043B88  38 21 00 08 */	addi r1, r1, 0x8
 /* 80047C0C 00043B8C  7C 08 03 A6 */	mtlr r0
 /* 80047C10 00043B90  4E 80 00 20 */	blr
+.endfn sndSeqGetValid
 
-.global sndSeqSpeed
-sndSeqSpeed:
+.fn sndSeqSpeed, global
 /* 80047C14 00043B94  7C 08 02 A6 */	mflr r0
 /* 80047C18 00043B98  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047C1C 00043B9C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -37,9 +36,9 @@ sndSeqSpeed:
 /* 80047C50 00043BD0  7C 08 03 A6 */	mtlr r0
 /* 80047C54 00043BD4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80047C58 00043BD8  4E 80 00 20 */	blr
+.endfn sndSeqSpeed
 
-.global sndSeqContinue
-sndSeqContinue:
+.fn sndSeqContinue, global
 /* 80047C5C 00043BDC  7C 08 02 A6 */	mflr r0
 /* 80047C60 00043BE0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047C64 00043BE4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -54,9 +53,9 @@ sndSeqContinue:
 /* 80047C88 00043C08  38 21 00 18 */	addi r1, r1, 0x18
 /* 80047C8C 00043C0C  7C 08 03 A6 */	mtlr r0
 /* 80047C90 00043C10  4E 80 00 20 */	blr
+.endfn sndSeqContinue
 
-.global sndSeqMute
-sndSeqMute:
+.fn sndSeqMute, global
 /* 80047C94 00043C14  7C 08 02 A6 */	mflr r0
 /* 80047C98 00043C18  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047C9C 00043C1C  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -79,9 +78,9 @@ sndSeqMute:
 /* 80047CE0 00043C60  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80047CE4 00043C64  38 21 00 28 */	addi r1, r1, 0x28
 /* 80047CE8 00043C68  4E 80 00 20 */	blr
+.endfn sndSeqMute
 
-.global sndSeqVolume
-sndSeqVolume:
+.fn sndSeqVolume, global
 /* 80047CEC 00043C6C  7C 08 02 A6 */	mflr r0
 /* 80047CF0 00043C70  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047CF4 00043C74  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -108,9 +107,9 @@ sndSeqVolume:
 /* 80047D48 00043CC8  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 80047D4C 00043CCC  38 21 00 28 */	addi r1, r1, 0x28
 /* 80047D50 00043CD0  4E 80 00 20 */	blr
+.endfn sndSeqVolume
 
-.global seqGetMIDIPriority
-seqGetMIDIPriority:
+.fn seqGetMIDIPriority, global
 /* 80047D54 00043CD4  3C A0 80 09 */	lis r5, seqMIDIPriority@ha
 /* 80047D58 00043CD8  54 63 2C F4 */	clrlslwi r3, r3, 24, 5
 /* 80047D5C 00043CDC  38 05 E7 78 */	addi r0, r5, seqMIDIPriority@l
@@ -119,6 +118,7 @@ seqGetMIDIPriority:
 /* 80047D68 00043CE8  7C 63 02 14 */	add r3, r3, r0
 /* 80047D6C 00043CEC  A0 63 00 00 */	lhz r3, 0x0(r3)
 /* 80047D70 00043CF0  4E 80 00 20 */	blr
+.endfn seqGetMIDIPriority
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 

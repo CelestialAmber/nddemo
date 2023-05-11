@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __OSInitAudioSystem
-__OSInitAudioSystem:
+.fn __OSInitAudioSystem, global
 /* 80028C6C 00024BEC  7C 08 02 A6 */	mflr r0
 /* 80028C70 00024BF0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80028C74 00024BF4  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -126,9 +125,9 @@ __OSInitAudioSystem:
 /* 80028E1C 00024D9C  38 21 00 30 */	addi r1, r1, 0x30
 /* 80028E20 00024DA0  7C 08 03 A6 */	mtlr r0
 /* 80028E24 00024DA4  4E 80 00 20 */	blr
+.endfn __OSInitAudioSystem
 
-.global __OSStopAudioSystem
-__OSStopAudioSystem:
+.fn __OSStopAudioSystem, global
 /* 80028E28 00024DA8  7C 08 02 A6 */	mflr r0
 /* 80028E2C 00024DAC  3C 60 CC 00 */	lis r3, 0xCC005000@ha
 /* 80028E30 00024DB0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -191,6 +190,7 @@ __OSStopAudioSystem:
 /* 80028EF4 00024E74  7C 08 03 A6 */	mtlr r0
 /* 80028EF8 00024E78  38 21 00 10 */	addi r1, r1, 0x10
 /* 80028EFC 00024E7C  4E 80 00 20 */	blr
+.endfn __OSStopAudioSystem
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

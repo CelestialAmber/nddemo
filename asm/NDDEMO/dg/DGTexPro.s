@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__8DGTexProFP8DGTexManPCc
-__ct__8DGTexProFP8DGTexManPCc:
+.fn __ct__8DGTexProFP8DGTexManPCc, global
 /* 8001A2E4 00016264  7C 08 02 A6 */	mflr r0
 /* 8001A2E8 00016268  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001A2EC 0001626C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -41,9 +40,9 @@ __ct__8DGTexProFP8DGTexManPCc:
 /* 8001A368 000162E8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8001A36C 000162EC  7C 08 03 A6 */	mtlr r0
 /* 8001A370 000162F0  4E 80 00 20 */	blr
+.endfn __ct__8DGTexProFP8DGTexManPCc
 
-.global __ct__8DGTexProFP8DGTexMan
-__ct__8DGTexProFP8DGTexMan:
+.fn __ct__8DGTexProFP8DGTexMan, global
 /* 8001A374 000162F4  3C A0 00 01 */	lis r5, 0x1
 /* 8001A378 000162F8  90 83 00 00 */	stw r4, 0x0(r3)
 /* 8001A37C 000162FC  38 05 FF FF */	addi r0, r5, -0x1
@@ -59,9 +58,9 @@ __ct__8DGTexProFP8DGTexMan:
 /* 8001A3A4 00016324  90 03 00 1C */	stw r0, 0x1c(r3)
 /* 8001A3A8 00016328  98 83 00 20 */	stb r4, 0x20(r3)
 /* 8001A3AC 0001632C  4E 80 00 20 */	blr
+.endfn __ct__8DGTexProFP8DGTexMan
 
-.global __dt__8DGTexProFv
-__dt__8DGTexProFv:
+.fn __dt__8DGTexProFv, global
 /* 8001A3B0 00016330  7C 08 02 A6 */	mflr r0
 /* 8001A3B4 00016334  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001A3B8 00016338  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -85,14 +84,14 @@ __dt__8DGTexProFv:
 /* 8001A3FC 0001637C  7C 08 03 A6 */	mtlr r0
 /* 8001A400 00016380  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001A404 00016384  4E 80 00 20 */	blr
+.endfn __dt__8DGTexProFv
 
-.global SetCamera__8DGTexProFP8DGCamera
-SetCamera__8DGTexProFP8DGCamera:
+.fn SetCamera__8DGTexProFP8DGCamera, global
 /* 8001A408 00016388  90 83 00 10 */	stw r4, 0x10(r3)
 /* 8001A40C 0001638C  4E 80 00 20 */	blr
+.endfn SetCamera__8DGTexProFP8DGCamera
 
-.global InitTexObj__8DGTexProFP9_GXTexObj
-InitTexObj__8DGTexProFP9_GXTexObj:
+.fn InitTexObj__8DGTexProFP9_GXTexObj, global
 /* 8001A410 00016390  7C 08 02 A6 */	mflr r0
 /* 8001A414 00016394  7C 69 1B 78 */	mr r9, r3
 /* 8001A418 00016398  90 01 00 04 */	stw r0, 0x4(r1)
@@ -130,9 +129,9 @@ InitTexObj__8DGTexProFP9_GXTexObj:
 /* 8001A48C 0001640C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001A490 00016410  7C 08 03 A6 */	mtlr r0
 /* 8001A494 00016414  4E 80 00 20 */	blr
+.endfn InitTexObj__8DGTexProFP9_GXTexObj
 
-.global GetLightMtx__8DGTexProFRA3_A4_f
-GetLightMtx__8DGTexProFRA3_A4_f:
+.fn GetLightMtx__8DGTexProFRA3_A4_f, global
 /* 8001A498 00016418  7C 08 02 A6 */	mflr r0
 /* 8001A49C 0001641C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001A4A0 00016420  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -157,15 +156,16 @@ GetLightMtx__8DGTexProFRA3_A4_f:
 /* 8001A4E0 00016460  38 21 00 08 */	addi r1, r1, 0x8
 /* 8001A4E4 00016464  7C 08 03 A6 */	mtlr r0
 /* 8001A4E8 00016468  4E 80 00 20 */	blr
+.endfn GetLightMtx__8DGTexProFRA3_A4_f
 
-.global SetDirectTex__8DGTexProFPvUsUs9_GXTexFmtUc
-SetDirectTex__8DGTexProFPvUsUs9_GXTexFmtUc:
+.fn SetDirectTex__8DGTexProFPvUsUs9_GXTexFmtUc, global
 /* 8001A4EC 0001646C  90 83 00 14 */	stw r4, 0x14(r3)
 /* 8001A4F0 00016470  B0 A3 00 18 */	sth r5, 0x18(r3)
 /* 8001A4F4 00016474  B0 C3 00 1A */	sth r6, 0x1a(r3)
 /* 8001A4F8 00016478  90 E3 00 1C */	stw r7, 0x1c(r3)
 /* 8001A4FC 0001647C  99 03 00 20 */	stb r8, 0x20(r3)
 /* 8001A500 00016480  4E 80 00 20 */	blr
+.endfn SetDirectTex__8DGTexProFPvUsUs9_GXTexFmtUc
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

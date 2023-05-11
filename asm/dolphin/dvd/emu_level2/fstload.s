@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-cb:
+.fn cb, local
 /* 80033EFC 0002FE7C  7C 08 02 A6 */	mflr r0
 /* 80033F00 0002FE80  2C 03 00 00 */	cmpwi r3, 0x0
 /* 80033F04 0002FE84  90 01 00 04 */	stw r0, 0x4(r1)
@@ -61,9 +61,9 @@ cb:
 /* 80033FC8 0002FF48  38 21 00 18 */	addi r1, r1, 0x18
 /* 80033FCC 0002FF4C  7C 08 03 A6 */	mtlr r0
 /* 80033FD0 0002FF50  4E 80 00 20 */	blr
+.endfn cb
 
-.global __fstLoad
-__fstLoad:
+.fn __fstLoad, global
 /* 80033FD4 0002FF54  7C 08 02 A6 */	mflr r0
 /* 80033FD8 0002FF58  3C 60 80 07 */	lis r3, lbl_800684A0@ha
 /* 80033FDC 0002FF5C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -157,6 +157,7 @@ __fstLoad:
 /* 80034130 000300B0  83 A1 00 54 */	lwz r29, 0x54(r1)
 /* 80034134 000300B4  38 21 00 60 */	addi r1, r1, 0x60
 /* 80034138 000300B8  4E 80 00 20 */	blr
+.endfn __fstLoad
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

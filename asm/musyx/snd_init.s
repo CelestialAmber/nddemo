@@ -4,8 +4,7 @@
 
 
 
-.global sndInit
-sndInit:
+.fn sndInit, global
 /* 80055588 00051508  7C 08 02 A6 */	mflr r0
 /* 8005558C 0005150C  39 00 00 00 */	li r8, 0x0
 /* 80055590 00051510  90 01 00 04 */	stw r0, 0x4(r1)
@@ -63,9 +62,9 @@ sndInit:
 /* 80055654 000515D4  7C 08 03 A6 */	mtlr r0
 /* 80055658 000515D8  38 21 00 30 */	addi r1, r1, 0x30
 /* 8005565C 000515DC  4E 80 00 20 */	blr
+.endfn sndInit
 
-.global sndQuit
-sndQuit:
+.fn sndQuit, global
 /* 80055660 000515E0  7C 08 02 A6 */	mflr r0
 /* 80055664 000515E4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80055668 000515E8  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -79,6 +78,7 @@ sndQuit:
 /* 80055688 00051608  38 21 00 08 */	addi r1, r1, 0x8
 /* 8005568C 0005160C  7C 08 03 A6 */	mtlr r0
 /* 80055690 00051610  4E 80 00 20 */	blr
+.endfn sndQuit
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 

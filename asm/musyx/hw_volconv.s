@@ -4,8 +4,7 @@
 
 
 
-.global salCalcVolume
-salCalcVolume:
+.fn salCalcVolume, global
 /* 800538E8 0004F868  7C 08 02 A6 */	mflr r0
 /* 800538EC 0004F86C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800538F0 0004F870  54 60 06 3F */	clrlwi. r0, r3, 24
@@ -515,6 +514,7 @@ salCalcVolume:
 /* 80054074 0004FFF4  CA 81 00 F8 */	lfd f20, 0xf8(r1)
 /* 80054078 0004FFF8  38 21 01 58 */	addi r1, r1, 0x158
 /* 8005407C 0004FFFC  4E 80 00 20 */	blr
+.endfn salCalcVolume
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

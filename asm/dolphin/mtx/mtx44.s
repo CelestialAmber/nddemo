@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global C_MTXFrustum
-C_MTXFrustum:
+.fn C_MTXFrustum, global
 /* 80030020 0002BFA0  ED 24 18 28 */	fsubs f9, f4, f3
 /* 80030024 0002BFA4  C1 42 84 E8 */	lfs f10, lbl_800A9868@sda21(r2)
 /* 80030028 0002BFA8  EC 01 10 28 */	fsubs f0, f1, f2
@@ -43,9 +42,9 @@ C_MTXFrustum:
 /* 800300B0 0002C030  D0 03 00 38 */	stfs f0, 0x38(r3)
 /* 800300B4 0002C034  D0 83 00 3C */	stfs f4, 0x3c(r3)
 /* 800300B8 0002C038  4E 80 00 20 */	blr
+.endfn C_MTXFrustum
 
-.global C_MTXOrtho
-C_MTXOrtho:
+.fn C_MTXOrtho, global
 /* 800300BC 0002C03C  ED 04 18 28 */	fsubs f8, f4, f3
 /* 800300C0 0002C040  C1 22 84 E8 */	lfs f9, lbl_800A9868@sda21(r2)
 /* 800300C4 0002C044  EC 01 10 28 */	fsubs f0, f1, f2
@@ -84,6 +83,7 @@ C_MTXOrtho:
 /* 80030148 0002C0C8  D0 63 00 38 */	stfs f3, 0x38(r3)
 /* 8003014C 0002C0CC  D1 23 00 3C */	stfs f9, 0x3c(r3)
 /* 80030150 0002C0D0  4E 80 00 20 */	blr
+.endfn C_MTXOrtho
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 

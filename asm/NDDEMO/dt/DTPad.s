@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__5DTPadFv
-__ct__5DTPadFv:
+.fn __ct__5DTPadFv, global
 /* 8001AD34 00016CB4  7C 08 02 A6 */	mflr r0
 /* 8001AD38 00016CB8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001AD3C 00016CBC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -20,9 +19,9 @@ __ct__5DTPadFv:
 /* 8001AD68 00016CE8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001AD6C 00016CEC  7C 08 03 A6 */	mtlr r0
 /* 8001AD70 00016CF0  4E 80 00 20 */	blr
+.endfn __ct__5DTPadFv
 
-.global __dt__5DTPadFv
-__dt__5DTPadFv:
+.fn __dt__5DTPadFv, global
 /* 8001AD74 00016CF4  7C 08 02 A6 */	mflr r0
 /* 8001AD78 00016CF8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001AD7C 00016CFC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -40,9 +39,9 @@ __dt__5DTPadFv:
 /* 8001ADA8 00016D28  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001ADAC 00016D2C  7C 08 03 A6 */	mtlr r0
 /* 8001ADB0 00016D30  4E 80 00 20 */	blr
+.endfn __dt__5DTPadFv
 
-.global Read__5DTPadFv
-Read__5DTPadFv:
+.fn Read__5DTPadFv, global
 /* 8001ADB4 00016D34  7C 08 02 A6 */	mflr r0
 /* 8001ADB8 00016D38  38 A0 00 30 */	li r5, 0x30
 /* 8001ADBC 00016D3C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -94,34 +93,34 @@ Read__5DTPadFv:
 /* 8001AE64 00016DE4  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001AE68 00016DE8  7C 08 03 A6 */	mtlr r0
 /* 8001AE6C 00016DEC  4E 80 00 20 */	blr
+.endfn Read__5DTPadFv
 
-.global GetPADStatus__5DTPadFUc
-GetPADStatus__5DTPadFUc:
+.fn GetPADStatus__5DTPadFUc, global
 /* 8001AE70 00016DF0  54 80 06 3E */	clrlwi r0, r4, 24
 /* 8001AE74 00016DF4  1C 80 00 0C */	mulli r4, r0, 0xc
 /* 8001AE78 00016DF8  38 03 00 00 */	addi r0, r3, 0x0
 /* 8001AE7C 00016DFC  38 64 00 38 */	addi r3, r4, 0x38
 /* 8001AE80 00016E00  7C 60 1A 14 */	add r3, r0, r3
 /* 8001AE84 00016E04  4E 80 00 20 */	blr
+.endfn GetPADStatus__5DTPadFUc
 
-.global StickX__5DTPadFUs
-StickX__5DTPadFUs:
+.fn StickX__5DTPadFUs, global
 /* 8001AE88 00016E08  54 80 04 3E */	clrlwi r0, r4, 16
 /* 8001AE8C 00016E0C  1C 00 00 0C */	mulli r0, r0, 0xc
 /* 8001AE90 00016E10  7C 63 02 14 */	add r3, r3, r0
 /* 8001AE94 00016E14  88 63 00 3A */	lbz r3, 0x3a(r3)
 /* 8001AE98 00016E18  4E 80 00 20 */	blr
+.endfn StickX__5DTPadFUs
 
-.global StickY__5DTPadFUs
-StickY__5DTPadFUs:
+.fn StickY__5DTPadFUs, global
 /* 8001AE9C 00016E1C  54 80 04 3E */	clrlwi r0, r4, 16
 /* 8001AEA0 00016E20  1C 00 00 0C */	mulli r0, r0, 0xc
 /* 8001AEA4 00016E24  7C 63 02 14 */	add r3, r3, r0
 /* 8001AEA8 00016E28  88 63 00 3B */	lbz r3, 0x3b(r3)
 /* 8001AEAC 00016E2C  4E 80 00 20 */	blr
+.endfn StickY__5DTPadFUs
 
-.global IsTrg__5DTPadFUsUs
-IsTrg__5DTPadFUsUs:
+.fn IsTrg__5DTPadFUsUs, global
 /* 8001AEB0 00016E30  54 80 04 3E */	clrlwi r0, r4, 16
 /* 8001AEB4 00016E34  1C 00 00 0C */	mulli r0, r0, 0xc
 /* 8001AEB8 00016E38  7C 63 02 14 */	add r3, r3, r0
@@ -137,9 +136,9 @@ IsTrg__5DTPadFUsUs:
 .L_8001AEE0:
 /* 8001AEE0 00016E60  38 60 00 00 */	li r3, 0x0
 /* 8001AEE4 00016E64  4E 80 00 20 */	blr
+.endfn IsTrg__5DTPadFUsUs
 
-.global IsPush__5DTPadFUsUs
-IsPush__5DTPadFUsUs:
+.fn IsPush__5DTPadFUsUs, global
 /* 8001AEE8 00016E68  54 80 04 3E */	clrlwi r0, r4, 16
 /* 8001AEEC 00016E6C  1C 00 00 0C */	mulli r0, r0, 0xc
 /* 8001AEF0 00016E70  7C 63 02 14 */	add r3, r3, r0
@@ -153,6 +152,7 @@ IsPush__5DTPadFUsUs:
 .L_8001AF10:
 /* 8001AF10 00016E90  38 60 00 00 */	li r3, 0x0
 /* 8001AF14 00016E94  4E 80 00 20 */	blr
+.endfn IsPush__5DTPadFUsUs
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

@@ -5,7 +5,7 @@
 
 
 
-salCallback:
+.fn salCallback, local
 /* 80058BCC 00054B4C  7C 08 02 A6 */	mflr r0
 /* 80058BD0 00054B50  38 80 02 80 */	li r4, 0x280
 /* 80058BD4 00054B54  90 01 00 04 */	stw r0, 0x4(r1)
@@ -49,14 +49,16 @@ salCallback:
 /* 80058C64 00054BE4  38 21 00 08 */	addi r1, r1, 0x8
 /* 80058C68 00054BE8  7C 08 03 A6 */	mtlr r0
 /* 80058C6C 00054BEC  4E 80 00 20 */	blr
+.endfn salCallback
 
-dspInitCallback:
+.fn dspInitCallback, local
 /* 80058C70 00054BF0  38 00 00 01 */	li r0, 0x1
 /* 80058C74 00054BF4  90 0D 88 98 */	stw r0, salDspIsDone@sda21(r13)
 /* 80058C78 00054BF8  90 0D 88 A8 */	stw r0, salDspInitIsDone@sda21(r13)
 /* 80058C7C 00054BFC  4E 80 00 20 */	blr
+.endfn dspInitCallback
 
-dspResumeCallback:
+.fn dspResumeCallback, local
 /* 80058C80 00054C00  7C 08 02 A6 */	mflr r0
 /* 80058C84 00054C04  38 60 00 01 */	li r3, 0x1
 /* 80058C88 00054C08  90 01 00 04 */	stw r0, 0x4(r1)
@@ -84,9 +86,9 @@ dspResumeCallback:
 /* 80058CDC 00054C5C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80058CE0 00054C60  7C 08 03 A6 */	mtlr r0
 /* 80058CE4 00054C64  4E 80 00 20 */	blr
+.endfn dspResumeCallback
 
-.global salInitAi
-salInitAi:
+.fn salInitAi, global
 /* 80058CE8 00054C68  7C 08 02 A6 */	mflr r0
 /* 80058CEC 00054C6C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80058CF0 00054C70  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -140,9 +142,9 @@ salInitAi:
 /* 80058DA8 00054D28  7C 08 03 A6 */	mtlr r0
 /* 80058DAC 00054D2C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80058DB0 00054D30  4E 80 00 20 */	blr
+.endfn salInitAi
 
-.global salStartAi
-salStartAi:
+.fn salStartAi, global
 /* 80058DB4 00054D34  7C 08 02 A6 */	mflr r0
 /* 80058DB8 00054D38  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80058DBC 00054D3C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -151,9 +153,9 @@ salStartAi:
 /* 80058DC8 00054D48  38 21 00 08 */	addi r1, r1, 0x8
 /* 80058DCC 00054D4C  7C 08 03 A6 */	mtlr r0
 /* 80058DD0 00054D50  4E 80 00 20 */	blr
+.endfn salStartAi
 
-.global salExitAi
-salExitAi:
+.fn salExitAi, global
 /* 80058DD4 00054D54  7C 08 02 A6 */	mflr r0
 /* 80058DD8 00054D58  38 60 00 00 */	li r3, 0x0
 /* 80058DDC 00054D5C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -167,9 +169,9 @@ salExitAi:
 /* 80058DFC 00054D7C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80058E00 00054D80  7C 08 03 A6 */	mtlr r0
 /* 80058E04 00054D84  4E 80 00 20 */	blr
+.endfn salExitAi
 
-.global salAiGetDest
-salAiGetDest:
+.fn salAiGetDest, global
 /* 80058E08 00054D88  88 6D 88 B4 */	lbz r3, salAIBufferIndex@sda21(r13)
 /* 80058E0C 00054D8C  80 8D 88 94 */	lwz r4, salAIBufferBase@sda21(r13)
 /* 80058E10 00054D90  38 63 00 02 */	addi r3, r3, 0x2
@@ -181,9 +183,9 @@ salAiGetDest:
 /* 80058E28 00054DA8  1C 00 02 80 */	mulli r0, r0, 0x280
 /* 80058E2C 00054DAC  7C 64 02 14 */	add r3, r4, r0
 /* 80058E30 00054DB0  4E 80 00 20 */	blr
+.endfn salAiGetDest
 
-.global salInitDsp
-salInitDsp:
+.fn salInitDsp, global
 /* 80058E34 00054DB4  7C 08 02 A6 */	mflr r0
 /* 80058E38 00054DB8  3C 80 80 06 */	lis r4, dspInitCallback@ha
 /* 80058E3C 00054DBC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -233,9 +235,9 @@ salInitDsp:
 /* 80058EE8 00054E68  7C 08 03 A6 */	mtlr r0
 /* 80058EEC 00054E6C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80058EF0 00054E70  4E 80 00 20 */	blr
+.endfn salInitDsp
 
-.global salExitDsp
-salExitDsp:
+.fn salExitDsp, global
 /* 80058EF4 00054E74  7C 08 02 A6 */	mflr r0
 /* 80058EF8 00054E78  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80058EFC 00054E7C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -250,9 +252,9 @@ salExitDsp:
 /* 80058F1C 00054E9C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80058F20 00054EA0  7C 08 03 A6 */	mtlr r0
 /* 80058F24 00054EA4  4E 80 00 20 */	blr
+.endfn salExitDsp
 
-.global salCtrlDsp
-salCtrlDsp:
+.fn salCtrlDsp, global
 /* 80058F28 00054EA8  7C 08 02 A6 */	mflr r0
 /* 80058F2C 00054EAC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80058F30 00054EB0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -284,9 +286,9 @@ salCtrlDsp:
 /* 80058F90 00054F10  38 21 00 18 */	addi r1, r1, 0x18
 /* 80058F94 00054F14  7C 08 03 A6 */	mtlr r0
 /* 80058F98 00054F18  4E 80 00 20 */	blr
+.endfn salCtrlDsp
 
-.global salGetStartDelay
-salGetStartDelay:
+.fn salGetStartDelay, global
 /* 80058F9C 00054F1C  7C 08 02 A6 */	mflr r0
 /* 80058FA0 00054F20  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80058FA4 00054F24  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -306,9 +308,9 @@ salGetStartDelay:
 /* 80058FDC 00054F5C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80058FE0 00054F60  7C 08 03 A6 */	mtlr r0
 /* 80058FE4 00054F64  4E 80 00 20 */	blr
+.endfn salGetStartDelay
 
-.global hwInitIrq
-hwInitIrq:
+.fn hwInitIrq, global
 /* 80058FE8 00054F68  7C 08 02 A6 */	mflr r0
 /* 80058FEC 00054F6C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80058FF0 00054F70  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -320,13 +322,13 @@ hwInitIrq:
 /* 80059008 00054F88  38 21 00 08 */	addi r1, r1, 0x8
 /* 8005900C 00054F8C  7C 08 03 A6 */	mtlr r0
 /* 80059010 00054F90  4E 80 00 20 */	blr
+.endfn hwInitIrq
 
-.global hwExitIrq
-hwExitIrq:
+.fn hwExitIrq, global
 /* 80059014 00054F94  4E 80 00 20 */	blr
+.endfn hwExitIrq
 
-.global hwEnableIrq
-hwEnableIrq:
+.fn hwEnableIrq, global
 /* 80059018 00054F98  7C 08 02 A6 */	mflr r0
 /* 8005901C 00054F9C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80059020 00054FA0  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -342,9 +344,9 @@ hwEnableIrq:
 /* 80059044 00054FC4  38 21 00 08 */	addi r1, r1, 0x8
 /* 80059048 00054FC8  7C 08 03 A6 */	mtlr r0
 /* 8005904C 00054FCC  4E 80 00 20 */	blr
+.endfn hwEnableIrq
 
-.global hwDisableIrq
-hwDisableIrq:
+.fn hwDisableIrq, global
 /* 80059050 00054FD0  7C 08 02 A6 */	mflr r0
 /* 80059054 00054FD4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80059058 00054FD8  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -360,9 +362,9 @@ hwDisableIrq:
 /* 8005907C 00054FFC  38 21 00 08 */	addi r1, r1, 0x8
 /* 80059080 00055000  7C 08 03 A6 */	mtlr r0
 /* 80059084 00055004  4E 80 00 20 */	blr
+.endfn hwDisableIrq
 
-.global hwIRQEnterCritical
-hwIRQEnterCritical:
+.fn hwIRQEnterCritical, global
 /* 80059088 00055008  7C 08 02 A6 */	mflr r0
 /* 8005908C 0005500C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80059090 00055010  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -371,9 +373,9 @@ hwIRQEnterCritical:
 /* 8005909C 0005501C  38 21 00 08 */	addi r1, r1, 0x8
 /* 800590A0 00055020  7C 08 03 A6 */	mtlr r0
 /* 800590A4 00055024  4E 80 00 20 */	blr
+.endfn hwIRQEnterCritical
 
-.global hwIRQLeaveCritical
-hwIRQLeaveCritical:
+.fn hwIRQLeaveCritical, global
 /* 800590A8 00055028  7C 08 02 A6 */	mflr r0
 /* 800590AC 0005502C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800590B0 00055030  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -382,6 +384,7 @@ hwIRQLeaveCritical:
 /* 800590BC 0005503C  38 21 00 08 */	addi r1, r1, 0x8
 /* 800590C0 00055040  7C 08 03 A6 */	mtlr r0
 /* 800590C4 00055044  4E 80 00 20 */	blr
+.endfn hwIRQLeaveCritical
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

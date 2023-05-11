@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global salMalloc
-salMalloc:
+.fn salMalloc, global
 /* 800590C8 00055048  7C 08 02 A6 */	mflr r0
 /* 800590CC 0005504C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800590D0 00055050  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -14,9 +13,9 @@ salMalloc:
 /* 800590E4 00055064  38 21 00 08 */	addi r1, r1, 0x8
 /* 800590E8 00055068  7C 08 03 A6 */	mtlr r0
 /* 800590EC 0005506C  4E 80 00 20 */	blr
+.endfn salMalloc
 
-.global salFree
-salFree:
+.fn salFree, global
 /* 800590F0 00055070  7C 08 02 A6 */	mflr r0
 /* 800590F4 00055074  38 8D 88 64 */	addi r4, r13, salHooks@sda21
 /* 800590F8 00055078  90 01 00 04 */	stw r0, 0x4(r1)
@@ -28,6 +27,7 @@ salFree:
 /* 80059110 00055090  38 21 00 08 */	addi r1, r1, 0x8
 /* 80059114 00055094  7C 08 03 A6 */	mtlr r0
 /* 80059118 00055098  4E 80 00 20 */	blr
+.endfn salFree
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 

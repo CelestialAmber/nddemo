@@ -4,14 +4,14 @@
 
 
 
-aramQueueCallback:
+.fn aramQueueCallback, local
 /* 8005846C 000543EC  88 6D 88 7D */	lbz r3, aramQueueValid@sda21(r13)
 /* 80058470 000543F0  38 03 FF FF */	addi r0, r3, -0x1
 /* 80058474 000543F4  98 0D 88 7D */	stb r0, aramQueueValid@sda21(r13)
 /* 80058478 000543F8  4E 80 00 20 */	blr
+.endfn aramQueueCallback
 
-.global aramUploadData
-aramUploadData:
+.fn aramUploadData, global
 /* 8005847C 000543FC  7C 08 02 A6 */	mflr r0
 /* 80058480 00054400  3C E0 80 0A */	lis r7, aramQueue@ha
 /* 80058484 00054404  90 01 00 04 */	stw r0, 0x4(r1)
@@ -106,16 +106,16 @@ aramUploadData:
 /* 800585E0 00054560  38 21 00 30 */	addi r1, r1, 0x30
 /* 800585E4 00054564  7C 08 03 A6 */	mtlr r0
 /* 800585E8 00054568  4E 80 00 20 */	blr
+.endfn aramUploadData
 
-.global aramSyncTransferQueue
-aramSyncTransferQueue:
+.fn aramSyncTransferQueue, global
 /* 800585EC 0005456C  88 0D 88 7D */	lbz r0, aramQueueValid@sda21(r13)
 /* 800585F0 00054570  28 00 00 00 */	cmplwi r0, 0x0
 /* 800585F4 00054574  40 82 FF F8 */	bne aramSyncTransferQueue
 /* 800585F8 00054578  4E 80 00 20 */	blr
+.endfn aramSyncTransferQueue
 
-.global aramInit
-aramInit:
+.fn aramInit, global
 /* 800585FC 0005457C  7C 08 02 A6 */	mflr r0
 /* 80058600 00054580  3C 80 80 0A */	lis r4, aramQueue@ha
 /* 80058604 00054584  90 01 00 04 */	stw r0, 0x4(r1)
@@ -319,13 +319,13 @@ aramInit:
 /* 8005890C 0005488C  38 21 00 30 */	addi r1, r1, 0x30
 /* 80058910 00054890  7C 08 03 A6 */	mtlr r0
 /* 80058914 00054894  4E 80 00 20 */	blr
+.endfn aramInit
 
-.global aramExit
-aramExit:
+.fn aramExit, global
 /* 80058918 00054898  4E 80 00 20 */	blr
+.endfn aramExit
 
-.global aramGetZeroBuffer
-aramGetZeroBuffer:
+.fn aramGetZeroBuffer, global
 /* 8005891C 0005489C  7C 08 02 A6 */	mflr r0
 /* 80058920 000548A0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80058924 000548A4  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -334,9 +334,9 @@ aramGetZeroBuffer:
 /* 80058930 000548B0  38 21 00 08 */	addi r1, r1, 0x8
 /* 80058934 000548B4  7C 08 03 A6 */	mtlr r0
 /* 80058938 000548B8  4E 80 00 20 */	blr
+.endfn aramGetZeroBuffer
 
-.global aramStoreData
-aramStoreData:
+.fn aramStoreData, global
 /* 8005893C 000548BC  7C 08 02 A6 */	mflr r0
 /* 80058940 000548C0  3C A0 80 0A */	lis r5, aramQueue@ha
 /* 80058944 000548C4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -432,17 +432,18 @@ aramStoreData:
 /* 80058AA8 00054A28  38 21 00 28 */	addi r1, r1, 0x28
 /* 80058AAC 00054A2C  7C 08 03 A6 */	mtlr r0
 /* 80058AB0 00054A30  4E 80 00 20 */	blr
+.endfn aramStoreData
 
-.global aramRemoveData
-aramRemoveData:
+.fn aramRemoveData, global
 /* 80058AB4 00054A34  38 64 00 1F */	addi r3, r4, 0x1f
 /* 80058AB8 00054A38  80 0D 88 74 */	lwz r0, aramWrite@sda21(r13)
 /* 80058ABC 00054A3C  54 63 00 34 */	clrrwi r3, r3, 5
 /* 80058AC0 00054A40  7C 03 00 50 */	subf r0, r3, r0
 /* 80058AC4 00054A44  90 0D 88 74 */	stw r0, aramWrite@sda21(r13)
 /* 80058AC8 00054A48  4E 80 00 20 */	blr
+.endfn aramRemoveData
 
-InitStreamBuffers:
+.fn InitStreamBuffers, local
 /* 80058ACC 00054A4C  3C 60 80 0A */	lis r3, aramQueue@ha
 /* 80058AD0 00054A50  38 C3 42 68 */	addi r6, r3, aramQueue@l
 /* 80058AD4 00054A54  38 80 00 00 */	li r4, 0x0
@@ -498,9 +499,9 @@ InitStreamBuffers:
 /* 80058B88 00054B08  38 63 02 00 */	addi r3, r3, 0x200
 /* 80058B8C 00054B0C  4B FF FF B8 */	b .L_80058B44
 /* 80058B90 00054B10  4E 80 00 20 */	blr
+.endfn InitStreamBuffers
 
-.global aramGetStreamBufferAddress
-aramGetStreamBufferAddress:
+.fn aramGetStreamBufferAddress, global
 /* 80058B94 00054B14  28 04 00 00 */	cmplwi r4, 0x0
 /* 80058B98 00054B18  41 82 00 1C */	beq .L_80058BB4
 /* 80058B9C 00054B1C  3C A0 80 0A */	lis r5, aramStreamBuffers@ha
@@ -516,6 +517,7 @@ aramGetStreamBufferAddress:
 /* 80058BC0 00054B40  7C 64 02 14 */	add r3, r4, r0
 /* 80058BC4 00054B44  80 63 00 04 */	lwz r3, 0x4(r3)
 /* 80058BC8 00054B48  4E 80 00 20 */	blr
+.endfn aramGetStreamBufferAddress
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

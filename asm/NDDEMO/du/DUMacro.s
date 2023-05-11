@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global mAlloc__FUl
-mAlloc__FUl:
+.fn mAlloc__FUl, global
 /* 800129F8 0000E978  7C 08 02 A6 */	mflr r0
 /* 800129FC 0000E97C  3C 80 80 06 */	lis r4, lbl_800662A0@ha
 /* 80012A00 0000E980  90 01 00 04 */	stw r0, 0x4(r1)
@@ -46,9 +45,9 @@ mAlloc__FUl:
 /* 80012A8C 0000EA0C  38 21 00 28 */	addi r1, r1, 0x28
 /* 80012A90 0000EA10  7C 08 03 A6 */	mtlr r0
 /* 80012A94 0000EA14  4E 80 00 20 */	blr
+.endfn mAlloc__FUl
 
-.global mFree__FPv
-mFree__FPv:
+.fn mFree__FPv, global
 /* 80012A98 0000EA18  7C 08 02 A6 */	mflr r0
 /* 80012A9C 0000EA1C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012AA0 0000EA20  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -76,6 +75,7 @@ mFree__FPv:
 /* 80012AF8 0000EA78  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80012AFC 0000EA7C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80012B00 0000EA80  4E 80 00 20 */	blr
+.endfn mFree__FPv
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

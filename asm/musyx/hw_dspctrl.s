@@ -4,8 +4,7 @@
 
 
 
-.global salInitDspCtrl
-salInitDspCtrl:
+.fn salInitDspCtrl, global
 /* 80050600 0004C580  7C 08 02 A6 */	mflr r0
 /* 80050604 0004C584  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80050608 0004C588  94 21 FF C8 */	stwu r1, -0x38(r1)
@@ -237,9 +236,9 @@ salInitDspCtrl:
 /* 8005096C 0004C8EC  38 21 00 38 */	addi r1, r1, 0x38
 /* 80050970 0004C8F0  7C 08 03 A6 */	mtlr r0
 /* 80050974 0004C8F4  4E 80 00 20 */	blr
+.endfn salInitDspCtrl
 
-.global salInitHRTFBuffer
-salInitHRTFBuffer:
+.fn salInitHRTFBuffer, global
 /* 80050978 0004C8F8  7C 08 02 A6 */	mflr r0
 /* 8005097C 0004C8FC  38 80 00 00 */	li r4, 0x0
 /* 80050980 0004C900  90 01 00 04 */	stw r0, 0x4(r1)
@@ -254,9 +253,9 @@ salInitHRTFBuffer:
 /* 800509A4 0004C924  38 21 00 08 */	addi r1, r1, 0x8
 /* 800509A8 0004C928  7C 08 03 A6 */	mtlr r0
 /* 800509AC 0004C92C  4E 80 00 20 */	blr
+.endfn salInitHRTFBuffer
 
-.global salExitDspCtrl
-salExitDspCtrl:
+.fn salExitDspCtrl, global
 /* 800509B0 0004C930  7C 08 02 A6 */	mflr r0
 /* 800509B4 0004C934  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800509B8 0004C938  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -315,9 +314,9 @@ salExitDspCtrl:
 /* 80050A7C 0004C9FC  7C 08 03 A6 */	mtlr r0
 /* 80050A80 0004CA00  38 21 00 10 */	addi r1, r1, 0x10
 /* 80050A84 0004CA04  4E 80 00 20 */	blr
+.endfn salExitDspCtrl
 
-.global salActivateStudio
-salActivateStudio:
+.fn salActivateStudio, global
 /* 80050A88 0004CA08  7C 08 02 A6 */	mflr r0
 /* 80050A8C 0004CA0C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80050A90 0004CA10  54 60 06 3E */	clrlwi r0, r3, 24
@@ -384,9 +383,9 @@ salActivateStudio:
 /* 80050B84 0004CB04  38 21 00 30 */	addi r1, r1, 0x30
 /* 80050B88 0004CB08  7C 08 03 A6 */	mtlr r0
 /* 80050B8C 0004CB0C  4E 80 00 20 */	blr
+.endfn salActivateStudio
 
-.global salDeactivateStudio
-salDeactivateStudio:
+.fn salDeactivateStudio, global
 /* 80050B90 0004CB10  54 60 06 3E */	clrlwi r0, r3, 24
 /* 80050B94 0004CB14  1C 00 00 BC */	mulli r0, r0, 0xbc
 /* 80050B98 0004CB18  3C 60 80 0A */	lis r3, dspStudio@ha
@@ -395,8 +394,9 @@ salDeactivateStudio:
 /* 80050BA4 0004CB24  38 00 00 00 */	li r0, 0x0
 /* 80050BA8 0004CB28  98 03 00 50 */	stb r0, 0x50(r3)
 /* 80050BAC 0004CB2C  4E 80 00 20 */	blr
+.endfn salDeactivateStudio
 
-HandleDepopVoice:
+.fn HandleDepopVoice, local
 /* 80050BB0 0004CB30  38 00 00 00 */	li r0, 0x0
 /* 80050BB4 0004CB34  98 04 00 E9 */	stb r0, 0xe9(r4)
 /* 80050BB8 0004CB38  3C A0 00 80 */	lis r5, 0x80
@@ -649,8 +649,9 @@ HandleDepopVoice:
 .L_80050F04:
 /* 80050F04 0004CE84  90 C3 00 20 */	stw r6, 0x20(r3)
 /* 80050F08 0004CE88  4E 80 00 20 */	blr
+.endfn HandleDepopVoice
 
-SortVoices:
+.fn SortVoices, local
 /* 80050F0C 0004CE8C  7C 08 02 A6 */	mflr r0
 /* 80050F10 0004CE90  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80050F14 0004CE94  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -718,9 +719,9 @@ SortVoices:
 /* 80050FFC 0004CF7C  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80051000 0004CF80  38 21 00 28 */	addi r1, r1, 0x28
 /* 80051004 0004CF84  4E 80 00 20 */	blr
+.endfn SortVoices
 
-.global salBuildCommandList
-salBuildCommandList:
+.fn salBuildCommandList, global
 /* 80051008 0004CF88  7C 08 02 A6 */	mflr r0
 /* 8005100C 0004CF8C  3C A0 80 0A */	lis r5, dspStudio@ha
 /* 80051010 0004CF90  90 01 00 04 */	stw r0, 0x4(r1)
@@ -3312,9 +3313,9 @@ salBuildCommandList:
 /* 80053518 0004F498  38 21 00 C8 */	addi r1, r1, 0xc8
 /* 8005351C 0004F49C  7C 08 03 A6 */	mtlr r0
 /* 80053520 0004F4A0  4E 80 00 20 */	blr
+.endfn salBuildCommandList
 
-.global salSynthSendMessage
-salSynthSendMessage:
+.fn salSynthSendMessage, global
 /* 80053524 0004F4A4  7C 08 02 A6 */	mflr r0
 /* 80053528 0004F4A8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005352C 0004F4AC  38 04 00 00 */	addi r0, r4, 0x0
@@ -3331,9 +3332,9 @@ salSynthSendMessage:
 /* 80053554 0004F4D4  38 21 00 08 */	addi r1, r1, 0x8
 /* 80053558 0004F4D8  7C 08 03 A6 */	mtlr r0
 /* 8005355C 0004F4DC  4E 80 00 20 */	blr
+.endfn salSynthSendMessage
 
-.global salActivateVoice
-salActivateVoice:
+.fn salActivateVoice, global
 /* 80053560 0004F4E0  7C 08 02 A6 */	mflr r0
 /* 80053564 0004F4E4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80053568 0004F4E8  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3376,9 +3377,9 @@ salActivateVoice:
 /* 800535F4 0004F574  38 21 00 18 */	addi r1, r1, 0x18
 /* 800535F8 0004F578  7C 08 03 A6 */	mtlr r0
 /* 800535FC 0004F57C  4E 80 00 20 */	blr
+.endfn salActivateVoice
 
-.global salDeactivateVoice
-salDeactivateVoice:
+.fn salDeactivateVoice, global
 /* 80053600 0004F580  88 03 00 E8 */	lbz r0, 0xe8(r3)
 /* 80053604 0004F584  28 00 00 00 */	cmplwi r0, 0x0
 /* 80053608 0004F588  4D 82 00 20 */	beqlr
@@ -3406,9 +3407,9 @@ salDeactivateVoice:
 /* 80053654 0004F5D4  38 00 00 00 */	li r0, 0x0
 /* 80053658 0004F5D8  98 03 00 E8 */	stb r0, 0xe8(r3)
 /* 8005365C 0004F5DC  4E 80 00 20 */	blr
+.endfn salDeactivateVoice
 
-.global salAddStudioInput
-salAddStudioInput:
+.fn salAddStudioInput, global
 /* 80053660 0004F5E0  88 03 00 52 */	lbz r0, 0x52(r3)
 /* 80053664 0004F5E4  28 00 00 07 */	cmplwi r0, 0x7
 /* 80053668 0004F5E8  40 80 00 98 */	bge .L_80053700
@@ -3452,9 +3453,9 @@ salAddStudioInput:
 .L_80053700:
 /* 80053700 0004F680  38 60 00 00 */	li r3, 0x0
 /* 80053704 0004F684  4E 80 00 20 */	blr
+.endfn salAddStudioInput
 
-.global salRemoveStudioInput
-salRemoveStudioInput:
+.fn salRemoveStudioInput, global
 /* 80053708 0004F688  88 03 00 52 */	lbz r0, 0x52(r3)
 /* 8005370C 0004F68C  38 A3 00 00 */	addi r5, r3, 0x0
 /* 80053710 0004F690  38 C0 00 00 */	li r6, 0x0
@@ -3493,9 +3494,9 @@ salRemoveStudioInput:
 .L_80053784:
 /* 80053784 0004F704  38 60 00 00 */	li r3, 0x0
 /* 80053788 0004F708  4E 80 00 20 */	blr
+.endfn salRemoveStudioInput
 
-.global salHandleAuxProcessing
-salHandleAuxProcessing:
+.fn salHandleAuxProcessing, global
 /* 8005378C 0004F70C  7C 08 02 A6 */	mflr r0
 /* 80053790 0004F710  3C 60 80 0A */	lis r3, dspStudio@ha
 /* 80053794 0004F714  90 01 00 04 */	stw r0, 0x4(r1)
@@ -3587,6 +3588,7 @@ salHandleAuxProcessing:
 /* 800538DC 0004F85C  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 800538E0 0004F860  38 21 00 28 */	addi r1, r1, 0x28
 /* 800538E4 0004F864  4E 80 00 20 */	blr
+.endfn salHandleAuxProcessing
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

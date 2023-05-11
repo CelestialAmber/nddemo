@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global TRKDoNotifyStopped
-TRKDoNotifyStopped:
+.fn TRKDoNotifyStopped, global
 /* 8005CECC 00058E4C  7C 08 02 A6 */	mflr r0
 /* 8005CED0 00058E50  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005CED4 00058E54  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -64,3 +63,4 @@ TRKDoNotifyStopped:
 /* 8005CF98 00058F18  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005CF9C 00058F1C  7C 08 03 A6 */	mtlr r0
 /* 8005CFA0 00058F20  4E 80 00 20 */	blr
+.endfn TRKDoNotifyStopped

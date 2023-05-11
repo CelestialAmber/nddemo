@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global __ct__5DUDvdFv
-__ct__5DUDvdFv:
+.fn __ct__5DUDvdFv, global
 /* 80012648 0000E5C8  7C 08 02 A6 */	mflr r0
 /* 8001264C 0000E5CC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012650 0000E5D0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -17,9 +16,9 @@ __ct__5DUDvdFv:
 /* 8001266C 0000E5EC  38 21 00 18 */	addi r1, r1, 0x18
 /* 80012670 0000E5F0  7C 08 03 A6 */	mtlr r0
 /* 80012674 0000E5F4  4E 80 00 20 */	blr
+.endfn __ct__5DUDvdFv
 
-.global __dt__5DUDvdFv
-__dt__5DUDvdFv:
+.fn __dt__5DUDvdFv, global
 /* 80012678 0000E5F8  7C 08 02 A6 */	mflr r0
 /* 8001267C 0000E5FC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012680 0000E600  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -42,9 +41,9 @@ __dt__5DUDvdFv:
 /* 800126C0 0000E640  7C 08 03 A6 */	mtlr r0
 /* 800126C4 0000E644  38 21 00 18 */	addi r1, r1, 0x18
 /* 800126C8 0000E648  4E 80 00 20 */	blr
+.endfn __dt__5DUDvdFv
 
-.global Init__5DUDvdFv
-Init__5DUDvdFv:
+.fn Init__5DUDvdFv, global
 /* 800126CC 0000E64C  7C 08 02 A6 */	mflr r0
 /* 800126D0 0000E650  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800126D4 0000E654  38 00 00 00 */	li r0, 0x0
@@ -60,9 +59,9 @@ Init__5DUDvdFv:
 /* 800126FC 0000E67C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80012700 0000E680  7C 08 03 A6 */	mtlr r0
 /* 80012704 0000E684  4E 80 00 20 */	blr
+.endfn Init__5DUDvdFv
 
-.global InitDVD__5DUDvdFv
-InitDVD__5DUDvdFv:
+.fn InitDVD__5DUDvdFv, global
 /* 80012708 0000E688  7C 08 02 A6 */	mflr r0
 /* 8001270C 0000E68C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012710 0000E690  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -77,9 +76,9 @@ InitDVD__5DUDvdFv:
 /* 80012730 0000E6B0  38 21 00 08 */	addi r1, r1, 0x8
 /* 80012734 0000E6B4  7C 08 03 A6 */	mtlr r0
 /* 80012738 0000E6B8  4E 80 00 20 */	blr
+.endfn InitDVD__5DUDvdFv
 
-.global Close__5DUDvdFv
-Close__5DUDvdFv:
+.fn Close__5DUDvdFv, global
 /* 8001273C 0000E6BC  7C 08 02 A6 */	mflr r0
 /* 80012740 0000E6C0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012744 0000E6C4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -113,9 +112,9 @@ Close__5DUDvdFv:
 /* 800127AC 0000E72C  38 21 00 18 */	addi r1, r1, 0x18
 /* 800127B0 0000E730  7C 08 03 A6 */	mtlr r0
 /* 800127B4 0000E734  4E 80 00 20 */	blr
+.endfn Close__5DUDvdFv
 
-.global Open__5DUDvdFPc20enumDU_DVD_OPEN_MODE
-Open__5DUDvdFPc20enumDU_DVD_OPEN_MODE:
+.fn Open__5DUDvdFPc20enumDU_DVD_OPEN_MODE, global
 /* 800127B8 0000E738  7C 08 02 A6 */	mflr r0
 /* 800127BC 0000E73C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800127C0 0000E740  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -210,9 +209,9 @@ Open__5DUDvdFPc20enumDU_DVD_OPEN_MODE:
 /* 80012904 0000E884  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 80012908 0000E888  38 21 00 28 */	addi r1, r1, 0x28
 /* 8001290C 0000E88C  4E 80 00 20 */	blr
+.endfn Open__5DUDvdFPc20enumDU_DVD_OPEN_MODE
 
-.global Read__5DUDvdFPvUll
-Read__5DUDvdFPvUll:
+.fn Read__5DUDvdFPvUll, global
 /* 80012910 0000E890  7C 08 02 A6 */	mflr r0
 /* 80012914 0000E894  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012918 0000E898  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -276,6 +275,7 @@ Read__5DUDvdFPvUll:
 /* 800129EC 0000E96C  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 800129F0 0000E970  38 21 00 28 */	addi r1, r1, 0x28
 /* 800129F4 0000E974  4E 80 00 20 */	blr
+.endfn Read__5DUDvdFPvUll
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

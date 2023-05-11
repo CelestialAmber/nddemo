@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __va_arg
-__va_arg:
+.fn __va_arg, global
 /* 8005F008 0005AF88  54 80 06 3E */	clrlwi r0, r4, 24
 /* 8005F00C 0005AF8C  88 C3 00 00 */	lbz r6, 0x0(r3)
 /* 8005F010 0005AF90  28 00 00 04 */	cmplwi r0, 0x4
@@ -72,3 +71,4 @@ __va_arg:
 .L_8005F0F4:
 /* 8005F0F4 0005B074  7C C3 33 78 */	mr r3, r6
 /* 8005F0F8 0005B078  4E 80 00 20 */	blr
+.endfn __va_arg

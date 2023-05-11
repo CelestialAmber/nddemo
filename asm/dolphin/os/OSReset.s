@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global OSRegisterResetFunction
-OSRegisterResetFunction:
+.fn OSRegisterResetFunction, global
 /* 8002BC18 00027B98  80 AD 84 98 */	lwz r5, ResetFunctionQueue@sda21(r13)
 /* 8002BC1C 00027B9C  48 00 00 08 */	b .L_8002BC24
 .L_8002BC20:
@@ -44,8 +43,9 @@ OSRegisterResetFunction:
 .L_8002BC94:
 /* 8002BC94 00027C14  90 64 00 08 */	stw r3, 0x8(r4)
 /* 8002BC98 00027C18  4E 80 00 20 */	blr
+.endfn OSRegisterResetFunction
 
-Reset:
+.fn Reset, local
 /* 8002BC9C 00027C1C  48 00 00 20 */	b .L_8002BCBC
 .L_8002BCA0:
 /* 8002BCA0 00027C20  7D 10 FA A6 */	mfspr r8, HID0
@@ -83,9 +83,9 @@ Reset:
 /* 8002BD04 00027C84  4B FF FF FC */	b .L_8002BD00
 .L_8002BD08:
 /* 8002BD08 00027C88  4B FF FF 98 */	b .L_8002BCA0
+.endfn Reset
 
-.global __OSDoHotReset
-__OSDoHotReset:
+.fn __OSDoHotReset, global
 /* 8002BD0C 00027C8C  7C 08 02 A6 */	mflr r0
 /* 8002BD10 00027C90  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002BD14 00027C94  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -104,9 +104,9 @@ __OSDoHotReset:
 /* 8002BD48 00027CC8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002BD4C 00027CCC  7C 08 03 A6 */	mtlr r0
 /* 8002BD50 00027CD0  4E 80 00 20 */	blr
+.endfn __OSDoHotReset
 
-.global OSResetSystem
-OSResetSystem:
+.fn OSResetSystem, global
 /* 8002BD54 00027CD4  7C 08 02 A6 */	mflr r0
 /* 8002BD58 00027CD8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002BD5C 00027CDC  94 21 FF C8 */	stwu r1, -0x38(r1)
@@ -241,9 +241,9 @@ OSResetSystem:
 /* 8002BF04 00027E84  38 21 00 38 */	addi r1, r1, 0x38
 /* 8002BF08 00027E88  7C 08 03 A6 */	mtlr r0
 /* 8002BF0C 00027E8C  4E 80 00 20 */	blr
+.endfn OSResetSystem
 
-.global OSGetResetCode
-OSGetResetCode:
+.fn OSGetResetCode, global
 /* 8002BF10 00027E90  3C 60 80 00 */	lis r3, 0x800030E2@ha
 /* 8002BF14 00027E94  88 03 30 E2 */	lbz r0, 0x800030E2@l(r3)
 /* 8002BF18 00027E98  28 00 00 00 */	cmplwi r0, 0x0
@@ -258,6 +258,7 @@ OSGetResetCode:
 /* 8002BF38 00027EB8  54 03 E8 FE */	srwi r3, r0, 3
 .L_8002BF3C:
 /* 8002BF3C 00027EBC  4E 80 00 20 */	blr
+.endfn OSGetResetCode
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 

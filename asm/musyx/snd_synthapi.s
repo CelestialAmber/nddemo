@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global sndFXCtrl14
-sndFXCtrl14:
+.fn sndFXCtrl14, global
 /* 80047D74 00043CF4  7C 08 02 A6 */	mflr r0
 /* 80047D78 00043CF8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047D7C 00043CFC  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -29,9 +28,9 @@ sndFXCtrl14:
 /* 80047DC8 00043D48  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80047DCC 00043D4C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80047DD0 00043D50  4E 80 00 20 */	blr
+.endfn sndFXCtrl14
 
-.global sndFXStartEx
-sndFXStartEx:
+.fn sndFXStartEx, global
 /* 80047DD4 00043D54  7C 08 02 A6 */	mflr r0
 /* 80047DD8 00043D58  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047DDC 00043D5C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -64,9 +63,9 @@ sndFXStartEx:
 /* 80047E48 00043DC8  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80047E4C 00043DCC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80047E50 00043DD0  4E 80 00 20 */	blr
+.endfn sndFXStartEx
 
-.global sndFXCheck
-sndFXCheck:
+.fn sndFXCheck, global
 /* 80047E54 00043DD4  7C 08 02 A6 */	mflr r0
 /* 80047E58 00043DD8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047E5C 00043DDC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -86,9 +85,9 @@ sndFXCheck:
 /* 80047E8C 00043E0C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80047E90 00043E10  7C 08 03 A6 */	mtlr r0
 /* 80047E94 00043E14  4E 80 00 20 */	blr
+.endfn sndFXCheck
 
-.global sndVolume
-sndVolume:
+.fn sndVolume, global
 /* 80047E98 00043E18  7C 08 02 A6 */	mflr r0
 /* 80047E9C 00043E1C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047EA0 00043E20  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -113,9 +112,9 @@ sndVolume:
 /* 80047EEC 00043E6C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80047EF0 00043E70  38 21 00 20 */	addi r1, r1, 0x20
 /* 80047EF4 00043E74  4E 80 00 20 */	blr
+.endfn sndVolume
 
-.global sndMasterVolume
-sndMasterVolume:
+.fn sndMasterVolume, global
 /* 80047EF8 00043E78  7C 08 02 A6 */	mflr r0
 /* 80047EFC 00043E7C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047F00 00043E80  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -155,9 +154,9 @@ sndMasterVolume:
 /* 80047F80 00043F00  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80047F84 00043F04  38 21 00 20 */	addi r1, r1, 0x20
 /* 80047F88 00043F08  4E 80 00 20 */	blr
+.endfn sndMasterVolume
 
-.global sndSetAuxProcessingCallbacks
-sndSetAuxProcessingCallbacks:
+.fn sndSetAuxProcessingCallbacks, global
 /* 80047F8C 00043F0C  7C 08 02 A6 */	mflr r0
 /* 80047F90 00043F10  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80047F94 00043F14  94 21 FF B0 */	stwu r1, -0x50(r1)
@@ -252,9 +251,9 @@ sndSetAuxProcessingCallbacks:
 /* 800480E8 00044068  38 21 00 50 */	addi r1, r1, 0x50
 /* 800480EC 0004406C  7C 08 03 A6 */	mtlr r0
 /* 800480F0 00044070  4E 80 00 20 */	blr
+.endfn sndSetAuxProcessingCallbacks
 
-.global synthActivateStudio
-synthActivateStudio:
+.fn synthActivateStudio, global
 /* 800480F4 00044074  7C 08 02 A6 */	mflr r0
 /* 800480F8 00044078  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800480FC 0004407C  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -298,9 +297,9 @@ synthActivateStudio:
 /* 80048194 00044114  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80048198 00044118  38 21 00 28 */	addi r1, r1, 0x28
 /* 8004819C 0004411C  4E 80 00 20 */	blr
+.endfn synthActivateStudio
 
-.global synthDeactivateStudio
-synthDeactivateStudio:
+.fn synthDeactivateStudio, global
 /* 800481A0 00044120  7C 08 02 A6 */	mflr r0
 /* 800481A4 00044124  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800481A8 00044128  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -365,9 +364,9 @@ synthDeactivateStudio:
 /* 80048284 00044204  38 21 00 28 */	addi r1, r1, 0x28
 /* 80048288 00044208  7C 08 03 A6 */	mtlr r0
 /* 8004828C 0004420C  4E 80 00 20 */	blr
+.endfn synthDeactivateStudio
 
-.global synthAddStudioInput
-synthAddStudioInput:
+.fn synthAddStudioInput, global
 /* 80048290 00044210  7C 08 02 A6 */	mflr r0
 /* 80048294 00044214  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80048298 00044218  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -376,9 +375,9 @@ synthAddStudioInput:
 /* 800482A4 00044224  38 21 00 08 */	addi r1, r1, 0x8
 /* 800482A8 00044228  7C 08 03 A6 */	mtlr r0
 /* 800482AC 0004422C  4E 80 00 20 */	blr
+.endfn synthAddStudioInput
 
-.global synthRemoveStudioInput
-synthRemoveStudioInput:
+.fn synthRemoveStudioInput, global
 /* 800482B0 00044230  7C 08 02 A6 */	mflr r0
 /* 800482B4 00044234  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800482B8 00044238  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -387,6 +386,7 @@ synthRemoveStudioInput:
 /* 800482C4 00044244  38 21 00 08 */	addi r1, r1, 0x8
 /* 800482C8 00044248  7C 08 03 A6 */	mtlr r0
 /* 800482CC 0004424C  4E 80 00 20 */	blr
+.endfn synthRemoveStudioInput
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0
 

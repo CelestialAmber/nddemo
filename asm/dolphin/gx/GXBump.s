@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global GXSetTevIndirect
-GXSetTevIndirect:
+.fn GXSetTevIndirect, global
 /* 8003F244 0003B1C4  94 21 FF D8 */	stwu r1, -0x28(r1)
 /* 8003F248 0003B1C8  54 84 07 B6 */	rlwinm r4, r4, 0, 30, 27
 /* 8003F24C 0003B1CC  54 A0 10 3A */	slwi r0, r5, 2
@@ -43,9 +42,9 @@ GXSetTevIndirect:
 /* 8003F2D4 0003B254  38 21 00 28 */	addi r1, r1, 0x28
 /* 8003F2D8 0003B258  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 8003F2DC 0003B25C  4E 80 00 20 */	blr
+.endfn GXSetTevIndirect
 
-.global GXSetIndTexMtx
-GXSetIndTexMtx:
+.fn GXSetIndTexMtx, global
 /* 8003F2E0 0003B260  2C 03 00 08 */	cmpwi r3, 0x8
 /* 8003F2E4 0003B264  94 21 FF 88 */	stwu r1, -0x78(r1)
 /* 8003F2E8 0003B268  41 82 00 44 */	beq .L_8003F32C
@@ -140,9 +139,9 @@ GXSetIndTexMtx:
 /* 8003F434 0003B3B4  90 89 80 00 */	stw r4, -0x8000(r9)
 /* 8003F438 0003B3B8  B0 03 00 02 */	sth r0, 0x2(r3)
 /* 8003F43C 0003B3BC  4E 80 00 20 */	blr
+.endfn GXSetIndTexMtx
 
-.global GXSetIndTexCoordScale
-GXSetIndTexCoordScale:
+.fn GXSetIndTexCoordScale, global
 /* 8003F440 0003B3C0  2C 03 00 02 */	cmpwi r3, 0x2
 /* 8003F444 0003B3C4  41 82 00 F4 */	beq .L_8003F538
 /* 8003F448 0003B3C8  40 80 00 14 */	bge .L_8003F45C
@@ -266,9 +265,9 @@ GXSetIndTexCoordScale:
 /* 8003F608 0003B588  38 00 00 00 */	li r0, 0x0
 /* 8003F60C 0003B58C  B0 03 00 02 */	sth r0, 0x2(r3)
 /* 8003F610 0003B590  4E 80 00 20 */	blr
+.endfn GXSetIndTexCoordScale
 
-.global GXSetIndTexOrder
-GXSetIndTexOrder:
+.fn GXSetIndTexOrder, global
 /* 8003F614 0003B594  2C 03 00 02 */	cmpwi r3, 0x2
 /* 8003F618 0003B598  41 82 00 94 */	beq .L_8003F6AC
 /* 8003F61C 0003B59C  40 80 00 14 */	bge .L_8003F630
@@ -353,9 +352,9 @@ GXSetIndTexOrder:
 /* 8003F740 0003B6C0  80 6D 82 90 */	lwz r3, gx@sda21(r13)
 /* 8003F744 0003B6C4  B0 03 00 02 */	sth r0, 0x2(r3)
 /* 8003F748 0003B6C8  4E 80 00 20 */	blr
+.endfn GXSetIndTexOrder
 
-.global GXSetNumIndStages
-GXSetNumIndStages:
+.fn GXSetNumIndStages, global
 /* 8003F74C 0003B6CC  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 8003F750 0003B6D0  54 60 82 1E */	clrlslwi r0, r3, 24, 16
 /* 8003F754 0003B6D4  84 64 02 04 */	lwzu r3, 0x204(r4)
@@ -367,9 +366,9 @@ GXSetNumIndStages:
 /* 8003F76C 0003B6EC  60 00 00 06 */	ori r0, r0, 0x6
 /* 8003F770 0003B6F0  90 03 04 F0 */	stw r0, 0x4f0(r3)
 /* 8003F774 0003B6F4  4E 80 00 20 */	blr
+.endfn GXSetNumIndStages
 
-.global GXSetTevDirect
-GXSetTevDirect:
+.fn GXSetTevDirect, global
 /* 8003F778 0003B6F8  7C 08 02 A6 */	mflr r0
 /* 8003F77C 0003B6FC  38 80 00 00 */	li r4, 0x0
 /* 8003F780 0003B700  90 01 00 04 */	stw r0, 0x4(r1)
@@ -388,9 +387,9 @@ GXSetTevDirect:
 /* 8003F7B4 0003B734  38 21 00 18 */	addi r1, r1, 0x18
 /* 8003F7B8 0003B738  7C 08 03 A6 */	mtlr r0
 /* 8003F7BC 0003B73C  4E 80 00 20 */	blr
+.endfn GXSetTevDirect
 
-.global GXSetTevIndBumpXYZ
-GXSetTevIndBumpXYZ:
+.fn GXSetTevIndBumpXYZ, global
 /* 8003F7C0 0003B740  7C 08 02 A6 */	mflr r0
 /* 8003F7C4 0003B744  38 E5 00 00 */	addi r7, r5, 0x0
 /* 8003F7C8 0003B748  90 01 00 04 */	stw r0, 0x4(r1)
@@ -408,9 +407,9 @@ GXSetTevIndBumpXYZ:
 /* 8003F7F8 0003B778  38 21 00 20 */	addi r1, r1, 0x20
 /* 8003F7FC 0003B77C  7C 08 03 A6 */	mtlr r0
 /* 8003F800 0003B780  4E 80 00 20 */	blr
+.endfn GXSetTevIndBumpXYZ
 
-.global __GXUpdateBPMask
-__GXUpdateBPMask:
+.fn __GXUpdateBPMask, global
 /* 8003F804 0003B784  80 6D 82 90 */	lwz r3, gx@sda21(r13)
 /* 8003F808 0003B788  38 C0 00 00 */	li r6, 0x0
 /* 8003F80C 0003B78C  38 80 00 00 */	li r4, 0x0
@@ -470,9 +469,9 @@ __GXUpdateBPMask:
 /* 8003F8C4 0003B844  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 8003F8C8 0003B848  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 8003F8CC 0003B84C  4E 80 00 20 */	blr
+.endfn __GXUpdateBPMask
 
-.global __GXFlushTextureState
-__GXFlushTextureState:
+.fn __GXFlushTextureState, global
 /* 8003F8D0 0003B850  38 00 00 61 */	li r0, 0x61
 /* 8003F8D4 0003B854  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 8003F8D8 0003B858  3C A0 CC 01 */	lis r5, 0xCC008000@ha
@@ -482,6 +481,7 @@ __GXFlushTextureState:
 /* 8003F8E8 0003B868  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 8003F8EC 0003B86C  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 8003F8F0 0003B870  4E 80 00 20 */	blr
+.endfn __GXFlushTextureState
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 

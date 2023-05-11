@@ -4,8 +4,7 @@
 
 
 
-.global inpSetGlobalMIDIDirtyFlag
-inpSetGlobalMIDIDirtyFlag:
+.fn inpSetGlobalMIDIDirtyFlag, global
 /* 800557F4 00051774  3C C0 80 0A */	lis r6, inpGlobalMIDIDirtyFlags@ha
 /* 800557F8 00051778  54 84 34 B2 */	clrlslwi r4, r4, 24, 6
 /* 800557FC 0005177C  38 06 3F A8 */	addi r0, r6, inpGlobalMIDIDirtyFlags@l
@@ -16,9 +15,9 @@ inpSetGlobalMIDIDirtyFlag:
 /* 80055810 00051790  7C 00 2B 78 */	or r0, r0, r5
 /* 80055814 00051794  90 03 00 00 */	stw r0, 0x0(r3)
 /* 80055818 00051798  4E 80 00 20 */	blr
+.endfn inpSetGlobalMIDIDirtyFlag
 
-.global inpSetMidiCtrl
-inpSetMidiCtrl:
+.fn inpSetMidiCtrl, global
 /* 8005581C 0005179C  7C 08 02 A6 */	mflr r0
 /* 80055820 000517A0  54 87 06 3E */	clrlwi r7, r4, 24
 /* 80055824 000517A4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -439,9 +438,9 @@ inpSetMidiCtrl:
 /* 80055DE0 00051D60  38 21 00 38 */	addi r1, r1, 0x38
 /* 80055DE4 00051D64  7C 08 03 A6 */	mtlr r0
 /* 80055DE8 00051D68  4E 80 00 20 */	blr
+.endfn inpSetMidiCtrl
 
-.global inpSetMidiCtrl14
-inpSetMidiCtrl14:
+.fn inpSetMidiCtrl14, global
 /* 80055DEC 00051D6C  7C 08 02 A6 */	mflr r0
 /* 80055DF0 00051D70  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80055DF4 00051D74  54 80 06 3E */	clrlwi r0, r4, 24
@@ -520,9 +519,9 @@ inpSetMidiCtrl14:
 /* 80055F08 00051E88  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80055F0C 00051E8C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80055F10 00051E90  4E 80 00 20 */	blr
+.endfn inpSetMidiCtrl14
 
-.global inpResetMidiCtrl
-inpResetMidiCtrl:
+.fn inpResetMidiCtrl, global
 /* 80055F14 00051E94  7C 08 02 A6 */	mflr r0
 /* 80055F18 00051E98  28 05 00 00 */	cmplwi r5, 0x0
 /* 80055F1C 00051E9C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -597,9 +596,9 @@ inpResetMidiCtrl:
 /* 8005600C 00051F8C  7C 08 03 A6 */	mtlr r0
 /* 80056010 00051F90  38 21 00 18 */	addi r1, r1, 0x18
 /* 80056014 00051F94  4E 80 00 20 */	blr
+.endfn inpResetMidiCtrl
 
-.global inpGetMidiCtrl
-inpGetMidiCtrl:
+.fn inpGetMidiCtrl, global
 /* 80056018 00051F98  54 88 06 3E */	clrlwi r8, r4, 24
 /* 8005601C 00051F9C  28 08 00 FF */	cmplwi r8, 0xff
 /* 80056020 00051FA0  3C C0 80 0A */	lis r6, midi_lastNote@ha
@@ -779,9 +778,9 @@ inpGetMidiCtrl:
 .L_8005629C:
 /* 8005629C 0005221C  38 60 00 00 */	li r3, 0x0
 /* 800562A0 00052220  4E 80 00 20 */	blr
+.endfn inpGetMidiCtrl
 
-.global inpGetChannelDefaults
-inpGetChannelDefaults:
+.fn inpGetChannelDefaults, global
 /* 800562A4 00052224  54 80 06 3E */	clrlwi r0, r4, 24
 /* 800562A8 00052228  28 00 00 FF */	cmplwi r0, 0xff
 /* 800562AC 0005222C  40 82 00 18 */	bne .L_800562C4
@@ -798,9 +797,9 @@ inpGetChannelDefaults:
 /* 800562D4 00052254  54 60 06 3E */	clrlwi r0, r3, 24
 /* 800562D8 00052258  7C 64 02 14 */	add r3, r4, r0
 /* 800562DC 0005225C  4E 80 00 20 */	blr
+.endfn inpGetChannelDefaults
 
-.global inpResetChannelDefaults
-inpResetChannelDefaults:
+.fn inpResetChannelDefaults, global
 /* 800562E0 00052260  54 80 06 3E */	clrlwi r0, r4, 24
 /* 800562E4 00052264  28 00 00 FF */	cmplwi r0, 0xff
 /* 800562E8 00052268  41 82 00 20 */	beq .L_80056308
@@ -820,9 +819,9 @@ inpResetChannelDefaults:
 /* 80056318 00052298  38 00 00 02 */	li r0, 0x2
 /* 8005631C 0005229C  98 03 00 00 */	stb r0, 0x0(r3)
 /* 80056320 000522A0  4E 80 00 20 */	blr
+.endfn inpResetChannelDefaults
 
-.global inpAddCtrl
-inpAddCtrl:
+.fn inpAddCtrl, global
 /* 80056324 000522A4  7C 08 02 A6 */	mflr r0
 /* 80056328 000522A8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005632C 000522AC  54 C0 06 3F */	clrlwi. r0, r6, 24
@@ -866,9 +865,9 @@ inpAddCtrl:
 /* 800563B4 00052334  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 800563B8 00052338  38 21 00 30 */	addi r1, r1, 0x30
 /* 800563BC 0005233C  4E 80 00 20 */	blr
+.endfn inpAddCtrl
 
-.global inpFXCopyCtrl
-inpFXCopyCtrl:
+.fn inpFXCopyCtrl, global
 /* 800563C0 00052340  54 66 06 3E */	clrlwi r6, r3, 24
 /* 800563C4 00052344  80 84 00 F4 */	lwz r4, 0xf4(r4)
 /* 800563C8 00052348  80 05 00 F4 */	lwz r0, 0xf4(r5)
@@ -943,9 +942,9 @@ inpFXCopyCtrl:
 /* 800564D0 00052450  7C 60 32 14 */	add r3, r0, r6
 /* 800564D4 00052454  98 83 43 C0 */	stb r4, 0x43c0(r3)
 /* 800564D8 00052458  4E 80 00 20 */	blr
+.endfn inpFXCopyCtrl
 
-.global inpSetMidiLastNote
-inpSetMidiLastNote:
+.fn inpSetMidiLastNote, global
 /* 800564DC 0005245C  54 80 06 3E */	clrlwi r0, r4, 24
 /* 800564E0 00052460  28 00 00 FF */	cmplwi r0, 0xff
 /* 800564E4 00052464  41 82 00 24 */	beq .L_80056508
@@ -964,9 +963,9 @@ inpSetMidiLastNote:
 /* 80056514 00052494  7C 60 1A 14 */	add r3, r0, r3
 /* 80056518 00052498  98 A3 00 00 */	stb r5, 0x0(r3)
 /* 8005651C 0005249C  4E 80 00 20 */	blr
+.endfn inpSetMidiLastNote
 
-.global inpGetMidiLastNote
-inpGetMidiLastNote:
+.fn inpGetMidiLastNote, global
 /* 80056520 000524A0  54 80 06 3E */	clrlwi r0, r4, 24
 /* 80056524 000524A4  28 00 00 FF */	cmplwi r0, 0xff
 /* 80056528 000524A8  41 82 00 24 */	beq .L_8005654C
@@ -985,9 +984,9 @@ inpGetMidiLastNote:
 /* 80056558 000524D8  7C 60 1A 14 */	add r3, r0, r3
 /* 8005655C 000524DC  88 63 00 00 */	lbz r3, 0x0(r3)
 /* 80056560 000524E0  4E 80 00 20 */	blr
+.endfn inpGetMidiLastNote
 
-.global inpSetMidiPortState
-inpSetMidiPortState:
+.fn inpSetMidiPortState, global
 /* 80056564 000524E4  54 80 06 3E */	clrlwi r0, r4, 24
 /* 80056568 000524E8  28 00 00 FF */	cmplwi r0, 0xff
 /* 8005656C 000524EC  41 82 00 24 */	beq .L_80056590
@@ -1006,9 +1005,9 @@ inpSetMidiPortState:
 /* 8005659C 0005251C  7C 60 1A 14 */	add r3, r0, r3
 /* 800565A0 00052520  98 A3 00 00 */	stb r5, 0x0(r3)
 /* 800565A4 00052524  4E 80 00 20 */	blr
+.endfn inpSetMidiPortState
 
-.global inpGetMidiPortState
-inpGetMidiPortState:
+.fn inpGetMidiPortState, global
 /* 800565A8 00052528  54 80 06 3E */	clrlwi r0, r4, 24
 /* 800565AC 0005252C  28 00 00 FF */	cmplwi r0, 0xff
 /* 800565B0 00052530  41 82 00 24 */	beq .L_800565D4
@@ -1027,8 +1026,9 @@ inpGetMidiPortState:
 /* 800565E0 00052560  7C 60 1A 14 */	add r3, r0, r3
 /* 800565E4 00052564  88 63 00 00 */	lbz r3, 0x0(r3)
 /* 800565E8 00052568  4E 80 00 20 */	blr
+.endfn inpGetMidiPortState
 
-_GetInputValue:
+.fn _GetInputValue, local
 /* 800565EC 0005256C  7C 08 02 A6 */	mflr r0
 /* 800565F0 00052570  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800565F4 00052574  94 21 FF C8 */	stwu r1, -0x38(r1)
@@ -1377,9 +1377,9 @@ _GetInputValue:
 /* 80056A68 000529E8  38 21 00 38 */	addi r1, r1, 0x38
 /* 80056A6C 000529EC  7C 08 03 A6 */	mtlr r0
 /* 80056A70 000529F0  4E 80 00 20 */	blr
+.endfn _GetInputValue
 
-.global inpGetVolume
-inpGetVolume:
+.fn inpGetVolume, global
 /* 80056A74 000529F4  7C 08 02 A6 */	mflr r0
 /* 80056A78 000529F8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056A7C 000529FC  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1400,9 +1400,9 @@ inpGetVolume:
 /* 80056AB0 00052A30  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056AB4 00052A34  7C 08 03 A6 */	mtlr r0
 /* 80056AB8 00052A38  4E 80 00 20 */	blr
+.endfn inpGetVolume
 
-.global inpGetPanning
-inpGetPanning:
+.fn inpGetPanning, global
 /* 80056ABC 00052A3C  7C 08 02 A6 */	mflr r0
 /* 80056AC0 00052A40  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056AC4 00052A44  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1423,9 +1423,9 @@ inpGetPanning:
 /* 80056AF8 00052A78  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056AFC 00052A7C  7C 08 03 A6 */	mtlr r0
 /* 80056B00 00052A80  4E 80 00 20 */	blr
+.endfn inpGetPanning
 
-.global inpGetSurPanning
-inpGetSurPanning:
+.fn inpGetSurPanning, global
 /* 80056B04 00052A84  7C 08 02 A6 */	mflr r0
 /* 80056B08 00052A88  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056B0C 00052A8C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1446,9 +1446,9 @@ inpGetSurPanning:
 /* 80056B40 00052AC0  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056B44 00052AC4  7C 08 03 A6 */	mtlr r0
 /* 80056B48 00052AC8  4E 80 00 20 */	blr
+.endfn inpGetSurPanning
 
-.global inpGetPitchBend
-inpGetPitchBend:
+.fn inpGetPitchBend, global
 /* 80056B4C 00052ACC  7C 08 02 A6 */	mflr r0
 /* 80056B50 00052AD0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056B54 00052AD4  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1469,9 +1469,9 @@ inpGetPitchBend:
 /* 80056B88 00052B08  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056B8C 00052B0C  7C 08 03 A6 */	mtlr r0
 /* 80056B90 00052B10  4E 80 00 20 */	blr
+.endfn inpGetPitchBend
 
-.global inpGetDoppler
-inpGetDoppler:
+.fn inpGetDoppler, global
 /* 80056B94 00052B14  7C 08 02 A6 */	mflr r0
 /* 80056B98 00052B18  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056B9C 00052B1C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1492,9 +1492,9 @@ inpGetDoppler:
 /* 80056BD0 00052B50  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056BD4 00052B54  7C 08 03 A6 */	mtlr r0
 /* 80056BD8 00052B58  4E 80 00 20 */	blr
+.endfn inpGetDoppler
 
-.global inpGetModulation
-inpGetModulation:
+.fn inpGetModulation, global
 /* 80056BDC 00052B5C  7C 08 02 A6 */	mflr r0
 /* 80056BE0 00052B60  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056BE4 00052B64  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1515,9 +1515,9 @@ inpGetModulation:
 /* 80056C18 00052B98  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056C1C 00052B9C  7C 08 03 A6 */	mtlr r0
 /* 80056C20 00052BA0  4E 80 00 20 */	blr
+.endfn inpGetModulation
 
-.global inpGetPedal
-inpGetPedal:
+.fn inpGetPedal, global
 /* 80056C24 00052BA4  7C 08 02 A6 */	mflr r0
 /* 80056C28 00052BA8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056C2C 00052BAC  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1538,9 +1538,9 @@ inpGetPedal:
 /* 80056C60 00052BE0  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056C64 00052BE4  7C 08 03 A6 */	mtlr r0
 /* 80056C68 00052BE8  4E 80 00 20 */	blr
+.endfn inpGetPedal
 
-.global inpGetPortamento
-inpGetPortamento:
+.fn inpGetPortamento, global
 /* 80056C6C 00052BEC  7C 08 02 A6 */	mflr r0
 /* 80056C70 00052BF0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056C74 00052BF4  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1561,9 +1561,9 @@ inpGetPortamento:
 /* 80056CA8 00052C28  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056CAC 00052C2C  7C 08 03 A6 */	mtlr r0
 /* 80056CB0 00052C30  4E 80 00 20 */	blr
+.endfn inpGetPortamento
 
-.global inpGetPreAuxA
-inpGetPreAuxA:
+.fn inpGetPreAuxA, global
 /* 80056CB4 00052C34  7C 08 02 A6 */	mflr r0
 /* 80056CB8 00052C38  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056CBC 00052C3C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1584,9 +1584,9 @@ inpGetPreAuxA:
 /* 80056CF0 00052C70  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056CF4 00052C74  7C 08 03 A6 */	mtlr r0
 /* 80056CF8 00052C78  4E 80 00 20 */	blr
+.endfn inpGetPreAuxA
 
-.global inpGetReverb
-inpGetReverb:
+.fn inpGetReverb, global
 /* 80056CFC 00052C7C  7C 08 02 A6 */	mflr r0
 /* 80056D00 00052C80  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056D04 00052C84  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1607,9 +1607,9 @@ inpGetReverb:
 /* 80056D38 00052CB8  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056D3C 00052CBC  7C 08 03 A6 */	mtlr r0
 /* 80056D40 00052CC0  4E 80 00 20 */	blr
+.endfn inpGetReverb
 
-.global inpGetPreAuxB
-inpGetPreAuxB:
+.fn inpGetPreAuxB, global
 /* 80056D44 00052CC4  7C 08 02 A6 */	mflr r0
 /* 80056D48 00052CC8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056D4C 00052CCC  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1630,9 +1630,9 @@ inpGetPreAuxB:
 /* 80056D80 00052D00  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056D84 00052D04  7C 08 03 A6 */	mtlr r0
 /* 80056D88 00052D08  4E 80 00 20 */	blr
+.endfn inpGetPreAuxB
 
-.global inpGetPostAuxB
-inpGetPostAuxB:
+.fn inpGetPostAuxB, global
 /* 80056D8C 00052D0C  7C 08 02 A6 */	mflr r0
 /* 80056D90 00052D10  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056D94 00052D14  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1653,9 +1653,9 @@ inpGetPostAuxB:
 /* 80056DC8 00052D48  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056DCC 00052D4C  7C 08 03 A6 */	mtlr r0
 /* 80056DD0 00052D50  4E 80 00 20 */	blr
+.endfn inpGetPostAuxB
 
-.global inpGetTremolo
-inpGetTremolo:
+.fn inpGetTremolo, global
 /* 80056DD4 00052D54  7C 08 02 A6 */	mflr r0
 /* 80056DD8 00052D58  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80056DDC 00052D5C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1676,9 +1676,9 @@ inpGetTremolo:
 /* 80056E10 00052D90  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056E14 00052D94  7C 08 03 A6 */	mtlr r0
 /* 80056E18 00052D98  4E 80 00 20 */	blr
+.endfn inpGetTremolo
 
-.global inpGetAuxA
-inpGetAuxA:
+.fn inpGetAuxA, global
 /* 80056E1C 00052D9C  7C 08 02 A6 */	mflr r0
 /* 80056E20 00052DA0  3C E0 80 0A */	lis r7, inpGlobalMIDIDirtyFlags@ha
 /* 80056E24 00052DA4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1729,9 +1729,9 @@ inpGetAuxA:
 /* 80056ECC 00052E4C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056ED0 00052E50  7C 08 03 A6 */	mtlr r0
 /* 80056ED4 00052E54  4E 80 00 20 */	blr
+.endfn inpGetAuxA
 
-.global inpGetAuxB
-inpGetAuxB:
+.fn inpGetAuxB, global
 /* 80056ED8 00052E58  7C 08 02 A6 */	mflr r0
 /* 80056EDC 00052E5C  3C E0 80 0A */	lis r7, inpGlobalMIDIDirtyFlags@ha
 /* 80056EE0 00052E60  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1782,9 +1782,9 @@ inpGetAuxB:
 /* 80056F88 00052F08  38 21 00 08 */	addi r1, r1, 0x8
 /* 80056F8C 00052F0C  7C 08 03 A6 */	mtlr r0
 /* 80056F90 00052F10  4E 80 00 20 */	blr
+.endfn inpGetAuxB
 
-.global inpInit
-inpInit:
+.fn inpInit, global
 /* 80056F94 00052F14  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80056F98 00052F18  28 03 00 00 */	cmplwi r3, 0x0
 /* 80056F9C 00052F1C  93 E1 00 2C */	stw r31, 0x2c(r1)
@@ -1941,9 +1941,9 @@ inpInit:
 /* 800571EC 0005316C  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 800571F0 00053170  38 21 00 30 */	addi r1, r1, 0x30
 /* 800571F4 00053174  4E 80 00 20 */	blr
+.endfn inpInit
 
-.global inpTranslateExCtrl
-inpTranslateExCtrl:
+.fn inpTranslateExCtrl, global
 /* 800571F8 00053178  54 64 06 3E */	clrlwi r4, r3, 24
 /* 800571FC 0005317C  38 04 FF 80 */	addi r0, r4, -0x80
 /* 80057200 00053180  28 00 00 08 */	cmplwi r0, 0x8
@@ -1981,9 +1981,9 @@ inpTranslateExCtrl:
 .L_80057260:
 /* 80057260 000531E0  38 60 00 A4 */	li r3, 0xa4
 /* 80057264 000531E4  4E 80 00 20 */	blr
+.endfn inpTranslateExCtrl
 
-.global inpGetExCtrl
-inpGetExCtrl:
+.fn inpGetExCtrl, global
 /* 80057268 000531E8  7C 08 02 A6 */	mflr r0
 /* 8005726C 000531EC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80057270 000531F0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -2030,9 +2030,9 @@ inpGetExCtrl:
 /* 800572FC 0005327C  7C 08 03 A6 */	mtlr r0
 /* 80057300 00053280  38 21 00 18 */	addi r1, r1, 0x18
 /* 80057304 00053284  4E 80 00 20 */	blr
+.endfn inpGetExCtrl
 
-.global inpSetExCtrl
-inpSetExCtrl:
+.fn inpSetExCtrl, global
 /* 80057308 00053288  7C 08 02 A6 */	mflr r0
 /* 8005730C 0005328C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80057310 00053290  7C A0 07 35 */	extsh. r0, r5
@@ -2075,6 +2075,7 @@ inpSetExCtrl:
 /* 80057394 00053314  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80057398 00053318  38 21 00 20 */	addi r1, r1, 0x20
 /* 8005739C 0005331C  4E 80 00 20 */	blr
+.endfn inpSetExCtrl
 
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0

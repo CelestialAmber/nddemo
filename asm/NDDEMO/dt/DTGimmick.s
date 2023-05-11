@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__9DTGimmickFv
-__ct__9DTGimmickFv:
+.fn __ct__9DTGimmickFv, global
 /* 8001D4CC 0001944C  38 A0 00 00 */	li r5, 0x0
 /* 8001D4D0 00019450  90 A3 00 04 */	stw r5, 0x4(r3)
 /* 8001D4D4 00019454  3C 80 80 07 */	lis r4, Coin@ha
@@ -36,9 +35,9 @@ __ct__9DTGimmickFv:
 /* 8001D538 000194B8  38 00 00 07 */	li r0, 0x7
 /* 8001D53C 000194BC  98 03 00 26 */	stb r0, 0x26(r3)
 /* 8001D540 000194C0  4E 80 00 20 */	blr
+.endfn __ct__9DTGimmickFv
 
-.global __dt__9DTGimmickFv
-__dt__9DTGimmickFv:
+.fn __dt__9DTGimmickFv, global
 /* 8001D544 000194C4  7C 08 02 A6 */	mflr r0
 /* 8001D548 000194C8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001D54C 000194CC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -56,9 +55,9 @@ __dt__9DTGimmickFv:
 /* 8001D578 000194F8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001D57C 000194FC  7C 08 03 A6 */	mtlr r0
 /* 8001D580 00019500  4E 80 00 20 */	blr
+.endfn __dt__9DTGimmickFv
 
-.global Action__9DTGimmickFUc
-Action__9DTGimmickFUc:
+.fn Action__9DTGimmickFUc, global
 /* 8001D584 00019504  7C 08 02 A6 */	mflr r0
 /* 8001D588 00019508  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001D58C 0001950C  54 80 06 3E */	clrlwi r0, r4, 24
@@ -112,9 +111,9 @@ Action__9DTGimmickFUc:
 /* 8001D628 000195A8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001D62C 000195AC  7C 08 03 A6 */	mtlr r0
 /* 8001D630 000195B0  4E 80 00 20 */	blr
+.endfn Action__9DTGimmickFUc
 
-.global ActionEntr__9DTGimmickFv
-ActionEntr__9DTGimmickFv:
+.fn ActionEntr__9DTGimmickFv, global
 /* 8001D634 000195B4  7C 08 02 A6 */	mflr r0
 /* 8001D638 000195B8  3C A0 80 06 */	lis r5, lbl_80066E18@ha
 /* 8001D63C 000195BC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -344,9 +343,9 @@ ActionEntr__9DTGimmickFv:
 /* 8001D978 000198F8  83 A1 00 6C */	lwz r29, 0x6c(r1)
 /* 8001D97C 000198FC  38 21 00 78 */	addi r1, r1, 0x78
 /* 8001D980 00019900  4E 80 00 20 */	blr
+.endfn ActionEntr__9DTGimmickFv
 
-.global ActionHang__9DTGimmickFv
-ActionHang__9DTGimmickFv:
+.fn ActionHang__9DTGimmickFv, global
 /* 8001D984 00019904  7C 08 02 A6 */	mflr r0
 /* 8001D988 00019908  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001D98C 0001990C  94 21 FF C8 */	stwu r1, -0x38(r1)
@@ -402,9 +401,9 @@ ActionHang__9DTGimmickFv:
 /* 8001DA48 000199C8  7C 08 03 A6 */	mtlr r0
 /* 8001DA4C 000199CC  38 21 00 38 */	addi r1, r1, 0x38
 /* 8001DA50 000199D0  4E 80 00 20 */	blr
+.endfn ActionHang__9DTGimmickFv
 
-.global ActionDome__9DTGimmickFv
-ActionDome__9DTGimmickFv:
+.fn ActionDome__9DTGimmickFv, global
 /* 8001DA54 000199D4  7C 08 02 A6 */	mflr r0
 /* 8001DA58 000199D8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001DA5C 000199DC  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -439,9 +438,9 @@ ActionDome__9DTGimmickFv:
 /* 8001DAC8 00019A48  7C 08 03 A6 */	mtlr r0
 /* 8001DACC 00019A4C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8001DAD0 00019A50  4E 80 00 20 */	blr
+.endfn ActionDome__9DTGimmickFv
 
-.global ActionCave__9DTGimmickFv
-ActionCave__9DTGimmickFv:
+.fn ActionCave__9DTGimmickFv, global
 /* 8001DAD4 00019A54  7C 08 02 A6 */	mflr r0
 /* 8001DAD8 00019A58  3C A0 80 06 */	lis r5, lbl_80066E18@ha
 /* 8001DADC 00019A5C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -866,9 +865,9 @@ ActionCave__9DTGimmickFv:
 /* 8001E0D4 0001A054  83 81 00 58 */	lwz r28, 0x58(r1)
 /* 8001E0D8 0001A058  38 21 00 68 */	addi r1, r1, 0x68
 /* 8001E0DC 0001A05C  4E 80 00 20 */	blr
+.endfn ActionCave__9DTGimmickFv
 
-.global ActionCine__9DTGimmickFv
-ActionCine__9DTGimmickFv:
+.fn ActionCine__9DTGimmickFv, global
 /* 8001E0E0 0001A060  7C 08 02 A6 */	mflr r0
 /* 8001E0E4 0001A064  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001E0E8 0001A068  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -903,9 +902,9 @@ ActionCine__9DTGimmickFv:
 /* 8001E154 0001A0D4  7C 08 03 A6 */	mtlr r0
 /* 8001E158 0001A0D8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8001E15C 0001A0DC  4E 80 00 20 */	blr
+.endfn ActionCine__9DTGimmickFv
 
-.global ActionSpil__9DTGimmickFv
-ActionSpil__9DTGimmickFv:
+.fn ActionSpil__9DTGimmickFv, global
 /* 8001E160 0001A0E0  7C 08 02 A6 */	mflr r0
 /* 8001E164 0001A0E4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001E168 0001A0E8  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -976,9 +975,9 @@ ActionSpil__9DTGimmickFv:
 /* 8001E258 0001A1D8  7C 08 03 A6 */	mtlr r0
 /* 8001E25C 0001A1DC  38 21 00 30 */	addi r1, r1, 0x30
 /* 8001E260 0001A1E0  4E 80 00 20 */	blr
+.endfn ActionSpil__9DTGimmickFv
 
-.global ActionEnve__9DTGimmickFv
-ActionEnve__9DTGimmickFv:
+.fn ActionEnve__9DTGimmickFv, global
 /* 8001E264 0001A1E4  7C 08 02 A6 */	mflr r0
 /* 8001E268 0001A1E8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001E26C 0001A1EC  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -1030,9 +1029,9 @@ ActionEnve__9DTGimmickFv:
 /* 8001E318 0001A298  7C 08 03 A6 */	mtlr r0
 /* 8001E31C 0001A29C  38 21 00 30 */	addi r1, r1, 0x30
 /* 8001E320 0001A2A0  4E 80 00 20 */	blr
+.endfn ActionEnve__9DTGimmickFv
 
-.global ActionMpol__9DTGimmickFv
-ActionMpol__9DTGimmickFv:
+.fn ActionMpol__9DTGimmickFv, global
 /* 8001E324 0001A2A4  7C 08 02 A6 */	mflr r0
 /* 8001E328 0001A2A8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001E32C 0001A2AC  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1067,9 +1066,9 @@ ActionMpol__9DTGimmickFv:
 /* 8001E398 0001A318  7C 08 03 A6 */	mtlr r0
 /* 8001E39C 0001A31C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8001E3A0 0001A320  4E 80 00 20 */	blr
+.endfn ActionMpol__9DTGimmickFv
 
-.global DoorOpen__9DTGimmickFUcUc
-DoorOpen__9DTGimmickFUcUc:
+.fn DoorOpen__9DTGimmickFUcUc, global
 /* 8001E3A4 0001A324  7C 08 02 A6 */	mflr r0
 /* 8001E3A8 0001A328  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001E3AC 0001A32C  54 80 06 3E */	clrlwi r0, r4, 24
@@ -1129,9 +1128,9 @@ DoorOpen__9DTGimmickFUcUc:
 /* 8001E464 0001A3E4  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001E468 0001A3E8  7C 08 03 A6 */	mtlr r0
 /* 8001E46C 0001A3EC  4E 80 00 20 */	blr
+.endfn DoorOpen__9DTGimmickFUcUc
 
-.global DoorClose__9DTGimmickFUcUc
-DoorClose__9DTGimmickFUcUc:
+.fn DoorClose__9DTGimmickFUcUc, global
 /* 8001E470 0001A3F0  7C 08 02 A6 */	mflr r0
 /* 8001E474 0001A3F4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001E478 0001A3F8  54 80 06 3E */	clrlwi r0, r4, 24
@@ -1219,9 +1218,9 @@ DoorClose__9DTGimmickFUcUc:
 /* 8001E5A0 0001A520  38 21 00 30 */	addi r1, r1, 0x30
 /* 8001E5A4 0001A524  7C 08 03 A6 */	mtlr r0
 /* 8001E5A8 0001A528  4E 80 00 20 */	blr
+.endfn DoorClose__9DTGimmickFUcUc
 
-.global DoorAction__9DTGimmickFv
-DoorAction__9DTGimmickFv:
+.fn DoorAction__9DTGimmickFv, global
 /* 8001E5AC 0001A52C  7C 08 02 A6 */	mflr r0
 /* 8001E5B0 0001A530  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001E5B4 0001A534  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -1288,9 +1287,9 @@ DoorAction__9DTGimmickFv:
 /* 8001E6A0 0001A620  38 21 00 30 */	addi r1, r1, 0x30
 /* 8001E6A4 0001A624  7C 08 03 A6 */	mtlr r0
 /* 8001E6A8 0001A628  4E 80 00 20 */	blr
+.endfn DoorAction__9DTGimmickFv
 
-.global SetDoorEntr__9DTGimmickFUc
-SetDoorEntr__9DTGimmickFUc:
+.fn SetDoorEntr__9DTGimmickFUc, global
 /* 8001E6AC 0001A62C  7C 08 02 A6 */	mflr r0
 /* 8001E6B0 0001A630  54 84 06 3E */	clrlwi r4, r4, 24
 /* 8001E6B4 0001A634  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1404,9 +1403,9 @@ SetDoorEntr__9DTGimmickFUc:
 /* 8001E844 0001A7C4  83 81 00 68 */	lwz r28, 0x68(r1)
 /* 8001E848 0001A7C8  38 21 00 78 */	addi r1, r1, 0x78
 /* 8001E84C 0001A7CC  4E 80 00 20 */	blr
+.endfn SetDoorEntr__9DTGimmickFUc
 
-.global SetDoorHang__9DTGimmickFUc
-SetDoorHang__9DTGimmickFUc:
+.fn SetDoorHang__9DTGimmickFUc, global
 /* 8001E850 0001A7D0  7C 08 02 A6 */	mflr r0
 /* 8001E854 0001A7D4  3C A0 80 06 */	lis r5, lbl_80066E18@ha
 /* 8001E858 0001A7D8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1454,9 +1453,9 @@ SetDoorHang__9DTGimmickFUc:
 /* 8001E8F4 0001A874  83 81 00 28 */	lwz r28, 0x28(r1)
 /* 8001E8F8 0001A878  38 21 00 38 */	addi r1, r1, 0x38
 /* 8001E8FC 0001A87C  4E 80 00 20 */	blr
+.endfn SetDoorHang__9DTGimmickFUc
 
-.global SetDoorDome__9DTGimmickFUc
-SetDoorDome__9DTGimmickFUc:
+.fn SetDoorDome__9DTGimmickFUc, global
 /* 8001E900 0001A880  7C 08 02 A6 */	mflr r0
 /* 8001E904 0001A884  3C A0 80 06 */	lis r5, lbl_80066E18@ha
 /* 8001E908 0001A888  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1504,9 +1503,9 @@ SetDoorDome__9DTGimmickFUc:
 /* 8001E9A4 0001A924  83 81 00 28 */	lwz r28, 0x28(r1)
 /* 8001E9A8 0001A928  38 21 00 38 */	addi r1, r1, 0x38
 /* 8001E9AC 0001A92C  4E 80 00 20 */	blr
+.endfn SetDoorDome__9DTGimmickFUc
 
-.global SetDoorCine__9DTGimmickFUc
-SetDoorCine__9DTGimmickFUc:
+.fn SetDoorCine__9DTGimmickFUc, global
 /* 8001E9B0 0001A930  7C 08 02 A6 */	mflr r0
 /* 8001E9B4 0001A934  3C A0 80 06 */	lis r5, lbl_80066E18@ha
 /* 8001E9B8 0001A938  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1554,9 +1553,9 @@ SetDoorCine__9DTGimmickFUc:
 /* 8001EA54 0001A9D4  83 81 00 28 */	lwz r28, 0x28(r1)
 /* 8001EA58 0001A9D8  38 21 00 38 */	addi r1, r1, 0x38
 /* 8001EA5C 0001A9DC  4E 80 00 20 */	blr
+.endfn SetDoorCine__9DTGimmickFUc
 
-.global SetDoorSpil__9DTGimmickFUc
-SetDoorSpil__9DTGimmickFUc:
+.fn SetDoorSpil__9DTGimmickFUc, global
 /* 8001EA60 0001A9E0  7C 08 02 A6 */	mflr r0
 /* 8001EA64 0001A9E4  3C A0 80 06 */	lis r5, lbl_80066E18@ha
 /* 8001EA68 0001A9E8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1627,9 +1626,9 @@ SetDoorSpil__9DTGimmickFUc:
 /* 8001EB60 0001AAE0  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8001EB64 0001AAE4  38 21 00 40 */	addi r1, r1, 0x40
 /* 8001EB68 0001AAE8  4E 80 00 20 */	blr
+.endfn SetDoorSpil__9DTGimmickFUc
 
-.global SetDoorEnve__9DTGimmickFUc
-SetDoorEnve__9DTGimmickFUc:
+.fn SetDoorEnve__9DTGimmickFUc, global
 /* 8001EB6C 0001AAEC  7C 08 02 A6 */	mflr r0
 /* 8001EB70 0001AAF0  3C C0 80 06 */	lis r6, lbl_80066E18@ha
 /* 8001EB74 0001AAF4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1703,9 +1702,9 @@ SetDoorEnve__9DTGimmickFUc:
 /* 8001EC78 0001ABF8  83 A1 00 2C */	lwz r29, 0x2c(r1)
 /* 8001EC7C 0001ABFC  38 21 00 38 */	addi r1, r1, 0x38
 /* 8001EC80 0001AC00  4E 80 00 20 */	blr
+.endfn SetDoorEnve__9DTGimmickFUc
 
-.global SetDoorMpol__9DTGimmickFUc
-SetDoorMpol__9DTGimmickFUc:
+.fn SetDoorMpol__9DTGimmickFUc, global
 /* 8001EC84 0001AC04  7C 08 02 A6 */	mflr r0
 /* 8001EC88 0001AC08  3C A0 80 06 */	lis r5, lbl_80066E18@ha
 /* 8001EC8C 0001AC0C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1751,24 +1750,24 @@ SetDoorMpol__9DTGimmickFUc:
 /* 8001ED24 0001ACA4  83 A1 00 2C */	lwz r29, 0x2c(r1)
 /* 8001ED28 0001ACA8  38 21 00 38 */	addi r1, r1, 0x38
 /* 8001ED2C 0001ACAC  4E 80 00 20 */	blr
+.endfn SetDoorMpol__9DTGimmickFUc
 
-.global OpeningTitleOn__9DTGimmickFv
-OpeningTitleOn__9DTGimmickFv:
+.fn OpeningTitleOn__9DTGimmickFv, global
 /* 8001ED30 0001ACB0  38 00 00 01 */	li r0, 0x1
 /* 8001ED34 0001ACB4  98 03 00 24 */	stb r0, 0x24(r3)
 /* 8001ED38 0001ACB8  C0 02 82 C4 */	lfs f0, lbl_800A9644@sda21(r2)
 /* 8001ED3C 0001ACBC  D0 03 00 20 */	stfs f0, 0x20(r3)
 /* 8001ED40 0001ACC0  4E 80 00 20 */	blr
+.endfn OpeningTitleOn__9DTGimmickFv
 
-.global TitleOn__9DTGimmickFUc
-TitleOn__9DTGimmickFUc:
+.fn TitleOn__9DTGimmickFUc, global
 /* 8001ED44 0001ACC4  98 83 00 1D */	stb r4, 0x1d(r3)
 /* 8001ED48 0001ACC8  C0 02 82 C4 */	lfs f0, lbl_800A9644@sda21(r2)
 /* 8001ED4C 0001ACCC  D0 03 00 20 */	stfs f0, 0x20(r3)
 /* 8001ED50 0001ACD0  4E 80 00 20 */	blr
+.endfn TitleOn__9DTGimmickFUc
 
-.global TitleAction__9DTGimmickFv
-TitleAction__9DTGimmickFv:
+.fn TitleAction__9DTGimmickFv, global
 /* 8001ED54 0001ACD4  7C 08 02 A6 */	mflr r0
 /* 8001ED58 0001ACD8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001ED5C 0001ACDC  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -1934,9 +1933,9 @@ TitleAction__9DTGimmickFv:
 /* 8001EFA4 0001AF24  7C 08 03 A6 */	mtlr r0
 /* 8001EFA8 0001AF28  38 21 00 28 */	addi r1, r1, 0x28
 /* 8001EFAC 0001AF2C  4E 80 00 20 */	blr
+.endfn TitleAction__9DTGimmickFv
 
-.global OpeningTitleAction__9DTGimmickFv
-OpeningTitleAction__9DTGimmickFv:
+.fn OpeningTitleAction__9DTGimmickFv, global
 /* 8001EFB0 0001AF30  7C 08 02 A6 */	mflr r0
 /* 8001EFB4 0001AF34  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001EFB8 0001AF38  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -2046,9 +2045,9 @@ OpeningTitleAction__9DTGimmickFv:
 /* 8001F144 0001B0C4  7C 08 03 A6 */	mtlr r0
 /* 8001F148 0001B0C8  38 21 00 28 */	addi r1, r1, 0x28
 /* 8001F14C 0001B0CC  4E 80 00 20 */	blr
+.endfn OpeningTitleAction__9DTGimmickFv
 
-.global FadeIn__9DTGimmickFv
-FadeIn__9DTGimmickFv:
+.fn FadeIn__9DTGimmickFv, global
 /* 8001F150 0001B0D0  7C 08 02 A6 */	mflr r0
 /* 8001F154 0001B0D4  3C 80 80 06 */	lis r4, lbl_80066FD0@ha
 /* 8001F158 0001B0D8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2066,9 +2065,9 @@ FadeIn__9DTGimmickFv:
 /* 8001F188 0001B108  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001F18C 0001B10C  7C 08 03 A6 */	mtlr r0
 /* 8001F190 0001B110  4E 80 00 20 */	blr
+.endfn FadeIn__9DTGimmickFv
 
-.global FadeOut__9DTGimmickFv
-FadeOut__9DTGimmickFv:
+.fn FadeOut__9DTGimmickFv, global
 /* 8001F194 0001B114  7C 08 02 A6 */	mflr r0
 /* 8001F198 0001B118  3C 80 80 06 */	lis r4, lbl_80066FDC@ha
 /* 8001F19C 0001B11C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2086,17 +2085,17 @@ FadeOut__9DTGimmickFv:
 /* 8001F1CC 0001B14C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001F1D0 0001B150  7C 08 03 A6 */	mtlr r0
 /* 8001F1D4 0001B154  4E 80 00 20 */	blr
+.endfn FadeOut__9DTGimmickFv
 
-.global IsFadeOut__9DTGimmickFv
-IsFadeOut__9DTGimmickFv:
+.fn IsFadeOut__9DTGimmickFv, global
 /* 8001F1D8 0001B158  88 03 00 1C */	lbz r0, 0x1c(r3)
 /* 8001F1DC 0001B15C  20 00 00 02 */	subfic r0, r0, 0x2
 /* 8001F1E0 0001B160  7C 00 00 34 */	cntlzw r0, r0
 /* 8001F1E4 0001B164  54 03 DE 3E */	extrwi r3, r0, 8, 19
 /* 8001F1E8 0001B168  4E 80 00 20 */	blr
+.endfn IsFadeOut__9DTGimmickFv
 
-.global CoinInit__9DTGimmickFv
-CoinInit__9DTGimmickFv:
+.fn CoinInit__9DTGimmickFv, global
 /* 8001F1EC 0001B16C  7C 08 02 A6 */	mflr r0
 /* 8001F1F0 0001B170  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001F1F4 0001B174  94 21 FF 68 */	stwu r1, -0x98(r1)
@@ -2290,9 +2289,9 @@ CoinInit__9DTGimmickFv:
 /* 8001F4C0 0001B440  CB 21 00 60 */	lfd f25, 0x60(r1)
 /* 8001F4C4 0001B444  38 21 00 98 */	addi r1, r1, 0x98
 /* 8001F4C8 0001B448  4E 80 00 20 */	blr
+.endfn CoinInit__9DTGimmickFv
 
-.global CoinDrop__9DTGimmickFv
-CoinDrop__9DTGimmickFv:
+.fn CoinDrop__9DTGimmickFv, global
 /* 8001F4CC 0001B44C  7C 08 02 A6 */	mflr r0
 /* 8001F4D0 0001B450  3C 80 80 07 */	lis r4, Coin@ha
 /* 8001F4D4 0001B454  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2327,9 +2326,9 @@ CoinDrop__9DTGimmickFv:
 /* 8001F538 0001B4B8  38 21 00 08 */	addi r1, r1, 0x8
 /* 8001F53C 0001B4BC  7C 08 03 A6 */	mtlr r0
 /* 8001F540 0001B4C0  4E 80 00 20 */	blr
+.endfn CoinDrop__9DTGimmickFv
 
-.global CoinDraw__9DTGimmickFv
-CoinDraw__9DTGimmickFv:
+.fn CoinDraw__9DTGimmickFv, global
 /* 8001F544 0001B4C4  7C 08 02 A6 */	mflr r0
 /* 8001F548 0001B4C8  3C A0 80 06 */	lis r5, lbl_80064418@ha
 /* 8001F54C 0001B4CC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2535,9 +2534,9 @@ CoinDraw__9DTGimmickFv:
 /* 8001F840 0001B7C0  CB 01 00 68 */	lfd f24, 0x68(r1)
 /* 8001F844 0001B7C4  38 21 00 A8 */	addi r1, r1, 0xa8
 /* 8001F848 0001B7C8  4E 80 00 20 */	blr
+.endfn CoinDraw__9DTGimmickFv
 
-.global CoinExit__9DTGimmickFv
-CoinExit__9DTGimmickFv:
+.fn CoinExit__9DTGimmickFv, global
 /* 8001F84C 0001B7CC  7C 08 02 A6 */	mflr r0
 /* 8001F850 0001B7D0  3C 60 80 07 */	lis r3, Coin@ha
 /* 8001F854 0001B7D4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2573,9 +2572,9 @@ CoinExit__9DTGimmickFv:
 /* 8001F8BC 0001B83C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8001F8C0 0001B840  38 21 00 20 */	addi r1, r1, 0x20
 /* 8001F8C4 0001B844  4E 80 00 20 */	blr
+.endfn CoinExit__9DTGimmickFv
 
-.global IsAllOffCoin__9DTGimmickFv
-IsAllOffCoin__9DTGimmickFv:
+.fn IsAllOffCoin__9DTGimmickFv, global
 /* 8001F8C8 0001B848  3C 60 80 07 */	lis r3, Coin@ha
 /* 8001F8CC 0001B84C  38 63 7F C0 */	addi r3, r3, Coin@l
 /* 8001F8D0 0001B850  38 80 00 00 */	li r4, 0x0
@@ -2595,9 +2594,9 @@ IsAllOffCoin__9DTGimmickFv:
 /* 8001F8FC 0001B87C  41 80 FF DC */	blt .L_8001F8D8
 /* 8001F900 0001B880  38 60 00 01 */	li r3, 0x1
 /* 8001F904 0001B884  4E 80 00 20 */	blr
+.endfn IsAllOffCoin__9DTGimmickFv
 
-.global Random__9DTGimmickFv
-Random__9DTGimmickFv:
+.fn Random__9DTGimmickFv, global
 /* 8001F908 0001B888  A0 0D 81 F2 */	lhz r0, RandomNo@sda21(r13)
 /* 8001F90C 0001B88C  1C 60 00 05 */	mulli r3, r0, 0x5
 /* 8001F910 0001B890  38 03 00 01 */	addi r0, r3, 0x1
@@ -2605,9 +2604,9 @@ Random__9DTGimmickFv:
 /* 8001F918 0001B898  A0 0D 81 F2 */	lhz r0, RandomNo@sda21(r13)
 /* 8001F91C 0001B89C  54 03 C6 3E */	extrwi r3, r0, 8, 16
 /* 8001F920 0001B8A0  4E 80 00 20 */	blr
+.endfn Random__9DTGimmickFv
 
-.global Randomf32__9DTGimmickFv
-Randomf32__9DTGimmickFv:
+.fn Randomf32__9DTGimmickFv, global
 /* 8001F924 0001B8A4  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 8001F928 0001B8A8  3C 60 41 C6 */	lis r3, 0x41c6
 /* 8001F92C 0001B8AC  38 03 4E 6D */	addi r0, r3, 0x4e6d
@@ -2626,9 +2625,9 @@ Randomf32__9DTGimmickFv:
 /* 8001F960 0001B8E0  EC 21 10 28 */	fsubs f1, f1, f2
 /* 8001F964 0001B8E4  EC 21 00 32 */	fmuls f1, f1, f0
 /* 8001F968 0001B8E8  4E 80 00 20 */	blr
+.endfn Randomf32__9DTGimmickFv
 
-.global MovieAction__9DTGimmickFUl
-MovieAction__9DTGimmickFUl:
+.fn MovieAction__9DTGimmickFUl, global
 /* 8001F96C 0001B8EC  7C 08 02 A6 */	mflr r0
 /* 8001F970 0001B8F0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001F974 0001B8F4  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -2655,9 +2654,9 @@ MovieAction__9DTGimmickFUl:
 /* 8001F9C4 0001B944  38 21 00 20 */	addi r1, r1, 0x20
 /* 8001F9C8 0001B948  7C 08 03 A6 */	mtlr r0
 /* 8001F9CC 0001B94C  4E 80 00 20 */	blr
+.endfn MovieAction__9DTGimmickFUl
 
-.global MovieModeDraw__9DTGimmickFUl
-MovieModeDraw__9DTGimmickFUl:
+.fn MovieModeDraw__9DTGimmickFUl, global
 /* 8001F9D0 0001B950  7C 08 02 A6 */	mflr r0
 /* 8001F9D4 0001B954  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001F9D8 0001B958  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -2785,14 +2784,14 @@ MovieModeDraw__9DTGimmickFUl:
 /* 8001FB90 0001BB10  7C 08 03 A6 */	mtlr r0
 /* 8001FB94 0001BB14  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001FB98 0001BB18  4E 80 00 20 */	blr
+.endfn MovieModeDraw__9DTGimmickFUl
 
-.global GetNumOfCoin__9DTGimmickFv
-GetNumOfCoin__9DTGimmickFv:
+.fn GetNumOfCoin__9DTGimmickFv, global
 /* 8001FB9C 0001BB1C  A0 63 00 00 */	lhz r3, 0x0(r3)
 /* 8001FBA0 0001BB20  4E 80 00 20 */	blr
+.endfn GetNumOfCoin__9DTGimmickFv
 
-.global AddNumOfCoin__9DTGimmickFs
-AddNumOfCoin__9DTGimmickFs:
+.fn AddNumOfCoin__9DTGimmickFs, global
 /* 8001FBA4 0001BB24  A8 A3 00 00 */	lha r5, 0x0(r3)
 /* 8001FBA8 0001BB28  7C A5 22 14 */	add r5, r5, r4
 /* 8001FBAC 0001BB2C  7C A0 07 34 */	extsh r0, r5
@@ -2807,6 +2806,7 @@ AddNumOfCoin__9DTGimmickFs:
 .L_8001FBCC:
 /* 8001FBCC 0001BB4C  B0 A3 00 00 */	sth r5, 0x0(r3)
 /* 8001FBD0 0001BB50  4E 80 00 20 */	blr
+.endfn AddNumOfCoin__9DTGimmickFs
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 

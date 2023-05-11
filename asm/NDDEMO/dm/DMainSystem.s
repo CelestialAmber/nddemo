@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__11DMainSystemFv
-__ct__11DMainSystemFv:
+.fn __ct__11DMainSystemFv, global
 /* 80006810 00002790  7C 08 02 A6 */	mflr r0
 /* 80006814 00002794  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80006818 00002798  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -180,10 +179,10 @@ __ct__11DMainSystemFv:
 /* 80006AB4 00002A34  38 21 00 30 */	addi r1, r1, 0x30
 /* 80006AB8 00002A38  7C 08 03 A6 */	mtlr r0
 /* 80006ABC 00002A3C  4E 80 00 20 */	blr
+.endfn __ct__11DMainSystemFv
 
 #weak
-.global __ct__9DGRendManFv
-__ct__9DGRendManFv:
+.fn __ct__9DGRendManFv, global
 /* 80006AC0 00002A40  7C 08 02 A6 */	mflr r0
 /* 80006AC4 00002A44  3C 80 00 04 */	lis r4, 0x4
 /* 80006AC8 00002A48  90 01 00 04 */	stw r0, 0x4(r1)
@@ -193,9 +192,9 @@ __ct__9DGRendManFv:
 /* 80006AD8 00002A58  38 21 00 08 */	addi r1, r1, 0x8
 /* 80006ADC 00002A5C  7C 08 03 A6 */	mtlr r0
 /* 80006AE0 00002A60  4E 80 00 20 */	blr
+.endfn __ct__9DGRendManFv
 
-.global __dt__11DMainSystemFv
-__dt__11DMainSystemFv:
+.fn __dt__11DMainSystemFv, global
 /* 80006AE4 00002A64  7C 08 02 A6 */	mflr r0
 /* 80006AE8 00002A68  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80006AEC 00002A6C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -264,9 +263,9 @@ __dt__11DMainSystemFv:
 /* 80006BE0 00002B60  7C 08 03 A6 */	mtlr r0
 /* 80006BE4 00002B64  38 21 00 18 */	addi r1, r1, 0x18
 /* 80006BE8 00002B68  4E 80 00 20 */	blr
+.endfn __dt__11DMainSystemFv
 
-.global MainLoop__11DMainSystemFv
-MainLoop__11DMainSystemFv:
+.fn MainLoop__11DMainSystemFv, global
 /* 80006BEC 00002B6C  7C 08 02 A6 */	mflr r0
 /* 80006BF0 00002B70  3C 80 80 07 */	lis r4, SwMsec@ha
 /* 80006BF4 00002B74  90 01 00 04 */	stw r0, 0x4(r1)
@@ -550,9 +549,9 @@ MainLoop__11DMainSystemFv:
 /* 8000700C 00002F8C  98 18 00 00 */	stb r0, 0x0(r24)
 /* 80007010 00002F90  48 02 80 E5 */	bl OSSuspendThread
 /* 80007014 00002F94  4B FF FC 40 */	b .L_80006C54
+.endfn MainLoop__11DMainSystemFv
 
-.global _Reset__11DMainSystemFv
-_Reset__11DMainSystemFv:
+.fn _Reset__11DMainSystemFv, global
 /* 80007018 00002F98  7C 08 02 A6 */	mflr r0
 /* 8000701C 00002F9C  3C 60 80 07 */	lis r3, audio@ha
 /* 80007020 00002FA0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -623,9 +622,9 @@ _Reset__11DMainSystemFv:
 /* 80007118 00003098  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8000711C 0000309C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80007120 000030A0  4E 80 00 20 */	blr
+.endfn _Reset__11DMainSystemFv
 
-.global _StepProc__11DMainSystemFv
-_StepProc__11DMainSystemFv:
+.fn _StepProc__11DMainSystemFv, global
 /* 80007124 000030A4  7C 08 02 A6 */	mflr r0
 /* 80007128 000030A8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000712C 000030AC  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -714,9 +713,9 @@ _StepProc__11DMainSystemFv:
 /* 80007214 00003194  38 21 00 08 */	addi r1, r1, 0x8
 /* 80007218 00003198  7C 08 03 A6 */	mtlr r0
 /* 8000721C 0000319C  4E 80 00 20 */	blr
+.endfn _StepProc__11DMainSystemFv
 
-.global _Step_Init_System__11DMainSystemFv
-_Step_Init_System__11DMainSystemFv:
+.fn _Step_Init_System__11DMainSystemFv, global
 /* 80007220 000031A0  88 03 00 02 */	lbz r0, 0x2(r3)
 /* 80007224 000031A4  2C 00 00 00 */	cmpwi r0, 0x0
 /* 80007228 000031A8  4C 82 00 20 */	bnelr
@@ -733,9 +732,9 @@ _Step_Init_System__11DMainSystemFv:
 /* 80007254 000031D4  98 03 00 06 */	stb r0, 0x6(r3)
 /* 80007258 000031D8  98 A3 00 05 */	stb r5, 0x5(r3)
 /* 8000725C 000031DC  4E 80 00 20 */	blr
+.endfn _Step_Init_System__11DMainSystemFv
 
-.global iSystemInitProc__11DMainSystemFv
-iSystemInitProc__11DMainSystemFv:
+.fn iSystemInitProc__11DMainSystemFv, global
 /* 80007260 000031E0  7C 08 02 A6 */	mflr r0
 /* 80007264 000031E4  3C 80 01 00 */	lis r4, 0x100
 /* 80007268 000031E8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1030,9 +1029,9 @@ iSystemInitProc__11DMainSystemFv:
 /* 800076D0 00003650  83 A1 00 74 */	lwz r29, 0x74(r1)
 /* 800076D4 00003654  38 21 00 80 */	addi r1, r1, 0x80
 /* 800076D8 00003658  4E 80 00 20 */	blr
+.endfn iSystemInitProc__11DMainSystemFv
 
-.global _Step_Main_Menu__11DMainSystemFv
-_Step_Main_Menu__11DMainSystemFv:
+.fn _Step_Main_Menu__11DMainSystemFv, global
 /* 800076DC 0000365C  7C 08 02 A6 */	mflr r0
 /* 800076E0 00003660  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800076E4 00003664  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1163,9 +1162,9 @@ _Step_Main_Menu__11DMainSystemFv:
 /* 800078B0 00003830  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800078B4 00003834  38 21 00 20 */	addi r1, r1, 0x20
 /* 800078B8 00003838  4E 80 00 20 */	blr
+.endfn _Step_Main_Menu__11DMainSystemFv
 
-.global _DispSysInfo__11DMainSystemFv
-_DispSysInfo__11DMainSystemFv:
+.fn _DispSysInfo__11DMainSystemFv, global
 /* 800078BC 0000383C  7C 08 02 A6 */	mflr r0
 /* 800078C0 00003840  3C A0 80 06 */	lis r5, lbl_80065088@ha
 /* 800078C4 00003844  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1336,9 +1335,9 @@ _DispSysInfo__11DMainSystemFv:
 /* 80007B14 00003A94  38 21 01 28 */	addi r1, r1, 0x128
 /* 80007B18 00003A98  7C 08 03 A6 */	mtlr r0
 /* 80007B1C 00003A9C  4E 80 00 20 */	blr
+.endfn _DispSysInfo__11DMainSystemFv
 
-.global _Step_Room_Select_Menu__11DMainSystemFv
-_Step_Room_Select_Menu__11DMainSystemFv:
+.fn _Step_Room_Select_Menu__11DMainSystemFv, global
 /* 80007B20 00003AA0  7C 08 02 A6 */	mflr r0
 /* 80007B24 00003AA4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80007B28 00003AA8  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1567,9 +1566,9 @@ _Step_Room_Select_Menu__11DMainSystemFv:
 /* 80007E74 00003DF4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80007E78 00003DF8  38 21 00 20 */	addi r1, r1, 0x20
 /* 80007E7C 00003DFC  4E 80 00 20 */	blr
+.endfn _Step_Room_Select_Menu__11DMainSystemFv
 
-.global _Step_Movie_Select_Menu__11DMainSystemFv
-_Step_Movie_Select_Menu__11DMainSystemFv:
+.fn _Step_Movie_Select_Menu__11DMainSystemFv, global
 /* 80007E80 00003E00  7C 08 02 A6 */	mflr r0
 /* 80007E84 00003E04  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80007E88 00003E08  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1771,9 +1770,9 @@ _Step_Movie_Select_Menu__11DMainSystemFv:
 /* 80008168 000040E8  7C 08 03 A6 */	mtlr r0
 /* 8000816C 000040EC  38 21 00 18 */	addi r1, r1, 0x18
 /* 80008170 000040F0  4E 80 00 20 */	blr
+.endfn _Step_Movie_Select_Menu__11DMainSystemFv
 
-.global _Step_Pause_Menu__11DMainSystemFv
-_Step_Pause_Menu__11DMainSystemFv:
+.fn _Step_Pause_Menu__11DMainSystemFv, global
 /* 80008174 000040F4  7C 08 02 A6 */	mflr r0
 /* 80008178 000040F8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000817C 000040FC  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -2150,9 +2149,9 @@ _Step_Pause_Menu__11DMainSystemFv:
 /* 80008688 00004608  38 21 00 30 */	addi r1, r1, 0x30
 /* 8000868C 0000460C  7C 08 03 A6 */	mtlr r0
 /* 80008690 00004610  4E 80 00 20 */	blr
+.endfn _Step_Pause_Menu__11DMainSystemFv
 
-.global _Step_Entr__11DMainSystemFv
-_Step_Entr__11DMainSystemFv:
+.fn _Step_Entr__11DMainSystemFv, global
 /* 80008694 00004614  7C 08 02 A6 */	mflr r0
 /* 80008698 00004618  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000869C 0000461C  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -2573,9 +2572,9 @@ _Step_Entr__11DMainSystemFv:
 /* 80008CD0 00004C50  38 21 00 48 */	addi r1, r1, 0x48
 /* 80008CD4 00004C54  7C 08 03 A6 */	mtlr r0
 /* 80008CD8 00004C58  4E 80 00 20 */	blr
+.endfn _Step_Entr__11DMainSystemFv
 
-.global _Draw_Entr__11DMainSystemFSc
-_Draw_Entr__11DMainSystemFSc:
+.fn _Draw_Entr__11DMainSystemFSc, global
 /* 80008CDC 00004C5C  7C 08 02 A6 */	mflr r0
 /* 80008CE0 00004C60  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80008CE4 00004C64  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -2641,9 +2640,9 @@ _Draw_Entr__11DMainSystemFSc:
 /* 80008DC4 00004D44  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80008DC8 00004D48  38 21 00 20 */	addi r1, r1, 0x20
 /* 80008DCC 00004D4C  4E 80 00 20 */	blr
+.endfn _Draw_Entr__11DMainSystemFSc
 
-.global _CheckSubMenu__11DMainSystemFv
-_CheckSubMenu__11DMainSystemFv:
+.fn _CheckSubMenu__11DMainSystemFv, global
 /* 80008DD0 00004D50  7C 08 02 A6 */	mflr r0
 /* 80008DD4 00004D54  38 80 00 00 */	li r4, 0x0
 /* 80008DD8 00004D58  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2670,9 +2669,9 @@ _CheckSubMenu__11DMainSystemFv:
 /* 80008E28 00004DA8  38 21 00 18 */	addi r1, r1, 0x18
 /* 80008E2C 00004DAC  7C 08 03 A6 */	mtlr r0
 /* 80008E30 00004DB0  4E 80 00 20 */	blr
+.endfn _CheckSubMenu__11DMainSystemFv
 
-.global _LoadRequestEntr__11DMainSystemFv
-_LoadRequestEntr__11DMainSystemFv:
+.fn _LoadRequestEntr__11DMainSystemFv, global
 /* 80008E34 00004DB4  7C 08 02 A6 */	mflr r0
 /* 80008E38 00004DB8  38 80 00 01 */	li r4, 0x1
 /* 80008E3C 00004DBC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2705,9 +2704,9 @@ _LoadRequestEntr__11DMainSystemFv:
 /* 80008EA8 00004E28  38 21 00 18 */	addi r1, r1, 0x18
 /* 80008EAC 00004E2C  7C 08 03 A6 */	mtlr r0
 /* 80008EB0 00004E30  4E 80 00 20 */	blr
+.endfn _LoadRequestEntr__11DMainSystemFv
 
-.global _Step_Hang__11DMainSystemFv
-_Step_Hang__11DMainSystemFv:
+.fn _Step_Hang__11DMainSystemFv, global
 /* 80008EB4 00004E34  7C 08 02 A6 */	mflr r0
 /* 80008EB8 00004E38  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80008EBC 00004E3C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -2937,9 +2936,9 @@ _Step_Hang__11DMainSystemFv:
 /* 80009210 00005190  38 21 00 18 */	addi r1, r1, 0x18
 /* 80009214 00005194  7C 08 03 A6 */	mtlr r0
 /* 80009218 00005198  4E 80 00 20 */	blr
+.endfn _Step_Hang__11DMainSystemFv
 
-.global _Draw_Hang__11DMainSystemFSc
-_Draw_Hang__11DMainSystemFSc:
+.fn _Draw_Hang__11DMainSystemFSc, global
 /* 8000921C 0000519C  7C 08 02 A6 */	mflr r0
 /* 80009220 000051A0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80009224 000051A4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3000,9 +2999,9 @@ _Draw_Hang__11DMainSystemFSc:
 /* 800092F0 00005270  7C 08 03 A6 */	mtlr r0
 /* 800092F4 00005274  38 21 00 18 */	addi r1, r1, 0x18
 /* 800092F8 00005278  4E 80 00 20 */	blr
+.endfn _Draw_Hang__11DMainSystemFSc
 
-.global _LoadRequestHang__11DMainSystemFv
-_LoadRequestHang__11DMainSystemFv:
+.fn _LoadRequestHang__11DMainSystemFv, global
 /* 800092FC 0000527C  7C 08 02 A6 */	mflr r0
 /* 80009300 00005280  38 80 00 01 */	li r4, 0x1
 /* 80009304 00005284  90 01 00 04 */	stw r0, 0x4(r1)
@@ -3040,9 +3039,9 @@ _LoadRequestHang__11DMainSystemFv:
 /* 80009384 00005304  38 21 00 18 */	addi r1, r1, 0x18
 /* 80009388 00005308  7C 08 03 A6 */	mtlr r0
 /* 8000938C 0000530C  4E 80 00 20 */	blr
+.endfn _LoadRequestHang__11DMainSystemFv
 
-.global _iSetPlanePos__11DMainSystemFv
-_iSetPlanePos__11DMainSystemFv:
+.fn _iSetPlanePos__11DMainSystemFv, global
 /* 80009390 00005310  7C 08 02 A6 */	mflr r0
 /* 80009394 00005314  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80009398 00005318  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -3081,9 +3080,9 @@ _iSetPlanePos__11DMainSystemFv:
 /* 8000941C 0000539C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80009420 000053A0  7C 08 03 A6 */	mtlr r0
 /* 80009424 000053A4  4E 80 00 20 */	blr
+.endfn _iSetPlanePos__11DMainSystemFv
 
-.global _Step_Dome__11DMainSystemFv
-_Step_Dome__11DMainSystemFv:
+.fn _Step_Dome__11DMainSystemFv, global
 /* 80009428 000053A8  7C 08 02 A6 */	mflr r0
 /* 8000942C 000053AC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80009430 000053B0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3312,9 +3311,9 @@ _Step_Dome__11DMainSystemFv:
 /* 80009780 00005700  38 21 00 18 */	addi r1, r1, 0x18
 /* 80009784 00005704  7C 08 03 A6 */	mtlr r0
 /* 80009788 00005708  4E 80 00 20 */	blr
+.endfn _Step_Dome__11DMainSystemFv
 
-.global _Draw_Dome__11DMainSystemFSc
-_Draw_Dome__11DMainSystemFSc:
+.fn _Draw_Dome__11DMainSystemFSc, global
 /* 8000978C 0000570C  7C 08 02 A6 */	mflr r0
 /* 80009790 00005710  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80009794 00005714  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3371,9 +3370,9 @@ _Draw_Dome__11DMainSystemFSc:
 /* 80009850 000057D0  7C 08 03 A6 */	mtlr r0
 /* 80009854 000057D4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80009858 000057D8  4E 80 00 20 */	blr
+.endfn _Draw_Dome__11DMainSystemFSc
 
-.global _LoadRequestDome__11DMainSystemFv
-_LoadRequestDome__11DMainSystemFv:
+.fn _LoadRequestDome__11DMainSystemFv, global
 /* 8000985C 000057DC  7C 08 02 A6 */	mflr r0
 /* 80009860 000057E0  38 80 00 01 */	li r4, 0x1
 /* 80009864 000057E4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -3406,9 +3405,9 @@ _LoadRequestDome__11DMainSystemFv:
 /* 800098D0 00005850  38 21 00 18 */	addi r1, r1, 0x18
 /* 800098D4 00005854  7C 08 03 A6 */	mtlr r0
 /* 800098D8 00005858  4E 80 00 20 */	blr
+.endfn _LoadRequestDome__11DMainSystemFv
 
-.global _Step_Cave__11DMainSystemFv
-_Step_Cave__11DMainSystemFv:
+.fn _Step_Cave__11DMainSystemFv, global
 /* 800098DC 0000585C  7C 08 02 A6 */	mflr r0
 /* 800098E0 00005860  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800098E4 00005864  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3663,9 +3662,9 @@ _Step_Cave__11DMainSystemFv:
 /* 80009C90 00005C10  38 21 00 18 */	addi r1, r1, 0x18
 /* 80009C94 00005C14  7C 08 03 A6 */	mtlr r0
 /* 80009C98 00005C18  4E 80 00 20 */	blr
+.endfn _Step_Cave__11DMainSystemFv
 
-.global _Draw_Cave__11DMainSystemFSc
-_Draw_Cave__11DMainSystemFSc:
+.fn _Draw_Cave__11DMainSystemFSc, global
 /* 80009C9C 00005C1C  7C 08 02 A6 */	mflr r0
 /* 80009CA0 00005C20  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80009CA4 00005C24  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3732,9 +3731,9 @@ _Draw_Cave__11DMainSystemFSc:
 /* 80009D88 00005D08  7C 08 03 A6 */	mtlr r0
 /* 80009D8C 00005D0C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80009D90 00005D10  4E 80 00 20 */	blr
+.endfn _Draw_Cave__11DMainSystemFSc
 
-.global _iSetKriboPos__11DMainSystemFv
-_iSetKriboPos__11DMainSystemFv:
+.fn _iSetKriboPos__11DMainSystemFv, global
 /* 80009D94 00005D14  7C 08 02 A6 */	mflr r0
 /* 80009D98 00005D18  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80009D9C 00005D1C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -3773,9 +3772,9 @@ _iSetKriboPos__11DMainSystemFv:
 /* 80009E20 00005DA0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80009E24 00005DA4  7C 08 03 A6 */	mtlr r0
 /* 80009E28 00005DA8  4E 80 00 20 */	blr
+.endfn _iSetKriboPos__11DMainSystemFv
 
-.global _LoadRequestCave__11DMainSystemFv
-_LoadRequestCave__11DMainSystemFv:
+.fn _LoadRequestCave__11DMainSystemFv, global
 /* 80009E2C 00005DAC  7C 08 02 A6 */	mflr r0
 /* 80009E30 00005DB0  38 80 00 01 */	li r4, 0x1
 /* 80009E34 00005DB4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -3813,9 +3812,9 @@ _LoadRequestCave__11DMainSystemFv:
 /* 80009EB4 00005E34  38 21 00 18 */	addi r1, r1, 0x18
 /* 80009EB8 00005E38  7C 08 03 A6 */	mtlr r0
 /* 80009EBC 00005E3C  4E 80 00 20 */	blr
+.endfn _LoadRequestCave__11DMainSystemFv
 
-.global _iSetCaveFog__11DMainSystemFv
-_iSetCaveFog__11DMainSystemFv:
+.fn _iSetCaveFog__11DMainSystemFv, global
 /* 80009EC0 00005E40  7C 08 02 A6 */	mflr r0
 /* 80009EC4 00005E44  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80009EC8 00005E48  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -3835,9 +3834,9 @@ _iSetCaveFog__11DMainSystemFv:
 /* 80009F00 00005E80  38 21 00 18 */	addi r1, r1, 0x18
 /* 80009F04 00005E84  7C 08 03 A6 */	mtlr r0
 /* 80009F08 00005E88  4E 80 00 20 */	blr
+.endfn _iSetCaveFog__11DMainSystemFv
 
-.global _Step_Cine__11DMainSystemFv
-_Step_Cine__11DMainSystemFv:
+.fn _Step_Cine__11DMainSystemFv, global
 /* 80009F0C 00005E8C  7C 08 02 A6 */	mflr r0
 /* 80009F10 00005E90  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80009F14 00005E94  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -4086,9 +4085,9 @@ _Step_Cine__11DMainSystemFv:
 /* 8000A2B0 00006230  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000A2B4 00006234  7C 08 03 A6 */	mtlr r0
 /* 8000A2B8 00006238  4E 80 00 20 */	blr
+.endfn _Step_Cine__11DMainSystemFv
 
-.global _iCinemaProjectionProc__11DMainSystemFv
-_iCinemaProjectionProc__11DMainSystemFv:
+.fn _iCinemaProjectionProc__11DMainSystemFv, global
 /* 8000A2BC 0000623C  7C 08 02 A6 */	mflr r0
 /* 8000A2C0 00006240  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000A2C4 00006244  94 21 FF 00 */	stwu r1, -0x100(r1)
@@ -4538,9 +4537,9 @@ _iCinemaProjectionProc__11DMainSystemFv:
 /* 8000A990 00006910  83 A1 00 F4 */	lwz r29, 0xf4(r1)
 /* 8000A994 00006914  38 21 01 00 */	addi r1, r1, 0x100
 /* 8000A998 00006918  4E 80 00 20 */	blr
+.endfn _iCinemaProjectionProc__11DMainSystemFv
 
-.global _Draw_Cine__11DMainSystemFSc
-_Draw_Cine__11DMainSystemFSc:
+.fn _Draw_Cine__11DMainSystemFSc, global
 /* 8000A99C 0000691C  7C 08 02 A6 */	mflr r0
 /* 8000A9A0 00006920  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000A9A4 00006924  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -4758,9 +4757,9 @@ _Draw_Cine__11DMainSystemFSc:
 /* 8000ACD8 00006C58  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8000ACDC 00006C5C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8000ACE0 00006C60  4E 80 00 20 */	blr
+.endfn _Draw_Cine__11DMainSystemFSc
 
-.global _LoadRequestCine__11DMainSystemFv
-_LoadRequestCine__11DMainSystemFv:
+.fn _LoadRequestCine__11DMainSystemFv, global
 /* 8000ACE4 00006C64  7C 08 02 A6 */	mflr r0
 /* 8000ACE8 00006C68  38 80 00 01 */	li r4, 0x1
 /* 8000ACEC 00006C6C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -4798,9 +4797,9 @@ _LoadRequestCine__11DMainSystemFv:
 /* 8000AD6C 00006CEC  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000AD70 00006CF0  7C 08 03 A6 */	mtlr r0
 /* 8000AD74 00006CF4  4E 80 00 20 */	blr
+.endfn _LoadRequestCine__11DMainSystemFv
 
-.global _iCineProInit__11DMainSystemFv
-_iCineProInit__11DMainSystemFv:
+.fn _iCineProInit__11DMainSystemFv, global
 /* 8000AD78 00006CF8  7C 08 02 A6 */	mflr r0
 /* 8000AD7C 00006CFC  3C 80 80 06 */	lis r4, lbl_80063D20@ha
 /* 8000AD80 00006D00  90 01 00 04 */	stw r0, 0x4(r1)
@@ -4969,9 +4968,9 @@ _iCineProInit__11DMainSystemFv:
 /* 8000B004 00006F84  83 A1 00 6C */	lwz r29, 0x6c(r1)
 /* 8000B008 00006F88  38 21 00 78 */	addi r1, r1, 0x78
 /* 8000B00C 00006F8C  4E 80 00 20 */	blr
+.endfn _iCineProInit__11DMainSystemFv
 
-.global _Step_Spil__11DMainSystemFv
-_Step_Spil__11DMainSystemFv:
+.fn _Step_Spil__11DMainSystemFv, global
 /* 8000B010 00006F90  7C 08 02 A6 */	mflr r0
 /* 8000B014 00006F94  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000B018 00006F98  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -5200,9 +5199,9 @@ _Step_Spil__11DMainSystemFv:
 /* 8000B368 000072E8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000B36C 000072EC  7C 08 03 A6 */	mtlr r0
 /* 8000B370 000072F0  4E 80 00 20 */	blr
+.endfn _Step_Spil__11DMainSystemFv
 
-.global _Draw_Spil__11DMainSystemFSc
-_Draw_Spil__11DMainSystemFSc:
+.fn _Draw_Spil__11DMainSystemFSc, global
 /* 8000B374 000072F4  7C 08 02 A6 */	mflr r0
 /* 8000B378 000072F8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000B37C 000072FC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -5270,9 +5269,9 @@ _Draw_Spil__11DMainSystemFSc:
 /* 8000B464 000073E4  7C 08 03 A6 */	mtlr r0
 /* 8000B468 000073E8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000B46C 000073EC  4E 80 00 20 */	blr
+.endfn _Draw_Spil__11DMainSystemFSc
 
-.global _LoadRequestSpil__11DMainSystemFv
-_LoadRequestSpil__11DMainSystemFv:
+.fn _LoadRequestSpil__11DMainSystemFv, global
 /* 8000B470 000073F0  7C 08 02 A6 */	mflr r0
 /* 8000B474 000073F4  38 80 00 01 */	li r4, 0x1
 /* 8000B478 000073F8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -5305,9 +5304,9 @@ _LoadRequestSpil__11DMainSystemFv:
 /* 8000B4E4 00007464  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000B4E8 00007468  7C 08 03 A6 */	mtlr r0
 /* 8000B4EC 0000746C  4E 80 00 20 */	blr
+.endfn _LoadRequestSpil__11DMainSystemFv
 
-.global _Step_Enve__11DMainSystemFv
-_Step_Enve__11DMainSystemFv:
+.fn _Step_Enve__11DMainSystemFv, global
 /* 8000B4F0 00007470  7C 08 02 A6 */	mflr r0
 /* 8000B4F4 00007474  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000B4F8 00007478  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -5536,9 +5535,9 @@ _Step_Enve__11DMainSystemFv:
 /* 8000B848 000077C8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000B84C 000077CC  7C 08 03 A6 */	mtlr r0
 /* 8000B850 000077D0  4E 80 00 20 */	blr
+.endfn _Step_Enve__11DMainSystemFv
 
-.global _Draw_Enve__11DMainSystemFSc
-_Draw_Enve__11DMainSystemFSc:
+.fn _Draw_Enve__11DMainSystemFSc, global
 /* 8000B854 000077D4  7C 08 02 A6 */	mflr r0
 /* 8000B858 000077D8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000B85C 000077DC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -5595,9 +5594,9 @@ _Draw_Enve__11DMainSystemFSc:
 /* 8000B918 00007898  7C 08 03 A6 */	mtlr r0
 /* 8000B91C 0000789C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000B920 000078A0  4E 80 00 20 */	blr
+.endfn _Draw_Enve__11DMainSystemFSc
 
-.global _LoadRequestEnve__11DMainSystemFv
-_LoadRequestEnve__11DMainSystemFv:
+.fn _LoadRequestEnve__11DMainSystemFv, global
 /* 8000B924 000078A4  7C 08 02 A6 */	mflr r0
 /* 8000B928 000078A8  38 80 00 01 */	li r4, 0x1
 /* 8000B92C 000078AC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -5630,9 +5629,9 @@ _LoadRequestEnve__11DMainSystemFv:
 /* 8000B998 00007918  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000B99C 0000791C  7C 08 03 A6 */	mtlr r0
 /* 8000B9A0 00007920  4E 80 00 20 */	blr
+.endfn _LoadRequestEnve__11DMainSystemFv
 
-.global _Step_Mpol__11DMainSystemFv
-_Step_Mpol__11DMainSystemFv:
+.fn _Step_Mpol__11DMainSystemFv, global
 /* 8000B9A4 00007924  7C 08 02 A6 */	mflr r0
 /* 8000B9A8 00007928  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000B9AC 0000792C  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -5919,9 +5918,9 @@ _Step_Mpol__11DMainSystemFv:
 /* 8000BDE0 00007D60  38 21 00 28 */	addi r1, r1, 0x28
 /* 8000BDE4 00007D64  7C 08 03 A6 */	mtlr r0
 /* 8000BDE8 00007D68  4E 80 00 20 */	blr
+.endfn _Step_Mpol__11DMainSystemFv
 
-.global _Draw_Mpol__11DMainSystemFSc
-_Draw_Mpol__11DMainSystemFSc:
+.fn _Draw_Mpol__11DMainSystemFSc, global
 /* 8000BDEC 00007D6C  7C 08 02 A6 */	mflr r0
 /* 8000BDF0 00007D70  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000BDF4 00007D74  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -5982,9 +5981,9 @@ _Draw_Mpol__11DMainSystemFSc:
 /* 8000BEC4 00007E44  7C 08 03 A6 */	mtlr r0
 /* 8000BEC8 00007E48  38 21 00 20 */	addi r1, r1, 0x20
 /* 8000BECC 00007E4C  4E 80 00 20 */	blr
+.endfn _Draw_Mpol__11DMainSystemFSc
 
-.global _LoadRequestMpol__11DMainSystemFSc
-_LoadRequestMpol__11DMainSystemFSc:
+.fn _LoadRequestMpol__11DMainSystemFSc, global
 /* 8000BED0 00007E50  7C 08 02 A6 */	mflr r0
 /* 8000BED4 00007E54  38 A0 00 07 */	li r5, 0x7
 /* 8000BED8 00007E58  90 01 00 04 */	stw r0, 0x4(r1)
@@ -6035,9 +6034,9 @@ _LoadRequestMpol__11DMainSystemFSc:
 /* 8000BF84 00007F04  7C 08 03 A6 */	mtlr r0
 /* 8000BF88 00007F08  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000BF8C 00007F0C  4E 80 00 20 */	blr
+.endfn _LoadRequestMpol__11DMainSystemFSc
 
-.global _ModifiNumOfCoint__11DMainSystemFv
-_ModifiNumOfCoint__11DMainSystemFv:
+.fn _ModifiNumOfCoint__11DMainSystemFv, global
 /* 8000BF90 00007F10  7C 08 02 A6 */	mflr r0
 /* 8000BF94 00007F14  38 80 00 00 */	li r4, 0x0
 /* 8000BF98 00007F18  90 01 00 04 */	stw r0, 0x4(r1)
@@ -6091,9 +6090,9 @@ _ModifiNumOfCoint__11DMainSystemFv:
 /* 8000C048 00007FC8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000C04C 00007FCC  7C 08 03 A6 */	mtlr r0
 /* 8000C050 00007FD0  4E 80 00 20 */	blr
+.endfn _ModifiNumOfCoint__11DMainSystemFv
 
-.global _Step_Opening__11DMainSystemFv
-_Step_Opening__11DMainSystemFv:
+.fn _Step_Opening__11DMainSystemFv, global
 /* 8000C054 00007FD4  7C 08 02 A6 */	mflr r0
 /* 8000C058 00007FD8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000C05C 00007FDC  94 21 FF C8 */	stwu r1, -0x38(r1)
@@ -6443,9 +6442,9 @@ _Step_Opening__11DMainSystemFv:
 /* 8000C588 00008508  7C 08 03 A6 */	mtlr r0
 /* 8000C58C 0000850C  38 21 00 38 */	addi r1, r1, 0x38
 /* 8000C590 00008510  4E 80 00 20 */	blr
+.endfn _Step_Opening__11DMainSystemFv
 
-.global _Draw_Opening__11DMainSystemFv
-_Draw_Opening__11DMainSystemFv:
+.fn _Draw_Opening__11DMainSystemFv, global
 /* 8000C594 00008514  7C 08 02 A6 */	mflr r0
 /* 8000C598 00008518  38 80 00 06 */	li r4, 0x6
 /* 8000C59C 0000851C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -6474,13 +6473,13 @@ _Draw_Opening__11DMainSystemFv:
 /* 8000C5F8 00008578  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000C5FC 0000857C  7C 08 03 A6 */	mtlr r0
 /* 8000C600 00008580  4E 80 00 20 */	blr
+.endfn _Draw_Opening__11DMainSystemFv
 
-.global _Step_Ending__11DMainSystemFv
-_Step_Ending__11DMainSystemFv:
+.fn _Step_Ending__11DMainSystemFv, global
 /* 8000C604 00008584  4E 80 00 20 */	blr
+.endfn _Step_Ending__11DMainSystemFv
 
-.global _Step_Movie_All__11DMainSystemFv
-_Step_Movie_All__11DMainSystemFv:
+.fn _Step_Movie_All__11DMainSystemFv, global
 /* 8000C608 00008588  88 03 00 02 */	lbz r0, 0x2(r3)
 /* 8000C60C 0000858C  2C 00 00 00 */	cmpwi r0, 0x0
 /* 8000C610 00008590  4C 82 00 20 */	bnelr
@@ -6492,9 +6491,9 @@ _Step_Movie_All__11DMainSystemFv:
 /* 8000C628 000085A8  98 03 00 01 */	stb r0, 0x1(r3)
 /* 8000C62C 000085AC  98 A3 00 02 */	stb r5, 0x2(r3)
 /* 8000C630 000085B0  4E 80 00 20 */	blr
+.endfn _Step_Movie_All__11DMainSystemFv
 
-.global _Step_Movie_Entr__11DMainSystemFv
-_Step_Movie_Entr__11DMainSystemFv:
+.fn _Step_Movie_Entr__11DMainSystemFv, global
 /* 8000C634 000085B4  7C 08 02 A6 */	mflr r0
 /* 8000C638 000085B8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000C63C 000085BC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -6756,9 +6755,9 @@ _Step_Movie_Entr__11DMainSystemFv:
 /* 8000C9F8 00008978  7C 08 03 A6 */	mtlr r0
 /* 8000C9FC 0000897C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000CA00 00008980  4E 80 00 20 */	blr
+.endfn _Step_Movie_Entr__11DMainSystemFv
 
-.global _Step_Movie_Hang__11DMainSystemFv
-_Step_Movie_Hang__11DMainSystemFv:
+.fn _Step_Movie_Hang__11DMainSystemFv, global
 /* 8000CA04 00008984  7C 08 02 A6 */	mflr r0
 /* 8000CA08 00008988  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000CA0C 0000898C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -7062,9 +7061,9 @@ _Step_Movie_Hang__11DMainSystemFv:
 /* 8000CE70 00008DF0  7C 08 03 A6 */	mtlr r0
 /* 8000CE74 00008DF4  38 21 00 20 */	addi r1, r1, 0x20
 /* 8000CE78 00008DF8  4E 80 00 20 */	blr
+.endfn _Step_Movie_Hang__11DMainSystemFv
 
-.global _Step_Movie_Dome__11DMainSystemFv
-_Step_Movie_Dome__11DMainSystemFv:
+.fn _Step_Movie_Dome__11DMainSystemFv, global
 /* 8000CE7C 00008DFC  7C 08 02 A6 */	mflr r0
 /* 8000CE80 00008E00  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000CE84 00008E04  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -7326,9 +7325,9 @@ _Step_Movie_Dome__11DMainSystemFv:
 /* 8000D240 000091C0  7C 08 03 A6 */	mtlr r0
 /* 8000D244 000091C4  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000D248 000091C8  4E 80 00 20 */	blr
+.endfn _Step_Movie_Dome__11DMainSystemFv
 
-.global _Step_Movie_Cave__11DMainSystemFv
-_Step_Movie_Cave__11DMainSystemFv:
+.fn _Step_Movie_Cave__11DMainSystemFv, global
 /* 8000D24C 000091CC  7C 08 02 A6 */	mflr r0
 /* 8000D250 000091D0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000D254 000091D4  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -7609,9 +7608,9 @@ _Step_Movie_Cave__11DMainSystemFv:
 /* 8000D664 000095E4  7C 08 03 A6 */	mtlr r0
 /* 8000D668 000095E8  38 21 00 28 */	addi r1, r1, 0x28
 /* 8000D66C 000095EC  4E 80 00 20 */	blr
+.endfn _Step_Movie_Cave__11DMainSystemFv
 
-.global _Step_Movie_Cine__11DMainSystemFv
-_Step_Movie_Cine__11DMainSystemFv:
+.fn _Step_Movie_Cine__11DMainSystemFv, global
 /* 8000D670 000095F0  7C 08 02 A6 */	mflr r0
 /* 8000D674 000095F4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000D678 000095F8  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -7867,9 +7866,9 @@ _Step_Movie_Cine__11DMainSystemFv:
 /* 8000DA1C 0000999C  7C 08 03 A6 */	mtlr r0
 /* 8000DA20 000099A0  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000DA24 000099A4  4E 80 00 20 */	blr
+.endfn _Step_Movie_Cine__11DMainSystemFv
 
-.global _Step_Movie_Spil__11DMainSystemFv
-_Step_Movie_Spil__11DMainSystemFv:
+.fn _Step_Movie_Spil__11DMainSystemFv, global
 /* 8000DA28 000099A8  7C 08 02 A6 */	mflr r0
 /* 8000DA2C 000099AC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000DA30 000099B0  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -8183,9 +8182,9 @@ _Step_Movie_Spil__11DMainSystemFv:
 /* 8000DEBC 00009E3C  7C 08 03 A6 */	mtlr r0
 /* 8000DEC0 00009E40  38 21 00 48 */	addi r1, r1, 0x48
 /* 8000DEC4 00009E44  4E 80 00 20 */	blr
+.endfn _Step_Movie_Spil__11DMainSystemFv
 
-.global _Step_Movie_Enve__11DMainSystemFv
-_Step_Movie_Enve__11DMainSystemFv:
+.fn _Step_Movie_Enve__11DMainSystemFv, global
 /* 8000DEC8 00009E48  7C 08 02 A6 */	mflr r0
 /* 8000DECC 00009E4C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000DED0 00009E50  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -8452,9 +8451,9 @@ _Step_Movie_Enve__11DMainSystemFv:
 /* 8000E2A0 0000A220  7C 08 03 A6 */	mtlr r0
 /* 8000E2A4 0000A224  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000E2A8 0000A228  4E 80 00 20 */	blr
+.endfn _Step_Movie_Enve__11DMainSystemFv
 
-.global _Step_Movie_Mpol__11DMainSystemFv
-_Step_Movie_Mpol__11DMainSystemFv:
+.fn _Step_Movie_Mpol__11DMainSystemFv, global
 /* 8000E2AC 0000A22C  7C 08 02 A6 */	mflr r0
 /* 8000E2B0 0000A230  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000E2B4 0000A234  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -8749,9 +8748,9 @@ _Step_Movie_Mpol__11DMainSystemFv:
 /* 8000E6EC 0000A66C  7C 08 03 A6 */	mtlr r0
 /* 8000E6F0 0000A670  38 21 00 28 */	addi r1, r1, 0x28
 /* 8000E6F4 0000A674  4E 80 00 20 */	blr
+.endfn _Step_Movie_Mpol__11DMainSystemFv
 
-.global iCheckLoadStatus__11DMainSystemFv
-iCheckLoadStatus__11DMainSystemFv:
+.fn iCheckLoadStatus__11DMainSystemFv, global
 /* 8000E6F8 0000A678  7C 08 02 A6 */	mflr r0
 /* 8000E6FC 0000A67C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000E700 0000A680  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -8785,9 +8784,9 @@ iCheckLoadStatus__11DMainSystemFv:
 /* 8000E764 0000A6E4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8000E768 0000A6E8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8000E76C 0000A6EC  4E 80 00 20 */	blr
+.endfn iCheckLoadStatus__11DMainSystemFv
 
-.global _CursolMove__11DMainSystemFScs
-_CursolMove__11DMainSystemFScs:
+.fn _CursolMove__11DMainSystemFScs, global
 /* 8000E770 0000A6F0  7C 08 02 A6 */	mflr r0
 /* 8000E774 0000A6F4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000E778 0000A6F8  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -8882,9 +8881,9 @@ _CursolMove__11DMainSystemFScs:
 /* 8000E8C4 0000A844  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8000E8C8 0000A848  38 21 00 20 */	addi r1, r1, 0x20
 /* 8000E8CC 0000A84C  4E 80 00 20 */	blr
+.endfn _CursolMove__11DMainSystemFScs
 
-.global _iSetMarioPosRol__11DMainSystemFSc
-_iSetMarioPosRol__11DMainSystemFSc:
+.fn _iSetMarioPosRol__11DMainSystemFSc, global
 /* 8000E8D0 0000A850  7C 08 02 A6 */	mflr r0
 /* 8000E8D4 0000A854  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000E8D8 0000A858  7C 80 07 74 */	extsb r0, r4
@@ -8939,9 +8938,9 @@ _iSetMarioPosRol__11DMainSystemFSc:
 /* 8000E99C 0000A91C  38 21 00 48 */	addi r1, r1, 0x48
 /* 8000E9A0 0000A920  7C 08 03 A6 */	mtlr r0
 /* 8000E9A4 0000A924  4E 80 00 20 */	blr
+.endfn _iSetMarioPosRol__11DMainSystemFSc
 
-.global _iSetCameraPos__11DMainSystemFSc
-_iSetCameraPos__11DMainSystemFSc:
+.fn _iSetCameraPos__11DMainSystemFSc, global
 /* 8000E9A8 0000A928  7C 08 02 A6 */	mflr r0
 /* 8000E9AC 0000A92C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000E9B0 0000A930  7C 80 07 74 */	extsb r0, r4
@@ -9001,9 +9000,9 @@ _iSetCameraPos__11DMainSystemFSc:
 /* 8000EA88 0000AA08  83 A1 00 2C */	lwz r29, 0x2c(r1)
 /* 8000EA8C 0000AA0C  38 21 00 38 */	addi r1, r1, 0x38
 /* 8000EA90 0000AA10  4E 80 00 20 */	blr
+.endfn _iSetCameraPos__11DMainSystemFSc
 
-.global _iSetStagePos__11DMainSystemFSc
-_iSetStagePos__11DMainSystemFSc:
+.fn _iSetStagePos__11DMainSystemFSc, global
 /* 8000EA94 0000AA14  7C 08 02 A6 */	mflr r0
 /* 8000EA98 0000AA18  7C 86 07 74 */	extsb r6, r4
 /* 8000EA9C 0000AA1C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -9047,9 +9046,9 @@ _iSetStagePos__11DMainSystemFSc:
 /* 8000EB34 0000AAB4  38 21 00 30 */	addi r1, r1, 0x30
 /* 8000EB38 0000AAB8  7C 08 03 A6 */	mtlr r0
 /* 8000EB3C 0000AABC  4E 80 00 20 */	blr
+.endfn _iSetStagePos__11DMainSystemFSc
 
-.global GetStageOffset__11DMainSystemFUcP3VecP3Vec
-GetStageOffset__11DMainSystemFUcP3VecP3Vec:
+.fn GetStageOffset__11DMainSystemFUcP3VecP3Vec, global
 /* 8000EB40 0000AAC0  C0 22 80 28 */	lfs f1, lbl_800A93A8@sda21(r2)
 /* 8000EB44 0000AAC4  54 87 15 BA */	clrlslwi r7, r4, 24, 2
 /* 8000EB48 0000AAC8  3C 60 80 06 */	lis r3, lbl_80065088@ha
@@ -9076,9 +9075,9 @@ GetStageOffset__11DMainSystemFUcP3VecP3Vec:
 /* 8000EB9C 0000AB1C  C0 03 0B 3C */	lfs f0, 0xb3c(r3)
 /* 8000EBA0 0000AB20  D0 05 00 08 */	stfs f0, 0x8(r5)
 /* 8000EBA4 0000AB24  4E 80 00 20 */	blr
+.endfn GetStageOffset__11DMainSystemFUcP3VecP3Vec
 
-.global _RoomCameraMoveProc__11DMainSystemFv
-_RoomCameraMoveProc__11DMainSystemFv:
+.fn _RoomCameraMoveProc__11DMainSystemFv, global
 /* 8000EBA8 0000AB28  7C 08 02 A6 */	mflr r0
 /* 8000EBAC 0000AB2C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000EBB0 0000AB30  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -9315,9 +9314,9 @@ _RoomCameraMoveProc__11DMainSystemFv:
 /* 8000EF04 0000AE84  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8000EF08 0000AE88  38 21 00 28 */	addi r1, r1, 0x28
 /* 8000EF0C 0000AE8C  4E 80 00 20 */	blr
+.endfn _RoomCameraMoveProc__11DMainSystemFv
 
-.global _SetMipMap__11DMainSystemFv
-_SetMipMap__11DMainSystemFv:
+.fn _SetMipMap__11DMainSystemFv, global
 /* 8000EF10 0000AE90  7C 08 02 A6 */	mflr r0
 /* 8000EF14 0000AE94  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000EF18 0000AE98  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -9366,9 +9365,9 @@ _SetMipMap__11DMainSystemFv:
 /* 8000EFB0 0000AF30  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000EFB4 0000AF34  7C 08 03 A6 */	mtlr r0
 /* 8000EFB8 0000AF38  4E 80 00 20 */	blr
+.endfn _SetMipMap__11DMainSystemFv
 
-.global _DeleteAllStage__11DMainSystemFv
-_DeleteAllStage__11DMainSystemFv:
+.fn _DeleteAllStage__11DMainSystemFv, global
 /* 8000EFBC 0000AF3C  7C 08 02 A6 */	mflr r0
 /* 8000EFC0 0000AF40  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000EFC4 0000AF44  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -9500,9 +9499,9 @@ _DeleteAllStage__11DMainSystemFv:
 /* 8000F16C 0000B0EC  38 21 00 28 */	addi r1, r1, 0x28
 /* 8000F170 0000B0F0  7C 08 03 A6 */	mtlr r0
 /* 8000F174 0000B0F4  4E 80 00 20 */	blr
+.endfn _DeleteAllStage__11DMainSystemFv
 
-.global _FileManager__11DMainSystemFv
-_FileManager__11DMainSystemFv:
+.fn _FileManager__11DMainSystemFv, global
 /* 8000F178 0000B0F8  7C 08 02 A6 */	mflr r0
 /* 8000F17C 0000B0FC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000F180 0000B100  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -9622,9 +9621,9 @@ _FileManager__11DMainSystemFv:
 /* 8000F320 0000B2A0  38 21 00 28 */	addi r1, r1, 0x28
 /* 8000F324 0000B2A4  7C 08 03 A6 */	mtlr r0
 /* 8000F328 0000B2A8  4E 80 00 20 */	blr
+.endfn _FileManager__11DMainSystemFv
 
-.global _LoadRequestRoomFile__11DMainSystemFSc
-_LoadRequestRoomFile__11DMainSystemFSc:
+.fn _LoadRequestRoomFile__11DMainSystemFSc, global
 /* 8000F32C 0000B2AC  7C 08 02 A6 */	mflr r0
 /* 8000F330 0000B2B0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000F334 0000B2B4  7C 80 07 74 */	extsb r0, r4
@@ -9856,9 +9855,9 @@ _LoadRequestRoomFile__11DMainSystemFSc:
 /* 8000F698 0000B618  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000F69C 0000B61C  7C 08 03 A6 */	mtlr r0
 /* 8000F6A0 0000B620  4E 80 00 20 */	blr
+.endfn _LoadRequestRoomFile__11DMainSystemFSc
 
-.global _FreeRequestRoomFile__11DMainSystemFSc
-_FreeRequestRoomFile__11DMainSystemFSc:
+.fn _FreeRequestRoomFile__11DMainSystemFSc, global
 /* 8000F6A4 0000B624  7C 80 07 74 */	extsb r0, r4
 /* 8000F6A8 0000B628  28 00 00 07 */	cmplwi r0, 0x7
 /* 8000F6AC 0000B62C  3C 80 80 07 */	lis r4, SwMsec@ha
@@ -9918,9 +9917,9 @@ _FreeRequestRoomFile__11DMainSystemFSc:
 /* 8000F764 0000B6E4  38 00 00 02 */	li r0, 0x2
 /* 8000F768 0000B6E8  98 03 11 C4 */	stb r0, 0x11c4(r3)
 /* 8000F76C 0000B6EC  4E 80 00 20 */	blr
+.endfn _FreeRequestRoomFile__11DMainSystemFSc
 
-.global _DispNowLoding__11DMainSystemFv
-_DispNowLoding__11DMainSystemFv:
+.fn _DispNowLoding__11DMainSystemFv, global
 /* 8000F770 0000B6F0  7C 08 02 A6 */	mflr r0
 /* 8000F774 0000B6F4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000F778 0000B6F8  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -9949,9 +9948,9 @@ _DispNowLoding__11DMainSystemFv:
 /* 8000F7D0 0000B750  38 21 00 18 */	addi r1, r1, 0x18
 /* 8000F7D4 0000B754  7C 08 03 A6 */	mtlr r0
 /* 8000F7D8 0000B758  4E 80 00 20 */	blr
+.endfn _DispNowLoding__11DMainSystemFv
 
-.global iGoNextRoom__11DMainSystemFUcUcP3VecP3Vec
-iGoNextRoom__11DMainSystemFUcUcP3VecP3Vec:
+.fn iGoNextRoom__11DMainSystemFUcUcP3VecP3Vec, global
 /* 8000F7DC 0000B75C  38 00 00 01 */	li r0, 0x1
 /* 8000F7E0 0000B760  98 03 0A 90 */	stb r0, 0xa90(r3)
 /* 8000F7E4 0000B764  98 83 0A 91 */	stb r4, 0xa91(r3)
@@ -9971,9 +9970,9 @@ iGoNextRoom__11DMainSystemFUcUcP3VecP3Vec:
 /* 8000F81C 0000B79C  C0 07 00 08 */	lfs f0, 0x8(r7)
 /* 8000F820 0000B7A0  D0 03 0A A8 */	stfs f0, 0xaa8(r3)
 /* 8000F824 0000B7A4  4E 80 00 20 */	blr
+.endfn iGoNextRoom__11DMainSystemFUcUcP3VecP3Vec
 
-.global iGoNextPipe__11DMainSystemFUcP3VecP3Vec
-iGoNextPipe__11DMainSystemFUcP3VecP3Vec:
+.fn iGoNextPipe__11DMainSystemFUcP3VecP3Vec, global
 /* 8000F828 0000B7A8  38 00 00 02 */	li r0, 0x2
 /* 8000F82C 0000B7AC  98 03 0A 90 */	stb r0, 0xa90(r3)
 /* 8000F830 0000B7B0  98 83 0A 91 */	stb r4, 0xa91(r3)
@@ -9992,9 +9991,9 @@ iGoNextPipe__11DMainSystemFUcP3VecP3Vec:
 /* 8000F864 0000B7E4  C0 06 00 08 */	lfs f0, 0x8(r6)
 /* 8000F868 0000B7E8  D0 03 0A A8 */	stfs f0, 0xaa8(r3)
 /* 8000F86C 0000B7EC  4E 80 00 20 */	blr
+.endfn iGoNextPipe__11DMainSystemFUcP3VecP3Vec
 
-.global iCheckReady__11DMainSystemFv
-iCheckReady__11DMainSystemFv:
+.fn iCheckReady__11DMainSystemFv, global
 /* 8000F870 0000B7F0  88 03 0A 90 */	lbz r0, 0xa90(r3)
 /* 8000F874 0000B7F4  2C 00 00 03 */	cmpwi r0, 0x3
 /* 8000F878 0000B7F8  40 82 00 0C */	bne .L_8000F884
@@ -10003,15 +10002,15 @@ iCheckReady__11DMainSystemFv:
 .L_8000F884:
 /* 8000F884 0000B804  38 60 00 00 */	li r3, 0x0
 /* 8000F888 0000B808  4E 80 00 20 */	blr
+.endfn iCheckReady__11DMainSystemFv
 
-.global iCheckIn__11DMainSystemFv
-iCheckIn__11DMainSystemFv:
+.fn iCheckIn__11DMainSystemFv, global
 /* 8000F88C 0000B80C  38 00 00 04 */	li r0, 0x4
 /* 8000F890 0000B810  98 03 0A 90 */	stb r0, 0xa90(r3)
 /* 8000F894 0000B814  4E 80 00 20 */	blr
+.endfn iCheckIn__11DMainSystemFv
 
-.global _DrawOldStage__11DMainSystemFv
-_DrawOldStage__11DMainSystemFv:
+.fn _DrawOldStage__11DMainSystemFv, global
 /* 8000F898 0000B818  7C 08 02 A6 */	mflr r0
 /* 8000F89C 0000B81C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000F8A0 0000B820  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -10303,9 +10302,9 @@ _DrawOldStage__11DMainSystemFv:
 /* 8000FCC0 0000BC40  38 21 00 20 */	addi r1, r1, 0x20
 /* 8000FCC4 0000BC44  7C 08 03 A6 */	mtlr r0
 /* 8000FCC8 0000BC48  4E 80 00 20 */	blr
+.endfn _DrawOldStage__11DMainSystemFv
 
-.global _CheckMoveRoom__11DMainSystemFv
-_CheckMoveRoom__11DMainSystemFv:
+.fn _CheckMoveRoom__11DMainSystemFv, global
 /* 8000FCCC 0000BC4C  7C 08 02 A6 */	mflr r0
 /* 8000FCD0 0000BC50  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8000FCD4 0000BC54  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -10864,9 +10863,9 @@ _CheckMoveRoom__11DMainSystemFv:
 /* 80010508 0000C488  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8001050C 0000C48C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80010510 0000C490  4E 80 00 20 */	blr
+.endfn _CheckMoveRoom__11DMainSystemFv
 
-.global _iChangeTvMode__11DMainSystemFv
-_iChangeTvMode__11DMainSystemFv:
+.fn _iChangeTvMode__11DMainSystemFv, global
 /* 80010514 0000C494  7C 08 02 A6 */	mflr r0
 /* 80010518 0000C498  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001051C 0000C49C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -10957,9 +10956,9 @@ _iChangeTvMode__11DMainSystemFv:
 /* 80010644 0000C5C4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80010648 0000C5C8  7C 08 03 A6 */	mtlr r0
 /* 8001064C 0000C5CC  4E 80 00 20 */	blr
+.endfn _iChangeTvMode__11DMainSystemFv
 
-.global iIsAllOffCoin__11DMainSystemFv
-iIsAllOffCoin__11DMainSystemFv:
+.fn iIsAllOffCoin__11DMainSystemFv, global
 /* 80010650 0000C5D0  7C 08 02 A6 */	mflr r0
 /* 80010654 0000C5D4  38 63 07 90 */	addi r3, r3, 0x790
 /* 80010658 0000C5D8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -10969,21 +10968,21 @@ iIsAllOffCoin__11DMainSystemFv:
 /* 80010668 0000C5E8  38 21 00 08 */	addi r1, r1, 0x8
 /* 8001066C 0000C5EC  7C 08 03 A6 */	mtlr r0
 /* 80010670 0000C5F0  4E 80 00 20 */	blr
+.endfn iIsAllOffCoin__11DMainSystemFv
 
-.global iMpolDoorOpen__11DMainSystemFv
-iMpolDoorOpen__11DMainSystemFv:
+.fn iMpolDoorOpen__11DMainSystemFv, global
 /* 80010674 0000C5F4  38 00 00 05 */	li r0, 0x5
 /* 80010678 0000C5F8  98 03 0A 90 */	stb r0, 0xa90(r3)
 /* 8001067C 0000C5FC  4E 80 00 20 */	blr
+.endfn iMpolDoorOpen__11DMainSystemFv
 
-.global iMpolDoorClose__11DMainSystemFv
-iMpolDoorClose__11DMainSystemFv:
+.fn iMpolDoorClose__11DMainSystemFv, global
 /* 80010680 0000C600  38 00 00 06 */	li r0, 0x6
 /* 80010684 0000C604  98 03 0A 90 */	stb r0, 0xa90(r3)
 /* 80010688 0000C608  4E 80 00 20 */	blr
+.endfn iMpolDoorClose__11DMainSystemFv
 
-.global _iConsoleDraw__11DMainSystemFSc
-_iConsoleDraw__11DMainSystemFSc:
+.fn _iConsoleDraw__11DMainSystemFSc, global
 /* 8001068C 0000C60C  7C 08 02 A6 */	mflr r0
 /* 80010690 0000C610  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80010694 0000C614  94 21 FF C8 */	stwu r1, -0x38(r1)
@@ -11345,9 +11344,9 @@ _iConsoleDraw__11DMainSystemFSc:
 /* 80010BE4 0000CB64  38 21 00 38 */	addi r1, r1, 0x38
 /* 80010BE8 0000CB68  7C 08 03 A6 */	mtlr r0
 /* 80010BEC 0000CB6C  4E 80 00 20 */	blr
+.endfn _iConsoleDraw__11DMainSystemFSc
 
-.global _disp_meter__11DMainSystemFv
-_disp_meter__11DMainSystemFv:
+.fn _disp_meter__11DMainSystemFv, global
 /* 80010BF0 0000CB70  7C 08 02 A6 */	mflr r0
 /* 80010BF4 0000CB74  3C 60 80 07 */	lis r3, SwMsec@ha
 /* 80010BF8 0000CB78  90 01 00 04 */	stw r0, 0x4(r1)
@@ -11377,8 +11376,9 @@ _disp_meter__11DMainSystemFv:
 /* 80010C58 0000CBD8  38 21 00 18 */	addi r1, r1, 0x18
 /* 80010C5C 0000CBDC  7C 08 03 A6 */	mtlr r0
 /* 80010C60 0000CBE0  4E 80 00 20 */	blr
+.endfn _disp_meter__11DMainSystemFv
 
-CheckRenderingTime__Fv:
+.fn CheckRenderingTime__Fv, local
 /* 80010C64 0000CBE4  7C 08 02 A6 */	mflr r0
 /* 80010C68 0000CBE8  3C 60 80 07 */	lis r3, SwMsec@ha
 /* 80010C6C 0000CBEC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -11408,8 +11408,9 @@ CheckRenderingTime__Fv:
 /* 80010CCC 0000CC4C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80010CD0 0000CC50  7C 08 03 A6 */	mtlr r0
 /* 80010CD4 0000CC54  4E 80 00 20 */	blr
+.endfn CheckRenderingTime__Fv
 
-DrawFrameBar__Fff:
+.fn DrawFrameBar__Fff, local
 /* 80010CD8 0000CC58  7C 08 02 A6 */	mflr r0
 /* 80010CDC 0000CC5C  3C 80 80 06 */	lis r4, lbl_80063D20@ha
 /* 80010CE0 0000CC60  90 01 00 04 */	stw r0, 0x4(r1)
@@ -11822,8 +11823,9 @@ DrawFrameBar__Fff:
 /* 80011324 0000D2A4  83 C1 02 30 */	lwz r30, 0x230(r1)
 /* 80011328 0000D2A8  38 21 02 40 */	addi r1, r1, 0x240
 /* 8001132C 0000D2AC  4E 80 00 20 */	blr
+.endfn DrawFrameBar__Fff
 
-iBgThreadInit__Fv:
+.fn iBgThreadInit__Fv, local
 /* 80011330 0000D2B0  7C 08 02 A6 */	mflr r0
 /* 80011334 0000D2B4  3C 60 80 07 */	lis r3, SwMsec@ha
 /* 80011338 0000D2B8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -11929,8 +11931,9 @@ iBgThreadInit__Fv:
 /* 800114AC 0000D42C  38 21 00 28 */	addi r1, r1, 0x28
 /* 800114B0 0000D430  7C 08 03 A6 */	mtlr r0
 /* 800114B4 0000D434  4E 80 00 20 */	blr
+.endfn iBgThreadInit__Fv
 
-iBgLoadRequest__FUsUcScSc:
+.fn iBgLoadRequest__FUsUcScSc, local
 /* 800114B8 0000D438  3C E0 80 07 */	lis r7, SwMsec@ha
 /* 800114BC 0000D43C  39 07 57 80 */	addi r8, r7, SwMsec@l
 /* 800114C0 0000D440  39 28 15 CA */	addi r9, r8, 0x15ca
@@ -11969,8 +11972,9 @@ iBgLoadRequest__FUsUcScSc:
 /* 80011540 0000D4C0  38 04 00 01 */	addi r0, r4, 0x1
 /* 80011544 0000D4C4  98 05 00 00 */	stb r0, 0x0(r5)
 /* 80011548 0000D4C8  4E 80 00 20 */	blr
+.endfn iBgLoadRequest__FUsUcScSc
 
-iBgCheckLoadEnd__FSc:
+.fn iBgCheckLoadEnd__FSc, local
 /* 8001154C 0000D4CC  7C 60 07 74 */	extsb r0, r3
 /* 80011550 0000D4D0  1C E0 01 02 */	mulli r7, r0, 0x102
 /* 80011554 0000D4D4  3C 60 80 07 */	lis r3, SwMsec@ha
@@ -12002,8 +12006,9 @@ iBgCheckLoadEnd__FSc:
 /* 800115B0 0000D530  38 00 00 00 */	li r0, 0x0
 /* 800115B4 0000D534  98 04 15 CC */	stb r0, 0x15cc(r4)
 /* 800115B8 0000D538  4E 80 00 20 */	blr
+.endfn iBgCheckLoadEnd__FSc
 
-iBgThread__FPv:
+.fn iBgThread__FPv, local
 /* 800115BC 0000D53C  7C 08 02 A6 */	mflr r0
 /* 800115C0 0000D540  3C 80 80 06 */	lis r4, lbl_80065088@ha
 /* 800115C4 0000D544  90 01 00 04 */	stw r0, 0x4(r1)
@@ -12567,8 +12572,9 @@ iBgThread__FPv:
 /* 80011E18 0000DD98  80 8D 83 40 */	lwz r4, dm@sda21(r13)
 /* 80011E1C 0000DD9C  90 64 0A AC */	stw r3, 0xaac(r4)
 /* 80011E20 0000DDA0  4B FF F7 CC */	b .L_800115EC
+.endfn iBgThread__FPv
 
-iBgDeleteRequest__Fv:
+.fn iBgDeleteRequest__Fv, local
 /* 80011E24 0000DDA4  7C 08 02 A6 */	mflr r0
 /* 80011E28 0000DDA8  3C A0 80 06 */	lis r5, lbl_80065088@ha
 /* 80011E2C 0000DDAC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -13130,11 +13136,11 @@ iBgDeleteRequest__Fv:
 /* 80012620 0000E5A0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80012624 0000E5A4  7C 08 03 A6 */	mtlr r0
 /* 80012628 0000E5A8  4E 80 00 20 */	blr
+.endfn iBgDeleteRequest__Fv
 
 #weak
 #from DAudio.h
-.global __ct__5CSongFv
-__ct__5CSongFv:
+.fn __ct__5CSongFv, global
 /* 8001262C 0000E5AC  38 80 00 00 */	li r4, 0x0
 /* 80012630 0000E5B0  90 83 00 08 */	stw r4, 0x8(r3)
 /* 80012634 0000E5B4  38 00 FF FF */	li r0, -0x1
@@ -13142,6 +13148,7 @@ __ct__5CSongFv:
 /* 8001263C 0000E5BC  90 03 00 04 */	stw r0, 0x4(r3)
 /* 80012640 0000E5C0  90 83 00 0C */	stw r4, 0xc(r3)
 /* 80012644 0000E5C4  4E 80 00 20 */	blr
+.endfn __ct__5CSongFv
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 

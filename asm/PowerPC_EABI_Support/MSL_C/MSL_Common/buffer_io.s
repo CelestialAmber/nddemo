@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __flush_buffer
-__flush_buffer:
+.fn __flush_buffer, global
 /* 8005FE8C 0005BE0C  7C 08 02 A6 */	mflr r0
 /* 8005FE90 0005BE10  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005FE94 0005BE14  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -59,9 +58,9 @@ __flush_buffer:
 /* 8005FF4C 0005BECC  7C 08 03 A6 */	mtlr r0
 /* 8005FF50 0005BED0  38 21 00 18 */	addi r1, r1, 0x18
 /* 8005FF54 0005BED4  4E 80 00 20 */	blr
+.endfn __flush_buffer
 
-.global __prep_buffer
-__prep_buffer:
+.fn __prep_buffer, global
 /* 8005FF58 0005BED8  80 03 00 18 */	lwz r0, 0x18(r3)
 /* 8005FF5C 0005BEDC  90 03 00 20 */	stw r0, 0x20(r3)
 /* 8005FF60 0005BEE0  80 03 00 1C */	lwz r0, 0x1c(r3)
@@ -75,3 +74,4 @@ __prep_buffer:
 /* 8005FF80 0005BF00  80 03 00 14 */	lwz r0, 0x14(r3)
 /* 8005FF84 0005BF04  90 03 00 30 */	stw r0, 0x30(r3)
 /* 8005FF88 0005BF08  4E 80 00 20 */	blr
+.endfn __prep_buffer

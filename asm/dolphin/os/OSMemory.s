@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-OnReset:
+.fn OnReset, local
 /* 8002B844 000277C4  7C 08 02 A6 */	mflr r0
 /* 8002B848 000277C8  2C 03 00 00 */	cmpwi r3, 0x0
 /* 8002B84C 000277CC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -19,8 +19,9 @@ OnReset:
 /* 8002B874 000277F4  38 21 00 08 */	addi r1, r1, 0x8
 /* 8002B878 000277F8  7C 08 03 A6 */	mtlr r0
 /* 8002B87C 000277FC  4E 80 00 20 */	blr
+.endfn OnReset
 
-MEMIntrruptHandler:
+.fn MEMIntrruptHandler, local
 /* 8002B880 00027800  7C 08 02 A6 */	mflr r0
 /* 8002B884 00027804  3C 60 CC 00 */	lis r3, 0xCC004000@ha
 /* 8002B888 00027808  90 01 00 04 */	stw r0, 0x4(r1)
@@ -38,9 +39,9 @@ MEMIntrruptHandler:
 /* 8002B8B8 00027838  38 21 00 08 */	addi r1, r1, 0x8
 /* 8002B8BC 0002783C  7C 08 03 A6 */	mtlr r0
 /* 8002B8C0 00027840  4E 80 00 20 */	blr
+.endfn MEMIntrruptHandler
 
-.global __OSInitMemoryProtection
-__OSInitMemoryProtection:
+.fn __OSInitMemoryProtection, global
 /* 8002B8C4 00027844  7C 08 02 A6 */	mflr r0
 /* 8002B8C8 00027848  3C 60 CC 00 */	lis r3, 0xCC004000@ha
 /* 8002B8CC 0002784C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -93,6 +94,7 @@ __OSInitMemoryProtection:
 /* 8002B984 00027904  7C 08 03 A6 */	mtlr r0
 /* 8002B988 00027908  38 21 00 30 */	addi r1, r1, 0x30
 /* 8002B98C 0002790C  4E 80 00 20 */	blr
+.endfn __OSInitMemoryProtection
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

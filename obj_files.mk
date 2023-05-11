@@ -1,4 +1,6 @@
 NDDEMO := \
+$(BUILD_DIR)/asm/ctors.o \
+$(BUILD_DIR)/asm/dtors.o \
 $(BUILD_DIR)/asm/NDDEMO/main/main.o \
 $(BUILD_DIR)/asm/NDDEMO/dm/DMainSystem.o \
 $(BUILD_DIR)/asm/NDDEMO/du/DUDvd.o \
@@ -164,7 +166,7 @@ $(BUILD_DIR)/asm/PowerPC_EABI_Support/MSL_C/MSL_Common/string.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/uart_console_io.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MSL_C/MSL_Common/wchar_io.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_frexp.o \
-$(BUILD_DIR)/asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Single_precision/hyperbolicsf.o \
+$(BUILD_DIR)/src/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Single_precision/hyperbolicsf.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Single_precision/inverse_trig.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Single_precision/trigf.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/Single_precision/common_float_tables.o \
@@ -176,6 +178,4 @@ $(BUILD_DIR)/asm/dolphin/OdemuExi2/DebuggerDriver.o \
 $(BUILD_DIR)/asm/dolphin/odenotstub/odenotstub.o
 
 OTHERS := \
-$(BUILD_DIR)/asm/ctors.o \
-$(BUILD_DIR)/asm/dtors.o \
 $(BUILD_DIR)/asm/extabindex.o

@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global atanf
-atanf:
+.fn atanf, global
 /* 800624B4 0005E434  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800624B8 0005E438  3C 60 80 06 */	lis r3, "atan_coeff$96"@ha
 /* 800624BC 0005E43C  38 83 4A A0 */	addi r4, r3, "atan_coeff$96"@l
@@ -142,9 +141,9 @@ atanf:
 .L_800626A0:
 /* 800626A0 0005E620  38 21 00 10 */	addi r1, r1, 0x10
 /* 800626A4 0005E624  4E 80 00 20 */	blr
+.endfn atanf
 
-.global atan2f
-atan2f:
+.fn atan2f, global
 /* 800626A8 0005E628  7C 08 02 A6 */	mflr r0
 /* 800626AC 0005E62C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800626B0 0005E630  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -205,6 +204,7 @@ atan2f:
 /* 80062774 0005E6F4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80062778 0005E6F8  7C 08 03 A6 */	mtlr r0
 /* 8006277C 0005E6FC  4E 80 00 20 */	blr
+.endfn atan2f
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 

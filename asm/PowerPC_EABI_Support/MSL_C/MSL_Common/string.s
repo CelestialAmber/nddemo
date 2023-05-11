@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global strchr
-strchr:
+.fn strchr, global
 /* 80062088 0005E008  38 63 FF FF */	addi r3, r3, -0x1
 /* 8006208C 0005E00C  54 80 06 3E */	clrlwi r0, r4, 24
 /* 80062090 0005E010  48 00 00 0C */	b .L_8006209C
@@ -18,9 +17,9 @@ strchr:
 /* 800620AC 0005E02C  4D 82 00 20 */	beqlr
 /* 800620B0 0005E030  38 60 00 00 */	li r3, 0x0
 /* 800620B4 0005E034  4E 80 00 20 */	blr
+.endfn strchr
 
-.global strncmp
-strncmp:
+.fn strncmp, global
 /* 800620B8 0005E038  38 63 FF FF */	addi r3, r3, -0x1
 /* 800620BC 0005E03C  38 84 FF FF */	addi r4, r4, -0x1
 /* 800620C0 0005E040  38 C5 00 01 */	addi r6, r5, 0x1
@@ -41,9 +40,9 @@ strncmp:
 .L_800620F0:
 /* 800620F0 0005E070  38 60 00 00 */	li r3, 0x0
 /* 800620F4 0005E074  4E 80 00 20 */	blr
+.endfn strncmp
 
-.global strncpy
-strncpy:
+.fn strncpy, global
 /* 800620F8 0005E078  38 84 FF FF */	addi r4, r4, -0x1
 /* 800620FC 0005E07C  38 C3 FF FF */	addi r6, r3, -0x1
 /* 80062100 0005E080  38 A5 00 01 */	addi r5, r5, 0x1
@@ -65,9 +64,9 @@ strncpy:
 /* 80062130 0005E0B0  34 A5 FF FF */	addic. r5, r5, -0x1
 /* 80062134 0005E0B4  40 82 FF D4 */	bne .L_80062108
 /* 80062138 0005E0B8  4E 80 00 20 */	blr
+.endfn strncpy
 
-.global strcpy
-strcpy:
+.fn strcpy, global
 /* 8006213C 0005E0BC  54 60 07 BE */	clrlwi r0, r3, 30
 /* 80062140 0005E0C0  54 85 07 BE */	clrlwi r5, r4, 30
 /* 80062144 0005E0C4  7C 00 28 40 */	cmplw r0, r5
@@ -119,9 +118,9 @@ strcpy:
 /* 800621E4 0005E164  9C 07 00 01 */	stbu r0, 0x1(r7)
 /* 800621E8 0005E168  40 82 FF F4 */	bne .L_800621DC
 /* 800621EC 0005E16C  4E 80 00 20 */	blr
+.endfn strcpy
 
-.global strlen
-strlen:
+.fn strlen, global
 /* 800621F0 0005E170  38 80 FF FF */	li r4, -0x1
 /* 800621F4 0005E174  38 63 FF FF */	addi r3, r3, -0x1
 .L_800621F8:
@@ -131,6 +130,7 @@ strlen:
 /* 80062204 0005E184  40 82 FF F4 */	bne .L_800621F8
 /* 80062208 0005E188  7C 83 23 78 */	mr r3, r4
 /* 8006220C 0005E18C  4E 80 00 20 */	blr
+.endfn strlen
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 

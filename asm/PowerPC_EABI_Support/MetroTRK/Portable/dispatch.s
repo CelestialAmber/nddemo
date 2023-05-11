@@ -2,16 +2,15 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global TRKInitializeDispatcher
-TRKInitializeDispatcher:
+.fn TRKInitializeDispatcher, global
 /* 8005B6FC 0005767C  3C 60 80 0B */	lis r3, gTRKDispatchTableSize@ha
 /* 8005B700 00057680  38 00 00 20 */	li r0, 0x20
 /* 8005B704 00057684  90 03 82 D8 */	stw r0, gTRKDispatchTableSize@l(r3)
 /* 8005B708 00057688  38 60 00 00 */	li r3, 0x0
 /* 8005B70C 0005768C  4E 80 00 20 */	blr
+.endfn TRKInitializeDispatcher
 
-.global TRKDispatchMessage
-TRKDispatchMessage:
+.fn TRKDispatchMessage, global
 /* 8005B710 00057690  7C 08 02 A6 */	mflr r0
 /* 8005B714 00057694  38 80 00 00 */	li r4, 0x0
 /* 8005B718 00057698  90 01 00 04 */	stw r0, 0x4(r1)
@@ -46,6 +45,7 @@ TRKDispatchMessage:
 /* 8005B788 00057708  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005B78C 0005770C  7C 08 03 A6 */	mtlr r0
 /* 8005B790 00057710  4E 80 00 20 */	blr
+.endfn TRKDispatchMessage
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

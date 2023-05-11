@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global TRKSaveExtended1Block
-TRKSaveExtended1Block:
+.fn TRKSaveExtended1Block, global
 /* 8005E8BC 0005A83C  3C 40 80 0A */	lis r2, gTRKCPUState@h
 /* 8005E8C0 0005A840  60 42 84 30 */	ori r2, r2, gTRKCPUState@l
 /* 8005E8C4 0005A844  7E 00 04 A6 */	mfsr r16, 0
@@ -116,9 +115,9 @@ TRKSaveExtended1Block:
 /* 8005EA6C 0005A9EC  93 E2 02 78 */	stw r31, 0x278(r2)
 .L_8005EA70:
 /* 8005EA70 0005A9F0  4E 80 00 20 */	blr
+.endfn TRKSaveExtended1Block
 
-.global TRKRestoreExtended1Block
-TRKRestoreExtended1Block:
+.fn TRKRestoreExtended1Block, global
 /* 8005EA74 0005A9F4  3C 40 80 0A */	lis r2, gTRKCPUState@h
 /* 8005EA78 0005A9F8  60 42 84 30 */	ori r2, r2, gTRKCPUState@l
 /* 8005EA7C 0005A9FC  3C A0 80 06 */	lis r5, gTRKRestoreFlags@h
@@ -233,8 +232,9 @@ TRKRestoreExtended1Block:
 /* 8005EC20 0005ABA0  7F D2 FB A6 */	mtspr IABR, r30
 /* 8005EC24 0005ABA4  7F FA 43 A6 */	mtear r31
 /* 8005EC28 0005ABA8  4E 80 00 20 */	blr
+.endfn TRKRestoreExtended1Block
 
-.global TRKTargetCPUMinorType
-TRKTargetCPUMinorType:
+.fn TRKTargetCPUMinorType, global
 /* 8005EC2C 0005ABAC  38 60 00 54 */	li r3, 0x54
 /* 8005EC30 0005ABB0  4E 80 00 20 */	blr
+.endfn TRKTargetCPUMinorType

@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-TRK_fill_mem:
+.fn TRK_fill_mem, local
 /* 8005CFDC 00058F5C  28 05 00 20 */	cmplwi r5, 0x20
 /* 8005CFE0 00058F60  38 C3 FF FF */	addi r6, r3, -0x1
 /* 8005CFE4 00058F64  54 80 06 3E */	clrlwi r0, r4, 24
@@ -61,25 +61,25 @@ TRK_fill_mem:
 /* 8005D094 00059014  9C 06 00 01 */	stbu r0, 0x1(r6)
 /* 8005D098 00059018  40 82 FF F8 */	bne .L_8005D090
 /* 8005D09C 0005901C  4E 80 00 20 */	blr
+.endfn TRK_fill_mem
 
 .section .init, "ax"  # 0x80003100 - 0x80005520 ; 0x00002420
 
-.global TRK_memcpy
-TRK_memcpy:
+.fn TRK_memcpy, global
 /* 80003384 00000384  38 84 FF FF */	addi r4, r4, -0x1
 /* 80003388 00000388  38 C3 FF FF */	addi r6, r3, -0x1
 /* 8000338C 0000038C  38 A5 00 01 */	addi r5, r5, 0x1
-/* 80003390 00000390  48 00 00 0C */	b lbl_8000339C
-lbl_80003394:
+/* 80003390 00000390  48 00 00 0C */	b .L_8000339C
+.L_80003394:
 /* 80003394 00000394  8C 04 00 01 */	lbzu r0, 0x1(r4)
 /* 80003398 00000398  9C 06 00 01 */	stbu r0, 0x1(r6)
-lbl_8000339C:
+.L_8000339C:
 /* 8000339C 0000039C  34 A5 FF FF */	addic. r5, r5, -0x1
-/* 800033A0 000003A0  40 82 FF F4 */	bne lbl_80003394
+/* 800033A0 000003A0  40 82 FF F4 */	bne .L_80003394
 /* 800033A4 000003A4  4E 80 00 20 */	blr
+.endfn TRK_memcpy
 
-.global TRK_memset
-TRK_memset:
+.fn TRK_memset, global
 /* 800033A8 000003A8  7C 08 02 A6 */	mflr r0
 /* 800033AC 000003AC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800033B0 000003B0  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -92,3 +92,4 @@ TRK_memset:
 /* 800033CC 000003CC  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 800033D0 000003D0  7C 08 03 A6 */	mtlr r0
 /* 800033D4 000003D4  4E 80 00 20 */	blr
+.endfn TRK_memset

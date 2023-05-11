@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global vidInit
-vidInit:
+.fn vidInit, global
 /* 8004E2E4 0004A264  3C 60 80 0A */	lis r3, vidList@ha
 /* 8004E2E8 0004A268  38 83 B7 E8 */	addi r4, r3, vidList@l
 /* 8004E2EC 0004A26C  38 60 00 00 */	li r3, 0x0
@@ -76,8 +75,9 @@ vidInit:
 /* 8004E3D0 0004A350  38 00 00 00 */	li r0, 0x0
 /* 8004E3D4 0004A354  90 05 00 00 */	stw r0, 0x0(r5)
 /* 8004E3D8 0004A358  4E 80 00 20 */	blr
+.endfn vidInit
 
-get_vidlist:
+.fn get_vidlist, local
 /* 8004E3DC 0004A35C  80 8D 87 E4 */	lwz r4, vidRoot@sda21(r13)
 /* 8004E3E0 0004A360  48 00 00 20 */	b .L_8004E400
 .L_8004E3E4:
@@ -95,9 +95,9 @@ get_vidlist:
 .L_8004E408:
 /* 8004E408 0004A388  38 60 00 00 */	li r3, 0x0
 /* 8004E40C 0004A38C  4E 80 00 20 */	blr
+.endfn get_vidlist
 
-.global vidRemoveVoiceReferences
-vidRemoveVoiceReferences:
+.fn vidRemoveVoiceReferences, global
 /* 8004E410 0004A390  7C 08 02 A6 */	mflr r0
 /* 8004E414 0004A394  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004E418 0004A398  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -337,17 +337,17 @@ vidRemoveVoiceReferences:
 /* 8004E758 0004A6D8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004E75C 0004A6DC  7C 08 03 A6 */	mtlr r0
 /* 8004E760 0004A6E0  4E 80 00 20 */	blr
+.endfn vidRemoveVoiceReferences
 
-.global vidMakeRoot
-vidMakeRoot:
+.fn vidMakeRoot, global
 /* 8004E764 0004A6E4  80 03 00 F8 */	lwz r0, 0xf8(r3)
 /* 8004E768 0004A6E8  90 03 00 FC */	stw r0, 0xfc(r3)
 /* 8004E76C 0004A6EC  80 63 00 F8 */	lwz r3, 0xf8(r3)
 /* 8004E770 0004A6F0  80 63 00 08 */	lwz r3, 0x8(r3)
 /* 8004E774 0004A6F4  4E 80 00 20 */	blr
+.endfn vidMakeRoot
 
-.global vidMakeNew
-vidMakeNew:
+.fn vidMakeNew, global
 /* 8004E778 0004A6F8  80 AD 87 E0 */	lwz r5, vidCurrentId@sda21(r13)
 /* 8004E77C 0004A6FC  38 C5 00 00 */	addi r6, r5, 0x0
 /* 8004E780 0004A700  3C 06 00 01 */	addis r0, r6, 0x1
@@ -424,9 +424,9 @@ vidMakeNew:
 .L_8004E86C:
 /* 8004E86C 0004A7EC  80 63 00 F4 */	lwz r3, 0xf4(r3)
 /* 8004E870 0004A7F0  4E 80 00 20 */	blr
+.endfn vidMakeNew
 
-.global vidGetInternalId
-vidGetInternalId:
+.fn vidGetInternalId, global
 /* 8004E874 0004A7F4  3C 03 00 01 */	addis r0, r3, 0x1
 /* 8004E878 0004A7F8  28 00 FF FF */	cmplwi r0, 0xffff
 /* 8004E87C 0004A7FC  41 82 00 40 */	beq .L_8004E8BC
@@ -453,9 +453,9 @@ vidGetInternalId:
 .L_8004E8BC:
 /* 8004E8BC 0004A83C  38 60 FF FF */	li r3, -0x1
 /* 8004E8C0 0004A840  4E 80 00 20 */	blr
+.endfn vidGetInternalId
 
-.global voiceRemovePriority
-voiceRemovePriority:
+.fn voiceRemovePriority, global
 /* 8004E8C4 0004A844  80 03 00 F4 */	lwz r0, 0xf4(r3)
 /* 8004E8C8 0004A848  3C 80 80 0A */	lis r4, vidList@ha
 /* 8004E8CC 0004A84C  38 C4 B7 E8 */	addi r6, r4, vidList@l
@@ -518,9 +518,9 @@ voiceRemovePriority:
 /* 8004E998 0004A918  38 00 00 00 */	li r0, 0x0
 /* 8004E99C 0004A91C  B0 07 00 02 */	sth r0, 0x2(r7)
 /* 8004E9A0 0004A920  4E 80 00 20 */	blr
+.endfn voiceRemovePriority
 
-.global voiceSetPriority
-voiceSetPriority:
+.fn voiceSetPriority, global
 /* 8004E9A4 0004A924  7C 08 02 A6 */	mflr r0
 /* 8004E9A8 0004A928  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004E9AC 0004A92C  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -630,9 +630,9 @@ voiceSetPriority:
 /* 8004EB28 0004AAA8  38 21 00 28 */	addi r1, r1, 0x28
 /* 8004EB2C 0004AAAC  7C 08 03 A6 */	mtlr r0
 /* 8004EB30 0004AAB0  4E 80 00 20 */	blr
+.endfn voiceSetPriority
 
-.global voiceAllocate
-voiceAllocate:
+.fn voiceAllocate, global
 /* 8004EB34 0004AAB4  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8004EB38 0004AAB8  3C E0 80 0A */	lis r7, vidList@ha
 /* 8004EB3C 0004AABC  39 07 B7 E8 */	addi r8, r7, vidList@l
@@ -949,9 +949,9 @@ voiceAllocate:
 /* 8004EF70 0004AEF0  BB 01 00 10 */	lmw r24, 0x10(r1)
 /* 8004EF74 0004AEF4  38 21 00 30 */	addi r1, r1, 0x30
 /* 8004EF78 0004AEF8  4E 80 00 20 */	blr
+.endfn voiceAllocate
 
-.global voiceFree
-voiceFree:
+.fn voiceFree, global
 /* 8004EF7C 0004AEFC  7C 08 02 A6 */	mflr r0
 /* 8004EF80 0004AF00  38 80 00 02 */	li r4, 0x2
 /* 8004EF84 0004AF04  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1013,9 +1013,9 @@ voiceFree:
 /* 8004F054 0004AFD4  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004F058 0004AFD8  7C 08 03 A6 */	mtlr r0
 /* 8004F05C 0004AFDC  4E 80 00 20 */	blr
+.endfn voiceFree
 
-.global synthInitAllocationAids
-synthInitAllocationAids:
+.fn synthInitAllocationAids, global
 /* 8004F060 0004AFE0  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8004F064 0004AFE4  3C 60 80 09 */	lis r3, synthInfo@ha
 /* 8004F068 0004AFE8  3C 80 80 0A */	lis r4, vidList@ha
@@ -1232,9 +1232,9 @@ synthInitAllocationAids:
 /* 8004F384 0004B304  83 C1 00 18 */	lwz r30, 0x18(r1)
 /* 8004F388 0004B308  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004F38C 0004B30C  4E 80 00 20 */	blr
+.endfn synthInitAllocationAids
 
-.global voiceUnblock
-voiceUnblock:
+.fn voiceUnblock, global
 /* 8004F390 0004B310  7C 08 02 A6 */	mflr r0
 /* 8004F394 0004B314  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004F398 0004B318  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1269,9 +1269,9 @@ voiceUnblock:
 /* 8004F404 0004B384  7C 08 03 A6 */	mtlr r0
 /* 8004F408 0004B388  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004F40C 0004B38C  4E 80 00 20 */	blr
+.endfn voiceUnblock
 
-.global voiceKill
-voiceKill:
+.fn voiceKill, global
 /* 8004F410 0004B390  7C 08 02 A6 */	mflr r0
 /* 8004F414 0004B394  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004F418 0004B398  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1314,9 +1314,9 @@ voiceKill:
 /* 8004F4A4 0004B424  7C 08 03 A6 */	mtlr r0
 /* 8004F4A8 0004B428  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004F4AC 0004B42C  4E 80 00 20 */	blr
+.endfn voiceKill
 
-.global voiceKillSound
-voiceKillSound:
+.fn voiceKillSound, global
 /* 8004F4B0 0004B430  7C 08 02 A6 */	mflr r0
 /* 8004F4B4 0004B434  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004F4B8 0004B438  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1392,9 +1392,9 @@ voiceKillSound:
 /* 8004F5B4 0004B534  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8004F5B8 0004B538  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004F5BC 0004B53C  4E 80 00 20 */	blr
+.endfn voiceKillSound
 
-.global voiceIsLastStarted
-voiceIsLastStarted:
+.fn voiceIsLastStarted, global
 /* 8004F5C0 0004B540  80 83 00 F4 */	lwz r4, 0xf4(r3)
 /* 8004F5C4 0004B544  3C 04 00 01 */	addis r0, r4, 0x1
 /* 8004F5C8 0004B548  28 00 FF FF */	cmplwi r0, 0xffff
@@ -1428,9 +1428,9 @@ voiceIsLastStarted:
 .L_8004F634:
 /* 8004F634 0004B5B4  38 60 00 00 */	li r3, 0x0
 /* 8004F638 0004B5B8  4E 80 00 20 */	blr
+.endfn voiceIsLastStarted
 
-.global voiceSetLastStarted
-voiceSetLastStarted:
+.fn voiceSetLastStarted, global
 /* 8004F63C 0004B5BC  80 83 00 F4 */	lwz r4, 0xf4(r3)
 /* 8004F640 0004B5C0  3C 04 00 01 */	addis r0, r4, 0x1
 /* 8004F644 0004B5C4  28 00 FF FF */	cmplwi r0, 0xffff
@@ -1455,9 +1455,9 @@ voiceSetLastStarted:
 /* 8004F68C 0004B60C  7C 60 2A 14 */	add r3, r0, r5
 /* 8004F690 0004B610  98 C3 00 00 */	stb r6, 0x0(r3)
 /* 8004F694 0004B614  4E 80 00 20 */	blr
+.endfn voiceSetLastStarted
 
-.global voiceResetLastStarted
-voiceResetLastStarted:
+.fn voiceResetLastStarted, global
 /* 8004F698 0004B618  80 83 00 F4 */	lwz r4, 0xf4(r3)
 /* 8004F69C 0004B61C  3C 04 00 01 */	addis r0, r4, 0x1
 /* 8004F6A0 0004B620  28 00 FF FF */	cmplwi r0, 0xffff
@@ -1490,9 +1490,9 @@ voiceResetLastStarted:
 /* 8004F708 0004B688  38 00 00 FF */	li r0, 0xff
 /* 8004F70C 0004B68C  98 03 00 00 */	stb r0, 0x0(r3)
 /* 8004F710 0004B690  4E 80 00 20 */	blr
+.endfn voiceResetLastStarted
 
-.global voiceInitLastStarted
-voiceInitLastStarted:
+.fn voiceInitLastStarted, global
 /* 8004F714 0004B694  38 00 00 04 */	li r0, 0x4
 /* 8004F718 0004B698  3C 60 80 0A */	lis r3, synth_last_started@ha
 /* 8004F71C 0004B69C  7C 09 03 A6 */	mtctr r0
@@ -1602,6 +1602,7 @@ voiceInitLastStarted:
 /* 8004F8B8 0004B838  98 03 00 3E */	stb r0, 0x3e(r3)
 /* 8004F8BC 0004B83C  98 03 00 3F */	stb r0, 0x3f(r3)
 /* 8004F8C0 0004B840  4E 80 00 20 */	blr
+.endfn voiceInitLastStarted
 
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80

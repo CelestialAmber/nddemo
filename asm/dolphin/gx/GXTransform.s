@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global GXSetProjection
-GXSetProjection:
+.fn GXSetProjection, global
 /* 800409C4 0003C944  80 AD 82 90 */	lwz r5, gx@sda21(r13)
 /* 800409C8 0003C948  2C 04 00 01 */	cmpwi r4, 0x1
 /* 800409CC 0003C94C  90 85 04 20 */	stw r4, 0x420(r5)
@@ -59,9 +58,9 @@ GXSetProjection:
 /* 80040A8C 0003CA0C  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 80040A90 0003CA10  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 80040A94 0003CA14  4E 80 00 20 */	blr
+.endfn GXSetProjection
 
-.global GXGetProjectionv
-GXGetProjectionv:
+.fn GXGetProjectionv, global
 /* 80040A98 0003CA18  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 80040A9C 0003CA1C  3C 00 43 30 */	lis r0, 0x4330
 /* 80040AA0 0003CA20  80 8D 82 90 */	lwz r4, gx@sda21(r13)
@@ -92,8 +91,9 @@ GXGetProjectionv:
 /* 80040B04 0003CA84  C0 04 04 38 */	lfs f0, 0x438(r4)
 /* 80040B08 0003CA88  D0 03 00 18 */	stfs f0, 0x18(r3)
 /* 80040B0C 0003CA8C  4E 80 00 20 */	blr
+.endfn GXGetProjectionv
 
-WriteMTXPS4x3:
+.fn WriteMTXPS4x3, local
 /* 80040B10 0003CA90  E0 03 00 00 */	psq_l f0, 0x0(r3), 0, qr0
 /* 80040B14 0003CA94  E0 23 00 08 */	psq_l f1, 0x8(r3), 0, qr0
 /* 80040B18 0003CA98  E0 43 00 10 */	psq_l f2, 0x10(r3), 0, qr0
@@ -107,8 +107,9 @@ WriteMTXPS4x3:
 /* 80040B38 0003CAB8  F0 84 00 00 */	psq_st f4, 0x0(r4), 0, qr0
 /* 80040B3C 0003CABC  F0 A4 00 00 */	psq_st f5, 0x0(r4), 0, qr0
 /* 80040B40 0003CAC0  4E 80 00 20 */	blr
+.endfn WriteMTXPS4x3
 
-WriteMTXPS3x3from3x4:
+.fn WriteMTXPS3x3from3x4, local
 /* 80040B44 0003CAC4  E0 03 00 00 */	psq_l f0, 0x0(r3), 0, qr0
 /* 80040B48 0003CAC8  C0 23 00 08 */	lfs f1, 0x8(r3)
 /* 80040B4C 0003CACC  E0 43 00 10 */	psq_l f2, 0x10(r3), 0, qr0
@@ -122,8 +123,9 @@ WriteMTXPS3x3from3x4:
 /* 80040B6C 0003CAEC  F0 84 00 00 */	psq_st f4, 0x0(r4), 0, qr0
 /* 80040B70 0003CAF0  D0 A4 00 00 */	stfs f5, 0x0(r4)
 /* 80040B74 0003CAF4  4E 80 00 20 */	blr
+.endfn WriteMTXPS3x3from3x4
 
-WriteMTXPS4x2:
+.fn WriteMTXPS4x2, local
 /* 80040B78 0003CAF8  E0 03 00 00 */	psq_l f0, 0x0(r3), 0, qr0
 /* 80040B7C 0003CAFC  E0 23 00 08 */	psq_l f1, 0x8(r3), 0, qr0
 /* 80040B80 0003CB00  E0 43 00 10 */	psq_l f2, 0x10(r3), 0, qr0
@@ -133,9 +135,9 @@ WriteMTXPS4x2:
 /* 80040B90 0003CB10  F0 44 00 00 */	psq_st f2, 0x0(r4), 0, qr0
 /* 80040B94 0003CB14  F0 64 00 00 */	psq_st f3, 0x0(r4), 0, qr0
 /* 80040B98 0003CB18  4E 80 00 20 */	blr
+.endfn WriteMTXPS4x2
 
-.global GXLoadPosMtxImm
-GXLoadPosMtxImm:
+.fn GXLoadPosMtxImm, global
 /* 80040B9C 0003CB1C  7C 08 02 A6 */	mflr r0
 /* 80040BA0 0003CB20  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80040BA4 0003CB24  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -151,9 +153,9 @@ GXLoadPosMtxImm:
 /* 80040BCC 0003CB4C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80040BD0 0003CB50  7C 08 03 A6 */	mtlr r0
 /* 80040BD4 0003CB54  4E 80 00 20 */	blr
+.endfn GXLoadPosMtxImm
 
-.global GXLoadNrmMtxImm
-GXLoadNrmMtxImm:
+.fn GXLoadNrmMtxImm, global
 /* 80040BD8 0003CB58  7C 08 02 A6 */	mflr r0
 /* 80040BDC 0003CB5C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80040BE0 0003CB60  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -170,9 +172,9 @@ GXLoadNrmMtxImm:
 /* 80040C0C 0003CB8C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80040C10 0003CB90  7C 08 03 A6 */	mtlr r0
 /* 80040C14 0003CB94  4E 80 00 20 */	blr
+.endfn GXLoadNrmMtxImm
 
-.global GXSetCurrentMtx
-GXSetCurrentMtx:
+.fn GXSetCurrentMtx, global
 /* 80040C18 0003CB98  7C 08 02 A6 */	mflr r0
 /* 80040C1C 0003CB9C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80040C20 0003CBA0  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -188,9 +190,9 @@ GXSetCurrentMtx:
 /* 80040C48 0003CBC8  38 21 00 08 */	addi r1, r1, 0x8
 /* 80040C4C 0003CBCC  7C 08 03 A6 */	mtlr r0
 /* 80040C50 0003CBD0  4E 80 00 20 */	blr
+.endfn GXSetCurrentMtx
 
-.global GXLoadTexMtxImm
-GXLoadTexMtxImm:
+.fn GXLoadTexMtxImm, global
 /* 80040C54 0003CBD4  7C 08 02 A6 */	mflr r0
 /* 80040C58 0003CBD8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80040C5C 0003CBDC  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -230,9 +232,9 @@ GXLoadTexMtxImm:
 /* 80040CCC 0003CC4C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80040CD0 0003CC50  7C 08 03 A6 */	mtlr r0
 /* 80040CD4 0003CC54  4E 80 00 20 */	blr
+.endfn GXLoadTexMtxImm
 
-.global GXSetViewportJitter
-GXSetViewportJitter:
+.fn GXSetViewportJitter, global
 /* 80040CD8 0003CC58  7C 08 02 A6 */	mflr r0
 /* 80040CDC 0003CC5C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80040CE0 0003CC60  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -306,9 +308,9 @@ GXSetViewportJitter:
 /* 80040DE8 0003CD68  CB 41 00 30 */	lfd f26, 0x30(r1)
 /* 80040DEC 0003CD6C  38 21 00 60 */	addi r1, r1, 0x60
 /* 80040DF0 0003CD70  4E 80 00 20 */	blr
+.endfn GXSetViewportJitter
 
-.global GXSetViewport
-GXSetViewport:
+.fn GXSetViewport, global
 /* 80040DF4 0003CD74  7C 08 02 A6 */	mflr r0
 /* 80040DF8 0003CD78  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80040DFC 0003CD7C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -318,9 +320,9 @@ GXSetViewport:
 /* 80040E0C 0003CD8C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80040E10 0003CD90  7C 08 03 A6 */	mtlr r0
 /* 80040E14 0003CD94  4E 80 00 20 */	blr
+.endfn GXSetViewport
 
-.global GXSetScissor
-GXSetScissor:
+.fn GXSetScissor, global
 /* 80040E18 0003CD98  80 ED 82 90 */	lwz r7, gx@sda21(r13)
 /* 80040E1C 0003CD9C  39 03 01 56 */	addi r8, r3, 0x156
 /* 80040E20 0003CDA0  38 05 FF FF */	addi r0, r5, -0x1
@@ -365,9 +367,9 @@ GXSetScissor:
 /* 80040EBC 0003CE3C  90 65 80 00 */	stw r3, -0x8000(r5)
 /* 80040EC0 0003CE40  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 80040EC4 0003CE44  4E 80 00 20 */	blr
+.endfn GXSetScissor
 
-.global GXSetScissorBoxOffset
-GXSetScissorBoxOffset:
+.fn GXSetScissorBoxOffset, global
 /* 80040EC8 0003CE48  38 A3 01 56 */	addi r5, r3, 0x156
 /* 80040ECC 0003CE4C  80 6D 82 90 */	lwz r3, gx@sda21(r13)
 /* 80040ED0 0003CE50  38 04 01 56 */	addi r0, r4, 0x156
@@ -385,9 +387,9 @@ GXSetScissorBoxOffset:
 /* 80040F00 0003CE80  90 A4 80 00 */	stw r5, -0x8000(r4)
 /* 80040F04 0003CE84  B0 03 00 02 */	sth r0, 0x2(r3)
 /* 80040F08 0003CE88  4E 80 00 20 */	blr
+.endfn GXSetScissorBoxOffset
 
-.global GXSetClipMode
-GXSetClipMode:
+.fn GXSetClipMode, global
 /* 80040F0C 0003CE8C  38 00 00 10 */	li r0, 0x10
 /* 80040F10 0003CE90  80 8D 82 90 */	lwz r4, gx@sda21(r13)
 /* 80040F14 0003CE94  3C C0 CC 01 */	lis r6, 0xCC008000@ha
@@ -398,9 +400,9 @@ GXSetClipMode:
 /* 80040F28 0003CEA8  90 66 80 00 */	stw r3, -0x8000(r6)
 /* 80040F2C 0003CEAC  B0 04 00 02 */	sth r0, 0x2(r4)
 /* 80040F30 0003CEB0  4E 80 00 20 */	blr
+.endfn GXSetClipMode
 
-.global __GXSetMatrixIndex
-__GXSetMatrixIndex:
+.fn __GXSetMatrixIndex, global
 /* 80040F34 0003CEB4  2C 03 00 05 */	cmpwi r3, 0x5
 /* 80040F38 0003CEB8  40 80 00 3C */	bge .L_80040F74
 /* 80040F3C 0003CEBC  38 00 00 08 */	li r0, 0x8
@@ -436,6 +438,7 @@ __GXSetMatrixIndex:
 /* 80040FAC 0003CF2C  38 00 00 01 */	li r0, 0x1
 /* 80040FB0 0003CF30  B0 03 00 02 */	sth r0, 0x2(r3)
 /* 80040FB4 0003CF34  4E 80 00 20 */	blr
+.endfn __GXSetMatrixIndex
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 

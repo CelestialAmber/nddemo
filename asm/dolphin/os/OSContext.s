@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-__OSLoadFPUContext:
+.fn __OSLoadFPUContext, local
 /* 8002937C 000252FC  A0 A4 01 A2 */	lhz r5, 0x1a2(r4)
 /* 80029380 00025300  54 A5 07 FF */	clrlwi. r5, r5, 31
 /* 80029384 00025304  41 82 01 18 */	beq .L_8002949C
@@ -78,8 +78,9 @@ __OSLoadFPUContext:
 /* 80029498 00025418  CB E4 01 88 */	lfd f31, 0x188(r4)
 .L_8002949C:
 /* 8002949C 0002541C  4E 80 00 20 */	blr
+.endfn __OSLoadFPUContext
 
-__OSSaveFPUContext:
+.fn __OSSaveFPUContext, local
 /* 800294A0 00025420  A0 65 01 A2 */	lhz r3, 0x1a2(r5)
 /* 800294A4 00025424  60 63 00 01 */	ori r3, r3, 0x1
 /* 800294A8 00025428  B0 65 01 A2 */	sth r3, 0x1a2(r5)
@@ -155,9 +156,9 @@ __OSSaveFPUContext:
 /* 800295C0 00025540  F3 E5 02 C0 */	psq_st f31, 0x2c0(r5), 0, qr0
 .L_800295C4:
 /* 800295C4 00025544  4E 80 00 20 */	blr
+.endfn __OSSaveFPUContext
 
-.global OSSetCurrentContext
-OSSetCurrentContext:
+.fn OSSetCurrentContext, global
 /* 800295C8 00025548  3C 80 80 00 */	lis r4, 0x800000D4@ha
 /* 800295CC 0002554C  90 64 00 D4 */	stw r3, 0x800000D4@l(r4)
 /* 800295D0 00025550  54 65 00 BE */	clrlwi r5, r3, 2
@@ -182,15 +183,15 @@ OSSetCurrentContext:
 /* 80029618 00025598  7C C0 01 24 */	mtmsr r6
 /* 8002961C 0002559C  4C 00 01 2C */	isync
 /* 80029620 000255A0  4E 80 00 20 */	blr
+.endfn OSSetCurrentContext
 
-.global OSGetCurrentContext
-OSGetCurrentContext:
+.fn OSGetCurrentContext, global
 /* 80029624 000255A4  3C 60 80 00 */	lis r3, 0x800000D4@ha
 /* 80029628 000255A8  80 63 00 D4 */	lwz r3, 0x800000D4@l(r3)
 /* 8002962C 000255AC  4E 80 00 20 */	blr
+.endfn OSGetCurrentContext
 
-.global OSSaveContext
-OSSaveContext:
+.fn OSSaveContext, global
 /* 80029630 000255B0  BD A3 00 34 */	stmw r13, 0x34(r3)
 /* 80029634 000255B4  7C 11 E2 A6 */	mfspr r0, GQR1
 /* 80029638 000255B8  90 03 01 A8 */	stw r0, 0x1a8(r3)
@@ -223,9 +224,9 @@ OSSaveContext:
 /* 800296A4 00025624  90 03 00 0C */	stw r0, 0xc(r3)
 /* 800296A8 00025628  38 60 00 00 */	li r3, 0x0
 /* 800296AC 0002562C  4E 80 00 20 */	blr
+.endfn OSSaveContext
 
-.global OSLoadContext
-OSLoadContext:
+.fn OSLoadContext, global
 /* 800296B0 00025630  3C 80 80 03 */	lis r4, OSDisableInterrupts@ha
 /* 800296B4 00025634  80 C3 01 98 */	lwz r6, 0x198(r3)
 /* 800296B8 00025638  38 A4 AF E4 */	addi r5, r4, OSDisableInterrupts@l
@@ -283,14 +284,14 @@ OSLoadContext:
 /* 8002977C 000256FC  80 83 00 10 */	lwz r4, 0x10(r3)
 /* 80029780 00025700  80 63 00 0C */	lwz r3, 0xc(r3)
 /* 80029784 00025704  4C 00 00 64 */	rfi
+.endfn OSLoadContext
 
-.global OSGetStackPointer
-OSGetStackPointer:
+.fn OSGetStackPointer, global
 /* 80029788 00025708  7C 23 0B 78 */	mr r3, r1
 /* 8002978C 0002570C  4E 80 00 20 */	blr
+.endfn OSGetStackPointer
 
-.global OSClearContext
-OSClearContext:
+.fn OSClearContext, global
 /* 80029790 00025710  38 A0 00 00 */	li r5, 0x0
 /* 80029794 00025714  B0 A3 01 A0 */	sth r5, 0x1a0(r3)
 /* 80029798 00025718  3C 80 80 00 */	lis r4, 0x800000D8@ha
@@ -301,9 +302,9 @@ OSClearContext:
 /* 800297AC 0002572C  90 A4 00 D8 */	stw r5, 0xd8(r4)
 .L_800297B0:
 /* 800297B0 00025730  4E 80 00 20 */	blr
+.endfn OSClearContext
 
-.global OSInitContext
-OSInitContext:
+.fn OSInitContext, global
 /* 800297B4 00025734  90 83 01 98 */	stw r4, 0x198(r3)
 /* 800297B8 00025738  90 A3 00 04 */	stw r5, 0x4(r3)
 /* 800297BC 0002573C  39 60 00 00 */	li r11, 0x0
@@ -351,9 +352,9 @@ OSInitContext:
 /* 80029864 000257E4  90 03 01 BC */	stw r0, 0x1bc(r3)
 /* 80029868 000257E8  90 03 01 C0 */	stw r0, 0x1c0(r3)
 /* 8002986C 000257EC  4B FF FF 24 */	b OSClearContext
+.endfn OSInitContext
 
-.global OSDumpContext
-OSDumpContext:
+.fn OSDumpContext, global
 /* 80029870 000257F0  7C 08 02 A6 */	mflr r0
 /* 80029874 000257F4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80029878 000257F8  94 21 FD 08 */	stwu r1, -0x2f8(r1)
@@ -544,8 +545,9 @@ OSDumpContext:
 /* 80029B0C 00025A8C  38 21 02 F8 */	addi r1, r1, 0x2f8
 /* 80029B10 00025A90  7C 08 03 A6 */	mtlr r0
 /* 80029B14 00025A94  4E 80 00 20 */	blr
+.endfn OSDumpContext
 
-OSSwitchFPUContext:
+.fn OSSwitchFPUContext, local
 /* 80029B18 00025A98  7C A0 00 A6 */	mfmsr r5
 /* 80029B1C 00025A9C  60 A5 20 00 */	ori r5, r5, 0x2000
 /* 80029B20 00025AA0  7C A0 01 24 */	mtmsr r5
@@ -581,9 +583,9 @@ OSSwitchFPUContext:
 /* 80029B90 00025B10  80 64 00 0C */	lwz r3, 0xc(r4)
 /* 80029B94 00025B14  80 84 00 10 */	lwz r4, 0x10(r4)
 /* 80029B98 00025B18  4C 00 00 64 */	rfi
+.endfn OSSwitchFPUContext
 
-.global __OSContextInit
-__OSContextInit:
+.fn __OSContextInit, global
 /* 80029B9C 00025B1C  7C 08 02 A6 */	mflr r0
 /* 80029BA0 00025B20  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80029BA4 00025B24  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -602,6 +604,7 @@ __OSContextInit:
 /* 80029BD8 00025B58  38 21 00 08 */	addi r1, r1, 0x8
 /* 80029BDC 00025B5C  7C 08 03 A6 */	mtlr r0
 /* 80029BE0 00025B60  4E 80 00 20 */	blr
+.endfn __OSContextInit
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

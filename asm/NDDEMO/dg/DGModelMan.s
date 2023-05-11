@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__10DGModelManFUsUsUs
-__ct__10DGModelManFUsUsUs:
+.fn __ct__10DGModelManFUsUsUs, global
 /* 80013314 0000F294  7C 08 02 A6 */	mflr r0
 /* 80013318 0000F298  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001331C 0000F29C  38 00 00 00 */	li r0, 0x0
@@ -51,9 +50,9 @@ __ct__10DGModelManFUsUsUs:
 /* 800133BC 0000F33C  38 21 00 30 */	addi r1, r1, 0x30
 /* 800133C0 0000F340  7C 08 03 A6 */	mtlr r0
 /* 800133C4 0000F344  4E 80 00 20 */	blr
+.endfn __ct__10DGModelManFUsUsUs
 
-.global __dt__10DGModelManFv
-__dt__10DGModelManFv:
+.fn __dt__10DGModelManFv, global
 /* 800133C8 0000F348  7C 08 02 A6 */	mflr r0
 /* 800133CC 0000F34C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800133D0 0000F350  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -111,9 +110,9 @@ __dt__10DGModelManFv:
 /* 80013488 0000F408  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8001348C 0000F40C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80013490 0000F410  4E 80 00 20 */	blr
+.endfn __dt__10DGModelManFv
 
-.global DeleteMasterModel__10DGModelManFUs
-DeleteMasterModel__10DGModelManFUs:
+.fn DeleteMasterModel__10DGModelManFUs, global
 /* 80013494 0000F414  7C 08 02 A6 */	mflr r0
 /* 80013498 0000F418  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001349C 0000F41C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -158,9 +157,9 @@ DeleteMasterModel__10DGModelManFUs:
 /* 80013530 0000F4B0  7C 08 03 A6 */	mtlr r0
 /* 80013534 0000F4B4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80013538 0000F4B8  4E 80 00 20 */	blr
+.endfn DeleteMasterModel__10DGModelManFUs
 
-.global DestroyMasterModel__10DGModelManFUs
-DestroyMasterModel__10DGModelManFUs:
+.fn DestroyMasterModel__10DGModelManFUs, global
 /* 8001353C 0000F4BC  7C 08 02 A6 */	mflr r0
 /* 80013540 0000F4C0  54 84 04 3E */	clrlwi r4, r4, 16
 /* 80013544 0000F4C4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -223,9 +222,9 @@ DestroyMasterModel__10DGModelManFUs:
 /* 80013618 0000F598  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8001361C 0000F59C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80013620 0000F5A0  4E 80 00 20 */	blr
+.endfn DestroyMasterModel__10DGModelManFUs
 
-.global CreateInstance__10DGModelManFUs
-CreateInstance__10DGModelManFUs:
+.fn CreateInstance__10DGModelManFUs, global
 /* 80013624 0000F5A4  7C 08 02 A6 */	mflr r0
 /* 80013628 0000F5A8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001362C 0000F5AC  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -296,9 +295,9 @@ CreateInstance__10DGModelManFUs:
 /* 8001371C 0000F69C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80013720 0000F6A0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80013724 0000F6A4  4E 80 00 20 */	blr
+.endfn CreateInstance__10DGModelManFUs
 
-.global CreateAnimeInstance__10DGModelManFUs
-CreateAnimeInstance__10DGModelManFUs:
+.fn CreateAnimeInstance__10DGModelManFUs, global
 /* 80013728 0000F6A8  7C 08 02 A6 */	mflr r0
 /* 8001372C 0000F6AC  54 84 04 3E */	clrlwi r4, r4, 16
 /* 80013730 0000F6B0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -355,9 +354,9 @@ CreateAnimeInstance__10DGModelManFUs:
 /* 800137EC 0000F76C  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800137F0 0000F770  38 21 00 20 */	addi r1, r1, 0x20
 /* 800137F4 0000F774  4E 80 00 20 */	blr
+.endfn CreateAnimeInstance__10DGModelManFUs
 
-.global LoadNDM__10DGModelManFPc
-LoadNDM__10DGModelManFPc:
+.fn LoadNDM__10DGModelManFPc, global
 /* 800137F8 0000F778  7C 08 02 A6 */	mflr r0
 /* 800137FC 0000F77C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80013800 0000F780  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -648,9 +647,9 @@ LoadNDM__10DGModelManFPc:
 /* 80013C00 0000FB80  38 21 00 60 */	addi r1, r1, 0x60
 /* 80013C04 0000FB84  7C 08 03 A6 */	mtlr r0
 /* 80013C08 0000FB88  4E 80 00 20 */	blr
+.endfn LoadNDM__10DGModelManFPc
 
-.global LoadDuplicateNDM__10DGModelManFPc
-LoadDuplicateNDM__10DGModelManFPc:
+.fn LoadDuplicateNDM__10DGModelManFPc, global
 /* 80013C0C 0000FB8C  7C 08 02 A6 */	mflr r0
 /* 80013C10 0000FB90  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80013C14 0000FB94  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -719,9 +718,9 @@ LoadDuplicateNDM__10DGModelManFPc:
 /* 80013CFC 0000FC7C  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 80013D00 0000FC80  38 21 00 20 */	addi r1, r1, 0x20
 /* 80013D04 0000FC84  4E 80 00 20 */	blr
+.endfn LoadDuplicateNDM__10DGModelManFPc
 
-.global IncRefer__10DGModelManFUs
-IncRefer__10DGModelManFUs:
+.fn IncRefer__10DGModelManFUs, global
 /* 80013D08 0000FC88  80 63 00 10 */	lwz r3, 0x10(r3)
 /* 80013D0C 0000FC8C  54 80 13 BA */	clrlslwi r0, r4, 16, 2
 /* 80013D10 0000FC90  7C 83 00 2E */	lwzx r4, r3, r0
@@ -734,9 +733,9 @@ IncRefer__10DGModelManFUs:
 .L_80013D2C:
 /* 80013D2C 0000FCAC  38 60 00 00 */	li r3, 0x0
 /* 80013D30 0000FCB0  4E 80 00 20 */	blr
+.endfn IncRefer__10DGModelManFUs
 
-.global DecRefer__10DGModelManFUs
-DecRefer__10DGModelManFUs:
+.fn DecRefer__10DGModelManFUs, global
 /* 80013D34 0000FCB4  7C 08 02 A6 */	mflr r0
 /* 80013D38 0000FCB8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80013D3C 0000FCBC  54 80 13 BA */	clrlslwi r0, r4, 16, 2
@@ -763,9 +762,9 @@ DecRefer__10DGModelManFUs:
 /* 80013D84 0000FD04  38 21 00 08 */	addi r1, r1, 0x8
 /* 80013D88 0000FD08  7C 08 03 A6 */	mtlr r0
 /* 80013D8C 0000FD0C  4E 80 00 20 */	blr
+.endfn DecRefer__10DGModelManFUs
 
-.global LoadFont__10DGModelManFPCcUcUcUccc
-LoadFont__10DGModelManFPCcUcUcUccc:
+.fn LoadFont__10DGModelManFPCcUcUcUccc, global
 /* 80013D90 0000FD10  7C 08 02 A6 */	mflr r0
 /* 80013D94 0000FD14  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80013D98 0000FD18  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -810,9 +809,9 @@ LoadFont__10DGModelManFPCcUcUcUccc:
 /* 80013E2C 0000FDAC  38 21 00 40 */	addi r1, r1, 0x40
 /* 80013E30 0000FDB0  7C 08 03 A6 */	mtlr r0
 /* 80013E34 0000FDB4  4E 80 00 20 */	blr
+.endfn LoadFont__10DGModelManFPCcUcUcUccc
 
-.global LoadTexPro__10DGModelManFPCc
-LoadTexPro__10DGModelManFPCc:
+.fn LoadTexPro__10DGModelManFPCc, global
 /* 80013E38 0000FDB8  7C 08 02 A6 */	mflr r0
 /* 80013E3C 0000FDBC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80013E40 0000FDC0  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -867,9 +866,9 @@ LoadTexPro__10DGModelManFPCc:
 /* 80013EF0 0000FE70  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80013EF4 0000FE74  38 21 00 28 */	addi r1, r1, 0x28
 /* 80013EF8 0000FE78  4E 80 00 20 */	blr
+.endfn LoadTexPro__10DGModelManFPCc
 
-.global EnableMipMap__10DGModelManFUc
-EnableMipMap__10DGModelManFUc:
+.fn EnableMipMap__10DGModelManFUc, global
 /* 80013EFC 0000FE7C  7C 08 02 A6 */	mflr r0
 /* 80013F00 0000FE80  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80013F04 0000FE84  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -879,9 +878,9 @@ EnableMipMap__10DGModelManFUc:
 /* 80013F14 0000FE94  38 21 00 08 */	addi r1, r1, 0x8
 /* 80013F18 0000FE98  7C 08 03 A6 */	mtlr r0
 /* 80013F1C 0000FE9C  4E 80 00 20 */	blr
+.endfn EnableMipMap__10DGModelManFUc
 
-.global EnableExpensiveMipMap__10DGModelManFUc
-EnableExpensiveMipMap__10DGModelManFUc:
+.fn EnableExpensiveMipMap__10DGModelManFUc, global
 /* 80013F20 0000FEA0  7C 08 02 A6 */	mflr r0
 /* 80013F24 0000FEA4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80013F28 0000FEA8  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -891,6 +890,7 @@ EnableExpensiveMipMap__10DGModelManFUc:
 /* 80013F38 0000FEB8  38 21 00 08 */	addi r1, r1, 0x8
 /* 80013F3C 0000FEBC  7C 08 03 A6 */	mtlr r0
 /* 80013F40 0000FEC0  4E 80 00 20 */	blr
+.endfn EnableExpensiveMipMap__10DGModelManFUc
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

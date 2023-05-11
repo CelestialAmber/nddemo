@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global TRK_main
-TRK_main:
+.fn TRK_main, global
 /* 8005EC34 0005ABB4  7C 08 02 A6 */	mflr r0
 /* 8005EC38 0005ABB8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005EC3C 0005ABBC  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -23,6 +22,7 @@ TRK_main:
 /* 8005EC70 0005ABF0  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005EC74 0005ABF4  7C 08 03 A6 */	mtlr r0
 /* 8005EC78 0005ABF8  4E 80 00 20 */	blr
+.endfn TRK_main
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

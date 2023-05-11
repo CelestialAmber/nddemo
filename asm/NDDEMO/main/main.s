@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global main
-main:
+.fn main, global
 /* 800065A0 00002520  7C 08 02 A6 */	mflr r0
 /* 800065A4 00002524  3C 60 80 06 */	lis r3, lbl_80065000@ha
 /* 800065A8 00002528  90 01 00 04 */	stw r0, 0x4(r1)
@@ -80,8 +79,9 @@ main:
 /* 800066BC 0000263C  38 7E 02 B0 */	addi r3, r30, 0x2b0
 /* 800066C0 00002640  48 02 87 AD */	bl OSResumeThread
 /* 800066C4 00002644  4B FF FF E0 */	b .L_800066A4
+.endfn main
 
-idmThread__FPv:
+.fn idmThread__FPv, local
 /* 800066C8 00002648  7C 08 02 A6 */	mflr r0
 /* 800066CC 0000264C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800066D0 00002650  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -100,9 +100,9 @@ idmThread__FPv:
 /* 80006700 00002680  38 21 00 08 */	addi r1, r1, 0x8
 /* 80006704 00002684  7C 08 03 A6 */	mtlr r0
 /* 80006708 00002688  4E 80 00 20 */	blr
+.endfn idmThread__FPv
 
-.global iMakeMainHeap__Fv
-iMakeMainHeap__Fv:
+.fn iMakeMainHeap__Fv, global
 /* 8000670C 0000268C  7C 08 02 A6 */	mflr r0
 /* 80006710 00002690  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80006714 00002694  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -145,8 +145,9 @@ iMakeMainHeap__Fv:
 /* 800067A8 00002728  7C 08 03 A6 */	mtlr r0
 /* 800067AC 0000272C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800067B0 00002730  4E 80 00 20 */	blr
+.endfn iMakeMainHeap__Fv
 
-__sinit_main_cpp:
+.fn __sinit_main_cpp, global
 /* 800067B4 00002734  7C 08 02 A6 */	mflr r0
 /* 800067B8 00002738  3C 60 80 07 */	lis r3, audio@ha
 /* 800067BC 0000273C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -157,16 +158,16 @@ __sinit_main_cpp:
 /* 800067D0 00002750  3C A0 80 07 */	lis r5, lbl_8006D1C0@ha
 /* 800067D4 00002754  38 84 6A C0 */	addi r4, r4, __dt__6DAudioFv@l
 /* 800067D8 00002758  38 A5 D1 C0 */	addi r5, r5, lbl_8006D1C0@l
-/* 800067DC 0000275C  48 05 89 69 */	bl __register_global_object
+/* 800067DC 0000275C  48 05 89 69 */	bl __register_global_object_
 /* 800067E0 00002760  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 800067E4 00002764  38 21 00 08 */	addi r1, r1, 0x8
 /* 800067E8 00002768  7C 08 03 A6 */	mtlr r0
 /* 800067EC 0000276C  4E 80 00 20 */	blr
+.endfn __sinit_main_cpp
 
 #weak
 #from DUMacro.h
-.global __dl__FPv
-__dl__FPv:
+.fn __dl__FPv, global
 /* 800067F0 00002770  7C 08 02 A6 */	mflr r0
 /* 800067F4 00002774  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800067F8 00002778  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -175,10 +176,7 @@ __dl__FPv:
 /* 80006804 00002784  38 21 00 08 */	addi r1, r1, 0x8
 /* 80006808 00002788  7C 08 03 A6 */	mtlr r0
 /* 8000680C 0000278C  4E 80 00 20 */	blr
-
-#ctors
-
-.4byte __sinit_main_cpp
+.endfn __dl__FPv
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

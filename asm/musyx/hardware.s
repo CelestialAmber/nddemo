@@ -3,7 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-snd_handle_irq:
+.fn snd_handle_irq, local
 /* 80057524 000534A4  7C 08 02 A6 */	mflr r0
 /* 80057528 000534A8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005752C 000534AC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -95,9 +95,9 @@ snd_handle_irq:
 /* 80057670 000535F0  7C 08 03 A6 */	mtlr r0
 /* 80057674 000535F4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80057678 000535F8  4E 80 00 20 */	blr
+.endfn snd_handle_irq
 
-.global hwInit
-hwInit:
+.fn hwInit, global
 /* 8005767C 000535FC  7C 08 02 A6 */	mflr r0
 /* 80057680 00053600  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80057684 00053604  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -145,9 +145,9 @@ hwInit:
 /* 80057724 000536A4  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80057728 000536A8  38 21 00 28 */	addi r1, r1, 0x28
 /* 8005772C 000536AC  4E 80 00 20 */	blr
+.endfn hwInit
 
-.global hwExit
-hwExit:
+.fn hwExit, global
 /* 80057730 000536B0  7C 08 02 A6 */	mflr r0
 /* 80057734 000536B4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80057738 000536B8  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -161,19 +161,19 @@ hwExit:
 /* 80057758 000536D8  38 21 00 08 */	addi r1, r1, 0x8
 /* 8005775C 000536DC  7C 08 03 A6 */	mtlr r0
 /* 80057760 000536E0  4E 80 00 20 */	blr
+.endfn hwExit
 
-.global hwSetTimeOffset
-hwSetTimeOffset:
+.fn hwSetTimeOffset, global
 /* 80057764 000536E4  98 6D 88 60 */	stb r3, salTimeOffset@sda21(r13)
 /* 80057768 000536E8  4E 80 00 20 */	blr
+.endfn hwSetTimeOffset
 
-.global hwGetTimeOffset
-hwGetTimeOffset:
+.fn hwGetTimeOffset, global
 /* 8005776C 000536EC  88 6D 88 60 */	lbz r3, salTimeOffset@sda21(r13)
 /* 80057770 000536F0  4E 80 00 20 */	blr
+.endfn hwGetTimeOffset
 
-.global hwIsActive
-hwIsActive:
+.fn hwIsActive, global
 /* 80057774 000536F4  1C 03 00 F0 */	mulli r0, r3, 0xf0
 /* 80057778 000536F8  80 6D 88 34 */	lwz r3, dspVoice@sda21(r13)
 /* 8005777C 000536FC  7C 63 02 14 */	add r3, r3, r0
@@ -182,22 +182,22 @@ hwIsActive:
 /* 80057788 00053708  30 03 FF FF */	addic r0, r3, -0x1
 /* 8005778C 0005370C  7C 60 19 10 */	subfe r3, r0, r3
 /* 80057790 00053710  4E 80 00 20 */	blr
+.endfn hwIsActive
 
-.global hwSetMesgCallback
-hwSetMesgCallback:
+.fn hwSetMesgCallback, global
 /* 80057794 00053714  90 6D 88 38 */	stw r3, salMessageCallback@sda21(r13)
 /* 80057798 00053718  4E 80 00 20 */	blr
+.endfn hwSetMesgCallback
 
-.global hwSetPriority
-hwSetPriority:
+.fn hwSetPriority, global
 /* 8005779C 0005371C  1C 03 00 F0 */	mulli r0, r3, 0xf0
 /* 800577A0 00053720  80 6D 88 34 */	lwz r3, dspVoice@sda21(r13)
 /* 800577A4 00053724  7C 63 02 14 */	add r3, r3, r0
 /* 800577A8 00053728  90 83 00 1C */	stw r4, 0x1c(r3)
 /* 800577AC 0005372C  4E 80 00 20 */	blr
+.endfn hwSetPriority
 
-.global hwInitSamplePlayback
-hwInitSamplePlayback:
+.fn hwInitSamplePlayback, global
 /* 800577B0 00053730  7C 08 02 A6 */	mflr r0
 /* 800577B4 00053734  39 80 00 00 */	li r12, 0x0
 /* 800577B8 00053738  90 01 00 04 */	stw r0, 0x4(r1)
@@ -309,9 +309,9 @@ hwInitSamplePlayback:
 /* 80057950 000538D0  38 21 00 40 */	addi r1, r1, 0x40
 /* 80057954 000538D4  7C 08 03 A6 */	mtlr r0
 /* 80057958 000538D8  4E 80 00 20 */	blr
+.endfn hwInitSamplePlayback
 
-.global hwRelease
-hwRelease:
+.fn hwRelease, global
 /* 8005795C 000538DC  1C 83 00 F0 */	mulli r4, r3, 0xf0
 /* 80057960 000538E0  80 0D 88 34 */	lwz r0, dspVoice@sda21(r13)
 /* 80057964 000538E4  7C 60 22 14 */	add r3, r0, r4
@@ -344,9 +344,9 @@ hwRelease:
 /* 800579CC 0005394C  60 00 00 40 */	ori r0, r0, 0x40
 /* 800579D0 00053950  90 03 00 24 */	stw r0, 0x24(r3)
 /* 800579D4 00053954  4E 80 00 20 */	blr
+.endfn hwRelease
 
-.global hwBreak
-hwBreak:
+.fn hwBreak, global
 /* 800579D8 00053958  1C 63 00 F0 */	mulli r3, r3, 0xf0
 /* 800579DC 0005395C  80 8D 88 34 */	lwz r4, dspVoice@sda21(r13)
 /* 800579E0 00053960  88 0D 88 60 */	lbz r0, salTimeOffset@sda21(r13)
@@ -357,9 +357,9 @@ hwBreak:
 /* 800579F4 00053974  60 00 00 20 */	ori r0, r0, 0x20
 /* 800579F8 00053978  90 03 00 24 */	stw r0, 0x24(r3)
 /* 800579FC 0005397C  4E 80 00 20 */	blr
+.endfn hwBreak
 
-.global hwSetADSR
-hwSetADSR:
+.fn hwSetADSR, global
 /* 80057A00 00053980  7C 08 02 A6 */	mflr r0
 /* 80057A04 00053984  54 A5 06 3F */	clrlwi. r5, r5, 24
 /* 80057A08 00053988  90 01 00 04 */	stw r0, 0x4(r1)
@@ -475,17 +475,17 @@ hwSetADSR:
 /* 80057BA4 00053B24  38 21 00 28 */	addi r1, r1, 0x28
 /* 80057BA8 00053B28  7C 08 03 A6 */	mtlr r0
 /* 80057BAC 00053B2C  4E 80 00 20 */	blr
+.endfn hwSetADSR
 
-.global hwSetStreamLoopPS
-hwSetStreamLoopPS:
+.fn hwSetStreamLoopPS, global
 /* 80057BB0 00053B30  1C 03 00 F0 */	mulli r0, r3, 0xf0
 /* 80057BB4 00053B34  80 6D 88 34 */	lwz r3, dspVoice@sda21(r13)
 /* 80057BB8 00053B38  7C 63 02 14 */	add r3, r3, r0
 /* 80057BBC 00053B3C  98 83 00 A0 */	stb r4, 0xa0(r3)
 /* 80057BC0 00053B40  4E 80 00 20 */	blr
+.endfn hwSetStreamLoopPS
 
-.global hwStart
-hwStart:
+.fn hwStart, global
 /* 80057BC4 00053B44  7C 08 02 A6 */	mflr r0
 /* 80057BC8 00053B48  1C C3 00 F0 */	mulli r6, r3, 0xf0
 /* 80057BCC 00053B4C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -501,9 +501,9 @@ hwStart:
 /* 80057BF4 00053B74  38 21 00 08 */	addi r1, r1, 0x8
 /* 80057BF8 00053B78  7C 08 03 A6 */	mtlr r0
 /* 80057BFC 00053B7C  4E 80 00 20 */	blr
+.endfn hwStart
 
-.global hwKeyOff
-hwKeyOff:
+.fn hwKeyOff, global
 /* 80057C00 00053B80  1C 63 00 F0 */	mulli r3, r3, 0xf0
 /* 80057C04 00053B84  80 8D 88 34 */	lwz r4, dspVoice@sda21(r13)
 /* 80057C08 00053B88  88 0D 88 60 */	lbz r0, salTimeOffset@sda21(r13)
@@ -514,9 +514,9 @@ hwKeyOff:
 /* 80057C1C 00053B9C  60 00 00 40 */	ori r0, r0, 0x40
 /* 80057C20 00053BA0  90 03 00 24 */	stw r0, 0x24(r3)
 /* 80057C24 00053BA4  4E 80 00 20 */	blr
+.endfn hwKeyOff
 
-.global hwSetPitch
-hwSetPitch:
+.fn hwSetPitch, global
 /* 80057C28 00053BA8  54 80 04 3E */	clrlwi r0, r4, 16
 /* 80057C2C 00053BAC  80 AD 88 34 */	lwz r5, dspVoice@sda21(r13)
 /* 80057C30 00053BB0  1C 63 00 F0 */	mulli r3, r3, 0xf0
@@ -549,9 +549,9 @@ hwSetPitch:
 /* 80057C94 00053C14  88 0D 88 60 */	lbz r0, salTimeOffset@sda21(r13)
 /* 80057C98 00053C18  98 05 00 E4 */	stb r0, 0xe4(r5)
 /* 80057C9C 00053C1C  4E 80 00 20 */	blr
+.endfn hwSetPitch
 
-.global hwSetSRCType
-hwSetSRCType:
+.fn hwSetSRCType, global
 /* 80057CA0 00053C20  1C A3 00 F0 */	mulli r5, r3, 0xf0
 /* 80057CA4 00053C24  80 CD 88 34 */	lwz r6, dspVoice@sda21(r13)
 /* 80057CA8 00053C28  54 80 0D FC */	clrlslwi r0, r4, 24, 1
@@ -563,9 +563,9 @@ hwSetSRCType:
 /* 80057CC0 00053C40  60 00 01 00 */	ori r0, r0, 0x100
 /* 80057CC4 00053C44  90 03 00 24 */	stw r0, 0x24(r3)
 /* 80057CC8 00053C48  4E 80 00 20 */	blr
+.endfn hwSetSRCType
 
-.global hwSetPolyPhaseFilter
-hwSetPolyPhaseFilter:
+.fn hwSetPolyPhaseFilter, global
 /* 80057CCC 00053C4C  1C A3 00 F0 */	mulli r5, r3, 0xf0
 /* 80057CD0 00053C50  80 CD 88 34 */	lwz r6, dspVoice@sda21(r13)
 /* 80057CD4 00053C54  54 80 0D FC */	clrlslwi r0, r4, 24, 1
@@ -577,9 +577,9 @@ hwSetPolyPhaseFilter:
 /* 80057CEC 00053C6C  60 00 00 80 */	ori r0, r0, 0x80
 /* 80057CF0 00053C70  90 03 00 24 */	stw r0, 0x24(r3)
 /* 80057CF4 00053C74  4E 80 00 20 */	blr
+.endfn hwSetPolyPhaseFilter
 
-.global hwSetITDMode
-hwSetITDMode:
+.fn hwSetITDMode, global
 /* 80057CF8 00053C78  54 80 06 3F */	clrlwi. r0, r4, 24
 /* 80057CFC 00053C7C  40 82 00 3C */	bne .L_80057D38
 /* 80057D00 00053C80  1C A3 00 F0 */	mulli r5, r3, 0xf0
@@ -604,9 +604,9 @@ hwSetITDMode:
 /* 80057D48 00053CC8  54 00 00 7E */	clrlwi r0, r0, 1
 /* 80057D4C 00053CCC  90 03 00 EC */	stw r0, 0xec(r3)
 /* 80057D50 00053CD0  4E 80 00 20 */	blr
+.endfn hwSetITDMode
 
-.global hwSetVolume
-hwSetVolume:
+.fn hwSetVolume, global
 /* 80057D54 00053CD4  7C 08 02 A6 */	mflr r0
 /* 80057D58 00053CD8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80057D5C 00053CDC  1C 03 00 F0 */	mulli r0, r3, 0xf0
@@ -797,9 +797,9 @@ hwSetVolume:
 /* 80058018 00053F98  7C 08 03 A6 */	mtlr r0
 /* 8005801C 00053F9C  38 21 00 68 */	addi r1, r1, 0x68
 /* 80058020 00053FA0  4E 80 00 20 */	blr
+.endfn hwSetVolume
 
-.global hwOff
-hwOff:
+.fn hwOff, global
 /* 80058024 00053FA4  7C 08 02 A6 */	mflr r0
 /* 80058028 00053FA8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005802C 00053FAC  1C 03 00 F0 */	mulli r0, r3, 0xf0
@@ -811,9 +811,9 @@ hwOff:
 /* 80058044 00053FC4  38 21 00 08 */	addi r1, r1, 0x8
 /* 80058048 00053FC8  7C 08 03 A6 */	mtlr r0
 /* 8005804C 00053FCC  4E 80 00 20 */	blr
+.endfn hwOff
 
-.global hwSetAUXProcessingCallbacks
-hwSetAUXProcessingCallbacks:
+.fn hwSetAUXProcessingCallbacks, global
 /* 80058050 00053FD0  54 60 06 3E */	clrlwi r0, r3, 24
 /* 80058054 00053FD4  1D 00 00 BC */	mulli r8, r0, 0xbc
 /* 80058058 00053FD8  3C 60 80 0A */	lis r3, dspStudio@ha
@@ -824,9 +824,9 @@ hwSetAUXProcessingCallbacks:
 /* 8005806C 00053FEC  90 C3 00 B0 */	stw r6, 0xb0(r3)
 /* 80058070 00053FF0  90 E3 00 B8 */	stw r7, 0xb8(r3)
 /* 80058074 00053FF4  4E 80 00 20 */	blr
+.endfn hwSetAUXProcessingCallbacks
 
-.global hwActivateStudio
-hwActivateStudio:
+.fn hwActivateStudio, global
 /* 80058078 00053FF8  7C 08 02 A6 */	mflr r0
 /* 8005807C 00053FFC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80058080 00054000  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -835,9 +835,9 @@ hwActivateStudio:
 /* 8005808C 0005400C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80058090 00054010  7C 08 03 A6 */	mtlr r0
 /* 80058094 00054014  4E 80 00 20 */	blr
+.endfn hwActivateStudio
 
-.global hwDeactivateStudio
-hwDeactivateStudio:
+.fn hwDeactivateStudio, global
 /* 80058098 00054018  7C 08 02 A6 */	mflr r0
 /* 8005809C 0005401C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800580A0 00054020  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -846,9 +846,9 @@ hwDeactivateStudio:
 /* 800580AC 0005402C  38 21 00 08 */	addi r1, r1, 0x8
 /* 800580B0 00054030  7C 08 03 A6 */	mtlr r0
 /* 800580B4 00054034  4E 80 00 20 */	blr
+.endfn hwDeactivateStudio
 
-.global hwAddInput
-hwAddInput:
+.fn hwAddInput, global
 /* 800580B8 00054038  7C 08 02 A6 */	mflr r0
 /* 800580BC 0005403C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800580C0 00054040  54 60 06 3E */	clrlwi r0, r3, 24
@@ -862,9 +862,9 @@ hwAddInput:
 /* 800580E0 00054060  38 21 00 08 */	addi r1, r1, 0x8
 /* 800580E4 00054064  7C 08 03 A6 */	mtlr r0
 /* 800580E8 00054068  4E 80 00 20 */	blr
+.endfn hwAddInput
 
-.global hwRemoveInput
-hwRemoveInput:
+.fn hwRemoveInput, global
 /* 800580EC 0005406C  7C 08 02 A6 */	mflr r0
 /* 800580F0 00054070  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800580F4 00054074  54 60 06 3E */	clrlwi r0, r3, 24
@@ -878,9 +878,9 @@ hwRemoveInput:
 /* 80058114 00054094  38 21 00 08 */	addi r1, r1, 0x8
 /* 80058118 00054098  7C 08 03 A6 */	mtlr r0
 /* 8005811C 0005409C  4E 80 00 20 */	blr
+.endfn hwRemoveInput
 
-.global hwGetPos
-hwGetPos:
+.fn hwGetPos, global
 /* 80058120 000540A0  1C A3 00 F0 */	mulli r5, r3, 0xf0
 /* 80058124 000540A4  80 CD 88 34 */	lwz r6, dspVoice@sda21(r13)
 /* 80058128 000540A8  7C 86 2A 14 */	add r4, r6, r5
@@ -927,9 +927,9 @@ hwGetPos:
 /* 800581B8 00054138  54 63 F8 7E */	srwi r3, r3, 1
 /* 800581BC 0005413C  7C 63 00 50 */	subf r3, r3, r0
 /* 800581C0 00054140  4E 80 00 20 */	blr
+.endfn hwGetPos
 
-.global hwFlushStream
-hwFlushStream:
+.fn hwFlushStream, global
 /* 800581C4 00054144  7C 08 02 A6 */	mflr r0
 /* 800581C8 00054148  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800581CC 0005414C  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -966,9 +966,9 @@ hwFlushStream:
 /* 80058248 000541C8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8005824C 000541CC  38 21 00 30 */	addi r1, r1, 0x30
 /* 80058250 000541D0  4E 80 00 20 */	blr
+.endfn hwFlushStream
 
-.global hwGetStreamPlayBuffer
-hwGetStreamPlayBuffer:
+.fn hwGetStreamPlayBuffer, global
 /* 80058254 000541D4  7C 08 02 A6 */	mflr r0
 /* 80058258 000541D8  38 80 00 00 */	li r4, 0x0
 /* 8005825C 000541DC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -978,13 +978,13 @@ hwGetStreamPlayBuffer:
 /* 8005826C 000541EC  38 21 00 08 */	addi r1, r1, 0x8
 /* 80058270 000541F0  7C 08 03 A6 */	mtlr r0
 /* 80058274 000541F4  4E 80 00 20 */	blr
+.endfn hwGetStreamPlayBuffer
 
-.global hwTransAddr
-hwTransAddr:
+.fn hwTransAddr, global
 /* 80058278 000541F8  4E 80 00 20 */	blr
+.endfn hwTransAddr
 
-.global hwFrq2Pitch
-hwFrq2Pitch:
+.fn hwFrq2Pitch, global
 /* 8005827C 000541FC  7C 08 02 A6 */	mflr r0
 /* 80058280 00054200  3C 80 80 09 */	lis r4, synthInfo@ha
 /* 80058284 00054204  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1008,9 +1008,9 @@ hwFrq2Pitch:
 /* 800582CC 0005424C  38 21 00 20 */	addi r1, r1, 0x20
 /* 800582D0 00054250  7C 08 03 A6 */	mtlr r0
 /* 800582D4 00054254  4E 80 00 20 */	blr
+.endfn hwFrq2Pitch
 
-.global hwInitSampleMem
-hwInitSampleMem:
+.fn hwInitSampleMem, global
 /* 800582D8 00054258  7C 08 02 A6 */	mflr r0
 /* 800582DC 0005425C  7C 83 23 78 */	mr r3, r4
 /* 800582E0 00054260  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1020,9 +1020,9 @@ hwInitSampleMem:
 /* 800582F0 00054270  38 21 00 08 */	addi r1, r1, 0x8
 /* 800582F4 00054274  7C 08 03 A6 */	mtlr r0
 /* 800582F8 00054278  4E 80 00 20 */	blr
+.endfn hwInitSampleMem
 
-.global hwExitSampleMem
-hwExitSampleMem:
+.fn hwExitSampleMem, global
 /* 800582FC 0005427C  7C 08 02 A6 */	mflr r0
 /* 80058300 00054280  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80058304 00054284  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1031,9 +1031,9 @@ hwExitSampleMem:
 /* 80058310 00054290  38 21 00 08 */	addi r1, r1, 0x8
 /* 80058314 00054294  7C 08 03 A6 */	mtlr r0
 /* 80058318 00054298  4E 80 00 20 */	blr
+.endfn hwExitSampleMem
 
-.global hwSaveSample
-hwSaveSample:
+.fn hwSaveSample, global
 /* 8005831C 0005429C  7C 08 02 A6 */	mflr r0
 /* 80058320 000542A0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80058324 000542A4  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1075,9 +1075,9 @@ hwSaveSample:
 /* 800583A4 00054324  38 21 00 20 */	addi r1, r1, 0x20
 /* 800583A8 00054328  7C 08 03 A6 */	mtlr r0
 /* 800583AC 0005432C  4E 80 00 20 */	blr
+.endfn hwSaveSample
 
-.global hwRemoveSample
-hwRemoveSample:
+.fn hwRemoveSample, global
 /* 800583B0 00054330  7C 08 02 A6 */	mflr r0
 /* 800583B4 00054334  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800583B8 00054338  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1115,9 +1115,9 @@ hwRemoveSample:
 /* 80058428 000543A8  38 21 00 08 */	addi r1, r1, 0x8
 /* 8005842C 000543AC  7C 08 03 A6 */	mtlr r0
 /* 80058430 000543B0  4E 80 00 20 */	blr
+.endfn hwRemoveSample
 
-.global hwSyncSampleMem
-hwSyncSampleMem:
+.fn hwSyncSampleMem, global
 /* 80058434 000543B4  7C 08 02 A6 */	mflr r0
 /* 80058438 000543B8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005843C 000543BC  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -1126,18 +1126,19 @@ hwSyncSampleMem:
 /* 80058448 000543C8  38 21 00 08 */	addi r1, r1, 0x8
 /* 8005844C 000543CC  7C 08 03 A6 */	mtlr r0
 /* 80058450 000543D0  4E 80 00 20 */	blr
+.endfn hwSyncSampleMem
 
-.global hwFrameDone
-hwFrameDone:
+.fn hwFrameDone, global
 /* 80058454 000543D4  4E 80 00 20 */	blr
+.endfn hwFrameDone
 
-.global sndSetHooks
-sndSetHooks:
+.fn sndSetHooks, global
 /* 80058458 000543D8  80 83 00 00 */	lwz r4, 0x0(r3)
 /* 8005845C 000543DC  80 03 00 04 */	lwz r0, 0x4(r3)
 /* 80058460 000543E0  90 8D 88 64 */	stw r4, salHooks@sda21(r13)
 /* 80058464 000543E4  90 0D 88 68 */	stw r0, salHooks+4@sda21(r13)
 /* 80058468 000543E8  4E 80 00 20 */	blr
+.endfn sndSetHooks
 
 
 

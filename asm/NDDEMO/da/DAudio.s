@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__6DAudioFv
-__ct__6DAudioFv:
+.fn __ct__6DAudioFv, global
 /* 80026A90 00022A10  38 80 00 00 */	li r4, 0x0
 /* 80026A94 00022A14  90 83 00 08 */	stw r4, 0x8(r3)
 /* 80026A98 00022A18  38 00 00 7F */	li r0, 0x7f
@@ -16,9 +15,9 @@ __ct__6DAudioFv:
 /* 80026AB4 00022A34  98 83 00 1F */	stb r4, 0x1f(r3)
 /* 80026AB8 00022A38  98 03 00 20 */	stb r0, 0x20(r3)
 /* 80026ABC 00022A3C  4E 80 00 20 */	blr
+.endfn __ct__6DAudioFv
 
-.global __dt__6DAudioFv
-__dt__6DAudioFv:
+.fn __dt__6DAudioFv, global
 /* 80026AC0 00022A40  7C 08 02 A6 */	mflr r0
 /* 80026AC4 00022A44  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80026AC8 00022A48  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -36,9 +35,9 @@ __dt__6DAudioFv:
 /* 80026AF4 00022A74  38 21 00 18 */	addi r1, r1, 0x18
 /* 80026AF8 00022A78  7C 08 03 A6 */	mtlr r0
 /* 80026AFC 00022A7C  4E 80 00 20 */	blr
+.endfn __dt__6DAudioFv
 
-.global Initialize__6DAudioFv
-Initialize__6DAudioFv:
+.fn Initialize__6DAudioFv, global
 /* 80026B00 00022A80  7C 08 02 A6 */	mflr r0
 /* 80026B04 00022A84  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80026B08 00022A88  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -120,9 +119,9 @@ Initialize__6DAudioFv:
 /* 80026C30 00022BB0  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80026C34 00022BB4  38 21 00 28 */	addi r1, r1, 0x28
 /* 80026C38 00022BB8  4E 80 00 20 */	blr
+.endfn Initialize__6DAudioFv
 
-.global ReadDataAlloc__6DAudioFPc
-ReadDataAlloc__6DAudioFPc:
+.fn ReadDataAlloc__6DAudioFPc, global
 /* 80026C3C 00022BBC  7C 08 02 A6 */	mflr r0
 /* 80026C40 00022BC0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80026C44 00022BC4  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -187,9 +186,9 @@ ReadDataAlloc__6DAudioFPc:
 /* 80026D20 00022CA0  83 81 00 50 */	lwz r28, 0x50(r1)
 /* 80026D24 00022CA4  38 21 00 60 */	addi r1, r1, 0x60
 /* 80026D28 00022CA8  4E 80 00 20 */	blr
+.endfn ReadDataAlloc__6DAudioFPc
 
-.global ReadPoolData__6DAudioFPc
-ReadPoolData__6DAudioFPc:
+.fn ReadPoolData__6DAudioFPc, global
 /* 80026D2C 00022CAC  7C 08 02 A6 */	mflr r0
 /* 80026D30 00022CB0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80026D34 00022CB4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -222,9 +221,9 @@ ReadPoolData__6DAudioFPc:
 /* 80026D94 00022D14  7C 08 03 A6 */	mtlr r0
 /* 80026D98 00022D18  38 21 00 18 */	addi r1, r1, 0x18
 /* 80026D9C 00022D1C  4E 80 00 20 */	blr
+.endfn ReadPoolData__6DAudioFPc
 
-.global ReadProjData__6DAudioFPc
-ReadProjData__6DAudioFPc:
+.fn ReadProjData__6DAudioFPc, global
 /* 80026DA0 00022D20  7C 08 02 A6 */	mflr r0
 /* 80026DA4 00022D24  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80026DA8 00022D28  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -257,9 +256,9 @@ ReadProjData__6DAudioFPc:
 /* 80026E08 00022D88  7C 08 03 A6 */	mtlr r0
 /* 80026E0C 00022D8C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80026E10 00022D90  4E 80 00 20 */	blr
+.endfn ReadProjData__6DAudioFPc
 
-.global ReadSdirData__6DAudioFPc
-ReadSdirData__6DAudioFPc:
+.fn ReadSdirData__6DAudioFPc, global
 /* 80026E14 00022D94  7C 08 02 A6 */	mflr r0
 /* 80026E18 00022D98  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80026E1C 00022D9C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -292,9 +291,9 @@ ReadSdirData__6DAudioFPc:
 /* 80026E7C 00022DFC  7C 08 03 A6 */	mtlr r0
 /* 80026E80 00022E00  38 21 00 18 */	addi r1, r1, 0x18
 /* 80026E84 00022E04  4E 80 00 20 */	blr
+.endfn ReadSdirData__6DAudioFPc
 
-.global ReadSampData__6DAudioFPc
-ReadSampData__6DAudioFPc:
+.fn ReadSampData__6DAudioFPc, global
 /* 80026E88 00022E08  7C 08 02 A6 */	mflr r0
 /* 80026E8C 00022E0C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80026E90 00022E10  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -327,9 +326,9 @@ ReadSampData__6DAudioFPc:
 /* 80026EF0 00022E70  7C 08 03 A6 */	mtlr r0
 /* 80026EF4 00022E74  38 21 00 18 */	addi r1, r1, 0x18
 /* 80026EF8 00022E78  4E 80 00 20 */	blr
+.endfn ReadSampData__6DAudioFPc
 
-.global PushGroupData__6DAudioFUs
-PushGroupData__6DAudioFUs:
+.fn PushGroupData__6DAudioFUs, global
 /* 80026EFC 00022E7C  7C 08 02 A6 */	mflr r0
 /* 80026F00 00022E80  7C 67 1B 78 */	mr r7, r3
 /* 80026F04 00022E84  90 01 00 04 */	stw r0, 0x4(r1)
@@ -344,9 +343,9 @@ PushGroupData__6DAudioFUs:
 /* 80026F28 00022EA8  38 21 00 08 */	addi r1, r1, 0x8
 /* 80026F2C 00022EAC  7C 08 03 A6 */	mtlr r0
 /* 80026F30 00022EB0  4E 80 00 20 */	blr
+.endfn PushGroupData__6DAudioFUs
 
-.global FreeSampBuffer__6DAudioFv
-FreeSampBuffer__6DAudioFv:
+.fn FreeSampBuffer__6DAudioFv, global
 /* 80026F34 00022EB4  7C 08 02 A6 */	mflr r0
 /* 80026F38 00022EB8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80026F3C 00022EBC  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -356,9 +355,9 @@ FreeSampBuffer__6DAudioFv:
 /* 80026F4C 00022ECC  38 21 00 08 */	addi r1, r1, 0x8
 /* 80026F50 00022ED0  7C 08 03 A6 */	mtlr r0
 /* 80026F54 00022ED4  4E 80 00 20 */	blr
+.endfn FreeSampBuffer__6DAudioFv
 
-.global PlaySong__6DAudioFP5CSong
-PlaySong__6DAudioFP5CSong:
+.fn PlaySong__6DAudioFP5CSong, global
 /* 80026F58 00022ED8  7C 08 02 A6 */	mflr r0
 /* 80026F5C 00022EDC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80026F60 00022EE0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -389,9 +388,9 @@ PlaySong__6DAudioFP5CSong:
 /* 80026FB8 00022F38  7C 08 03 A6 */	mtlr r0
 /* 80026FBC 00022F3C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80026FC0 00022F40  4E 80 00 20 */	blr
+.endfn PlaySong__6DAudioFP5CSong
 
-.global PlaySongFadeOut__6DAudioFv
-PlaySongFadeOut__6DAudioFv:
+.fn PlaySongFadeOut__6DAudioFv, global
 /* 80026FC4 00022F44  7C 08 02 A6 */	mflr r0
 /* 80026FC8 00022F48  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80026FCC 00022F4C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -423,9 +422,9 @@ PlaySongFadeOut__6DAudioFv:
 /* 80027030 00022FB0  38 21 00 18 */	addi r1, r1, 0x18
 /* 80027034 00022FB4  7C 08 03 A6 */	mtlr r0
 /* 80027038 00022FB8  4E 80 00 20 */	blr
+.endfn PlaySongFadeOut__6DAudioFv
 
-.global SongStop__6DAudioFv
-SongStop__6DAudioFv:
+.fn SongStop__6DAudioFv, global
 /* 8002703C 00022FBC  7C 08 02 A6 */	mflr r0
 /* 80027040 00022FC0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80027044 00022FC4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -457,9 +456,9 @@ SongStop__6DAudioFv:
 /* 800270A8 00023028  38 21 00 18 */	addi r1, r1, 0x18
 /* 800270AC 0002302C  7C 08 03 A6 */	mtlr r0
 /* 800270B0 00023030  4E 80 00 20 */	blr
+.endfn SongStop__6DAudioFv
 
-.global MuteAll__6DAudioFl
-MuteAll__6DAudioFl:
+.fn MuteAll__6DAudioFl, global
 /* 800270B4 00023034  7C 08 02 A6 */	mflr r0
 /* 800270B8 00023038  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800270BC 0002303C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -495,9 +494,9 @@ MuteAll__6DAudioFl:
 /* 8002711C 0002309C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80027120 000230A0  7C 08 03 A6 */	mtlr r0
 /* 80027124 000230A4  4E 80 00 20 */	blr
+.endfn MuteAll__6DAudioFl
 
-.global ResetFade__6DAudioFv
-ResetFade__6DAudioFv:
+.fn ResetFade__6DAudioFv, global
 /* 80027128 000230A8  7C 08 02 A6 */	mflr r0
 /* 8002712C 000230AC  38 60 00 00 */	li r3, 0x0
 /* 80027130 000230B0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -510,9 +509,9 @@ ResetFade__6DAudioFv:
 /* 8002714C 000230CC  38 21 00 08 */	addi r1, r1, 0x8
 /* 80027150 000230D0  7C 08 03 A6 */	mtlr r0
 /* 80027154 000230D4  4E 80 00 20 */	blr
+.endfn ResetFade__6DAudioFv
 
-.global SetMuteSequence__6DAudioFl
-SetMuteSequence__6DAudioFl:
+.fn SetMuteSequence__6DAudioFl, global
 /* 80027158 000230D8  7C 08 02 A6 */	mflr r0
 /* 8002715C 000230DC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80027160 000230E0  7C 80 07 74 */	extsb r0, r4
@@ -538,9 +537,9 @@ SetMuteSequence__6DAudioFl:
 /* 800271A8 00023128  38 21 00 08 */	addi r1, r1, 0x8
 /* 800271AC 0002312C  7C 08 03 A6 */	mtlr r0
 /* 800271B0 00023130  4E 80 00 20 */	blr
+.endfn SetMuteSequence__6DAudioFl
 
-.global SetMuteSe__6DAudioFl
-SetMuteSe__6DAudioFl:
+.fn SetMuteSe__6DAudioFl, global
 /* 800271B4 00023134  7C 08 02 A6 */	mflr r0
 /* 800271B8 00023138  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800271BC 0002313C  7C 80 07 74 */	extsb r0, r4
@@ -566,9 +565,9 @@ SetMuteSe__6DAudioFl:
 /* 80027204 00023184  38 21 00 08 */	addi r1, r1, 0x8
 /* 80027208 00023188  7C 08 03 A6 */	mtlr r0
 /* 8002720C 0002318C  4E 80 00 20 */	blr
+.endfn SetMuteSe__6DAudioFl
 
-.global Coin__6DAudioFv
-Coin__6DAudioFv:
+.fn Coin__6DAudioFv, global
 /* 80027210 00023190  7C 08 02 A6 */	mflr r0
 /* 80027214 00023194  38 60 00 03 */	li r3, 0x3
 /* 80027218 00023198  90 01 00 04 */	stw r0, 0x4(r1)
@@ -581,9 +580,9 @@ Coin__6DAudioFv:
 /* 80027234 000231B4  38 21 00 08 */	addi r1, r1, 0x8
 /* 80027238 000231B8  7C 08 03 A6 */	mtlr r0
 /* 8002723C 000231BC  4E 80 00 20 */	blr
+.endfn Coin__6DAudioFv
 
-.global DoorOpen__6DAudioFv
-DoorOpen__6DAudioFv:
+.fn DoorOpen__6DAudioFv, global
 /* 80027240 000231C0  7C 08 02 A6 */	mflr r0
 /* 80027244 000231C4  38 60 00 02 */	li r3, 0x2
 /* 80027248 000231C8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -596,9 +595,9 @@ DoorOpen__6DAudioFv:
 /* 80027264 000231E4  38 21 00 08 */	addi r1, r1, 0x8
 /* 80027268 000231E8  7C 08 03 A6 */	mtlr r0
 /* 8002726C 000231EC  4E 80 00 20 */	blr
+.endfn DoorOpen__6DAudioFv
 
-.global DoorKnock__6DAudioFv
-DoorKnock__6DAudioFv:
+.fn DoorKnock__6DAudioFv, global
 /* 80027270 000231F0  7C 08 02 A6 */	mflr r0
 /* 80027274 000231F4  38 60 00 01 */	li r3, 0x1
 /* 80027278 000231F8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -611,9 +610,9 @@ DoorKnock__6DAudioFv:
 /* 80027294 00023214  38 21 00 08 */	addi r1, r1, 0x8
 /* 80027298 00023218  7C 08 03 A6 */	mtlr r0
 /* 8002729C 0002321C  4E 80 00 20 */	blr
+.endfn DoorKnock__6DAudioFv
 
-.global Jump__6DAudioFv
-Jump__6DAudioFv:
+.fn Jump__6DAudioFv, global
 /* 800272A0 00023220  7C 08 02 A6 */	mflr r0
 /* 800272A4 00023224  38 60 00 00 */	li r3, 0x0
 /* 800272A8 00023228  90 01 00 04 */	stw r0, 0x4(r1)
@@ -626,9 +625,9 @@ Jump__6DAudioFv:
 /* 800272C4 00023244  38 21 00 08 */	addi r1, r1, 0x8
 /* 800272C8 00023248  7C 08 03 A6 */	mtlr r0
 /* 800272CC 0002324C  4E 80 00 20 */	blr
+.endfn Jump__6DAudioFv
 
-.global Fall__6DAudioFv
-Fall__6DAudioFv:
+.fn Fall__6DAudioFv, global
 /* 800272D0 00023250  7C 08 02 A6 */	mflr r0
 /* 800272D4 00023254  38 60 00 00 */	li r3, 0x0
 /* 800272D8 00023258  90 01 00 04 */	stw r0, 0x4(r1)
@@ -651,9 +650,9 @@ Fall__6DAudioFv:
 /* 8002731C 0002329C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80027320 000232A0  7C 08 03 A6 */	mtlr r0
 /* 80027324 000232A4  4E 80 00 20 */	blr
+.endfn Fall__6DAudioFv
 
-.global SetAutoDemo__6DAudioFl
-SetAutoDemo__6DAudioFl:
+.fn SetAutoDemo__6DAudioFl, global
 /* 80027328 000232A8  7C 08 02 A6 */	mflr r0
 /* 8002732C 000232AC  2C 04 00 01 */	cmpwi r4, 0x1
 /* 80027330 000232B0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -701,9 +700,9 @@ SetAutoDemo__6DAudioFl:
 /* 800273C8 00023348  38 21 00 08 */	addi r1, r1, 0x8
 /* 800273CC 0002334C  7C 08 03 A6 */	mtlr r0
 /* 800273D0 00023350  4E 80 00 20 */	blr
+.endfn SetAutoDemo__6DAudioFl
 
-.global Quit__6DAudioFv
-Quit__6DAudioFv:
+.fn Quit__6DAudioFv, global
 /* 800273D4 00023354  7C 08 02 A6 */	mflr r0
 /* 800273D8 00023358  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800273DC 0002335C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -712,9 +711,9 @@ Quit__6DAudioFv:
 /* 800273E8 00023368  38 21 00 08 */	addi r1, r1, 0x8
 /* 800273EC 0002336C  7C 08 03 A6 */	mtlr r0
 /* 800273F0 00023370  4E 80 00 20 */	blr
+.endfn Quit__6DAudioFv
 
-.global ReadBuffer__5CSongFlPc
-ReadBuffer__5CSongFlPc:
+.fn ReadBuffer__5CSongFlPc, global
 /* 800273F4 00023374  7C 08 02 A6 */	mflr r0
 /* 800273F8 00023378  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800273FC 0002337C  94 21 FF 90 */	stwu r1, -0x70(r1)
@@ -787,9 +786,9 @@ ReadBuffer__5CSongFlPc:
 /* 800274F4 00023474  38 21 00 70 */	addi r1, r1, 0x70
 /* 800274F8 00023478  7C 08 03 A6 */	mtlr r0
 /* 800274FC 0002347C  4E 80 00 20 */	blr
+.endfn ReadBuffer__5CSongFlPc
 
-.global PlaySong__5CSongFUs
-PlaySong__5CSongFUs:
+.fn PlaySong__5CSongFUs, global
 /* 80027500 00023480  7C 08 02 A6 */	mflr r0
 /* 80027504 00023484  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80027508 00023488  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -839,9 +838,9 @@ PlaySong__5CSongFUs:
 /* 800275A8 00023528  38 21 00 18 */	addi r1, r1, 0x18
 /* 800275AC 0002352C  7C 08 03 A6 */	mtlr r0
 /* 800275B0 00023530  4E 80 00 20 */	blr
+.endfn PlaySong__5CSongFUs
 
-.global DeleteBuffer__5CSongFv
-DeleteBuffer__5CSongFv:
+.fn DeleteBuffer__5CSongFv, global
 /* 800275B4 00023534  7C 08 02 A6 */	mflr r0
 /* 800275B8 00023538  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800275BC 0002353C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -869,9 +868,9 @@ DeleteBuffer__5CSongFv:
 /* 8002760C 0002358C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80027610 00023590  7C 08 03 A6 */	mtlr r0
 /* 80027614 00023594  4E 80 00 20 */	blr
+.endfn DeleteBuffer__5CSongFv
 
-.global DelayDeleteBuffer__5CSongFv
-DelayDeleteBuffer__5CSongFv:
+.fn DelayDeleteBuffer__5CSongFv, global
 /* 80027618 00023598  7C 08 02 A6 */	mflr r0
 /* 8002761C 0002359C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80027620 000235A0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -902,6 +901,7 @@ DelayDeleteBuffer__5CSongFv:
 /* 8002767C 000235FC  38 21 00 18 */	addi r1, r1, 0x18
 /* 80027680 00023600  7C 08 03 A6 */	mtlr r0
 /* 80027684 00023604  4E 80 00 20 */	blr
+.endfn DelayDeleteBuffer__5CSongFv
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

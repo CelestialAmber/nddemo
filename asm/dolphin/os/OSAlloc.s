@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-DLInsert:
+.fn DLInsert, local
 /* 800285DC 0002455C  38 E3 00 00 */	addi r7, r3, 0x0
 /* 800285E0 00024560  38 C0 00 00 */	li r6, 0x0
 /* 800285E4 00024564  48 00 00 14 */	b .L_800285F8
@@ -51,9 +51,9 @@ DLInsert:
 .L_80028680:
 /* 80028680 00024600  7C 83 23 78 */	mr r3, r4
 /* 80028684 00024604  4E 80 00 20 */	blr
+.endfn DLInsert
 
-.global OSAllocFromHeap
-OSAllocFromHeap:
+.fn OSAllocFromHeap, global
 /* 80028688 00024608  1C 03 00 0C */	mulli r0, r3, 0xc
 /* 8002868C 0002460C  80 6D 84 68 */	lwz r3, HeapArray@sda21(r13)
 /* 80028690 00024610  7C A3 02 14 */	add r5, r3, r0
@@ -129,9 +129,9 @@ OSAllocFromHeap:
 /* 80028778 000246F8  90 C5 00 08 */	stw r6, 0x8(r5)
 /* 8002877C 000246FC  38 66 00 20 */	addi r3, r6, 0x20
 /* 80028780 00024700  4E 80 00 20 */	blr
+.endfn OSAllocFromHeap
 
-.global OSFreeToHeap
-OSFreeToHeap:
+.fn OSFreeToHeap, global
 /* 80028784 00024704  7C 08 02 A6 */	mflr r0
 /* 80028788 00024708  38 C4 FF E0 */	addi r6, r4, -0x20
 /* 8002878C 0002470C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -166,16 +166,16 @@ OSFreeToHeap:
 /* 800287F4 00024774  38 21 00 18 */	addi r1, r1, 0x18
 /* 800287F8 00024778  7C 08 03 A6 */	mtlr r0
 /* 800287FC 0002477C  4E 80 00 20 */	blr
+.endfn OSFreeToHeap
 
-.global OSSetCurrentHeap
-OSSetCurrentHeap:
+.fn OSSetCurrentHeap, global
 /* 80028800 00024780  80 0D 82 18 */	lwz r0, __OSCurrHeap@sda21(r13)
 /* 80028804 00024784  90 6D 82 18 */	stw r3, __OSCurrHeap@sda21(r13)
 /* 80028808 00024788  7C 03 03 78 */	mr r3, r0
 /* 8002880C 0002478C  4E 80 00 20 */	blr
+.endfn OSSetCurrentHeap
 
-.global OSInitAlloc
-OSInitAlloc:
+.fn OSInitAlloc, global
 /* 80028810 00024790  1C E5 00 0C */	mulli r7, r5, 0xc
 /* 80028814 00024794  90 6D 84 68 */	stw r3, HeapArray@sda21(r13)
 /* 80028818 00024798  90 AD 84 6C */	stw r5, NumHeaps@sda21(r13)
@@ -206,9 +206,9 @@ OSInitAlloc:
 /* 80028874 000247F4  54 03 00 34 */	clrrwi r3, r0, 5
 /* 80028878 000247F8  90 6D 84 70 */	stw r3, ArenaStart@sda21(r13)
 /* 8002887C 000247FC  4E 80 00 20 */	blr
+.endfn OSInitAlloc
 
-.global OSCreateHeap
-OSCreateHeap:
+.fn OSCreateHeap, global
 /* 80028880 00024800  80 CD 84 6C */	lwz r6, NumHeaps@sda21(r13)
 /* 80028884 00024804  38 03 00 1F */	addi r0, r3, 0x1f
 /* 80028888 00024808  80 AD 84 68 */	lwz r5, HeapArray@sda21(r13)
@@ -239,9 +239,9 @@ OSCreateHeap:
 .L_800288E4:
 /* 800288E4 00024864  38 60 FF FF */	li r3, -0x1
 /* 800288E8 00024868  4E 80 00 20 */	blr
+.endfn OSCreateHeap
 
-.global OSCheckHeap
-OSCheckHeap:
+.fn OSCheckHeap, global
 /* 800288EC 0002486C  7C 08 02 A6 */	mflr r0
 /* 800288F0 00024870  3C 80 80 06 */	lis r4, lbl_800676B0@ha
 /* 800288F4 00024874  90 01 00 04 */	stw r0, 0x4(r1)
@@ -486,6 +486,7 @@ OSCheckHeap:
 /* 80028C40 00024BC0  38 21 00 08 */	addi r1, r1, 0x8
 /* 80028C44 00024BC4  7C 08 03 A6 */	mtlr r0
 /* 80028C48 00024BC8  4E 80 00 20 */	blr
+.endfn OSCheckHeap
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

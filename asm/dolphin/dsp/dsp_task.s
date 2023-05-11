@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __DSPHandler
-__DSPHandler:
+.fn __DSPHandler, global
 /* 800394C4 00035444  7C 08 02 A6 */	mflr r0
 /* 800394C8 00035448  3C 60 CC 00 */	lis r3, 0xCC005000@ha
 /* 800394CC 0003544C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -298,9 +297,9 @@ __DSPHandler:
 /* 800398DC 0003585C  38 21 02 E8 */	addi r1, r1, 0x2e8
 /* 800398E0 00035860  7C 08 03 A6 */	mtlr r0
 /* 800398E4 00035864  4E 80 00 20 */	blr
+.endfn __DSPHandler
 
-.global __DSP_exec_task
-__DSP_exec_task:
+.fn __DSP_exec_task, global
 /* 800398E8 00035868  7C 08 02 A6 */	mflr r0
 /* 800398EC 0003586C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800398F0 00035870  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -426,9 +425,9 @@ __DSP_exec_task:
 /* 80039A7C 000359FC  7C 08 03 A6 */	mtlr r0
 /* 80039A80 00035A00  38 21 00 18 */	addi r1, r1, 0x18
 /* 80039A84 00035A04  4E 80 00 20 */	blr
+.endfn __DSP_exec_task
 
-.global __DSP_boot_task
-__DSP_boot_task:
+.fn __DSP_boot_task, global
 /* 80039A88 00035A08  7C 08 02 A6 */	mflr r0
 /* 80039A8C 00035A0C  3C 80 80 07 */	lis r4, lbl_80068718@ha
 /* 80039A90 00035A10  90 01 00 04 */	stw r0, 0x4(r1)
@@ -539,9 +538,9 @@ __DSP_boot_task:
 /* 80039C08 00035B88  7C 08 03 A6 */	mtlr r0
 /* 80039C0C 00035B8C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80039C10 00035B90  4E 80 00 20 */	blr
+.endfn __DSP_boot_task
 
-.global __DSP_insert_task
-__DSP_insert_task:
+.fn __DSP_insert_task, global
 /* 80039C14 00035B94  80 0D 86 C0 */	lwz r0, __DSP_first_task@sda21(r13)
 /* 80039C18 00035B98  28 00 00 00 */	cmplwi r0, 0x0
 /* 80039C1C 00035B9C  40 82 00 20 */	bne .L_80039C3C
@@ -588,9 +587,9 @@ __DSP_insert_task:
 /* 80039CA8 00035C28  90 03 00 3C */	stw r0, 0x3c(r3)
 /* 80039CAC 00035C2C  90 6D 86 BC */	stw r3, __DSP_last_task@sda21(r13)
 /* 80039CB0 00035C30  4E 80 00 20 */	blr
+.endfn __DSP_insert_task
 
-.global __DSP_remove_task
-__DSP_remove_task:
+.fn __DSP_remove_task, global
 /* 80039CB4 00035C34  38 80 00 00 */	li r4, 0x0
 /* 80039CB8 00035C38  90 83 00 08 */	stw r4, 0x8(r3)
 /* 80039CBC 00035C3C  38 00 00 03 */	li r0, 0x3
@@ -631,6 +630,7 @@ __DSP_remove_task:
 /* 80039D3C 00035CBC  80 63 00 38 */	lwz r3, 0x38(r3)
 /* 80039D40 00035CC0  90 03 00 3C */	stw r0, 0x3c(r3)
 /* 80039D44 00035CC4  4E 80 00 20 */	blr
+.endfn __DSP_remove_task
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

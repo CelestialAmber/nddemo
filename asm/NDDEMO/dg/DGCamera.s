@@ -4,8 +4,7 @@
 
 
 
-.global __ct__8DGCameraFv
-__ct__8DGCameraFv:
+.fn __ct__8DGCameraFv, global
 /* 800186C4 00014644  7C 08 02 A6 */	mflr r0
 /* 800186C8 00014648  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800186CC 0001464C  94 21 FF A8 */	stwu r1, -0x58(r1)
@@ -78,9 +77,9 @@ __ct__8DGCameraFv:
 /* 800187D8 00014758  38 21 00 58 */	addi r1, r1, 0x58
 /* 800187DC 0001475C  7C 08 03 A6 */	mtlr r0
 /* 800187E0 00014760  4E 80 00 20 */	blr
+.endfn __ct__8DGCameraFv
 
-.global __dt__8DGCameraFv
-__dt__8DGCameraFv:
+.fn __dt__8DGCameraFv, global
 /* 800187E4 00014764  7C 08 02 A6 */	mflr r0
 /* 800187E8 00014768  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800187EC 0001476C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -104,9 +103,9 @@ __dt__8DGCameraFv:
 /* 80018830 000147B0  7C 08 03 A6 */	mtlr r0
 /* 80018834 000147B4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80018838 000147B8  4E 80 00 20 */	blr
+.endfn __dt__8DGCameraFv
 
-.global SetCameraFrustum__8DGCameraFffff
-SetCameraFrustum__8DGCameraFffff:
+.fn SetCameraFrustum__8DGCameraFffff, global
 /* 8001883C 000147BC  7C 08 02 A6 */	mflr r0
 /* 80018840 000147C0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80018844 000147C4  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -144,9 +143,9 @@ SetCameraFrustum__8DGCameraFffff:
 /* 800188C4 00014844  83 E1 00 24 */	lwz r31, 0x24(r1)
 /* 800188C8 00014848  38 21 00 48 */	addi r1, r1, 0x48
 /* 800188CC 0001484C  4E 80 00 20 */	blr
+.endfn SetCameraFrustum__8DGCameraFffff
 
-.global SetCameraFrustumUpper__8DGCameraFffff
-SetCameraFrustumUpper__8DGCameraFffff:
+.fn SetCameraFrustumUpper__8DGCameraFffff, global
 /* 800188D0 00014850  7C 08 02 A6 */	mflr r0
 /* 800188D4 00014854  FD 00 10 90 */	fmr f8, f2
 /* 800188D8 00014858  90 01 00 04 */	stw r0, 0x4(r1)
@@ -169,9 +168,9 @@ SetCameraFrustumUpper__8DGCameraFffff:
 /* 8001891C 0001489C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80018920 000148A0  7C 08 03 A6 */	mtlr r0
 /* 80018924 000148A4  4E 80 00 20 */	blr
+.endfn SetCameraFrustumUpper__8DGCameraFffff
 
-.global SetCameraFrustumLower__8DGCameraFfffff
-SetCameraFrustumLower__8DGCameraFfffff:
+.fn SetCameraFrustumLower__8DGCameraFfffff, global
 /* 80018928 000148A8  7C 08 02 A6 */	mflr r0
 /* 8001892C 000148AC  38 83 00 00 */	addi r4, r3, 0x0
 /* 80018930 000148B0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -196,9 +195,9 @@ SetCameraFrustumLower__8DGCameraFfffff:
 /* 8001897C 000148FC  38 21 00 08 */	addi r1, r1, 0x8
 /* 80018980 00014900  7C 08 03 A6 */	mtlr r0
 /* 80018984 00014904  4E 80 00 20 */	blr
+.endfn SetCameraFrustumLower__8DGCameraFfffff
 
-.global SetLightFrustum__8DGCameraFfff
-SetLightFrustum__8DGCameraFfff:
+.fn SetLightFrustum__8DGCameraFfff, global
 /* 80018988 00014908  7C 08 02 A6 */	mflr r0
 /* 8001898C 0001490C  FC 00 10 50 */	fneg f0, f2
 /* 80018990 00014910  90 01 00 04 */	stw r0, 0x4(r1)
@@ -248,9 +247,9 @@ SetLightFrustum__8DGCameraFfff:
 /* 80018A40 000149C0  83 E1 00 24 */	lwz r31, 0x24(r1)
 /* 80018A44 000149C4  38 21 00 50 */	addi r1, r1, 0x50
 /* 80018A48 000149C8  4E 80 00 20 */	blr
+.endfn SetLightFrustum__8DGCameraFfff
 
-.global SetCamUp__8DGCameraF3Vec
-SetCamUp__8DGCameraF3Vec:
+.fn SetCamUp__8DGCameraF3Vec, global
 /* 80018A4C 000149CC  80 A4 00 00 */	lwz r5, 0x0(r4)
 /* 80018A50 000149D0  80 04 00 04 */	lwz r0, 0x4(r4)
 /* 80018A54 000149D4  90 A3 01 00 */	stw r5, 0x100(r3)
@@ -258,9 +257,9 @@ SetCamUp__8DGCameraF3Vec:
 /* 80018A5C 000149DC  80 04 00 08 */	lwz r0, 0x8(r4)
 /* 80018A60 000149E0  90 03 01 08 */	stw r0, 0x108(r3)
 /* 80018A64 000149E4  4E 80 00 20 */	blr
+.endfn SetCamUp__8DGCameraF3Vec
 
-.global SetTargetPos__8DGCameraF3Vec
-SetTargetPos__8DGCameraF3Vec:
+.fn SetTargetPos__8DGCameraF3Vec, global
 /* 80018A68 000149E8  80 A4 00 00 */	lwz r5, 0x0(r4)
 /* 80018A6C 000149EC  80 04 00 04 */	lwz r0, 0x4(r4)
 /* 80018A70 000149F0  90 A3 01 0C */	stw r5, 0x10c(r3)
@@ -268,9 +267,9 @@ SetTargetPos__8DGCameraF3Vec:
 /* 80018A78 000149F8  80 04 00 08 */	lwz r0, 0x8(r4)
 /* 80018A7C 000149FC  90 03 01 14 */	stw r0, 0x114(r3)
 /* 80018A80 00014A00  4E 80 00 20 */	blr
+.endfn SetTargetPos__8DGCameraF3Vec
 
-.global GetTargetPos__8DGCameraFv
-GetTargetPos__8DGCameraFv:
+.fn GetTargetPos__8DGCameraFv, global
 /* 80018A84 00014A04  80 A4 01 0C */	lwz r5, 0x10c(r4)
 /* 80018A88 00014A08  80 04 01 10 */	lwz r0, 0x110(r4)
 /* 80018A8C 00014A0C  90 A3 00 00 */	stw r5, 0x0(r3)
@@ -278,14 +277,14 @@ GetTargetPos__8DGCameraFv:
 /* 80018A94 00014A14  80 04 01 14 */	lwz r0, 0x114(r4)
 /* 80018A98 00014A18  90 03 00 08 */	stw r0, 0x8(r3)
 /* 80018A9C 00014A1C  4E 80 00 20 */	blr
+.endfn GetTargetPos__8DGCameraFv
 
-.global SetTargetMode__8DGCameraF26enumDG_RENDMAN_TARGET_MODE
-SetTargetMode__8DGCameraF26enumDG_RENDMAN_TARGET_MODE:
+.fn SetTargetMode__8DGCameraF26enumDG_RENDMAN_TARGET_MODE, global
 /* 80018AA0 00014A20  90 83 01 18 */	stw r4, 0x118(r3)
 /* 80018AA4 00014A24  4E 80 00 20 */	blr
+.endfn SetTargetMode__8DGCameraF26enumDG_RENDMAN_TARGET_MODE
 
-.global SetCamera__8DGCameraFRA3_A4_f
-SetCamera__8DGCameraFRA3_A4_f:
+.fn SetCamera__8DGCameraFRA3_A4_f, global
 /* 80018AA8 00014A28  7C 08 02 A6 */	mflr r0
 /* 80018AAC 00014A2C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80018AB0 00014A30  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -312,9 +311,9 @@ SetCamera__8DGCameraFRA3_A4_f:
 /* 80018B04 00014A84  7C 08 03 A6 */	mtlr r0
 /* 80018B08 00014A88  38 21 00 20 */	addi r1, r1, 0x20
 /* 80018B0C 00014A8C  4E 80 00 20 */	blr
+.endfn SetCamera__8DGCameraFRA3_A4_f
 
-.global SetProjectionMtx__8DGCameraFv
-SetProjectionMtx__8DGCameraFv:
+.fn SetProjectionMtx__8DGCameraFv, global
 /* 80018B10 00014A90  7C 08 02 A6 */	mflr r0
 /* 80018B14 00014A94  38 63 00 58 */	addi r3, r3, 0x58
 /* 80018B18 00014A98  90 01 00 04 */	stw r0, 0x4(r1)
@@ -325,9 +324,9 @@ SetProjectionMtx__8DGCameraFv:
 /* 80018B2C 00014AAC  38 21 00 08 */	addi r1, r1, 0x8
 /* 80018B30 00014AB0  7C 08 03 A6 */	mtlr r0
 /* 80018B34 00014AB4  4E 80 00 20 */	blr
+.endfn SetProjectionMtx__8DGCameraFv
 
-.global GetViewMtx__8DGCameraFRA3_A4_f
-GetViewMtx__8DGCameraFRA3_A4_f:
+.fn GetViewMtx__8DGCameraFRA3_A4_f, global
 /* 80018B38 00014AB8  7C 08 02 A6 */	mflr r0
 /* 80018B3C 00014ABC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80018B40 00014AC0  94 21 FF 60 */	stwu r1, -0xa0(r1)
@@ -403,9 +402,9 @@ GetViewMtx__8DGCameraFRA3_A4_f:
 /* 80018C50 00014BD0  7C 08 03 A6 */	mtlr r0
 /* 80018C54 00014BD4  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 80018C58 00014BD8  4E 80 00 20 */	blr
+.endfn GetViewMtx__8DGCameraFRA3_A4_f
 
-.global GetLightMtx__8DGCameraFRA3_A4_f
-GetLightMtx__8DGCameraFRA3_A4_f:
+.fn GetLightMtx__8DGCameraFRA3_A4_f, global
 /* 80018C5C 00014BDC  7C 08 02 A6 */	mflr r0
 /* 80018C60 00014BE0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80018C64 00014BE4  94 21 FF 60 */	stwu r1, -0xa0(r1)
@@ -485,9 +484,9 @@ GetLightMtx__8DGCameraFRA3_A4_f:
 /* 80018D84 00014D04  7C 08 03 A6 */	mtlr r0
 /* 80018D88 00014D08  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 80018D8C 00014D0C  4E 80 00 20 */	blr
+.endfn GetLightMtx__8DGCameraFRA3_A4_f
 
-.global GetLightMtxYInverse__8DGCameraFRA3_A4_f
-GetLightMtxYInverse__8DGCameraFRA3_A4_f:
+.fn GetLightMtxYInverse__8DGCameraFRA3_A4_f, global
 /* 80018D90 00014D10  7C 08 02 A6 */	mflr r0
 /* 80018D94 00014D14  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80018D98 00014D18  94 21 FF 60 */	stwu r1, -0xa0(r1)
@@ -567,20 +566,20 @@ GetLightMtxYInverse__8DGCameraFRA3_A4_f:
 /* 80018EB8 00014E38  7C 08 03 A6 */	mtlr r0
 /* 80018EBC 00014E3C  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 80018EC0 00014E40  4E 80 00 20 */	blr
+.endfn GetLightMtxYInverse__8DGCameraFRA3_A4_f
 
-.global SetFogType__8DGCameraF10_GXFogType
-SetFogType__8DGCameraF10_GXFogType:
+.fn SetFogType__8DGCameraF10_GXFogType, global
 /* 80018EC4 00014E44  90 83 01 20 */	stw r4, 0x120(r3)
 /* 80018EC8 00014E48  4E 80 00 20 */	blr
+.endfn SetFogType__8DGCameraF10_GXFogType
 
-.global SetFogRange__8DGCameraFff
-SetFogRange__8DGCameraFff:
+.fn SetFogRange__8DGCameraFff, global
 /* 80018ECC 00014E4C  D0 23 01 24 */	stfs f1, 0x124(r3)
 /* 80018ED0 00014E50  D0 43 01 28 */	stfs f2, 0x128(r3)
 /* 80018ED4 00014E54  4E 80 00 20 */	blr
+.endfn SetFogRange__8DGCameraFff
 
-.global SetFogRangeRatio__8DGCameraFff
-SetFogRangeRatio__8DGCameraFff:
+.fn SetFogRangeRatio__8DGCameraFff, global
 /* 80018ED8 00014E58  C0 63 00 F8 */	lfs f3, 0xf8(r3)
 /* 80018EDC 00014E5C  C0 03 00 FC */	lfs f0, 0xfc(r3)
 /* 80018EE0 00014E60  EC 00 18 28 */	fsubs f0, f0, f3
@@ -594,12 +593,13 @@ SetFogRangeRatio__8DGCameraFff:
 /* 80018F00 00014E80  EC 01 00 2A */	fadds f0, f1, f0
 /* 80018F04 00014E84  D0 03 01 28 */	stfs f0, 0x128(r3)
 /* 80018F08 00014E88  4E 80 00 20 */	blr
+.endfn SetFogRangeRatio__8DGCameraFff
 
-.global SetFogColor__8DGCameraFRC8_GXColor
-SetFogColor__8DGCameraFRC8_GXColor:
+.fn SetFogColor__8DGCameraFRC8_GXColor, global
 /* 80018F0C 00014E8C  80 04 00 00 */	lwz r0, 0x0(r4)
 /* 80018F10 00014E90  90 03 01 1C */	stw r0, 0x11c(r3)
 /* 80018F14 00014E94  4E 80 00 20 */	blr
+.endfn SetFogColor__8DGCameraFRC8_GXColor
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 

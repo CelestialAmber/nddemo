@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __OSResetSWInterruptHandler
-__OSResetSWInterruptHandler:
+.fn __OSResetSWInterruptHandler, global
 /* 8002BF40 00027EC0  7C 08 02 A6 */	mflr r0
 /* 8002BF44 00027EC4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002BF48 00027EC8  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -68,9 +67,9 @@ __OSResetSWInterruptHandler:
 /* 8002C028 00027FA8  38 21 00 28 */	addi r1, r1, 0x28
 /* 8002C02C 00027FAC  7C 08 03 A6 */	mtlr r0
 /* 8002C030 00027FB0  4E 80 00 20 */	blr
+.endfn __OSResetSWInterruptHandler
 
-.global OSGetResetButtonState
-OSGetResetButtonState:
+.fn OSGetResetButtonState, global
 /* 8002C034 00027FB4  7C 08 02 A6 */	mflr r0
 /* 8002C038 00027FB8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002C03C 00027FBC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -253,9 +252,9 @@ OSGetResetButtonState:
 /* 8002C2CC 0002824C  83 A1 00 0C */	lwz r29, 0xc(r1)
 /* 8002C2D0 00028250  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002C2D4 00028254  4E 80 00 20 */	blr
+.endfn OSGetResetButtonState
 
-.global OSGetResetSwitchState
-OSGetResetSwitchState:
+.fn OSGetResetSwitchState, global
 /* 8002C2D8 00028258  7C 08 02 A6 */	mflr r0
 /* 8002C2DC 0002825C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002C2E0 00028260  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -264,6 +263,7 @@ OSGetResetSwitchState:
 /* 8002C2EC 0002826C  38 21 00 08 */	addi r1, r1, 0x8
 /* 8002C2F0 00028270  7C 08 03 A6 */	mtlr r0
 /* 8002C2F4 00028274  4E 80 00 20 */	blr
+.endfn OSGetResetSwitchState
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 

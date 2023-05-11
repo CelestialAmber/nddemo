@@ -472,5 +472,5 @@ gTRKInterruptVectorTable:
 	mtsrr0 r3
 	li r3, 0x1f00
 	rfi 
-.fill 0xC
+
 gTRKInterruptVectorTableEnd:

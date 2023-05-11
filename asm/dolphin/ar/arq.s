@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ARQServiceQueueLo
-__ARQServiceQueueLo:
+.fn __ARQServiceQueueLo, global
 /* 80038ED4 00034E54  7C 08 02 A6 */	mflr r0
 /* 80038ED8 00034E58  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80038EDC 00034E5C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -75,13 +74,13 @@ __ARQServiceQueueLo:
 /* 80038FC8 00034F48  38 21 00 08 */	addi r1, r1, 0x8
 /* 80038FCC 00034F4C  7C 08 03 A6 */	mtlr r0
 /* 80038FD0 00034F50  4E 80 00 20 */	blr
+.endfn __ARQServiceQueueLo
 
-.global __ARQCallbackHack
-__ARQCallbackHack:
+.fn __ARQCallbackHack, global
 /* 80038FD4 00034F54  4E 80 00 20 */	blr
+.endfn __ARQCallbackHack
 
-.global __ARQInterruptServiceRoutine
-__ARQInterruptServiceRoutine:
+.fn __ARQInterruptServiceRoutine, global
 /* 80038FD8 00034F58  7C 08 02 A6 */	mflr r0
 /* 80038FDC 00034F5C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80038FE0 00034F60  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -139,9 +138,9 @@ __ARQInterruptServiceRoutine:
 /* 80039098 00035018  38 21 00 08 */	addi r1, r1, 0x8
 /* 8003909C 0003501C  7C 08 03 A6 */	mtlr r0
 /* 800390A0 00035020  4E 80 00 20 */	blr
+.endfn __ARQInterruptServiceRoutine
 
-.global ARQInit
-ARQInit:
+.fn ARQInit, global
 /* 800390A4 00035024  7C 08 02 A6 */	mflr r0
 /* 800390A8 00035028  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800390AC 0003502C  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -169,9 +168,9 @@ ARQInit:
 /* 80039100 00035080  38 21 00 10 */	addi r1, r1, 0x10
 /* 80039104 00035084  7C 08 03 A6 */	mtlr r0
 /* 80039108 00035088  4E 80 00 20 */	blr
+.endfn ARQInit
 
-.global ARQPostRequest
-ARQPostRequest:
+.fn ARQPostRequest, global
 /* 8003910C 0003508C  7C 08 02 A6 */	mflr r0
 /* 80039110 00035090  28 0A 00 00 */	cmplwi r10, 0x0
 /* 80039114 00035094  90 01 00 04 */	stw r0, 0x4(r1)
@@ -272,6 +271,7 @@ ARQPostRequest:
 /* 8003925C 000351DC  83 A1 00 2C */	lwz r29, 0x2c(r1)
 /* 80039260 000351E0  38 21 00 38 */	addi r1, r1, 0x38
 /* 80039264 000351E4  4E 80 00 20 */	blr
+.endfn ARQPostRequest
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 

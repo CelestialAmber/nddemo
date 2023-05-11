@@ -4,8 +4,7 @@
 
 
 
-.global __ct__8DGObjManFUs
-__ct__8DGObjManFUs:
+.fn __ct__8DGObjManFUs, global
 /* 80015D1C 00011C9C  7C 08 02 A6 */	mflr r0
 /* 80015D20 00011CA0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80015D24 00011CA4  38 00 00 00 */	li r0, 0x0
@@ -29,9 +28,9 @@ __ct__8DGObjManFUs:
 /* 80015D6C 00011CEC  38 21 00 18 */	addi r1, r1, 0x18
 /* 80015D70 00011CF0  7C 08 03 A6 */	mtlr r0
 /* 80015D74 00011CF4  4E 80 00 20 */	blr
+.endfn __ct__8DGObjManFUs
 
-.global __dt__8DGObjManFv
-__dt__8DGObjManFv:
+.fn __dt__8DGObjManFv, global
 /* 80015D78 00011CF8  7C 08 02 A6 */	mflr r0
 /* 80015D7C 00011CFC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80015D80 00011D00  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -81,9 +80,9 @@ __dt__8DGObjManFv:
 /* 80015E18 00011D98  38 21 00 28 */	addi r1, r1, 0x28
 /* 80015E1C 00011D9C  7C 08 03 A6 */	mtlr r0
 /* 80015E20 00011DA0  4E 80 00 20 */	blr
+.endfn __dt__8DGObjManFv
 
-.global AddObject__8DGObjManFP8DGObject
-AddObject__8DGObjManFP8DGObject:
+.fn AddObject__8DGObjManFP8DGObject, global
 /* 80015E24 00011DA4  7C 08 02 A6 */	mflr r0
 /* 80015E28 00011DA8  39 00 00 00 */	li r8, 0x0
 /* 80015E2C 00011DAC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -121,9 +120,9 @@ AddObject__8DGObjManFP8DGObject:
 /* 80015E9C 00011E1C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80015EA0 00011E20  7C 08 03 A6 */	mtlr r0
 /* 80015EA4 00011E24  4E 80 00 20 */	blr
+.endfn AddObject__8DGObjManFP8DGObject
 
-.global GetObject__8DGObjManFUs
-GetObject__8DGObjManFUs:
+.fn GetObject__8DGObjManFUs, global
 /* 80015EA8 00011E28  A0 03 00 00 */	lhz r0, 0x0(r3)
 /* 80015EAC 00011E2C  54 84 04 3E */	clrlwi r4, r4, 16
 /* 80015EB0 00011E30  7C 04 00 40 */	cmplw r4, r0
@@ -135,9 +134,9 @@ GetObject__8DGObjManFUs:
 .L_80015EC8:
 /* 80015EC8 00011E48  38 60 00 00 */	li r3, 0x0
 /* 80015ECC 00011E4C  4E 80 00 20 */	blr
+.endfn GetObject__8DGObjManFUs
 
-.global AttachObject__8DGObjManFUs
-AttachObject__8DGObjManFUs:
+.fn AttachObject__8DGObjManFUs, global
 /* 80015ED0 00011E50  7C 08 02 A6 */	mflr r0
 /* 80015ED4 00011E54  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80015ED8 00011E58  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -173,9 +172,9 @@ AttachObject__8DGObjManFUs:
 /* 80015F40 00011EC0  38 21 00 18 */	addi r1, r1, 0x18
 /* 80015F44 00011EC4  7C 08 03 A6 */	mtlr r0
 /* 80015F48 00011EC8  4E 80 00 20 */	blr
+.endfn AttachObject__8DGObjManFUs
 
-.global DetachObject__8DGObjManFUs
-DetachObject__8DGObjManFUs:
+.fn DetachObject__8DGObjManFUs, global
 /* 80015F4C 00011ECC  7C 08 02 A6 */	mflr r0
 /* 80015F50 00011ED0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80015F54 00011ED4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -232,6 +231,7 @@ DetachObject__8DGObjManFUs:
 /* 8001600C 00011F8C  7C 08 03 A6 */	mtlr r0
 /* 80016010 00011F90  38 21 00 18 */	addi r1, r1, 0x18
 /* 80016014 00011F94  4E 80 00 20 */	blr
+.endfn DetachObject__8DGObjManFUs
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

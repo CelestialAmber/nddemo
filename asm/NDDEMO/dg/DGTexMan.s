@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global __ct__8DGTexManFUs
-__ct__8DGTexManFUs:
+.fn __ct__8DGTexManFUs, global
 /* 80017EE4 00013E64  7C 08 02 A6 */	mflr r0
 /* 80017EE8 00013E68  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80017EEC 00013E6C  38 00 00 00 */	li r0, 0x0
@@ -44,9 +43,9 @@ __ct__8DGTexManFUs:
 /* 80017F74 00013EF4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80017F78 00013EF8  7C 08 03 A6 */	mtlr r0
 /* 80017F7C 00013EFC  4E 80 00 20 */	blr
+.endfn __ct__8DGTexManFUs
 
-.global __dt__8DGTexManFv
-__dt__8DGTexManFv:
+.fn __dt__8DGTexManFv, global
 /* 80017F80 00013F00  7C 08 02 A6 */	mflr r0
 /* 80017F84 00013F04  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80017F88 00013F08  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -95,9 +94,9 @@ __dt__8DGTexManFv:
 /* 80018020 00013FA0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80018024 00013FA4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80018028 00013FA8  4E 80 00 20 */	blr
+.endfn __dt__8DGTexManFv
 
-.global DeleteTexture__8DGTexManFUs
-DeleteTexture__8DGTexManFUs:
+.fn DeleteTexture__8DGTexManFUs, global
 /* 8001802C 00013FAC  7C 08 02 A6 */	mflr r0
 /* 80018030 00013FB0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80018034 00013FB4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -150,9 +149,9 @@ DeleteTexture__8DGTexManFUs:
 /* 800180E0 00014060  7C 08 03 A6 */	mtlr r0
 /* 800180E4 00014064  38 21 00 18 */	addi r1, r1, 0x18
 /* 800180E8 00014068  4E 80 00 20 */	blr
+.endfn DeleteTexture__8DGTexManFUs
 
-.global LoadTexture__8DGTexManFPCc
-LoadTexture__8DGTexManFPCc:
+.fn LoadTexture__8DGTexManFPCc, global
 /* 800180EC 0001406C  7C 08 02 A6 */	mflr r0
 /* 800180F0 00014070  3C A0 80 06 */	lis r5, lbl_80066B88@ha
 /* 800180F4 00014074  90 01 00 04 */	stw r0, 0x4(r1)
@@ -288,9 +287,9 @@ LoadTexture__8DGTexManFPCc:
 /* 800182C4 00014244  38 21 00 48 */	addi r1, r1, 0x48
 /* 800182C8 00014248  7C 08 03 A6 */	mtlr r0
 /* 800182CC 0001424C  4E 80 00 20 */	blr
+.endfn LoadTexture__8DGTexManFPCc
 
-.global AttachTexture__8DGTexManFUs
-AttachTexture__8DGTexManFUs:
+.fn AttachTexture__8DGTexManFUs, global
 /* 800182D0 00014250  7C 08 02 A6 */	mflr r0
 /* 800182D4 00014254  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800182D8 00014258  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -330,9 +329,9 @@ AttachTexture__8DGTexManFUs:
 /* 80018350 000142D0  38 21 00 18 */	addi r1, r1, 0x18
 /* 80018354 000142D4  7C 08 03 A6 */	mtlr r0
 /* 80018358 000142D8  4E 80 00 20 */	blr
+.endfn AttachTexture__8DGTexManFUs
 
-.global DetachTexture__8DGTexManFUs
-DetachTexture__8DGTexManFUs:
+.fn DetachTexture__8DGTexManFUs, global
 /* 8001835C 000142DC  7C 08 02 A6 */	mflr r0
 /* 80018360 000142E0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80018364 000142E4  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -413,9 +412,9 @@ DetachTexture__8DGTexManFUs:
 /* 80018474 000143F4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80018478 000143F8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8001847C 000143FC  4E 80 00 20 */	blr
+.endfn DetachTexture__8DGTexManFUs
 
-.global GetWidth__8DGTexManFUs
-GetWidth__8DGTexManFUs:
+.fn GetWidth__8DGTexManFUs, global
 /* 80018480 00014400  7C 08 02 A6 */	mflr r0
 /* 80018484 00014404  54 84 04 3E */	clrlwi r4, r4, 16
 /* 80018488 00014408  90 01 00 04 */	stw r0, 0x4(r1)
@@ -440,9 +439,9 @@ GetWidth__8DGTexManFUs:
 /* 800184CC 0001444C  38 21 00 08 */	addi r1, r1, 0x8
 /* 800184D0 00014450  7C 08 03 A6 */	mtlr r0
 /* 800184D4 00014454  4E 80 00 20 */	blr
+.endfn GetWidth__8DGTexManFUs
 
-.global GetHeight__8DGTexManFUs
-GetHeight__8DGTexManFUs:
+.fn GetHeight__8DGTexManFUs, global
 /* 800184D8 00014458  7C 08 02 A6 */	mflr r0
 /* 800184DC 0001445C  54 84 04 3E */	clrlwi r4, r4, 16
 /* 800184E0 00014460  90 01 00 04 */	stw r0, 0x4(r1)
@@ -467,9 +466,9 @@ GetHeight__8DGTexManFUs:
 /* 80018524 000144A4  38 21 00 08 */	addi r1, r1, 0x8
 /* 80018528 000144A8  7C 08 03 A6 */	mtlr r0
 /* 8001852C 000144AC  4E 80 00 20 */	blr
+.endfn GetHeight__8DGTexManFUs
 
-.global InitTexObj__8DGTexManFP9_GXTexObjUs14_GXTexWrapMode14_GXTexWrapMode
-InitTexObj__8DGTexManFP9_GXTexObjUs14_GXTexWrapMode14_GXTexWrapMode:
+.fn InitTexObj__8DGTexManFP9_GXTexObjUs14_GXTexWrapMode14_GXTexWrapMode, global
 /* 80018530 000144B0  7C 08 02 A6 */	mflr r0
 /* 80018534 000144B4  54 A5 04 3E */	clrlwi r5, r5, 16
 /* 80018538 000144B8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -572,16 +571,17 @@ InitTexObj__8DGTexManFP9_GXTexObjUs14_GXTexWrapMode14_GXTexWrapMode:
 /* 800186A8 00014628  38 21 00 50 */	addi r1, r1, 0x50
 /* 800186AC 0001462C  7C 08 03 A6 */	mtlr r0
 /* 800186B0 00014630  4E 80 00 20 */	blr
+.endfn InitTexObj__8DGTexManFP9_GXTexObjUs14_GXTexWrapMode14_GXTexWrapMode
 
-.global EnableMipMap__8DGTexManFUc
-EnableMipMap__8DGTexManFUc:
+.fn EnableMipMap__8DGTexManFUc, global
 /* 800186B4 00014634  98 83 00 10 */	stb r4, 0x10(r3)
 /* 800186B8 00014638  4E 80 00 20 */	blr
+.endfn EnableMipMap__8DGTexManFUc
 
-.global EnableExpensiveMipMap__8DGTexManFUc
-EnableExpensiveMipMap__8DGTexManFUc:
+.fn EnableExpensiveMipMap__8DGTexManFUc, global
 /* 800186BC 0001463C  98 83 00 11 */	stb r4, 0x11(r3)
 /* 800186C0 00014640  4E 80 00 20 */	blr
+.endfn EnableExpensiveMipMap__8DGTexManFUc
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

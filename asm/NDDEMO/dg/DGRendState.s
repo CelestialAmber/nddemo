@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__11DGRendStateFv
-__ct__11DGRendStateFv:
+.fn __ct__11DGRendStateFv, global
 /* 80019B04 00015A84  7C 08 02 A6 */	mflr r0
 /* 80019B08 00015A88  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80019B0C 00015A8C  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -244,9 +243,9 @@ __ct__11DGRendStateFv:
 /* 80019E68 00015DE8  7C 08 03 A6 */	mtlr r0
 /* 80019E6C 00015DEC  38 21 00 60 */	addi r1, r1, 0x60
 /* 80019E70 00015DF0  4E 80 00 20 */	blr
+.endfn __ct__11DGRendStateFv
 
-.global __dt__11DGRendStateFv
-__dt__11DGRendStateFv:
+.fn __dt__11DGRendStateFv, global
 /* 80019E74 00015DF4  7C 08 02 A6 */	mflr r0
 /* 80019E78 00015DF8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80019E7C 00015DFC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -264,9 +263,9 @@ __dt__11DGRendStateFv:
 /* 80019EA8 00015E28  38 21 00 18 */	addi r1, r1, 0x18
 /* 80019EAC 00015E2C  7C 08 03 A6 */	mtlr r0
 /* 80019EB0 00015E30  4E 80 00 20 */	blr
+.endfn __dt__11DGRendStateFv
 
-.global SetChan0AmbColor__11DGRendStateFR8_GXColor
-SetChan0AmbColor__11DGRendStateFR8_GXColor:
+.fn SetChan0AmbColor__11DGRendStateFR8_GXColor, global
 /* 80019EB4 00015E34  7C 08 02 A6 */	mflr r0
 /* 80019EB8 00015E38  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80019EBC 00015E3C  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -331,9 +330,9 @@ SetChan0AmbColor__11DGRendStateFR8_GXColor:
 /* 80019F90 00015F10  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80019F94 00015F14  38 21 00 28 */	addi r1, r1, 0x28
 /* 80019F98 00015F18  4E 80 00 20 */	blr
+.endfn SetChan0AmbColor__11DGRendStateFR8_GXColor
 
-.global SetChan0MatColor__11DGRendStateFR8_GXColor
-SetChan0MatColor__11DGRendStateFR8_GXColor:
+.fn SetChan0MatColor__11DGRendStateFR8_GXColor, global
 /* 80019F9C 00015F1C  7C 08 02 A6 */	mflr r0
 /* 80019FA0 00015F20  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80019FA4 00015F24  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -398,9 +397,9 @@ SetChan0MatColor__11DGRendStateFR8_GXColor:
 /* 8001A078 00015FF8  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 8001A07C 00015FFC  38 21 00 28 */	addi r1, r1, 0x28
 /* 8001A080 00016000  4E 80 00 20 */	blr
+.endfn SetChan0MatColor__11DGRendStateFR8_GXColor
 
-.global SetChan1AmbColor__11DGRendStateFR8_GXColor
-SetChan1AmbColor__11DGRendStateFR8_GXColor:
+.fn SetChan1AmbColor__11DGRendStateFR8_GXColor, global
 /* 8001A084 00016004  7C 08 02 A6 */	mflr r0
 /* 8001A088 00016008  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001A08C 0001600C  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -465,9 +464,9 @@ SetChan1AmbColor__11DGRendStateFR8_GXColor:
 /* 8001A160 000160E0  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 8001A164 000160E4  38 21 00 28 */	addi r1, r1, 0x28
 /* 8001A168 000160E8  4E 80 00 20 */	blr
+.endfn SetChan1AmbColor__11DGRendStateFR8_GXColor
 
-.global SetChan1MatColor__11DGRendStateFR8_GXColor
-SetChan1MatColor__11DGRendStateFR8_GXColor:
+.fn SetChan1MatColor__11DGRendStateFR8_GXColor, global
 /* 8001A16C 000160EC  7C 08 02 A6 */	mflr r0
 /* 8001A170 000160F0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001A174 000160F4  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -532,9 +531,9 @@ SetChan1MatColor__11DGRendStateFR8_GXColor:
 /* 8001A248 000161C8  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 8001A24C 000161CC  38 21 00 28 */	addi r1, r1, 0x28
 /* 8001A250 000161D0  4E 80 00 20 */	blr
+.endfn SetChan1MatColor__11DGRendStateFR8_GXColor
 
-.global SetNumChans__11DGRendStateFUc
-SetNumChans__11DGRendStateFUc:
+.fn SetNumChans__11DGRendStateFUc, global
 /* 8001A254 000161D4  7C 08 02 A6 */	mflr r0
 /* 8001A258 000161D8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001A25C 000161DC  54 80 06 3E */	clrlwi r0, r4, 24
@@ -576,3 +575,4 @@ SetNumChans__11DGRendStateFUc:
 /* 8001A2D8 00016258  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8001A2DC 0001625C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8001A2E0 00016260  4E 80 00 20 */	blr
+.endfn SetNumChans__11DGRendStateFUc

@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global __ct__8DGObjectFP8DGTexMan
-__ct__8DGObjectFP8DGTexMan:
+.fn __ct__8DGObjectFP8DGTexMan, global
 /* 80013F44 0000FEC4  38 E0 00 00 */	li r7, 0x0
 /* 80013F48 0000FEC8  B0 E3 00 00 */	sth r7, 0x0(r3)
 /* 80013F4C 0000FECC  38 C0 00 01 */	li r6, 0x1
@@ -49,9 +48,9 @@ __ct__8DGObjectFP8DGTexMan:
 /* 80013FE8 0000FF68  B0 E3 00 76 */	sth r7, 0x76(r3)
 /* 80013FEC 0000FF6C  90 E3 00 78 */	stw r7, 0x78(r3)
 /* 80013FF0 0000FF70  4E 80 00 20 */	blr
+.endfn __ct__8DGObjectFP8DGTexMan
 
-.global __dt__8DGObjectFv
-__dt__8DGObjectFv:
+.fn __dt__8DGObjectFv, global
 /* 80013FF4 0000FF74  7C 08 02 A6 */	mflr r0
 /* 80013FF8 0000FF78  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80013FFC 0000FF7C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -108,9 +107,9 @@ __dt__8DGObjectFv:
 /* 800140B0 00010030  7C 08 03 A6 */	mtlr r0
 /* 800140B4 00010034  38 21 00 18 */	addi r1, r1, 0x18
 /* 800140B8 00010038  4E 80 00 20 */	blr
+.endfn __dt__8DGObjectFv
 
-.global Draw__8DGObjectFv
-Draw__8DGObjectFv:
+.fn Draw__8DGObjectFv, global
 /* 800140BC 0001003C  7C 08 02 A6 */	mflr r0
 /* 800140C0 00010040  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800140C4 00010044  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -314,9 +313,9 @@ Draw__8DGObjectFv:
 /* 800143B0 00010330  38 21 00 48 */	addi r1, r1, 0x48
 /* 800143B4 00010334  7C 08 03 A6 */	mtlr r0
 /* 800143B8 00010338  4E 80 00 20 */	blr
+.endfn Draw__8DGObjectFv
 
-.global SetArrayFormat__8DGObjectFUsUsUsUs
-SetArrayFormat__8DGObjectFUsUsUsUs:
+.fn SetArrayFormat__8DGObjectFUsUsUsUs, global
 /* 800143BC 0001033C  7C 08 02 A6 */	mflr r0
 /* 800143C0 00010340  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800143C4 00010344  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -587,9 +586,9 @@ SetArrayFormat__8DGObjectFUsUsUsUs:
 /* 80014738 000106B8  38 21 00 30 */	addi r1, r1, 0x30
 /* 8001473C 000106BC  7C 08 03 A6 */	mtlr r0
 /* 80014740 000106C0  4E 80 00 20 */	blr
+.endfn SetArrayFormat__8DGObjectFUsUsUsUs
 
-.global ExecuteObjStream__8DGObjectFv
-ExecuteObjStream__8DGObjectFv:
+.fn ExecuteObjStream__8DGObjectFv, global
 /* 80014744 000106C4  7C 08 02 A6 */	mflr r0
 /* 80014748 000106C8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001474C 000106CC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -748,9 +747,9 @@ ExecuteObjStream__8DGObjectFv:
 /* 8001494C 000108CC  7C 08 03 A6 */	mtlr r0
 /* 80014950 000108D0  38 21 00 18 */	addi r1, r1, 0x18
 /* 80014954 000108D4  4E 80 00 20 */	blr
+.endfn ExecuteObjStream__8DGObjectFv
 
-.global oscmdExtend0__8DGObjectFRPUc
-oscmdExtend0__8DGObjectFRPUc:
+.fn oscmdExtend0__8DGObjectFRPUc, global
 /* 80014958 000108D8  7C 08 02 A6 */	mflr r0
 /* 8001495C 000108DC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80014960 000108E0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -779,9 +778,9 @@ oscmdExtend0__8DGObjectFRPUc:
 /* 800149B0 00010930  38 21 00 18 */	addi r1, r1, 0x18
 /* 800149B4 00010934  7C 08 03 A6 */	mtlr r0
 /* 800149B8 00010938  4E 80 00 20 */	blr
+.endfn oscmdExtend0__8DGObjectFRPUc
 
-.global oscmdExtendF__8DGObjectFRPUc
-oscmdExtendF__8DGObjectFRPUc:
+.fn oscmdExtendF__8DGObjectFRPUc, global
 /* 800149BC 0001093C  7C 08 02 A6 */	mflr r0
 /* 800149C0 00010940  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800149C4 00010944  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -833,9 +832,9 @@ oscmdExtendF__8DGObjectFRPUc:
 /* 80014A60 000109E0  38 21 00 18 */	addi r1, r1, 0x18
 /* 80014A64 000109E4  7C 08 03 A6 */	mtlr r0
 /* 80014A68 000109E8  4E 80 00 20 */	blr
+.endfn oscmdExtendF__8DGObjectFRPUc
 
-.global oscmdVtxDesc__8DGObjectFRPUc
-oscmdVtxDesc__8DGObjectFRPUc:
+.fn oscmdVtxDesc__8DGObjectFRPUc, global
 /* 80014A6C 000109EC  7C 08 02 A6 */	mflr r0
 /* 80014A70 000109F0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80014A74 000109F4  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -940,9 +939,9 @@ oscmdVtxDesc__8DGObjectFRPUc:
 /* 80014BD0 00010B50  38 21 00 20 */	addi r1, r1, 0x20
 /* 80014BD4 00010B54  7C 08 03 A6 */	mtlr r0
 /* 80014BD8 00010B58  4E 80 00 20 */	blr
+.endfn oscmdVtxDesc__8DGObjectFRPUc
 
-.global oscmdTevDirect__8DGObjectFRPUc
-oscmdTevDirect__8DGObjectFRPUc:
+.fn oscmdTevDirect__8DGObjectFRPUc, global
 /* 80014BDC 00010B5C  7C 08 02 A6 */	mflr r0
 /* 80014BE0 00010B60  3C 60 80 06 */	lis r3, TevStageID_TABLE@ha
 /* 80014BE4 00010B64  90 01 00 04 */	stw r0, 0x4(r1)
@@ -964,9 +963,9 @@ oscmdTevDirect__8DGObjectFRPUc:
 /* 80014C24 00010BA4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80014C28 00010BA8  7C 08 03 A6 */	mtlr r0
 /* 80014C2C 00010BAC  4E 80 00 20 */	blr
+.endfn oscmdTevDirect__8DGObjectFRPUc
 
-.global oscmdTevOrder__8DGObjectFRPUc
-oscmdTevOrder__8DGObjectFRPUc:
+.fn oscmdTevOrder__8DGObjectFRPUc, global
 /* 80014C30 00010BB0  7C 08 02 A6 */	mflr r0
 /* 80014C34 00010BB4  3C 60 80 06 */	lis r3, "GXTEXMAP_TABLE$160"@ha
 /* 80014C38 00010BB8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -999,9 +998,9 @@ oscmdTevOrder__8DGObjectFRPUc:
 /* 80014CA4 00010C24  38 21 00 18 */	addi r1, r1, 0x18
 /* 80014CA8 00010C28  7C 08 03 A6 */	mtlr r0
 /* 80014CAC 00010C2C  4E 80 00 20 */	blr
+.endfn oscmdTevOrder__8DGObjectFRPUc
 
-.global oscmdTevStages__8DGObjectFRPUc
-oscmdTevStages__8DGObjectFRPUc:
+.fn oscmdTevStages__8DGObjectFRPUc, global
 /* 80014CB0 00010C30  7C 08 02 A6 */	mflr r0
 /* 80014CB4 00010C34  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80014CB8 00010C38  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1020,9 +1019,9 @@ oscmdTevStages__8DGObjectFRPUc:
 /* 80014CEC 00010C6C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80014CF0 00010C70  7C 08 03 A6 */	mtlr r0
 /* 80014CF4 00010C74  4E 80 00 20 */	blr
+.endfn oscmdTevStages__8DGObjectFRPUc
 
-.global oscmdTexGens__8DGObjectFRPUc
-oscmdTexGens__8DGObjectFRPUc:
+.fn oscmdTexGens__8DGObjectFRPUc, global
 /* 80014CF8 00010C78  7C 08 02 A6 */	mflr r0
 /* 80014CFC 00010C7C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80014D00 00010C80  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1040,9 +1039,9 @@ oscmdTexGens__8DGObjectFRPUc:
 /* 80014D30 00010CB0  38 21 00 18 */	addi r1, r1, 0x18
 /* 80014D34 00010CB4  7C 08 03 A6 */	mtlr r0
 /* 80014D38 00010CB8  4E 80 00 20 */	blr
+.endfn oscmdTexGens__8DGObjectFRPUc
 
-.global oscmdTevColorInOp__8DGObjectFRPUc
-oscmdTevColorInOp__8DGObjectFRPUc:
+.fn oscmdTevColorInOp__8DGObjectFRPUc, global
 /* 80014D3C 00010CBC  7C 08 02 A6 */	mflr r0
 /* 80014D40 00010CC0  3C 60 80 06 */	lis r3, "GXTEXMAP_TABLE$160"@ha
 /* 80014D44 00010CC4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1106,9 +1105,9 @@ oscmdTevColorInOp__8DGObjectFRPUc:
 /* 80014E2C 00010DAC  38 21 00 18 */	addi r1, r1, 0x18
 /* 80014E30 00010DB0  7C 08 03 A6 */	mtlr r0
 /* 80014E34 00010DB4  4E 80 00 20 */	blr
+.endfn oscmdTevColorInOp__8DGObjectFRPUc
 
-.global oscmdTevAlphaInOp__8DGObjectFRPUc
-oscmdTevAlphaInOp__8DGObjectFRPUc:
+.fn oscmdTevAlphaInOp__8DGObjectFRPUc, global
 /* 80014E38 00010DB8  7C 08 02 A6 */	mflr r0
 /* 80014E3C 00010DBC  3C 60 80 06 */	lis r3, "GXTEXMAP_TABLE$160"@ha
 /* 80014E40 00010DC0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1168,9 +1167,9 @@ oscmdTevAlphaInOp__8DGObjectFRPUc:
 /* 80014F18 00010E98  38 21 00 18 */	addi r1, r1, 0x18
 /* 80014F1C 00010E9C  7C 08 03 A6 */	mtlr r0
 /* 80014F20 00010EA0  4E 80 00 20 */	blr
+.endfn oscmdTevAlphaInOp__8DGObjectFRPUc
 
-.global oscmdTevColor__8DGObjectFRPUc
-oscmdTevColor__8DGObjectFRPUc:
+.fn oscmdTevColor__8DGObjectFRPUc, global
 /* 80014F24 00010EA4  7C 08 02 A6 */	mflr r0
 /* 80014F28 00010EA8  3C 60 80 06 */	lis r3, TevRegID_TABLE@ha
 /* 80014F2C 00010EAC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1196,9 +1195,9 @@ oscmdTevColor__8DGObjectFRPUc:
 /* 80014F7C 00010EFC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80014F80 00010F00  7C 08 03 A6 */	mtlr r0
 /* 80014F84 00010F04  4E 80 00 20 */	blr
+.endfn oscmdTevColor__8DGObjectFRPUc
 
-.global oscmdBlendMode__8DGObjectFRPUc
-oscmdBlendMode__8DGObjectFRPUc:
+.fn oscmdBlendMode__8DGObjectFRPUc, global
 /* 80014F88 00010F08  7C 08 02 A6 */	mflr r0
 /* 80014F8C 00010F0C  3C 60 80 06 */	lis r3, "GXTEXMAP_TABLE$160"@ha
 /* 80014F90 00010F10  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1230,9 +1229,9 @@ oscmdBlendMode__8DGObjectFRPUc:
 /* 80014FF8 00010F78  38 21 00 18 */	addi r1, r1, 0x18
 /* 80014FFC 00010F7C  7C 08 03 A6 */	mtlr r0
 /* 80015000 00010F80  4E 80 00 20 */	blr
+.endfn oscmdBlendMode__8DGObjectFRPUc
 
-.global oscmdTexCoordGen__8DGObjectFRPUc
-oscmdTexCoordGen__8DGObjectFRPUc:
+.fn oscmdTexCoordGen__8DGObjectFRPUc, global
 /* 80015004 00010F84  7C 08 02 A6 */	mflr r0
 /* 80015008 00010F88  3C 60 80 06 */	lis r3, "GXTEXMAP_TABLE$160"@ha
 /* 8001500C 00010F8C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1267,9 +1266,9 @@ oscmdTexCoordGen__8DGObjectFRPUc:
 /* 80015080 00011000  38 21 00 18 */	addi r1, r1, 0x18
 /* 80015084 00011004  7C 08 03 A6 */	mtlr r0
 /* 80015088 00011008  4E 80 00 20 */	blr
+.endfn oscmdTexCoordGen__8DGObjectFRPUc
 
-.global oscmdIndStages__8DGObjectFRPUc
-oscmdIndStages__8DGObjectFRPUc:
+.fn oscmdIndStages__8DGObjectFRPUc, global
 /* 8001508C 0001100C  7C 08 02 A6 */	mflr r0
 /* 80015090 00011010  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80015094 00011014  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1287,9 +1286,9 @@ oscmdIndStages__8DGObjectFRPUc:
 /* 800150C4 00011044  38 21 00 18 */	addi r1, r1, 0x18
 /* 800150C8 00011048  7C 08 03 A6 */	mtlr r0
 /* 800150CC 0001104C  4E 80 00 20 */	blr
+.endfn oscmdIndStages__8DGObjectFRPUc
 
-.global oscmdIndTexOrder__8DGObjectFRPUc
-oscmdIndTexOrder__8DGObjectFRPUc:
+.fn oscmdIndTexOrder__8DGObjectFRPUc, global
 /* 800150D0 00011050  7C 08 02 A6 */	mflr r0
 /* 800150D4 00011054  3C 60 80 06 */	lis r3, "GXTEXMAP_TABLE$160"@ha
 /* 800150D8 00011058  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1318,9 +1317,9 @@ oscmdIndTexOrder__8DGObjectFRPUc:
 /* 80015134 000110B4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80015138 000110B8  7C 08 03 A6 */	mtlr r0
 /* 8001513C 000110BC  4E 80 00 20 */	blr
+.endfn oscmdIndTexOrder__8DGObjectFRPUc
 
-.global oscmdIndTexCoordScale__8DGObjectFRPUc
-oscmdIndTexCoordScale__8DGObjectFRPUc:
+.fn oscmdIndTexCoordScale__8DGObjectFRPUc, global
 /* 80015140 000110C0  7C 08 02 A6 */	mflr r0
 /* 80015144 000110C4  3C 60 80 06 */	lis r3, "GXTEXMAP_TABLE$160"@ha
 /* 80015148 000110C8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1349,9 +1348,9 @@ oscmdIndTexCoordScale__8DGObjectFRPUc:
 /* 800151A4 00011124  38 21 00 18 */	addi r1, r1, 0x18
 /* 800151A8 00011128  7C 08 03 A6 */	mtlr r0
 /* 800151AC 0001112C  4E 80 00 20 */	blr
+.endfn oscmdIndTexCoordScale__8DGObjectFRPUc
 
-.global oscmdDrawLine__8DGObjectFRPUc
-oscmdDrawLine__8DGObjectFRPUc:
+.fn oscmdDrawLine__8DGObjectFRPUc, global
 /* 800151B0 00011130  7C 08 02 A6 */	mflr r0
 /* 800151B4 00011134  3C A0 80 06 */	lis r5, lbl_80066690@ha
 /* 800151B8 00011138  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1751,9 +1750,9 @@ oscmdDrawLine__8DGObjectFRPUc:
 /* 80015728 000116A8  38 21 01 90 */	addi r1, r1, 0x190
 /* 8001572C 000116AC  7C 08 03 A6 */	mtlr r0
 /* 80015730 000116B0  4E 80 00 20 */	blr
+.endfn oscmdDrawLine__8DGObjectFRPUc
 
-.global oscmdDisplayList__8DGObjectFRPUc
-oscmdDisplayList__8DGObjectFRPUc:
+.fn oscmdDisplayList__8DGObjectFRPUc, global
 /* 80015734 000116B4  7C 08 02 A6 */	mflr r0
 /* 80015738 000116B8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001573C 000116BC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1773,9 +1772,9 @@ oscmdDisplayList__8DGObjectFRPUc:
 /* 80015774 000116F4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80015778 000116F8  7C 08 03 A6 */	mtlr r0
 /* 8001577C 000116FC  4E 80 00 20 */	blr
+.endfn oscmdDisplayList__8DGObjectFRPUc
 
-.global oscmdZMode__8DGObjectFRPUc
-oscmdZMode__8DGObjectFRPUc:
+.fn oscmdZMode__8DGObjectFRPUc, global
 /* 80015780 00011700  7C 08 02 A6 */	mflr r0
 /* 80015784 00011704  3C 60 80 06 */	lis r3, Compare_TABLE@ha
 /* 80015788 00011708  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1802,9 +1801,9 @@ oscmdZMode__8DGObjectFRPUc:
 /* 800157DC 0001175C  38 21 00 18 */	addi r1, r1, 0x18
 /* 800157E0 00011760  7C 08 03 A6 */	mtlr r0
 /* 800157E4 00011764  4E 80 00 20 */	blr
+.endfn oscmdZMode__8DGObjectFRPUc
 
-.global oscmdIndBumpXYZ__8DGObjectFRPUc
-oscmdIndBumpXYZ__8DGObjectFRPUc:
+.fn oscmdIndBumpXYZ__8DGObjectFRPUc, global
 /* 800157E8 00011768  7C 08 02 A6 */	mflr r0
 /* 800157EC 0001176C  3C 60 80 06 */	lis r3, "GXTEXMAP_TABLE$160"@ha
 /* 800157F0 00011770  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1833,9 +1832,9 @@ oscmdIndBumpXYZ__8DGObjectFRPUc:
 /* 8001584C 000117CC  38 21 00 18 */	addi r1, r1, 0x18
 /* 80015850 000117D0  7C 08 03 A6 */	mtlr r0
 /* 80015854 000117D4  4E 80 00 20 */	blr
+.endfn oscmdIndBumpXYZ__8DGObjectFRPUc
 
-.global IncRefer__8DGObjectFv
-IncRefer__8DGObjectFv:
+.fn IncRefer__8DGObjectFv, global
 /* 80015858 000117D8  7C 08 02 A6 */	mflr r0
 /* 8001585C 000117DC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80015860 000117E0  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1869,9 +1868,9 @@ IncRefer__8DGObjectFv:
 /* 800158C4 00011844  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800158C8 00011848  38 21 00 20 */	addi r1, r1, 0x20
 /* 800158CC 0001184C  4E 80 00 20 */	blr
+.endfn IncRefer__8DGObjectFv
 
-.global DecRefer__8DGObjectFv
-DecRefer__8DGObjectFv:
+.fn DecRefer__8DGObjectFv, global
 /* 800158D0 00011850  7C 08 02 A6 */	mflr r0
 /* 800158D4 00011854  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800158D8 00011858  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1916,9 +1915,9 @@ DecRefer__8DGObjectFv:
 /* 80015960 000118E0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80015964 000118E4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80015968 000118E8  4E 80 00 20 */	blr
+.endfn DecRefer__8DGObjectFv
 
-.global LoadNDMPartsBlock__8DGObjectFR5DUDvd
-LoadNDMPartsBlock__8DGObjectFR5DUDvd:
+.fn LoadNDMPartsBlock__8DGObjectFR5DUDvd, global
 /* 8001596C 000118EC  7C 08 02 A6 */	mflr r0
 /* 80015970 000118F0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80015974 000118F4  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -2150,9 +2149,9 @@ LoadNDMPartsBlock__8DGObjectFR5DUDvd:
 /* 80015CB4 00011C34  38 21 00 48 */	addi r1, r1, 0x48
 /* 80015CB8 00011C38  7C 08 03 A6 */	mtlr r0
 /* 80015CBC 00011C3C  4E 80 00 20 */	blr
+.endfn LoadNDMPartsBlock__8DGObjectFR5DUDvd
 
-.global MakeTexTransTable__8DGObjectFPUs
-MakeTexTransTable__8DGObjectFPUs:
+.fn MakeTexTransTable__8DGObjectFPUs, global
 /* 80015CC0 00011C40  38 A0 00 00 */	li r5, 0x0
 /* 80015CC4 00011C44  48 00 00 24 */	b .L_80015CE8
 .L_80015CC8:
@@ -2170,14 +2169,14 @@ MakeTexTransTable__8DGObjectFPUs:
 /* 80015CEC 00011C6C  28 00 00 08 */	cmplwi r0, 0x8
 /* 80015CF0 00011C70  41 80 FF D8 */	blt .L_80015CC8
 /* 80015CF4 00011C74  4E 80 00 20 */	blr
+.endfn MakeTexTransTable__8DGObjectFPUs
 
-.global GetPartsBlock__8DGObjectFv
-GetPartsBlock__8DGObjectFv:
+.fn GetPartsBlock__8DGObjectFv, global
 /* 80015CF8 00011C78  80 63 00 78 */	lwz r3, 0x78(r3)
 /* 80015CFC 00011C7C  4E 80 00 20 */	blr
+.endfn GetPartsBlock__8DGObjectFv
 
-.global IsNull__8DGObjectFv
-IsNull__8DGObjectFv:
+.fn IsNull__8DGObjectFv, global
 /* 80015D00 00011C80  80 03 00 08 */	lwz r0, 0x8(r3)
 /* 80015D04 00011C84  2C 00 00 00 */	cmpwi r0, 0x0
 /* 80015D08 00011C88  40 82 00 0C */	bne .L_80015D14
@@ -2186,6 +2185,7 @@ IsNull__8DGObjectFv:
 .L_80015D14:
 /* 80015D14 00011C94  38 60 00 00 */	li r3, 0x0
 /* 80015D18 00011C98  4E 80 00 20 */	blr
+.endfn IsNull__8DGObjectFv
 
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0

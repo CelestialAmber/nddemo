@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __destroy_arr
-__destroy_arr:
+.fn __destroy_arr, global
 /* 8005F15C 0005B0DC  7C 08 02 A6 */	mflr r0
 /* 8005F160 0005B0E0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005F164 0005B0E4  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -36,9 +35,9 @@ __destroy_arr:
 /* 8005F1C8 0005B148  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 8005F1CC 0005B14C  38 21 00 28 */	addi r1, r1, 0x28
 /* 8005F1D0 0005B150  4E 80 00 20 */	blr
+.endfn __destroy_arr
 
-.global __construct_array
-__construct_array:
+.fn __construct_array, global
 /* 8005F1D4 0005B154  7C 08 02 A6 */	mflr r0
 /* 8005F1D8 0005B158  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005F1DC 0005B15C  38 00 00 00 */	li r0, 0x0
@@ -108,10 +107,10 @@ __construct_array:
 /* 8005F2C8 0005B248  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 8005F2CC 0005B24C  38 21 00 40 */	addi r1, r1, 0x40
 /* 8005F2D0 0005B250  4E 80 00 20 */	blr
+.endfn __construct_array
 
 #weak
-.global __dt__26__partial_array_destructorFv
-__dt__26__partial_array_destructorFv:
+.fn __dt__26__partial_array_destructorFv, global
 /* 8005F2D4 0005B254  7C 08 02 A6 */	mflr r0
 /* 8005F2D8 0005B258  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005F2DC 0005B25C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -162,6 +161,7 @@ __dt__26__partial_array_destructorFv:
 /* 8005F380 0005B300  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8005F384 0005B304  38 21 00 20 */	addi r1, r1, 0x20
 /* 8005F388 0005B308  4E 80 00 20 */	blr
+.endfn __dt__26__partial_array_destructorFv
 
 .section extab_, "wa"  # 0x80005520 - 0x80005BC0 ; 0x000006A0
 
@@ -179,10 +179,6 @@ lbl_80005B90:
 
 lbl_80005BA8:
 	.4byte 0x18080000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
 	.4byte 0
 
 .section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0 ; 0x000009E0

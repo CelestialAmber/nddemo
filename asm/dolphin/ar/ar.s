@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global ARRegisterDMACallback
-ARRegisterDMACallback:
+.fn ARRegisterDMACallback, global
 /* 80037D58 00033CD8  7C 08 02 A6 */	mflr r0
 /* 80037D5C 00033CDC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80037D60 00033CE0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -21,9 +20,9 @@ ARRegisterDMACallback:
 /* 80037D90 00033D10  7C 08 03 A6 */	mtlr r0
 /* 80037D94 00033D14  38 21 00 18 */	addi r1, r1, 0x18
 /* 80037D98 00033D18  4E 80 00 20 */	blr
+.endfn ARRegisterDMACallback
 
-.global ARStartDMA
-ARStartDMA:
+.fn ARStartDMA, global
 /* 80037D9C 00033D1C  7C 08 02 A6 */	mflr r0
 /* 80037DA0 00033D20  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80037DA4 00033D24  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -84,9 +83,9 @@ ARStartDMA:
 /* 80037E80 00033E00  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 80037E84 00033E04  38 21 00 28 */	addi r1, r1, 0x28
 /* 80037E88 00033E08  4E 80 00 20 */	blr
+.endfn ARStartDMA
 
-.global ARInit
-ARInit:
+.fn ARInit, global
 /* 80037E8C 00033E0C  7C 08 02 A6 */	mflr r0
 /* 80037E90 00033E10  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80037E94 00033E14  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -150,18 +149,19 @@ ARInit:
 /* 80037F74 00033EF4  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 80037F78 00033EF8  38 21 00 30 */	addi r1, r1, 0x30
 /* 80037F7C 00033EFC  4E 80 00 20 */	blr
+.endfn ARInit
 
-.global ARGetBaseAddress
-ARGetBaseAddress:
+.fn ARGetBaseAddress, global
 /* 80037F80 00033F00  38 60 40 00 */	li r3, 0x4000
 /* 80037F84 00033F04  4E 80 00 20 */	blr
+.endfn ARGetBaseAddress
 
-.global ARGetSize
-ARGetSize:
+.fn ARGetSize, global
 /* 80037F88 00033F08  80 6D 86 6C */	lwz r3, __AR_Size@sda21(r13)
 /* 80037F8C 00033F0C  4E 80 00 20 */	blr
+.endfn ARGetSize
 
-__ARHandler:
+.fn __ARHandler, local
 /* 80037F90 00033F10  7C 08 02 A6 */	mflr r0
 /* 80037F94 00033F14  3C 60 CC 00 */	lis r3, 0xCC005000@ha
 /* 80037F98 00033F18  90 01 00 04 */	stw r0, 0x4(r1)
@@ -193,8 +193,9 @@ __ARHandler:
 /* 80037FFC 00033F7C  38 21 02 E0 */	addi r1, r1, 0x2e0
 /* 80038000 00033F80  7C 08 03 A6 */	mtlr r0
 /* 80038004 00033F84  4E 80 00 20 */	blr
+.endfn __ARHandler
 
-__ARChecksize:
+.fn __ARChecksize, local
 /* 80038008 00033F88  7C 08 02 A6 */	mflr r0
 /* 8003800C 00033F8C  3C 60 DE AE */	lis r3, 0xDEADBEEF@ha
 /* 80038010 00033F90  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1176,6 +1177,7 @@ __ARChecksize:
 /* 80038EC8 00034E48  38 21 01 40 */	addi r1, r1, 0x140
 /* 80038ECC 00034E4C  7C 08 03 A6 */	mtlr r0
 /* 80038ED0 00034E50  4E 80 00 20 */	blr
+.endfn __ARChecksize
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 

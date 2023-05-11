@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-do_src1:
+.fn do_src1, local
 /* 80059E18 00055D98  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80059E1C 00055D9C  BF 41 00 28 */	stmw r26, 0x28(r1)
 /* 80059E20 00055DA0  80 83 00 0C */	lwz r4, 0xc(r3)
@@ -110,8 +110,9 @@ do_src1:
 /* 80059FA4 00055F24  BB 41 00 28 */	lmw r26, 0x28(r1)
 /* 80059FA8 00055F28  38 21 00 40 */	addi r1, r1, 0x40
 /* 80059FAC 00055F2C  4E 80 00 20 */	blr
+.endfn do_src1
 
-do_src2:
+.fn do_src2, local
 /* 80059FB0 00055F30  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80059FB4 00055F34  BF 41 00 28 */	stmw r26, 0x28(r1)
 /* 80059FB8 00055F38  80 83 00 0C */	lwz r4, 0xc(r3)
@@ -241,9 +242,9 @@ do_src2:
 /* 8005A190 00056110  BB 41 00 28 */	lmw r26, 0x28(r1)
 /* 8005A194 00056114  38 21 00 40 */	addi r1, r1, 0x40
 /* 8005A198 00056118  4E 80 00 20 */	blr
+.endfn do_src2
 
-.global sndAuxCallbackChorus
-sndAuxCallbackChorus:
+.fn sndAuxCallbackChorus, global
 /* 8005A19C 0005611C  7C 08 02 A6 */	mflr r0
 /* 8005A1A0 00056120  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005A1A4 00056124  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -480,9 +481,9 @@ sndAuxCallbackChorus:
 /* 8005A4FC 0005647C  38 21 00 40 */	addi r1, r1, 0x40
 /* 8005A500 00056480  7C 08 03 A6 */	mtlr r0
 /* 8005A504 00056484  4E 80 00 20 */	blr
+.endfn sndAuxCallbackChorus
 
-.global sndAuxCallbackPrepareChorus
-sndAuxCallbackPrepareChorus:
+.fn sndAuxCallbackPrepareChorus, global
 /* 8005A508 00056488  7C 08 02 A6 */	mflr r0
 /* 8005A50C 0005648C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005A510 00056490  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -640,6 +641,7 @@ sndAuxCallbackPrepareChorus:
 /* 8005A75C 000566DC  38 21 00 28 */	addi r1, r1, 0x28
 /* 8005A760 000566E0  7C 08 03 A6 */	mtlr r0
 /* 8005A764 000566E4  4E 80 00 20 */	blr
+.endfn sndAuxCallbackPrepareChorus
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

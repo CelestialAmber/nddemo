@@ -4,8 +4,7 @@
 
 
 
-.global __ct__7DGLightFv
-__ct__7DGLightFv:
+.fn __ct__7DGLightFv, global
 /* 80012B04 0000EA84  7C 08 02 A6 */	mflr r0
 /* 80012B08 0000EA88  38 A0 00 FF */	li r5, 0xff
 /* 80012B0C 0000EA8C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -45,9 +44,9 @@ __ct__7DGLightFv:
 /* 80012B94 0000EB14  38 21 00 18 */	addi r1, r1, 0x18
 /* 80012B98 0000EB18  7C 08 03 A6 */	mtlr r0
 /* 80012B9C 0000EB1C  4E 80 00 20 */	blr
+.endfn __ct__7DGLightFv
 
-.global __dt__7DGLightFv
-__dt__7DGLightFv:
+.fn __dt__7DGLightFv, global
 /* 80012BA0 0000EB20  7C 08 02 A6 */	mflr r0
 /* 80012BA4 0000EB24  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012BA8 0000EB28  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -65,9 +64,9 @@ __dt__7DGLightFv:
 /* 80012BD4 0000EB54  38 21 00 18 */	addi r1, r1, 0x18
 /* 80012BD8 0000EB58  7C 08 03 A6 */	mtlr r0
 /* 80012BDC 0000EB5C  4E 80 00 20 */	blr
+.endfn __dt__7DGLightFv
 
-.global SetLight__7DGLightF10_GXLightIDR11DGRendState
-SetLight__7DGLightF10_GXLightIDR11DGRendState:
+.fn SetLight__7DGLightF10_GXLightIDR11DGRendState, global
 /* 80012BE0 0000EB60  7C 08 02 A6 */	mflr r0
 /* 80012BE4 0000EB64  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012BE8 0000EB68  94 21 FF 50 */	stwu r1, -0xb0(r1)
@@ -167,9 +166,9 @@ SetLight__7DGLightF10_GXLightIDR11DGRendState:
 /* 80012D54 0000ECD4  83 A1 00 A4 */	lwz r29, 0xa4(r1)
 /* 80012D58 0000ECD8  38 21 00 B0 */	addi r1, r1, 0xb0
 /* 80012D5C 0000ECDC  4E 80 00 20 */	blr
+.endfn SetLight__7DGLightF10_GXLightIDR11DGRendState
 
-.global SetPosition__7DGLightFRC3Vec
-SetPosition__7DGLightFRC3Vec:
+.fn SetPosition__7DGLightFRC3Vec, global
 /* 80012D60 0000ECE0  80 A4 00 00 */	lwz r5, 0x0(r4)
 /* 80012D64 0000ECE4  80 04 00 04 */	lwz r0, 0x4(r4)
 /* 80012D68 0000ECE8  90 A3 00 00 */	stw r5, 0x0(r3)
@@ -177,9 +176,9 @@ SetPosition__7DGLightFRC3Vec:
 /* 80012D70 0000ECF0  80 04 00 08 */	lwz r0, 0x8(r4)
 /* 80012D74 0000ECF4  90 03 00 08 */	stw r0, 0x8(r3)
 /* 80012D78 0000ECF8  4E 80 00 20 */	blr
+.endfn SetPosition__7DGLightFRC3Vec
 
-.global AddPosition__7DGLightFRC3Vec
-AddPosition__7DGLightFRC3Vec:
+.fn AddPosition__7DGLightFRC3Vec, global
 /* 80012D7C 0000ECFC  C0 23 00 00 */	lfs f1, 0x0(r3)
 /* 80012D80 0000ED00  C0 04 00 00 */	lfs f0, 0x0(r4)
 /* 80012D84 0000ED04  EC 01 00 2A */	fadds f0, f1, f0
@@ -193,9 +192,9 @@ AddPosition__7DGLightFRC3Vec:
 /* 80012DA4 0000ED24  EC 01 00 2A */	fadds f0, f1, f0
 /* 80012DA8 0000ED28  D0 03 00 08 */	stfs f0, 0x8(r3)
 /* 80012DAC 0000ED2C  4E 80 00 20 */	blr
+.endfn AddPosition__7DGLightFRC3Vec
 
-.global SetDirectionFromObserve__7DGLightFR3Vec
-SetDirectionFromObserve__7DGLightFR3Vec:
+.fn SetDirectionFromObserve__7DGLightFR3Vec, global
 /* 80012DB0 0000ED30  7C 08 02 A6 */	mflr r0
 /* 80012DB4 0000ED34  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012DB8 0000ED38  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -213,45 +212,45 @@ SetDirectionFromObserve__7DGLightFR3Vec:
 /* 80012DE8 0000ED68  38 21 00 28 */	addi r1, r1, 0x28
 /* 80012DEC 0000ED6C  7C 08 03 A6 */	mtlr r0
 /* 80012DF0 0000ED70  4E 80 00 20 */	blr
+.endfn SetDirectionFromObserve__7DGLightFR3Vec
 
-.global SetLightColor__7DGLightFRC8_GXColor
-SetLightColor__7DGLightFRC8_GXColor:
+.fn SetLightColor__7DGLightFRC8_GXColor, global
 /* 80012DF4 0000ED74  80 04 00 00 */	lwz r0, 0x0(r4)
 /* 80012DF8 0000ED78  90 03 00 18 */	stw r0, 0x18(r3)
 /* 80012DFC 0000ED7C  4E 80 00 20 */	blr
+.endfn SetLightColor__7DGLightFRC8_GXColor
 
-.global EnableSpecularLight__7DGLightFUc
-EnableSpecularLight__7DGLightFUc:
+.fn EnableSpecularLight__7DGLightFUc, global
 /* 80012E00 0000ED80  98 83 00 37 */	stb r4, 0x37(r3)
 /* 80012E04 0000ED84  4E 80 00 20 */	blr
+.endfn EnableSpecularLight__7DGLightFUc
 
-.global SetShininess__7DGLightFf
-SetShininess__7DGLightFf:
+.fn SetShininess__7DGLightFf, global
 /* 80012E08 0000ED88  D0 23 00 38 */	stfs f1, 0x38(r3)
 /* 80012E0C 0000ED8C  4E 80 00 20 */	blr
+.endfn SetShininess__7DGLightFf
 
-.global EnableSpotLight__7DGLightFUc
-EnableSpotLight__7DGLightFUc:
+.fn EnableSpotLight__7DGLightFUc, global
 /* 80012E10 0000ED90  98 83 00 36 */	stb r4, 0x36(r3)
 /* 80012E14 0000ED94  4E 80 00 20 */	blr
+.endfn EnableSpotLight__7DGLightFUc
 
-.global SetDistanceAttenuation__7DGLightFfff
-SetDistanceAttenuation__7DGLightFfff:
+.fn SetDistanceAttenuation__7DGLightFfff, global
 /* 80012E18 0000ED98  D0 23 00 1C */	stfs f1, 0x1c(r3)
 /* 80012E1C 0000ED9C  D0 43 00 20 */	stfs f2, 0x20(r3)
 /* 80012E20 0000EDA0  D0 63 00 24 */	stfs f3, 0x24(r3)
 /* 80012E24 0000EDA4  4E 80 00 20 */	blr
+.endfn SetDistanceAttenuation__7DGLightFfff
 
-.global SetDistanceAttenuation_0__7DGLightFf
-SetDistanceAttenuation_0__7DGLightFf:
+.fn SetDistanceAttenuation_0__7DGLightFf, global
 /* 80012E28 0000EDA8  D0 23 00 1C */	stfs f1, 0x1c(r3)
 /* 80012E2C 0000EDAC  C0 02 81 10 */	lfs f0, lbl_800A9490@sda21(r2)
 /* 80012E30 0000EDB0  D0 03 00 20 */	stfs f0, 0x20(r3)
 /* 80012E34 0000EDB4  D0 03 00 24 */	stfs f0, 0x24(r3)
 /* 80012E38 0000EDB8  4E 80 00 20 */	blr
+.endfn SetDistanceAttenuation_0__7DGLightFf
 
-.global SetDistanceAttenuation_1__7DGLightFfff
-SetDistanceAttenuation_1__7DGLightFfff:
+.fn SetDistanceAttenuation_1__7DGLightFfff, global
 /* 80012E3C 0000EDBC  C0 82 81 10 */	lfs f4, lbl_800A9490@sda21(r2)
 /* 80012E40 0000EDC0  FC 04 10 00 */	fcmpu cr0, f4, f2
 /* 80012E44 0000EDC4  4D 82 00 20 */	beqlr
@@ -261,9 +260,9 @@ SetDistanceAttenuation_1__7DGLightFfff:
 /* 80012E54 0000EDD4  D0 03 00 20 */	stfs f0, 0x20(r3)
 /* 80012E58 0000EDD8  D0 83 00 24 */	stfs f4, 0x24(r3)
 /* 80012E5C 0000EDDC  4E 80 00 20 */	blr
+.endfn SetDistanceAttenuation_1__7DGLightFfff
 
-.global SetDistanceAttenuation_2__7DGLightFfff
-SetDistanceAttenuation_2__7DGLightFfff:
+.fn SetDistanceAttenuation_2__7DGLightFfff, global
 /* 80012E60 0000EDE0  C0 82 81 10 */	lfs f4, lbl_800A9490@sda21(r2)
 /* 80012E64 0000EDE4  FC 04 10 00 */	fcmpu cr0, f4, f2
 /* 80012E68 0000EDE8  4D 82 00 20 */	beqlr
@@ -274,16 +273,16 @@ SetDistanceAttenuation_2__7DGLightFfff:
 /* 80012E7C 0000EDFC  EC 03 00 24 */	fdivs f0, f3, f0
 /* 80012E80 0000EE00  D0 03 00 24 */	stfs f0, 0x24(r3)
 /* 80012E84 0000EE04  4E 80 00 20 */	blr
+.endfn SetDistanceAttenuation_2__7DGLightFfff
 
-.global SetAngleAttenuation__7DGLightFfff
-SetAngleAttenuation__7DGLightFfff:
+.fn SetAngleAttenuation__7DGLightFfff, global
 /* 80012E88 0000EE08  D0 23 00 28 */	stfs f1, 0x28(r3)
 /* 80012E8C 0000EE0C  D0 43 00 2C */	stfs f2, 0x2c(r3)
 /* 80012E90 0000EE10  D0 63 00 30 */	stfs f3, 0x30(r3)
 /* 80012E94 0000EE14  4E 80 00 20 */	blr
+.endfn SetAngleAttenuation__7DGLightFfff
 
-.global SetAngleAttenuation_Cos__7DGLightFff
-SetAngleAttenuation_Cos__7DGLightFff:
+.fn SetAngleAttenuation_Cos__7DGLightFff, global
 /* 80012E98 0000EE18  7C 08 02 A6 */	mflr r0
 /* 80012E9C 0000EE1C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012EA0 0000EE20  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -315,9 +314,9 @@ SetAngleAttenuation_Cos__7DGLightFff:
 /* 80012F04 0000EE84  7C 08 03 A6 */	mtlr r0
 /* 80012F08 0000EE88  38 21 00 28 */	addi r1, r1, 0x28
 /* 80012F0C 0000EE8C  4E 80 00 20 */	blr
+.endfn SetAngleAttenuation_Cos__7DGLightFff
 
-.global SetAngleAttenuation_Cos2__7DGLightFff
-SetAngleAttenuation_Cos2__7DGLightFff:
+.fn SetAngleAttenuation_Cos2__7DGLightFff, global
 /* 80012F10 0000EE90  7C 08 02 A6 */	mflr r0
 /* 80012F14 0000EE94  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80012F18 0000EE98  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -381,6 +380,7 @@ SetAngleAttenuation_Cos2__7DGLightFff:
 /* 80012FF8 0000EF78  7C 08 03 A6 */	mtlr r0
 /* 80012FFC 0000EF7C  38 21 00 28 */	addi r1, r1, 0x28
 /* 80013000 0000EF80  4E 80 00 20 */	blr
+.endfn SetAngleAttenuation_Cos2__7DGLightFff
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 

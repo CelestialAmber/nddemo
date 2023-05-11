@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-ClampStick:
+.fn ClampStick, local
 /* 80035928 000318A8  88 03 00 00 */	lbz r0, 0x0(r3)
 /* 8003592C 000318AC  89 84 00 00 */	lbz r12, 0x0(r4)
 /* 80035930 000318B0  7C 00 07 75 */	extsb. r0, r0
@@ -90,9 +90,9 @@ ClampStick:
 /* 80035A4C 000319CC  98 A3 00 00 */	stb r5, 0x0(r3)
 /* 80035A50 000319D0  98 04 00 00 */	stb r0, 0x0(r4)
 /* 80035A54 000319D4  4E 80 00 20 */	blr
+.endfn ClampStick
 
-.global PADClamp
-PADClamp:
+.fn PADClamp, global
 /* 80035A58 000319D8  7C 08 02 A6 */	mflr r0
 /* 80035A5C 000319DC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80035A60 000319E0  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -166,6 +166,7 @@ PADClamp:
 /* 80035B54 00031AD4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80035B58 00031AD8  38 21 00 20 */	addi r1, r1, 0x20
 /* 80035B5C 00031ADC  4E 80 00 20 */	blr
+.endfn PADClamp
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 

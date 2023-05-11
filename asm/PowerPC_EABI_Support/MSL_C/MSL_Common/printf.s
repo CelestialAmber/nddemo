@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global sprintf
-sprintf:
+.fn sprintf, global
 /* 800606FC 0005C67C  7C 08 02 A6 */	mflr r0
 /* 80060700 0005C680  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80060704 0005C684  94 21 FF 70 */	stwu r1, -0x90(r1)
@@ -60,9 +59,9 @@ sprintf:
 /* 800607C4 0005C744  7C 08 03 A6 */	mtlr r0
 /* 800607C8 0005C748  38 21 00 90 */	addi r1, r1, 0x90
 /* 800607CC 0005C74C  4E 80 00 20 */	blr
+.endfn sprintf
 
-.global vprintf
-vprintf:
+.fn vprintf, global
 /* 800607D0 0005C750  7C 08 02 A6 */	mflr r0
 /* 800607D4 0005C754  3C A0 80 07 */	lis r5, __files@ha
 /* 800607D8 0005C758  90 01 00 04 */	stw r0, 0x4(r1)
@@ -96,9 +95,9 @@ vprintf:
 /* 80060840 0005C7C0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80060844 0005C7C4  38 21 00 20 */	addi r1, r1, 0x20
 /* 80060848 0005C7C8  4E 80 00 20 */	blr
+.endfn vprintf
 
-.global __StringWrite
-__StringWrite:
+.fn __StringWrite, global
 /* 8006084C 0005C7CC  7C 08 02 A6 */	mflr r0
 /* 80060850 0005C7D0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80060854 0005C7D4  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -128,9 +127,9 @@ __StringWrite:
 /* 800608AC 0005C82C  7C 08 03 A6 */	mtlr r0
 /* 800608B0 0005C830  38 21 00 20 */	addi r1, r1, 0x20
 /* 800608B4 0005C834  4E 80 00 20 */	blr
+.endfn __StringWrite
 
-.global __FileWrite
-__FileWrite:
+.fn __FileWrite, global
 /* 800608B8 0005C838  7C 08 02 A6 */	mflr r0
 /* 800608BC 0005C83C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800608C0 0005C840  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -155,8 +154,9 @@ __FileWrite:
 /* 80060904 0005C884  7C 08 03 A6 */	mtlr r0
 /* 80060908 0005C888  38 21 00 20 */	addi r1, r1, 0x20
 /* 8006090C 0005C88C  4E 80 00 20 */	blr
+.endfn __FileWrite
 
-__pformatter:
+.fn __pformatter, local
 /* 80060910 0005C890  7C 08 02 A6 */	mflr r0
 /* 80060914 0005C894  3C E0 80 06 */	lis r7, lbl_80064A90@ha
 /* 80060918 0005C898  90 01 00 04 */	stw r0, 0x4(r1)
@@ -613,8 +613,9 @@ __pformatter:
 /* 80060F34 0005CEB4  38 21 02 68 */	addi r1, r1, 0x268
 /* 80060F38 0005CEB8  7C 08 03 A6 */	mtlr r0
 /* 80060F3C 0005CEBC  4E 80 00 20 */	blr
+.endfn __pformatter
 
-float2str:
+.fn float2str, local
 /* 80060F40 0005CEC0  7C 08 02 A6 */	mflr r0
 /* 80060F44 0005CEC4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80060F48 0005CEC8  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -1078,8 +1079,9 @@ float2str:
 /* 8006156C 0005D4EC  83 81 00 48 */	lwz r28, 0x48(r1)
 /* 80061570 0005D4F0  38 21 00 60 */	addi r1, r1, 0x60
 /* 80061574 0005D4F4  4E 80 00 20 */	blr
+.endfn float2str
 
-round_decimal:
+.fn round_decimal, local
 /* 80061578 0005D4F8  2C 04 00 00 */	cmpwi r4, 0x0
 /* 8006157C 0005D4FC  40 80 00 24 */	bge .L_800615A0
 .L_80061580:
@@ -1171,8 +1173,9 @@ round_decimal:
 /* 800616A0 0005D620  41 82 FE E0 */	beq .L_80061580
 /* 800616A4 0005D624  98 83 00 04 */	stb r4, 0x4(r3)
 /* 800616A8 0005D628  4E 80 00 20 */	blr
+.endfn round_decimal
 
-longlong2str:
+.fn longlong2str, local
 /* 800616AC 0005D62C  7C 08 02 A6 */	mflr r0
 /* 800616B0 0005D630  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800616B4 0005D634  38 00 00 00 */	li r0, 0x0
@@ -1379,8 +1382,9 @@ longlong2str:
 /* 80061980 0005D900  38 21 00 40 */	addi r1, r1, 0x40
 /* 80061984 0005D904  7C 08 03 A6 */	mtlr r0
 /* 80061988 0005D908  4E 80 00 20 */	blr
+.endfn longlong2str
 
-long2str:
+.fn long2str, local
 /* 8006198C 0005D90C  38 E0 00 00 */	li r7, 0x0
 /* 80061990 0005D910  98 E4 FF FF */	stb r7, -0x1(r4)
 /* 80061994 0005D914  2C 03 00 00 */	cmpwi r3, 0x0
@@ -1539,8 +1543,9 @@ long2str:
 .L_80061BA8:
 /* 80061BA8 0005DB28  7C C3 33 78 */	mr r3, r6
 /* 80061BAC 0005DB2C  4E 80 00 20 */	blr
+.endfn long2str
 
-parse_format:
+.fn parse_format, local
 /* 80061BB0 0005DB30  7C 08 02 A6 */	mflr r0
 /* 80061BB4 0005DB34  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80061BB8 0005DB38  38 00 00 01 */	li r0, 0x1
@@ -1899,6 +1904,7 @@ parse_format:
 /* 8006207C 0005DFFC  83 A1 00 2C */	lwz r29, 0x2c(r1)
 /* 80062080 0005E000  38 21 00 38 */	addi r1, r1, 0x38
 /* 80062084 0005E004  4E 80 00 20 */	blr
+.endfn parse_format
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 

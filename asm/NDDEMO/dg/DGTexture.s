@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __ct__9DGTextureFv
-__ct__9DGTextureFv:
+.fn __ct__9DGTextureFv, global
 /* 8001AA84 00016A04  38 80 00 00 */	li r4, 0x0
 /* 8001AA88 00016A08  B0 83 00 00 */	sth r4, 0x0(r3)
 /* 8001AA8C 00016A0C  38 00 00 05 */	li r0, 0x5
@@ -13,9 +12,9 @@ __ct__9DGTextureFv:
 /* 8001AA9C 00016A1C  90 03 00 0C */	stw r0, 0xc(r3)
 /* 8001AAA0 00016A20  98 83 00 10 */	stb r4, 0x10(r3)
 /* 8001AAA4 00016A24  4E 80 00 20 */	blr
+.endfn __ct__9DGTextureFv
 
-.global __dt__9DGTextureFv
-__dt__9DGTextureFv:
+.fn __dt__9DGTextureFv, global
 /* 8001AAA8 00016A28  7C 08 02 A6 */	mflr r0
 /* 8001AAAC 00016A2C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001AAB0 00016A30  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -51,17 +50,17 @@ __dt__9DGTextureFv:
 /* 8001AB1C 00016A9C  7C 08 03 A6 */	mtlr r0
 /* 8001AB20 00016AA0  38 21 00 18 */	addi r1, r1, 0x18
 /* 8001AB24 00016AA4  4E 80 00 20 */	blr
+.endfn __dt__9DGTextureFv
 
-.global IncRefer__9DGTextureFv
-IncRefer__9DGTextureFv:
+.fn IncRefer__9DGTextureFv, global
 /* 8001AB28 00016AA8  A0 83 00 00 */	lhz r4, 0x0(r3)
 /* 8001AB2C 00016AAC  38 04 00 01 */	addi r0, r4, 0x1
 /* 8001AB30 00016AB0  B0 03 00 00 */	sth r0, 0x0(r3)
 /* 8001AB34 00016AB4  7C 03 03 78 */	mr r3, r0
 /* 8001AB38 00016AB8  4E 80 00 20 */	blr
+.endfn IncRefer__9DGTextureFv
 
-.global DecRefer__9DGTextureFv
-DecRefer__9DGTextureFv:
+.fn DecRefer__9DGTextureFv, global
 /* 8001AB3C 00016ABC  7C 08 02 A6 */	mflr r0
 /* 8001AB40 00016AC0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001AB44 00016AC4  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -83,9 +82,9 @@ DecRefer__9DGTextureFv:
 /* 8001AB7C 00016AFC  38 21 00 08 */	addi r1, r1, 0x8
 /* 8001AB80 00016B00  7C 08 03 A6 */	mtlr r0
 /* 8001AB84 00016B04  4E 80 00 20 */	blr
+.endfn DecRefer__9DGTextureFv
 
-.global LoadDTX__9DGTextureFPc
-LoadDTX__9DGTextureFPc:
+.fn LoadDTX__9DGTextureFPc, global
 /* 8001AB88 00016B08  7C 08 02 A6 */	mflr r0
 /* 8001AB8C 00016B0C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001AB90 00016B10  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -189,31 +188,32 @@ LoadDTX__9DGTextureFPc:
 /* 8001AD00 00016C80  83 A1 00 34 */	lwz r29, 0x34(r1)
 /* 8001AD04 00016C84  38 21 00 40 */	addi r1, r1, 0x40
 /* 8001AD08 00016C88  4E 80 00 20 */	blr
+.endfn LoadDTX__9DGTextureFPc
 
-.global GetImagePtr__9DGTextureFv
-GetImagePtr__9DGTextureFv:
+.fn GetImagePtr__9DGTextureFv, global
 /* 8001AD0C 00016C8C  80 63 00 04 */	lwz r3, 0x4(r3)
 /* 8001AD10 00016C90  4E 80 00 20 */	blr
+.endfn GetImagePtr__9DGTextureFv
 
-.global GetWidth__9DGTextureFv
-GetWidth__9DGTextureFv:
+.fn GetWidth__9DGTextureFv, global
 /* 8001AD14 00016C94  A0 63 00 08 */	lhz r3, 0x8(r3)
 /* 8001AD18 00016C98  4E 80 00 20 */	blr
+.endfn GetWidth__9DGTextureFv
 
-.global GetHeight__9DGTextureFv
-GetHeight__9DGTextureFv:
+.fn GetHeight__9DGTextureFv, global
 /* 8001AD1C 00016C9C  A0 63 00 0A */	lhz r3, 0xa(r3)
 /* 8001AD20 00016CA0  4E 80 00 20 */	blr
+.endfn GetHeight__9DGTextureFv
 
-.global GetFormat__9DGTextureFv
-GetFormat__9DGTextureFv:
+.fn GetFormat__9DGTextureFv, global
 /* 8001AD24 00016CA4  80 63 00 0C */	lwz r3, 0xc(r3)
 /* 8001AD28 00016CA8  4E 80 00 20 */	blr
+.endfn GetFormat__9DGTextureFv
 
-.global GetMipLevel__9DGTextureFv
-GetMipLevel__9DGTextureFv:
+.fn GetMipLevel__9DGTextureFv, global
 /* 8001AD2C 00016CAC  88 63 00 10 */	lbz r3, 0x10(r3)
 /* 8001AD30 00016CB0  4E 80 00 20 */	blr
+.endfn GetMipLevel__9DGTextureFv
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

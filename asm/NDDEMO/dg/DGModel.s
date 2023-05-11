@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global __ct__7DGModelFP8DGObjMan
-__ct__7DGModelFP8DGObjMan:
+.fn __ct__7DGModelFP8DGObjMan, global
 /* 80013004 0000EF84  7C 08 02 A6 */	mflr r0
 /* 80013008 0000EF88  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001300C 0000EF8C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -23,9 +22,9 @@ __ct__7DGModelFP8DGObjMan:
 /* 80013040 0000EFC0  38 21 00 18 */	addi r1, r1, 0x18
 /* 80013044 0000EFC4  7C 08 03 A6 */	mtlr r0
 /* 80013048 0000EFC8  4E 80 00 20 */	blr
+.endfn __ct__7DGModelFP8DGObjMan
 
-.global __dt__7DGModelFv
-__dt__7DGModelFv:
+.fn __dt__7DGModelFv, global
 /* 8001304C 0000EFCC  7C 08 02 A6 */	mflr r0
 /* 80013050 0000EFD0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80013054 0000EFD4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -57,9 +56,9 @@ __dt__7DGModelFv:
 /* 800130B4 0000F034  7C 08 03 A6 */	mtlr r0
 /* 800130B8 0000F038  38 21 00 18 */	addi r1, r1, 0x18
 /* 800130BC 0000F03C  4E 80 00 20 */	blr
+.endfn __dt__7DGModelFv
 
-.global GetPartsPtr__7DGModelFPCc
-GetPartsPtr__7DGModelFPCc:
+.fn GetPartsPtr__7DGModelFPCc, global
 /* 800130C0 0000F040  7C 08 02 A6 */	mflr r0
 /* 800130C4 0000F044  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800130C8 0000F048  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -79,9 +78,9 @@ GetPartsPtr__7DGModelFPCc:
 /* 800130F8 0000F078  38 21 00 18 */	addi r1, r1, 0x18
 /* 800130FC 0000F07C  7C 08 03 A6 */	mtlr r0
 /* 80013100 0000F080  4E 80 00 20 */	blr
+.endfn GetPartsPtr__7DGModelFPCc
 
-.global Draw__7DGModelFR11DGRendState
-Draw__7DGModelFR11DGRendState:
+.fn Draw__7DGModelFR11DGRendState, global
 /* 80013104 0000F084  7C 08 02 A6 */	mflr r0
 /* 80013108 0000F088  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001310C 0000F08C  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -107,9 +106,9 @@ Draw__7DGModelFR11DGRendState:
 /* 80013158 0000F0D8  7C 08 03 A6 */	mtlr r0
 /* 8001315C 0000F0DC  38 21 00 48 */	addi r1, r1, 0x48
 /* 80013160 0000F0E0  4E 80 00 20 */	blr
+.endfn Draw__7DGModelFR11DGRendState
 
-.global CreateInstance__7DGModelFPUc
-CreateInstance__7DGModelFPUc:
+.fn CreateInstance__7DGModelFPUc, global
 /* 80013164 0000F0E4  7C 08 02 A6 */	mflr r0
 /* 80013168 0000F0E8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001316C 0000F0EC  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -169,9 +168,9 @@ CreateInstance__7DGModelFPUc:
 /* 8001322C 0000F1AC  7C 08 03 A6 */	mtlr r0
 /* 80013230 0000F1B0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80013234 0000F1B4  4E 80 00 20 */	blr
+.endfn CreateInstance__7DGModelFPUc
 
-.global SetPartsWorldPosition__7DGModelFv
-SetPartsWorldPosition__7DGModelFv:
+.fn SetPartsWorldPosition__7DGModelFv, global
 /* 80013238 0000F1B8  7C 08 02 A6 */	mflr r0
 /* 8001323C 0000F1BC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80013240 0000F1C0  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -192,9 +191,9 @@ SetPartsWorldPosition__7DGModelFv:
 /* 80013278 0000F1F8  38 21 00 48 */	addi r1, r1, 0x48
 /* 8001327C 0000F1FC  7C 08 03 A6 */	mtlr r0
 /* 80013280 0000F200  4E 80 00 20 */	blr
+.endfn SetPartsWorldPosition__7DGModelFv
 
-.global GetPartsWorldPosition__7DGModelFPCc
-GetPartsWorldPosition__7DGModelFPCc:
+.fn GetPartsWorldPosition__7DGModelFPCc, global
 /* 80013284 0000F204  7C 08 02 A6 */	mflr r0
 /* 80013288 0000F208  38 C5 00 00 */	addi r6, r5, 0x0
 /* 8001328C 0000F20C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -235,6 +234,7 @@ GetPartsWorldPosition__7DGModelFPCc:
 /* 80013308 0000F288  38 21 00 20 */	addi r1, r1, 0x20
 /* 8001330C 0000F28C  7C 08 03 A6 */	mtlr r0
 /* 80013310 0000F290  4E 80 00 20 */	blr
+.endfn GetPartsWorldPosition__7DGModelFPCc
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 

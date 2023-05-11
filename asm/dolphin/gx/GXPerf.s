@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global GXSetGPMetric
-GXSetGPMetric:
+.fn GXSetGPMetric, global
 /* 80040FB8 0003CF38  80 AD 82 90 */	lwz r5, gx@sda21(r13)
 /* 80040FBC 0003CF3C  80 05 04 E0 */	lwz r0, 0x4e0(r5)
 /* 80040FC0 0003CF40  2C 00 00 22 */	cmpwi r0, 0x22
@@ -623,9 +622,9 @@ GXSetGPMetric:
 /* 80041844 0003D7C4  38 00 00 00 */	li r0, 0x0
 /* 80041848 0003D7C8  B0 03 00 02 */	sth r0, 0x2(r3)
 /* 8004184C 0003D7CC  4E 80 00 20 */	blr
+.endfn GXSetGPMetric
 
-.global GXReadGPMetric
-GXReadGPMetric:
+.fn GXReadGPMetric, global
 /* 80041850 0003D7D0  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 80041854 0003D7D4  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 80041858 0003D7D8  80 AD 82 90 */	lwz r5, gx@sda21(r13)
@@ -725,13 +724,14 @@ GXReadGPMetric:
 /* 80041990 0003D910  83 E1 00 14 */	lwz r31, 0x14(r1)
 /* 80041994 0003D914  38 21 00 18 */	addi r1, r1, 0x18
 /* 80041998 0003D918  4E 80 00 20 */	blr
+.endfn GXReadGPMetric
 
-.global GXClearGPMetric
-GXClearGPMetric:
+.fn GXClearGPMetric, global
 /* 8004199C 0003D91C  80 6D 86 CC */	lwz r3, __cpReg@sda21(r13)
 /* 800419A0 0003D920  38 00 00 04 */	li r0, 0x4
 /* 800419A4 0003D924  B0 03 00 04 */	sth r0, 0x4(r3)
 /* 800419A8 0003D928  4E 80 00 20 */	blr
+.endfn GXClearGPMetric
 
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0

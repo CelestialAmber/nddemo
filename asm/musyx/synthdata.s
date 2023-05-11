@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global dataInsertKeymap
-dataInsertKeymap:
+.fn dataInsertKeymap, global
 /* 80048B50 00044AD0  7C 08 02 A6 */	mflr r0
 /* 80048B54 00044AD4  3C A0 80 09 */	lis r5, dataSmpSDirs@ha
 /* 80048B58 00044AD8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -142,9 +141,9 @@ dataInsertKeymap:
 /* 80048D34 00044CB4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80048D38 00044CB8  38 21 00 20 */	addi r1, r1, 0x20
 /* 80048D3C 00044CBC  4E 80 00 20 */	blr
+.endfn dataInsertKeymap
 
-.global dataRemoveKeymap
-dataRemoveKeymap:
+.fn dataRemoveKeymap, global
 /* 80048D40 00044CC0  7C 08 02 A6 */	mflr r0
 /* 80048D44 00044CC4  3C 80 80 09 */	lis r4, dataSmpSDirs@ha
 /* 80048D48 00044CC8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -251,9 +250,9 @@ dataRemoveKeymap:
 /* 80048EB8 00044E38  7C 08 03 A6 */	mtlr r0
 /* 80048EBC 00044E3C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80048EC0 00044E40  4E 80 00 20 */	blr
+.endfn dataRemoveKeymap
 
-.global dataInsertLayer
-dataInsertLayer:
+.fn dataInsertLayer, global
 /* 80048EC4 00044E44  7C 08 02 A6 */	mflr r0
 /* 80048EC8 00044E48  3C C0 80 09 */	lis r6, dataSmpSDirs@ha
 /* 80048ECC 00044E4C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -413,9 +412,9 @@ dataInsertLayer:
 /* 80049100 00045080  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 80049104 00045084  38 21 00 28 */	addi r1, r1, 0x28
 /* 80049108 00045088  4E 80 00 20 */	blr
+.endfn dataInsertLayer
 
-.global dataRemoveLayer
-dataRemoveLayer:
+.fn dataRemoveLayer, global
 /* 8004910C 0004508C  7C 08 02 A6 */	mflr r0
 /* 80049110 00045090  3C 80 80 09 */	lis r4, dataSmpSDirs@ha
 /* 80049114 00045094  90 01 00 04 */	stw r0, 0x4(r1)
@@ -540,9 +539,9 @@ dataRemoveLayer:
 /* 800492CC 0004524C  7C 08 03 A6 */	mtlr r0
 /* 800492D0 00045250  38 21 00 18 */	addi r1, r1, 0x18
 /* 800492D4 00045254  4E 80 00 20 */	blr
+.endfn dataRemoveLayer
 
-.global dataInsertCurve
-dataInsertCurve:
+.fn dataInsertCurve, global
 /* 800492D8 00045258  7C 08 02 A6 */	mflr r0
 /* 800492DC 0004525C  3C A0 80 09 */	lis r5, dataSmpSDirs@ha
 /* 800492E0 00045260  90 01 00 04 */	stw r0, 0x4(r1)
@@ -682,9 +681,9 @@ dataInsertCurve:
 /* 800494C4 00045444  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 800494C8 00045448  38 21 00 20 */	addi r1, r1, 0x20
 /* 800494CC 0004544C  4E 80 00 20 */	blr
+.endfn dataInsertCurve
 
-.global dataRemoveCurve
-dataRemoveCurve:
+.fn dataRemoveCurve, global
 /* 800494D0 00045450  7C 08 02 A6 */	mflr r0
 /* 800494D4 00045454  3C 80 80 09 */	lis r4, dataSmpSDirs@ha
 /* 800494D8 00045458  90 01 00 04 */	stw r0, 0x4(r1)
@@ -791,9 +790,9 @@ dataRemoveCurve:
 /* 80049648 000455C8  7C 08 03 A6 */	mtlr r0
 /* 8004964C 000455CC  38 21 00 18 */	addi r1, r1, 0x18
 /* 80049650 000455D0  4E 80 00 20 */	blr
+.endfn dataRemoveCurve
 
-.global dataInsertSDir
-dataInsertSDir:
+.fn dataInsertSDir, global
 /* 80049654 000455D4  7C 08 02 A6 */	mflr r0
 /* 80049658 000455D8  3C A0 80 09 */	lis r5, dataSmpSDirs@ha
 /* 8004965C 000455DC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -901,9 +900,9 @@ dataInsertSDir:
 /* 800497B4 00045734  38 21 00 28 */	addi r1, r1, 0x28
 /* 800497B8 00045738  7C 08 03 A6 */	mtlr r0
 /* 800497BC 0004573C  4E 80 00 20 */	blr
+.endfn dataInsertSDir
 
-.global dataRemoveSDir
-dataRemoveSDir:
+.fn dataRemoveSDir, global
 /* 800497C0 00045740  7C 08 02 A6 */	mflr r0
 /* 800497C4 00045744  3C 80 80 09 */	lis r4, dataSmpSDirs@ha
 /* 800497C8 00045748  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1086,9 +1085,9 @@ dataRemoveSDir:
 /* 80049A3C 000459BC  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80049A40 000459C0  38 21 00 20 */	addi r1, r1, 0x20
 /* 80049A44 000459C4  4E 80 00 20 */	blr
+.endfn dataRemoveSDir
 
-.global dataAddSampleReference
-dataAddSampleReference:
+.fn dataAddSampleReference, global
 /* 80049A48 000459C8  7C 08 02 A6 */	mflr r0
 /* 80049A4C 000459CC  3C 80 80 09 */	lis r4, dataSmpSDirs@ha
 /* 80049A50 000459D0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1149,9 +1148,9 @@ dataAddSampleReference:
 /* 80049B14 00045A94  38 21 00 18 */	addi r1, r1, 0x18
 /* 80049B18 00045A98  7C 08 03 A6 */	mtlr r0
 /* 80049B1C 00045A9C  4E 80 00 20 */	blr
+.endfn dataAddSampleReference
 
-.global dataRemoveSampleReference
-dataRemoveSampleReference:
+.fn dataRemoveSampleReference, global
 /* 80049B20 00045AA0  7C 08 02 A6 */	mflr r0
 /* 80049B24 00045AA4  3C 80 80 09 */	lis r4, dataSmpSDirs@ha
 /* 80049B28 00045AA8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1220,9 +1219,9 @@ dataRemoveSampleReference:
 /* 80049BFC 00045B7C  38 21 00 28 */	addi r1, r1, 0x28
 /* 80049C00 00045B80  7C 08 03 A6 */	mtlr r0
 /* 80049C04 00045B84  4E 80 00 20 */	blr
+.endfn dataRemoveSampleReference
 
-.global dataInsertFX
-dataInsertFX:
+.fn dataInsertFX, global
 /* 80049C08 00045B88  7C 08 02 A6 */	mflr r0
 /* 80049C0C 00045B8C  3C C0 80 09 */	lis r6, dataSmpSDirs@ha
 /* 80049C10 00045B90  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1306,9 +1305,9 @@ dataInsertFX:
 /* 80049D24 00045CA4  83 81 00 18 */	lwz r28, 0x18(r1)
 /* 80049D28 00045CA8  38 21 00 28 */	addi r1, r1, 0x28
 /* 80049D2C 00045CAC  4E 80 00 20 */	blr
+.endfn dataInsertFX
 
-.global dataInsertMacro
-dataInsertMacro:
+.fn dataInsertMacro, global
 /* 80049D30 00045CB0  7C 08 02 A6 */	mflr r0
 /* 80049D34 00045CB4  3C A0 80 09 */	lis r5, dataSmpSDirs@ha
 /* 80049D38 00045CB8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1526,9 +1525,9 @@ dataInsertMacro:
 /* 8004A034 00045FB4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8004A038 00045FB8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004A03C 00045FBC  4E 80 00 20 */	blr
+.endfn dataInsertMacro
 
-.global dataRemoveMacro
-dataRemoveMacro:
+.fn dataRemoveMacro, global
 /* 8004A040 00045FC0  7C 08 02 A6 */	mflr r0
 /* 8004A044 00045FC4  3C 80 80 09 */	lis r4, dataSmpSDirs@ha
 /* 8004A048 00045FC8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1713,15 +1712,16 @@ dataRemoveMacro:
 /* 8004A2D0 00046250  7C 08 03 A6 */	mtlr r0
 /* 8004A2D4 00046254  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004A2D8 00046258  4E 80 00 20 */	blr
+.endfn dataRemoveMacro
 
-maccmp:
+.fn maccmp, local
 /* 8004A2DC 0004625C  A0 84 00 04 */	lhz r4, 0x4(r4)
 /* 8004A2E0 00046260  A0 03 00 04 */	lhz r0, 0x4(r3)
 /* 8004A2E4 00046264  7C 64 00 50 */	subf r3, r4, r0
 /* 8004A2E8 00046268  4E 80 00 20 */	blr
+.endfn maccmp
 
-.global dataGetMacro
-dataGetMacro:
+.fn dataGetMacro, global
 /* 8004A2EC 0004626C  7C 08 02 A6 */	mflr r0
 /* 8004A2F0 00046270  3C 80 80 09 */	lis r4, dataSmpSDirs@ha
 /* 8004A2F4 00046274  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1761,15 +1761,16 @@ dataGetMacro:
 /* 8004A374 000462F4  38 21 00 08 */	addi r1, r1, 0x8
 /* 8004A378 000462F8  7C 08 03 A6 */	mtlr r0
 /* 8004A37C 000462FC  4E 80 00 20 */	blr
+.endfn dataGetMacro
 
-smpcmp:
+.fn smpcmp, local
 /* 8004A380 00046300  A0 84 00 00 */	lhz r4, 0x0(r4)
 /* 8004A384 00046304  A0 03 00 00 */	lhz r0, 0x0(r3)
 /* 8004A388 00046308  7C 64 00 50 */	subf r3, r4, r0
 /* 8004A38C 0004630C  4E 80 00 20 */	blr
+.endfn smpcmp
 
-.global dataGetSample
-dataGetSample:
+.fn dataGetSample, global
 /* 8004A390 00046310  7C 08 02 A6 */	mflr r0
 /* 8004A394 00046314  3C A0 80 09 */	lis r5, dataSmpSDirs@ha
 /* 8004A398 00046318  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1849,15 +1850,16 @@ dataGetSample:
 /* 8004A4AC 0004642C  38 21 00 28 */	addi r1, r1, 0x28
 /* 8004A4B0 00046430  7C 08 03 A6 */	mtlr r0
 /* 8004A4B4 00046434  4E 80 00 20 */	blr
+.endfn dataGetSample
 
-curvecmp:
+.fn curvecmp, local
 /* 8004A4B8 00046438  A0 84 00 04 */	lhz r4, 0x4(r4)
 /* 8004A4BC 0004643C  A0 03 00 04 */	lhz r0, 0x4(r3)
 /* 8004A4C0 00046440  7C 64 00 50 */	subf r3, r4, r0
 /* 8004A4C4 00046444  4E 80 00 20 */	blr
+.endfn curvecmp
 
-.global dataGetCurve
-dataGetCurve:
+.fn dataGetCurve, global
 /* 8004A4C8 00046448  7C 08 02 A6 */	mflr r0
 /* 8004A4CC 0004644C  38 8D 87 A0 */	addi r4, r13, "key$589"@sda21
 /* 8004A4D0 00046450  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1884,9 +1886,9 @@ dataGetCurve:
 /* 8004A51C 0004649C  38 21 00 08 */	addi r1, r1, 0x8
 /* 8004A520 000464A0  7C 08 03 A6 */	mtlr r0
 /* 8004A524 000464A4  4E 80 00 20 */	blr
+.endfn dataGetCurve
 
-.global dataGetKeymap
-dataGetKeymap:
+.fn dataGetKeymap, global
 /* 8004A528 000464A8  7C 08 02 A6 */	mflr r0
 /* 8004A52C 000464AC  38 8D 87 AC */	addi r4, r13, "key$596"@sda21
 /* 8004A530 000464B0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1913,15 +1915,16 @@ dataGetKeymap:
 /* 8004A57C 000464FC  38 21 00 08 */	addi r1, r1, 0x8
 /* 8004A580 00046500  7C 08 03 A6 */	mtlr r0
 /* 8004A584 00046504  4E 80 00 20 */	blr
+.endfn dataGetKeymap
 
-layercmp:
+.fn layercmp, local
 /* 8004A588 00046508  A0 84 00 04 */	lhz r4, 0x4(r4)
 /* 8004A58C 0004650C  A0 03 00 04 */	lhz r0, 0x4(r3)
 /* 8004A590 00046510  7C 64 00 50 */	subf r3, r4, r0
 /* 8004A594 00046514  4E 80 00 20 */	blr
+.endfn layercmp
 
-.global dataGetLayer
-dataGetLayer:
+.fn dataGetLayer, global
 /* 8004A598 00046518  7C 08 02 A6 */	mflr r0
 /* 8004A59C 0004651C  3C A0 80 09 */	lis r5, dataSmpSDirs@ha
 /* 8004A5A0 00046520  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1956,15 +1959,16 @@ dataGetLayer:
 /* 8004A60C 0004658C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004A610 00046590  7C 08 03 A6 */	mtlr r0
 /* 8004A614 00046594  4E 80 00 20 */	blr
+.endfn dataGetLayer
 
-fxcmp:
+.fn fxcmp, local
 /* 8004A618 00046598  A0 84 00 00 */	lhz r4, 0x0(r4)
 /* 8004A61C 0004659C  A0 03 00 00 */	lhz r0, 0x0(r3)
 /* 8004A620 000465A0  7C 64 00 50 */	subf r3, r4, r0
 /* 8004A624 000465A4  4E 80 00 20 */	blr
+.endfn fxcmp
 
-.global dataGetFX
-dataGetFX:
+.fn dataGetFX, global
 /* 8004A628 000465A8  7C 08 02 A6 */	mflr r0
 /* 8004A62C 000465AC  3C 80 80 09 */	lis r4, dataSmpSDirs@ha
 /* 8004A630 000465B0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2011,9 +2015,9 @@ dataGetFX:
 /* 8004A6C4 00046644  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8004A6C8 00046648  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004A6CC 0004664C  4E 80 00 20 */	blr
+.endfn dataGetFX
 
-.global dataInit
-dataInit:
+.fn dataInit, global
 /* 8004A6D0 00046650  7C 08 02 A6 */	mflr r0
 /* 8004A6D4 00046654  38 A0 00 00 */	li r5, 0x0
 /* 8004A6D8 00046658  90 01 00 04 */	stw r0, 0x4(r1)
@@ -2073,9 +2077,9 @@ dataInit:
 /* 8004A7A8 00046728  38 21 00 08 */	addi r1, r1, 0x8
 /* 8004A7AC 0004672C  7C 08 03 A6 */	mtlr r0
 /* 8004A7B0 00046730  4E 80 00 20 */	blr
+.endfn dataInit
 
-.global dataExit
-dataExit:
+.fn dataExit, global
 /* 8004A7B4 00046734  7C 08 02 A6 */	mflr r0
 /* 8004A7B8 00046738  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004A7BC 0004673C  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -2084,6 +2088,7 @@ dataExit:
 /* 8004A7C8 00046748  38 21 00 08 */	addi r1, r1, 0x8
 /* 8004A7CC 0004674C  7C 08 03 A6 */	mtlr r0
 /* 8004A7D0 00046750  4E 80 00 20 */	blr
+.endfn dataExit
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

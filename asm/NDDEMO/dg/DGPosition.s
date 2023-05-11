@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global __ct__10DGPositionFv
-__ct__10DGPositionFv:
+.fn __ct__10DGPositionFv, global
 /* 80018F18 00014E98  7C 08 02 A6 */	mflr r0
 /* 80018F1C 00014E9C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80018F20 00014EA0  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -31,9 +30,9 @@ __ct__10DGPositionFv:
 /* 80018F74 00014EF4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80018F78 00014EF8  7C 08 03 A6 */	mtlr r0
 /* 80018F7C 00014EFC  4E 80 00 20 */	blr
+.endfn __ct__10DGPositionFv
 
-.global __dt__10DGPositionFv
-__dt__10DGPositionFv:
+.fn __dt__10DGPositionFv, global
 /* 80018F80 00014F00  7C 08 02 A6 */	mflr r0
 /* 80018F84 00014F04  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80018F88 00014F08  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -51,9 +50,9 @@ __dt__10DGPositionFv:
 /* 80018FB4 00014F34  38 21 00 18 */	addi r1, r1, 0x18
 /* 80018FB8 00014F38  7C 08 03 A6 */	mtlr r0
 /* 80018FBC 00014F3C  4E 80 00 20 */	blr
+.endfn __dt__10DGPositionFv
 
-.global GetTransMtx__10DGPositionFRA3_A4_f
-GetTransMtx__10DGPositionFRA3_A4_f:
+.fn GetTransMtx__10DGPositionFRA3_A4_f, global
 /* 80018FC0 00014F40  7C 08 02 A6 */	mflr r0
 /* 80018FC4 00014F44  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80018FC8 00014F48  94 21 FF 88 */	stwu r1, -0x78(r1)
@@ -120,9 +119,9 @@ GetTransMtx__10DGPositionFRA3_A4_f:
 /* 800190B8 00015038  7C 08 03 A6 */	mtlr r0
 /* 800190BC 0001503C  38 21 00 78 */	addi r1, r1, 0x78
 /* 800190C0 00015040  4E 80 00 20 */	blr
+.endfn GetTransMtx__10DGPositionFRA3_A4_f
 
-.global SetPosition__10DGPositionFRC3Vec
-SetPosition__10DGPositionFRC3Vec:
+.fn SetPosition__10DGPositionFRC3Vec, global
 /* 800190C4 00015044  38 00 00 00 */	li r0, 0x0
 /* 800190C8 00015048  98 03 00 54 */	stb r0, 0x54(r3)
 /* 800190CC 0001504C  80 A4 00 00 */	lwz r5, 0x0(r4)
@@ -132,9 +131,9 @@ SetPosition__10DGPositionFRC3Vec:
 /* 800190DC 0001505C  80 04 00 08 */	lwz r0, 0x8(r4)
 /* 800190E0 00015060  90 03 00 08 */	stw r0, 0x8(r3)
 /* 800190E4 00015064  4E 80 00 20 */	blr
+.endfn SetPosition__10DGPositionFRC3Vec
 
-.global AddPosition__10DGPositionFRC3Vec
-AddPosition__10DGPositionFRC3Vec:
+.fn AddPosition__10DGPositionFRC3Vec, global
 /* 800190E8 00015068  38 00 00 00 */	li r0, 0x0
 /* 800190EC 0001506C  98 03 00 54 */	stb r0, 0x54(r3)
 /* 800190F0 00015070  C0 23 00 00 */	lfs f1, 0x0(r3)
@@ -150,9 +149,9 @@ AddPosition__10DGPositionFRC3Vec:
 /* 80019118 00015098  EC 01 00 2A */	fadds f0, f1, f0
 /* 8001911C 0001509C  D0 03 00 08 */	stfs f0, 0x8(r3)
 /* 80019120 000150A0  4E 80 00 20 */	blr
+.endfn AddPosition__10DGPositionFRC3Vec
 
-.global GetPosition__10DGPositionFv
-GetPosition__10DGPositionFv:
+.fn GetPosition__10DGPositionFv, global
 /* 80019124 000150A4  80 A4 00 00 */	lwz r5, 0x0(r4)
 /* 80019128 000150A8  80 04 00 04 */	lwz r0, 0x4(r4)
 /* 8001912C 000150AC  90 A3 00 00 */	stw r5, 0x0(r3)
@@ -160,9 +159,9 @@ GetPosition__10DGPositionFv:
 /* 80019134 000150B4  80 04 00 08 */	lwz r0, 0x8(r4)
 /* 80019138 000150B8  90 03 00 08 */	stw r0, 0x8(r3)
 /* 8001913C 000150BC  4E 80 00 20 */	blr
+.endfn GetPosition__10DGPositionFv
 
-.global SetRotation__10DGPositionFRC3Vec
-SetRotation__10DGPositionFRC3Vec:
+.fn SetRotation__10DGPositionFRC3Vec, global
 /* 80019140 000150C0  7C 08 02 A6 */	mflr r0
 /* 80019144 000150C4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80019148 000150C8  38 00 00 00 */	li r0, 0x0
@@ -179,9 +178,9 @@ SetRotation__10DGPositionFRC3Vec:
 /* 80019174 000150F4  38 21 00 08 */	addi r1, r1, 0x8
 /* 80019178 000150F8  7C 08 03 A6 */	mtlr r0
 /* 8001917C 000150FC  4E 80 00 20 */	blr
+.endfn SetRotation__10DGPositionFRC3Vec
 
-.global AddRotation__10DGPositionFRC3Vec
-AddRotation__10DGPositionFRC3Vec:
+.fn AddRotation__10DGPositionFRC3Vec, global
 /* 80019180 00015100  7C 08 02 A6 */	mflr r0
 /* 80019184 00015104  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80019188 00015108  38 00 00 00 */	li r0, 0x0
@@ -204,9 +203,9 @@ AddRotation__10DGPositionFRC3Vec:
 /* 800191CC 0001514C  38 21 00 08 */	addi r1, r1, 0x8
 /* 800191D0 00015150  7C 08 03 A6 */	mtlr r0
 /* 800191D4 00015154  4E 80 00 20 */	blr
+.endfn AddRotation__10DGPositionFRC3Vec
 
-.global LimitRotation__10DGPositionFv
-LimitRotation__10DGPositionFv:
+.fn LimitRotation__10DGPositionFv, global
 /* 800191D8 00015158  C0 22 81 BC */	lfs f1, lbl_800A953C@sda21(r2)
 /* 800191DC 0001515C  48 00 00 10 */	b .L_800191EC
 .L_800191E0:
@@ -277,9 +276,9 @@ LimitRotation__10DGPositionFv:
 /* 800192B4 00015234  4C 40 13 82 */	cror eq, lt, eq
 /* 800192B8 00015238  41 82 FF E8 */	beq .L_800192A0
 /* 800192BC 0001523C  4E 80 00 20 */	blr
+.endfn LimitRotation__10DGPositionFv
 
-.global GetRotation__10DGPositionFv
-GetRotation__10DGPositionFv:
+.fn GetRotation__10DGPositionFv, global
 /* 800192C0 00015240  80 A4 00 0C */	lwz r5, 0xc(r4)
 /* 800192C4 00015244  80 04 00 10 */	lwz r0, 0x10(r4)
 /* 800192C8 00015248  90 A3 00 00 */	stw r5, 0x0(r3)
@@ -287,9 +286,9 @@ GetRotation__10DGPositionFv:
 /* 800192D0 00015250  80 04 00 14 */	lwz r0, 0x14(r4)
 /* 800192D4 00015254  90 03 00 08 */	stw r0, 0x8(r3)
 /* 800192D8 00015258  4E 80 00 20 */	blr
+.endfn GetRotation__10DGPositionFv
 
-.global GetDirectionalVec__10DGPositionFR3VecR3Vec
-GetDirectionalVec__10DGPositionFR3VecR3Vec:
+.fn GetDirectionalVec__10DGPositionFR3VecR3Vec, global
 /* 800192DC 0001525C  7C 08 02 A6 */	mflr r0
 /* 800192E0 00015260  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800192E4 00015264  94 21 FF 78 */	stwu r1, -0x88(r1)
@@ -336,6 +335,7 @@ GetDirectionalVec__10DGPositionFR3VecR3Vec:
 /* 80019388 00015308  83 A1 00 7C */	lwz r29, 0x7c(r1)
 /* 8001938C 0001530C  38 21 00 88 */	addi r1, r1, 0x88
 /* 80019390 00015310  4E 80 00 20 */	blr
+.endfn GetDirectionalVec__10DGPositionFR3VecR3Vec
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 

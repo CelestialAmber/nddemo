@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-UpdateOrigin:
+.fn UpdateOrigin, local
 /* 80035B60 00031AE0  7C 08 02 A6 */	mflr r0
 /* 80035B64 00031AE4  3C A0 80 08 */	lis r5, Origin@ha
 /* 80035B68 00031AE8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -116,8 +116,9 @@ UpdateOrigin:
 /* 80035CF8 00031C78  38 21 00 18 */	addi r1, r1, 0x18
 /* 80035CFC 00031C7C  7C 08 03 A6 */	mtlr r0
 /* 80035D00 00031C80  4E 80 00 20 */	blr
+.endfn UpdateOrigin
 
-PADOriginCallback:
+.fn PADOriginCallback, local
 /* 80035D04 00031C84  7C 08 02 A6 */	mflr r0
 /* 80035D08 00031C88  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80035D0C 00031C8C  54 80 07 3F */	clrlwi. r0, r4, 28
@@ -169,8 +170,9 @@ PADOriginCallback:
 /* 80035DBC 00031D3C  38 21 00 30 */	addi r1, r1, 0x30
 /* 80035DC0 00031D40  7C 08 03 A6 */	mtlr r0
 /* 80035DC4 00031D44  4E 80 00 20 */	blr
+.endfn PADOriginCallback
 
-PADOriginUpdateCallback:
+.fn PADOriginUpdateCallback, local
 /* 80035DC8 00031D48  7C 08 02 A6 */	mflr r0
 /* 80035DCC 00031D4C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80035DD0 00031D50  3C 00 80 00 */	lis r0, 0x8000
@@ -221,8 +223,9 @@ PADOriginUpdateCallback:
 /* 80035E7C 00031DFC  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 80035E80 00031E00  38 21 00 28 */	addi r1, r1, 0x28
 /* 80035E84 00031E04  4E 80 00 20 */	blr
+.endfn PADOriginUpdateCallback
 
-PADProbeCallback:
+.fn PADProbeCallback, local
 /* 80035E88 00031E08  7C 08 02 A6 */	mflr r0
 /* 80035E8C 00031E0C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80035E90 00031E10  54 80 07 3F */	clrlwi. r0, r4, 28
@@ -279,8 +282,9 @@ PADProbeCallback:
 /* 80035F54 00031ED4  7C 08 03 A6 */	mtlr r0
 /* 80035F58 00031ED8  38 21 00 30 */	addi r1, r1, 0x30
 /* 80035F5C 00031EDC  4E 80 00 20 */	blr
+.endfn PADProbeCallback
 
-PADTypeAndStatusCallback:
+.fn PADTypeAndStatusCallback, local
 /* 80035F60 00031EE0  7C 08 02 A6 */	mflr r0
 /* 80035F64 00031EE4  3C C0 80 08 */	lis r6, Type@ha
 /* 80035F68 00031EE8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -494,8 +498,9 @@ PADTypeAndStatusCallback:
 /* 80036280 00032200  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 80036284 00032204  38 21 00 40 */	addi r1, r1, 0x40
 /* 80036288 00032208  4E 80 00 20 */	blr
+.endfn PADTypeAndStatusCallback
 
-PADReceiveCheckCallback:
+.fn PADReceiveCheckCallback, local
 /* 8003628C 0003220C  7C 08 02 A6 */	mflr r0
 /* 80036290 00032210  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80036294 00032214  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -575,9 +580,9 @@ PADReceiveCheckCallback:
 /* 800363B4 00032334  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 800363B8 00032338  38 21 00 20 */	addi r1, r1, 0x20
 /* 800363BC 0003233C  4E 80 00 20 */	blr
+.endfn PADReceiveCheckCallback
 
-.global PADReset
-PADReset:
+.fn PADReset, global
 /* 800363C0 00032340  7C 08 02 A6 */	mflr r0
 /* 800363C4 00032344  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800363C8 00032348  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -643,9 +648,9 @@ PADReset:
 /* 800364B0 00032430  7C 08 03 A6 */	mtlr r0
 /* 800364B4 00032434  38 21 00 18 */	addi r1, r1, 0x18
 /* 800364B8 00032438  4E 80 00 20 */	blr
+.endfn PADReset
 
-.global PADInit
-PADInit:
+.fn PADInit, global
 /* 800364BC 0003243C  7C 08 02 A6 */	mflr r0
 /* 800364C0 00032440  3C 60 80 08 */	lis r3, Type@ha
 /* 800364C4 00032444  90 01 00 04 */	stw r0, 0x4(r1)
@@ -780,9 +785,9 @@ PADInit:
 /* 800366B4 00032634  38 21 00 38 */	addi r1, r1, 0x38
 /* 800366B8 00032638  7C 08 03 A6 */	mtlr r0
 /* 800366BC 0003263C  4E 80 00 20 */	blr
+.endfn PADInit
 
-.global PADRead
-PADRead:
+.fn PADRead, global
 /* 800366C0 00032640  7C 08 02 A6 */	mflr r0
 /* 800366C4 00032644  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800366C8 00032648  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -1035,9 +1040,9 @@ PADRead:
 /* 80036A68 000329E8  38 21 00 48 */	addi r1, r1, 0x48
 /* 80036A6C 000329EC  7C 08 03 A6 */	mtlr r0
 /* 80036A70 000329F0  4E 80 00 20 */	blr
+.endfn PADRead
 
-.global PADSetSamplingRate
-PADSetSamplingRate:
+.fn PADSetSamplingRate, global
 /* 80036A74 000329F4  7C 08 02 A6 */	mflr r0
 /* 80036A78 000329F8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80036A7C 000329FC  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1088,9 +1093,9 @@ PADSetSamplingRate:
 /* 80036B18 00032A98  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80036B1C 00032A9C  38 21 00 20 */	addi r1, r1, 0x20
 /* 80036B20 00032AA0  4E 80 00 20 */	blr
+.endfn PADSetSamplingRate
 
-.global PADSetSpec
-PADSetSpec:
+.fn PADSetSpec, global
 /* 80036B24 00032AA4  38 00 00 00 */	li r0, 0x0
 /* 80036B28 00032AA8  2C 03 00 01 */	cmpwi r3, 0x1
 /* 80036B2C 00032AAC  90 0D 86 24 */	stw r0, __PADSpec@sda21(r13)
@@ -1120,8 +1125,9 @@ PADSetSpec:
 .L_80036B7C:
 /* 80036B7C 00032AFC  90 6D 82 74 */	stw r3, Spec@sda21(r13)
 /* 80036B80 00032B00  4E 80 00 20 */	blr
+.endfn PADSetSpec
 
-SPEC0_MakeStatus:
+.fn SPEC0_MakeStatus, local
 /* 80036B84 00032B04  38 60 00 00 */	li r3, 0x0
 /* 80036B88 00032B08  B0 64 00 00 */	sth r3, 0x0(r4)
 /* 80036B8C 00032B0C  80 05 00 00 */	lwz r0, 0x0(r5)
@@ -1226,8 +1232,9 @@ SPEC0_MakeStatus:
 /* 80036CEC 00032C6C  38 03 FF 80 */	addi r0, r3, -0x80
 /* 80036CF0 00032C70  98 04 00 05 */	stb r0, 0x5(r4)
 /* 80036CF4 00032C74  4E 80 00 20 */	blr
+.endfn SPEC0_MakeStatus
 
-SPEC1_MakeStatus:
+.fn SPEC1_MakeStatus, local
 /* 80036CF8 00032C78  38 60 00 00 */	li r3, 0x0
 /* 80036CFC 00032C7C  B0 64 00 00 */	sth r3, 0x0(r4)
 /* 80036D00 00032C80  80 05 00 00 */	lwz r0, 0x0(r5)
@@ -1332,8 +1339,9 @@ SPEC1_MakeStatus:
 /* 80036E60 00032DE0  38 03 FF 80 */	addi r0, r3, -0x80
 /* 80036E64 00032DE4  98 04 00 05 */	stb r0, 0x5(r4)
 /* 80036E68 00032DE8  4E 80 00 20 */	blr
+.endfn SPEC1_MakeStatus
 
-SPEC2_MakeStatus:
+.fn SPEC2_MakeStatus, local
 /* 80036E6C 00032DEC  80 05 00 00 */	lwz r0, 0x0(r5)
 /* 80036E70 00032DF0  54 00 84 BE */	extrwi r0, r0, 14, 2
 /* 80036E74 00032DF4  B0 04 00 00 */	sth r0, 0x0(r4)
@@ -1607,8 +1615,9 @@ SPEC2_MakeStatus:
 /* 80037258 000331D8  7C 60 18 50 */	subf r3, r0, r3
 /* 8003725C 000331DC  98 64 00 07 */	stb r3, 0x7(r4)
 /* 80037260 000331E0  4E 80 00 20 */	blr
+.endfn SPEC2_MakeStatus
 
-OnReset:
+.fn OnReset, local
 /* 80037264 000331E4  7C 08 02 A6 */	mflr r0
 /* 80037268 000331E8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8003726C 000331EC  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -1717,8 +1726,9 @@ OnReset:
 /* 800373E8 00033368  7C 08 03 A6 */	mtlr r0
 /* 800373EC 0003336C  38 21 00 28 */	addi r1, r1, 0x28
 /* 800373F0 00033370  4E 80 00 20 */	blr
+.endfn OnReset
 
-SamplingHandler:
+.fn SamplingHandler, local
 /* 800373F4 00033374  7C 08 02 A6 */	mflr r0
 /* 800373F8 00033378  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800373FC 0003337C  94 21 FD 20 */	stwu r1, -0x2e0(r1)
@@ -1744,9 +1754,9 @@ SamplingHandler:
 /* 80037448 000333C8  38 21 02 E0 */	addi r1, r1, 0x2e0
 /* 8003744C 000333CC  7C 08 03 A6 */	mtlr r0
 /* 80037450 000333D0  4E 80 00 20 */	blr
+.endfn SamplingHandler
 
-.global PADSetSamplingCallback
-PADSetSamplingCallback:
+.fn PADSetSamplingCallback, global
 /* 80037454 000333D4  7C 08 02 A6 */	mflr r0
 /* 80037458 000333D8  28 03 00 00 */	cmplwi r3, 0x0
 /* 8003745C 000333DC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1766,6 +1776,7 @@ PADSetSamplingCallback:
 /* 8003748C 0003340C  38 21 00 08 */	addi r1, r1, 0x8
 /* 80037490 00033410  7C 08 03 A6 */	mtlr r0
 /* 80037494 00033414  4E 80 00 20 */	blr
+.endfn PADSetSamplingCallback
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

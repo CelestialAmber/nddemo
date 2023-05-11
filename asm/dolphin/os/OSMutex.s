@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __OSUnlockAllMutex
-__OSUnlockAllMutex:
+.fn __OSUnlockAllMutex, global
 /* 8002B990 00027910  7C 08 02 A6 */	mflr r0
 /* 8002B994 00027914  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002B998 00027918  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -36,3 +35,4 @@ __OSUnlockAllMutex:
 /* 8002B9F4 00027974  7C 08 03 A6 */	mtlr r0
 /* 8002B9F8 00027978  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002B9FC 0002797C  4E 80 00 20 */	blr
+.endfn __OSUnlockAllMutex

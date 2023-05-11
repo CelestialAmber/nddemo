@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global wcstombs
-wcstombs:
+.fn wcstombs, global
 /* 80060294 0005C214  28 05 00 00 */	cmplwi r5, 0x0
 /* 80060298 0005C218  7C A9 03 A6 */	mtctr r5
 /* 8006029C 0005C21C  38 C0 00 00 */	li r6, 0x0
@@ -22,3 +21,4 @@ wcstombs:
 .L_800602C8:
 /* 800602C8 0005C248  7C C3 33 78 */	mr r3, r6
 /* 800602CC 0005C24C  4E 80 00 20 */	blr
+.endfn wcstombs

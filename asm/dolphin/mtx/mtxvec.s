@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global PSMTXMultVec
-PSMTXMultVec:
+.fn PSMTXMultVec, global
 /* 8002FF78 0002BEF8  E0 04 00 00 */	psq_l f0, 0x0(r4), 0, qr0
 /* 8002FF7C 0002BEFC  E0 43 00 00 */	psq_l f2, 0x0(r3), 0, qr0
 /* 8002FF80 0002BF00  E0 24 80 08 */	psq_l f1, 0x8(r4), 1, qr0
@@ -25,9 +24,9 @@ PSMTXMultVec:
 /* 8002FFC0 0002BF40  10 C5 29 94 */	ps_sum0 f6, f5, f6, f5
 /* 8002FFC4 0002BF44  F0 C5 80 08 */	psq_st f6, 0x8(r5), 1, qr0
 /* 8002FFC8 0002BF48  4E 80 00 20 */	blr
+.endfn PSMTXMultVec
 
-.global PSMTXMultVecSR
-PSMTXMultVecSR:
+.fn PSMTXMultVecSR, global
 /* 8002FFCC 0002BF4C  E0 03 00 00 */	psq_l f0, 0x0(r3), 0, qr0
 /* 8002FFD0 0002BF50  E0 C4 00 00 */	psq_l f6, 0x0(r4), 0, qr0
 /* 8002FFD4 0002BF54  E0 43 00 10 */	psq_l f2, 0x10(r3), 0, qr0
@@ -52,3 +51,4 @@ PSMTXMultVecSR:
 /* 80030014 0002BF94  11 A5 61 FA */	ps_madd f13, f5, f7, f12
 /* 80030018 0002BF98  F1 A5 80 08 */	psq_st f13, 0x8(r5), 1, qr0
 /* 8003001C 0002BF9C  4E 80 00 20 */	blr
+.endfn PSMTXMultVecSR

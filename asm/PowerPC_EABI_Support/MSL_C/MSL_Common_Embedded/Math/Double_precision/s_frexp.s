@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global frexp
-frexp:
+.fn frexp, global
 /* 80062410 0005E390  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 80062414 0005E394  3C 00 7F F0 */	lis r0, 0x7ff0
 /* 80062418 0005E398  38 80 00 00 */	li r4, 0x0
@@ -47,6 +46,7 @@ frexp:
 .L_800624A4:
 /* 800624A4 0005E424  38 21 00 18 */	addi r1, r1, 0x18
 /* 800624A8 0005E428  4E 80 00 20 */	blr
+.endfn frexp
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 

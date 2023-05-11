@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-__GXDefaultTexRegionCallback:
+.fn __GXDefaultTexRegionCallback, local
 /* 80039D48 00035CC8  7C 08 02 A6 */	mflr r0
 /* 80039D4C 00035CCC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80039D50 00035CD0  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -36,8 +36,9 @@ __GXDefaultTexRegionCallback:
 /* 80039DB8 00035D38  38 21 00 08 */	addi r1, r1, 0x8
 /* 80039DBC 00035D3C  7C 08 03 A6 */	mtlr r0
 /* 80039DC0 00035D40  4E 80 00 20 */	blr
+.endfn __GXDefaultTexRegionCallback
 
-__GXDefaultTlutRegionCallback:
+.fn __GXDefaultTlutRegionCallback, local
 /* 80039DC4 00035D44  28 03 00 14 */	cmplwi r3, 0x14
 /* 80039DC8 00035D48  41 80 00 0C */	blt .L_80039DD4
 /* 80039DCC 00035D4C  38 60 00 00 */	li r3, 0x0
@@ -49,9 +50,9 @@ __GXDefaultTlutRegionCallback:
 /* 80039DE0 00035D60  7C 60 1A 14 */	add r3, r0, r3
 .L_80039DE4:
 /* 80039DE4 00035D64  4E 80 00 20 */	blr
+.endfn __GXDefaultTlutRegionCallback
 
-.global GXInit
-GXInit:
+.fn GXInit, global
 /* 80039DE8 00035D68  7C 08 02 A6 */	mflr r0
 /* 80039DEC 00035D6C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80039DF0 00035D70  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -569,9 +570,9 @@ GXInit:
 /* 8003A59C 0003651C  38 21 00 48 */	addi r1, r1, 0x48
 /* 8003A5A0 00036520  7C 08 03 A6 */	mtlr r0
 /* 8003A5A4 00036524  4E 80 00 20 */	blr
+.endfn GXInit
 
-.global __GXInitGX
-__GXInitGX:
+.fn __GXInitGX, global
 /* 8003A5A8 00036528  7C 08 02 A6 */	mflr r0
 /* 8003A5AC 0003652C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8003A5B0 00036530  94 21 FF 88 */	stwu r1, -0x78(r1)
@@ -1116,6 +1117,7 @@ __GXInitGX:
 /* 8003ADE4 00036D64  7C 08 03 A6 */	mtlr r0
 /* 8003ADE8 00036D68  38 21 00 78 */	addi r1, r1, 0x78
 /* 8003ADEC 00036D6C  4E 80 00 20 */	blr
+.endfn __GXInitGX
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 

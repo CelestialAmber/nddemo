@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global streamInit
-streamInit:
+.fn streamInit, global
 /* 800482D0 00044250  38 80 00 00 */	li r4, 0x0
 /* 800482D4 00044254  38 00 00 03 */	li r0, 0x3
 /* 800482D8 00044258  98 8D 87 70 */	stb r4, streamCallCnt@sda21(r13)
@@ -61,9 +60,9 @@ streamInit:
 /* 80048390 00044310  7C 60 22 14 */	add r3, r0, r4
 /* 80048394 00044314  4B FF FF C0 */	b .L_80048354
 /* 80048398 00044318  4E 80 00 20 */	blr
+.endfn streamInit
 
-.global streamHandle
-streamHandle:
+.fn streamHandle, global
 /* 8004839C 0004431C  7C 08 02 A6 */	mflr r0
 /* 800483A0 00044320  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800483A4 00044324  94 21 FF 70 */	stwu r1, -0x90(r1)
@@ -553,13 +552,13 @@ streamHandle:
 /* 80048ABC 00044A3C  CB A1 00 78 */	lfd f29, 0x78(r1)
 /* 80048AC0 00044A40  38 21 00 90 */	addi r1, r1, 0x90
 /* 80048AC4 00044A44  4E 80 00 20 */	blr
+.endfn streamHandle
 
-.global streamCorrectLoops
-streamCorrectLoops:
+.fn streamCorrectLoops, global
 /* 80048AC8 00044A48  4E 80 00 20 */	blr
+.endfn streamCorrectLoops
 
-.global streamKill
-streamKill:
+.fn streamKill, global
 /* 80048ACC 00044A4C  7C 08 02 A6 */	mflr r0
 /* 80048AD0 00044A50  1C 83 00 60 */	mulli r4, r3, 0x60
 /* 80048AD4 00044A54  90 01 00 04 */	stw r0, 0x4(r1)
@@ -596,6 +595,7 @@ streamKill:
 /* 80048B44 00044AC4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80048B48 00044AC8  7C 08 03 A6 */	mtlr r0
 /* 80048B4C 00044ACC  4E 80 00 20 */	blr
+.endfn streamKill
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 

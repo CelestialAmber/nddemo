@@ -2,7 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-SetExiInterruptMask:
+.fn SetExiInterruptMask, local
 /* 80029F20 00025EA0  7C 08 02 A6 */	mflr r0
 /* 80029F24 00025EA4  3C A0 80 08 */	lis r5, Ecb@ha
 /* 80029F28 00025EA8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -76,9 +76,9 @@ SetExiInterruptMask:
 /* 8002A008 00025F88  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002A00C 00025F8C  7C 08 03 A6 */	mtlr r0
 /* 8002A010 00025F90  4E 80 00 20 */	blr
+.endfn SetExiInterruptMask
 
-.global EXIImm
-EXIImm:
+.fn EXIImm, global
 /* 8002A014 00025F94  7C 08 02 A6 */	mflr r0
 /* 8002A018 00025F98  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002A01C 00025F9C  94 21 FF A8 */	stwu r1, -0x58(r1)
@@ -242,9 +242,9 @@ EXIImm:
 /* 8002A264 000261E4  38 21 00 58 */	addi r1, r1, 0x58
 /* 8002A268 000261E8  7C 08 03 A6 */	mtlr r0
 /* 8002A26C 000261EC  4E 80 00 20 */	blr
+.endfn EXIImm
 
-.global EXIImmEx
-EXIImmEx:
+.fn EXIImmEx, global
 /* 8002A270 000261F0  7C 08 02 A6 */	mflr r0
 /* 8002A274 000261F4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002A278 000261F8  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -292,9 +292,9 @@ EXIImmEx:
 /* 8002A304 00026284  38 21 00 30 */	addi r1, r1, 0x30
 /* 8002A308 00026288  7C 08 03 A6 */	mtlr r0
 /* 8002A30C 0002628C  4E 80 00 20 */	blr
+.endfn EXIImmEx
 
-.global EXIDma
-EXIDma:
+.fn EXIDma, global
 /* 8002A310 00026290  7C 08 02 A6 */	mflr r0
 /* 8002A314 00026294  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002A318 00026298  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -358,9 +358,9 @@ EXIDma:
 /* 8002A3F0 00026370  38 21 00 40 */	addi r1, r1, 0x40
 /* 8002A3F4 00026374  7C 08 03 A6 */	mtlr r0
 /* 8002A3F8 00026378  4E 80 00 20 */	blr
+.endfn EXIDma
 
-.global EXISync
-EXISync:
+.fn EXISync, global
 /* 8002A3FC 0002637C  7C 08 02 A6 */	mflr r0
 /* 8002A400 00026380  1C C3 00 38 */	mulli r6, r3, 0x38
 /* 8002A404 00026384  90 01 00 04 */	stw r0, 0x4(r1)
@@ -501,9 +501,9 @@ EXISync:
 /* 8002A5F8 00026578  38 21 00 30 */	addi r1, r1, 0x30
 /* 8002A5FC 0002657C  7C 08 03 A6 */	mtlr r0
 /* 8002A600 00026580  4E 80 00 20 */	blr
+.endfn EXISync
 
-.global EXIClearInterrupts
-EXIClearInterrupts:
+.fn EXIClearInterrupts, global
 /* 8002A604 00026584  1C 03 00 14 */	mulli r0, r3, 0x14
 /* 8002A608 00026588  3C 60 CC 00 */	lis r3, 0xCC006800@ha
 /* 8002A60C 0002658C  38 E3 68 00 */	addi r7, r3, 0xCC006800@l
@@ -525,9 +525,9 @@ EXIClearInterrupts:
 .L_8002A644:
 /* 8002A644 000265C4  90 07 00 00 */	stw r0, 0x0(r7)
 /* 8002A648 000265C8  4E 80 00 20 */	blr
+.endfn EXIClearInterrupts
 
-.global EXIProbe
-EXIProbe:
+.fn EXIProbe, global
 /* 8002A64C 000265CC  7C 08 02 A6 */	mflr r0
 /* 8002A650 000265D0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002A654 000265D4  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -626,9 +626,9 @@ EXIProbe:
 /* 8002A7A8 00026728  38 21 00 28 */	addi r1, r1, 0x28
 /* 8002A7AC 0002672C  7C 08 03 A6 */	mtlr r0
 /* 8002A7B0 00026730  4E 80 00 20 */	blr
+.endfn EXIProbe
 
-.global EXISelect
-EXISelect:
+.fn EXISelect, global
 /* 8002A7B4 00026734  7C 08 02 A6 */	mflr r0
 /* 8002A7B8 00026738  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002A7BC 0002673C  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -711,9 +711,9 @@ EXISelect:
 /* 8002A8D4 00026854  38 21 00 30 */	addi r1, r1, 0x30
 /* 8002A8D8 00026858  7C 08 03 A6 */	mtlr r0
 /* 8002A8DC 0002685C  4E 80 00 20 */	blr
+.endfn EXISelect
 
-.global EXIDeselect
-EXIDeselect:
+.fn EXIDeselect, global
 /* 8002A8E0 00026860  7C 08 02 A6 */	mflr r0
 /* 8002A8E4 00026864  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002A8E8 00026868  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -789,8 +789,9 @@ EXIDeselect:
 /* 8002A9E4 00026964  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8002A9E8 00026968  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002A9EC 0002696C  4E 80 00 20 */	blr
+.endfn EXIDeselect
 
-EXIIntrruptHandler:
+.fn EXIIntrruptHandler, local
 /* 8002A9F0 00026970  7C 08 02 A6 */	mflr r0
 /* 8002A9F4 00026974  7C 65 07 34 */	extsh r5, r3
 /* 8002A9F8 00026978  90 01 00 04 */	stw r0, 0x4(r1)
@@ -824,8 +825,9 @@ EXIIntrruptHandler:
 /* 8002AA64 000269E4  38 21 00 08 */	addi r1, r1, 0x8
 /* 8002AA68 000269E8  7C 08 03 A6 */	mtlr r0
 /* 8002AA6C 000269EC  4E 80 00 20 */	blr
+.endfn EXIIntrruptHandler
 
-TCIntrruptHandler:
+.fn TCIntrruptHandler, local
 /* 8002AA70 000269F0  7C 08 02 A6 */	mflr r0
 /* 8002AA74 000269F4  7C 66 07 34 */	extsh r6, r3
 /* 8002AA78 000269F8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -957,8 +959,9 @@ TCIntrruptHandler:
 /* 8002AC58 00026BD8  83 81 00 20 */	lwz r28, 0x20(r1)
 /* 8002AC5C 00026BDC  38 21 00 30 */	addi r1, r1, 0x30
 /* 8002AC60 00026BE0  4E 80 00 20 */	blr
+.endfn TCIntrruptHandler
 
-EXTIntrruptHandler:
+.fn EXTIntrruptHandler, local
 /* 8002AC64 00026BE4  7C 08 02 A6 */	mflr r0
 /* 8002AC68 00026BE8  7C 65 07 34 */	extsh r5, r3
 /* 8002AC6C 00026BEC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1003,9 +1006,9 @@ EXTIntrruptHandler:
 /* 8002AD04 00026C84  7C 08 03 A6 */	mtlr r0
 /* 8002AD08 00026C88  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002AD0C 00026C8C  4E 80 00 20 */	blr
+.endfn EXTIntrruptHandler
 
-.global EXIInit
-EXIInit:
+.fn EXIInit, global
 /* 8002AD10 00026C90  7C 08 02 A6 */	mflr r0
 /* 8002AD14 00026C94  3C 60 00 80 */	lis r3, 0x80
 /* 8002AD18 00026C98  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1072,9 +1075,9 @@ EXIInit:
 /* 8002AE08 00026D88  83 81 00 08 */	lwz r28, 0x8(r1)
 /* 8002AE0C 00026D8C  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002AE10 00026D90  4E 80 00 20 */	blr
+.endfn EXIInit
 
-.global EXILock
-EXILock:
+.fn EXILock, global
 /* 8002AE14 00026D94  7C 08 02 A6 */	mflr r0
 /* 8002AE18 00026D98  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002AE1C 00026D9C  94 21 FF D0 */	stwu r1, -0x30(r1)
@@ -1142,9 +1145,9 @@ EXILock:
 /* 8002AEFC 00026E7C  38 21 00 30 */	addi r1, r1, 0x30
 /* 8002AF00 00026E80  7C 08 03 A6 */	mtlr r0
 /* 8002AF04 00026E84  4E 80 00 20 */	blr
+.endfn EXILock
 
-.global EXIUnlock
-EXIUnlock:
+.fn EXIUnlock, global
 /* 8002AF08 00026E88  7C 08 02 A6 */	mflr r0
 /* 8002AF0C 00026E8C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002AF10 00026E90  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1204,6 +1207,7 @@ EXIUnlock:
 /* 8002AFD8 00026F58  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8002AFDC 00026F5C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002AFE0 00026F60  4E 80 00 20 */	blr
+.endfn EXIUnlock
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global TRKInitializeEventQueue
-TRKInitializeEventQueue:
+.fn TRKInitializeEventQueue, global
 /* 8005A8D0 00056850  7C 08 02 A6 */	mflr r0
 /* 8005A8D4 00056854  3C 60 80 0A */	lis r3, gTRKEventQueue@ha
 /* 8005A8D8 00056858  90 01 00 04 */	stw r0, 0x4(r1)
@@ -27,9 +26,9 @@ TRKInitializeEventQueue:
 /* 8005A920 000568A0  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005A924 000568A4  7C 08 03 A6 */	mtlr r0
 /* 8005A928 000568A8  4E 80 00 20 */	blr
+.endfn TRKInitializeEventQueue
 
-.global TRKCopyEvent
-TRKCopyEvent:
+.fn TRKCopyEvent, global
 /* 8005A92C 000568AC  7C 08 02 A6 */	mflr r0
 /* 8005A930 000568B0  38 A0 00 0C */	li r5, 0xc
 /* 8005A934 000568B4  90 01 00 04 */	stw r0, 0x4(r1)
@@ -39,9 +38,9 @@ TRKCopyEvent:
 /* 8005A944 000568C4  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005A948 000568C8  7C 08 03 A6 */	mtlr r0
 /* 8005A94C 000568CC  4E 80 00 20 */	blr
+.endfn TRKCopyEvent
 
-.global TRKGetNextEvent
-TRKGetNextEvent:
+.fn TRKGetNextEvent, global
 /* 8005A950 000568D0  7C 08 02 A6 */	mflr r0
 /* 8005A954 000568D4  3C 80 80 0A */	lis r4, gTRKEventQueue@ha
 /* 8005A958 000568D8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -92,9 +91,9 @@ TRKGetNextEvent:
 /* 8005AA04 00056984  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005AA08 00056988  7C 08 03 A6 */	mtlr r0
 /* 8005AA0C 0005698C  4E 80 00 20 */	blr
+.endfn TRKGetNextEvent
 
-.global TRKPostEvent
-TRKPostEvent:
+.fn TRKPostEvent, global
 /* 8005AA10 00056990  7C 08 02 A6 */	mflr r0
 /* 8005AA14 00056994  3C 80 80 0A */	lis r4, gTRKEventQueue@ha
 /* 8005AA18 00056998  90 01 00 04 */	stw r0, 0x4(r1)
@@ -154,18 +153,18 @@ TRKPostEvent:
 /* 8005AAE4 00056A64  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005AAE8 00056A68  7C 08 03 A6 */	mtlr r0
 /* 8005AAEC 00056A6C  4E 80 00 20 */	blr
+.endfn TRKPostEvent
 
-.global TRKConstructEvent
-TRKConstructEvent:
+.fn TRKConstructEvent, global
 /* 8005AAF0 00056A70  98 83 00 00 */	stb r4, 0x0(r3)
 /* 8005AAF4 00056A74  38 80 00 00 */	li r4, 0x0
 /* 8005AAF8 00056A78  38 00 FF FF */	li r0, -0x1
 /* 8005AAFC 00056A7C  90 83 00 04 */	stw r4, 0x4(r3)
 /* 8005AB00 00056A80  90 03 00 08 */	stw r0, 0x8(r3)
 /* 8005AB04 00056A84  4E 80 00 20 */	blr
+.endfn TRKConstructEvent
 
-.global TRKDestructEvent
-TRKDestructEvent:
+.fn TRKDestructEvent, global
 /* 8005AB08 00056A88  7C 08 02 A6 */	mflr r0
 /* 8005AB0C 00056A8C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005AB10 00056A90  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -175,6 +174,7 @@ TRKDestructEvent:
 /* 8005AB20 00056AA0  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005AB24 00056AA4  7C 08 03 A6 */	mtlr r0
 /* 8005AB28 00056AA8  4E 80 00 20 */	blr
+.endfn TRKDestructEvent
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

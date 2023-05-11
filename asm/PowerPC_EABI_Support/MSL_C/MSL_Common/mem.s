@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global memcmp
-memcmp:
+.fn memcmp, global
 /* 800602D0 0005C250  38 C3 FF FF */	addi r6, r3, -0x1
 /* 800602D4 0005C254  38 84 FF FF */	addi r4, r4, -0x1
 /* 800602D8 0005C258  38 A5 00 01 */	addi r5, r5, 0x1
@@ -24,9 +23,9 @@ memcmp:
 /* 80060308 0005C288  40 82 FF D8 */	bne .L_800602E0
 /* 8006030C 0005C28C  38 60 00 00 */	li r3, 0x0
 /* 80060310 0005C290  4E 80 00 20 */	blr
+.endfn memcmp
 
-.global memchr
-memchr:
+.fn memchr, global
 /* 80060314 0005C294  54 84 06 3E */	clrlwi r4, r4, 24
 /* 80060318 0005C298  38 63 FF FF */	addi r3, r3, -0x1
 /* 8006031C 0005C29C  38 A5 00 01 */	addi r5, r5, 0x1
@@ -40,9 +39,9 @@ memchr:
 /* 80060334 0005C2B4  40 82 FF F0 */	bne .L_80060324
 /* 80060338 0005C2B8  38 60 00 00 */	li r3, 0x0
 /* 8006033C 0005C2BC  4E 80 00 20 */	blr
+.endfn memchr
 
-.global memmove
-memmove:
+.fn memmove, global
 /* 80060340 0005C2C0  7C 08 02 A6 */	mflr r0
 /* 80060344 0005C2C4  28 05 00 20 */	cmplwi r5, 0x20
 /* 80060348 0005C2C8  90 01 00 04 */	stw r0, 0x4(r1)
@@ -110,3 +109,4 @@ memmove:
 /* 80060410 0005C390  38 21 00 20 */	addi r1, r1, 0x20
 /* 80060414 0005C394  7C 08 03 A6 */	mtlr r0
 /* 80060418 0005C398  4E 80 00 20 */	blr
+.endfn memmove

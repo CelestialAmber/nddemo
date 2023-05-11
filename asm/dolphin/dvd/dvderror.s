@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __DVDStoreErrorCode
-__DVDStoreErrorCode:
+.fn __DVDStoreErrorCode, global
 /* 80033DA4 0002FD24  7C 08 02 A6 */	mflr r0
 /* 80033DA8 0002FD28  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80033DAC 0002FD2C  3C 03 FE DD */	addis r0, r3, 0xfedd
@@ -104,6 +103,7 @@ __DVDStoreErrorCode:
 /* 80033EF0 0002FE70  38 21 00 20 */	addi r1, r1, 0x20
 /* 80033EF4 0002FE74  7C 08 03 A6 */	mtlr r0
 /* 80033EF8 0002FE78  4E 80 00 20 */	blr
+.endfn __DVDStoreErrorCode
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 

@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __OSThreadInit
-__OSThreadInit:
+.fn __OSThreadInit, global
 /* 8002E438 0002A3B8  7C 08 02 A6 */	mflr r0
 /* 8002E43C 0002A3BC  3C 60 80 08 */	lis r3, RunQueue@ha
 /* 8002E440 0002A3C0  90 01 00 04 */	stw r0, 0x4(r1)
@@ -81,22 +80,22 @@ __OSThreadInit:
 /* 8002E554 0002A4D4  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002E558 0002A4D8  7C 08 03 A6 */	mtlr r0
 /* 8002E55C 0002A4DC  4E 80 00 20 */	blr
+.endfn __OSThreadInit
 
-.global OSInitThreadQueue
-OSInitThreadQueue:
+.fn OSInitThreadQueue, global
 /* 8002E560 0002A4E0  38 00 00 00 */	li r0, 0x0
 /* 8002E564 0002A4E4  90 03 00 04 */	stw r0, 0x4(r3)
 /* 8002E568 0002A4E8  90 03 00 00 */	stw r0, 0x0(r3)
 /* 8002E56C 0002A4EC  4E 80 00 20 */	blr
+.endfn OSInitThreadQueue
 
-.global OSGetCurrentThread
-OSGetCurrentThread:
+.fn OSGetCurrentThread, global
 /* 8002E570 0002A4F0  3C 60 80 00 */	lis r3, 0x800000E4@ha
 /* 8002E574 0002A4F4  80 63 00 E4 */	lwz r3, 0x800000E4@l(r3)
 /* 8002E578 0002A4F8  4E 80 00 20 */	blr
+.endfn OSGetCurrentThread
 
-.global OSIsThreadSuspended
-OSIsThreadSuspended:
+.fn OSIsThreadSuspended, global
 /* 8002E57C 0002A4FC  80 03 02 CC */	lwz r0, 0x2cc(r3)
 /* 8002E580 0002A500  2C 00 00 00 */	cmpwi r0, 0x0
 /* 8002E584 0002A504  40 81 00 0C */	ble .L_8002E590
@@ -105,9 +104,9 @@ OSIsThreadSuspended:
 .L_8002E590:
 /* 8002E590 0002A510  38 60 00 00 */	li r3, 0x0
 /* 8002E594 0002A514  4E 80 00 20 */	blr
+.endfn OSIsThreadSuspended
 
-.global OSDisableScheduler
-OSDisableScheduler:
+.fn OSDisableScheduler, global
 /* 8002E598 0002A518  7C 08 02 A6 */	mflr r0
 /* 8002E59C 0002A51C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002E5A0 0002A520  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -124,9 +123,9 @@ OSDisableScheduler:
 /* 8002E5CC 0002A54C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8002E5D0 0002A550  7C 08 03 A6 */	mtlr r0
 /* 8002E5D4 0002A554  4E 80 00 20 */	blr
+.endfn OSDisableScheduler
 
-.global OSEnableScheduler
-OSEnableScheduler:
+.fn OSEnableScheduler, global
 /* 8002E5D8 0002A558  7C 08 02 A6 */	mflr r0
 /* 8002E5DC 0002A55C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002E5E0 0002A560  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -143,8 +142,9 @@ OSEnableScheduler:
 /* 8002E60C 0002A58C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8002E610 0002A590  7C 08 03 A6 */	mtlr r0
 /* 8002E614 0002A594  4E 80 00 20 */	blr
+.endfn OSEnableScheduler
 
-UnsetRun:
+.fn UnsetRun, local
 /* 8002E618 0002A598  80 83 02 E0 */	lwz r4, 0x2e0(r3)
 /* 8002E61C 0002A59C  80 A3 02 DC */	lwz r5, 0x2dc(r3)
 /* 8002E620 0002A5A0  28 04 00 00 */	cmplwi r4, 0x0
@@ -176,9 +176,9 @@ UnsetRun:
 /* 8002E674 0002A5F4  38 00 00 00 */	li r0, 0x0
 /* 8002E678 0002A5F8  90 03 02 DC */	stw r0, 0x2dc(r3)
 /* 8002E67C 0002A5FC  4E 80 00 20 */	blr
+.endfn UnsetRun
 
-.global __OSGetEffectivePriority
-__OSGetEffectivePriority:
+.fn __OSGetEffectivePriority, global
 /* 8002E680 0002A600  80 83 02 D4 */	lwz r4, 0x2d4(r3)
 /* 8002E684 0002A604  80 A3 02 F4 */	lwz r5, 0x2f4(r3)
 /* 8002E688 0002A608  48 00 00 24 */	b .L_8002E6AC
@@ -197,8 +197,9 @@ __OSGetEffectivePriority:
 /* 8002E6B0 0002A630  40 82 FF DC */	bne .L_8002E68C
 /* 8002E6B4 0002A634  7C 83 23 78 */	mr r3, r4
 /* 8002E6B8 0002A638  4E 80 00 20 */	blr
+.endfn __OSGetEffectivePriority
 
-SetEffectivePriority:
+.fn SetEffectivePriority, local
 /* 8002E6BC 0002A63C  7C 08 02 A6 */	mflr r0
 /* 8002E6C0 0002A640  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002E6C4 0002A644  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -331,8 +332,9 @@ SetEffectivePriority:
 /* 8002E870 0002A7F0  7C 08 03 A6 */	mtlr r0
 /* 8002E874 0002A7F4  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002E878 0002A7F8  4E 80 00 20 */	blr
+.endfn SetEffectivePriority
 
-SelectThread:
+.fn SelectThread, local
 /* 8002E87C 0002A7FC  7C 08 02 A6 */	mflr r0
 /* 8002E880 0002A800  3C 80 80 08 */	lis r4, RunQueue@ha
 /* 8002E884 0002A804  90 01 00 04 */	stw r0, 0x4(r1)
@@ -475,9 +477,9 @@ SelectThread:
 /* 8002EA70 0002A9F0  7C 08 03 A6 */	mtlr r0
 /* 8002EA74 0002A9F4  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002EA78 0002A9F8  4E 80 00 20 */	blr
+.endfn SelectThread
 
-.global __OSReschedule
-__OSReschedule:
+.fn __OSReschedule, global
 /* 8002EA7C 0002A9FC  7C 08 02 A6 */	mflr r0
 /* 8002EA80 0002AA00  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002EA84 0002AA04  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -491,9 +493,9 @@ __OSReschedule:
 /* 8002EAA0 0002AA20  38 21 00 08 */	addi r1, r1, 0x8
 /* 8002EAA4 0002AA24  7C 08 03 A6 */	mtlr r0
 /* 8002EAA8 0002AA28  4E 80 00 20 */	blr
+.endfn __OSReschedule
 
-.global OSCreateThread
-OSCreateThread:
+.fn OSCreateThread, global
 /* 8002EAAC 0002AA2C  7C 08 02 A6 */	mflr r0
 /* 8002EAB0 0002AA30  2C 08 00 00 */	cmpwi r8, 0x0
 /* 8002EAB4 0002AA34  90 01 00 04 */	stw r0, 0x4(r1)
@@ -571,9 +573,9 @@ OSCreateThread:
 /* 8002EBC0 0002AB40  83 81 00 28 */	lwz r28, 0x28(r1)
 /* 8002EBC4 0002AB44  38 21 00 38 */	addi r1, r1, 0x38
 /* 8002EBC8 0002AB48  4E 80 00 20 */	blr
+.endfn OSCreateThread
 
-.global OSExitThread
-OSExitThread:
+.fn OSExitThread, global
 /* 8002EBCC 0002AB4C  7C 08 02 A6 */	mflr r0
 /* 8002EBD0 0002AB50  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002EBD4 0002AB54  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -638,9 +640,9 @@ OSExitThread:
 /* 8002ECA4 0002AC24  83 81 00 10 */	lwz r28, 0x10(r1)
 /* 8002ECA8 0002AC28  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002ECAC 0002AC2C  4E 80 00 20 */	blr
+.endfn OSExitThread
 
-.global OSCancelThread
-OSCancelThread:
+.fn OSCancelThread, global
 /* 8002ECB0 0002AC30  7C 08 02 A6 */	mflr r0
 /* 8002ECB4 0002AC34  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002ECB8 0002AC38  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -771,9 +773,9 @@ OSCancelThread:
 /* 8002EE60 0002ADE0  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8002EE64 0002ADE4  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002EE68 0002ADE8  4E 80 00 20 */	blr
+.endfn OSCancelThread
 
-.global OSResumeThread
-OSResumeThread:
+.fn OSResumeThread, global
 /* 8002EE6C 0002ADEC  7C 08 02 A6 */	mflr r0
 /* 8002EE70 0002ADF0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002EE74 0002ADF4  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -962,9 +964,9 @@ OSResumeThread:
 /* 8002F0E8 0002B068  83 A1 00 1C */	lwz r29, 0x1c(r1)
 /* 8002F0EC 0002B06C  38 21 00 28 */	addi r1, r1, 0x28
 /* 8002F0F0 0002B070  4E 80 00 20 */	blr
+.endfn OSResumeThread
 
-.global OSSuspendThread
-OSSuspendThread:
+.fn OSSuspendThread, global
 /* 8002F0F4 0002B074  7C 08 02 A6 */	mflr r0
 /* 8002F0F8 0002B078  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002F0FC 0002B07C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1070,9 +1072,9 @@ OSSuspendThread:
 /* 8002F258 0002B1D8  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8002F25C 0002B1DC  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002F260 0002B1E0  4E 80 00 20 */	blr
+.endfn OSSuspendThread
 
-.global OSSleepThread
-OSSleepThread:
+.fn OSSleepThread, global
 /* 8002F264 0002B1E4  7C 08 02 A6 */	mflr r0
 /* 8002F268 0002B1E8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002F26C 0002B1EC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1141,9 +1143,9 @@ OSSleepThread:
 /* 8002F344 0002B2C4  7C 08 03 A6 */	mtlr r0
 /* 8002F348 0002B2C8  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002F34C 0002B2CC  4E 80 00 20 */	blr
+.endfn OSSleepThread
 
-.global OSWakeupThread
-OSWakeupThread:
+.fn OSWakeupThread, global
 /* 8002F350 0002B2D0  7C 08 02 A6 */	mflr r0
 /* 8002F354 0002B2D4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002F358 0002B2D8  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -1216,9 +1218,9 @@ OSWakeupThread:
 /* 8002F448 0002B3C8  7C 08 03 A6 */	mtlr r0
 /* 8002F44C 0002B3CC  38 21 00 18 */	addi r1, r1, 0x18
 /* 8002F450 0002B3D0  4E 80 00 20 */	blr
+.endfn OSWakeupThread
 
-.global OSSetThreadPriority
-OSSetThreadPriority:
+.fn OSSetThreadPriority, global
 /* 8002F454 0002B3D4  7C 08 02 A6 */	mflr r0
 /* 8002F458 0002B3D8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002F45C 0002B3DC  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1273,11 +1275,12 @@ OSSetThreadPriority:
 /* 8002F508 0002B488  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 8002F50C 0002B48C  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002F510 0002B490  4E 80 00 20 */	blr
+.endfn OSSetThreadPriority
 
-.global OSGetThreadPriority
-OSGetThreadPriority:
+.fn OSGetThreadPriority, global
 /* 8002F514 0002B494  80 63 02 D4 */	lwz r3, 0x2d4(r3)
 /* 8002F518 0002B498  4E 80 00 20 */	blr
+.endfn OSGetThreadPriority
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

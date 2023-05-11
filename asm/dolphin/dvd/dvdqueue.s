@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global __DVDClearWaitingQueue
-__DVDClearWaitingQueue:
+.fn __DVDClearWaitingQueue, global
 /* 80033BAC 0002FB2C  3C 60 80 08 */	lis r3, WaitingQueue@ha
 /* 80033BB0 0002FB30  38 63 0E B8 */	addi r3, r3, WaitingQueue@l
 /* 80033BB4 0002FB34  90 63 00 00 */	stw r3, 0x0(r3)
@@ -18,9 +17,9 @@ __DVDClearWaitingQueue:
 /* 80033BD8 0002FB58  90 63 00 00 */	stw r3, 0x0(r3)
 /* 80033BDC 0002FB5C  90 63 00 04 */	stw r3, 0x4(r3)
 /* 80033BE0 0002FB60  4E 80 00 20 */	blr
+.endfn __DVDClearWaitingQueue
 
-.global __DVDPushWaitingQueue
-__DVDPushWaitingQueue:
+.fn __DVDPushWaitingQueue, global
 /* 80033BE4 0002FB64  7C 08 02 A6 */	mflr r0
 /* 80033BE8 0002FB68  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80033BEC 0002FB6C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -47,9 +46,9 @@ __DVDPushWaitingQueue:
 /* 80033C40 0002FBC0  7C 08 03 A6 */	mtlr r0
 /* 80033C44 0002FBC4  38 21 00 18 */	addi r1, r1, 0x18
 /* 80033C48 0002FBC8  4E 80 00 20 */	blr
+.endfn __DVDPushWaitingQueue
 
-.global __DVDPopWaitingQueue
-__DVDPopWaitingQueue:
+.fn __DVDPopWaitingQueue, global
 /* 80033C4C 0002FBCC  7C 08 02 A6 */	mflr r0
 /* 80033C50 0002FBD0  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80033C54 0002FBD4  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -93,9 +92,9 @@ __DVDPopWaitingQueue:
 /* 80033CE0 0002FC60  38 21 00 10 */	addi r1, r1, 0x10
 /* 80033CE4 0002FC64  7C 08 03 A6 */	mtlr r0
 /* 80033CE8 0002FC68  4E 80 00 20 */	blr
+.endfn __DVDPopWaitingQueue
 
-.global __DVDCheckWaitingQueue
-__DVDCheckWaitingQueue:
+.fn __DVDCheckWaitingQueue, global
 /* 80033CEC 0002FC6C  7C 08 02 A6 */	mflr r0
 /* 80033CF0 0002FC70  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80033CF4 0002FC74  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -121,9 +120,9 @@ __DVDCheckWaitingQueue:
 /* 80033D38 0002FCB8  38 21 00 08 */	addi r1, r1, 0x8
 /* 80033D3C 0002FCBC  7C 08 03 A6 */	mtlr r0
 /* 80033D40 0002FCC0  4E 80 00 20 */	blr
+.endfn __DVDCheckWaitingQueue
 
-.global __DVDDequeueWaitingQueue
-__DVDDequeueWaitingQueue:
+.fn __DVDDequeueWaitingQueue, global
 /* 80033D44 0002FCC4  7C 08 02 A6 */	mflr r0
 /* 80033D48 0002FCC8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80033D4C 0002FCCC  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -151,6 +150,7 @@ __DVDDequeueWaitingQueue:
 /* 80033D98 0002FD18  38 21 00 18 */	addi r1, r1, 0x18
 /* 80033D9C 0002FD1C  7C 08 03 A6 */	mtlr r0
 /* 80033DA0 0002FD20  4E 80 00 20 */	blr
+.endfn __DVDDequeueWaitingQueue
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

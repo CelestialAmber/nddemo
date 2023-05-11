@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global TRKHandleRequestEvent
-TRKHandleRequestEvent:
+.fn TRKHandleRequestEvent, global
 /* 8005A768 000566E8  7C 08 02 A6 */	mflr r0
 /* 8005A76C 000566EC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005A770 000566F0  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -14,9 +13,9 @@ TRKHandleRequestEvent:
 /* 8005A784 00056704  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005A788 00056708  7C 08 03 A6 */	mtlr r0
 /* 8005A78C 0005670C  4E 80 00 20 */	blr
+.endfn TRKHandleRequestEvent
 
-.global TRKHandleSupportEvent
-TRKHandleSupportEvent:
+.fn TRKHandleSupportEvent, global
 /* 8005A790 00056710  7C 08 02 A6 */	mflr r0
 /* 8005A794 00056714  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005A798 00056718  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -25,9 +24,9 @@ TRKHandleSupportEvent:
 /* 8005A7A4 00056724  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005A7A8 00056728  7C 08 03 A6 */	mtlr r0
 /* 8005A7AC 0005672C  4E 80 00 20 */	blr
+.endfn TRKHandleSupportEvent
 
-.global TRKIdle
-TRKIdle:
+.fn TRKIdle, global
 /* 8005A7B0 00056730  7C 08 02 A6 */	mflr r0
 /* 8005A7B4 00056734  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005A7B8 00056738  94 21 FF F8 */	stwu r1, -0x8(r1)
@@ -40,9 +39,9 @@ TRKIdle:
 /* 8005A7D0 00056750  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005A7D4 00056754  7C 08 03 A6 */	mtlr r0
 /* 8005A7D8 00056758  4E 80 00 20 */	blr
+.endfn TRKIdle
 
-.global TRKNubMainLoop
-TRKNubMainLoop:
+.fn TRKNubMainLoop, global
 /* 8005A7DC 0005675C  7C 08 02 A6 */	mflr r0
 /* 8005A7E0 00056760  3C 60 80 0B */	lis r3, gTRKInputPendingPtr@ha
 /* 8005A7E4 00056764  90 01 00 04 */	stw r0, 0x4(r1)
@@ -115,3 +114,4 @@ TRKNubMainLoop:
 /* 8005A8C4 00056844  80 01 00 04 */	lwz r0, 0x4(r1)
 /* 8005A8C8 00056848  7C 08 03 A6 */	mtlr r0
 /* 8005A8CC 0005684C  4E 80 00 20 */	blr
+.endfn TRKNubMainLoop

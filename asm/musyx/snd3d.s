@@ -3,7 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-UpdateRoomDistances:
+.fn UpdateRoomDistances, local
 /* 80054080 00050000  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80054084 00050004  38 A0 00 00 */	li r5, 0x0
 /* 80054088 00050008  80 6D 88 48 */	lwz r3, s3dListenerRoot@sda21(r13)
@@ -61,8 +61,9 @@ UpdateRoomDistances:
 .L_8005413C:
 /* 8005413C 000500BC  38 21 00 20 */	addi r1, r1, 0x20
 /* 80054140 000500C0  4E 80 00 20 */	blr
+.endfn UpdateRoomDistances
 
-CheckRoomStatus:
+.fn CheckRoomStatus, local
 /* 80054144 000500C4  7C 08 02 A6 */	mflr r0
 /* 80054148 000500C8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8005414C 000500CC  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -344,8 +345,9 @@ CheckRoomStatus:
 /* 80054514 00050494  CB 81 00 40 */	lfd f28, 0x40(r1)
 /* 80054518 00050498  38 21 00 60 */	addi r1, r1, 0x60
 /* 8005451C 0005049C  4E 80 00 20 */	blr
+.endfn CheckRoomStatus
 
-CheckDoorStatus:
+.fn CheckDoorStatus, local
 /* 80054520 000504A0  7C 08 02 A6 */	mflr r0
 /* 80054524 000504A4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80054528 000504A8  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -476,8 +478,9 @@ CheckDoorStatus:
 /* 800546F0 00050670  83 C1 00 28 */	lwz r30, 0x28(r1)
 /* 800546F4 00050674  38 21 00 40 */	addi r1, r1, 0x40
 /* 800546F8 00050678  4E 80 00 20 */	blr
+.endfn CheckDoorStatus
 
-CalcEmitter:
+.fn CalcEmitter, local
 /* 800546FC 0005067C  7C 08 02 A6 */	mflr r0
 /* 80054700 00050680  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80054704 00050684  94 21 FF 18 */	stwu r1, -0xe8(r1)
@@ -801,8 +804,9 @@ CalcEmitter:
 /* 80054BAC 00050B2C  CB 01 00 A8 */	lfd f24, 0xa8(r1)
 /* 80054BB0 00050B30  38 21 00 E8 */	addi r1, r1, 0xe8
 /* 80054BB4 00050B34  4E 80 00 20 */	blr
+.endfn CalcEmitter
 
-SetFXParameters:
+.fn SetFXParameters, local
 /* 80054BB8 00050B38  7C 08 02 A6 */	mflr r0
 /* 80054BBC 00050B3C  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80054BC0 00050B40  94 21 FF A8 */	stwu r1, -0x58(r1)
@@ -956,8 +960,9 @@ SetFXParameters:
 /* 80054DCC 00050D4C  83 81 00 30 */	lwz r28, 0x30(r1)
 /* 80054DD0 00050D50  38 21 00 58 */	addi r1, r1, 0x58
 /* 80054DD4 00050D54  4E 80 00 20 */	blr
+.endfn SetFXParameters
 
-AddRunningEmitter:
+.fn AddRunningEmitter, local
 /* 80054DD8 00050D58  88 ED 88 5A */	lbz r7, startGroupNum@sda21(r13)
 /* 80054DDC 00050D5C  3C 80 80 0A */	lis r4, "tmp_em$514"@ha
 /* 80054DE0 00050D60  38 A4 D2 88 */	addi r5, r4, "tmp_em$514"@l
@@ -1030,8 +1035,9 @@ AddRunningEmitter:
 /* 80054ECC 00050E4C  7C 65 02 14 */	add r3, r5, r0
 /* 80054ED0 00050E50  D0 23 05 54 */	stfs f1, 0x554(r3)
 /* 80054ED4 00050E54  4E 80 00 20 */	blr
+.endfn AddRunningEmitter
 
-AddStartingEmitter:
+.fn AddStartingEmitter, local
 /* 80054ED8 00050E58  88 ED 88 5A */	lbz r7, startGroupNum@sda21(r13)
 /* 80054EDC 00050E5C  3C 80 80 0A */	lis r4, "tmp_em$514"@ha
 /* 80054EE0 00050E60  38 A4 D2 88 */	addi r5, r4, "tmp_em$514"@l
@@ -1117,8 +1123,9 @@ AddStartingEmitter:
 /* 80054FF8 00050F78  7C 85 02 14 */	add r4, r5, r0
 /* 80054FFC 00050F7C  D0 24 01 D4 */	stfs f1, 0x1d4(r4)
 /* 80055000 00050F80  4E 80 00 20 */	blr
+.endfn AddStartingEmitter
 
-StartContinousEmitters:
+.fn StartContinousEmitters, local
 /* 80055004 00050F84  7C 08 02 A6 */	mflr r0
 /* 80055008 00050F88  3C 60 80 0A */	lis r3, startGroup@ha
 /* 8005500C 00050F8C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -1256,9 +1263,9 @@ StartContinousEmitters:
 /* 800551E4 00051164  83 81 00 08 */	lwz r28, 0x8(r1)
 /* 800551E8 00051168  38 21 00 38 */	addi r1, r1, 0x38
 /* 800551EC 0005116C  4E 80 00 20 */	blr
+.endfn StartContinousEmitters
 
-.global s3dHandle
-s3dHandle:
+.fn s3dHandle, global
 /* 800551F0 00051170  7C 08 02 A6 */	mflr r0
 /* 800551F4 00051174  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800551F8 00051178  94 21 FF B8 */	stwu r1, -0x48(r1)
@@ -1501,9 +1508,9 @@ s3dHandle:
 /* 80055548 000514C8  83 A1 00 24 */	lwz r29, 0x24(r1)
 /* 8005554C 000514CC  38 21 00 48 */	addi r1, r1, 0x48
 /* 80055550 000514D0  4E 80 00 20 */	blr
+.endfn s3dHandle
 
-.global s3dInit
-s3dInit:
+.fn s3dInit, global
 /* 80055554 000514D4  38 80 00 00 */	li r4, 0x0
 /* 80055558 000514D8  38 60 00 01 */	li r3, 0x1
 /* 8005555C 000514DC  90 8D 88 44 */	stw r4, s3dEmitterRoot@sda21(r13)
@@ -1516,10 +1523,11 @@ s3dInit:
 /* 80055578 000514F8  98 0D 88 59 */	stb r0, snd_max_studios@sda21(r13)
 /* 8005557C 000514FC  98 8D 88 40 */	stb r4, s3dCallCnt@sda21(r13)
 /* 80055580 00051500  4E 80 00 20 */	blr
+.endfn s3dInit
 
-.global s3dExit
-s3dExit:
+.fn s3dExit, global
 /* 80055584 00051504  4E 80 00 20 */	blr
+.endfn s3dExit
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 

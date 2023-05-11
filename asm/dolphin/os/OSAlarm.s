@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global OSInitAlarm
-OSInitAlarm:
+.fn OSInitAlarm, global
 /* 80027F34 00023EB4  7C 08 02 A6 */	mflr r0
 /* 80027F38 00023EB8  38 60 00 08 */	li r3, 0x8
 /* 80027F3C 00023EBC  90 01 00 04 */	stw r0, 0x4(r1)
@@ -24,14 +23,15 @@ OSInitAlarm:
 /* 80027F74 00023EF4  38 21 00 08 */	addi r1, r1, 0x8
 /* 80027F78 00023EF8  7C 08 03 A6 */	mtlr r0
 /* 80027F7C 00023EFC  4E 80 00 20 */	blr
+.endfn OSInitAlarm
 
-.global OSCreateAlarm
-OSCreateAlarm:
+.fn OSCreateAlarm, global
 /* 80027F80 00023F00  38 00 00 00 */	li r0, 0x0
 /* 80027F84 00023F04  90 03 00 00 */	stw r0, 0x0(r3)
 /* 80027F88 00023F08  4E 80 00 20 */	blr
+.endfn OSCreateAlarm
 
-InsertAlarm:
+.fn InsertAlarm, local
 /* 80027F8C 00023F0C  7C 08 02 A6 */	mflr r0
 /* 80027F90 00023F10  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80027F94 00023F14  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -191,9 +191,9 @@ InsertAlarm:
 /* 800281D0 00024150  38 21 00 40 */	addi r1, r1, 0x40
 /* 800281D4 00024154  7C 08 03 A6 */	mtlr r0
 /* 800281D8 00024158  4E 80 00 20 */	blr
+.endfn InsertAlarm
 
-.global OSSetAlarm
-OSSetAlarm:
+.fn OSSetAlarm, global
 /* 800281DC 0002415C  7C 08 02 A6 */	mflr r0
 /* 800281E0 00024160  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800281E4 00024164  94 21 FF C8 */	stwu r1, -0x38(r1)
@@ -220,9 +220,9 @@ OSSetAlarm:
 /* 80028238 000241B8  38 21 00 38 */	addi r1, r1, 0x38
 /* 8002823C 000241BC  7C 08 03 A6 */	mtlr r0
 /* 80028240 000241C0  4E 80 00 20 */	blr
+.endfn OSSetAlarm
 
-.global OSCancelAlarm
-OSCancelAlarm:
+.fn OSCancelAlarm, global
 /* 80028244 000241C4  7C 08 02 A6 */	mflr r0
 /* 80028248 000241C8  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8002824C 000241CC  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -302,8 +302,9 @@ OSCancelAlarm:
 /* 80028354 000242D4  83 A1 00 14 */	lwz r29, 0x14(r1)
 /* 80028358 000242D8  38 21 00 20 */	addi r1, r1, 0x20
 /* 8002835C 000242DC  4E 80 00 20 */	blr
+.endfn OSCancelAlarm
 
-DecrementerExceptionCallback:
+.fn DecrementerExceptionCallback, local
 /* 80028360 000242E0  7C 08 02 A6 */	mflr r0
 /* 80028364 000242E4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80028368 000242E8  94 21 FD 10 */	stwu r1, -0x2f0(r1)
@@ -455,8 +456,9 @@ DecrementerExceptionCallback:
 /* 80028584 00024504  83 81 02 E0 */	lwz r28, 0x2e0(r1)
 /* 80028588 00024508  38 21 02 F0 */	addi r1, r1, 0x2f0
 /* 8002858C 0002450C  4E 80 00 20 */	blr
+.endfn DecrementerExceptionCallback
 
-DecrementerExceptionHandler:
+.fn DecrementerExceptionHandler, local
 /* 80028590 00024510  90 04 00 00 */	stw r0, 0x0(r4)
 /* 80028594 00024514  90 24 00 04 */	stw r1, 0x4(r4)
 /* 80028598 00024518  90 44 00 08 */	stw r2, 0x8(r4)
@@ -476,6 +478,7 @@ DecrementerExceptionHandler:
 /* 800285D0 00024550  7C 17 E2 A6 */	mfspr r0, GQR7
 /* 800285D4 00024554  90 04 01 C0 */	stw r0, 0x1c0(r4)
 /* 800285D8 00024558  4B FF FD 88 */	b DecrementerExceptionCallback
+.endfn DecrementerExceptionHandler
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 

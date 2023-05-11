@@ -2,8 +2,7 @@
 
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
-.global cosf
-cosf:
+.fn cosf, global
 /* 80062780 0005E700  7C 08 02 A6 */	mflr r0
 /* 80062784 0005E704  3C 60 80 07 */	lis r3, __four_over_pi_m1@ha
 /* 80062788 0005E708  90 01 00 04 */	stw r0, 0x4(r1)
@@ -110,9 +109,9 @@ cosf:
 /* 80062908 0005E888  7C 08 03 A6 */	mtlr r0
 /* 8006290C 0005E88C  38 21 00 28 */	addi r1, r1, 0x28
 /* 80062910 0005E890  4E 80 00 20 */	blr
+.endfn cosf
 
-.global sinf
-sinf:
+.fn sinf, global
 /* 80062914 0005E894  7C 08 02 A6 */	mflr r0
 /* 80062918 0005E898  3C 60 80 07 */	lis r3, __four_over_pi_m1@ha
 /* 8006291C 0005E89C  90 01 00 04 */	stw r0, 0x4(r1)
@@ -223,8 +222,9 @@ sinf:
 /* 80062AAC 0005EA2C  7C 08 03 A6 */	mtlr r0
 /* 80062AB0 0005EA30  38 21 00 28 */	addi r1, r1, 0x28
 /* 80062AB4 0005EA34  4E 80 00 20 */	blr
+.endfn sinf
 
-__sinit_trigf_c:
+.fn __sinit_trigf_c, global
 /* 80062AB8 0005EA38  3C 60 80 06 */	lis r3, tmp_float@ha
 /* 80062ABC 0005EA3C  38 83 4B 58 */	addi r4, r3, tmp_float@l
 /* 80062AC0 0005EA40  C0 04 00 00 */	lfs f0, 0x0(r4)
@@ -237,15 +237,7 @@ __sinit_trigf_c:
 /* 80062ADC 0005EA5C  C0 04 00 0C */	lfs f0, 0xc(r4)
 /* 80062AE0 0005EA60  D0 03 00 0C */	stfs f0, 0xc(r3)
 /* 80062AE4 0005EA64  4E 80 00 20 */	blr
-
-#ctors
-
-.4byte __sinit_trigf_c
-.4byte 0
-.4byte 0
-.4byte 0
-.4byte 0
-.4byte 0
+.endfn __sinit_trigf_c
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
@@ -258,8 +250,6 @@ tmp_float:
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
 __four_over_pi_m1:
-	.4byte 0
-	.4byte 0
 	.4byte 0
 	.4byte 0
 	.4byte 0

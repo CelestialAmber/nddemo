@@ -3,8 +3,7 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 
-.global sndPitchUpOne
-sndPitchUpOne:
+.fn sndPitchUpOne, global
 /* 8004F8C4 0004B844  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8004F8C8 0004B848  54 60 04 3E */	clrlwi r0, r3, 16
 /* 8004F8CC 0004B84C  90 01 00 1C */	stw r0, 0x1c(r1)
@@ -20,9 +19,9 @@ sndPitchUpOne:
 /* 8004F8F4 0004B874  80 61 00 14 */	lwz r3, 0x14(r1)
 /* 8004F8F8 0004B878  38 21 00 20 */	addi r1, r1, 0x20
 /* 8004F8FC 0004B87C  4E 80 00 20 */	blr
+.endfn sndPitchUpOne
 
-.global sndGetPitch
-sndGetPitch:
+.fn sndGetPitch, global
 /* 8004F900 0004B880  7C 08 02 A6 */	mflr r0
 /* 8004F904 0004B884  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8004F908 0004B888  3C 04 00 01 */	addis r0, r4, 0x1
@@ -88,6 +87,7 @@ sndGetPitch:
 /* 8004F9E4 0004B964  38 21 00 18 */	addi r1, r1, 0x18
 /* 8004F9E8 0004B968  7C 08 03 A6 */	mtlr r0
 /* 8004F9EC 0004B96C  4E 80 00 20 */	blr
+.endfn sndGetPitch
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
