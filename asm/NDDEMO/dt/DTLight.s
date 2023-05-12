@@ -192,11 +192,11 @@
 
 .fn SettingEntr__7DTLightFv, global
 /* 8001BF3C 00017EBC  7C 08 02 A6 */	mflr r0
-/* 8001BF40 00017EC0  3C 80 80 06 */	lis r4, lbl_800642B0@ha
+/* 8001BF40 00017EC0  3C 80 80 06 */	lis r4, "@184"@ha
 /* 8001BF44 00017EC4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001BF48 00017EC8  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 8001BF4C 00017ECC  93 E1 00 8C */	stw r31, 0x8c(r1)
-/* 8001BF50 00017ED0  3B E4 42 B0 */	addi r31, r4, lbl_800642B0@l
+/* 8001BF50 00017ED0  3B E4 42 B0 */	addi r31, r4, "@184"@l
 /* 8001BF54 00017ED4  38 A1 00 7C */	addi r5, r1, 0x7c
 /* 8001BF58 00017ED8  93 C1 00 88 */	stw r30, 0x88(r1)
 /* 8001BF5C 00017EDC  7C 7E 1B 78 */	mr r30, r3
@@ -393,11 +393,11 @@
 
 .fn SettingHang__7DTLightFv, global
 /* 8001C254 000181D4  7C 08 02 A6 */	mflr r0
-/* 8001C258 000181D8  3C 80 80 06 */	lis r4, lbl_800642B0@ha
+/* 8001C258 000181D8  3C 80 80 06 */	lis r4, "@184"@ha
 /* 8001C25C 000181DC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001C260 000181E0  94 21 FF A8 */	stwu r1, -0x58(r1)
 /* 8001C264 000181E4  93 E1 00 54 */	stw r31, 0x54(r1)
-/* 8001C268 000181E8  3B E4 42 B0 */	addi r31, r4, lbl_800642B0@l
+/* 8001C268 000181E8  3B E4 42 B0 */	addi r31, r4, "@184"@l
 /* 8001C26C 000181EC  38 A1 00 44 */	addi r5, r1, 0x44
 /* 8001C270 000181F0  93 C1 00 50 */	stw r30, 0x50(r1)
 /* 8001C274 000181F4  7C 7E 1B 78 */	mr r30, r3
@@ -493,11 +493,11 @@
 
 .fn SettingDome__7DTLightFv, global
 /* 8001C3D8 00018358  7C 08 02 A6 */	mflr r0
-/* 8001C3DC 0001835C  3C 80 80 06 */	lis r4, lbl_800642B0@ha
+/* 8001C3DC 0001835C  3C 80 80 06 */	lis r4, "@184"@ha
 /* 8001C3E0 00018360  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001C3E4 00018364  94 21 FF 88 */	stwu r1, -0x78(r1)
 /* 8001C3E8 00018368  93 E1 00 74 */	stw r31, 0x74(r1)
-/* 8001C3EC 0001836C  3B E4 42 B0 */	addi r31, r4, lbl_800642B0@l
+/* 8001C3EC 0001836C  3B E4 42 B0 */	addi r31, r4, "@184"@l
 /* 8001C3F0 00018370  38 A1 00 60 */	addi r5, r1, 0x60
 /* 8001C3F4 00018374  93 C1 00 70 */	stw r30, 0x70(r1)
 /* 8001C3F8 00018378  7C 7E 1B 78 */	mr r30, r3
@@ -1053,11 +1053,11 @@
 
 .fn SettingCine__7DTLightFv, global
 /* 8001CC4C 00018BCC  7C 08 02 A6 */	mflr r0
-/* 8001CC50 00018BD0  3C 80 80 06 */	lis r4, lbl_800642B0@ha
+/* 8001CC50 00018BD0  3C 80 80 06 */	lis r4, "@184"@ha
 /* 8001CC54 00018BD4  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001CC58 00018BD8  94 21 FF 88 */	stwu r1, -0x78(r1)
 /* 8001CC5C 00018BDC  93 E1 00 74 */	stw r31, 0x74(r1)
-/* 8001CC60 00018BE0  3B E4 42 B0 */	addi r31, r4, lbl_800642B0@l
+/* 8001CC60 00018BE0  3B E4 42 B0 */	addi r31, r4, "@184"@l
 /* 8001CC64 00018BE4  38 A1 00 60 */	addi r5, r1, 0x60
 /* 8001CC68 00018BE8  93 C1 00 70 */	stw r30, 0x70(r1)
 /* 8001CC6C 00018BEC  7C 7E 1B 78 */	mr r30, r3
@@ -1270,8 +1270,8 @@
 /* 8001CF9C 00018F1C  38 80 00 00 */	li r4, 0x0
 /* 8001CFA0 00018F20  4B FF 5E 61 */	bl EnableSpecularLight__7DGLightFUc
 /* 8001CFA4 00018F24  80 02 82 9C */	lwz r0, lbl_800A961C@sda21(r2)
-/* 8001CFA8 00018F28  3C 60 80 06 */	lis r3, lbl_800643AC@ha
-/* 8001CFAC 00018F2C  38 C3 43 AC */	addi r6, r3, lbl_800643AC@l
+/* 8001CFA8 00018F28  3C 60 80 06 */	lis r3, "@300"@ha
+/* 8001CFAC 00018F2C  38 C3 43 AC */	addi r6, r3, "@300"@l
 /* 8001CFB0 00018F30  90 01 00 44 */	stw r0, 0x44(r1)
 /* 8001CFB4 00018F34  38 7F 00 3C */	addi r3, r31, 0x3c
 /* 8001CFB8 00018F38  38 81 00 44 */	addi r4, r1, 0x44
@@ -1373,11 +1373,11 @@
 
 .fn SettingEnve__7DTLightFv, global
 /* 8001D134 000190B4  7C 08 02 A6 */	mflr r0
-/* 8001D138 000190B8  3C 80 80 06 */	lis r4, lbl_800642B0@ha
+/* 8001D138 000190B8  3C 80 80 06 */	lis r4, "@184"@ha
 /* 8001D13C 000190BC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001D140 000190C0  94 21 FF 78 */	stwu r1, -0x88(r1)
 /* 8001D144 000190C4  93 E1 00 84 */	stw r31, 0x84(r1)
-/* 8001D148 000190C8  3B E4 42 B0 */	addi r31, r4, lbl_800642B0@l
+/* 8001D148 000190C8  3B E4 42 B0 */	addi r31, r4, "@184"@l
 /* 8001D14C 000190CC  38 A1 00 70 */	addi r5, r1, 0x70
 /* 8001D150 000190D0  93 C1 00 80 */	stw r30, 0x80(r1)
 /* 8001D154 000190D4  7C 7E 1B 78 */	mr r30, r3
@@ -1564,8 +1564,8 @@
 /* 8001D41C 0001939C  38 C1 00 1C */	addi r6, r1, 0x1c
 /* 8001D420 000193A0  4B FF 17 21 */	bl GetStageOffset__11DMainSystemFUcP3VecP3Vec
 /* 8001D424 000193A4  80 02 82 BC */	lwz r0, lbl_800A963C@sda21(r2)
-/* 8001D428 000193A8  3C 60 80 06 */	lis r3, lbl_8006440C@ha
-/* 8001D42C 000193AC  38 C3 44 0C */	addi r6, r3, lbl_8006440C@l
+/* 8001D428 000193A8  3C 60 80 06 */	lis r3, "@322"@ha
+/* 8001D42C 000193AC  38 C3 44 0C */	addi r6, r3, "@322"@l
 /* 8001D430 000193B0  90 01 00 18 */	stw r0, 0x18(r1)
 /* 8001D434 000193B4  38 7F 00 00 */	addi r3, r31, 0x0
 /* 8001D438 000193B8  38 81 00 18 */	addi r4, r1, 0x18
@@ -1611,104 +1611,185 @@
 
 .balign 8
 
-.obj lbl_800642B0, local
+.obj "@184", local
 	.4byte 0
 	.4byte 0x43160000
 	.4byte 0
+.endobj "@184"
+
+.obj "@186", local
 	.4byte 0
 	.4byte 0xC2F00000
 	.4byte 0
+.endobj "@186"
+
+.obj "@187", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj "@187"
+
+.obj "@189", local
 	.4byte 0x43160000
 	.4byte 0x43160000
 	.4byte 0x43160000
+.endobj "@189"
+
+.obj "@190", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj "@190"
+
+.obj "@192", local
 	.4byte 0xC3160000
 	.4byte 0x43160000
 	.4byte 0x43160000
+.endobj "@192"
+
+.obj "@193", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0
-	.4byte 0x428C0000
-	.4byte 0x42480000
-	.4byte 0
-	.4byte 0x428C0000
-	.4byte 0x42480000
-	.4byte 0
-	.4byte 0
-	.4byte 0
+.endobj "@193"
+
+.obj "@201", local
 	.4byte 0
 	.4byte 0x428C0000
 	.4byte 0x42480000
+.endobj "@201"
+
+.obj "@203", local
+	.4byte 0
+	.4byte 0x428C0000
+	.4byte 0x42480000
+.endobj "@203"
+
+.obj "@204", local
+	.4byte 0
+	.4byte 0
+	.4byte 0
+.endobj "@204"
+
+.obj "@207", local
+	.4byte 0
+	.4byte 0x428C0000
+	.4byte 0x42480000
+.endobj "@207"
+
+.obj "@209", local
 	.4byte 0
 	.4byte 0x42C80000
 	.4byte 0
+.endobj "@209"
+
+.obj "@210", local
 	.4byte 0x41880000
 	.4byte 0x42200000
 	.4byte 0x42700000
+.endobj "@210"
+
+.obj "@212", local
 	.4byte 0
 	.4byte 0x42C80000
 	.4byte 0
+.endobj "@212"
+
+.obj "@213", local
 	.4byte 0x41880000
 	.4byte 0x42200000
 	.4byte 0xC2700000
+.endobj "@213"
+
+.obj "@285", local
 	.4byte 0
 	.4byte 0x428C0000
 	.4byte 0
+.endobj "@285"
+
+.obj "@287", local
 	.4byte 0x41200000
 	.4byte 0x42200000
 	.4byte 0x42480000
+.endobj "@287"
+
+.obj "@288", local
 	.4byte 0
 	.4byte 0x41F00000
 	.4byte 0xC2480000
+.endobj "@288"
+
+.obj "@290", local
 	.4byte 0
 	.4byte 0x41F00000
 	.4byte 0xC2A00000
+.endobj "@290"
+
+.obj "@291", local
 	.4byte 0x41200000
 	.4byte 0x42200000
 	.4byte 0x42480000
-	.4byte 0
-	.4byte 0x428C0000
-	.4byte 0x42480000
-.endobj lbl_800642B0
+.endobj "@291"
 
-.obj lbl_800643AC, local
+.obj "@298", local
 	.4byte 0
 	.4byte 0x428C0000
 	.4byte 0x42480000
+.endobj "@298"
+
+.obj "@300", local
 	.4byte 0
 	.4byte 0x428C0000
 	.4byte 0x42480000
+.endobj "@300"
+
+.obj "@302", local
 	.4byte 0
 	.4byte 0x428C0000
 	.4byte 0x42480000
+.endobj "@302"
+
+.obj "@311", local
+	.4byte 0
+	.4byte 0x428C0000
+	.4byte 0x42480000
+.endobj "@311"
+
+.obj "@313", local
 	.4byte 0
 	.4byte 0xC3160000
 	.4byte 0
+.endobj "@313"
+
+.obj "@314", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj "@314"
+
+.obj "@316", local
 	.4byte 0
 	.4byte 0x42200000
 	.4byte 0xC2700000
-	.4byte 0
-	.4byte 0x428C0000
-	.4byte 0x42480000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-.endobj lbl_800643AC
+.endobj "@316"
 
-.obj lbl_8006440C, local
+.obj "@318", local
 	.4byte 0
 	.4byte 0x428C0000
 	.4byte 0x42480000
-.endobj lbl_8006440C
+.endobj "@318"
+
+.obj "@319", local
+	.4byte 0
+	.4byte 0
+	.4byte 0
+.endobj "@319"
+
+.obj "@322", local
+	.4byte 0
+	.4byte 0x428C0000
+	.4byte 0x42480000
+.endobj "@322"
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

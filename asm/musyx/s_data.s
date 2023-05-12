@@ -477,35 +477,35 @@
 
 .obj "@eti_80006100", local
 .hidden "@eti_80006100"
-    .4byte InsertData
-    .4byte 0x000001F0
-    .4byte "@etb_800058A0"
+	.4byte InsertData
+	.4byte 0x000001F0
+	.4byte "@etb_800058A0"
 .endobj "@eti_80006100"
 
 .obj "@eti_8000610C", local
 .hidden "@eti_8000610C"
-    .4byte ScanIDList
-    .4byte 0x0000009C
-    .4byte "@etb_800058A8"
+	.4byte ScanIDList
+	.4byte 0x0000009C
+	.4byte "@etb_800058A8"
 .endobj "@eti_8000610C"
 
 .obj "@eti_80006118", local
 .hidden "@eti_80006118"
-    .4byte sndPushGroup
-    .4byte 0x0000016C
-    .4byte "@etb_800058B0"
+	.4byte sndPushGroup
+	.4byte 0x0000016C
+	.4byte "@etb_800058B0"
 .endobj "@eti_80006118"
 
 .obj "@eti_80006124", local
 .hidden "@eti_80006124"
-    .4byte seqPlaySong
-    .4byte 0x00000140
-    .4byte "@etb_800058B8"
+	.4byte seqPlaySong
+	.4byte 0x00000140
+	.4byte "@etb_800058B8"
 .endobj "@eti_80006124"
 
 .obj "@eti_80006130", local
 .hidden "@eti_80006130"
-    .4byte sndSeqPlayEx
-    .4byte 0x00000028
-    .4byte "@etb_800058C0"
+	.4byte sndSeqPlayEx
+	.4byte 0x00000028
+	.4byte "@etb_800058C0"
 .endobj "@eti_80006130"

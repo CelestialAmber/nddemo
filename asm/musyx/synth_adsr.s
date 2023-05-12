@@ -566,42 +566,42 @@
 
 .obj "@eti_800060B8", local
 .hidden "@eti_800060B8"
-    .4byte adsrConvertTimeCents
-    .4byte 0x00000054
-    .4byte "@etb_80005870"
+	.4byte adsrConvertTimeCents
+	.4byte 0x00000054
+	.4byte "@etb_80005870"
 .endobj "@eti_800060B8"
 
 .obj "@eti_800060C4", local
 .hidden "@eti_800060C4"
-    .4byte adsrSetup
-    .4byte 0x00000028
-    .4byte "@etb_80005878"
+	.4byte adsrSetup
+	.4byte 0x00000028
+	.4byte "@etb_80005878"
 .endobj "@eti_800060C4"
 
 .obj "@eti_800060D0", local
 .hidden "@eti_800060D0"
-    .4byte adsrStartRelease
-    .4byte 0x00000154
-    .4byte "@etb_80005880"
+	.4byte adsrStartRelease
+	.4byte 0x00000154
+	.4byte "@etb_80005880"
 .endobj "@eti_800060D0"
 
 .obj "@eti_800060DC", local
 .hidden "@eti_800060DC"
-    .4byte adsrRelease
-    .4byte 0x00000044
-    .4byte "@etb_80005888"
+	.4byte adsrRelease
+	.4byte 0x00000044
+	.4byte "@etb_80005888"
 .endobj "@eti_800060DC"
 
 .obj "@eti_800060E8", local
 .hidden "@eti_800060E8"
-    .4byte adsrHandle
-    .4byte 0x000001A0
-    .4byte "@etb_80005890"
+	.4byte adsrHandle
+	.4byte 0x000001A0
+	.4byte "@etb_80005890"
 .endobj "@eti_800060E8"
 
 .obj "@eti_800060F4", local
 .hidden "@eti_800060F4"
-    .4byte adsrHandleLowPrecision
-    .4byte 0x00000084
-    .4byte "@etb_80005898"
+	.4byte adsrHandleLowPrecision
+	.4byte 0x00000084
+	.4byte "@etb_80005898"
 .endobj "@eti_800060F4"

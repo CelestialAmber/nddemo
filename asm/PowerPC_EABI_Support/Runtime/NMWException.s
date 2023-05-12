@@ -192,21 +192,21 @@
 
 .obj "@eti_8000655C", local
 .hidden "@eti_8000655C"
-    .4byte __destroy_arr
-    .4byte 0x00000078
-    .4byte "@etb_80005B88"
+	.4byte __destroy_arr
+	.4byte 0x00000078
+	.4byte "@etb_80005B88"
 .endobj "@eti_8000655C"
 
 .obj "@eti_80006568", local
 .hidden "@eti_80006568"
-    .4byte __construct_array
-    .4byte 0x00000100
-    .4byte "@etb_80005B90"
+	.4byte __construct_array
+	.4byte 0x00000100
+	.4byte "@etb_80005B90"
 .endobj "@eti_80006568"
 
 .obj "@eti_80006574", local
 .hidden "@eti_80006574"
-    .4byte __dt__26__partial_array_destructorFv
-    .4byte 0x000000B8
-    .4byte "@etb_80005BA8"
+	.4byte __dt__26__partial_array_destructorFv
+	.4byte 0x000000B8
+	.4byte "@etb_80005BA8"
 .endobj "@eti_80006574"

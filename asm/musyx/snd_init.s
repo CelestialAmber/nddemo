@@ -98,14 +98,14 @@
 
 .obj "@eti_800061FC", local
 .hidden "@eti_800061FC"
-    .4byte sndInit
-    .4byte 0x000000D8
-    .4byte "@etb_80005948"
+	.4byte sndInit
+	.4byte 0x000000D8
+	.4byte "@etb_80005948"
 .endobj "@eti_800061FC"
 
 .obj "@eti_80006208", local
 .hidden "@eti_80006208"
-    .4byte sndQuit
-    .4byte 0x00000034
-    .4byte "@etb_80005950"
+	.4byte sndQuit
+	.4byte 0x00000034
+	.4byte "@etb_80005950"
 .endobj "@eti_80006208"

@@ -1991,8 +1991,8 @@
 /* 80015A70 000119F0  38 A0 00 20 */	li r5, 0x20
 /* 80015A74 000119F4  38 C0 00 00 */	li r6, 0x0
 /* 80015A78 000119F8  4B FF CE 99 */	bl Read__5DUDvdFPvUll
-/* 80015A7C 000119FC  3C 60 80 06 */	lis r3, lbl_800641C4@ha
-/* 80015A80 00011A00  38 C3 41 C4 */	addi r6, r3, lbl_800641C4@l
+/* 80015A7C 000119FC  3C 60 80 06 */	lis r3, "@629"@ha
+/* 80015A80 00011A00  38 C3 41 C4 */	addi r6, r3, "@629"@l
 /* 80015A84 00011A04  80 A6 00 00 */	lwz r5, 0x0(r6)
 /* 80015A88 00011A08  38 81 00 10 */	addi r4, r1, 0x10
 /* 80015A8C 00011A0C  80 06 00 04 */	lwz r0, 0x4(r6)
@@ -2220,6 +2220,9 @@
 	.4byte 0x0000000D
 	.4byte 0x0000000E
 	.4byte 0x0000000F
+.endobj TevStageID_TABLE
+
+.obj TexCoordID_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2229,6 +2232,9 @@
 	.4byte 0x00000006
 	.4byte 0x00000007
 	.4byte 0x000000FF
+.endobj TexCoordID_TABLE
+
+.obj TexMapID_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2238,6 +2244,9 @@
 	.4byte 0x00000006
 	.4byte 0x00000007
 	.4byte 0x000000FF
+.endobj TexMapID_TABLE
+
+.obj ChannelID_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2248,6 +2257,9 @@
 	.4byte 0x00000007
 	.4byte 0x00000008
 	.4byte 0x000000FF
+.endobj ChannelID_TABLE
+
+.obj TevColorArg_TABLE, local
 	.4byte 0x00000002
 	.4byte 0x00000004
 	.4byte 0x00000006
@@ -2267,20 +2279,29 @@
 	.4byte 0x0000000D
 	.4byte 0x0000000E
 	.4byte 0x0000000F
+.endobj TevColorArg_TABLE
+
+.obj TevBias_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
+.endobj TevBias_TABLE
+
+.obj TevScale_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000003
-.endobj TevStageID_TABLE
+.endobj TevScale_TABLE
 
 .obj TevRegID_TABLE, local
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000003
 	.4byte 0
+.endobj TevRegID_TABLE
+
+.obj TevAlphaArg_TABLE, local
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000003
@@ -2289,9 +2310,15 @@
 	.4byte 0x00000005
 	.4byte 0x00000006
 	.4byte 0x00000007
+.endobj TevAlphaArg_TABLE
+
+.obj BlendMode_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
+.endobj BlendMode_TABLE
+
+.obj BlendFactor_src_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2300,6 +2327,9 @@
 	.4byte 0x00000005
 	.4byte 0x00000006
 	.4byte 0x00000007
+.endobj BlendFactor_src_TABLE
+
+.obj BlendFactor_dst_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2308,6 +2338,9 @@
 	.4byte 0x00000005
 	.4byte 0x00000006
 	.4byte 0x00000007
+.endobj BlendFactor_dst_TABLE
+
+.obj LogicOp_TABLE, local
 	.4byte 0
 	.4byte 0x0000000F
 	.4byte 0x00000003
@@ -2324,7 +2357,7 @@
 	.4byte 0x00000004
 	.4byte 0x0000000B
 	.4byte 0x0000000D
-.endobj TevRegID_TABLE
+.endobj LogicOp_TABLE
 
 .obj Compare_TABLE, local
 	.4byte 0
@@ -2335,6 +2368,9 @@
 	.4byte 0x00000006
 	.4byte 0x00000004
 	.4byte 0x00000007
+.endobj Compare_TABLE
+
+.obj TexGenType_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2342,6 +2378,9 @@
 	.4byte 0x00000004
 	.4byte 0x00000005
 	.4byte 0x0000000A
+.endobj TexGenType_TABLE
+
+.obj TexGenSrc_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2363,6 +2402,9 @@
 	.4byte 0x00000012
 	.4byte 0x00000013
 	.4byte 0x00000014
+.endobj TexGenSrc_TABLE
+
+.obj TexMtx_TABLE, local
 	.4byte 0x0000001E
 	.4byte 0x00000021
 	.4byte 0x00000024
@@ -2374,11 +2416,17 @@
 	.4byte 0x00000036
 	.4byte 0x00000039
 	.4byte 0x0000003C
+.endobj TexMtx_TABLE
+
+.obj IndTexStageID_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000003
 	.4byte 0x00000004
+.endobj IndTexStageID_TABLE
+
+.obj IndTexScale_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2389,6 +2437,9 @@
 	.4byte 0x00000007
 	.4byte 0x00000008
 	.4byte 0x00000009
+.endobj IndTexScale_TABLE
+
+.obj IndTexMtxID_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -2399,7 +2450,7 @@
 	.4byte 0x00000009
 	.4byte 0x0000000A
 	.4byte 0x0000000B
-.endobj Compare_TABLE
+.endobj IndTexMtxID_TABLE
 
 .obj "TEX_AT$288", local
 	.4byte 0x0000000D
@@ -2412,13 +2463,14 @@
 	.4byte 0x00000014
 .endobj "TEX_AT$288"
 
-.obj lbl_800641C4, local
+.obj "@629", local
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
 	.4byte 0x00000003
-	.4byte 0
-.endobj lbl_800641C4
+.endobj "@629"
+
+.4byte 0
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
@@ -2450,13 +2502,17 @@
 .obj lbl_80066790, local
 	.asciz "Error DGObject::oscmdExtendF>"
 	.balign 4
+.endobj lbl_80066790
+
+.obj "vtxByteSize$341", local
 	.4byte 0
 	.4byte 0
 	.4byte 0x00000001
 	.4byte 0x00000002
-	.asciz "Primitive error\n"
-	.balign 4
-.endobj lbl_80066790
+.endobj "vtxByteSize$341"
+
+.asciz "Primitive error\n"
+.balign 4
 
 .obj lbl_800667D4, local
 	.asciz "Error DGObject::DecRefer  ReferCount<0\n"
@@ -2488,8 +2544,10 @@
 .endobj TevOp_TABLE
 
 .obj Bool_TABLE, local
-	.4byte 0x00010000
+	.2byte 0x0001
 .endobj Bool_TABLE
+
+.2byte 0
 
 .obj lbl_800A94C4, local
 	.4byte 0x009000FF

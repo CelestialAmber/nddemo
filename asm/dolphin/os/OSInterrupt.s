@@ -668,7 +668,6 @@ __RAS_OSDisableInterrupts_begin:
 	.4byte 0x04000000
 	.4byte 0x00004000
 	.4byte 0xFFFFFFFF
-	.4byte 0
 .endobj InterruptPrioTable
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380

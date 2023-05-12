@@ -1219,12 +1219,14 @@
 
 .obj "dspSRCType$202", local
 	.4byte 0x00000001
-	.4byte 0x00020000
+	.2byte 0x0002
 .endobj "dspSRCType$202"
+
+.2byte 0
 
 .obj "dspCoefSel$204", local
 	.4byte 0x00000001
-	.4byte 0x00020000
+	.2byte 0x0002
 .endobj "dspCoefSel$204"
 
 
@@ -1408,140 +1410,140 @@
 
 .obj "@eti_80006334", local
 .hidden "@eti_80006334"
-    .4byte snd_handle_irq
-    .4byte 0x00000158
-    .4byte "@etb_80005A18"
+	.4byte snd_handle_irq
+	.4byte 0x00000158
+	.4byte "@etb_80005A18"
 .endobj "@eti_80006334"
 
 .obj "@eti_80006340", local
 .hidden "@eti_80006340"
-    .4byte hwInit
-    .4byte 0x000000B4
-    .4byte "@etb_80005A20"
+	.4byte hwInit
+	.4byte 0x000000B4
+	.4byte "@etb_80005A20"
 .endobj "@eti_80006340"
 
 .obj "@eti_8000634C", local
 .hidden "@eti_8000634C"
-    .4byte hwExit
-    .4byte 0x00000034
-    .4byte "@etb_80005A28"
+	.4byte hwExit
+	.4byte 0x00000034
+	.4byte "@etb_80005A28"
 .endobj "@eti_8000634C"
 
 .obj "@eti_80006358", local
 .hidden "@eti_80006358"
-    .4byte hwInitSamplePlayback
-    .4byte 0x000001AC
-    .4byte "@etb_80005A30"
+	.4byte hwInitSamplePlayback
+	.4byte 0x000001AC
+	.4byte "@etb_80005A30"
 .endobj "@eti_80006358"
 
 .obj "@eti_80006364", local
 .hidden "@eti_80006364"
-    .4byte hwSetADSR
-    .4byte 0x000001B0
-    .4byte "@etb_80005A38"
+	.4byte hwSetADSR
+	.4byte 0x000001B0
+	.4byte "@etb_80005A38"
 .endobj "@eti_80006364"
 
 .obj "@eti_80006370", local
 .hidden "@eti_80006370"
-    .4byte hwStart
-    .4byte 0x0000003C
-    .4byte "@etb_80005A40"
+	.4byte hwStart
+	.4byte 0x0000003C
+	.4byte "@etb_80005A40"
 .endobj "@eti_80006370"
 
 .obj "@eti_8000637C", local
 .hidden "@eti_8000637C"
-    .4byte hwSetVolume
-    .4byte 0x000002D0
-    .4byte "@etb_80005A48"
+	.4byte hwSetVolume
+	.4byte 0x000002D0
+	.4byte "@etb_80005A48"
 .endobj "@eti_8000637C"
 
 .obj "@eti_80006388", local
 .hidden "@eti_80006388"
-    .4byte hwOff
-    .4byte 0x0000002C
-    .4byte "@etb_80005A50"
+	.4byte hwOff
+	.4byte 0x0000002C
+	.4byte "@etb_80005A50"
 .endobj "@eti_80006388"
 
 .obj "@eti_80006394", local
 .hidden "@eti_80006394"
-    .4byte hwActivateStudio
-    .4byte 0x00000020
-    .4byte "@etb_80005A58"
+	.4byte hwActivateStudio
+	.4byte 0x00000020
+	.4byte "@etb_80005A58"
 .endobj "@eti_80006394"
 
 .obj "@eti_800063A0", local
 .hidden "@eti_800063A0"
-    .4byte hwDeactivateStudio
-    .4byte 0x00000020
-    .4byte "@etb_80005A60"
+	.4byte hwDeactivateStudio
+	.4byte 0x00000020
+	.4byte "@etb_80005A60"
 .endobj "@eti_800063A0"
 
 .obj "@eti_800063AC", local
 .hidden "@eti_800063AC"
-    .4byte hwAddInput
-    .4byte 0x00000034
-    .4byte "@etb_80005A68"
+	.4byte hwAddInput
+	.4byte 0x00000034
+	.4byte "@etb_80005A68"
 .endobj "@eti_800063AC"
 
 .obj "@eti_800063B8", local
 .hidden "@eti_800063B8"
-    .4byte hwRemoveInput
-    .4byte 0x00000034
-    .4byte "@etb_80005A70"
+	.4byte hwRemoveInput
+	.4byte 0x00000034
+	.4byte "@etb_80005A70"
 .endobj "@eti_800063B8"
 
 .obj "@eti_800063C4", local
 .hidden "@eti_800063C4"
-    .4byte hwFlushStream
-    .4byte 0x00000090
-    .4byte "@etb_80005A78"
+	.4byte hwFlushStream
+	.4byte 0x00000090
+	.4byte "@etb_80005A78"
 .endobj "@eti_800063C4"
 
 .obj "@eti_800063D0", local
 .hidden "@eti_800063D0"
-    .4byte hwGetStreamPlayBuffer
-    .4byte 0x00000024
-    .4byte "@etb_80005A80"
+	.4byte hwGetStreamPlayBuffer
+	.4byte 0x00000024
+	.4byte "@etb_80005A80"
 .endobj "@eti_800063D0"
 
 .obj "@eti_800063DC", local
 .hidden "@eti_800063DC"
-    .4byte hwFrq2Pitch
-    .4byte 0x0000005C
-    .4byte "@etb_80005A88"
+	.4byte hwFrq2Pitch
+	.4byte 0x0000005C
+	.4byte "@etb_80005A88"
 .endobj "@eti_800063DC"
 
 .obj "@eti_800063E8", local
 .hidden "@eti_800063E8"
-    .4byte hwInitSampleMem
-    .4byte 0x00000024
-    .4byte "@etb_80005A90"
+	.4byte hwInitSampleMem
+	.4byte 0x00000024
+	.4byte "@etb_80005A90"
 .endobj "@eti_800063E8"
 
 .obj "@eti_800063F4", local
 .hidden "@eti_800063F4"
-    .4byte hwExitSampleMem
-    .4byte 0x00000020
-    .4byte "@etb_80005A98"
+	.4byte hwExitSampleMem
+	.4byte 0x00000020
+	.4byte "@etb_80005A98"
 .endobj "@eti_800063F4"
 
 .obj "@eti_80006400", local
 .hidden "@eti_80006400"
-    .4byte hwSaveSample
-    .4byte 0x00000094
-    .4byte "@etb_80005AA0"
+	.4byte hwSaveSample
+	.4byte 0x00000094
+	.4byte "@etb_80005AA0"
 .endobj "@eti_80006400"
 
 .obj "@eti_8000640C", local
 .hidden "@eti_8000640C"
-    .4byte hwRemoveSample
-    .4byte 0x00000084
-    .4byte "@etb_80005AA8"
+	.4byte hwRemoveSample
+	.4byte 0x00000084
+	.4byte "@etb_80005AA8"
 .endobj "@eti_8000640C"
 
 .obj "@eti_80006418", local
 .hidden "@eti_80006418"
-    .4byte hwSyncSampleMem
-    .4byte 0x00000020
-    .4byte "@etb_80005AB0"
+	.4byte hwSyncSampleMem
+	.4byte 0x00000020
+	.4byte "@etb_80005AB0"
 .endobj "@eti_80006418"

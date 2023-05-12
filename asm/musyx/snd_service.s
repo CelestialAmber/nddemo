@@ -654,7 +654,6 @@
 
 .obj last_rnd, local
 	.4byte 0x00000001
-	.4byte 0
 .endobj last_rnd
 
 .section extab, "a"  # 0x80005520 - 0x80005BC0
@@ -676,14 +675,14 @@
 
 .obj "@eti_8000631C", local
 .hidden "@eti_8000631C"
-    .4byte sndBSearch
-    .4byte 0x00000098
-    .4byte "@etb_80005A08"
+	.4byte sndBSearch
+	.4byte 0x00000098
+	.4byte "@etb_80005A08"
 .endobj "@eti_8000631C"
 
 .obj "@eti_80006328", local
 .hidden "@eti_80006328"
-    .4byte sndConvertTicks
-    .4byte 0x00000048
-    .4byte "@etb_80005A10"
+	.4byte sndConvertTicks
+	.4byte 0x00000048
+	.4byte "@etb_80005A10"
 .endobj "@eti_80006328"

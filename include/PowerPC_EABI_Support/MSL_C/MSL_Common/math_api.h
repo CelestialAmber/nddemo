@@ -2,29 +2,61 @@
 #define _MSL_MATH_API_H
 
 #include "types.h"
-
+#include "fdlibm.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif // ifdef __cplusplus
 
+// int __fpclassifyf(float);
+// int __signbitd(double);
+// int __fpclassifyd(double);
 
-#if defined(i386) || defined(i486) || defined(intel) || defined(x86) || defined(i86pc) || defined(__alpha) || defined(__osf__)
-#define __LITTLE_ENDIAN
-#endif
+inline int __fpclassifyf(f32 x)
+{
+	switch ((*(s32*)&x) & 0x7f800000) {
+	case 0x7f800000: {
+		if ((*(s32*)&x) & 0x007fffff)
+			return 1;
+		else
+			return 2;
+		break;
+	}
+	case 0: {
+		if ((*(s32*)&x) & 0x007fffff)
+			return 5;
+		else
+			return 3;
+		break;
+	}
+	}
+	return 4;
+}
+inline int __fpclassifyd(f64 x)
+{
+	switch (__HI(x) & 0x7ff00000) {
+	case 0x7ff00000: {
+		if ((__HI(x) & 0x000fffff) || (__LO(x) & 0xffffffff))
+			return 1;
+		else
+			return 2;
+		break;
+	}
+	case 0: {
+		if ((__HI(x) & 0x000fffff) || (__LO(x) & 0xffffffff))
+			return 5;
+		else
+			return 3;
+		break;
+	}
+	}
+	return 4;
+}
 
-#ifdef __LITTLE_ENDIAN
-#define __HI(x)  *(1 + (int*)&x)
-#define __LO(x)  *(int*)&x
-#define __HIp(x) *(1 + (int*)x)
-#define __LOp(x) *(int*)x
-#else
-#define __HI(x)  *(int*)&x
-#define __LO(x)  *(1 + (int*)&x)
-#define __HIp(x) *(int*)x
-#define __LOp(x) *(1 + (int*)x)
-#endif
+#define fpclassify(x) ((sizeof(x) == sizeof(float)) ? __fpclassifyf((float)(x)) : __fpclassifyd((double)(x)))
 
+#define isinf(x)    ((fpclassify(x) == 2))
+#define isfinite(x) ((fpclassify(x) > 2))
 
 #ifdef __cplusplus
 };

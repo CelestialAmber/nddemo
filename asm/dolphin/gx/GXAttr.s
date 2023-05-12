@@ -1626,5 +1626,4 @@
 
 .obj "tbl3$216", local
 	.4byte 0x000C0102
-	.4byte 0
 .endobj "tbl3$216"

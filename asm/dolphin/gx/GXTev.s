@@ -673,5 +673,4 @@
 	.4byte 0x00000007
 	.4byte 0x00000005
 	.4byte 0x00000006
-	.4byte 0
 .endobj "c2r$71"

@@ -738,11 +738,11 @@
 /* 80007260 000031E0  7C 08 02 A6 */	mflr r0
 /* 80007264 000031E4  3C 80 01 00 */	lis r4, 0x100
 /* 80007268 000031E8  90 01 00 04 */	stw r0, 0x4(r1)
-/* 8000726C 000031EC  3C A0 80 06 */	lis r5, lbl_80063D20@ha
+/* 8000726C 000031EC  3C A0 80 06 */	lis r5, "@353"@ha
 /* 80007270 000031F0  38 84 FF FF */	addi r4, r4, -0x1
 /* 80007274 000031F4  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 80007278 000031F8  93 E1 00 7C */	stw r31, 0x7c(r1)
-/* 8000727C 000031FC  3B E5 3D 20 */	addi r31, r5, lbl_80063D20@l
+/* 8000727C 000031FC  3B E5 3D 20 */	addi r31, r5, "@353"@l
 /* 80007280 00003200  93 C1 00 78 */	stw r30, 0x78(r1)
 /* 80007284 00003204  93 A1 00 74 */	stw r29, 0x74(r1)
 /* 80007288 00003208  3B A3 00 00 */	addi r29, r3, 0x0
@@ -4096,8 +4096,8 @@
 /* 8000A2D0 00006250  93 A1 00 F4 */	stw r29, 0xf4(r1)
 /* 8000A2D4 00006254  7C 7D 1B 78 */	mr r29, r3
 /* 8000A2D8 00006258  88 03 00 0A */	lbz r0, 0xa(r3)
-/* 8000A2DC 0000625C  3C 60 80 06 */	lis r3, lbl_80063D20@ha
-/* 8000A2E0 00006260  3B E3 3D 20 */	addi r31, r3, lbl_80063D20@l
+/* 8000A2DC 0000625C  3C 60 80 06 */	lis r3, "@353"@ha
+/* 8000A2E0 00006260  3B E3 3D 20 */	addi r31, r3, "@353"@l
 /* 8000A2E4 00006264  7C 00 07 74 */	extsb r0, r0
 /* 8000A2E8 00006268  1C 00 00 CC */	mulli r0, r0, 0xcc
 /* 8000A2EC 0000626C  7C 7D 02 14 */	add r3, r29, r0
@@ -4801,9 +4801,9 @@
 
 .fn _iCineProInit__11DMainSystemFv, global
 /* 8000AD78 00006CF8  7C 08 02 A6 */	mflr r0
-/* 8000AD7C 00006CFC  3C 80 80 06 */	lis r4, lbl_80063D20@ha
+/* 8000AD7C 00006CFC  3C 80 80 06 */	lis r4, "@353"@ha
 /* 8000AD80 00006D00  90 01 00 04 */	stw r0, 0x4(r1)
-/* 8000AD84 00006D04  38 A4 3D 20 */	addi r5, r4, lbl_80063D20@l
+/* 8000AD84 00006D04  38 A4 3D 20 */	addi r5, r4, "@353"@l
 /* 8000AD88 00006D08  94 21 FF 88 */	stwu r1, -0x78(r1)
 /* 8000AD8C 00006D0C  93 E1 00 74 */	stw r31, 0x74(r1)
 /* 8000AD90 00006D10  7C 7F 1B 78 */	mr r31, r3
@@ -8045,12 +8045,12 @@
 /* 8000DCB0 00009C30  FC 40 08 90 */	fmr f2, f1
 /* 8000DCB4 00009C34  C0 82 80 C4 */	lfs f4, lbl_800A9444@sda21(r2)
 /* 8000DCB8 00009C38  48 01 54 15 */	bl set_speed__8DTCameraFffff
-/* 8000DCBC 00009C3C  3C 60 80 06 */	lis r3, lbl_80063DD4@ha
-/* 8000DCC0 00009C40  38 E3 3D D4 */	addi r7, r3, lbl_80063DD4@l
+/* 8000DCBC 00009C3C  3C 60 80 06 */	lis r3, "@1371"@ha
+/* 8000DCC0 00009C40  38 E3 3D D4 */	addi r7, r3, "@1371"@l
 /* 8000DCC4 00009C44  80 A7 00 00 */	lwz r5, 0x0(r7)
-/* 8000DCC8 00009C48  3C 60 80 06 */	lis r3, lbl_80063DC8@ha
+/* 8000DCC8 00009C48  3C 60 80 06 */	lis r3, "@1370"@ha
 /* 8000DCCC 00009C4C  80 07 00 04 */	lwz r0, 0x4(r7)
-/* 8000DCD0 00009C50  38 C3 3D C8 */	addi r6, r3, lbl_80063DC8@l
+/* 8000DCD0 00009C50  38 C3 3D C8 */	addi r6, r3, "@1370"@l
 /* 8000DCD4 00009C54  38 81 00 18 */	addi r4, r1, 0x18
 /* 8000DCD8 00009C58  90 A1 00 24 */	stw r5, 0x24(r1)
 /* 8000DCDC 00009C5C  38 7E 07 C8 */	addi r3, r30, 0x7c8
@@ -11412,10 +11412,10 @@
 
 .fn DrawFrameBar__Fff, local
 /* 80010CD8 0000CC58  7C 08 02 A6 */	mflr r0
-/* 80010CDC 0000CC5C  3C 80 80 06 */	lis r4, lbl_80063D20@ha
+/* 80010CDC 0000CC5C  3C 80 80 06 */	lis r4, "@353"@ha
 /* 80010CE0 0000CC60  90 01 00 04 */	stw r0, 0x4(r1)
 /* 80010CE4 0000CC64  38 00 00 0E */	li r0, 0xe
-/* 80010CE8 0000CC68  38 E4 3D 20 */	addi r7, r4, lbl_80063D20@l
+/* 80010CE8 0000CC68  38 E4 3D 20 */	addi r7, r4, "@353"@l
 /* 80010CEC 0000CC6C  7C 09 03 A6 */	mtctr r0
 /* 80010CF0 0000CC70  94 21 FD C0 */	stwu r1, -0x240(r1)
 /* 80010CF4 0000CC74  38 87 00 B8 */	addi r4, r7, 0xb8
@@ -13154,61 +13154,103 @@
 
 .balign 8
 
-.obj lbl_80063D20, local
+.obj "@353", local
 	.4byte 0
 	.4byte 0x3F800000
 	.4byte 0
+.endobj "@353"
+
+.obj "@354", local
 	.4byte 0
 	.4byte 0
 	.4byte 0x42480000
+.endobj "@354"
+
+.obj "@355", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj "@355"
+
+.obj "@819", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj "@819"
+
+.obj "@831", local
 	.4byte 0
 	.4byte 0
 	.4byte 0x3F800000
+.endobj "@831"
+
+.obj "@835", local
 	.4byte 0
 	.4byte 0
 	.4byte 0x3F800000
+.endobj "@835"
+
+.obj "@838", local
 	.4byte 0x42AA0000
 	.4byte 0x42DC0000
 	.4byte 0xC35E0000
+.endobj "@838"
+
+.obj "@840", local
 	.4byte 0x42BE0000
 	.4byte 0x42A00000
 	.4byte 0xC32C0000
+.endobj "@840"
+
+.obj "@841", local
 	.4byte 0x42AA0000
 	.4byte 0x428C0000
 	.4byte 0xC3880000
+.endobj "@841"
+
+.obj "@843", local
 	.4byte 0x42AA0000
 	.4byte 0x428C0000
 	.4byte 0xC3970000
+.endobj "@843"
+
+.obj "@844", local
 	.4byte 0x42BE0000
 	.4byte 0x42A00000
 	.4byte 0xC32C0000
+.endobj "@844"
+
+.obj "@904", local
 	.4byte 0
 	.4byte 0x3F800000
 	.4byte 0
+.endobj "@904"
+
+.obj "@905", local
 	.4byte 0x41200000
 	.4byte 0x42200000
 	.4byte 0x42480000
+.endobj "@905"
+
+.obj "@906", local
 	.4byte 0xC0A00000
 	.4byte 0x40A00000
 	.4byte 0
-.endobj lbl_80063D20
+.endobj "@906"
 
-.obj lbl_80063DC8, local
+.obj "@1370", local
 	.4byte 0xC31EAE14
 	.4byte 0xC2BE0000
 	.4byte 0x42B0851F
-.endobj lbl_80063DC8
+.endobj "@1370"
 
-.obj lbl_80063DD4, local
+.obj "@1371", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj "@1371"
+
+.obj "@1983", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -13237,19 +13279,28 @@
 	.4byte 0
 	.4byte 0x43E70000
 	.4byte 0x41800000
+.endobj "@1983"
+
+.obj "@1985", local
 	.4byte 0
 	.4byte 0
 	.4byte 0x441A0000
 	.4byte 0
+.endobj "@1985"
+
+.obj "@1987", local
 	.4byte 0
 	.4byte 0
 	.4byte 0x441A0000
 	.4byte 0
+.endobj "@1987"
+
+.obj "@1989", local
 	.4byte 0
 	.4byte 0
 	.4byte 0x441A0000
 	.4byte 0
-.endobj lbl_80063DD4
+.endobj "@1989"
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
@@ -13410,7 +13461,8 @@
 	.balign 4
 .endobj lbl_80065258
 
-iFileNameData:	.4byte lbl_80065088
+.obj iFileNameData, local
+    .4byte lbl_80065088
 	.4byte lbl_80065094
 	.4byte lbl_800650A4
 	.4byte lbl_800650B4
@@ -13444,6 +13496,7 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte lbl_8006523C
 	.4byte lbl_80065248
 	.4byte lbl_80065258
+.endobj iFileNameData
 
 .obj lbl_800652F0, local
 	.asciz "audio/gcdemo.sng"
@@ -13486,6 +13539,9 @@ iFileNameData:	.4byte lbl_80065088
 
 .obj lbl_80065384, local
 	.asciz "audio/coins.sng"
+.endobj lbl_80065384
+
+.obj songFilenameTable, local
 	.4byte lbl_800652F0
 	.4byte lbl_80065304
 	.4byte lbl_80065318
@@ -13495,142 +13551,165 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte lbl_80065360
 	.4byte lbl_80065374
 	.4byte lbl_80065384
-	.4byte 0x00020501
-	.4byte 0x03000406
-	.4byte 0x0700FF00
-.endobj lbl_80065384
+.endobj songFilenameTable
+
+.obj iCourseData, local
+	.byte 0x00
+    .byte 0x02
+    .byte 0x05
+    .byte 0x01
+	.byte 0x03
+    .byte 0x00
+    .byte 0x04
+    .byte 0x06
+	.byte 0x07
+    .byte 0x00
+    .byte 0xFF
+.endobj iCourseData
+
+.byte 0
 
 .obj stPerf0, global
-	.4byte 0x0B545249
-	.asciz "ANGLES"
+	.byte 0x0B
+	.asciz "TRIANGLES"
 	.balign 4
-	.4byte 0x00564552
-	.asciz "TICES "
+	.byte 0x00
+	.asciz "VERTICES "
 	.balign 4
-	.4byte 0x01434C49
-	.asciz "P_VTX "
+	.byte 0x01
+	.asciz "CLIP_VTX "
 	.balign 4
-	.4byte 0x02434C49
-	.asciz "P_CLK "
+	.byte 0x02
+	.asciz "CLIP_CLK "
 	.balign 4
-	.4byte 0x0358465F
-	.asciz "WAITIN"
+	.byte 0x03
+	.asciz "XF_WAITIN"
 	.balign 4
-	.4byte 0x04584657
-	.asciz "AITOUT"
+	.byte 0x04
+	.asciz "XFWAITOUT"
 	.balign 4
-	.4byte 0x0558465F
-	.asciz "XFRM  "
+	.byte 0x05
+	.asciz "XF_XFRM  "
 	.balign 4
-	.4byte 0x0658465F
-	.asciz "LIT   "
+	.byte 0x06
+	.asciz "XF_LIT   "
 	.balign 4
-	.4byte 0x0758465F
-	.asciz "BOT   "
+	.byte 0x07
+	.asciz "XF_BOT   "
 	.balign 4
-	.4byte 0x0858465F
-	.asciz "REGLD "
+	.byte 0x08
+	.asciz "XF_REGLD "
 	.balign 4
-	.asciz "\tXF_REGRD "
+    .byte 0x09
+	.asciz "XF_REGRD "
 	.balign 4
-	.asciz "\nCLIPRATIO"
+    .byte 0x0A
+	.asciz "CLIPRATIO"
 	.balign 4
-	.4byte 0x0C545249
-	.asciz "_CULL "
+	.byte 0x0C
+	.asciz "TRI_CULL "
 	.balign 4
-	.4byte 0x0D545249
-	.asciz "_PASS "
+	.byte 0x0D
+	.asciz "TRI_PASS "
 	.balign 4
-	.4byte 0x0E545249
-	.asciz "_SCISS"
+	.byte 0x0E
+	.asciz "TRI_SCISS"
 	.balign 4
-	.4byte 0x1B515541
-	.asciz "D_0CVG"
+	.byte 0x1B
+	.asciz "QUAD_0CVG"
 	.balign 4
-	.4byte 0x1C515541
-	.asciz "DNOCVG"
+	.byte 0x1C
+	.asciz "QUADNOCVG"
 	.balign 4
-	.4byte 0x1D515541
-	.asciz "D_1CVG"
+	.byte 0x1D
+	.asciz "QUAD_1CVG"
 	.balign 4
-	.4byte 0x1E515541
-	.asciz "D_2CVG"
+	.byte 0x1E
+	.asciz "QUAD_2CVG"
 	.balign 4
-	.4byte 0x1F515541
-	.asciz "D_3CVG"
+	.byte 0x1F
+	.asciz "QUAD_3CVG"
 	.balign 4
-	.asciz " QUAD_4CVG"
+    .byte 0x20
+	.asciz "QUAD_4CVG"
 	.balign 4
-	.asciz "!AVG_QUAD "
+    .byte 0x21
+	.asciz "AVG_QUAD "
 	.balign 4
-	.4byte 0x23000000
+	.byte 0x23
+    .byte 0
+    .2byte 0
 	.4byte 0
 	.4byte 0
 .endobj stPerf0
 
 .obj stPerf1, global
-	.4byte 0x10564552
-	.asciz "TICES "
+	.byte 0x10
+	.asciz "VERTICES "
 	.balign 4
-	.4byte 0x00544558
-	.asciz "ELS   "
+	.byte 0x00
+	.asciz "TEXELS   "
 	.balign 4
-	.4byte 0x0154585F
-	.asciz "IDLE  "
+	.byte 0x01
+	.asciz "TX_IDLE  "
 	.balign 4
-	.4byte 0x0254585F
-	.asciz "REGS  "
+	.byte 0x02
+	.asciz "TX_REGS  "
 	.balign 4
-	.4byte 0x0354585F
-	.asciz "MEMSTL"
+	.byte 0x03
+	.asciz "TX_MEMSTL"
 	.balign 4
-	.4byte 0x04544343
-	.asciz "HECK12"
+	.byte 0x04
+	.asciz "TCCHECK12"
 	.balign 4
-	.4byte 0x05544343
-	.asciz "HECK34"
+	.byte 0x05
+	.asciz "TCCHECK34"
 	.balign 4
-	.4byte 0x06544343
-	.asciz "HECK56"
+	.byte 0x06
+	.asciz "TCCHECK56"
 	.balign 4
-	.4byte 0x07544343
-	.asciz "HECK78"
+	.byte 0x07
+	.asciz "TCCHECK78"
 	.balign 4
-	.4byte 0x0854435F
-	.asciz "MISS  "
+	.byte 0x08
+	.asciz "TC_MISS  "
 	.balign 4
-	.asciz "\tVC_ELEMQ "
+    .byte 9
+	.asciz "VC_ELEMQ "
 	.balign 4
-	.asciz "\nVC_MISSQ "
+    .byte 10
+	.asciz "VC_MISSQ "
 	.balign 4
-	.4byte 0x0B56435F
-	.asciz "MEMREQ"
+	.byte 0x0B
+	.asciz "VC_MEMREQ"
 	.balign 4
-	.4byte 0x0C56435F
-	.asciz "STAT7 "
+	.byte 0x0C
+	.asciz "VC_STAT7 "
 	.balign 4
-	.4byte 0x0D56434D
-	.asciz "ISSREP"
+	.byte 0x0D
+	.asciz "VCMISSREP"
 	.balign 4
-	.4byte 0x0E564353
-	.asciz "TRMLOW"
+	.byte 0x0E
+	.asciz "VCSTRMLOW"
 	.balign 4
-	.4byte 0x0F564341
-	.asciz "LLSTAT"
+	.byte 0x0F
+	.asciz "VCALLSTAT"
 	.balign 4
-	.4byte 0x11464946
-	.asciz "O_REQ "
+	.byte 0x11
+	.asciz "FIFO_REQ "
 	.balign 4
-	.4byte 0x1243414C
-	.asciz "L_REQ "
+	.byte 0x12
+	.asciz "CALL_REQ "
 	.balign 4
-	.4byte 0x1356435F
-	.asciz "MISSRQ"
+	.byte 0x13
+	.asciz "VC_MISSRQ"
 	.balign 4
-	.4byte 0x1443505F
-	.asciz "ALLREQ"
+	.byte 0x14
+	.asciz "CP_ALLREQ"
 	.balign 4
-	.4byte 0x16000000
+	.byte 0x16
+    .byte 0
+    .2byte 0
 	.4byte 0
 	.4byte 0
 .endobj stPerf1
@@ -13660,6 +13739,8 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte .L_800071FC
 	.4byte .L_80007204
 	.4byte .L_8000720C
+
+
 	.asciz "%s=%8d %s=%8d"
 	.balign 4
 	.asciz "Free Mem=[%09d] COIN=[%04d] %s\n"
@@ -13946,6 +14027,9 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte .L_8000C308
 	.4byte .L_8000C354
 	.4byte .L_8000C428
+.endobj lbl_80065A68
+
+.obj iMarioInitPosDat, local
 	.4byte 0x43340000
 	.4byte 0
 	.4byte 0
@@ -13953,8 +14037,8 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte 0xC1A00000
 	.4byte 0xC384224E
 	.4byte 0xC2D97AE1
-	.asciz "C+Z^Bp"
-	.balign 4
+    .4byte 0x432B5A5E
+    .4byte 0x42700000
 	.4byte 0x43059127
 	.4byte 0
 	.4byte 0x429A3852
@@ -13978,6 +14062,9 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte 0xC2F90000
 	.4byte 0x42200000
 	.4byte 0xC2FD0000
+.endobj iMarioInitPosDat
+
+.obj iCameraInitPosDat, local
 	.4byte 0
 	.4byte 0x41F00000
 	.4byte 0x42FA0000
@@ -14026,6 +14113,9 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte 0xC2F90000
 	.4byte 0x42640000
 	.4byte 0xC2FD0000
+.endobj iCameraInitPosDat
+
+.obj iRoomInitPosDat, local
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -14058,7 +14148,7 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte 0xC3398000
 	.4byte 0x42200000
 	.4byte 0xC2FF0000
-.endobj lbl_80065A68
+.endobj iRoomInitPosDat
 
 .obj lbl_80065C44, local
 	.4byte .L_8000EEF0
@@ -14069,10 +14159,11 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte .L_8000EE8C
 	.4byte .L_8000EEF0
 	.4byte .L_8000EEBC
-	.asciz "DMainSystem.cpp"
-	.asciz "DEMO: invalid TV format\n"
-	.balign 4
 .endobj lbl_80065C44
+
+.asciz "DMainSystem.cpp"
+.asciz "DEMO: invalid TV format\n"
+.balign 4
 
 .obj lbl_80065C90, local
 	.4byte .L_8000F0B0
@@ -14083,9 +14174,10 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte .L_8000F114
 	.4byte .L_8000F128
 	.4byte .L_8000F13C
-	.asciz "Next room %d\n"
-	.balign 4
 .endobj lbl_80065C90
+
+.asciz "Next room %d\n"
+.balign 4
 
 .obj lbl_80065CC0, local
 	.4byte .L_8000F364
@@ -14162,10 +14254,13 @@ iFileNameData:	.4byte lbl_80065088
 .obj lbl_80065D94, local
 	.asciz "Expensive\n"
 	.balign 4
+.endobj lbl_80065D94
+
+.obj textMipmap, local
 	.4byte lbl_800A8B24
 	.4byte lbl_800A8B2C
 	.4byte lbl_80065D94
-.endobj lbl_80065D94
+.endobj textMipmap
 
 .obj lbl_80065DAC, local
 	.asciz "GXNtsc240Ds\n"
@@ -14207,18 +14302,26 @@ iFileNameData:	.4byte lbl_80065088
 .obj lbl_80065E2C, local
 	.asciz "GXNtsc480ProgAa\n"
 	.balign 4
-	.4byte lbl_80065DAC
-	.4byte lbl_80065DBC
-	.4byte lbl_80065DCC
-	.4byte lbl_80065DDC
-	.4byte lbl_80065DEC
-	.4byte lbl_80065DFC
-	.4byte lbl_80065E0C
-	.4byte lbl_80065E1C
-	.4byte lbl_80065E2C
-	.4byte lbl_800A8B40
-	.4byte lbl_800A8B48
-	.4byte lbl_800A8B50
+.endobj lbl_80065E2C
+
+.obj textRenderMode, local
+    .4byte lbl_80065DAC
+    .4byte lbl_80065DBC
+    .4byte lbl_80065DCC
+    .4byte lbl_80065DDC
+    .4byte lbl_80065DEC
+    .4byte lbl_80065DFC
+    .4byte lbl_80065E0C
+    .4byte lbl_80065E1C
+    .4byte lbl_80065E2C
+.endobj textRenderMode
+
+.obj textGamma, local
+    .4byte lbl_800A8B40
+    .4byte lbl_800A8B48
+    .4byte lbl_800A8B50
+.endobj textGamma
+
 	.asciz "PAUSE MENU"
 	.balign 4
 	.asciz "MIP MAP     :"
@@ -14295,7 +14398,7 @@ iFileNameData:	.4byte lbl_80065088
 	.asciz "del STG_MPOL : start\n"
 	.balign 4
 	.asciz "del STG_MPOL : end\n"
-.endobj lbl_80065E2C
+    .balign 4
 
 .obj lbl_80066220, local
 	.4byte .L_80011EB0
@@ -14307,7 +14410,6 @@ iFileNameData:	.4byte lbl_80065088
 	.4byte .L_80012440
 	.4byte .L_80012504
 	.4byte .L_80012600
-	.4byte 0
 .endobj lbl_80066220
 
 

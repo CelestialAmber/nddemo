@@ -10,8 +10,8 @@
 /* 8001FBE4 0001BB64  93 C1 00 70 */	stw r30, 0x70(r1)
 /* 8001FBE8 0001BB68  93 A1 00 6C */	stw r29, 0x6c(r1)
 /* 8001FBEC 0001BB6C  90 61 00 08 */	stw r3, 0x8(r1)
-/* 8001FBF0 0001BB70  3C 60 80 06 */	lis r3, lbl_80064528@ha
-/* 8001FBF4 0001BB74  3B A3 45 28 */	addi r29, r3, lbl_80064528@l
+/* 8001FBF0 0001BB70  3C 60 80 06 */	lis r3, "@150"@ha
+/* 8001FBF4 0001BB74  3B A3 45 28 */	addi r29, r3, "@150"@l
 /* 8001FBF8 0001BB78  83 C1 00 08 */	lwz r30, 0x8(r1)
 /* 8001FBFC 0001BB7C  38 7E 00 34 */	addi r3, r30, 0x34
 /* 8001FC00 0001BB80  4B FF 8A C5 */	bl __ct__8DGCameraFv
@@ -3453,8 +3453,8 @@
 /* 80022BE4 0001EB64  90 01 00 DC */	stw r0, 0xdc(r1)
 /* 80022BE8 0001EB68  4B FF 65 3D */	bl GetPosition__10DGPositionFv
 /* 80022BEC 0001EB6C  80 01 00 8C */	lwz r0, 0x8c(r1)
-/* 80022BF0 0001EB70  3C 60 80 06 */	lis r3, lbl_8006454C@ha
-/* 80022BF4 0001EB74  38 A3 45 4C */	addi r5, r3, lbl_8006454C@l
+/* 80022BF0 0001EB70  3C 60 80 06 */	lis r3, "@1021"@ha
+/* 80022BF4 0001EB74  38 A3 45 4C */	addi r5, r3, "@1021"@l
 /* 80022BF8 0001EB78  80 81 00 90 */	lwz r4, 0x90(r1)
 /* 80022BFC 0001EB7C  90 01 00 C8 */	stw r0, 0xc8(r1)
 /* 80022C00 0001EB80  80 01 00 94 */	lwz r0, 0x94(r1)
@@ -3626,23 +3626,29 @@
 
 .balign 8
 
-.obj lbl_80064528, local
+.obj "@150", local
 	.4byte 0
 	.4byte 0x42C80000
 	.4byte 0
+.endobj "@150"
+
+.obj "@151", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj "@151"
+
+.obj "@152", local
 	.4byte 0
 	.4byte 0x3F800000
 	.4byte 0
-.endobj lbl_80064528
+.endobj "@152"
 
-.obj lbl_8006454C, local
+.obj "@1021", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
-.endobj lbl_8006454C
+.endobj "@1021"
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
@@ -3703,85 +3709,127 @@
 	.balign 4
 	.4byte 0
 	.4byte 0
+.endobj PlyAnimName
+
+.obj iVec_ENTR_doorC, local
 	.4byte 0xC258EE98
 	.4byte 0x42200000
 	.4byte 0xC3250000
 	.4byte 0xC258EE98
 	.4byte 0x42200000
 	.4byte 0xC3490000
+.endobj iVec_ENTR_doorC
+
+.obj iVec_ENTR_doorG, local
 	.4byte 0x4258EE98
 	.4byte 0x42200000
 	.4byte 0xC3250000
 	.4byte 0x422CEE98
 	.4byte 0x42200000
 	.4byte 0xC3490000
+.endobj iVec_ENTR_doorG
+
+.obj iVec_ENTR_doorB, local
 	.4byte 0xC2A0C831
 	.4byte 0x42200000
 	.4byte 0xC2FF449C
 	.4byte 0xC2E8C831
 	.4byte 0x42200000
 	.4byte 0xC2FF449C
+.endobj iVec_ENTR_doorB
+
+.obj iVec_ENTR_doorF, local
 	.4byte 0x42A0C831
 	.4byte 0x42200000
 	.4byte 0xC2FF449C
 	.4byte 0x42E8C831
 	.4byte 0x42200000
 	.4byte 0xC2FF449C
+.endobj iVec_ENTR_doorF
+
+.obj iVec_ENTR_doorE, local
 	.4byte 0x42BFD3F8
 	.4byte 0
 	.4byte 0x425DB53F
 	.4byte 0x42F81EB8
 	.4byte 0
 	.4byte 0x428F28F6
+.endobj iVec_ENTR_doorE
+
+.obj iVec_ENTR_doorD, local
 	.4byte 0xC2BFD3F8
 	.4byte 0
 	.4byte 0x425DB53F
 	.4byte 0xC2FE2E98
 	.4byte 0
 	.4byte 0x4292DAA0
+.endobj iVec_ENTR_doorD
+
+.obj iVec_HANG_doorA, local
 	.4byte 0xC380BC08
 	.4byte 0xC2DAF6C9
 	.4byte 0x4314028F
 	.4byte 0xC3624AC1
 	.4byte 0xC2DAF6C9
 	.4byte 0x4302028F
+.endobj iVec_HANG_doorA
+
+.obj iVec_HANG_dokanA, local
 	.4byte 0xC3A69666
 	.4byte 0xC30CBD71
 	.4byte 0x432FCD91
+.endobj iVec_HANG_dokanA
+
+.obj iVec_DOME_doorA, local
 	.4byte 0x42D2A76D
 	.4byte 0
 	.4byte 0x42733646
 	.4byte 0x42944C4A
 	.4byte 0
 	.4byte 0x422B353F
+.endobj iVec_DOME_doorA
+
+.obj iVec_CAVE_dokanA, local
 	.4byte 0x43031EB8
 	.4byte 0xC2CC999A
 	.4byte 0xC29DB852
-	.asciz "B^ffB "
-	.balign 4
+.endobj iVec_CAVE_dokanA
+
+.obj iVec_CINE_doorA, local
+	.4byte 0x425E6666
+	.4byte 0x42200000
 	.4byte 0xC3310000
-	.asciz "B^ffB "
-	.balign 4
+	.4byte 0x425E6666
+	.4byte 0x42200000
 	.4byte 0xC30D0000
+.endobj iVec_CINE_doorA
+
+.obj iVec_SPIL_doorA, local
 	.4byte 0xC2D5B439
 	.4byte 0x3EFCED91
 	.4byte 0x42729EB8
 	.4byte 0xC2975A1D
 	.4byte 0x3EFCED91
 	.4byte 0x422A9EB8
+.endobj iVec_SPIL_doorA
+
+.obj iVec_SPIL_doorB, local
 	.4byte 0xC373AF1B
 	.4byte 0xC2DC0000
 	.4byte 0x430BA7AE
 	.4byte 0xC3896E35
 	.4byte 0xC2DC0000
 	.4byte 0x431DA7AE
+.endobj iVec_SPIL_doorB
+
+.obj iVec_ENVE_doorA, local
 	.4byte 0xC2580000
 	.4byte 0x422E374C
 	.4byte 0xC33187AE
 	.4byte 0xC2580000
 	.4byte 0x422E374C
 	.4byte 0xC30D87AE
-.endobj PlyAnimName
+.endobj iVec_ENVE_doorA
 
 .obj iVec_MPOL_doorA, local
 	.4byte 0xC2B30000
@@ -3817,10 +3865,13 @@
 	.4byte 0
 	.4byte 0
 	.4byte 0x435C0000
+.endobj iVec_OPEN_movie
+
+.obj iSpilCenter, local
 	.4byte 0xC32F0000
 	.4byte 0xC2DC0000
 	.4byte 0x42C80000
-.endobj iVec_OPEN_movie
+.endobj iSpilCenter
 
 .obj lbl_800672AC, local
 	.4byte .L_80020504

@@ -159,33 +159,33 @@
 .hidden "@eti_80005D58"
 	.4byte sndSeqGetValid
 	.4byte 0x0000002C
-    .4byte "@etb_80005630"
+	.4byte "@etb_80005630"
 .endobj "@eti_80005D58"
 
 .obj "@eti_80005D64", local
 .hidden "@eti_80005D64"
 	.4byte sndSeqSpeed
 	.4byte 0x00000048
-    .4byte "@etb_80005638"
+	.4byte "@etb_80005638"
 .endobj "@eti_80005D64"
 
 .obj "@eti_80005D70", local
 .hidden "@eti_80005D70"
 	.4byte sndSeqContinue
 	.4byte 0x00000038
-    .4byte "@etb_80005640"
+	.4byte "@etb_80005640"
 .endobj "@eti_80005D70"
 
 .obj "@eti_80005D7C", local
 .hidden "@eti_80005D7C"
 	.4byte sndSeqMute
 	.4byte 0x00000058
-    .4byte "@etb_80005648"
+	.4byte "@etb_80005648"
 .endobj "@eti_80005D7C"
 
 .obj "@eti_80005D88", local
 .hidden "@eti_80005D88"
 	.4byte sndSeqVolume
 	.4byte 0x00000068
-    .4byte "@etb_80005650"
+	.4byte "@etb_80005650"
 .endobj "@eti_80005D88"

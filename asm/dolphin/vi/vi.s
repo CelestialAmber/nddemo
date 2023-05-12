@@ -1769,7 +1769,12 @@
 	.4byte 0x041A01AD
 	.4byte 0x404769A2
 	.4byte 0x01757A00
-	.4byte 0x019C0000
+	.2byte 0x019C
+.endobj timing
+
+.2byte 0
+
+.obj taps, local
 	.4byte 0x01F001DC
 	.4byte 0x01AE0174
 	.4byte 0x012900DB
@@ -1782,8 +1787,10 @@
 	.4byte 0x000F0013
 	.4byte 0x0013000F
 	.4byte 0x000C0008
-	.4byte 0x00010000
-.endobj timing
+	.2byte 0x0001
+.endobj taps
+
+.2byte 0
 
 .obj lbl_80068650, local
 	.4byte .L_80034374

@@ -2369,154 +2369,154 @@
 
 .obj "@eti_80006214", local
 .hidden "@eti_80006214"
-    .4byte inpSetMidiCtrl
-    .4byte 0x000005D0
-    .4byte "@etb_80005958"
+	.4byte inpSetMidiCtrl
+	.4byte 0x000005D0
+	.4byte "@etb_80005958"
 .endobj "@eti_80006214"
 
 .obj "@eti_80006220", local
 .hidden "@eti_80006220"
-    .4byte inpSetMidiCtrl14
-    .4byte 0x00000128
-    .4byte "@etb_80005960"
+	.4byte inpSetMidiCtrl14
+	.4byte 0x00000128
+	.4byte "@etb_80005960"
 .endobj "@eti_80006220"
 
 .obj "@eti_8000622C", local
 .hidden "@eti_8000622C"
-    .4byte inpResetMidiCtrl
-    .4byte 0x00000104
-    .4byte "@etb_80005968"
+	.4byte inpResetMidiCtrl
+	.4byte 0x00000104
+	.4byte "@etb_80005968"
 .endobj "@eti_8000622C"
 
 .obj "@eti_80006238", local
 .hidden "@eti_80006238"
-    .4byte inpAddCtrl
-    .4byte 0x0000009C
-    .4byte "@etb_80005970"
+	.4byte inpAddCtrl
+	.4byte 0x0000009C
+	.4byte "@etb_80005970"
 .endobj "@eti_80006238"
 
 .obj "@eti_80006244", local
 .hidden "@eti_80006244"
-    .4byte _GetInputValue
-    .4byte 0x00000488
-    .4byte "@etb_80005978"
+	.4byte _GetInputValue
+	.4byte 0x00000488
+	.4byte "@etb_80005978"
 .endobj "@eti_80006244"
 
 .obj "@eti_80006250", local
 .hidden "@eti_80006250"
-    .4byte inpGetVolume
-    .4byte 0x00000048
-    .4byte "@etb_80005980"
+	.4byte inpGetVolume
+	.4byte 0x00000048
+	.4byte "@etb_80005980"
 .endobj "@eti_80006250"
 
 .obj "@eti_8000625C", local
 .hidden "@eti_8000625C"
-    .4byte inpGetPanning
-    .4byte 0x00000048
-    .4byte "@etb_80005988"
+	.4byte inpGetPanning
+	.4byte 0x00000048
+	.4byte "@etb_80005988"
 .endobj "@eti_8000625C"
 
 .obj "@eti_80006268", local
 .hidden "@eti_80006268"
-    .4byte inpGetSurPanning
-    .4byte 0x00000048
-    .4byte "@etb_80005990"
+	.4byte inpGetSurPanning
+	.4byte 0x00000048
+	.4byte "@etb_80005990"
 .endobj "@eti_80006268"
 
 .obj "@eti_80006274", local
 .hidden "@eti_80006274"
-    .4byte inpGetPitchBend
-    .4byte 0x00000048
-    .4byte "@etb_80005998"
+	.4byte inpGetPitchBend
+	.4byte 0x00000048
+	.4byte "@etb_80005998"
 .endobj "@eti_80006274"
 
 .obj "@eti_80006280", local
 .hidden "@eti_80006280"
-    .4byte inpGetDoppler
-    .4byte 0x00000048
-    .4byte "@etb_800059A0"
+	.4byte inpGetDoppler
+	.4byte 0x00000048
+	.4byte "@etb_800059A0"
 .endobj "@eti_80006280"
 
 .obj "@eti_8000628C", local
 .hidden "@eti_8000628C"
-    .4byte inpGetModulation
-    .4byte 0x00000048
-    .4byte "@etb_800059A8"
+	.4byte inpGetModulation
+	.4byte 0x00000048
+	.4byte "@etb_800059A8"
 .endobj "@eti_8000628C"
 
 .obj "@eti_80006298", local
 .hidden "@eti_80006298"
-    .4byte inpGetPedal
-    .4byte 0x00000048
-    .4byte "@etb_800059B0"
+	.4byte inpGetPedal
+	.4byte 0x00000048
+	.4byte "@etb_800059B0"
 .endobj "@eti_80006298"
 
 .obj "@eti_800062A4", local
 .hidden "@eti_800062A4"
-    .4byte inpGetPortamento
-    .4byte 0x00000048
-    .4byte "@etb_800059B8"
+	.4byte inpGetPortamento
+	.4byte 0x00000048
+	.4byte "@etb_800059B8"
 .endobj "@eti_800062A4"
 
 .obj "@eti_800062B0", local
 .hidden "@eti_800062B0"
-    .4byte inpGetPreAuxA
-    .4byte 0x00000048
-    .4byte "@etb_800059C0"
+	.4byte inpGetPreAuxA
+	.4byte 0x00000048
+	.4byte "@etb_800059C0"
 .endobj "@eti_800062B0"
 
 .obj "@eti_800062BC", local
 .hidden "@eti_800062BC"
-    .4byte inpGetReverb
-    .4byte 0x00000048
-    .4byte "@etb_800059C8"
+	.4byte inpGetReverb
+	.4byte 0x00000048
+	.4byte "@etb_800059C8"
 .endobj "@eti_800062BC"
 
 .obj "@eti_800062C8", local
 .hidden "@eti_800062C8"
-    .4byte inpGetPreAuxB
-    .4byte 0x00000048
-    .4byte "@etb_800059D0"
+	.4byte inpGetPreAuxB
+	.4byte 0x00000048
+	.4byte "@etb_800059D0"
 .endobj "@eti_800062C8"
 
 .obj "@eti_800062D4", local
 .hidden "@eti_800062D4"
-    .4byte inpGetPostAuxB
-    .4byte 0x00000048
-    .4byte "@etb_800059D8"
+	.4byte inpGetPostAuxB
+	.4byte 0x00000048
+	.4byte "@etb_800059D8"
 .endobj "@eti_800062D4"
 
 .obj "@eti_800062E0", local
 .hidden "@eti_800062E0"
-    .4byte inpGetTremolo
-    .4byte 0x00000048
-    .4byte "@etb_800059E0"
+	.4byte inpGetTremolo
+	.4byte 0x00000048
+	.4byte "@etb_800059E0"
 .endobj "@eti_800062E0"
 
 .obj "@eti_800062EC", local
 .hidden "@eti_800062EC"
-    .4byte inpGetAuxA
-    .4byte 0x000000BC
-    .4byte "@etb_800059E8"
+	.4byte inpGetAuxA
+	.4byte 0x000000BC
+	.4byte "@etb_800059E8"
 .endobj "@eti_800062EC"
 
 .obj "@eti_800062F8", local
 .hidden "@eti_800062F8"
-    .4byte inpGetAuxB
-    .4byte 0x000000BC
-    .4byte "@etb_800059F0"
+	.4byte inpGetAuxB
+	.4byte 0x000000BC
+	.4byte "@etb_800059F0"
 .endobj "@eti_800062F8"
 
 .obj "@eti_80006304", local
 .hidden "@eti_80006304"
-    .4byte inpGetExCtrl
-    .4byte 0x000000A0
-    .4byte "@etb_800059F8"
+	.4byte inpGetExCtrl
+	.4byte 0x000000A0
+	.4byte "@etb_800059F8"
 .endobj "@eti_80006304"
 
 .obj "@eti_80006310", local
 .hidden "@eti_80006310"
-    .4byte inpSetExCtrl
-    .4byte 0x00000098
-    .4byte "@etb_80005A00"
+	.4byte inpSetExCtrl
+	.4byte 0x00000098
+	.4byte "@etb_80005A00"
 .endobj "@eti_80006310"

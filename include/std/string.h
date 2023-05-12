@@ -7,9 +7,6 @@
 extern "C" {
 #endif
 
-#include "PowerPC_EABI_Support/MSL_C/MSL_Common/string_api.h"
-#include "PowerPC_EABI_Support/MSL_C/MSL_Common/extras.h"
-
 char* strcpy(char*, const char*);
 char* strncpy(char*, const char*, size_t);
 
@@ -18,6 +15,8 @@ char* strncat(char*, const char*, size_t);
 
 int strcmp(const char*, const char*);
 int strncmp(const char*, const char*, size_t);
+
+int stricmp(const char*, const char*);
 
 char* strchr(const char*, int);
 char* strstr(const char*, const char*);
@@ -30,6 +29,8 @@ void* memchr(const void*, int, size_t);
 
 void* memcpy(void* dest, const void* src, size_t n);
 void* memset(void* dest, int val, size_t count);
+
+void* __memrchr(const void* src, int val, size_t n);
 
 #ifdef __cplusplus
 }

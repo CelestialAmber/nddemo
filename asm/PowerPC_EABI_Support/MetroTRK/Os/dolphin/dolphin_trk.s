@@ -204,7 +204,6 @@
 	.4byte 0x00001300
 	.4byte 0x00001400
 	.4byte 0x00001700
-	.4byte 0
 .endobj TRK_ISR_OFFSETS
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80

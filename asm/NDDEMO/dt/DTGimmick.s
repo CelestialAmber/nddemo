@@ -117,11 +117,11 @@
 /* 8001D634 000195B4  7C 08 02 A6 */	mflr r0
 /* 8001D638 000195B8  3C A0 80 06 */	lis r5, lbl_80066E18@ha
 /* 8001D63C 000195BC  90 01 00 04 */	stw r0, 0x4(r1)
-/* 8001D640 000195C0  3C 80 80 06 */	lis r4, lbl_80064418@ha
+/* 8001D640 000195C0  3C 80 80 06 */	lis r4, "@179"@ha
 /* 8001D644 000195C4  94 21 FF 88 */	stwu r1, -0x78(r1)
 /* 8001D648 000195C8  93 E1 00 74 */	stw r31, 0x74(r1)
 /* 8001D64C 000195CC  93 C1 00 70 */	stw r30, 0x70(r1)
-/* 8001D650 000195D0  3B C4 44 18 */	addi r30, r4, lbl_80064418@l
+/* 8001D650 000195D0  3B C4 44 18 */	addi r30, r4, "@179"@l
 /* 8001D654 000195D4  93 A1 00 6C */	stw r29, 0x6c(r1)
 /* 8001D658 000195D8  3B A5 6E 18 */	addi r29, r5, lbl_80066E18@l
 /* 8001D65C 000195DC  80 6D 83 40 */	lwz r3, dm@sda21(r13)
@@ -361,8 +361,8 @@
 /* 8001D9B4 00019934  4B FF 57 0D */	bl GetPartsPtr__7DGModelFPCc
 /* 8001D9B8 00019938  28 03 00 00 */	cmplwi r3, 0x0
 /* 8001D9BC 0001993C  41 82 00 2C */	beq .L_8001D9E8
-/* 8001D9C0 00019940  3C 80 80 06 */	lis r4, lbl_80064460@ha
-/* 8001D9C4 00019944  38 C4 44 60 */	addi r6, r4, lbl_80064460@l
+/* 8001D9C0 00019940  3C 80 80 06 */	lis r4, "@257"@ha
+/* 8001D9C4 00019944  38 C4 44 60 */	addi r6, r4, "@257"@l
 /* 8001D9C8 00019948  80 A6 00 00 */	lwz r5, 0x0(r6)
 /* 8001D9CC 0001994C  38 81 00 20 */	addi r4, r1, 0x20
 /* 8001D9D0 00019950  80 06 00 04 */	lwz r0, 0x4(r6)
@@ -444,13 +444,13 @@
 /* 8001DAD4 00019A54  7C 08 02 A6 */	mflr r0
 /* 8001DAD8 00019A58  3C A0 80 06 */	lis r5, lbl_80066E18@ha
 /* 8001DADC 00019A5C  90 01 00 04 */	stw r0, 0x4(r1)
-/* 8001DAE0 00019A60  3C 80 80 06 */	lis r4, lbl_80064418@ha
+/* 8001DAE0 00019A60  3C 80 80 06 */	lis r4, "@179"@ha
 /* 8001DAE4 00019A64  94 21 FF 98 */	stwu r1, -0x68(r1)
 /* 8001DAE8 00019A68  93 E1 00 64 */	stw r31, 0x64(r1)
 /* 8001DAEC 00019A6C  3B E5 6E 18 */	addi r31, r5, lbl_80066E18@l
 /* 8001DAF0 00019A70  93 C1 00 60 */	stw r30, 0x60(r1)
 /* 8001DAF4 00019A74  93 A1 00 5C */	stw r29, 0x5c(r1)
-/* 8001DAF8 00019A78  3B A4 44 18 */	addi r29, r4, lbl_80064418@l
+/* 8001DAF8 00019A78  3B A4 44 18 */	addi r29, r4, "@179"@l
 /* 8001DAFC 00019A7C  93 81 00 58 */	stw r28, 0x58(r1)
 /* 8001DB00 00019A80  80 6D 83 40 */	lwz r3, dm@sda21(r13)
 /* 8001DB04 00019A84  80 03 0E A0 */	lwz r0, 0xea0(r3)
@@ -920,8 +920,8 @@
 /* 8001E190 0001A110  4B FF 4F 31 */	bl GetPartsPtr__7DGModelFPCc
 /* 8001E194 0001A114  28 03 00 00 */	cmplwi r3, 0x0
 /* 8001E198 0001A118  41 82 00 2C */	beq .L_8001E1C4
-/* 8001E19C 0001A11C  3C 80 80 06 */	lis r4, lbl_8006449C@ha
-/* 8001E1A0 0001A120  38 C4 44 9C */	addi r6, r4, lbl_8006449C@l
+/* 8001E19C 0001A11C  3C 80 80 06 */	lis r4, "@442"@ha
+/* 8001E1A0 0001A120  38 C4 44 9C */	addi r6, r4, "@442"@l
 /* 8001E1A4 0001A124  80 A6 00 00 */	lwz r5, 0x0(r6)
 /* 8001E1A8 0001A128  38 81 00 18 */	addi r4, r1, 0x18
 /* 8001E1AC 0001A12C  80 06 00 04 */	lwz r0, 0x4(r6)
@@ -988,8 +988,8 @@
 /* 8001E280 0001A200  28 00 00 00 */	cmplwi r0, 0x0
 /* 8001E284 0001A204  7C 1E 03 78 */	mr r30, r0
 /* 8001E288 0001A208  41 82 00 84 */	beq .L_8001E30C
-/* 8001E28C 0001A20C  3C 60 80 06 */	lis r3, lbl_800644A8@ha
-/* 8001E290 0001A210  38 C3 44 A8 */	addi r6, r3, lbl_800644A8@l
+/* 8001E28C 0001A20C  3C 60 80 06 */	lis r3, "@462"@ha
+/* 8001E290 0001A210  38 C3 44 A8 */	addi r6, r3, "@462"@l
 /* 8001E294 0001A214  80 A6 00 00 */	lwz r5, 0x0(r6)
 /* 8001E298 0001A218  7F C3 F3 78 */	mr r3, r30
 /* 8001E29C 0001A21C  80 06 00 04 */	lwz r0, 0x4(r6)
@@ -1180,12 +1180,12 @@
 /* 8001E50C 0001A48C  38 85 00 00 */	addi r4, r5, 0x0
 /* 8001E510 0001A490  48 00 07 75 */	bl SetDoorMpol__9DTGimmickFUc
 .L_8001E514:
-/* 8001E514 0001A494  3C 60 80 06 */	lis r3, lbl_800644B4@ha
-/* 8001E518 0001A498  38 E3 44 B4 */	addi r7, r3, lbl_800644B4@l
+/* 8001E514 0001A494  3C 60 80 06 */	lis r3, "@509"@ha
+/* 8001E518 0001A498  38 E3 44 B4 */	addi r7, r3, "@509"@l
 /* 8001E51C 0001A49C  80 C7 00 00 */	lwz r6, 0x0(r7)
-/* 8001E520 0001A4A0  3C 60 80 06 */	lis r3, lbl_800644C0@ha
+/* 8001E520 0001A4A0  3C 60 80 06 */	lis r3, "@510"@ha
 /* 8001E524 0001A4A4  80 07 00 04 */	lwz r0, 0x4(r7)
-/* 8001E528 0001A4A8  38 A3 44 C0 */	addi r5, r3, lbl_800644C0@l
+/* 8001E528 0001A4A8  38 A3 44 C0 */	addi r5, r3, "@510"@l
 /* 8001E52C 0001A4AC  38 81 00 1C */	addi r4, r1, 0x1c
 /* 8001E530 0001A4B0  90 C1 00 1C */	stw r6, 0x1c(r1)
 /* 8001E534 0001A4B4  90 01 00 20 */	stw r0, 0x20(r1)
@@ -1241,12 +1241,12 @@
 /* 8001E5F0 0001A570  88 1F 00 02 */	lbz r0, 0x2(r31)
 /* 8001E5F4 0001A574  28 00 00 00 */	cmplwi r0, 0x0
 /* 8001E5F8 0001A578  41 82 00 74 */	beq .L_8001E66C
-/* 8001E5FC 0001A57C  3C 60 80 06 */	lis r3, lbl_800644CC@ha
-/* 8001E600 0001A580  38 E3 44 CC */	addi r7, r3, lbl_800644CC@l
+/* 8001E5FC 0001A57C  3C 60 80 06 */	lis r3, "@520"@ha
+/* 8001E600 0001A580  38 E3 44 CC */	addi r7, r3, "@520"@l
 /* 8001E604 0001A584  80 C7 00 00 */	lwz r6, 0x0(r7)
-/* 8001E608 0001A588  3C 60 80 06 */	lis r3, lbl_800644D8@ha
+/* 8001E608 0001A588  3C 60 80 06 */	lis r3, "@521"@ha
 /* 8001E60C 0001A58C  80 07 00 04 */	lwz r0, 0x4(r7)
-/* 8001E610 0001A590  38 A3 44 D8 */	addi r5, r3, lbl_800644D8@l
+/* 8001E610 0001A590  38 A3 44 D8 */	addi r5, r3, "@521"@l
 /* 8001E614 0001A594  38 81 00 0C */	addi r4, r1, 0xc
 /* 8001E618 0001A598  90 C1 00 18 */	stw r6, 0x18(r1)
 /* 8001E61C 0001A59C  90 01 00 1C */	stw r0, 0x1c(r1)
@@ -2120,9 +2120,9 @@
 /* 8001F240 0001B1C0  38 AD 81 E8 */	addi r5, r13, lbl_800A8C68@sda21
 /* 8001F244 0001B1C4  4B FF 40 41 */	bl GetPartsWorldPosition__7DGModelFPCc
 /* 8001F248 0001B1C8  80 81 00 1C */	lwz r4, 0x1c(r1)
-/* 8001F24C 0001B1CC  3C 60 80 06 */	lis r3, lbl_800644F8@ha
+/* 8001F24C 0001B1CC  3C 60 80 06 */	lis r3, "@778"@ha
 /* 8001F250 0001B1D0  80 01 00 20 */	lwz r0, 0x20(r1)
-/* 8001F254 0001B1D4  38 A3 44 F8 */	addi r5, r3, lbl_800644F8@l
+/* 8001F254 0001B1D4  38 A3 44 F8 */	addi r5, r3, "@778"@l
 /* 8001F258 0001B1D8  90 9B 00 2C */	stw r4, 0x2c(r27)
 /* 8001F25C 0001B1DC  90 1B 00 30 */	stw r0, 0x30(r27)
 /* 8001F260 0001B1E0  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -2330,7 +2330,7 @@
 
 .fn CoinDraw__9DTGimmickFv, global
 /* 8001F544 0001B4C4  7C 08 02 A6 */	mflr r0
-/* 8001F548 0001B4C8  3C A0 80 06 */	lis r5, lbl_80064418@ha
+/* 8001F548 0001B4C8  3C A0 80 06 */	lis r5, "@179"@ha
 /* 8001F54C 0001B4CC  90 01 00 04 */	stw r0, 0x4(r1)
 /* 8001F550 0001B4D0  94 21 FF 58 */	stwu r1, -0xa8(r1)
 /* 8001F554 0001B4D4  DB E1 00 A0 */	stfd f31, 0xa0(r1)
@@ -2342,7 +2342,7 @@
 /* 8001F56C 0001B4EC  DB 21 00 70 */	stfd f25, 0x70(r1)
 /* 8001F570 0001B4F0  DB 01 00 68 */	stfd f24, 0x68(r1)
 /* 8001F574 0001B4F4  BF 61 00 54 */	stmw r27, 0x54(r1)
-/* 8001F578 0001B4F8  3B E5 44 18 */	addi r31, r5, lbl_80064418@l
+/* 8001F578 0001B4F8  3B E5 44 18 */	addi r31, r5, "@179"@l
 /* 8001F57C 0001B4FC  7C 7B 1B 78 */	mr r27, r3
 /* 8001F580 0001B500  80 8D 83 40 */	lwz r4, dm@sda21(r13)
 /* 8001F584 0001B504  80 7F 00 EC */	lwz r3, 0xec(r31)
@@ -2812,80 +2812,107 @@
 
 .balign 8
 
-.obj lbl_80064418, local
+.obj "@179", local
 	.4byte 0
 	.4byte 0x40400000
 	.4byte 0
+.endobj "@179"
+
+.obj "@180", local
 	.4byte 0
 	.4byte 0x40000000
 	.4byte 0
+.endobj "@180"
+
+.obj "@181", local
 	.4byte 0
 	.4byte 0xC0000000
 	.4byte 0
+.endobj "@181"
+
+.obj "@182", local
 	.4byte 0
 	.4byte 0xC0400000
 	.4byte 0
+.endobj "@182"
+
+.obj "@191", local
 	.4byte 0
 	.4byte 0x3F000000
 	.4byte 0
+.endobj "@191"
+
+.obj "@192", local
 	.4byte 0
 	.4byte 0x40000000
 	.4byte 0
-.endobj lbl_80064418
+.endobj "@192"
 
-.obj lbl_80064460, local
+.obj "@257", local
 	.4byte 0
 	.4byte 0
 	.4byte 0x3F800000
-	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0
-	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0
-	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-.endobj lbl_80064460
+.endobj "@257"
 
-.obj lbl_8006449C, local
+.obj "@293", local
+	.4byte 0
+	.4byte 0x3F800000
+	.4byte 0
+.endobj "@293"
+
+.obj "@296", local
+	.4byte 0
+	.4byte 0x3F800000
+	.4byte 0
+.endobj "@296"
+
+.obj "@299", local
+	.4byte 0
+	.4byte 0x3F800000
+	.4byte 0
+.endobj "@299"
+
+.obj "@322", local
+	.4byte 0
+	.4byte 0
+	.4byte 0
+.endobj "@322"
+
+.obj "@442", local
 	.4byte 0
 	.4byte 0x3E800000
 	.4byte 0
-.endobj lbl_8006449C
+.endobj "@442"
 
-.obj lbl_800644A8, local
+.obj "@462", local
 	.4byte 0
 	.4byte 0xBF000000
 	.4byte 0
-.endobj lbl_800644A8
+.endobj "@462"
 
-.obj lbl_800644B4, local
+.obj "@509", local
 	.4byte 0
 	.4byte 0x42F66666
 	.4byte 0
-.endobj lbl_800644B4
+.endobj "@509"
 
-.obj lbl_800644C0, local
+.obj "@510", local
 	.4byte 0
 	.4byte 0xC2F66666
 	.4byte 0
-.endobj lbl_800644C0
+.endobj "@510"
 
-.obj lbl_800644CC, local
+.obj "@520", local
 	.4byte 0
 	.asciz "@333"
 	.balign 4
-.endobj lbl_800644CC
+.endobj "@520"
 
-.obj lbl_800644D8, local
+.obj "@521", local
 	.4byte 0
 	.4byte 0xC0333333
 	.4byte 0
-.endobj lbl_800644D8
+.endobj "@521"
 
 .obj "shutugen$777", local
 	.4byte 0
@@ -2895,20 +2922,29 @@
 	.4byte 0x00060007
 .endobj "shutugen$777"
 
-.obj lbl_800644F8, local
+.obj "@778", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj "@778"
+
+.obj "@833", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
+.endobj "@833"
+
+.obj "@853", local
 	.4byte 0
 	.4byte 0x3F800000
 	.4byte 0
+.endobj "@853"
+
+.obj "@854", local
 	.4byte 0
 	.4byte 0xBF800000
 	.4byte 0
-.endobj lbl_800644F8
+.endobj "@854"
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
@@ -2923,42 +2959,59 @@
 	.4byte .L_8001D5F8
 	.4byte .L_8001D604
 	.4byte .L_8001D610
+.endobj lbl_80066E18
+
+.obj "iti0$197", local
 	.4byte 0x40800000
 	.4byte 0x40800000
 	.4byte 0x40800000
+.endobj "iti0$197"
+
+.obj "vec0$198", local
 	.4byte 0x40000000
 	.4byte 0xC0000000
 	.4byte 0x3F800000
-.endobj lbl_80066E18
+.endobj "vec0$198"
 
 .obj lbl_80066E50, local
 	.asciz "puropera"
 	.balign 4
-	.4byte 0x1E041410
-	.4byte 0x3C080424
-	.4byte 0x0A3C121E
-	.4byte 0x10040802
-	.4byte 0x04060400
-	.4byte 0x0A5A1220
-	.4byte 0x30071410
-	.4byte 0x2C060427
-	.4byte 0x12040902
-	.4byte 0x0B030200
-	.asciz "ROT_SPL1"
-	.balign 4
-	.asciz "ROT_SPL2"
-	.balign 4
-	.asciz "ROT_SPL3"
-	.balign 4
-	.asciz "ROT_POL1"
-	.balign 4
-	.asciz "POS_POL2"
-	.balign 4
-	.asciz "POS_POL2off"
-	.asciz "POS_POL3"
-	.balign 4
-	.asciz "POS_POL3off"
 .endobj lbl_80066E50
+
+.obj "timing_table$326", local
+.byte 0x1E,0x04,0x14,0x10
+.byte 0x3C,0x08,0x04,0x24
+.byte 0x0A,0x3C,0x12,0x1E
+.byte 0x10,0x04,0x08,0x02
+.byte 0x04,0x06,0x04
+.endobj "timing_table$326"
+
+.byte 0
+
+.obj "timing_table$360", local
+.byte 0x0A,0x5A,0x12,0x20
+.byte 0x30,0x07,0x14,0x10
+.byte 0x2C,0x06,0x04,0x27
+.byte 0x12,0x04,0x09,0x02
+.byte 0x0B,0x03,0x02
+.endobj "timing_table$360"
+
+.byte 0
+	
+.asciz "ROT_SPL1"
+.balign 4
+.asciz "ROT_SPL2"
+.balign 4
+.asciz "ROT_SPL3"
+.balign 4
+.asciz "ROT_POL1"
+.balign 4
+.asciz "POS_POL2"
+.balign 4
+.asciz "POS_POL2off"
+.asciz "POS_POL3"
+.balign 4
+.asciz "POS_POL3off"
 
 .obj lbl_80066EE4, local
 	.4byte .L_8001E3DC
@@ -2980,7 +3033,9 @@
 	.4byte .L_8001E4E8
 	.4byte .L_8001E4F8
 	.4byte .L_8001E508
-	.asciz "doorL_01"
+.endobj lbl_80066F04
+
+.asciz "doorL_01"
 	.balign 4
 	.asciz "doorR_01"
 	.balign 4
@@ -3004,7 +3059,6 @@
 	.balign 4
 	.asciz "doorR_07"
 	.balign 4
-.endobj lbl_80066F04
 
 .obj lbl_80066FB4, local
 	.4byte .L_8001E704
@@ -3034,7 +3088,6 @@
 	.4byte .L_8001FB18
 	.4byte .L_8001FB30
 	.4byte .L_8001FB48
-	.4byte 0
 .endobj lbl_80066FE8
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340

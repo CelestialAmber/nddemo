@@ -3799,75 +3799,75 @@
 .hidden "@eti_80005BC0"
 	.4byte seqStartPlay
 	.4byte 0x00000AA4
-    .4byte "@etb_80005520"
+	.4byte "@etb_80005520"
 .endobj "@eti_80005BC0"
 
 .obj "@eti_80005BCC", local
 .hidden "@eti_80005BCC"
 	.4byte HandleMasterTrack
 	.4byte 0x0000009C
-    .4byte "@etb_80005528"
+	.4byte "@etb_80005528"
 .endobj "@eti_80005BCC"
 
 .obj "@eti_80005BD8", local
 .hidden "@eti_80005BD8"
 	.4byte seqPause
 	.4byte 0x00000190
-    .4byte "@etb_80005530"
+	.4byte "@etb_80005530"
 .endobj "@eti_80005BD8"
 
 .obj "@eti_80005BE4", local
 .hidden "@eti_80005BE4"
 	.4byte seqStop
 	.4byte 0x000001D4
-    .4byte "@etb_80005538"
+	.4byte "@etb_80005538"
 .endobj "@eti_80005BE4"
 
 .obj "@eti_80005BF0", local
 .hidden "@eti_80005BF0"
 	.4byte seqVolume
 	.4byte 0x0000019C
-    .4byte "@etb_80005540"
+	.4byte "@etb_80005540"
 .endobj "@eti_80005BF0"
 
 .obj "@eti_80005BFC", local
 .hidden "@eti_80005BFC"
 	.4byte seqCrossFade
 	.4byte 0x00000534
-    .4byte "@etb_80005548"
+	.4byte "@etb_80005548"
 .endobj "@eti_80005BFC"
 
 .obj "@eti_80005C08", local
 .hidden "@eti_80005C08"
 	.4byte HandleEvent
 	.4byte 0x00000778
-    .4byte "@etb_80005550"
+	.4byte "@etb_80005550"
 .endobj "@eti_80005C08"
 
 .obj "@eti_80005C14", local
 .hidden "@eti_80005C14"
 	.4byte InitTrackEvents
 	.4byte 0x000000A8
-    .4byte "@etb_80005558"
+	.4byte "@etb_80005558"
 .endobj "@eti_80005C14"
 
 .obj "@eti_80005C20", local
 .hidden "@eti_80005C20"
 	.4byte InitTrackEventsSection
 	.4byte 0x000000C4
-    .4byte "@etb_80005560"
+	.4byte "@etb_80005560"
 .endobj "@eti_80005C20"
 
 .obj "@eti_80005C2C", local
 .hidden "@eti_80005C2C"
 	.4byte HandleTrackEvents
 	.4byte 0x0000017C
-    .4byte "@etb_80005568"
+	.4byte "@etb_80005568"
 .endobj "@eti_80005C2C"
 
 .obj "@eti_80005C38", local
 .hidden "@eti_80005C38"
 	.4byte seqHandle
 	.4byte 0x00000744
-    .4byte "@etb_80005570"
+	.4byte "@etb_80005570"
 .endobj "@eti_80005C38"

@@ -1028,7 +1028,6 @@
 
 .obj FirstRead, local
 	.4byte 0x00000001
-	.4byte 0
 .endobj FirstRead
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80

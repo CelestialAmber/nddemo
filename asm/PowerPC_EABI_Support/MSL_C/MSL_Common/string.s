@@ -136,6 +136,10 @@
 
 .balign 8
 
-K1:	.4byte 0x80808080
+.obj K1, local
+    .4byte 0x80808080
+.endobj K1
 
-K2:	.4byte 0xFEFEFEFF
+.obj K2, local
+    .4byte 0xFEFEFEFF
+.endobj K2

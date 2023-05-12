@@ -2345,147 +2345,147 @@
 
 .obj "@eti_80005E24", local
 .hidden "@eti_80005E24"
-    .4byte dataInsertKeymap
-    .4byte 0x000001F0
-    .4byte "@etb_800056B8"
+	.4byte dataInsertKeymap
+	.4byte 0x000001F0
+	.4byte "@etb_800056B8"
 .endobj "@eti_80005E24"
 
 .obj "@eti_80005E30", local
 .hidden "@eti_80005E30"
-    .4byte dataRemoveKeymap
-    .4byte 0x00000184
-    .4byte "@etb_800056C0"
+	.4byte dataRemoveKeymap
+	.4byte 0x00000184
+	.4byte "@etb_800056C0"
 .endobj "@eti_80005E30"
 
 .obj "@eti_80005E3C", local
 .hidden "@eti_80005E3C"
-    .4byte dataInsertLayer
-    .4byte 0x00000248
-    .4byte "@etb_800056C8"
+	.4byte dataInsertLayer
+	.4byte 0x00000248
+	.4byte "@etb_800056C8"
 .endobj "@eti_80005E3C"
 
 .obj "@eti_80005E48", local
 .hidden "@eti_80005E48"
-    .4byte dataRemoveLayer
-    .4byte 0x000001CC
-    .4byte "@etb_800056D0"
+	.4byte dataRemoveLayer
+	.4byte 0x000001CC
+	.4byte "@etb_800056D0"
 .endobj "@eti_80005E48"
 
 .obj "@eti_80005E54", local
 .hidden "@eti_80005E54"
-    .4byte dataInsertCurve
-    .4byte 0x000001F8
-    .4byte "@etb_800056D8"
+	.4byte dataInsertCurve
+	.4byte 0x000001F8
+	.4byte "@etb_800056D8"
 .endobj "@eti_80005E54"
 
 .obj "@eti_80005E60", local
 .hidden "@eti_80005E60"
-    .4byte dataRemoveCurve
-    .4byte 0x00000184
-    .4byte "@etb_800056E0"
+	.4byte dataRemoveCurve
+	.4byte 0x00000184
+	.4byte "@etb_800056E0"
 .endobj "@eti_80005E60"
 
 .obj "@eti_80005E6C", local
 .hidden "@eti_80005E6C"
-    .4byte dataInsertSDir
-    .4byte 0x0000016C
-    .4byte "@etb_800056E8"
+	.4byte dataInsertSDir
+	.4byte 0x0000016C
+	.4byte "@etb_800056E8"
 .endobj "@eti_80005E6C"
 
 .obj "@eti_80005E78", local
 .hidden "@eti_80005E78"
-    .4byte dataRemoveSDir
-    .4byte 0x00000288
-    .4byte "@etb_800056F0"
+	.4byte dataRemoveSDir
+	.4byte 0x00000288
+	.4byte "@etb_800056F0"
 .endobj "@eti_80005E78"
 
 .obj "@eti_80005E84", local
 .hidden "@eti_80005E84"
-    .4byte dataAddSampleReference
-    .4byte 0x000000D8
-    .4byte "@etb_800056F8"
+	.4byte dataAddSampleReference
+	.4byte 0x000000D8
+	.4byte "@etb_800056F8"
 .endobj "@eti_80005E84"
 
 .obj "@eti_80005E90", local
 .hidden "@eti_80005E90"
-    .4byte dataRemoveSampleReference
-    .4byte 0x000000E8
-    .4byte "@etb_80005700"
+	.4byte dataRemoveSampleReference
+	.4byte 0x000000E8
+	.4byte "@etb_80005700"
 .endobj "@eti_80005E90"
 
 .obj "@eti_80005E9C", local
 .hidden "@eti_80005E9C"
-    .4byte dataInsertFX
-    .4byte 0x00000128
-    .4byte "@etb_80005708"
+	.4byte dataInsertFX
+	.4byte 0x00000128
+	.4byte "@etb_80005708"
 .endobj "@eti_80005E9C"
 
 .obj "@eti_80005EA8", local
 .hidden "@eti_80005EA8"
-    .4byte dataInsertMacro
-    .4byte 0x00000310
-    .4byte "@etb_80005710"
+	.4byte dataInsertMacro
+	.4byte 0x00000310
+	.4byte "@etb_80005710"
 .endobj "@eti_80005EA8"
 
 .obj "@eti_80005EB4", local
 .hidden "@eti_80005EB4"
-    .4byte dataRemoveMacro
-    .4byte 0x0000029C
-    .4byte "@etb_80005718"
+	.4byte dataRemoveMacro
+	.4byte 0x0000029C
+	.4byte "@etb_80005718"
 .endobj "@eti_80005EB4"
 
 .obj "@eti_80005EC0", local
 .hidden "@eti_80005EC0"
-    .4byte dataGetMacro
-    .4byte 0x00000094
-    .4byte "@etb_80005720"
+	.4byte dataGetMacro
+	.4byte 0x00000094
+	.4byte "@etb_80005720"
 .endobj "@eti_80005EC0"
 
 .obj "@eti_80005ECC", local
 .hidden "@eti_80005ECC"
-    .4byte dataGetSample
-    .4byte 0x00000128
-    .4byte "@etb_80005728"
+	.4byte dataGetSample
+	.4byte 0x00000128
+	.4byte "@etb_80005728"
 .endobj "@eti_80005ECC"
 
 .obj "@eti_80005ED8", local
 .hidden "@eti_80005ED8"
-    .4byte dataGetCurve
-    .4byte 0x00000060
-    .4byte "@etb_80005730"
+	.4byte dataGetCurve
+	.4byte 0x00000060
+	.4byte "@etb_80005730"
 .endobj "@eti_80005ED8"
 
 .obj "@eti_80005EE4", local
 .hidden "@eti_80005EE4"
-    .4byte dataGetKeymap
-    .4byte 0x00000060
-    .4byte "@etb_80005738"
+	.4byte dataGetKeymap
+	.4byte 0x00000060
+	.4byte "@etb_80005738"
 .endobj "@eti_80005EE4"
 
 .obj "@eti_80005EF0", local
 .hidden "@eti_80005EF0"
-    .4byte dataGetLayer
-    .4byte 0x00000080
-    .4byte "@etb_80005740"
+	.4byte dataGetLayer
+	.4byte 0x00000080
+	.4byte "@etb_80005740"
 .endobj "@eti_80005EF0"
 
 .obj "@eti_80005EFC", local
 .hidden "@eti_80005EFC"
-    .4byte dataGetFX
-    .4byte 0x000000A8
-    .4byte "@etb_80005748"
+	.4byte dataGetFX
+	.4byte 0x000000A8
+	.4byte "@etb_80005748"
 .endobj "@eti_80005EFC"
 
 .obj "@eti_80005F08", local
 .hidden "@eti_80005F08"
-    .4byte dataInit
-    .4byte 0x000000E4
-    .4byte "@etb_80005750"
+	.4byte dataInit
+	.4byte 0x000000E4
+	.4byte "@etb_80005750"
 .endobj "@eti_80005F08"
 
 .obj "@eti_80005F14", local
 .hidden "@eti_80005F14"
-    .4byte dataExit
-    .4byte 0x00000020
-    .4byte "@etb_80005758"
+	.4byte dataExit
+	.4byte 0x00000020
+	.4byte "@etb_80005758"
 .endobj "@eti_80005F14"

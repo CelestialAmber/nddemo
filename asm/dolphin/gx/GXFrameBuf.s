@@ -1011,7 +1011,6 @@
 	.4byte 0x06060808
 	.4byte 0x0A0C0A08
 	.4byte 0x08000000
-	.4byte 0
 .endobj GXPal528IntDf
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0

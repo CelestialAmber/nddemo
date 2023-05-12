@@ -370,14 +370,14 @@
 
 .fn Draw__7DGPartsFR11DGRendState, global
 /* 800164DC 0001245C  7C 08 02 A6 */	mflr r0
-/* 800164E0 00012460  3C A0 80 06 */	lis r5, lbl_800641D8@ha
+/* 800164E0 00012460  3C A0 80 06 */	lis r5, "@256"@ha
 /* 800164E4 00012464  90 01 00 04 */	stw r0, 0x4(r1)
 /* 800164E8 00012468  94 21 FD 70 */	stwu r1, -0x290(r1)
 /* 800164EC 0001246C  DB E1 02 88 */	stfd f31, 0x288(r1)
 /* 800164F0 00012470  BE E1 02 64 */	stmw r23, 0x264(r1)
 /* 800164F4 00012474  3B 24 00 00 */	addi r25, r4, 0x0
 /* 800164F8 00012478  3B 03 00 00 */	addi r24, r3, 0x0
-/* 800164FC 0001247C  3B E5 41 D8 */	addi r31, r5, lbl_800641D8@l
+/* 800164FC 0001247C  3B E5 41 D8 */	addi r31, r5, "@256"@l
 /* 80016500 00012480  38 81 02 2C */	addi r4, r1, 0x22c
 /* 80016504 00012484  48 00 2A BD */	bl GetTransMtx__10DGPositionFRA3_A4_f
 /* 80016508 00012488  38 79 00 30 */	addi r3, r25, 0x30
@@ -1292,22 +1292,37 @@
 
 .balign 8
 
-.obj lbl_800641D8, local
+.obj "@256", local
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0x3F800000
-	.4byte 0x3F800000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
+.endobj "@256"
+
+.obj "@257", local
 	.4byte 0
 	.4byte 0
 	.4byte 0x3F800000
+.endobj "@257"
+
+.obj "@258", local
+	.4byte 0x3F800000
+	.4byte 0
+	.4byte 0
+.endobj "@258"
+
+.obj "@261", local
+	.4byte 0
+	.4byte 0
+	.4byte 0
+.endobj "@261"
+
+.obj "@262", local
+	.4byte 0
+	.4byte 0
+	.4byte 0x3F800000
+.endobj "@262"
+
+.obj "@274", local
 	.4byte 0x00000039
 	.4byte 0x00000036
 	.4byte 0x00000033
@@ -1318,6 +1333,9 @@
 	.4byte 0x00000024
 	.4byte 0x00000021
 	.4byte 0x0000001E
+.endobj "@274"
+
+.obj "@275", local
 	.4byte 0x00000007
 	.4byte 0x00000006
 	.4byte 0x00000005
@@ -1326,8 +1344,7 @@
 	.4byte 0x00000002
 	.4byte 0x00000001
 	.4byte 0
-	.4byte 0
-.endobj lbl_800641D8
+.endobj "@275"
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 

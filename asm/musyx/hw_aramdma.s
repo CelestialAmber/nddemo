@@ -606,28 +606,28 @@
 
 .obj "@eti_80006424", local
 .hidden "@eti_80006424"
-    .4byte aramUploadData
-    .4byte 0x00000170
-    .4byte "@etb_80005AB8"
+	.4byte aramUploadData
+	.4byte 0x00000170
+	.4byte "@etb_80005AB8"
 .endobj "@eti_80006424"
 
 .obj "@eti_80006430", local
 .hidden "@eti_80006430"
-    .4byte aramInit
-    .4byte 0x0000031C
-    .4byte "@etb_80005AC0"
+	.4byte aramInit
+	.4byte 0x0000031C
+	.4byte "@etb_80005AC0"
 .endobj "@eti_80006430"
 
 .obj "@eti_8000643C", local
 .hidden "@eti_8000643C"
-    .4byte aramGetZeroBuffer
-    .4byte 0x00000020
-    .4byte "@etb_80005AC8"
+	.4byte aramGetZeroBuffer
+	.4byte 0x00000020
+	.4byte "@etb_80005AC8"
 .endobj "@eti_8000643C"
 
 .obj "@eti_80006448", local
 .hidden "@eti_80006448"
-    .4byte aramStoreData
-    .4byte 0x00000178
-    .4byte "@etb_80005AD0"
+	.4byte aramStoreData
+	.4byte 0x00000178
+	.4byte "@etb_80005AD0"
 .endobj "@eti_80006448"

@@ -4249,7 +4249,11 @@
 	.4byte 0x16A017F9
 	.4byte 0x19661AE8
 	.4byte 0x1C821E34
-	.4byte 0x20000000
+	.2byte 0x2000
+.endobj "kf$475"
+
+.obj midi2TimeTab, local
+	.2byte 0
 	.4byte 0
 	.4byte 0x0000000A
 	.4byte 0x00000014
@@ -4377,8 +4381,13 @@
 	.4byte 0x00029810
 	.4byte 0x0002AB98
 	.4byte 0x0002BF20
-	.4byte 0
-	.4byte 0
+	.2byte 0
+.endobj midi2TimeTab
+
+.2byte 0
+.4byte 0
+
+.obj "mask$792", local
 	.4byte 0x00000001
 	.4byte 0
 	.4byte 0x00000002
@@ -4387,10 +4396,16 @@
 	.4byte 0
 	.4byte 0x00000008
 	.4byte 0
+.endobj "mask$792"
+
+.obj "dirty$793", local
 	.4byte 0x80000001
 	.4byte 0x80000002
 	.4byte 0x80000004
 	.4byte 0x80000008
+.endobj "dirty$793"
+
+.obj "mask$797", local
 	.4byte 0x00000010
 	.4byte 0
 	.4byte 0x00000020
@@ -4399,11 +4414,14 @@
 	.4byte 0
 	.4byte 0x00000080
 	.4byte 0
+.endobj "mask$797"
+
+.obj "dirty$798", local
 	.4byte 0x80000010
 	.4byte 0x80000020
 	.4byte 0x80000040
 	.4byte 0x80000080
-.endobj "kf$475"
+.endobj "dirty$798"
 
 .obj lbl_80069368, local
 	.4byte .L_8004C650
@@ -4766,189 +4784,189 @@
 
 .obj "@eti_80005F20", local
 .hidden "@eti_80005F20"
-    .4byte mcmdWait
-    .4byte 0x00000308
-    .4byte "@etb_80005760"
+	.4byte mcmdWait
+	.4byte 0x00000308
+	.4byte "@etb_80005760"
 .endobj "@eti_80005F20"
 
 .obj "@eti_80005F2C", local
 .hidden "@eti_80005F2C"
-    .4byte mcmdLoop
-    .4byte 0x00000158
-    .4byte "@etb_80005768"
+	.4byte mcmdLoop
+	.4byte 0x00000158
+	.4byte "@etb_80005768"
 .endobj "@eti_80005F2C"
 
 .obj "@eti_80005F38", local
 .hidden "@eti_80005F38"
-    .4byte mcmdPlayMacro
-    .4byte 0x00000198
-    .4byte "@etb_80005770"
+	.4byte mcmdPlayMacro
+	.4byte 0x00000198
+	.4byte "@etb_80005770"
 .endobj "@eti_80005F38"
 
 .obj "@eti_80005F44", local
 .hidden "@eti_80005F44"
-    .4byte mcmdStartSample
-    .4byte 0x000001E4
-    .4byte "@etb_80005778"
+	.4byte mcmdStartSample
+	.4byte 0x000001E4
+	.4byte "@etb_80005778"
 .endobj "@eti_80005F44"
 
 .obj "@eti_80005F50", local
 .hidden "@eti_80005F50"
-    .4byte mcmdVibrato
-    .4byte 0x00000180
-    .4byte "@etb_80005780"
+	.4byte mcmdVibrato
+	.4byte 0x00000180
+	.4byte "@etb_80005780"
 .endobj "@eti_80005F50"
 
 .obj "@eti_80005F5C", local
 .hidden "@eti_80005F5C"
-    .4byte mcmdSetADSR
-    .4byte 0x00000258
-    .4byte "@etb_80005788"
+	.4byte mcmdSetADSR
+	.4byte 0x00000258
+	.4byte "@etb_80005788"
 .endobj "@eti_80005F5C"
 
 .obj "@eti_80005F68", local
 .hidden "@eti_80005F68"
-    .4byte mcmdSetPitchADSR
-    .4byte 0x00000280
-    .4byte "@etb_80005790"
+	.4byte mcmdSetPitchADSR
+	.4byte 0x00000280
+	.4byte "@etb_80005790"
 .endobj "@eti_80005F68"
 
 .obj "@eti_80005F74", local
 .hidden "@eti_80005F74"
-    .4byte DoPanningSetup
-    .4byte 0x000000A0
-    .4byte "@etb_80005798"
+	.4byte DoPanningSetup
+	.4byte 0x000000A0
+	.4byte "@etb_80005798"
 .endobj "@eti_80005F74"
 
 .obj "@eti_80005F80", local
 .hidden "@eti_80005F80"
-    .4byte TranslateVolume
-    .4byte 0x00000080
-    .4byte "@etb_800057A0"
+	.4byte TranslateVolume
+	.4byte 0x00000080
+	.4byte "@etb_800057A0"
 .endobj "@eti_80005F80"
 
 .obj "@eti_80005F8C", local
 .hidden "@eti_80005F8C"
-    .4byte DoEnvelopeCalculation
-    .4byte 0x0000012C
-    .4byte "@etb_800057A8"
+	.4byte DoEnvelopeCalculation
+	.4byte 0x0000012C
+	.4byte "@etb_800057A8"
 .endobj "@eti_80005F8C"
 
 .obj "@eti_80005F98", local
 .hidden "@eti_80005F98"
-    .4byte mcmdRandomKey
-    .4byte 0x000001A0
-    .4byte "@etb_800057B0"
+	.4byte mcmdRandomKey
+	.4byte 0x000001A0
+	.4byte "@etb_800057B0"
 .endobj "@eti_80005F98"
 
 .obj "@eti_80005FA4", local
 .hidden "@eti_80005FA4"
-    .4byte SelectSource
-    .4byte 0x00000134
-    .4byte "@etb_800057B8"
+	.4byte SelectSource
+	.4byte 0x00000134
+	.4byte "@etb_800057B8"
 .endobj "@eti_80005FA4"
 
 .obj "@eti_80005FB0", local
 .hidden "@eti_80005FB0"
-    .4byte mcmdPortamento
-    .4byte 0x0000011C
-    .4byte "@etb_800057C0"
+	.4byte mcmdPortamento
+	.4byte 0x0000011C
+	.4byte "@etb_800057C0"
 .endobj "@eti_80005FB0"
 
 .obj "@eti_80005FBC", local
 .hidden "@eti_80005FBC"
-    .4byte varGet32
-    .4byte 0x00000064
-    .4byte "@etb_800057C8"
+	.4byte varGet32
+	.4byte 0x00000064
+	.4byte "@etb_800057C8"
 .endobj "@eti_80005FBC"
 
 .obj "@eti_80005FC8", local
 .hidden "@eti_80005FC8"
-    .4byte varGet
-    .4byte 0x00000068
-    .4byte "@etb_800057D0"
+	.4byte varGet
+	.4byte 0x00000068
+	.4byte "@etb_800057D0"
 .endobj "@eti_80005FC8"
 
 .obj "@eti_80005FD4", local
 .hidden "@eti_80005FD4"
-    .4byte varSet32
-    .4byte 0x00000064
-    .4byte "@etb_800057D8"
+	.4byte varSet32
+	.4byte 0x00000064
+	.4byte "@etb_800057D8"
 .endobj "@eti_80005FD4"
 
 .obj "@eti_80005FE0", local
 .hidden "@eti_80005FE0"
-    .4byte mcmdVarCalculation
-    .4byte 0x00000130
-    .4byte "@etb_800057E0"
+	.4byte mcmdVarCalculation
+	.4byte 0x00000130
+	.4byte "@etb_800057E0"
 .endobj "@eti_80005FE0"
 
 .obj "@eti_80005FEC", local
 .hidden "@eti_80005FEC"
-    .4byte mcmdSendMessage
-    .4byte 0x00000234
-    .4byte "@etb_800057E8"
+	.4byte mcmdSendMessage
+	.4byte 0x00000234
+	.4byte "@etb_800057E8"
 .endobj "@eti_80005FEC"
 
 .obj "@eti_80005FF8", local
 .hidden "@eti_80005FF8"
-    .4byte mcmdSetKeyGroup
-    .4byte 0x000000D4
-    .4byte "@etb_800057F0"
+	.4byte mcmdSetKeyGroup
+	.4byte 0x000000D4
+	.4byte "@etb_800057F0"
 .endobj "@eti_80005FF8"
 
 .obj "@eti_80006004", local
 .hidden "@eti_80006004"
-    .4byte macHandleActive
-    .4byte 0x000014B4
-    .4byte "@etb_800057F8"
+	.4byte macHandleActive
+	.4byte 0x000014B4
+	.4byte "@etb_800057F8"
 .endobj "@eti_80006004"
 
 .obj "@eti_80006010", local
 .hidden "@eti_80006010"
-    .4byte macHandle
-    .4byte 0x00000148
-    .4byte "@etb_80005800"
+	.4byte macHandle
+	.4byte 0x00000148
+	.4byte "@etb_80005800"
 .endobj "@eti_80006010"
 
 .obj "@eti_8000601C", local
 .hidden "@eti_8000601C"
-    .4byte macSampleEndNotify
-    .4byte 0x000000B0
-    .4byte "@etb_80005808"
+	.4byte macSampleEndNotify
+	.4byte 0x000000B0
+	.4byte "@etb_80005808"
 .endobj "@eti_8000601C"
 
 .obj "@eti_80006028", local
 .hidden "@eti_80006028"
-    .4byte macSetExternalKeyoff
-    .4byte 0x000000F4
-    .4byte "@etb_80005810"
+	.4byte macSetExternalKeyoff
+	.4byte 0x000000F4
+	.4byte "@etb_80005810"
 .endobj "@eti_80006028"
 
 .obj "@eti_80006034", local
 .hidden "@eti_80006034"
-    .4byte macSetPedalState
-    .4byte 0x0000010C
-    .4byte "@etb_80005818"
+	.4byte macSetPedalState
+	.4byte 0x0000010C
+	.4byte "@etb_80005818"
 .endobj "@eti_80006034"
 
 .obj "@eti_80006040", local
 .hidden "@eti_80006040"
-    .4byte UnYieldMacro
-    .4byte 0x000000DC
-    .4byte "@etb_80005820"
+	.4byte UnYieldMacro
+	.4byte 0x000000DC
+	.4byte "@etb_80005820"
 .endobj "@eti_80006040"
 
 .obj "@eti_8000604C", local
 .hidden "@eti_8000604C"
-    .4byte macMakeActive
-    .4byte 0x00000108
-    .4byte "@etb_80005828"
+	.4byte macMakeActive
+	.4byte 0x00000108
+	.4byte "@etb_80005828"
 .endobj "@eti_8000604C"
 
 .obj "@eti_80006058", local
 .hidden "@eti_80006058"
-    .4byte macStart
-    .4byte 0x00000310
-    .4byte "@etb_80005830"
+	.4byte macStart
+	.4byte 0x00000310
+	.4byte "@etb_80005830"
 .endobj "@eti_80006058"

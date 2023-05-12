@@ -3,28 +3,29 @@
 
 #include "types.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif // ifdef __cplusplus
 
-#define ctype_alpha 0x0001
-#define ctype_blank 0x0002
-#define ctype_cntrl 0x0004
-#define ctype_digit 0x0008
-#define ctype_graph 0x0010
-#define ctype_lower 0x0020
-#define ctype_print 0x0040
-#define ctype_punct 0x0080
-#define ctype_space 0x0100
-#define ctype_upper 0x0200
-#define ctype_xdigit 0x0400
+extern unsigned char __ctype_map[256];
+extern unsigned char __lower_map[256];
+extern unsigned char __upper_map[256];
 
-#define ctype_alnum (ctype_alpha | ctype_digit)
+#define __control_char 0x01
+#define __motion_char  0x02
+#define __space_char   0x04
+#define __punctuation  0x08
+#define __digit        0x10
+#define __hex_digit    0x20
+#define __lower_case   0x40
+#define __upper_case   0x80
 
-extern const unsigned short __ctype_mapC[256];
-extern const unsigned char __lower_mapC[256];
-extern const unsigned char __upper_mapC[256];
+#define __letter       (__lower_case | __upper_case)
+#define __alphanumeric (__letter | __digit)
+#define __graphic      (__alphanumeric | __punctuation)
+#define __printable    (__graphic | __space_char)
+#define __whitespace   (__motion_char | __space_char)
+#define __control      (__motion_char | __control_char)
 
 #ifdef __cplusplus
 };

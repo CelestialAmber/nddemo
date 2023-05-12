@@ -928,13 +928,11 @@
 .endobj lbl_800A9ACC
 
 .obj lbl_800A9AD0, local
-	.4byte 0x43300000
-	.4byte 0x80000000
+	.8byte 0x4330000080000000
 .endobj lbl_800A9AD0
 
 .obj i2fMagic, local
-	.4byte 0x43300000
-	.4byte 0x80000000
+	.8byte 0x4330000080000000
 .endobj i2fMagic
 
 .obj value0_6, local
@@ -969,14 +967,14 @@
 
 .obj "@eti_8000652C", local
 .hidden "@eti_8000652C"
-    .4byte ReverbHICreate
-    .4byte 0x000004CC
-    .4byte "@etb_80005B68"
+	.4byte ReverbHICreate
+	.4byte 0x000004CC
+	.4byte "@etb_80005B68"
 .endobj "@eti_8000652C"
 
 .obj "@eti_80006538", local
 .hidden "@eti_80006538"
-    .4byte ReverbHICallback
-    .4byte 0x000000F8
-    .4byte "@etb_80005B70"
+	.4byte ReverbHICallback
+	.4byte 0x000000F8
+	.4byte "@etb_80005B70"
 .endobj "@eti_80006538"

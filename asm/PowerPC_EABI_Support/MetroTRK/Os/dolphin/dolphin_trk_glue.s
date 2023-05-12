@@ -272,5 +272,4 @@
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0
 .endobj gDBCommTable

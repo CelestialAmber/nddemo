@@ -13,7 +13,7 @@
 #############################################
 
 # Slot 0x0100: System Reset Exception
-    b __TRK_reset
+	b __TRK_reset
 .fill 0xFC
 
 # Slot 0x0200: Machine Check Exception

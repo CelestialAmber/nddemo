@@ -3603,13 +3603,15 @@
 	.4byte 0x134C1CF2
 	.4byte 0x0E971D2E
 	.4byte 0x1D2E2BC5
+.endobj dspMixerCycles
+
+.obj dspSRCCycles, local
 	.4byte 0x0BAE0BAE
 	.4byte 0x045B0CE4
 	.4byte 0x0CE4045B
 	.4byte 0x0E740E74
-	.4byte 0x045B0000
-	.4byte 0
-.endobj dspMixerCycles
+	.2byte 0x045B
+.endobj dspSRCCycles
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
@@ -3756,63 +3758,63 @@
 
 .obj "@eti_8000613C", local
 .hidden "@eti_8000613C"
-    .4byte salInitDspCtrl
-    .4byte 0x00000378
-    .4byte "@etb_800058C8"
+	.4byte salInitDspCtrl
+	.4byte 0x00000378
+	.4byte "@etb_800058C8"
 .endobj "@eti_8000613C"
 
 .obj "@eti_80006148", local
 .hidden "@eti_80006148"
-    .4byte salInitHRTFBuffer
-    .4byte 0x00000038
-    .4byte "@etb_800058D0"
+	.4byte salInitHRTFBuffer
+	.4byte 0x00000038
+	.4byte "@etb_800058D0"
 .endobj "@eti_80006148"
 
 .obj "@eti_80006154", local
 .hidden "@eti_80006154"
-    .4byte salExitDspCtrl
-    .4byte 0x000000D8
-    .4byte "@etb_800058D8"
+	.4byte salExitDspCtrl
+	.4byte 0x000000D8
+	.4byte "@etb_800058D8"
 .endobj "@eti_80006154"
 
 .obj "@eti_80006160", local
 .hidden "@eti_80006160"
-    .4byte salActivateStudio
-    .4byte 0x00000108
-    .4byte "@etb_800058E0"
+	.4byte salActivateStudio
+	.4byte 0x00000108
+	.4byte "@etb_800058E0"
 .endobj "@eti_80006160"
 
 .obj "@eti_8000616C", local
 .hidden "@eti_8000616C"
-    .4byte SortVoices
-    .4byte 0x000000FC
-    .4byte "@etb_800058E8"
+	.4byte SortVoices
+	.4byte 0x000000FC
+	.4byte "@etb_800058E8"
 .endobj "@eti_8000616C"
 
 .obj "@eti_80006178", local
 .hidden "@eti_80006178"
-    .4byte salBuildCommandList
-    .4byte 0x0000251C
-    .4byte "@etb_800058F0"
+	.4byte salBuildCommandList
+	.4byte 0x0000251C
+	.4byte "@etb_800058F0"
 .endobj "@eti_80006178"
 
 .obj "@eti_80006184", local
 .hidden "@eti_80006184"
-    .4byte salSynthSendMessage
-    .4byte 0x0000003C
-    .4byte "@etb_800058F8"
+	.4byte salSynthSendMessage
+	.4byte 0x0000003C
+	.4byte "@etb_800058F8"
 .endobj "@eti_80006184"
 
 .obj "@eti_80006190", local
 .hidden "@eti_80006190"
-    .4byte salActivateVoice
-    .4byte 0x000000A0
-    .4byte "@etb_80005900"
+	.4byte salActivateVoice
+	.4byte 0x000000A0
+	.4byte "@etb_80005900"
 .endobj "@eti_80006190"
 
 .obj "@eti_8000619C", local
 .hidden "@eti_8000619C"
-    .4byte salHandleAuxProcessing
-    .4byte 0x0000015C
-    .4byte "@etb_80005908"
+	.4byte salHandleAuxProcessing
+	.4byte 0x0000015C
+	.4byte "@etb_80005908"
 .endobj "@eti_8000619C"

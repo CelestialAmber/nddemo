@@ -388,7 +388,7 @@
 
 .obj "@eti_800060AC", local
 .hidden "@eti_800060AC"
-    .4byte sndGetPitch
-    .4byte 0x000000F0
-    .4byte "@etb_80005868"
+	.4byte sndGetPitch
+	.4byte 0x000000F0
+	.4byte "@etb_80005868"
 .endobj "@eti_800060AC"

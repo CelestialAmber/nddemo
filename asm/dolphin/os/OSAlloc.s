@@ -537,7 +537,6 @@
 
 .obj __OSCurrHeap, global
 	.4byte 0xFFFFFFFF
-	.4byte 0
 .endobj __OSCurrHeap
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380

@@ -1653,21 +1653,22 @@
 	.4byte 0x00000008
 	.4byte 0x00000008
 	.4byte 0x00000008
-	.asciz "No response"
-	.asciz "N64 controller"
-	.balign 4
-	.asciz "N64 microphone"
-	.balign 4
-	.asciz "N64 keyboard"
-	.balign 4
-	.asciz "N64 mouse"
-	.balign 4
-	.asciz "GameBoy Advance"
-	.asciz "Standard controller"
-	.asciz "Wireless receiver"
-	.balign 4
-	.asciz "WaveBird controller"
 .endobj Type
+
+.asciz "No response"
+.asciz "N64 controller"
+.balign 4
+.asciz "N64 microphone"
+.balign 4
+.asciz "N64 keyboard"
+.balign 4
+.asciz "N64 mouse"
+.balign 4
+.asciz "GameBoy Advance"
+.asciz "Standard controller"
+.asciz "Wireless receiver"
+.balign 4
+.asciz "WaveBird controller"
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

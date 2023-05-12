@@ -3729,159 +3729,159 @@
 .hidden "@eti_80005C44"
 	.4byte synthInitPortamento
 	.4byte 0x000000AC
-    .4byte "@etb_80005578"
+	.4byte "@etb_80005578"
 .endobj "@eti_80005C44"
 
 .obj "@eti_80005C50", local
 .hidden "@eti_80005C50"
 	.4byte do_voice_portamento
 	.4byte 0x000001F8
-    .4byte "@etb_80005580"
+	.4byte "@etb_80005580"
 .endobj "@eti_80005C50"
 
 .obj "@eti_80005C5C", local
 .hidden "@eti_80005C5C"
 	.4byte StartLayer
 	.4byte 0x000003EC
-    .4byte "@etb_80005588"
+	.4byte "@etb_80005588"
 .endobj "@eti_80005C5C"
 
 .obj "@eti_80005C68", local
 .hidden "@eti_80005C68"
 	.4byte StartKeymap
 	.4byte 0x00000244
-    .4byte "@etb_80005590"
+	.4byte "@etb_80005590"
 .endobj "@eti_80005C68"
 
 .obj "@eti_80005C74", local
 .hidden "@eti_80005C74"
 	.4byte synthStartSound
 	.4byte 0x000001CC
-    .4byte "@etb_80005598"
+	.4byte "@etb_80005598"
 .endobj "@eti_80005C74"
 
 .obj "@eti_80005C80", local
 .hidden "@eti_80005C80"
 	.4byte LowPrecisionHandler
 	.4byte 0x000007CC
-    .4byte "@etb_800055A0"
+	.4byte "@etb_800055A0"
 .endobj "@eti_80005C80"
 
 .obj "@eti_80005C8C", local
 .hidden "@eti_80005C8C"
 	.4byte ZeroOffsetHandler
 	.4byte 0x00000698
-    .4byte "@etb_800055A8"
+	.4byte "@etb_800055A8"
 .endobj "@eti_80005C8C"
 
 .obj "@eti_80005C98", local
 .hidden "@eti_80005C98"
 	.4byte EventHandler
 	.4byte 0x00000190
-    .4byte "@etb_800055B0"
+	.4byte "@etb_800055B0"
 .endobj "@eti_80005C98"
 
 .obj "@eti_80005CA4", local
 .hidden "@eti_80005CA4"
 	.4byte synthStartSynthJobHandling
 	.4byte 0x00000064
-    .4byte "@etb_800055B8"
+	.4byte "@etb_800055B8"
 .endobj "@eti_80005CA4"
 
 .obj "@eti_80005CB0", local
 .hidden "@eti_80005CB0"
 	.4byte synthForceLowPrecisionUpdate
 	.4byte 0x00000044
-    .4byte "@etb_800055C0"
+	.4byte "@etb_800055C0"
 .endobj "@eti_80005CB0"
 
 .obj "@eti_80005CBC", local
 .hidden "@eti_80005CBC"
 	.4byte synthKeyStateUpdate
 	.4byte 0x00000028
-    .4byte "@etb_800055C8"
+	.4byte "@etb_800055C8"
 .endobj "@eti_80005CBC"
 
 .obj "@eti_80005CC8", local
 .hidden "@eti_80005CC8"
 	.4byte HandleJobQueue
 	.4byte 0x0000007C
-    .4byte "@etb_800055D0"
+	.4byte "@etb_800055D0"
 .endobj "@eti_80005CC8"
 
 .obj "@eti_80005CD4", local
 .hidden "@eti_80005CD4"
 	.4byte HandleFaderTermination
 	.4byte 0x0000006C
-    .4byte "@etb_800055D8"
+	.4byte "@etb_800055D8"
 .endobj "@eti_80005CD4"
 
 .obj "@eti_80005CE0", local
 .hidden "@eti_80005CE0"
 	.4byte synthHandle
 	.4byte 0x00000318
-    .4byte "@etb_800055E0"
+	.4byte "@etb_800055E0"
 .endobj "@eti_80005CE0"
 
 .obj "@eti_80005CEC", local
 .hidden "@eti_80005CEC"
 	.4byte synthFXStart
 	.4byte 0x00000204
-    .4byte "@etb_800055E8"
+	.4byte "@etb_800055E8"
 .endobj "@eti_80005CEC"
 
 .obj "@eti_80005CF8", local
 .hidden "@eti_80005CF8"
 	.4byte synthFXSetCtrl
 	.4byte 0x000000E8
-    .4byte "@etb_800055F0"
+	.4byte "@etb_800055F0"
 .endobj "@eti_80005CF8"
 
 .obj "@eti_80005D04", local
 .hidden "@eti_80005D04"
 	.4byte synthFXSetCtrl14
 	.4byte 0x000000E8
-    .4byte "@etb_800055F8"
+	.4byte "@etb_800055F8"
 .endobj "@eti_80005D04"
 
 .obj "@eti_80005D10", local
 .hidden "@eti_80005D10"
 	.4byte synthFXCloneMidiSetup
 	.4byte 0x00000084
-    .4byte "@etb_80005600"
+	.4byte "@etb_80005600"
 .endobj "@eti_80005D10"
 
 .obj "@eti_80005D1C", local
 .hidden "@eti_80005D1C"
 	.4byte synthSendKeyOff
 	.4byte 0x0000008C
-    .4byte "@etb_80005608"
+	.4byte "@etb_80005608"
 .endobj "@eti_80005D1C"
 
 .obj "@eti_80005D28", local
 .hidden "@eti_80005D28"
 	.4byte synthVolume
 	.4byte 0x00000410
-    .4byte "@etb_80005610"
+	.4byte "@etb_80005610"
 .endobj "@eti_80005D28"
 
 .obj "@eti_80005D34", local
 .hidden "@eti_80005D34"
 	.4byte synthHWMessageHandler
 	.4byte 0x00000060
-    .4byte "@etb_80005618"
+	.4byte "@etb_80005618"
 .endobj "@eti_80005D34"
 
 .obj "@eti_80005D40", local
 .hidden "@eti_80005D40"
 	.4byte synthInit
 	.4byte 0x000004EC
-    .4byte "@etb_80005620"
+	.4byte "@etb_80005620"
 .endobj "@eti_80005D40"
 
 .obj "@eti_80005D4C", local
 .hidden "@eti_80005D4C"
 	.4byte synthExit
 	.4byte 0x00000024
-    .4byte "@etb_80005628"
+	.4byte "@etb_80005628"
 .endobj "@eti_80005D4C"

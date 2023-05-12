@@ -1659,8 +1659,10 @@
 .obj gTRKRestoreFlags, global
 	.4byte 0
 	.4byte 0
-	.4byte 0
+	.byte 0
 .endobj gTRKRestoreFlags
+
+.balign 4
 
 .obj gTRKExceptionStatus, local
 	.4byte 0

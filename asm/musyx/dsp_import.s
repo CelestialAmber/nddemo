@@ -1670,6 +1670,5 @@
 .balign 8
 
 .obj dspSlaveLength, global
-	.4byte 0x19E00000
-	.4byte 0
+	.2byte 0x19E0
 .endobj dspSlaveLength

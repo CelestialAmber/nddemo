@@ -651,16 +651,21 @@
 	.4byte 0x3F7B3DF3
 	.4byte 0x3F800000
 	.4byte 0x3F800000
+.endobj musyx_vol_tab
+
+.obj pan_tab, local
 	.4byte 0
 	.4byte 0x3F3538EF
 	.4byte 0x3F800000
 	.4byte 0x3F800000
+.endobj pan_tab
+
+.obj pan_tab_dpl2, local
 	.4byte 0x3F133333
 	.4byte 0x3F3538EF
 	.4byte 0x3F800000
 	.4byte 0x3F800000
-	.4byte 0
-.endobj musyx_vol_tab
+.endobj pan_tab_dpl2
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
@@ -713,7 +718,7 @@
 
 .obj "@eti_800061A8", local
 .hidden "@eti_800061A8"
-    .4byte salCalcVolume
-    .4byte 0x00000798
-    .4byte "@etb_80005910"
+	.4byte salCalcVolume
+	.4byte 0x00000798
+	.4byte "@etb_80005910"
 .endobj "@eti_800061A8"

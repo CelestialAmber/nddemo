@@ -49,14 +49,14 @@
 
 .obj "@eti_800064FC", local
 .hidden "@eti_800064FC"
-    .4byte salMalloc
-    .4byte 0x00000028
-    .4byte "@etb_80005B48"
+	.4byte salMalloc
+	.4byte 0x00000028
+	.4byte "@etb_80005B48"
 .endobj "@eti_800064FC"
 
 .obj "@eti_80006508", local
 .hidden "@eti_80006508"
-    .4byte salFree
-    .4byte 0x0000002C
-    .4byte "@etb_80005B50"
+	.4byte salFree
+	.4byte 0x0000002C
+	.4byte "@etb_80005B50"
 .endobj "@eti_80006508"

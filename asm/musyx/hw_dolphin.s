@@ -543,98 +543,98 @@
 
 .obj "@eti_80006454", local
 .hidden "@eti_80006454"
-    .4byte salCallback
-    .4byte 0x000000A4
-    .4byte "@etb_80005AD8"
+	.4byte salCallback
+	.4byte 0x000000A4
+	.4byte "@etb_80005AD8"
 .endobj "@eti_80006454"
 
 .obj "@eti_80006460", local
 .hidden "@eti_80006460"
-    .4byte dspResumeCallback
-    .4byte 0x00000068
-    .4byte "@etb_80005AE0"
+	.4byte dspResumeCallback
+	.4byte 0x00000068
+	.4byte "@etb_80005AE0"
 .endobj "@eti_80006460"
 
 .obj "@eti_8000646C", local
 .hidden "@eti_8000646C"
-    .4byte salInitAi
-    .4byte 0x000000CC
-    .4byte "@etb_80005AE8"
+	.4byte salInitAi
+	.4byte 0x000000CC
+	.4byte "@etb_80005AE8"
 .endobj "@eti_8000646C"
 
 .obj "@eti_80006478", local
 .hidden "@eti_80006478"
-    .4byte salStartAi
-    .4byte 0x00000020
-    .4byte "@etb_80005AF0"
+	.4byte salStartAi
+	.4byte 0x00000020
+	.4byte "@etb_80005AF0"
 .endobj "@eti_80006478"
 
 .obj "@eti_80006484", local
 .hidden "@eti_80006484"
-    .4byte salExitAi
-    .4byte 0x00000034
-    .4byte "@etb_80005AF8"
+	.4byte salExitAi
+	.4byte 0x00000034
+	.4byte "@etb_80005AF8"
 .endobj "@eti_80006484"
 
 .obj "@eti_80006490", local
 .hidden "@eti_80006490"
-    .4byte salInitDsp
-    .4byte 0x000000C0
-    .4byte "@etb_80005B00"
+	.4byte salInitDsp
+	.4byte 0x000000C0
+	.4byte "@etb_80005B00"
 .endobj "@eti_80006490"
 
 .obj "@eti_8000649C", local
 .hidden "@eti_8000649C"
-    .4byte salExitDsp
-    .4byte 0x00000034
-    .4byte "@etb_80005B08"
+	.4byte salExitDsp
+	.4byte 0x00000034
+	.4byte "@etb_80005B08"
 .endobj "@eti_8000649C"
 
 .obj "@eti_800064A8", local
 .hidden "@eti_800064A8"
-    .4byte salCtrlDsp
-    .4byte 0x00000074
-    .4byte "@etb_80005B10"
+	.4byte salCtrlDsp
+	.4byte 0x00000074
+	.4byte "@etb_80005B10"
 .endobj "@eti_800064A8"
 
 .obj "@eti_800064B4", local
 .hidden "@eti_800064B4"
-    .4byte salGetStartDelay
-    .4byte 0x0000004C
-    .4byte "@etb_80005B18"
+	.4byte salGetStartDelay
+	.4byte 0x0000004C
+	.4byte "@etb_80005B18"
 .endobj "@eti_800064B4"
 
 .obj "@eti_800064C0", local
 .hidden "@eti_800064C0"
-    .4byte hwInitIrq
-    .4byte 0x0000002C
-    .4byte "@etb_80005B20"
+	.4byte hwInitIrq
+	.4byte 0x0000002C
+	.4byte "@etb_80005B20"
 .endobj "@eti_800064C0"
 
 .obj "@eti_800064CC", local
 .hidden "@eti_800064CC"
-    .4byte hwEnableIrq
-    .4byte 0x00000038
-    .4byte "@etb_80005B28"
+	.4byte hwEnableIrq
+	.4byte 0x00000038
+	.4byte "@etb_80005B28"
 .endobj "@eti_800064CC"
 
 .obj "@eti_800064D8", local
 .hidden "@eti_800064D8"
-    .4byte hwDisableIrq
-    .4byte 0x00000038
-    .4byte "@etb_80005B30"
+	.4byte hwDisableIrq
+	.4byte 0x00000038
+	.4byte "@etb_80005B30"
 .endobj "@eti_800064D8"
 
 .obj "@eti_800064E4", local
 .hidden "@eti_800064E4"
-    .4byte hwIRQEnterCritical
-    .4byte 0x00000020
-    .4byte "@etb_80005B38"
+	.4byte hwIRQEnterCritical
+	.4byte 0x00000020
+	.4byte "@etb_80005B38"
 .endobj "@eti_800064E4"
 
 .obj "@eti_800064F0", local
 .hidden "@eti_800064F0"
-    .4byte hwIRQLeaveCritical
-    .4byte 0x00000020
-    .4byte "@etb_80005B40"
+	.4byte hwIRQLeaveCritical
+	.4byte 0x00000020
+	.4byte "@etb_80005B40"
 .endobj "@eti_800064F0"

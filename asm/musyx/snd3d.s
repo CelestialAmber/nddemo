@@ -1715,42 +1715,42 @@
 
 .obj "@eti_800061B4", local
 .hidden "@eti_800061B4"
-    .4byte CheckRoomStatus
-    .4byte 0x000003DC
-    .4byte "@etb_80005918"
+	.4byte CheckRoomStatus
+	.4byte 0x000003DC
+	.4byte "@etb_80005918"
 .endobj "@eti_800061B4"
 
 .obj "@eti_800061C0", local
 .hidden "@eti_800061C0"
-    .4byte CheckDoorStatus
-    .4byte 0x000001DC
-    .4byte "@etb_80005920"
+	.4byte CheckDoorStatus
+	.4byte 0x000001DC
+	.4byte "@etb_80005920"
 .endobj "@eti_800061C0"
 
 .obj "@eti_800061CC", local
 .hidden "@eti_800061CC"
-    .4byte CalcEmitter
-    .4byte 0x000004BC
-    .4byte "@etb_80005928"
+	.4byte CalcEmitter
+	.4byte 0x000004BC
+	.4byte "@etb_80005928"
 .endobj "@eti_800061CC"
 
 .obj "@eti_800061D8", local
 .hidden "@eti_800061D8"
-    .4byte SetFXParameters
-    .4byte 0x00000220
-    .4byte "@etb_80005930"
+	.4byte SetFXParameters
+	.4byte 0x00000220
+	.4byte "@etb_80005930"
 .endobj "@eti_800061D8"
 
 .obj "@eti_800061E4", local
 .hidden "@eti_800061E4"
-    .4byte StartContinousEmitters
-    .4byte 0x000001EC
-    .4byte "@etb_80005938"
+	.4byte StartContinousEmitters
+	.4byte 0x000001EC
+	.4byte "@etb_80005938"
 .endobj "@eti_800061E4"
 
 .obj "@eti_800061F0", local
 .hidden "@eti_800061F0"
-    .4byte s3dHandle
-    .4byte 0x00000364
-    .4byte "@etb_80005940"
+	.4byte s3dHandle
+	.4byte 0x00000364
+	.4byte "@etb_80005940"
 .endobj "@eti_800061F0"

@@ -1249,7 +1249,7 @@
 
 .obj GX2HWFiltConv, global
 	.4byte 0x00040105
-	.4byte 0x02060000
+	.2byte 0x0206
 .endobj GX2HWFiltConv
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0

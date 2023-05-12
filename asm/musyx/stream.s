@@ -660,14 +660,14 @@
 
 .obj "@eti_80005E0C", local
 .hidden "@eti_80005E0C"
-    .4byte streamHandle
-    .4byte 0x0000072C
-    .4byte "@etb_800056A8"
+	.4byte streamHandle
+	.4byte 0x0000072C
+	.4byte "@etb_800056A8"
 .endobj "@eti_80005E0C"
 
 .obj "@eti_80005E18", local
 .hidden "@eti_80005E18"
-    .4byte streamKill
-    .4byte 0x00000084
-    .4byte "@etb_800056B0"
+	.4byte streamKill
+	.4byte 0x00000084
+	.4byte "@etb_800056B0"
 .endobj "@eti_80005E18"

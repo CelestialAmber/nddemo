@@ -645,6 +645,9 @@
 	.4byte 0x3F1D1A71
 	.4byte 0x3F1E8DF2
 	.4byte 0x3F200000
+.endobj __log2_F
+
+.obj __two_to_x, local
 	.4byte 0x3F317218
 	.4byte 0x3E75FDF0
 	.4byte 0x3D635854
@@ -654,6 +657,9 @@
 	.4byte 0x3781E214
 	.4byte 0x35B3C15F
 	.4byte 0x33DD30D7
+.endobj __two_to_x
+
+.obj "__exp_to_x$105", local
 	.4byte 0x3F7FFFFE
 	.4byte 0x3EFFFFFF
 	.4byte 0x3E2AAB03
@@ -662,7 +668,7 @@
 	.4byte 0x3AB5F6D0
 	.4byte 0x3956A4B8
 	.4byte 0x37D5E715
-.endobj __log2_F
+.endobj "__exp_to_x$105"
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 

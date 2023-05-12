@@ -1125,7 +1125,6 @@
 
 .obj gx, global
 	.4byte gxData
-	.4byte 0
 .endobj gx
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0

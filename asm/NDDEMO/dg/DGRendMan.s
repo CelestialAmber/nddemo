@@ -1060,8 +1060,10 @@
 .endobj m_FirstFrameFlag__9DGRendMan
 
 .obj m_ChangeRenderModeFlag__9DGRendMan, global
-	.byte 0x01, 0x00, 0x00
+	.byte 0x01
 .endobj m_ChangeRenderModeFlag__9DGRendMan
+
+.2byte 0
 
 .obj m_BGColor__9DGRendMan, global
 	.4byte 0
@@ -1112,7 +1114,7 @@
 .endobj m_DispCopyGamma__9DGRendMan
 
 .obj m_AdjustForOverscanH__9DGRendMan, global
-	.4byte 0x00100000
+	.2byte 0x0010
 .endobj m_AdjustForOverscanH__9DGRendMan
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820

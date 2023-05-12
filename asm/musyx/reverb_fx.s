@@ -70,14 +70,14 @@
 
 .obj "@eti_80006514", local
 .hidden "@eti_80006514"
-    .4byte sndAuxCallbackReverbHI
-    .4byte 0x0000005C
-    .4byte "@etb_80005B58"
+	.4byte sndAuxCallbackReverbHI
+	.4byte 0x0000005C
+	.4byte "@etb_80005B58"
 .endobj "@eti_80006514"
 
 .obj "@eti_80006520", local
 .hidden "@eti_80006520"
-    .4byte sndAuxCallbackPrepareReverbHI
-    .4byte 0x00000040
-    .4byte "@etb_80005B60"
+	.4byte sndAuxCallbackPrepareReverbHI
+	.4byte 0x00000040
+	.4byte "@etb_80005B60"
 .endobj "@eti_80006520"

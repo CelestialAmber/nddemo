@@ -86,7 +86,6 @@
 	.4byte TRKDoUnsupported
 	.4byte TRKDoUnsupported
 	.4byte 0
-	.4byte 0
 .endobj gTRKDispatchTable
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80

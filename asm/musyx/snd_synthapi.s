@@ -458,68 +458,68 @@
 .hidden "@eti_80005D94"
 	.4byte sndFXCtrl14
 	.4byte 0x00000060
-    .4byte "@etb_80005658"
+	.4byte "@etb_80005658"
 .endobj "@eti_80005D94"
 
 .obj "@eti_80005DA0", local
 .hidden "@eti_80005DA0"
-    .4byte sndFXStartEx
-    .4byte 0x00000080
-    .4byte "@etb_80005660"
+	.4byte sndFXStartEx
+	.4byte 0x00000080
+	.4byte "@etb_80005660"
 .endobj "@eti_80005DA0"
 
 .obj "@eti_80005DAC", local
 .hidden "@eti_80005DAC"
-    .4byte sndFXCheck
-    .4byte 0x00000044
-    .4byte "@etb_80005668"
+	.4byte sndFXCheck
+	.4byte 0x00000044
+	.4byte "@etb_80005668"
 .endobj "@eti_80005DAC"
 
 .obj "@eti_80005DB8", local
 .hidden "@eti_80005DB8"
-    .4byte sndVolume
-    .4byte 0x00000060
-    .4byte "@etb_80005670"
+	.4byte sndVolume
+	.4byte 0x00000060
+	.4byte "@etb_80005670"
 .endobj "@eti_80005DB8"
 
 .obj "@eti_80005DC4", local
 .hidden "@eti_80005DC4"
-    .4byte sndMasterVolume
-    .4byte 0x00000094
-    .4byte "@etb_80005678"
+	.4byte sndMasterVolume
+	.4byte 0x00000094
+	.4byte "@etb_80005678"
 .endobj "@eti_80005DC4"
 
 .obj "@eti_80005DD0", local
 .hidden "@eti_80005DD0"
-    .4byte sndSetAuxProcessingCallbacks
-    .4byte 0x00000168
-    .4byte "@etb_80005680"
+	.4byte sndSetAuxProcessingCallbacks
+	.4byte 0x00000168
+	.4byte "@etb_80005680"
 .endobj "@eti_80005DD0"
 
 .obj "@eti_80005DDC", local
 .hidden "@eti_80005DDC"
-    .4byte synthActivateStudio
-    .4byte 0x000000AC
-    .4byte "@etb_80005688"
+	.4byte synthActivateStudio
+	.4byte 0x000000AC
+	.4byte "@etb_80005688"
 .endobj "@eti_80005DDC"
 
 .obj "@eti_80005DE8", local
 .hidden "@eti_80005DE8"
-    .4byte synthDeactivateStudio
-    .4byte 0x000000F0
-    .4byte "@etb_80005690"
+	.4byte synthDeactivateStudio
+	.4byte 0x000000F0
+	.4byte "@etb_80005690"
 .endobj "@eti_80005DE8"
 
 .obj "@eti_80005DF4", local
 .hidden "@eti_80005DF4"
-    .4byte synthAddStudioInput
-    .4byte 0x00000020
-    .4byte "@etb_80005698"
+	.4byte synthAddStudioInput
+	.4byte 0x00000020
+	.4byte "@etb_80005698"
 .endobj "@eti_80005DF4"
 
 .obj "@eti_80005E00", local
 .hidden "@eti_80005E00"
-    .4byte synthRemoveStudioInput
-    .4byte 0x00000020
-    .4byte "@etb_800056A0"
+	.4byte synthRemoveStudioInput
+	.4byte 0x00000020
+	.4byte "@etb_800056A0"
 .endobj "@eti_80005E00"

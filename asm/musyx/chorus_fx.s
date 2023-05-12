@@ -1192,14 +1192,14 @@
 
 .obj "@eti_80006544", local
 .hidden "@eti_80006544"
-    .4byte sndAuxCallbackChorus
-    .4byte 0x0000036C
-    .4byte "@etb_80005B78"
+	.4byte sndAuxCallbackChorus
+	.4byte 0x0000036C
+	.4byte "@etb_80005B78"
 .endobj "@eti_80006544"
 
 .obj "@eti_80006550", local
 .hidden "@eti_80006550"
-    .4byte sndAuxCallbackPrepareChorus
-    .4byte 0x00000260
-    .4byte "@etb_80005B80"
+	.4byte sndAuxCallbackPrepareChorus
+	.4byte 0x00000260
+	.4byte "@etb_80005B80"
 .endobj "@eti_80006550"

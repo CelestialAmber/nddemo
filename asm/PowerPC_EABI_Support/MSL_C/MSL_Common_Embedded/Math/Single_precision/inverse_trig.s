@@ -218,18 +218,27 @@
 	.4byte 0x3DE21F95
 	.4byte 0xBDAD417C
 	.4byte 0x3D41186D
+.endobj "atan_coeff$96"
+
+.obj "onep_one_over_xisqr_hi$97", local
 	.4byte 0x40DA826B
 	.4byte 0x404F5958
 	.4byte 0x40000000
 	.4byte 0x3FB925AB
 	.4byte 0x3F95F61A
 	.4byte 0x3F851081
+.endobj "onep_one_over_xisqr_hi$97"
+
+.obj "onep_one_over_xisqr_lo$98", local
 	.4byte 0x36EF692F
 	.4byte 0x355C1DF9
 	.4byte 0
 	.4byte 0x35291D45
 	.4byte 0
 	.4byte 0
+.endobj "onep_one_over_xisqr_lo$98"
+
+.obj "atan_xi_hi$99", local
 	.4byte 0
 	.4byte 0x3EC90EAA
 	.4byte 0x3F16CBE4
@@ -237,6 +246,9 @@
 	.4byte 0x3F7B53C5
 	.4byte 0x3F96CBE2
 	.4byte 0x3FAFEDD9
+.endobj "atan_xi_hi$99"
+
+.obj "atan_xi_lo$100", local
 	.4byte 0
 	.4byte 0x37185D99
 	.4byte 0x32C59189
@@ -244,12 +256,18 @@
 	.4byte 0x353CFA83
 	.4byte 0x348637BD
 	.4byte 0x35541063
+.endobj "atan_xi_lo$100"
+
+.obj "one_over_xi_hi$101", local
 	.4byte 0x401A8277
 	.4byte 0x3FBF90C7
 	.4byte 0x3F800000
 	.4byte 0x3F2B0DC1
 	.4byte 0x3ED413CD
 	.4byte 0x3E4BAFAF
+.endobj "one_over_xi_hi$101"
+
+.obj "one_over_xi_lo$102", local
 	.4byte 0x3516DC59
 	.4byte 0
 	.4byte 0
@@ -257,7 +275,7 @@
 	.4byte 0
 	.4byte 0
 	.4byte 0
-.endobj "atan_coeff$96"
+.endobj "one_over_xi_lo$102"
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
