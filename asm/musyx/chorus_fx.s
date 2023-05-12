@@ -645,6 +645,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 
 .obj rsmpTab12khz, local
 	.4byte 0x3DC7B000
@@ -1163,35 +1165,41 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
+.balign 8
+
 .obj i2fMagic, local
 	.4byte 0x43300000
 	.4byte 0x80000000
 .endobj i2fMagic
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
-.obj lbl_80005B78, local
+.obj "@etb_80005B78", local
+.hidden "@etb_80005B78"
 	.4byte 0x38080000
 	.4byte 0
-.endobj lbl_80005B78
+.endobj "@etb_80005B78"
 
-.obj lbl_80005B80, local
+.obj "@etb_80005B80", local
+.hidden "@etb_80005B80"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_80005B80
+.endobj "@etb_80005B80"
 
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
 
-.obj lbl_80006544, local
+.obj "@eti_80006544", local
+.hidden "@eti_80006544"
     .4byte sndAuxCallbackChorus
     .4byte 0x0000036C
-    .4byte lbl_80005B78
-.endobj lbl_80006544
+    .4byte "@etb_80005B78"
+.endobj "@eti_80006544"
 
-.obj lbl_80006550, local
+.obj "@eti_80006550", local
+.hidden "@eti_80006550"
     .4byte sndAuxCallbackPrepareChorus
     .4byte 0x00000260
-    .4byte lbl_80005B80
-.endobj lbl_80006550
+    .4byte "@etb_80005B80"
+.endobj "@eti_80006550"

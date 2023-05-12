@@ -127,6 +127,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
+.balign 8
+
 .obj lbl_80064780, local
 	.asciz "MetroTRK for Dolphin v0.8"
 	.balign 4
@@ -134,6 +136,8 @@
 .endobj lbl_80064780
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+.balign 8
 
 .obj gTRKBigEndian, global
 	.skip 0x4

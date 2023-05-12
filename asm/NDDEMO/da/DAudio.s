@@ -905,6 +905,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 .obj lbl_80067410, local
 	.asciz "Audio Manager initialized success!!\n"
 	.balign 4
@@ -935,12 +937,16 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
+.balign 8
+
 .obj m_sndHooks, global
 	.4byte mAlloc__FUl
 	.4byte mFree__FPv
 .endobj m_sndHooks
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
+
+.balign 8
 
 
 .obj lbl_800A9840, local

@@ -3398,6 +3398,8 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
+.balign 8
+
 
 .obj lbl_800A9958, local
 	.4byte 0x34010204
@@ -3456,6 +3458,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 
 .obj synthTicksPerSecond, local
 	.skip 0x240
@@ -3508,6 +3512,8 @@
 .skip 4
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 
 .obj sndActive, global
@@ -3576,260 +3582,306 @@
 	.skip 0x8
 .endobj synthRealTime
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
 
-.obj lbl_80005578, local
+.obj "@etb_80005578", local
+.hidden "@etb_80005578"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005578
+.endobj "@etb_80005578"
 
-.obj lbl_80005580, local
+.obj "@etb_80005580", local
+.hidden "@etb_80005580"
 	.4byte 0x70080000
 	.4byte 0
-.endobj lbl_80005580
+.endobj "@etb_80005580"
 
-.obj lbl_80005588, local
+.obj "@etb_80005588", local
+.hidden "@etb_80005588"
 	.4byte 0x90080000
 	.4byte 0
-.endobj lbl_80005588
+.endobj "@etb_80005588"
 
-.obj lbl_80005590, local
+.obj "@etb_80005590", local
+.hidden "@etb_80005590"
 	.4byte 0x88080000
 	.4byte 0
-.endobj lbl_80005590
+.endobj "@etb_80005590"
 
-.obj lbl_80005598, local
+.obj "@etb_80005598", local
+.hidden "@etb_80005598"
 	.4byte 0x70080000
 	.4byte 0
-.endobj lbl_80005598
+.endobj "@etb_80005598"
 
-.obj lbl_800055A0, local
+.obj "@etb_800055A0", local
+.hidden "@etb_800055A0"
 	.4byte 0x28080000
 	.4byte 0
-.endobj lbl_800055A0
+.endobj "@etb_800055A0"
 
-.obj lbl_800055A8, local
+.obj "@etb_800055A8", local
+.hidden "@etb_800055A8"
 	.4byte 0x20C80000
 	.4byte 0
-.endobj lbl_800055A8
+.endobj "@etb_800055A8"
 
-.obj lbl_800055B0, local
+.obj "@etb_800055B0", local
+.hidden "@etb_800055B0"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_800055B0
+.endobj "@etb_800055B0"
 
-.obj lbl_800055B8, local
+.obj "@etb_800055B8", local
+.hidden "@etb_800055B8"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_800055B8
+.endobj "@etb_800055B8"
 
-.obj lbl_800055C0, local
+.obj "@etb_800055C0", local
+.hidden "@etb_800055C0"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_800055C0
+.endobj "@etb_800055C0"
 
-.obj lbl_800055C8, local
+.obj "@etb_800055C8", local
+.hidden "@etb_800055C8"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_800055C8
+.endobj "@etb_800055C8"
 
-.obj lbl_800055D0, local
+.obj "@etb_800055D0", local
+.hidden "@etb_800055D0"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_800055D0
+.endobj "@etb_800055D0"
 
-.obj lbl_800055D8, local
+.obj "@etb_800055D8", local
+.hidden "@etb_800055D8"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_800055D8
+.endobj "@etb_800055D8"
 
-.obj lbl_800055E0, local
+.obj "@etb_800055E0", local
+.hidden "@etb_800055E0"
 	.4byte 0x60480000
 	.4byte 0
-.endobj lbl_800055E0
+.endobj "@etb_800055E0"
 
-.obj lbl_800055E8, local
+.obj "@etb_800055E8", local
+.hidden "@etb_800055E8"
 	.4byte 0x48080000
 	.4byte 0
-.endobj lbl_800055E8
+.endobj "@etb_800055E8"
 
-.obj lbl_800055F0, local
+.obj "@etb_800055F0", local
+.hidden "@etb_800055F0"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_800055F0
+.endobj "@etb_800055F0"
 
-.obj lbl_800055F8, local
+.obj "@etb_800055F8", local
+.hidden "@etb_800055F8"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_800055F8
+.endobj "@etb_800055F8"
 
-.obj lbl_80005600, local
+.obj "@etb_80005600", local
+.hidden "@etb_80005600"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_80005600
+.endobj "@etb_80005600"
 
-.obj lbl_80005608, local
+.obj "@etb_80005608", local
+.hidden "@etb_80005608"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_80005608
+.endobj "@etb_80005608"
 
-.obj lbl_80005610, local
+.obj "@etb_80005610", local
+.hidden "@etb_80005610"
 	.4byte 0x31080000
 	.4byte 0
-.endobj lbl_80005610
+.endobj "@etb_80005610"
 
-.obj lbl_80005618, local
+.obj "@etb_80005618", local
+.hidden "@etb_80005618"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005618
+.endobj "@etb_80005618"
 
-.obj lbl_80005620, local
+.obj "@etb_80005620", local
+.hidden "@etb_80005620"
 	.4byte 0x90080000
 	.4byte 0
-.endobj lbl_80005620
+.endobj "@etb_80005620"
 
-.obj lbl_80005628, local
+.obj "@etb_80005628", local
+.hidden "@etb_80005628"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005628
+.endobj "@etb_80005628"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
-.obj lbl_80005C44, local
+.obj "@eti_80005C44", local
+.hidden "@eti_80005C44"
 	.4byte synthInitPortamento
 	.4byte 0x000000AC
-	.4byte lbl_80005578
-.endobj lbl_80005C44
+    .4byte "@etb_80005578"
+.endobj "@eti_80005C44"
 
-.obj lbl_80005C50, local
+.obj "@eti_80005C50", local
+.hidden "@eti_80005C50"
 	.4byte do_voice_portamento
 	.4byte 0x000001F8
-	.4byte lbl_80005580
-.endobj lbl_80005C50
+    .4byte "@etb_80005580"
+.endobj "@eti_80005C50"
 
-.obj lbl_80005C5C, local
+.obj "@eti_80005C5C", local
+.hidden "@eti_80005C5C"
 	.4byte StartLayer
 	.4byte 0x000003EC
-	.4byte lbl_80005588
-.endobj lbl_80005C5C
+    .4byte "@etb_80005588"
+.endobj "@eti_80005C5C"
 
-.obj lbl_80005C68, local
+.obj "@eti_80005C68", local
+.hidden "@eti_80005C68"
 	.4byte StartKeymap
 	.4byte 0x00000244
-	.4byte lbl_80005590
-.endobj lbl_80005C68
+    .4byte "@etb_80005590"
+.endobj "@eti_80005C68"
 
-.obj lbl_80005C74, local
+.obj "@eti_80005C74", local
+.hidden "@eti_80005C74"
 	.4byte synthStartSound
 	.4byte 0x000001CC
-	.4byte lbl_80005598
-.endobj lbl_80005C74
+    .4byte "@etb_80005598"
+.endobj "@eti_80005C74"
 
-.obj lbl_80005C80, local
+.obj "@eti_80005C80", local
+.hidden "@eti_80005C80"
 	.4byte LowPrecisionHandler
 	.4byte 0x000007CC
-	.4byte lbl_800055A0
-.endobj lbl_80005C80
+    .4byte "@etb_800055A0"
+.endobj "@eti_80005C80"
 
-.obj lbl_80005C8C, local
+.obj "@eti_80005C8C", local
+.hidden "@eti_80005C8C"
 	.4byte ZeroOffsetHandler
 	.4byte 0x00000698
-	.4byte lbl_800055A8
-.endobj lbl_80005C8C
+    .4byte "@etb_800055A8"
+.endobj "@eti_80005C8C"
 
-.obj lbl_80005C98, local
+.obj "@eti_80005C98", local
+.hidden "@eti_80005C98"
 	.4byte EventHandler
 	.4byte 0x00000190
-	.4byte lbl_800055B0
-.endobj lbl_80005C98
+    .4byte "@etb_800055B0"
+.endobj "@eti_80005C98"
 
-.obj lbl_80005CA4, local
+.obj "@eti_80005CA4", local
+.hidden "@eti_80005CA4"
 	.4byte synthStartSynthJobHandling
 	.4byte 0x00000064
-	.4byte lbl_800055B8
-.endobj lbl_80005CA4
+    .4byte "@etb_800055B8"
+.endobj "@eti_80005CA4"
 
-.obj lbl_80005CB0, local
+.obj "@eti_80005CB0", local
+.hidden "@eti_80005CB0"
 	.4byte synthForceLowPrecisionUpdate
 	.4byte 0x00000044
-	.4byte lbl_800055C0
-.endobj lbl_80005CB0
+    .4byte "@etb_800055C0"
+.endobj "@eti_80005CB0"
 
-.obj lbl_80005CBC, local
+.obj "@eti_80005CBC", local
+.hidden "@eti_80005CBC"
 	.4byte synthKeyStateUpdate
 	.4byte 0x00000028
-	.4byte lbl_800055C8
-.endobj lbl_80005CBC
+    .4byte "@etb_800055C8"
+.endobj "@eti_80005CBC"
 
-.obj lbl_80005CC8, local
+.obj "@eti_80005CC8", local
+.hidden "@eti_80005CC8"
 	.4byte HandleJobQueue
 	.4byte 0x0000007C
-	.4byte lbl_800055D0
-.endobj lbl_80005CC8
+    .4byte "@etb_800055D0"
+.endobj "@eti_80005CC8"
 
-.obj lbl_80005CD4, local
+.obj "@eti_80005CD4", local
+.hidden "@eti_80005CD4"
 	.4byte HandleFaderTermination
 	.4byte 0x0000006C
-	.4byte lbl_800055D8
-.endobj lbl_80005CD4
+    .4byte "@etb_800055D8"
+.endobj "@eti_80005CD4"
 
-.obj lbl_80005CE0, local
+.obj "@eti_80005CE0", local
+.hidden "@eti_80005CE0"
 	.4byte synthHandle
 	.4byte 0x00000318
-	.4byte lbl_800055E0
-.endobj lbl_80005CE0
+    .4byte "@etb_800055E0"
+.endobj "@eti_80005CE0"
 
-.obj lbl_80005CEC, local
+.obj "@eti_80005CEC", local
+.hidden "@eti_80005CEC"
 	.4byte synthFXStart
 	.4byte 0x00000204
-	.4byte lbl_800055E8
-.endobj lbl_80005CEC
+    .4byte "@etb_800055E8"
+.endobj "@eti_80005CEC"
 
-.obj lbl_80005CF8, local
+.obj "@eti_80005CF8", local
+.hidden "@eti_80005CF8"
 	.4byte synthFXSetCtrl
 	.4byte 0x000000E8
-	.4byte lbl_800055F0
-.endobj lbl_80005CF8
+    .4byte "@etb_800055F0"
+.endobj "@eti_80005CF8"
 
-.obj lbl_80005D04, local
+.obj "@eti_80005D04", local
+.hidden "@eti_80005D04"
 	.4byte synthFXSetCtrl14
 	.4byte 0x000000E8
-	.4byte lbl_800055F8
-.endobj lbl_80005D04
+    .4byte "@etb_800055F8"
+.endobj "@eti_80005D04"
 
-.obj lbl_80005D10, local
+.obj "@eti_80005D10", local
+.hidden "@eti_80005D10"
 	.4byte synthFXCloneMidiSetup
 	.4byte 0x00000084
-	.4byte lbl_80005600
-.endobj lbl_80005D10
+    .4byte "@etb_80005600"
+.endobj "@eti_80005D10"
 
-.obj lbl_80005D1C, local
+.obj "@eti_80005D1C", local
+.hidden "@eti_80005D1C"
 	.4byte synthSendKeyOff
 	.4byte 0x0000008C
-	.4byte lbl_80005608
-.endobj lbl_80005D1C
+    .4byte "@etb_80005608"
+.endobj "@eti_80005D1C"
 
-.obj lbl_80005D28, local
+.obj "@eti_80005D28", local
+.hidden "@eti_80005D28"
 	.4byte synthVolume
 	.4byte 0x00000410
-	.4byte lbl_80005610
-.endobj lbl_80005D28
+    .4byte "@etb_80005610"
+.endobj "@eti_80005D28"
 
-.obj lbl_80005D34, local
+.obj "@eti_80005D34", local
+.hidden "@eti_80005D34"
 	.4byte synthHWMessageHandler
 	.4byte 0x00000060
-	.4byte lbl_80005618
-.endobj lbl_80005D34
+    .4byte "@etb_80005618"
+.endobj "@eti_80005D34"
 
-.obj lbl_80005D40, local
+.obj "@eti_80005D40", local
+.hidden "@eti_80005D40"
 	.4byte synthInit
 	.4byte 0x000004EC
-	.4byte lbl_80005620
-.endobj lbl_80005D40
+    .4byte "@etb_80005620"
+.endobj "@eti_80005D40"
 
-.obj lbl_80005D4C, local
+.obj "@eti_80005D4C", local
+.hidden "@eti_80005D4C"
 	.4byte synthExit
 	.4byte 0x00000024
-	.4byte lbl_80005628
-.endobj lbl_80005D4C
+    .4byte "@etb_80005628"
+.endobj "@eti_80005D4C"

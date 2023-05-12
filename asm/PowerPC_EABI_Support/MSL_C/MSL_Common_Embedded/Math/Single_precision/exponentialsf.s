@@ -512,6 +512,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
+.balign 8
+
 
 .obj __log2_F, local
 	.4byte 0xBEC00000
@@ -663,6 +665,8 @@
 .endobj __log2_F
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
+
+.balign 8
 
 #weak
 "__log2e_m1$localstatic0$__log2f__Ff":	.4byte 0x3ED20000

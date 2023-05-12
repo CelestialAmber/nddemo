@@ -49,6 +49,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 
 .obj gTRKDispatchTable, global
 	.4byte TRKDoUnsupported
@@ -88,6 +90,8 @@
 .endobj gTRKDispatchTable
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+.balign 8
 
 .obj gTRKDispatchTableSize, global
 	.skip 0x4

@@ -603,6 +603,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
+.balign 8
+
 
 .obj lbl_80064280, local
 	.4byte 0
@@ -623,6 +625,8 @@
 .endobj lbl_800642A4
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
+
+.balign 8
 
 .obj lbl_800A9500, local
 	.4byte 0

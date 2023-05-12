@@ -3624,6 +3624,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
+.balign 8
+
 .obj lbl_80064528, local
 	.4byte 0
 	.4byte 0x42C80000
@@ -3643,6 +3645,8 @@
 .endobj lbl_8006454C
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
+
+.balign 8
 
 .obj PlyAnimName, local
 	.asciz "kihon"
@@ -3926,12 +3930,16 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
+.balign 8
+
 .obj lbl_800A8C88, local
 	.asciz "white"
 	.balign 4
 .endobj lbl_800A8C88
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
+
+.balign 8
 
 .obj lbl_800A96B0, local
 	.4byte 0x3EC28F5C
@@ -4128,6 +4136,8 @@
 .endobj lbl_800A9788
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
+
+.balign 8
 
 
 .obj "yyy$292", local

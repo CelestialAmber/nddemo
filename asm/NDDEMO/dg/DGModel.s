@@ -238,6 +238,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
+.balign 8
+
 .obj "miss$155", local
 	.4byte 0
 	.4byte 0
@@ -246,6 +248,8 @@
 .endobj "miss$155"
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
+
+.balign 8
 
 .obj lbl_800662D8, local
 	.asciz "Error DGModel::CreateInstance False\n"

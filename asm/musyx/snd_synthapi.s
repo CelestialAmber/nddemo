@@ -388,118 +388,138 @@
 /* 800482CC 0004424C  4E 80 00 20 */	blr
 .endfn synthRemoveStudioInput
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
 
-.obj lbl_80005658, local
+.obj "@etb_80005658", local
+.hidden "@etb_80005658"
 	.4byte 0x18080000
 	.4byte 0
-.endobj lbl_80005658
+.endobj "@etb_80005658"
 
-.obj lbl_80005660, local
+.obj "@etb_80005660", local
+.hidden "@etb_80005660"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_80005660
+.endobj "@etb_80005660"
 
-.obj lbl_80005668, local
+.obj "@etb_80005668", local
+.hidden "@etb_80005668"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_80005668
+.endobj "@etb_80005668"
 
-.obj lbl_80005670, local
+.obj "@etb_80005670", local
+.hidden "@etb_80005670"
 	.4byte 0x18080000
 	.4byte 0
-.endobj lbl_80005670
+.endobj "@etb_80005670"
 
-.obj lbl_80005678, local
+.obj "@etb_80005678", local
+.hidden "@etb_80005678"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_80005678
+.endobj "@etb_80005678"
 
-.obj lbl_80005680, local
+.obj "@etb_80005680", local
+.hidden "@etb_80005680"
 	.4byte 0x50080000
 	.4byte 0
-.endobj lbl_80005680
+.endobj "@etb_80005680"
 
-.obj lbl_80005688, local
+.obj "@etb_80005688", local
+.hidden "@etb_80005688"
 	.4byte 0x18080000
 	.4byte 0
-.endobj lbl_80005688
+.endobj "@etb_80005688"
 
-.obj lbl_80005690, local
+.obj "@etb_80005690", local
+.hidden "@etb_80005690"
 	.4byte 0x28080000
 	.4byte 0
-.endobj lbl_80005690
+.endobj "@etb_80005690"
 
-.obj lbl_80005698, local
+.obj "@etb_80005698", local
+.hidden "@etb_80005698"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005698
+.endobj "@etb_80005698"
 
-.obj lbl_800056A0, local
+.obj "@etb_800056A0", local
+.hidden "@etb_800056A0"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_800056A0
+.endobj "@etb_800056A0"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
 
-.obj lbl_80005D94, local
+.obj "@eti_80005D94", local
+.hidden "@eti_80005D94"
 	.4byte sndFXCtrl14
 	.4byte 0x00000060
-	.4byte lbl_80005658
-.endobj lbl_80005D94
+    .4byte "@etb_80005658"
+.endobj "@eti_80005D94"
 
-.obj lbl_80005DA0, local
+.obj "@eti_80005DA0", local
+.hidden "@eti_80005DA0"
     .4byte sndFXStartEx
     .4byte 0x00000080
-    .4byte lbl_80005660
-.endobj lbl_80005DA0
+    .4byte "@etb_80005660"
+.endobj "@eti_80005DA0"
 
-.obj lbl_80005DAC, local
+.obj "@eti_80005DAC", local
+.hidden "@eti_80005DAC"
     .4byte sndFXCheck
     .4byte 0x00000044
-    .4byte lbl_80005668
-.endobj lbl_80005DAC
+    .4byte "@etb_80005668"
+.endobj "@eti_80005DAC"
 
-.obj lbl_80005DB8, local
+.obj "@eti_80005DB8", local
+.hidden "@eti_80005DB8"
     .4byte sndVolume
     .4byte 0x00000060
-    .4byte lbl_80005670
-.endobj lbl_80005DB8
+    .4byte "@etb_80005670"
+.endobj "@eti_80005DB8"
 
-.obj lbl_80005DC4, local
+.obj "@eti_80005DC4", local
+.hidden "@eti_80005DC4"
     .4byte sndMasterVolume
     .4byte 0x00000094
-    .4byte lbl_80005678
-.endobj lbl_80005DC4
+    .4byte "@etb_80005678"
+.endobj "@eti_80005DC4"
 
-.obj lbl_80005DD0, local
+.obj "@eti_80005DD0", local
+.hidden "@eti_80005DD0"
     .4byte sndSetAuxProcessingCallbacks
     .4byte 0x00000168
-    .4byte lbl_80005680
-.endobj lbl_80005DD0
+    .4byte "@etb_80005680"
+.endobj "@eti_80005DD0"
 
-.obj lbl_80005DDC, local
+.obj "@eti_80005DDC", local
+.hidden "@eti_80005DDC"
     .4byte synthActivateStudio
     .4byte 0x000000AC
-    .4byte lbl_80005688
-.endobj lbl_80005DDC
+    .4byte "@etb_80005688"
+.endobj "@eti_80005DDC"
 
-.obj lbl_80005DE8, local
+.obj "@eti_80005DE8", local
+.hidden "@eti_80005DE8"
     .4byte synthDeactivateStudio
     .4byte 0x000000F0
-    .4byte lbl_80005690
-.endobj lbl_80005DE8
+    .4byte "@etb_80005690"
+.endobj "@eti_80005DE8"
 
-.obj lbl_80005DF4, local
+.obj "@eti_80005DF4", local
+.hidden "@eti_80005DF4"
     .4byte synthAddStudioInput
     .4byte 0x00000020
-    .4byte lbl_80005698
-.endobj lbl_80005DF4
+    .4byte "@etb_80005698"
+.endobj "@eti_80005DF4"
 
-.obj lbl_80005E00, local
+.obj "@eti_80005E00", local
+.hidden "@eti_80005E00"
     .4byte synthRemoveStudioInput
     .4byte 0x00000020
-    .4byte lbl_800056A0
-.endobj lbl_80005E00
+    .4byte "@etb_800056A0"
+.endobj "@eti_80005E00"

@@ -178,6 +178,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 .obj gTRKEventQueue, global
 	.skip 0x28
 .endobj gTRKEventQueue

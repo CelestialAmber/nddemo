@@ -158,7 +158,7 @@
 /* 800067D0 00002750  3C A0 80 07 */	lis r5, lbl_8006D1C0@ha
 /* 800067D4 00002754  38 84 6A C0 */	addi r4, r4, __dt__6DAudioFv@l
 /* 800067D8 00002758  38 A5 D1 C0 */	addi r5, r5, lbl_8006D1C0@l
-/* 800067DC 0000275C  48 05 89 69 */	bl __register_global_object_
+/* 800067DC 0000275C  48 05 89 69 */	bl __register_global_object
 /* 800067E0 00002760  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 800067E4 00002764  38 21 00 08 */	addi r1, r1, 0x8
 /* 800067E8 00002768  7C 08 03 A6 */	mtlr r0
@@ -178,7 +178,14 @@
 /* 8000680C 0000278C  4E 80 00 20 */	blr
 .endfn __dl__FPv
 
+
+.section .ctors, "wa"  # 0x80063CE0 - 0x80063D00
+
+.4byte __sinit_main_cpp
+
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
+
+.balign 8
 
 
 .obj lbl_80065000, local
@@ -201,6 +208,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 
+.balign 8
+
 .obj lbl_8006D1C0, local
 	.skip 0xC
 .endobj lbl_8006D1C0
@@ -210,6 +219,8 @@
 .endobj audio
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
+
+.balign 8
 
 .obj dm, global
 	.skip 0x4

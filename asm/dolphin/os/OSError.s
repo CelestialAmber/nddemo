@@ -238,6 +238,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 
 .obj lbl_80067ED0, local
 	.asciz " in \"%s\" on line %d.\n"
@@ -260,12 +262,16 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
+.balign 8
+
 .obj lbl_800A8CA8, local
 	.4byte 0x0A000000
 	.4byte 0
 .endobj lbl_800A8CA8
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+.balign 8
 
 .obj OSErrorTable, local
 	.skip 0x40

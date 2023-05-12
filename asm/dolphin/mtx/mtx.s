@@ -428,12 +428,16 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
+.balign 8
+
 .obj Unit01, local
 	.4byte 0
 	.4byte 0x3F800000
 .endobj Unit01
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+.balign 8
 
 
 .obj lbl_800A9858, local

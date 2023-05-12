@@ -521,6 +521,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 
 .obj aramQueue, local
 	.skip 0x200
@@ -533,6 +535,8 @@
 .skip 0x18
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 .obj aramTop, local
 	.skip 0x4
@@ -570,52 +574,60 @@
 
 .skip 4
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
 
-.obj lbl_80006424, local
-    .4byte aramUploadData
-    .4byte 0x00000170
-    .4byte lbl_80005AB8
-.endobj lbl_80006424
-
-.obj lbl_80006430, local
-    .4byte aramInit
-    .4byte 0x0000031C
-    .4byte lbl_80005AC0
-.endobj lbl_80006430
-
-.obj lbl_8000643C, local
-    .4byte aramGetZeroBuffer
-    .4byte 0x00000020
-    .4byte lbl_80005AC8
-.endobj lbl_8000643C
-
-.obj lbl_80006448, local
-    .4byte aramStoreData
-    .4byte 0x00000178
-    .4byte lbl_80005AD0
-.endobj lbl_80006448
-
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
-
-
-.obj lbl_80005AB8, local
+.obj "@etb_80005AB8", local
+.hidden "@etb_80005AB8"
 	.4byte 0x28080000
 	.4byte 0
-.endobj lbl_80005AB8
+.endobj "@etb_80005AB8"
 
-.obj lbl_80005AC0, local
+.obj "@etb_80005AC0", local
+.hidden "@etb_80005AC0"
 	.4byte 0x28080000
 	.4byte 0
-.endobj lbl_80005AC0
+.endobj "@etb_80005AC0"
 
-.obj lbl_80005AC8, local
+.obj "@etb_80005AC8", local
+.hidden "@etb_80005AC8"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005AC8
+.endobj "@etb_80005AC8"
 
-.obj lbl_80005AD0, local
+.obj "@etb_80005AD0", local
+.hidden "@etb_80005AD0"
 	.4byte 0x28080000
 	.4byte 0
-.endobj lbl_80005AD0
+.endobj "@etb_80005AD0"
+
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
+
+.obj "@eti_80006424", local
+.hidden "@eti_80006424"
+    .4byte aramUploadData
+    .4byte 0x00000170
+    .4byte "@etb_80005AB8"
+.endobj "@eti_80006424"
+
+.obj "@eti_80006430", local
+.hidden "@eti_80006430"
+    .4byte aramInit
+    .4byte 0x0000031C
+    .4byte "@etb_80005AC0"
+.endobj "@eti_80006430"
+
+.obj "@eti_8000643C", local
+.hidden "@eti_8000643C"
+    .4byte aramGetZeroBuffer
+    .4byte 0x00000020
+    .4byte "@etb_80005AC8"
+.endobj "@eti_8000643C"
+
+.obj "@eti_80006448", local
+.hidden "@eti_80006448"
+    .4byte aramStoreData
+    .4byte 0x00000178
+    .4byte "@etb_80005AD0"
+.endobj "@eti_80006448"

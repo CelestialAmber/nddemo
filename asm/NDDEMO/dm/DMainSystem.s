@@ -13152,6 +13152,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
+.balign 8
+
 .obj lbl_80063D20, local
 	.4byte 0
 	.4byte 0x3F800000
@@ -13250,6 +13252,8 @@
 .endobj lbl_80063DD4
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
+
+.balign 8
 
 
 .obj lbl_80065088, local
@@ -14309,6 +14313,8 @@ iFileNameData:	.4byte lbl_80065088
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
+.balign 8
+
 .obj lbl_800A8A80, local
 	.asciz "MARIO00"
 .endobj lbl_800A8A80
@@ -14472,6 +14478,8 @@ iFileNameData:	.4byte lbl_80065088
 .endobj lbl_800A8B78
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
+
+.balign 8
 
 .obj lbl_800A9380, local
 	.4byte 0x3FC00000
@@ -14738,6 +14746,8 @@ iFileNameData:	.4byte lbl_80065088
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 
+.balign 8
+
 #might be in main.cpp
 .obj dmThread, global
 	.skip 0x310
@@ -14764,6 +14774,8 @@ iFileNameData:	.4byte lbl_80065088
 
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
+
+.balign 8
 
 .obj MSecGX, local
 	.skip 0x4

@@ -490,6 +490,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 
 .obj lbl_800676B0, local
 	.asciz "OSCheckHeap: Failed HeapArray in %d"
@@ -531,12 +533,16 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
+.balign 8
+
 .obj __OSCurrHeap, global
 	.4byte 0xFFFFFFFF
 	.4byte 0
 .endobj __OSCurrHeap
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 
 .obj HeapArray, local

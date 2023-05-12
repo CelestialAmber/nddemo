@@ -56,7 +56,8 @@ include e_files.mk
 endif
 
 O_FILES := $(NDDEMO) $(DOLPHIN) $(MUSYX) \
-		   $(MW) $(NDEV) $(OTHERS)
+		   $(METROTRK) $(RUNTIME) $(MSL_C) \
+		   $(NDEV)
 
 #-------------------------------------------------------------------------------
 # Tools
@@ -96,7 +97,7 @@ ELF2DOL := $(DTK) elf2dol
 SHASUM  := $(DTK) shasum
 
 # Options
-INCLUDES := -i include/
+INCLUDES := -I- -i include/ -i include/std/
 ASM_INCLUDES := -I include/
 
 ASFLAGS := -mgekko $(ASM_INCLUDES)
@@ -108,7 +109,7 @@ ifeq ($(VERBOSE),0)
 # this set of LDFLAGS generates no warnings.
 LDFLAGS := $(MAPGEN) -fp hard -nodefaults -w off
 endif
-CFLAGS   = -Cpp_exceptions off -enum int -inline on -use_lmw_stmw on -proc gekko -fp hard -O4,p -nodefaults $(INCLUDES)
+CFLAGS   = -Cpp_exceptions off -enum int -inline auto -use_lmw_stmw on -proc gekko -fp hard -O4,p -nodefaults $(INCLUDES)
 ifeq ($(NON_MATCHING),1)
 CFLAGS += -DNON_MATCHING
 endif
@@ -117,6 +118,10 @@ ifeq ($(VERBOSE),0)
 # this set of ASFLAGS generates no warnings.
 ASFLAGS += -W
 endif
+
+
+$(BUILD_DIR)/src/PowerPC_EABI_Support/Runtime/global_destructor_chain.o: CFLAGS += -inline deferred
+$(BUILD_DIR)/src/PowerPC_EABI_Support/Runtime/__init_cpp_exceptions.o: CFLAGS += -inline deferred
 
 #-------------------------------------------------------------------------------
 # Recipes
@@ -174,7 +179,7 @@ $(BUILD_DIR)/%.o: %.s | $(DTK)
 	@echo Assembling $<
 	$(QUIET) mkdir -p $(dir $@)
 	$(QUIET) $(AS) $(ASFLAGS) -o $@ $<
-#$(QUIET) $(DTK) elf fixup $@ $@
+	$(QUIET) $(DTK) elf fixup $@ $@
 
 $(BUILD_DIR)/%.o: %.c
 	@echo "Compiling " $<

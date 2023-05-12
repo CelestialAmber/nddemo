@@ -4139,6 +4139,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
+.balign 8
+
 
 .obj lbl_80064558, local
 	.4byte 0
@@ -4154,6 +4156,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 .obj iSpilCenter, local
 	.4byte 0xC32F0000
 	.4byte 0xC2DC0000
@@ -4162,6 +4166,8 @@
 .endobj iSpilCenter
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
+
+.balign 8
 
 .obj lbl_800A9790, local
 	.4byte 0

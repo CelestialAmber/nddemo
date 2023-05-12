@@ -79,11 +79,15 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 .obj lbl_80068200, local
 	.asciz "DBExceptionDestination\n"
 .endobj lbl_80068200
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 .obj __DBInterface, global
 	.skip 0x4

@@ -1617,6 +1617,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
+.balign 8
+
 
 .obj gTRKMemMap, global
 	.4byte 0
@@ -1652,6 +1654,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 .obj gTRKRestoreFlags, global
 	.4byte 0
 	.4byte 0
@@ -1674,6 +1678,8 @@
 .endobj gTRKStepStatus
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+.balign 8
 
 .obj TRK_saved_exceptionID, local
 	.skip 0x2

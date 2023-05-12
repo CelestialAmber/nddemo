@@ -80,28 +80,32 @@
 /* 80055690 00051610  4E 80 00 20 */	blr
 .endfn sndQuit
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
-.obj lbl_80005948, local
+.obj "@etb_80005948", local
+.hidden "@etb_80005948"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_80005948
+.endobj "@etb_80005948"
 
-.obj lbl_80005950, local
+.obj "@etb_80005950", local
+.hidden "@etb_80005950"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005950
+.endobj "@etb_80005950"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
-.obj lbl_800061FC, local
+.obj "@eti_800061FC", local
+.hidden "@eti_800061FC"
     .4byte sndInit
     .4byte 0x000000D8
-    .4byte lbl_80005948
-.endobj lbl_800061FC
+    .4byte "@etb_80005948"
+.endobj "@eti_800061FC"
 
-.obj lbl_80006208, local
+.obj "@eti_80006208", local
+.hidden "@eti_80006208"
     .4byte sndQuit
     .4byte 0x00000034
-    .4byte lbl_80005950
-.endobj lbl_80006208
+    .4byte "@etb_80005950"
+.endobj "@eti_80006208"

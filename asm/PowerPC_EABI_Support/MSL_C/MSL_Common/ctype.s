@@ -18,6 +18,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
+.balign 8
+
 
 .obj __ctype_map, global
 	.4byte 0x01010101

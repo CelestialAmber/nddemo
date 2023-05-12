@@ -288,6 +288,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
+.balign 8
+
 
 .obj bit_values, local
 	.4byte 0x40240000
@@ -330,6 +332,8 @@
 .endobj digit_values
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+.balign 8
 
 .obj lbl_800A9AF8, local
 	.4byte 0

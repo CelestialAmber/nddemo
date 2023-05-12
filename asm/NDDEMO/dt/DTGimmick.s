@@ -2810,6 +2810,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
+.balign 8
+
 .obj lbl_80064418, local
 	.4byte 0
 	.4byte 0x40400000
@@ -2909,6 +2911,8 @@
 .endobj lbl_800644F8
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
+
+.balign 8
 
 .obj lbl_80066E18, local
 	.4byte .L_8001D5BC
@@ -3034,6 +3038,8 @@
 .endobj lbl_80066FE8
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
+
+.balign 8
 
 .obj lbl_800A8BC8, local
 	.asciz "obj9_2"
@@ -3174,6 +3180,8 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
+.balign 8
+
 .obj lbl_800A9640, local
 	.4byte 0x41200000
 .endobj lbl_800A9640
@@ -3285,11 +3293,15 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 
+.balign 8
+
 .obj Coin, local
 	.skip 0x8000
 .endobj Coin
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
+
+.balign 8
 
 .obj "angle_x$302", local
 	.skip 0x4

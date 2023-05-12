@@ -239,7 +239,14 @@
 /* 80062AE4 0005EA64  4E 80 00 20 */	blr
 .endfn __sinit_trigf_c
 
+
+.section .ctors, "wa"  # 0x80063CE0 - 0x80063D00
+
+.4byte __sinit_trigf_c
+
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
+
+.balign 8
 
 .obj tmp_float, local
 	.4byte 0x3E800000
@@ -250,6 +257,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 .obj __four_over_pi_m1, local
 	.4byte 0
 	.4byte 0
@@ -258,6 +267,8 @@
 .endobj __four_over_pi_m1
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+.balign 8
 
 .obj lbl_800A9B48, local
 	.4byte 0x3F22F983

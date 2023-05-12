@@ -1531,6 +1531,8 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
+.balign 8
+
 
 .obj lbl_800A9A38, local
 	.4byte 0
@@ -1594,6 +1596,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 .obj "tmp_em$514", local
 	.skip 0x50
 .endobj "tmp_em$514"
@@ -1615,6 +1619,8 @@
 .endobj "em$893"
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 
 .obj s3dCallCnt, local
@@ -1665,74 +1671,86 @@
 
 .skip 3
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
 
-.obj lbl_80005918, local
+.obj "@etb_80005918", local
+.hidden "@etb_80005918"
 	.4byte 0x41080000
 	.4byte 0
-.endobj lbl_80005918
+.endobj "@etb_80005918"
 
-.obj lbl_80005920, local
+.obj "@etb_80005920", local
+.hidden "@etb_80005920"
 	.4byte 0x10880000
 	.4byte 0
-.endobj lbl_80005920
+.endobj "@etb_80005920"
 
-.obj lbl_80005928, local
+.obj "@etb_80005928", local
+.hidden "@etb_80005928"
 	.4byte 0x42080000
 	.4byte 0
-.endobj lbl_80005928
+.endobj "@etb_80005928"
 
-.obj lbl_80005930, local
+.obj "@etb_80005930", local
+.hidden "@etb_80005930"
 	.4byte 0x20C80000
 	.4byte 0
-.endobj lbl_80005930
+.endobj "@etb_80005930"
 
-.obj lbl_80005938, local
+.obj "@etb_80005938", local
+.hidden "@etb_80005938"
 	.4byte 0x21080000
 	.4byte 0
-.endobj lbl_80005938
+.endobj "@etb_80005938"
 
-.obj lbl_80005940, local
+.obj "@etb_80005940", local
+.hidden "@etb_80005940"
 	.4byte 0x18C80000
 	.4byte 0
-.endobj lbl_80005940
+.endobj "@etb_80005940"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
 
-.obj lbl_800061B4, local
+.obj "@eti_800061B4", local
+.hidden "@eti_800061B4"
     .4byte CheckRoomStatus
     .4byte 0x000003DC
-    .4byte lbl_80005918
-.endobj lbl_800061B4
+    .4byte "@etb_80005918"
+.endobj "@eti_800061B4"
 
-.obj lbl_800061C0, local
+.obj "@eti_800061C0", local
+.hidden "@eti_800061C0"
     .4byte CheckDoorStatus
     .4byte 0x000001DC
-    .4byte lbl_80005920
-.endobj lbl_800061C0
+    .4byte "@etb_80005920"
+.endobj "@eti_800061C0"
 
-.obj lbl_800061CC, local
+.obj "@eti_800061CC", local
+.hidden "@eti_800061CC"
     .4byte CalcEmitter
     .4byte 0x000004BC
-    .4byte lbl_80005928
-.endobj lbl_800061CC
+    .4byte "@etb_80005928"
+.endobj "@eti_800061CC"
 
-.obj lbl_800061D8, local
+.obj "@eti_800061D8", local
+.hidden "@eti_800061D8"
     .4byte SetFXParameters
     .4byte 0x00000220
-    .4byte lbl_80005930
-.endobj lbl_800061D8
+    .4byte "@etb_80005930"
+.endobj "@eti_800061D8"
 
-.obj lbl_800061E4, local
+.obj "@eti_800061E4", local
+.hidden "@eti_800061E4"
     .4byte StartContinousEmitters
     .4byte 0x000001EC
-    .4byte lbl_80005938
-.endobj lbl_800061E4
+    .4byte "@etb_80005938"
+.endobj "@eti_800061E4"
 
-.obj lbl_800061F0, local
+.obj "@eti_800061F0", local
+.hidden "@eti_800061F0"
     .4byte s3dHandle
     .4byte 0x00000364
-    .4byte lbl_80005940
-.endobj lbl_800061F0
+    .4byte "@etb_80005940"
+.endobj "@eti_800061F0"

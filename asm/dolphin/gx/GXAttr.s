@@ -1467,6 +1467,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 
 .obj lbl_80068858, local
 	.4byte .L_8003B5D4
@@ -1611,6 +1613,8 @@
 .endobj lbl_800689F0
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
+
+.balign 8
 
 .obj "tbl1$214", local
 	.4byte 0x00040102

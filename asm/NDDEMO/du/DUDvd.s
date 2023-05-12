@@ -279,6 +279,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 
 .obj lbl_80066248, local
 	.asciz "DVD Open False\n"
@@ -295,6 +297,8 @@
 .endobj lbl_80066280
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
+
+.balign 8
 
 
 .obj m_InitDVD__5DUDvd, global

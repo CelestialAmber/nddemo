@@ -3644,6 +3644,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 .obj lbl_80069098, local
 	.4byte .L_80043B98
 	.4byte .L_80043BC8
@@ -3669,6 +3671,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 .obj seqNote, local
 	.skip 0x1400
 .endobj seqNote
@@ -3682,6 +3686,8 @@
 .endobj seqMIDIPriority
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 
 .obj cseq, local
@@ -3718,128 +3724,150 @@
 	.skip 0x4
 .endobj seqActiveRoot
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
 
-.obj lbl_80005520, local
+.obj "@etb_80005520", local
+.hidden "@etb_80005520"
 	.4byte 0x58080000
 	.4byte 0
-.endobj lbl_80005520
+.endobj "@etb_80005520"
 
-.obj lbl_80005528, local
+.obj "@etb_80005528", local
+.hidden "@etb_80005528"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_80005528
+.endobj "@etb_80005528"
 
-.obj lbl_80005530, local
+.obj "@etb_80005530", local
+.hidden "@etb_80005530"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_80005530
+.endobj "@etb_80005530"
 
-.obj lbl_80005538, local
+.obj "@etb_80005538", local
+.hidden "@etb_80005538"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_80005538
+.endobj "@etb_80005538"
 
-.obj lbl_80005540, local
+.obj "@etb_80005540", local
+.hidden "@etb_80005540"
 	.4byte 0x30080000
 	.4byte 0
-.endobj lbl_80005540
+.endobj "@etb_80005540"
 
-.obj lbl_80005548, local
+.obj "@etb_80005548", local
+.hidden "@etb_80005548"
 	.4byte 0x28080000
 	.4byte 0
-.endobj lbl_80005548
+.endobj "@etb_80005548"
 
-.obj lbl_80005550, local
+.obj "@etb_80005550", local
+.hidden "@etb_80005550"
 	.4byte 0x40080000
 	.4byte 0
-.endobj lbl_80005550
+.endobj "@etb_80005550"
 
-.obj lbl_80005558, local
+.obj "@etb_80005558", local
+.hidden "@etb_80005558"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_80005558
+.endobj "@etb_80005558"
 
-.obj lbl_80005560, local
+.obj "@etb_80005560", local
+.hidden "@etb_80005560"
 	.4byte 0x18080000
 	.4byte 0
-.endobj lbl_80005560
+.endobj "@etb_80005560"
 
-.obj lbl_80005568, local
+.obj "@etb_80005568", local
+.hidden "@etb_80005568"
 	.4byte 0x30080000
 	.4byte 0
-.endobj lbl_80005568
+.endobj "@etb_80005568"
 
-.obj lbl_80005570, local
+.obj "@etb_80005570", local
+.hidden "@etb_80005570"
 	.4byte 0x58080000
 	.4byte 0
-.endobj lbl_80005570
+.endobj "@etb_80005570"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
-.obj lbl_80005BC0, global
+.obj "@eti_80005BC0", local
+.hidden "@eti_80005BC0"
 	.4byte seqStartPlay
 	.4byte 0x00000AA4
-	.4byte lbl_80005520
-.endobj lbl_80005BC0
+    .4byte "@etb_80005520"
+.endobj "@eti_80005BC0"
 
-.obj lbl_80005BCC, local
+.obj "@eti_80005BCC", local
+.hidden "@eti_80005BCC"
 	.4byte HandleMasterTrack
 	.4byte 0x0000009C
-	.4byte lbl_80005528
-.endobj lbl_80005BCC
+    .4byte "@etb_80005528"
+.endobj "@eti_80005BCC"
 
-.obj lbl_80005BD8, local
+.obj "@eti_80005BD8", local
+.hidden "@eti_80005BD8"
 	.4byte seqPause
 	.4byte 0x00000190
-	.4byte lbl_80005530
-.endobj lbl_80005BD8
+    .4byte "@etb_80005530"
+.endobj "@eti_80005BD8"
 
-.obj lbl_80005BE4, local
+.obj "@eti_80005BE4", local
+.hidden "@eti_80005BE4"
 	.4byte seqStop
 	.4byte 0x000001D4
-	.4byte lbl_80005538
-.endobj lbl_80005BE4
+    .4byte "@etb_80005538"
+.endobj "@eti_80005BE4"
 
-.obj lbl_80005BF0, local
+.obj "@eti_80005BF0", local
+.hidden "@eti_80005BF0"
 	.4byte seqVolume
 	.4byte 0x0000019C
-	.4byte lbl_80005540
-.endobj lbl_80005BF0
+    .4byte "@etb_80005540"
+.endobj "@eti_80005BF0"
 
-.obj lbl_80005BFC, local
+.obj "@eti_80005BFC", local
+.hidden "@eti_80005BFC"
 	.4byte seqCrossFade
 	.4byte 0x00000534
-	.4byte lbl_80005548
-.endobj lbl_80005BFC
+    .4byte "@etb_80005548"
+.endobj "@eti_80005BFC"
 
-.obj lbl_80005C08, local
+.obj "@eti_80005C08", local
+.hidden "@eti_80005C08"
 	.4byte HandleEvent
 	.4byte 0x00000778
-	.4byte lbl_80005550
-.endobj lbl_80005C08
+    .4byte "@etb_80005550"
+.endobj "@eti_80005C08"
 
-.obj lbl_80005C14, local
+.obj "@eti_80005C14", local
+.hidden "@eti_80005C14"
 	.4byte InitTrackEvents
 	.4byte 0x000000A8
-	.4byte lbl_80005558
-.endobj lbl_80005C14
+    .4byte "@etb_80005558"
+.endobj "@eti_80005C14"
 
-.obj lbl_80005C20, local
+.obj "@eti_80005C20", local
+.hidden "@eti_80005C20"
 	.4byte InitTrackEventsSection
 	.4byte 0x000000C4
-	.4byte lbl_80005560
-.endobj lbl_80005C20
+    .4byte "@etb_80005560"
+.endobj "@eti_80005C20"
 
-.obj lbl_80005C2C, local
+.obj "@eti_80005C2C", local
+.hidden "@eti_80005C2C"
 	.4byte HandleTrackEvents
 	.4byte 0x0000017C
-	.4byte lbl_80005568
-.endobj lbl_80005C2C
+    .4byte "@etb_80005568"
+.endobj "@eti_80005C2C"
 
-.obj lbl_80005C38, local
+.obj "@eti_80005C38", local
+.hidden "@eti_80005C38"
 	.4byte seqHandle
 	.4byte 0x00000744
-	.4byte lbl_80005570
-.endobj lbl_80005C38
+    .4byte "@etb_80005570"
+.endobj "@eti_80005C38"

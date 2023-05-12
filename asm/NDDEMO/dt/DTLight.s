@@ -1609,6 +1609,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
+.balign 8
+
 .obj lbl_800642B0, local
 	.4byte 0
 	.4byte 0x43160000
@@ -1710,6 +1712,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 .obj lbl_80066D80, local
 	.4byte .L_8001BD84
 	.4byte .L_8001BD8C
@@ -1742,6 +1746,8 @@
 .endobj lbl_80066D80
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
+
+.balign 8
 
 .obj lbl_800A9568, local
 	.4byte 0xFFFFFFFF
@@ -1960,6 +1966,8 @@
 .endobj lbl_800A963C
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
+
+.balign 8
 
 .obj "POS_POL2_lpow$225", local
 	.skip 0x4

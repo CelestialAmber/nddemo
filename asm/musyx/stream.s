@@ -599,6 +599,8 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
+.balign 8
+
 .obj lbl_800A9998, local
 	.4byte 0x45800000
 .endobj lbl_800A9998
@@ -614,12 +616,16 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 .obj streamInfo, local
 	.skip 0x1800
 .endobj streamInfo
 
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 .obj streamCallCnt, local
 	.skip 0x1
@@ -635,29 +641,33 @@
 	.skip 0x4
 .endobj nextPublicID
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
-.obj lbl_800056A8, local
+.obj "@etb_800056A8", local
+.hidden "@etb_800056A8"
 	.4byte 0x40C80000
 	.4byte 0
-.endobj lbl_800056A8
+.endobj "@etb_800056A8"
 
-.obj lbl_800056B0, local
+.obj "@etb_800056B0", local
+.hidden "@etb_800056B0"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_800056B0
+.endobj "@etb_800056B0"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
 
-.obj lbl_80005E0C, local
+.obj "@eti_80005E0C", local
+.hidden "@eti_80005E0C"
     .4byte streamHandle
     .4byte 0x0000072C
-    .4byte lbl_800056A8
-.endobj lbl_80005E0C
+    .4byte "@etb_800056A8"
+.endobj "@eti_80005E0C"
 
-.obj lbl_80005E18, local
+.obj "@eti_80005E18", local
+.hidden "@eti_80005E18"
     .4byte streamKill
     .4byte 0x00000084
-    .4byte lbl_800056B0
-.endobj lbl_80005E18
+    .4byte "@etb_800056B0"
+.endobj "@eti_80005E18"

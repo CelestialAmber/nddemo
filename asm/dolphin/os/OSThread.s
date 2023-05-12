@@ -1284,6 +1284,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 .obj RunQueue, local
 	.skip 0x100
 .endobj RunQueue
@@ -1301,6 +1303,8 @@
 .endobj IdleContext
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 .obj RunQueueBits, local
 	.skip 0x4

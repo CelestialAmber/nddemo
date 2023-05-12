@@ -634,6 +634,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 .obj lbl_80068718, local
 	.asciz "DSP is booting task: 0x%08X\n"
 	.balign 4
@@ -653,6 +655,8 @@
 .endobj lbl_80068718
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 
 .obj __DSP_rude_task_pending, global

@@ -492,6 +492,8 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
+.balign 8
+
 
 .obj lbl_800A99E8, local
 	.4byte 0x447A0000
@@ -521,73 +523,85 @@
 	.4byte 0
 .endobj lbl_800A9A08
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
 
-.obj lbl_80005870, local
+.obj "@etb_80005870", local
+.hidden "@etb_80005870"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005870
+.endobj "@etb_80005870"
 
-.obj lbl_80005878, local
+.obj "@etb_80005878", local
+.hidden "@etb_80005878"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005878
+.endobj "@etb_80005878"
 
-.obj lbl_80005880, local
+.obj "@etb_80005880", local
+.hidden "@etb_80005880"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_80005880
+.endobj "@etb_80005880"
 
-.obj lbl_80005888, local
+.obj "@etb_80005888", local
+.hidden "@etb_80005888"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005888
+.endobj "@etb_80005888"
 
-.obj lbl_80005890, local
+.obj "@etb_80005890", local
+.hidden "@etb_80005890"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005890
+.endobj "@etb_80005890"
 
-.obj lbl_80005898, local
+.obj "@etb_80005898", local
+.hidden "@etb_80005898"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_80005898
+.endobj "@etb_80005898"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
-.obj lbl_800060B8, local
+.obj "@eti_800060B8", local
+.hidden "@eti_800060B8"
     .4byte adsrConvertTimeCents
     .4byte 0x00000054
-    .4byte lbl_80005870
-.endobj lbl_800060B8
+    .4byte "@etb_80005870"
+.endobj "@eti_800060B8"
 
-.obj lbl_800060C4, local
+.obj "@eti_800060C4", local
+.hidden "@eti_800060C4"
     .4byte adsrSetup
     .4byte 0x00000028
-    .4byte lbl_80005878
-.endobj lbl_800060C4
+    .4byte "@etb_80005878"
+.endobj "@eti_800060C4"
 
-.obj lbl_800060D0, local
+.obj "@eti_800060D0", local
+.hidden "@eti_800060D0"
     .4byte adsrStartRelease
     .4byte 0x00000154
-    .4byte lbl_80005880
-.endobj lbl_800060D0
+    .4byte "@etb_80005880"
+.endobj "@eti_800060D0"
 
-.obj lbl_800060DC, local
+.obj "@eti_800060DC", local
+.hidden "@eti_800060DC"
     .4byte adsrRelease
     .4byte 0x00000044
-    .4byte lbl_80005888
-.endobj lbl_800060DC
+    .4byte "@etb_80005888"
+.endobj "@eti_800060DC"
 
-.obj lbl_800060E8, local
+.obj "@eti_800060E8", local
+.hidden "@eti_800060E8"
     .4byte adsrHandle
     .4byte 0x000001A0
-    .4byte lbl_80005890
-.endobj lbl_800060E8
+    .4byte "@etb_80005890"
+.endobj "@eti_800060E8"
 
-.obj lbl_800060F4, local
+.obj "@eti_800060F4", local
+.hidden "@eti_800060F4"
     .4byte adsrHandleLowPrecision
     .4byte 0x00000084
-    .4byte lbl_80005898
-.endobj lbl_800060F4
+    .4byte "@etb_80005898"
+.endobj "@eti_800060F4"

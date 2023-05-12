@@ -29,30 +29,34 @@
 /* 80059118 00055098  4E 80 00 20 */	blr
 .endfn salFree
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
-.obj lbl_80005B48, local
+.obj "@etb_80005B48", local
+.hidden "@etb_80005B48"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005B48
+.endobj "@etb_80005B48"
 
-.obj lbl_80005B50, local
+.obj "@etb_80005B50", local
+.hidden "@etb_80005B50"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005B50
+.endobj "@etb_80005B50"
 
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
 
-.obj lbl_800064FC, local
+.obj "@eti_800064FC", local
+.hidden "@eti_800064FC"
     .4byte salMalloc
     .4byte 0x00000028
-    .4byte lbl_80005B48
-.endobj lbl_800064FC
+    .4byte "@etb_80005B48"
+.endobj "@eti_800064FC"
 
-.obj lbl_80006508, local
+.obj "@eti_80006508", local
+.hidden "@eti_80006508"
     .4byte salFree
     .4byte 0x0000002C
-    .4byte lbl_80005B50
-.endobj lbl_80006508
+    .4byte "@etb_80005B50"
+.endobj "@eti_80006508"

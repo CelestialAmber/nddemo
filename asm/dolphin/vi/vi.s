@@ -1699,6 +1699,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 
 .obj timing, local
 	.4byte 0x060000F0
@@ -1798,6 +1800,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 .obj regs, local
 	.skip 0x76
 .endobj regs
@@ -1815,6 +1819,8 @@
 .endobj HorVer
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 .obj retraceCount, local
 	.skip 0x4

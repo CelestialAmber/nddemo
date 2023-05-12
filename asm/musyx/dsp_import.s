@@ -2,6 +2,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 
 .obj dspSlave, global
 	.4byte 0
@@ -1664,6 +1666,8 @@
 
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
+
+.balign 8
 
 .obj dspSlaveLength, global
 	.4byte 0x19E00000

@@ -1780,6 +1780,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 
 .obj ResetFunctionInfo, local
 	.4byte OnReset
@@ -1810,6 +1812,8 @@
 	.balign 4
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
+
+.balign 8
 
 .obj ResettingChan, local
 	.4byte 0x00000020
@@ -1847,6 +1851,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 .obj Type, local
 	.skip 0x10
 .endobj Type
@@ -1856,6 +1862,8 @@
 .endobj Origin
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 .obj Initialized, local
 	.skip 0x4

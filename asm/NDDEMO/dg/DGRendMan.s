@@ -1008,6 +1008,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
+.balign 8
+
 .obj "LightID_Table$195", local
 	.4byte 0x00000001
 	.4byte 0x00000002
@@ -1020,6 +1022,8 @@
 .endobj "LightID_Table$195"
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
+
+.balign 8
 
 .obj lbl_80066AC0, local
 	.asciz "fbSize = %d\n"
@@ -1048,6 +1052,8 @@
 .endobj lbl_80066B68
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
+
+.balign 8
 
 .obj m_FirstFrameFlag__9DGRendMan, global
 	.byte 0x01
@@ -1111,6 +1117,8 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
+.balign 8
+
 .obj lbl_800A94E0, local
 	.4byte 0
 .endobj lbl_800A94E0
@@ -1126,11 +1134,15 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 
+.balign 8
+
 .obj "garbage$290", local
 	.skip 0xA00
 .endobj "garbage$290"
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
+
+.balign 8
 
 .obj m_InstanceNum__9DGRendMan, global
 	.skip 0x1

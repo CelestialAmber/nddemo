@@ -1637,6 +1637,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 
 .obj Si, local
 	.4byte 0xFFFFFFFF
@@ -1668,6 +1670,8 @@
 .endobj Type
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+.balign 8
 
 
 .obj Packet, local
@@ -1707,6 +1711,8 @@
 .endobj "cmdFixDevice$329"
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 .obj "cmdTypeAndStatus$75", local
 	.skip 0x4

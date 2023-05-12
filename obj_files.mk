@@ -1,6 +1,4 @@
 NDDEMO := \
-$(BUILD_DIR)/asm/ctors.o \
-$(BUILD_DIR)/asm/dtors.o \
 $(BUILD_DIR)/asm/NDDEMO/main/main.o \
 $(BUILD_DIR)/asm/NDDEMO/dm/DMainSystem.o \
 $(BUILD_DIR)/asm/NDDEMO/du/DUDvd.o \
@@ -53,8 +51,8 @@ $(BUILD_DIR)/asm/dolphin/os/OSSync.o \
 $(BUILD_DIR)/asm/dolphin/os/OSThread.o \
 $(BUILD_DIR)/asm/dolphin/os/OSTime.o \
 $(BUILD_DIR)/asm/dolphin/os/OSUartExi.o \
-$(BUILD_DIR)/asm/dolphin/os/init/__start.o \
-$(BUILD_DIR)/asm/dolphin/os/init/__ppc_eabi_init.o \
+$(BUILD_DIR)/src/dolphin/os/init/__start.o \
+$(BUILD_DIR)/src/dolphin/os/init/__ppc_eabi_init.o \
 $(BUILD_DIR)/asm/dolphin/db/db.o \
 $(BUILD_DIR)/asm/dolphin/mtx/mtx.o \
 $(BUILD_DIR)/asm/dolphin/mtx/mtxvec.o \
@@ -121,7 +119,7 @@ $(BUILD_DIR)/asm/musyx/reverb.o \
 $(BUILD_DIR)/asm/musyx/chorus_fx.o
 
 
-MW := \
+METROTRK := \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MetroTRK/Portable/mainloop.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MetroTRK/Portable/nubevent.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MetroTRK/Portable/nubinit.o \
@@ -142,14 +140,18 @@ $(BUILD_DIR)/asm/PowerPC_EABI_Support/MetroTRK/Os/dolphin/dolphin_trk.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MetroTRK/Processor/ppc/Generic/mpc_7xx_603e.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MetroTRK/Portable/main_TRK.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MetroTRK/Os/dolphin/dolphin_trk_glue.o \
-$(BUILD_DIR)/asm/PowerPC_EABI_Support/MetroTRK/Os/dolphin/targcont.o \
+$(BUILD_DIR)/asm/PowerPC_EABI_Support/MetroTRK/Os/dolphin/targcont.o
+
+RUNTIME := \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/Runtime/__mem.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/Runtime/__va_arg.o \
-$(BUILD_DIR)/asm/PowerPC_EABI_Support/Runtime/global_destructor_chain.o \
+$(BUILD_DIR)/src/PowerPC_EABI_Support/Runtime/global_destructor_chain.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/Runtime/NMWException.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/Runtime/ExceptionPPC.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/Runtime/runtime.o \
-$(BUILD_DIR)/asm/PowerPC_EABI_Support/Runtime/__init_cpp_exceptions.o \
+$(BUILD_DIR)/src/PowerPC_EABI_Support/Runtime/__init_cpp_exceptions.o
+
+MSL_C := \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MSL_C/MSL_Common/abort_exit.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MSL_C/MSL_Common/ansi_files.o \
 $(BUILD_DIR)/asm/PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/ansi_fp.o \
@@ -176,6 +178,3 @@ NDEV := \
 $(BUILD_DIR)/asm/dolphin/amcstubs/AmcExi2Stubs.o \
 $(BUILD_DIR)/asm/dolphin/OdemuExi2/DebuggerDriver.o \
 $(BUILD_DIR)/asm/dolphin/odenotstub/odenotstub.o
-
-OTHERS := \
-$(BUILD_DIR)/asm/extabindex.o

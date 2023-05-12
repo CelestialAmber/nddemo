@@ -130,6 +130,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 
 .obj sndSintab, local
 	.4byte 0x00000006
@@ -648,34 +650,40 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
+.balign 8
+
 .obj last_rnd, local
 	.4byte 0x00000001
 	.4byte 0
 .endobj last_rnd
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
-.obj lbl_80005A08, local
+.obj "@etb_80005A08", local
+.hidden "@etb_80005A08"
 	.4byte 0x48080000
 	.4byte 0
-.endobj lbl_80005A08
+.endobj "@etb_80005A08"
 
-.obj lbl_80005A10, local
+.obj "@etb_80005A10", local
+.hidden "@etb_80005A10"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_80005A10
+.endobj "@etb_80005A10"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
 
-.obj lbl_8000631C, local
+.obj "@eti_8000631C", local
+.hidden "@eti_8000631C"
     .4byte sndBSearch
     .4byte 0x00000098
-    .4byte lbl_80005A08
-.endobj lbl_8000631C
+    .4byte "@etb_80005A08"
+.endobj "@eti_8000631C"
 
-.obj lbl_80006328, local
+.obj "@eti_80006328", local
+.hidden "@eti_80006328"
     .4byte sndConvertTicks
     .4byte 0x00000048
-    .4byte lbl_80005A10
-.endobj lbl_80006328
+    .4byte "@etb_80005A10"
+.endobj "@eti_80006328"

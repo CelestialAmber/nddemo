@@ -2190,6 +2190,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
+.balign 8
+
 .obj "GXTEXMAP_TABLE$160", local
 	.4byte 0
 	.4byte 0x00000001
@@ -2420,6 +2422,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 
 .obj lbl_80066690, local
 	.asciz "Error DGObject::~DGObject ReferCount>0\n"
@@ -2476,6 +2480,8 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
 
+.balign 8
+
 .obj TevOp_TABLE, local
 	.4byte 0
 	.4byte 0x00000001
@@ -2490,6 +2496,8 @@
 .endobj lbl_800A94C4
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
+
+.balign 8
 
 .obj lineMode__8DGObject, global
 	.skip 0x4

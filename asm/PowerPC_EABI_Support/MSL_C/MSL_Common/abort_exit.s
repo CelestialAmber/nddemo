@@ -26,9 +26,9 @@
 /* 8005FA14 0005B994  80 0D 88 C4 */	lwz r0, atexit_curr_func@sda21(r13)
 /* 8005FA18 0005B998  2C 00 00 00 */	cmpwi r0, 0x0
 /* 8005FA1C 0005B99C  41 81 FF D8 */	bgt .L_8005F9F4
-/* 8005FA20 0005B9A0  4B FF F6 DD */	bl __destroy_global_chain_
-/* 8005FA24 0005B9A4  3C 60 80 06 */	lis r3, __destroy_global_chain_reference_@ha
-/* 8005FA28 0005B9A8  38 03 3D 00 */	addi r0, r3, __destroy_global_chain_reference_@l
+/* 8005FA20 0005B9A0  4B FF F6 DD */	bl __destroy_global_chain
+/* 8005FA24 0005B9A4  3C 60 80 06 */	lis r3, _dtors@ha
+/* 8005FA28 0005B9A8  38 03 3D 00 */	addi r0, r3, _dtors@l
 /* 8005FA2C 0005B9AC  7C 1F 03 78 */	mr r31, r0
 /* 8005FA30 0005B9B0  48 00 00 10 */	b .L_8005FA40
 .L_8005FA34:
@@ -82,6 +82,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 
+.balign 8
+
 .obj atexit_funcs, local
 	.skip 0x100
 .endobj atexit_funcs
@@ -91,6 +93,8 @@
 .endobj __atexit_funcs
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 .obj __aborting, global
 	.skip 0x4

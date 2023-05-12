@@ -585,6 +585,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 .obj lbl_80066B88, local
 	.asciz "Error DGTexMan::AddTexture> Full\n"
 	.balign 4
@@ -618,6 +620,8 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
+.balign 8
+
 .obj lbl_800A8BB8, local
 	.asciz "tex/"
 	.balign 4
@@ -629,6 +633,8 @@
 .endobj lbl_800A8BC0
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
+
+.balign 8
 
 .obj lbl_800A94F0, local
 	.4byte 0

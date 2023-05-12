@@ -1290,6 +1290,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
+.balign 8
+
 .obj lbl_800641D8, local
 	.4byte 0
 	.4byte 0
@@ -1329,6 +1331,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 .obj lbl_80066A30, local
 	.asciz "Error:DGParts::Draw>No TexPro[%d]\n"
 	.balign 4
@@ -1350,6 +1354,8 @@
 .endobj lbl_80066A94
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
+
+.balign 8
 
 .obj lbl_800A94C8, local
 	.4byte 0x000000FF

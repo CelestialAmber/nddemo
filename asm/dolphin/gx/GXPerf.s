@@ -736,6 +736,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 
 .obj lbl_80068F50, local
 	.4byte .L_8004152C

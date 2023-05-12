@@ -163,44 +163,50 @@
 /* 8005F388 0005B308  4E 80 00 20 */	blr
 .endfn __dt__26__partial_array_destructorFv
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0 ; 0x000006A0
+.section extab, "a"  # 0x80005520 - 0x80005BC0 ; 0x000006A0
 
-.obj lbl_80005B88, local
+.obj "@etb_80005B88", local
+.hidden "@etb_80005B88"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_80005B88
+.endobj "@etb_80005B88"
 
-.obj lbl_80005B90, local
+.obj "@etb_80005B90", local
+.hidden "@etb_80005B90"
 	.4byte 0x20080000
 	.4byte 0x00000064
 	.4byte 0x00000010
 	.4byte 0
 	.4byte 0x8200001C
 	.4byte __dt__26__partial_array_destructorFv
-.endobj lbl_80005B90
+.endobj "@etb_80005B90"
 
-.obj lbl_80005BA8, local
+.obj "@etb_80005BA8", local
+.hidden "@etb_80005BA8"
 	.4byte 0x18080000
 	.4byte 0
-.endobj lbl_80005BA8
+.endobj "@etb_80005BA8"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0 ; 0x000009E0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0 ; 0x000009E0
 
 
-.obj lbl_8000655C, local
+.obj "@eti_8000655C", local
+.hidden "@eti_8000655C"
     .4byte __destroy_arr
     .4byte 0x00000078
-    .4byte lbl_80005B88
-.endobj lbl_8000655C
+    .4byte "@etb_80005B88"
+.endobj "@eti_8000655C"
 
-.obj lbl_80006568, local
+.obj "@eti_80006568", local
+.hidden "@eti_80006568"
     .4byte __construct_array
     .4byte 0x00000100
-    .4byte lbl_80005B90
-.endobj lbl_80006568
+    .4byte "@etb_80005B90"
+.endobj "@eti_80006568"
 
-.obj lbl_80006574, local
+.obj "@eti_80006574", local
+.hidden "@eti_80006574"
     .4byte __dt__26__partial_array_destructorFv
     .4byte 0x000000B8
-    .4byte lbl_80005BA8
-.endobj lbl_80006574
+    .4byte "@etb_80005BA8"
+.endobj "@eti_80006574"

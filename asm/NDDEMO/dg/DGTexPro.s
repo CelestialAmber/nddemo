@@ -169,6 +169,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 .obj lbl_80066CC0, local
 	.asciz "DGTexPro::DGTexPro>\n"
 	.balign 4

@@ -1,0 +1,18 @@
+#ifndef _EXCEPTION
+#define _EXCEPTION
+
+
+namespace std{
+    class exception{
+    public:
+        virtual ~exception(){}
+        virtual const char* what() const {
+            return "exception";
+        }
+    };
+
+    typedef void (*terminate_handler)();
+    void terminate();
+}
+
+#endif

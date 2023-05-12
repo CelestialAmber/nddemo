@@ -518,6 +518,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 
 .obj musyx_vol_tab, local
 	.4byte 0
@@ -662,6 +664,8 @@
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
 
+.balign 8
+
 
 .obj lbl_800A9A10, local
 	.4byte 0x42FE0000
@@ -697,17 +701,19 @@
 	.4byte 0
 .endobj lbl_800A9A34
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
-.obj lbl_80005910, local
+.obj "@etb_80005910", local
+.hidden "@etb_80005910"
 	.4byte 0x73080000
 	.4byte 0
-.endobj lbl_80005910
+.endobj "@etb_80005910"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
-.obj lbl_800061A8, local
+.obj "@eti_800061A8", local
+.hidden "@eti_800061A8"
     .4byte salCalcVolume
     .4byte 0x00000798
-    .4byte lbl_80005910
-.endobj lbl_800061A8
+    .4byte "@etb_80005910"
+.endobj "@eti_800061A8"

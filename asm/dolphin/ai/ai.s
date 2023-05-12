@@ -641,6 +641,8 @@
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
+.balign 8
+
 
 .obj __AIS_Callback, local
 	.skip 0x4

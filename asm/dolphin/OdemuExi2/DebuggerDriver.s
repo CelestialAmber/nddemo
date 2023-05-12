@@ -762,12 +762,16 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0 ; 0x00000340
 
+.balign 8
+
 .obj SendCount, local
 	.byte 0x80
 .endobj SendCount
 
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
+
+.balign 8
 
 .obj MTRCallback, local
 	.skip 0x4

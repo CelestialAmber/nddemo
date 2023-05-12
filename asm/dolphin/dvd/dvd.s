@@ -2615,6 +2615,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 
 .obj lbl_80068348, local
 	.asciz "app booted via JTAG\n"
@@ -2692,12 +2694,16 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
+.balign 8
+
 .obj autoInvalidation, local
 	.4byte 0x00000001
 	.4byte 0
 .endobj autoInvalidation
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
+
+.balign 8
 
 
 .obj tmpBuffer, local
@@ -2713,6 +2719,8 @@
 .endobj ResetAlarm
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 
 .obj executing, local

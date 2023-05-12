@@ -120,62 +120,72 @@
 /* 80047D70 00043CF0  4E 80 00 20 */	blr
 .endfn seqGetMIDIPriority
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
 
-.obj lbl_80005630, local
+.obj "@etb_80005630", local
+.hidden "@etb_80005630"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005630
+.endobj "@etb_80005630"
 
-.obj lbl_80005638, local
+.obj "@etb_80005638", local
+.hidden "@etb_80005638"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_80005638
+.endobj "@etb_80005638"
 
-.obj lbl_80005640, local
+.obj "@etb_80005640", local
+.hidden "@etb_80005640"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_80005640
+.endobj "@etb_80005640"
 
-.obj lbl_80005648, local
+.obj "@etb_80005648", local
+.hidden "@etb_80005648"
 	.4byte 0x18080000
 	.4byte 0
-.endobj lbl_80005648
+.endobj "@etb_80005648"
 
-.obj lbl_80005650, local
+.obj "@etb_80005650", local
+.hidden "@etb_80005650"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_80005650
+.endobj "@etb_80005650"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
-.obj lbl_80005D58, local
+.obj "@eti_80005D58", local
+.hidden "@eti_80005D58"
 	.4byte sndSeqGetValid
 	.4byte 0x0000002C
-	.4byte lbl_80005630
-.endobj lbl_80005D58
+    .4byte "@etb_80005630"
+.endobj "@eti_80005D58"
 
-.obj lbl_80005D64, local
+.obj "@eti_80005D64", local
+.hidden "@eti_80005D64"
 	.4byte sndSeqSpeed
 	.4byte 0x00000048
-	.4byte lbl_80005638
-.endobj lbl_80005D64
+    .4byte "@etb_80005638"
+.endobj "@eti_80005D64"
 
-.obj lbl_80005D70, local
+.obj "@eti_80005D70", local
+.hidden "@eti_80005D70"
 	.4byte sndSeqContinue
 	.4byte 0x00000038
-	.4byte lbl_80005640
-.endobj lbl_80005D70
+    .4byte "@etb_80005640"
+.endobj "@eti_80005D70"
 
-.obj lbl_80005D7C, local
+.obj "@eti_80005D7C", local
+.hidden "@eti_80005D7C"
 	.4byte sndSeqMute
 	.4byte 0x00000058
-	.4byte lbl_80005648
-.endobj lbl_80005D7C
+    .4byte "@etb_80005648"
+.endobj "@eti_80005D7C"
 
-.obj lbl_80005D88, local
+.obj "@eti_80005D88", local
+.hidden "@eti_80005D88"
 	.4byte sndSeqVolume
 	.4byte 0x00000068
-	.4byte lbl_80005650
-.endobj lbl_80005D88
+    .4byte "@etb_80005650"
+.endobj "@eti_80005D88"

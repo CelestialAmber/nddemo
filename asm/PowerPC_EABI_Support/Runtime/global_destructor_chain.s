@@ -38,6 +38,8 @@
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 
+.balign 8
+
 .obj __global_destructor_chain, global
 	.skip 0x4
 .endobj __global_destructor_chain

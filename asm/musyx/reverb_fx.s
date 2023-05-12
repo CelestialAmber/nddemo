@@ -51,29 +51,33 @@
 /* 800591B4 00055134  4E 80 00 20 */	blr
 .endfn sndAuxCallbackPrepareReverbHI
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
-.obj lbl_80005B58, local
+.obj "@etb_80005B58", local
+.hidden "@etb_80005B58"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005B58
+.endobj "@etb_80005B58"
 
-.obj lbl_80005B60, local
+.obj "@etb_80005B60", local
+.hidden "@etb_80005B60"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005B60
+.endobj "@etb_80005B60"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
 
-.obj lbl_80006514, local
+.obj "@eti_80006514", local
+.hidden "@eti_80006514"
     .4byte sndAuxCallbackReverbHI
     .4byte 0x0000005C
-    .4byte lbl_80005B58
-.endobj lbl_80006514
+    .4byte "@etb_80005B58"
+.endobj "@eti_80006514"
 
-.obj lbl_80006520, local
+.obj "@eti_80006520", local
+.hidden "@eti_80006520"
     .4byte sndAuxCallbackPrepareReverbHI
     .4byte 0x00000040
-    .4byte lbl_80005B60
-.endobj lbl_80006520
+    .4byte "@etb_80005B60"
+.endobj "@eti_80006520"

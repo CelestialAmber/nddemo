@@ -107,6 +107,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 
 .obj ErrorTable, local
 	.4byte 0

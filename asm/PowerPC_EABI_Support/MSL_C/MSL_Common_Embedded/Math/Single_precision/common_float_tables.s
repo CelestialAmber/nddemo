@@ -2,6 +2,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000 ; 0x000012E0
 
+.balign 8
+
 .obj __one_over_F, global
 	.4byte 0x3F800000
 	.4byte 0x3F7E03F8

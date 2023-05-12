@@ -98,6 +98,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 .obj ResetFunctionInfo, local
 	.4byte OnReset
 	.4byte 0x0000007F

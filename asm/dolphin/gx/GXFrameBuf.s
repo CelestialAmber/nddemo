@@ -812,6 +812,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 
 .obj GXNtsc240Ds, global
 	.4byte 0x00000001
@@ -1013,6 +1015,8 @@
 .endobj GXPal528IntDf
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+.balign 8
 
 .obj lbl_800A98B0, local
 	.4byte 0x43800000

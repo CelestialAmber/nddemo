@@ -161,6 +161,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0
 
+.balign 8
+
 .obj lbl_800684A0, local
 	.asciz "  Game Name ... %c%c%c%c\n"
 	.balign 4
@@ -172,6 +174,8 @@
 .endobj lbl_800684A0
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
+
+.balign 8
 
 .obj lbl_800A8CD0, local
 	.4byte 0x0A000000
@@ -188,6 +192,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 .obj bb2Buf, local
 	.skip 0x40
 .endobj bb2Buf
@@ -197,6 +203,8 @@
 .endobj "block$16"
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 .obj status, local
 	.skip 0x4

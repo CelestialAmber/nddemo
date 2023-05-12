@@ -2092,6 +2092,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 
 .obj dataSmpSDirs, local
 	.skip 0x600
@@ -2136,6 +2138,8 @@
 .skip 2
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 .obj dataSmpSDirNum, local
 	.skip 0x2
@@ -2207,239 +2211,281 @@
 
 .skip 4
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
 
-.obj lbl_800056B8, local
+.obj "@etb_800056B8", local
+.hidden "@etb_800056B8"
 	.4byte 0x18080000
 	.4byte 0
-.endobj lbl_800056B8
+.endobj "@etb_800056B8"
 
-.obj lbl_800056C0, local
+.obj "@etb_800056C0", local
+.hidden "@etb_800056C0"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_800056C0
+.endobj "@etb_800056C0"
 
-.obj lbl_800056C8, local
+.obj "@etb_800056C8", local
+.hidden "@etb_800056C8"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_800056C8
+.endobj "@etb_800056C8"
 
-.obj lbl_800056D0, local
+.obj "@etb_800056D0", local
+.hidden "@etb_800056D0"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_800056D0
+.endobj "@etb_800056D0"
 
-.obj lbl_800056D8, local
+.obj "@etb_800056D8", local
+.hidden "@etb_800056D8"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_800056D8
+.endobj "@etb_800056D8"
 
-.obj lbl_800056E0, local
+.obj "@etb_800056E0", local
+.hidden "@etb_800056E0"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_800056E0
+.endobj "@etb_800056E0"
 
-.obj lbl_800056E8, local
+.obj "@etb_800056E8", local
+.hidden "@etb_800056E8"
 	.4byte 0x28080000
 	.4byte 0
-.endobj lbl_800056E8
+.endobj "@etb_800056E8"
 
-.obj lbl_800056F0, local
+.obj "@etb_800056F0", local
+.hidden "@etb_800056F0"
 	.4byte 0x18080000
 	.4byte 0
-.endobj lbl_800056F0
+.endobj "@etb_800056F0"
 
-.obj lbl_800056F8, local
+.obj "@etb_800056F8", local
+.hidden "@etb_800056F8"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_800056F8
+.endobj "@etb_800056F8"
 
-.obj lbl_80005700, local
+.obj "@etb_80005700", local
+.hidden "@etb_80005700"
 	.4byte 0x28080000
 	.4byte 0
-.endobj lbl_80005700
+.endobj "@etb_80005700"
 
-.obj lbl_80005708, local
+.obj "@etb_80005708", local
+.hidden "@etb_80005708"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_80005708
+.endobj "@etb_80005708"
 
-.obj lbl_80005710, local
+.obj "@etb_80005710", local
+.hidden "@etb_80005710"
 	.4byte 0x18080000
 	.4byte 0
-.endobj lbl_80005710
+.endobj "@etb_80005710"
 
-.obj lbl_80005718, local
+.obj "@etb_80005718", local
+.hidden "@etb_80005718"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_80005718
+.endobj "@etb_80005718"
 
-.obj lbl_80005720, local
+.obj "@etb_80005720", local
+.hidden "@etb_80005720"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005720
+.endobj "@etb_80005720"
 
-.obj lbl_80005728, local
+.obj "@etb_80005728", local
+.hidden "@etb_80005728"
 	.4byte 0x28080000
 	.4byte 0
-.endobj lbl_80005728
+.endobj "@etb_80005728"
 
-.obj lbl_80005730, local
+.obj "@etb_80005730", local
+.hidden "@etb_80005730"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005730
+.endobj "@etb_80005730"
 
-.obj lbl_80005738, local
+.obj "@etb_80005738", local
+.hidden "@etb_80005738"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005738
+.endobj "@etb_80005738"
 
-.obj lbl_80005740, local
+.obj "@etb_80005740", local
+.hidden "@etb_80005740"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_80005740
+.endobj "@etb_80005740"
 
-.obj lbl_80005748, local
+.obj "@etb_80005748", local
+.hidden "@etb_80005748"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_80005748
+.endobj "@etb_80005748"
 
-.obj lbl_80005750, local
+.obj "@etb_80005750", local
+.hidden "@etb_80005750"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005750
+.endobj "@etb_80005750"
 
-.obj lbl_80005758, local
+.obj "@etb_80005758", local
+.hidden "@etb_80005758"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_80005758
+.endobj "@etb_80005758"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
 
-.obj lbl_80005E24, local
+.obj "@eti_80005E24", local
+.hidden "@eti_80005E24"
     .4byte dataInsertKeymap
     .4byte 0x000001F0
-    .4byte lbl_800056B8
-.endobj lbl_80005E24
+    .4byte "@etb_800056B8"
+.endobj "@eti_80005E24"
 
-.obj lbl_80005E30, local
+.obj "@eti_80005E30", local
+.hidden "@eti_80005E30"
     .4byte dataRemoveKeymap
     .4byte 0x00000184
-    .4byte lbl_800056C0
-.endobj lbl_80005E30
+    .4byte "@etb_800056C0"
+.endobj "@eti_80005E30"
 
-.obj lbl_80005E3C, local
+.obj "@eti_80005E3C", local
+.hidden "@eti_80005E3C"
     .4byte dataInsertLayer
     .4byte 0x00000248
-    .4byte lbl_800056C8
-.endobj lbl_80005E3C
+    .4byte "@etb_800056C8"
+.endobj "@eti_80005E3C"
 
-.obj lbl_80005E48, local
+.obj "@eti_80005E48", local
+.hidden "@eti_80005E48"
     .4byte dataRemoveLayer
     .4byte 0x000001CC
-    .4byte lbl_800056D0
-.endobj lbl_80005E48
+    .4byte "@etb_800056D0"
+.endobj "@eti_80005E48"
 
-.obj lbl_80005E54, local
+.obj "@eti_80005E54", local
+.hidden "@eti_80005E54"
     .4byte dataInsertCurve
     .4byte 0x000001F8
-    .4byte lbl_800056D8
-.endobj lbl_80005E54
+    .4byte "@etb_800056D8"
+.endobj "@eti_80005E54"
 
-.obj lbl_80005E60, local
+.obj "@eti_80005E60", local
+.hidden "@eti_80005E60"
     .4byte dataRemoveCurve
     .4byte 0x00000184
-    .4byte lbl_800056E0
-.endobj lbl_80005E60
+    .4byte "@etb_800056E0"
+.endobj "@eti_80005E60"
 
-.obj lbl_80005E6C, local
+.obj "@eti_80005E6C", local
+.hidden "@eti_80005E6C"
     .4byte dataInsertSDir
     .4byte 0x0000016C
-    .4byte lbl_800056E8
-.endobj lbl_80005E6C
+    .4byte "@etb_800056E8"
+.endobj "@eti_80005E6C"
 
-.obj lbl_80005E78, local
+.obj "@eti_80005E78", local
+.hidden "@eti_80005E78"
     .4byte dataRemoveSDir
     .4byte 0x00000288
-    .4byte lbl_800056F0
-.endobj lbl_80005E78
+    .4byte "@etb_800056F0"
+.endobj "@eti_80005E78"
 
-.obj lbl_80005E84, local
+.obj "@eti_80005E84", local
+.hidden "@eti_80005E84"
     .4byte dataAddSampleReference
     .4byte 0x000000D8
-    .4byte lbl_800056F8
-.endobj lbl_80005E84
+    .4byte "@etb_800056F8"
+.endobj "@eti_80005E84"
 
-.obj lbl_80005E90, local
+.obj "@eti_80005E90", local
+.hidden "@eti_80005E90"
     .4byte dataRemoveSampleReference
     .4byte 0x000000E8
-    .4byte lbl_80005700
-.endobj lbl_80005E90
+    .4byte "@etb_80005700"
+.endobj "@eti_80005E90"
 
-.obj lbl_80005E9C, local
+.obj "@eti_80005E9C", local
+.hidden "@eti_80005E9C"
     .4byte dataInsertFX
     .4byte 0x00000128
-    .4byte lbl_80005708
-.endobj lbl_80005E9C
+    .4byte "@etb_80005708"
+.endobj "@eti_80005E9C"
 
-.obj lbl_80005EA8, local
+.obj "@eti_80005EA8", local
+.hidden "@eti_80005EA8"
     .4byte dataInsertMacro
     .4byte 0x00000310
-    .4byte lbl_80005710
-.endobj lbl_80005EA8
+    .4byte "@etb_80005710"
+.endobj "@eti_80005EA8"
 
-.obj lbl_80005EB4, local
+.obj "@eti_80005EB4", local
+.hidden "@eti_80005EB4"
     .4byte dataRemoveMacro
     .4byte 0x0000029C
-    .4byte lbl_80005718
-.endobj lbl_80005EB4
+    .4byte "@etb_80005718"
+.endobj "@eti_80005EB4"
 
-.obj lbl_80005EC0, local
+.obj "@eti_80005EC0", local
+.hidden "@eti_80005EC0"
     .4byte dataGetMacro
     .4byte 0x00000094
-    .4byte lbl_80005720
-.endobj lbl_80005EC0
+    .4byte "@etb_80005720"
+.endobj "@eti_80005EC0"
 
-.obj lbl_80005ECC, local
+.obj "@eti_80005ECC", local
+.hidden "@eti_80005ECC"
     .4byte dataGetSample
     .4byte 0x00000128
-    .4byte lbl_80005728
-.endobj lbl_80005ECC
+    .4byte "@etb_80005728"
+.endobj "@eti_80005ECC"
 
-.obj lbl_80005ED8, local
+.obj "@eti_80005ED8", local
+.hidden "@eti_80005ED8"
     .4byte dataGetCurve
     .4byte 0x00000060
-    .4byte lbl_80005730
-.endobj lbl_80005ED8
+    .4byte "@etb_80005730"
+.endobj "@eti_80005ED8"
 
-.obj lbl_80005EE4, local
+.obj "@eti_80005EE4", local
+.hidden "@eti_80005EE4"
     .4byte dataGetKeymap
     .4byte 0x00000060
-    .4byte lbl_80005738
-.endobj lbl_80005EE4
+    .4byte "@etb_80005738"
+.endobj "@eti_80005EE4"
 
-.obj lbl_80005EF0, local
+.obj "@eti_80005EF0", local
+.hidden "@eti_80005EF0"
     .4byte dataGetLayer
     .4byte 0x00000080
-    .4byte lbl_80005740
-.endobj lbl_80005EF0
+    .4byte "@etb_80005740"
+.endobj "@eti_80005EF0"
 
-.obj lbl_80005EFC, local
+.obj "@eti_80005EFC", local
+.hidden "@eti_80005EFC"
     .4byte dataGetFX
     .4byte 0x000000A8
-    .4byte lbl_80005748
-.endobj lbl_80005EFC
+    .4byte "@etb_80005748"
+.endobj "@eti_80005EFC"
 
-.obj lbl_80005F08, local
+.obj "@eti_80005F08", local
+.hidden "@eti_80005F08"
     .4byte dataInit
     .4byte 0x000000E4
-    .4byte lbl_80005750
-.endobj lbl_80005F08
+    .4byte "@etb_80005750"
+.endobj "@eti_80005F08"
 
-.obj lbl_80005F14, local
+.obj "@eti_80005F14", local
+.hidden "@eti_80005F14"
     .4byte dataExit
     .4byte 0x00000020
-    .4byte lbl_80005758
-.endobj lbl_80005F14
+    .4byte "@etb_80005758"
+.endobj "@eti_80005F14"

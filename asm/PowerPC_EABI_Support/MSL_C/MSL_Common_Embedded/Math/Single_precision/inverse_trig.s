@@ -208,6 +208,8 @@
 
 .section .rodata, "wa"  # 0x80063D20 - 0x80065000
 
+.balign 8
+
 .obj "atan_coeff$96", local
 	.4byte 0x3F800000
 	.4byte 0xBEAAAAAA
@@ -258,6 +260,8 @@
 .endobj "atan_coeff$96"
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+.balign 8
 
 .obj lbl_800A9B30, local
 	.4byte 0x401A827A

@@ -3592,6 +3592,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 .obj dspMixerCycles, local
 	.4byte 0x05BE0B7C
 	.4byte 0x0B7C113A
@@ -3611,6 +3613,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 .obj dspStudio, global
 	.skip 0x5E0
 .endobj dspStudio
@@ -3620,6 +3624,8 @@
 .endobj "voices$345"
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 
 .obj dspARAMZeroBuffer, local
@@ -3688,107 +3694,125 @@
 
 .skip 4
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
 
-.obj lbl_800058C8, local
+.obj "@etb_800058C8", local
+.hidden "@etb_800058C8"
 	.4byte 0x28080000
 	.4byte 0
-.endobj lbl_800058C8
+.endobj "@etb_800058C8"
 
-.obj lbl_800058D0, local
+.obj "@etb_800058D0", local
+.hidden "@etb_800058D0"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_800058D0
+.endobj "@etb_800058D0"
 
-.obj lbl_800058D8, local
+.obj "@etb_800058D8", local
+.hidden "@etb_800058D8"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_800058D8
+.endobj "@etb_800058D8"
 
-.obj lbl_800058E0, local
+.obj "@etb_800058E0", local
+.hidden "@etb_800058E0"
 	.4byte 0x28080000
 	.4byte 0
-.endobj lbl_800058E0
+.endobj "@etb_800058E0"
 
-.obj lbl_800058E8, local
+.obj "@etb_800058E8", local
+.hidden "@etb_800058E8"
 	.4byte 0x18080000
 	.4byte 0
-.endobj lbl_800058E8
+.endobj "@etb_800058E8"
 
-.obj lbl_800058F0, local
+.obj "@etb_800058F0", local
+.hidden "@etb_800058F0"
 	.4byte 0x90080000
 	.4byte 0
-.endobj lbl_800058F0
+.endobj "@etb_800058F0"
 
-.obj lbl_800058F8, local
+.obj "@etb_800058F8", local
+.hidden "@etb_800058F8"
 	.4byte 0x00080000
 	.4byte 0
-.endobj lbl_800058F8
+.endobj "@etb_800058F8"
 
-.obj lbl_80005900, local
+.obj "@etb_80005900", local
+.hidden "@etb_80005900"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_80005900
+.endobj "@etb_80005900"
 
-.obj lbl_80005908, local
+.obj "@etb_80005908", local
+.hidden "@etb_80005908"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_80005908
+.endobj "@etb_80005908"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
 
-.obj lbl_8000613C, local
+.obj "@eti_8000613C", local
+.hidden "@eti_8000613C"
     .4byte salInitDspCtrl
     .4byte 0x00000378
-    .4byte lbl_800058C8
-.endobj lbl_8000613C
+    .4byte "@etb_800058C8"
+.endobj "@eti_8000613C"
 
-.obj lbl_80006148, local
+.obj "@eti_80006148", local
+.hidden "@eti_80006148"
     .4byte salInitHRTFBuffer
     .4byte 0x00000038
-    .4byte lbl_800058D0
-.endobj lbl_80006148
+    .4byte "@etb_800058D0"
+.endobj "@eti_80006148"
 
-.obj lbl_80006154, local
+.obj "@eti_80006154", local
+.hidden "@eti_80006154"
     .4byte salExitDspCtrl
     .4byte 0x000000D8
-    .4byte lbl_800058D8
-.endobj lbl_80006154
+    .4byte "@etb_800058D8"
+.endobj "@eti_80006154"
 
-.obj lbl_80006160, local
+.obj "@eti_80006160", local
+.hidden "@eti_80006160"
     .4byte salActivateStudio
     .4byte 0x00000108
-    .4byte lbl_800058E0
-.endobj lbl_80006160
+    .4byte "@etb_800058E0"
+.endobj "@eti_80006160"
 
-.obj lbl_8000616C, local
+.obj "@eti_8000616C", local
+.hidden "@eti_8000616C"
     .4byte SortVoices
     .4byte 0x000000FC
-    .4byte lbl_800058E8
-.endobj lbl_8000616C
+    .4byte "@etb_800058E8"
+.endobj "@eti_8000616C"
 
-.obj lbl_80006178, local
+.obj "@eti_80006178", local
+.hidden "@eti_80006178"
     .4byte salBuildCommandList
     .4byte 0x0000251C
-    .4byte lbl_800058F0
-.endobj lbl_80006178
+    .4byte "@etb_800058F0"
+.endobj "@eti_80006178"
 
-.obj lbl_80006184, local
+.obj "@eti_80006184", local
+.hidden "@eti_80006184"
     .4byte salSynthSendMessage
     .4byte 0x0000003C
-    .4byte lbl_800058F8
-.endobj lbl_80006184
+    .4byte "@etb_800058F8"
+.endobj "@eti_80006184"
 
-.obj lbl_80006190, local
+.obj "@eti_80006190", local
+.hidden "@eti_80006190"
     .4byte salActivateVoice
     .4byte 0x000000A0
-    .4byte lbl_80005900
-.endobj lbl_80006190
+    .4byte "@etb_80005900"
+.endobj "@eti_80006190"
 
-.obj lbl_8000619C, local
+.obj "@eti_8000619C", local
+.hidden "@eti_8000619C"
     .4byte salHandleAuxProcessing
     .4byte 0x0000015C
-    .4byte lbl_80005908
-.endobj lbl_8000619C
+    .4byte "@etb_80005908"
+.endobj "@eti_8000619C"

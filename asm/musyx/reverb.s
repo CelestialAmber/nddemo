@@ -876,6 +876,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 
 .obj "lens$115", local
 	.4byte 0x000006FD
@@ -889,6 +891,8 @@
 .endobj "lens$115"
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+.balign 8
 
 
 .obj lbl_800A9AB0, local
@@ -947,28 +951,32 @@
 .endobj lbl_800A9AE8
 
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
-.obj lbl_80005B68, local
+.obj "@etb_80005B68", local
+.hidden "@etb_80005B68"
 	.4byte 0x82080000
 	.4byte 0
-.endobj lbl_80005B68
+.endobj "@etb_80005B68"
 
-.obj lbl_80005B70, local
+.obj "@etb_80005B70", local
+.hidden "@etb_80005B70"
 	.4byte 0x28C80000
 	.4byte 0
-.endobj lbl_80005B70
+.endobj "@etb_80005B70"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
-.obj lbl_8000652C, local
+.obj "@eti_8000652C", local
+.hidden "@eti_8000652C"
     .4byte ReverbHICreate
     .4byte 0x000004CC
-    .4byte lbl_80005B68
-.endobj lbl_8000652C
+    .4byte "@etb_80005B68"
+.endobj "@eti_8000652C"
 
-.obj lbl_80006538, local
+.obj "@eti_80006538", local
+.hidden "@eti_80006538"
     .4byte ReverbHICallback
     .4byte 0x000000F8
-    .4byte lbl_80005B70
-.endobj lbl_80006538
+    .4byte "@etb_80005B70"
+.endobj "@eti_80006538"

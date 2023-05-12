@@ -519,6 +519,8 @@
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0
 
+.balign 8
+
 .obj lbl_80066CA8, local
 	.asciz "DGFont::DGFont>\n"
 	.balign 4
@@ -526,6 +528,8 @@
 .endobj lbl_80066CA8
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
+
+.balign 8
 
 .obj lbl_800A9548, local
 	.4byte 0

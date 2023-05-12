@@ -1121,12 +1121,16 @@
 
 .section .sdata, "wa"  # 0x800A8A80 - 0x800A8DC0
 
+.balign 8
+
 .obj gx, global
 	.4byte gxData
 	.4byte 0
 .endobj gx
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
+
+.balign 8
 
 .obj lbl_800A9890, local
 	.4byte 0x404040FF
@@ -1159,11 +1163,15 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 .obj gxData, local
 	.skip 0x4F4
 .endobj gxData
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 .obj __piReg, global
 	.skip 0x4

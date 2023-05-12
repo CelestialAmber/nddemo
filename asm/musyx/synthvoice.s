@@ -1607,6 +1607,8 @@
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 
+.balign 8
+
 
 .obj vidList, local
 	.skip 0x800
@@ -1637,6 +1639,8 @@
 .endobj voiceList
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
+
+.balign 8
 
 
 .obj vidCurrentId, local
@@ -1673,74 +1677,86 @@
 
 .skip 6
 
-.section extab_, "wa"  # 0x80005520 - 0x80005BC0
+.section extab, "a"  # 0x80005520 - 0x80005BC0
 
 
-.obj lbl_80005838, local
+.obj "@etb_80005838", local
+.hidden "@etb_80005838"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_80005838
+.endobj "@etb_80005838"
 
-.obj lbl_80005840, local
+.obj "@etb_80005840", local
+.hidden "@etb_80005840"
 	.4byte 0x30080000
 	.4byte 0
-.endobj lbl_80005840
+.endobj "@etb_80005840"
 
-.obj lbl_80005848, local
+.obj "@etb_80005848", local
+.hidden "@etb_80005848"
 	.4byte 0x08080000
 	.4byte 0
-.endobj lbl_80005848
+.endobj "@etb_80005848"
 
-.obj lbl_80005850, local
+.obj "@etb_80005850", local
+.hidden "@etb_80005850"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_80005850
+.endobj "@etb_80005850"
 
-.obj lbl_80005858, local
+.obj "@etb_80005858", local
+.hidden "@etb_80005858"
 	.4byte 0x10080000
 	.4byte 0
-.endobj lbl_80005858
+.endobj "@etb_80005858"
 
-.obj lbl_80005860, local
+.obj "@etb_80005860", local
+.hidden "@etb_80005860"
 	.4byte 0x20080000
 	.4byte 0
-.endobj lbl_80005860
+.endobj "@etb_80005860"
 
-.section extabindex_, "wa"  # 0x80005BC0 - 0x800065A0
+.section extabindex, "a"  # 0x80005BC0 - 0x800065A0
 
 
-.obj lbl_80006064, local
+.obj "@eti_80006064", local
+.hidden "@eti_80006064"
     .4byte vidRemoveVoiceReferences
     .4byte 0x00000354
-    .4byte lbl_80005838
-.endobj lbl_80006064
+    .4byte "@etb_80005838"
+.endobj "@eti_80006064"
 
-.obj lbl_80006070, local
+.obj "@eti_80006070", local
+.hidden "@eti_80006070"
     .4byte voiceSetPriority
     .4byte 0x00000190
-    .4byte lbl_80005840
-.endobj lbl_80006070
+    .4byte "@etb_80005840"
+.endobj "@eti_80006070"
 
-.obj lbl_8000607C, local
+.obj "@eti_8000607C", local
+.hidden "@eti_8000607C"
     .4byte voiceFree
     .4byte 0x000000E4
-    .4byte lbl_80005848
-.endobj lbl_8000607C
+    .4byte "@etb_80005848"
+.endobj "@eti_8000607C"
 
-.obj lbl_80006088, local
+.obj "@eti_80006088", local
+.hidden "@eti_80006088"
     .4byte voiceUnblock
     .4byte 0x00000080
-    .4byte lbl_80005850
-.endobj lbl_80006088
+    .4byte "@etb_80005850"
+.endobj "@eti_80006088"
 
-.obj lbl_80006094, local
+.obj "@eti_80006094", local
+.hidden "@eti_80006094"
     .4byte voiceKill
     .4byte 0x000000A0
-    .4byte lbl_80005858
-.endobj lbl_80006094
+    .4byte "@etb_80005858"
+.endobj "@eti_80006094"
 
-.obj lbl_800060A0, local
+.obj "@eti_800060A0", local
+.hidden "@eti_800060A0"
     .4byte voiceKillSound
     .4byte 0x00000110
-    .4byte lbl_80005860
-.endobj lbl_800060A0
+    .4byte "@etb_80005860"
+.endobj "@eti_800060A0"
