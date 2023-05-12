@@ -36,9 +36,6 @@ C_FILES := $(wildcard src/*.c)
 CPP_FILES := $(wildcard src/*.cpp)
 CPP_FILES += $(wildcard src/*.cp)
 LDSCRIPT_DOL := $(BUILD_DIR)/ldscript.lcf
-LDSCRIPT_REL := $(BUILD_DIR)/partial.lcf
-ELF2REL_ARGS := -i 1 -o 0x0 -l 0x2F -c 14
-REL_LDFLAGS := -nodefaults -fp hard -r1 -m _prolog -g
 
 # Outputs
 DOL     := $(BUILD_DIR)/main.dol
@@ -51,13 +48,13 @@ ifeq ($(MAPGENFLAG),1)
 endif
 
 include obj_files.mk
-ifeq ($(EPILOGUE_PROCESS),1)
-include e_files.mk
-endif
 
-O_FILES := $(NDDEMO) $(DOLPHIN) $(MUSYX) \
-		   $(METROTRK) $(RUNTIME) $(MSL_C) \
-		   $(NDEV)
+O_FILES := $(NDDEMO) $(DOLPHIN)
+
+DEPENDS := $($(filter *.o,O_FILES):.o=.d)
+DEPENDS += $($(filter *.o,E_FILES):.o=.d)
+# If a specific .o file is passed as a target, also process its deps
+DEPENDS += $(MAKECMDGOALS:.o=.d)
 
 #-------------------------------------------------------------------------------
 # Tools
@@ -84,10 +81,8 @@ else
   export WINEDEBUG ?= -all
   # Default devkitPPC path
   DEVKITPPC ?= /opt/devkitpro/devkitPPC
-  DEPENDS   := $(DEPENDS:.d=.d.unix)
   AS      := $(DEVKITPPC)/bin/powerpc-eabi-as
   CPP     := $(DEVKITPPC)/bin/powerpc-eabi-cpp -P
-  SHA1SUM := shasum
   PYTHON  := python3
 endif
 CC      = $(WINE) tools/mwcc_compiler/$(CONSOLE)/$(MWCC_VERSION)/mwcceppc.exe
@@ -95,6 +90,13 @@ LD      := $(WINE) tools/mwcc_compiler/$(CONSOLE)/$(MWLD_VERSION)/mwldeppc.exe
 DTK     := tools/dtk
 ELF2DOL := $(DTK) elf2dol
 SHASUM  := $(DTK) shasum
+
+ifneq ($(WINDOWS),1)
+TRANSFORM_DEP := tools/transform-dep.py
+else
+TRANSFORM_DEP := tools/transform-win.py
+endif
+FRANK := tools/frank.py
 
 # Options
 INCLUDES := -I- -i include/ -i include/std/
@@ -109,19 +111,15 @@ ifeq ($(VERBOSE),0)
 # this set of LDFLAGS generates no warnings.
 LDFLAGS := $(MAPGEN) -fp hard -nodefaults -w off
 endif
+LIBRARY_LDFLAGS := -nodefaults -fp hard -proc gekko
 CFLAGS   = -Cpp_exceptions off -enum int -inline auto -use_lmw_stmw on -proc gekko -fp hard -O4,p -nodefaults $(INCLUDES)
-ifeq ($(NON_MATCHING),1)
-CFLAGS += -DNON_MATCHING
-endif
 
 ifeq ($(VERBOSE),0)
 # this set of ASFLAGS generates no warnings.
 ASFLAGS += -W
+# this set of CFLAGS generates no warnings.
+CFLAGS += -w off
 endif
-
-
-$(BUILD_DIR)/src/PowerPC_EABI_Support/Runtime/global_destructor_chain.o: CFLAGS += -inline deferred
-$(BUILD_DIR)/src/PowerPC_EABI_Support/Runtime/__init_cpp_exceptions.o: CFLAGS += -inline deferred
 
 #-------------------------------------------------------------------------------
 # Recipes
@@ -148,14 +146,13 @@ $(LDSCRIPT_DOL): ldscript.lcf
 
 $(DOL): $(ELF) | $(DTK)
 	$(QUIET) $(ELF2DOL) $< $@
-	$(QUIET) $(SHA1SUM) -c sha1/$(NAME).sha1
+	$(QUIET) $(SHASUM) -c sha1/$(NAME).sha1
 ifneq ($(findstring -map,$(LDFLAGS)),)
 	$(QUIET) $(PYTHON) tools/calcprogress.py $@ $(MAP)
 endif
 
 clean:
 	rm -f -d -r build
-	rm -f -d -r epilogue
 
 
 $(DTK): tools/dtk_version
@@ -174,6 +171,19 @@ $(ELF): $(O_FILES) $(LDSCRIPT_DOL)
 	$(QUIET) @echo $(O_FILES) > build/o_files
 	$(QUIET) $(LD) $(LDFLAGS) -o $@ -lcf $(LDSCRIPT_DOL) @build/o_files
 endif
+
+
+%.d.unix: %.d $(TRANSFORM_DEP)
+	@echo Processing $<
+	$(QUIET) $(PYTHON) $(TRANSFORM_DEP) $< $@
+
+-include include_link.mk
+
+DEPENDS := $(DEPENDS:.d=.d.unix)
+ifneq ($(MAKECMDGOALS), clean)
+-include $(DEPENDS)
+endif
+
 
 $(BUILD_DIR)/%.o: %.s | $(DTK)
 	@echo Assembling $<
