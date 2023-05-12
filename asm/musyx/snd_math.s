@@ -57,7 +57,7 @@
 /* 8005574C 000516CC  EC 41 00 72 */	fmuls f2, f1, f1
 /* 80055750 000516D0  C0 63 00 08 */	lfs f3, 0x8(r3)
 /* 80055754 000516D4  EC 20 00 32 */	fmuls f1, f0, f0
-/* 80055758 000516D8  C0 02 87 00 */	lfs f0, lbl_800A9A80@sda21(r2)
+/* 80055758 000516D8  C0 02 87 00 */	lfs f0, float_800A9A80@sda21(r2)
 /* 8005575C 000516DC  EC 63 00 F2 */	fmuls f3, f3, f3
 /* 80055760 000516E0  EC 22 08 2A */	fadds f1, f2, f1
 /* 80055764 000516E4  EC 23 08 2A */	fadds f1, f3, f1
@@ -103,17 +103,16 @@
 
 .balign 8
 
-.obj lbl_800A9A80, local
+.obj float_800A9A80, local
 	.4byte 0
-	.4byte 0
-.endobj lbl_800A9A80
+.endobj float_800A9A80
+
+.4byte 0
 
 .obj lbl_800A9A88, local
-	.4byte 0x3FE00000
-	.4byte 0
+	.8byte 0x3FE0000000000000
 .endobj lbl_800A9A88
 
 .obj lbl_800A9A90, local
-	.4byte 0x40080000
-	.4byte 0
+	.8byte 0x4008000000000000
 .endobj lbl_800A9A90

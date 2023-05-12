@@ -84,9 +84,9 @@
 /* 800483E0 00044360  3C 60 24 92 */	lis r3, 0x2492
 /* 800483E4 00044364  3C 80 80 09 */	lis r4, synthInfo@ha
 /* 800483E8 00044368  98 AD 87 70 */	stb r5, streamCallCnt@sda21(r13)
-/* 800483EC 0004436C  C3 C2 86 18 */	lfs f30, lbl_800A9998@sda21(r2)
+/* 800483EC 0004436C  C3 C2 86 18 */	lfs f30, float_800A9998@sda21(r2)
 /* 800483F0 00044370  7C 1A 03 78 */	mr r26, r0
-/* 800483F4 00044374  C3 E2 86 1C */	lfs f31, lbl_800A999C@sda21(r2)
+/* 800483F4 00044374  C3 E2 86 1C */	lfs f31, float_800A999C@sda21(r2)
 /* 800483F8 00044378  3B E3 49 25 */	addi r31, r3, 0x4925
 /* 800483FC 0004437C  3B C4 EC 38 */	addi r30, r4, synthInfo@l
 /* 80048400 00044380  3B 60 00 00 */	li r27, 0x0
@@ -601,17 +601,16 @@
 
 .balign 8
 
-.obj lbl_800A9998, local
+.obj float_800A9998, local
 	.4byte 0x45800000
-.endobj lbl_800A9998
+.endobj float_800A9998
 
-.obj lbl_800A999C, local
+.obj float_800A999C, local
 	.4byte 0x3C010204
-.endobj lbl_800A999C
+.endobj float_800A999C
 
 .obj lbl_800A99A0, local
-	.4byte 0x43300000
-	.4byte 0
+	.8byte 0x4330000000000000
 .endobj lbl_800A99A0
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80

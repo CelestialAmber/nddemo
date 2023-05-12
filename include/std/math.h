@@ -24,14 +24,50 @@ extern int __double_huge[];
 #define FP_NORMAL 4
 #define FP_SUBNORMAL 5
 
-int __signbitf(float);
-int __fpclassifyf(float);
-int __signbitd(double);
-int __fpclassifyd(double);
 
+
+inline int __fpclassifyf(f32 x)
+{
+	switch ((*(s32*)&x) & 0x7f800000) {
+	case 0x7f800000: {
+		if ((*(s32*)&x) & 0x007fffff)
+			return FP_NAN;
+		else
+			return FP_INFINITE;
+		break;
+	}
+	case 0: {
+		if ((*(s32*)&x) & 0x007fffff)
+			return FP_SUBNORMAL;
+		else
+			return FP_ZERO;
+		break;
+	}
+	}
+	return FP_NORMAL;
+}
+inline int __fpclassifyd(f64 x)
+{
+	switch (__HI(x) & 0x7ff00000) {
+	case 0x7ff00000: {
+		if ((__HI(x) & 0x000fffff) || (__LO(x) & 0xffffffff))
+			return FP_NAN;
+		else
+			return FP_INFINITE;
+		break;
+	}
+	case 0: {
+		if ((__HI(x) & 0x000fffff) || (__LO(x) & 0xffffffff))
+			return FP_SUBNORMAL;
+		else
+			return FP_ZERO;
+		break;
+	}
+	}
+	return FP_NORMAL;
+}
 
 #define fpclassify(x) ((sizeof(x) == sizeof(float)) ? __fpclassifyf((float)(x)) : __fpclassifyd((double)(x)))
-#define signbit(x) ((sizeof(x) == sizeof(float)) ? __signbitf((float)(x)) : __signbitd((double)(x)))
 
 #define isfinite(x) ((fpclassify(x) > FP_INFINITE))
 #define isnan(x) (fpclassify(x) == FP_NAN)

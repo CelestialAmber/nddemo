@@ -27,8 +27,8 @@
 .endfn PSVECSubtract
 
 .fn PSVECNormalize, global
-/* 8003019C 0002C11C  C0 02 84 F8 */	lfs f0, lbl_800A9878@sda21(r2)
-/* 800301A0 0002C120  C0 22 84 FC */	lfs f1, lbl_800A987C@sda21(r2)
+/* 8003019C 0002C11C  C0 02 84 F8 */	lfs f0, float_800A9878@sda21(r2)
+/* 800301A0 0002C120  C0 22 84 FC */	lfs f1, float_800A987C@sda21(r2)
 /* 800301A4 0002C124  E0 43 00 00 */	psq_l f2, 0x0(r3), 0, qr0
 /* 800301A8 0002C128  10 A2 00 B2 */	ps_mul f5, f2, f2
 /* 800301AC 0002C12C  E0 63 80 08 */	psq_l f3, 0x8(r3), 1, qr0
@@ -51,10 +51,10 @@
 /* 800301E4 0002C164  10 00 00 32 */	ps_mul f0, f0, f0
 /* 800301E8 0002C168  C0 23 00 08 */	lfs f1, 0x8(r3)
 /* 800301EC 0002C16C  10 21 00 7A */	ps_madd f1, f1, f1, f0
-/* 800301F0 0002C170  C0 82 84 F8 */	lfs f4, lbl_800A9878@sda21(r2)
+/* 800301F0 0002C170  C0 82 84 F8 */	lfs f4, float_800A9878@sda21(r2)
 /* 800301F4 0002C174  10 21 00 14 */	ps_sum0 f1, f1, f0, f0
 /* 800301F8 0002C178  10 00 08 34 */	ps_rsqrte f0, f1
-/* 800301FC 0002C17C  C0 62 84 FC */	lfs f3, lbl_800A987C@sda21(r2)
+/* 800301FC 0002C17C  C0 62 84 FC */	lfs f3, float_800A987C@sda21(r2)
 /* 80030200 0002C180  EC 40 00 32 */	fmuls f2, f0, f0
 /* 80030204 0002C184  EC 00 01 32 */	fmuls f0, f0, f4
 /* 80030208 0002C188  EC 42 18 7C */	fnmsubs f2, f2, f1, f3
@@ -97,10 +97,10 @@
 
 .balign 8
 
-.obj lbl_800A9878, local
+.obj float_800A9878, local
 	.4byte 0x3F000000
-.endobj lbl_800A9878
+.endobj float_800A9878
 
-.obj lbl_800A987C, local
+.obj float_800A987C, local
 	.4byte 0x40400000
-.endobj lbl_800A987C
+.endobj float_800A987C

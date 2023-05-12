@@ -80,18 +80,18 @@
 /* 80026B94 00022B14  9B FD 01 E8 */	stb r31, 0x1e8(r29)
 /* 80026B98 00022B18  38 80 00 0F */	li r4, 0xf
 /* 80026B9C 00022B1C  38 00 01 F4 */	li r0, 0x1f4
-/* 80026BA0 00022B20  C0 02 84 C0 */	lfs f0, lbl_800A9840@sda21(r2)
+/* 80026BA0 00022B20  C0 02 84 C0 */	lfs f0, float_800A9840@sda21(r2)
 /* 80026BA4 00022B24  38 7D 00 24 */	addi r3, r29, 0x24
 /* 80026BA8 00022B28  D0 1D 01 F4 */	stfs f0, 0x1f4(r29)
-/* 80026BAC 00022B2C  C0 02 84 C4 */	lfs f0, lbl_800A9844@sda21(r2)
+/* 80026BAC 00022B2C  C0 02 84 C4 */	lfs f0, float_800A9844@sda21(r2)
 /* 80026BB0 00022B30  D0 1D 01 FC */	stfs f0, 0x1fc(r29)
-/* 80026BB4 00022B34  C0 02 84 C8 */	lfs f0, lbl_800A9848@sda21(r2)
+/* 80026BB4 00022B34  C0 02 84 C8 */	lfs f0, float_800A9848@sda21(r2)
 /* 80026BB8 00022B38  D0 1D 01 F8 */	stfs f0, 0x1f8(r29)
-/* 80026BBC 00022B3C  C0 02 84 CC */	lfs f0, lbl_800A984C@sda21(r2)
+/* 80026BBC 00022B3C  C0 02 84 CC */	lfs f0, float_800A984C@sda21(r2)
 /* 80026BC0 00022B40  D0 1D 01 EC */	stfs f0, 0x1ec(r29)
-/* 80026BC4 00022B44  C0 02 84 D0 */	lfs f0, lbl_800A9850@sda21(r2)
+/* 80026BC4 00022B44  C0 02 84 D0 */	lfs f0, float_800A9850@sda21(r2)
 /* 80026BC8 00022B48  D0 1D 02 00 */	stfs f0, 0x200(r29)
-/* 80026BCC 00022B4C  C0 02 84 D4 */	lfs f0, lbl_800A9854@sda21(r2)
+/* 80026BCC 00022B4C  C0 02 84 D4 */	lfs f0, float_800A9854@sda21(r2)
 /* 80026BD0 00022B50  D0 1D 01 F0 */	stfs f0, 0x1f0(r29)
 /* 80026BD4 00022B54  90 9D 02 94 */	stw r4, 0x294(r29)
 /* 80026BD8 00022B58  93 FD 02 98 */	stw r31, 0x298(r29)
@@ -949,26 +949,26 @@
 .balign 8
 
 
-.obj lbl_800A9840, local
+.obj float_800A9840, local
 	.4byte 0x40A00000
-.endobj lbl_800A9840
+.endobj float_800A9840
 
-.obj lbl_800A9844, local
-	.4byte 0x3DCCCCCD
-.endobj lbl_800A9844
+.obj float_800A9844, local
+	.float 0.1
+.endobj float_800A9844
 
-.obj lbl_800A9848, local
+.obj float_800A9848, local
 	.4byte 0x3F19999A
-.endobj lbl_800A9848
+.endobj float_800A9848
 
-.obj lbl_800A984C, local
+.obj float_800A984C, local
 	.4byte 0x3F666666
-.endobj lbl_800A984C
+.endobj float_800A984C
 
-.obj lbl_800A9850, local
+.obj float_800A9850, local
 	.4byte 0
-.endobj lbl_800A9850
+.endobj float_800A9850
 
-.obj lbl_800A9854, local
+.obj float_800A9854, local
 	.4byte 0x3F000000
-.endobj lbl_800A9854
+.endobj float_800A9854

@@ -336,26 +336,21 @@
 .balign 8
 
 .obj lbl_800A9AF8, local
-	.4byte 0
-	.4byte 0
+	.8byte 0
 .endobj lbl_800A9AF8
 
 .obj lbl_800A9B00, local
-	.4byte 0x3FF00000
-	.4byte 0
+	.8byte 0x3FF0000000000000
 .endobj lbl_800A9B00
 
 .obj lbl_800A9B08, local
-	.4byte 0x43300000
-	.4byte 0x80000000
+	.8byte 0x4330000080000000
 .endobj lbl_800A9B08
 
 .obj lbl_800A9B10, local
-	.4byte 0x3FB99999
-	.4byte 0x9999999A
+	.8byte 0x3FB999999999999A
 .endobj lbl_800A9B10
 
 .obj lbl_800A9B18, local
-	.4byte 0x40240000
-	.4byte 0
+	.8byte 0x4024000000000000
 .endobj lbl_800A9B18

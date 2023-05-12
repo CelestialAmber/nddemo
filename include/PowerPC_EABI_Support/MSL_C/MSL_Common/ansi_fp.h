@@ -4,7 +4,6 @@
 #include "types.h"
 #include <math.h>
 #include <float.h>
-#include "PowerPC_EABI_Support/MSL_C/MSL_Common_Embedded/Math/fdlibm.h"
 
 #define SIGDIGLEN 36
 
@@ -26,14 +25,6 @@ typedef struct decform
 	short digits;
 } decform;
 
-void __ull2dec(decimal*, u64);
-void __timesdec(decimal*, const decimal*, const decimal*);
-void __str2dec(decimal*, const char*, short);
-void __two_exp(decimal*, long);
-BOOL __equals_dec(const decimal*, const decimal*);
-BOOL __less_dec(const decimal*, const decimal*);
-void __minus_dec(decimal*, const decimal*, const decimal*);
-void __num2dec_internal(decimal*, double);
 void __num2dec(const decform*, double, decimal*);
 double __dec2num(const decimal*);
 

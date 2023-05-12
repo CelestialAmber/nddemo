@@ -12,6 +12,7 @@ enum __file_kinds {
 	__closed_file,
 	__disk_file,
 	__console_file,
+	__string_file,
 	__unavailable_file
 };
 
@@ -71,7 +72,7 @@ struct _FILE {
 	__file_handle handle;                           // _00
 	__file_modes mode;                              // _04
 	__file_state state;                              // _08
-	u8 is_dynamically_allowed;                      // _0C
+	//u8 is_dynamically_allowed;                      // _0C
 	u8 char_buffer;                                 // _0D
 	u8 char_buffer_overflow;                        // _0E
 	u8 ungetc_buffer[__ungetc_buffer_size];         // _0F
@@ -89,7 +90,7 @@ struct _FILE {
 	__io_proc write_proc;                           // _40
 	__close_proc close_proc;                        // _44
 	__ref_con ref_con;                              // _48
-	_FILE* next_file_struct;                        // _4C
+	//_FILE* next_file_struct;                        // _4C
 };
 
 typedef struct _FILE FILE;
@@ -108,7 +109,7 @@ typedef struct _FILE FILE;
 #define stdout &(__files[1])
 #define stderr &(__files[2])
 
-#define _STATIC_FILES 4
+#define _STATIC_FILES 3
 
 extern FILE __files[];
 

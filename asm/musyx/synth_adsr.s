@@ -12,13 +12,13 @@
 /* 8004FA04 0004B984  3C 00 43 30 */	lis r0, 0x4330
 /* 8004FA08 0004B988  C8 42 86 78 */	lfd f2, lbl_800A99F8@sda21(r2)
 /* 8004FA0C 0004B98C  90 01 00 10 */	stw r0, 0x10(r1)
-/* 8004FA10 0004B990  C0 62 86 70 */	lfs f3, lbl_800A99F0@sda21(r2)
+/* 8004FA10 0004B990  C0 62 86 70 */	lfs f3, float_800A99F0@sda21(r2)
 /* 8004FA14 0004B994  C8 01 00 10 */	lfd f0, 0x10(r1)
-/* 8004FA18 0004B998  C0 22 86 6C */	lfs f1, lbl_800A99EC@sda21(r2)
+/* 8004FA18 0004B998  C0 22 86 6C */	lfs f1, float_800A99EC@sda21(r2)
 /* 8004FA1C 0004B99C  EC 00 10 28 */	fsubs f0, f0, f2
 /* 8004FA20 0004B9A0  EC 43 00 32 */	fmuls f2, f3, f0
 /* 8004FA24 0004B9A4  48 01 30 C5 */	bl powf
-/* 8004FA28 0004B9A8  C0 02 86 68 */	lfs f0, lbl_800A99E8@sda21(r2)
+/* 8004FA28 0004B9A8  C0 02 86 68 */	lfs f0, float_800A99E8@sda21(r2)
 /* 8004FA2C 0004B9AC  EC 20 00 72 */	fmuls f1, f0, f1
 /* 8004FA30 0004B9B0  48 00 F9 CD */	bl __cvt_fp2unsigned
 /* 8004FA34 0004B9B4  80 01 00 1C */	lwz r0, 0x1c(r1)
@@ -267,7 +267,7 @@
 /* 8004FD90 0004BD10  6C 63 80 00 */	xoris r3, r3, 0x8000
 /* 8004FD94 0004BD14  C8 42 86 78 */	lfd f2, lbl_800A99F8@sda21(r2)
 /* 8004FD98 0004BD18  90 61 00 1C */	stw r3, 0x1c(r1)
-/* 8004FD9C 0004BD1C  C0 62 86 80 */	lfs f3, lbl_800A9A00@sda21(r2)
+/* 8004FD9C 0004BD1C  C0 62 86 80 */	lfs f3, float_800A9A00@sda21(r2)
 /* 8004FDA0 0004BD20  90 01 00 18 */	stw r0, 0x18(r1)
 /* 8004FDA4 0004BD24  C8 22 86 88 */	lfd f1, lbl_800A9A08@sda21(r2)
 /* 8004FDA8 0004BD28  C8 01 00 18 */	lfd f0, 0x18(r1)
@@ -495,32 +495,32 @@
 .balign 8
 
 
-.obj lbl_800A99E8, local
+.obj float_800A99E8, local
 	.4byte 0x447A0000
-.endobj lbl_800A99E8
+.endobj float_800A99E8
 
-.obj lbl_800A99EC, local
+.obj float_800A99EC, local
 	.4byte 0x40000000
-.endobj lbl_800A99EC
+.endobj float_800A99EC
 
-.obj lbl_800A99F0, local
+.obj float_800A99F0, local
 	.4byte 0x325A740E
-	.4byte 0
-.endobj lbl_800A99F0
+.endobj float_800A99F0
+
+.4byte 0
 
 .obj lbl_800A99F8, local
-	.4byte 0x43300000
-	.4byte 0x80000000
+	.8byte 0x4330000080000000
 .endobj lbl_800A99F8
 
-.obj lbl_800A9A00, local
+.obj float_800A9A00, local
 	.4byte 0x39A9C84A
-	.4byte 0
-.endobj lbl_800A9A00
+.endobj float_800A9A00
+
+.4byte 0
 
 .obj lbl_800A9A08, local
-	.4byte 0x43300000
-	.4byte 0
+	.8byte 0x4330000000000000
 .endobj lbl_800A9A08
 
 .section extab, "a"  # 0x80005520 - 0x80005BC0

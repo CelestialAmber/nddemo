@@ -246,13 +246,13 @@
 /* 80040CF8 0003CC78  DB 41 00 30 */	stfd f26, 0x30(r1)
 /* 80040CFC 0003CC7C  28 03 00 00 */	cmplwi r3, 0x0
 /* 80040D00 0003CC80  40 82 00 0C */	bne .L_80040D0C
-/* 80040D04 0003CC84  C0 02 85 C0 */	lfs f0, lbl_800A9940@sda21(r2)
+/* 80040D04 0003CC84  C0 02 85 C0 */	lfs f0, float_800A9940@sda21(r2)
 /* 80040D08 0003CC88  EC 42 00 28 */	fsubs f2, f2, f0
 .L_80040D0C:
-/* 80040D0C 0003CC8C  C1 62 85 C0 */	lfs f11, lbl_800A9940@sda21(r2)
+/* 80040D0C 0003CC8C  C1 62 85 C0 */	lfs f11, float_800A9940@sda21(r2)
 /* 80040D10 0003CC90  FD 40 20 50 */	fneg f10, f4
-/* 80040D14 0003CC94  C0 02 85 D4 */	lfs f0, lbl_800A9954@sda21(r2)
-/* 80040D18 0003CC98  C1 22 85 D0 */	lfs f9, lbl_800A9950@sda21(r2)
+/* 80040D14 0003CC94  C0 02 85 D4 */	lfs f0, float_800A9954@sda21(r2)
+/* 80040D18 0003CC98  C1 22 85 D0 */	lfs f9, float_800A9950@sda21(r2)
 /* 80040D1C 0003CC9C  EF E3 02 F2 */	fmuls f31, f3, f11
 /* 80040D20 0003CCA0  80 6D 82 90 */	lwz r3, gx@sda21(r13)
 /* 80040D24 0003CCA4  EC E4 02 F2 */	fmuls f7, f4, f11
@@ -445,20 +445,20 @@
 .balign 8
 
 
-.obj lbl_800A9940, local
+.obj float_800A9940, local
 	.4byte 0x3F000000
-	.4byte 0
-.endobj lbl_800A9940
+.endobj float_800A9940
+
+.4byte 0
 
 .obj lbl_800A9948, local
-	.4byte 0x43300000
-	.4byte 0
+	.8byte 0x4330000000000000
 .endobj lbl_800A9948
 
-.obj lbl_800A9950, local
+.obj float_800A9950, local
 	.4byte 0x43AB0000
-.endobj lbl_800A9950
+.endobj float_800A9950
 
-.obj lbl_800A9954, local
+.obj float_800A9954, local
 	.4byte 0x4B7FFFFF
-.endobj lbl_800A9954
+.endobj float_800A9954

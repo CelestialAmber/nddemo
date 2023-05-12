@@ -419,10 +419,7 @@
 .balign 8
 
 .obj __constants, local
-	.4byte 0
-	.4byte 0
-	.4byte 0x41F00000
-	.4byte 0
-	.4byte 0x41E00000
-	.4byte 0
+	.8byte 0
+	.8byte 0x41F0000000000000
+	.8byte 0x41E0000000000000
 .endobj __constants

@@ -3,8 +3,8 @@
 .section .text, "ax"  # 0x800065A0 - 0x80063CE0 ; 0x0005D740
 
 .fn PSMTXIdentity, global
-/* 8002F970 0002B8F0  C0 02 84 DC */	lfs f0, lbl_800A985C@sda21(r2)
-/* 8002F974 0002B8F4  C0 22 84 D8 */	lfs f1, lbl_800A9858@sda21(r2)
+/* 8002F970 0002B8F0  C0 02 84 DC */	lfs f0, float_800A985C@sda21(r2)
+/* 8002F974 0002B8F4  C0 22 84 D8 */	lfs f1, float_800A9858@sda21(r2)
 /* 8002F978 0002B8F8  F0 03 00 08 */	psq_st f0, 0x8(r3), 0, qr0
 /* 8002F97C 0002B8FC  10 40 0C 60 */	ps_merge01 f2, f0, f1
 /* 8002F980 0002B900  F0 03 00 18 */	psq_st f0, 0x18(r3), 0, qr0
@@ -87,7 +87,7 @@
 .endfn PSMTXConcat
 
 .fn PSMTXTranspose, global
-/* 8002FA9C 0002BA1C  C0 02 84 DC */	lfs f0, lbl_800A985C@sda21(r2)
+/* 8002FA9C 0002BA1C  C0 02 84 DC */	lfs f0, float_800A985C@sda21(r2)
 /* 8002FAA0 0002BA20  E0 23 00 00 */	psq_l f1, 0x0(r3), 0, qr0
 /* 8002FAA4 0002BA24  D0 04 00 2C */	stfs f0, 0x2c(r4)
 /* 8002FAA8 0002BA28  E0 43 00 10 */	psq_l f2, 0x10(r3), 0, qr0
@@ -207,8 +207,8 @@
 .endfn PSMTXRotRad
 
 .fn PSMTXRotTrig, global
-/* 8002FC54 0002BBD4  C0 02 84 DC */	lfs f0, lbl_800A985C@sda21(r2)
-/* 8002FC58 0002BBD8  C0 62 84 D8 */	lfs f3, lbl_800A9858@sda21(r2)
+/* 8002FC54 0002BBD4  C0 02 84 DC */	lfs f0, float_800A985C@sda21(r2)
+/* 8002FC58 0002BBD8  C0 62 84 D8 */	lfs f3, float_800A9858@sda21(r2)
 /* 8002FC5C 0002BBDC  60 80 00 20 */	ori r0, r4, 0x20
 /* 8002FC60 0002BBE0  10 80 08 50 */	ps_neg f4, f1
 /* 8002FC64 0002BBE4  28 00 00 78 */	cmplwi r0, 0x78
@@ -256,8 +256,8 @@
 .endfn PSMTXRotTrig
 
 .fn PSMTXTrans, global
-/* 8002FCFC 0002BC7C  C0 02 84 DC */	lfs f0, lbl_800A985C@sda21(r2)
-/* 8002FD00 0002BC80  C0 82 84 D8 */	lfs f4, lbl_800A9858@sda21(r2)
+/* 8002FCFC 0002BC7C  C0 02 84 DC */	lfs f0, float_800A985C@sda21(r2)
+/* 8002FD00 0002BC80  C0 82 84 D8 */	lfs f4, float_800A9858@sda21(r2)
 /* 8002FD04 0002BC84  D0 23 00 0C */	stfs f1, 0xc(r3)
 /* 8002FD08 0002BC88  D0 43 00 1C */	stfs f2, 0x1c(r3)
 /* 8002FD0C 0002BC8C  F0 03 00 04 */	psq_st f0, 0x4(r3), 0, qr0
@@ -272,7 +272,7 @@
 .endfn PSMTXTrans
 
 .fn PSMTXScale, global
-/* 8002FD30 0002BCB0  C0 02 84 DC */	lfs f0, lbl_800A985C@sda21(r2)
+/* 8002FD30 0002BCB0  C0 02 84 DC */	lfs f0, float_800A985C@sda21(r2)
 /* 8002FD34 0002BCB4  D0 23 00 00 */	stfs f1, 0x0(r3)
 /* 8002FD38 0002BCB8  F0 03 00 04 */	psq_st f0, 0x4(r3), 0, qr0
 /* 8002FD3C 0002BCBC  F0 03 00 0C */	psq_st f0, 0xc(r3), 0, qr0
@@ -390,9 +390,9 @@
 /* 8002FEE4 0002BE64  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8002FEE8 0002BE68  C1 81 00 38 */	lfs f12, 0x38(r1)
 /* 8002FEEC 0002BE6C  ED 44 18 28 */	fsubs f10, f4, f3
-/* 8002FEF0 0002BE70  C1 62 84 D8 */	lfs f11, lbl_800A9858@sda21(r2)
+/* 8002FEF0 0002BE70  C1 62 84 D8 */	lfs f11, float_800A9858@sda21(r2)
 /* 8002FEF4 0002BE74  EC 01 10 28 */	fsubs f0, f1, f2
-/* 8002FEF8 0002BE78  C1 22 84 E0 */	lfs f9, lbl_800A9860@sda21(r2)
+/* 8002FEF8 0002BE78  C1 22 84 E0 */	lfs f9, float_800A9860@sda21(r2)
 /* 8002FEFC 0002BE7C  EC 64 18 2A */	fadds f3, f4, f3
 /* 8002FF00 0002BE80  ED 4B 50 24 */	fdivs f10, f11, f10
 /* 8002FF04 0002BE84  EC A9 01 72 */	fmuls f5, f9, f5
@@ -406,7 +406,7 @@
 /* 8002FF24 0002BEA4  D0 23 00 00 */	stfs f1, 0x0(r3)
 /* 8002FF28 0002BEA8  EC 25 02 72 */	fmuls f1, f5, f9
 /* 8002FF2C 0002BEAC  EC 42 40 28 */	fsubs f2, f2, f8
-/* 8002FF30 0002BEB0  C0 62 84 DC */	lfs f3, lbl_800A985C@sda21(r2)
+/* 8002FF30 0002BEB0  C0 62 84 DC */	lfs f3, float_800A985C@sda21(r2)
 /* 8002FF34 0002BEB4  EC 07 00 32 */	fmuls f0, f7, f0
 /* 8002FF38 0002BEB8  D0 63 00 04 */	stfs f3, 0x4(r3)
 /* 8002FF3C 0002BEBC  EC 27 00 72 */	fmuls f1, f7, f1
@@ -419,7 +419,7 @@
 /* 8002FF58 0002BED8  D0 63 00 1C */	stfs f3, 0x1c(r3)
 /* 8002FF5C 0002BEDC  D0 63 00 20 */	stfs f3, 0x20(r3)
 /* 8002FF60 0002BEE0  D0 63 00 24 */	stfs f3, 0x24(r3)
-/* 8002FF64 0002BEE4  C0 02 84 E4 */	lfs f0, lbl_800A9864@sda21(r2)
+/* 8002FF64 0002BEE4  C0 02 84 E4 */	lfs f0, float_800A9864@sda21(r2)
 /* 8002FF68 0002BEE8  D0 03 00 28 */	stfs f0, 0x28(r3)
 /* 8002FF6C 0002BEEC  D0 63 00 2C */	stfs f3, 0x2c(r3)
 /* 8002FF70 0002BEF0  38 21 00 30 */	addi r1, r1, 0x30
@@ -432,7 +432,7 @@
 
 .obj Unit01, local
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1
 .endobj Unit01
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0
@@ -440,18 +440,18 @@
 .balign 8
 
 
-.obj lbl_800A9858, local
-	.4byte 0x3F800000
-.endobj lbl_800A9858
+.obj float_800A9858, local
+	.float 1
+.endobj float_800A9858
 
-.obj lbl_800A985C, local
+.obj float_800A985C, local
 	.4byte 0
-.endobj lbl_800A985C
+.endobj float_800A985C
 
-.obj lbl_800A9860, local
+.obj float_800A9860, local
 	.4byte 0x40000000
-.endobj lbl_800A9860
+.endobj float_800A9860
 
-.obj lbl_800A9864, local
-	.4byte 0xBF800000
-.endobj lbl_800A9864
+.obj float_800A9864, local
+	.float -1
+.endobj float_800A9864

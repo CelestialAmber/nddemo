@@ -24,16 +24,16 @@
 /* 800591F8 00055178  FF 00 08 90 */	fmr f24, f1
 /* 800591FC 0005517C  BE 01 00 40 */	stmw r16, 0x40(r1)
 /* 80059200 00055180  7C 7E 1B 78 */	mr r30, r3
-/* 80059204 00055184  C0 E2 87 30 */	lfs f7, lbl_800A9AB0@sda21(r2)
+/* 80059204 00055184  C0 E2 87 30 */	lfs f7, float_800A9AB0@sda21(r2)
 /* 80059208 00055188  FC 18 38 40 */	fcmpo cr0, f24, f7
 /* 8005920C 0005518C  41 80 00 6C */	blt .L_80059278
-/* 80059210 00055190  C0 22 87 34 */	lfs f1, lbl_800A9AB4@sda21(r2)
+/* 80059210 00055190  C0 22 87 34 */	lfs f1, float_800A9AB4@sda21(r2)
 /* 80059214 00055194  FC 18 08 40 */	fcmpo cr0, f24, f1
 /* 80059218 00055198  41 81 00 60 */	bgt .L_80059278
-/* 8005921C 0005519C  C0 02 87 38 */	lfs f0, lbl_800A9AB8@sda21(r2)
+/* 8005921C 0005519C  C0 02 87 38 */	lfs f0, float_800A9AB8@sda21(r2)
 /* 80059220 000551A0  FC 1C 00 40 */	fcmpo cr0, f28, f0
 /* 80059224 000551A4  41 80 00 54 */	blt .L_80059278
-/* 80059228 000551A8  C0 02 87 3C */	lfs f0, lbl_800A9ABC@sda21(r2)
+/* 80059228 000551A8  C0 02 87 3C */	lfs f0, float_800A9ABC@sda21(r2)
 /* 8005922C 000551AC  FC 1C 00 40 */	fcmpo cr0, f28, f0
 /* 80059230 000551B0  41 81 00 48 */	bgt .L_80059278
 /* 80059234 000551B4  FC 19 38 40 */	fcmpo cr0, f25, f7
@@ -50,7 +50,7 @@
 /* 80059260 000551E0  41 81 00 18 */	bgt .L_80059278
 /* 80059264 000551E4  FC 1F 38 40 */	fcmpo cr0, f31, f7
 /* 80059268 000551E8  41 80 00 10 */	blt .L_80059278
-/* 8005926C 000551EC  C0 02 87 40 */	lfs f0, lbl_800A9AC0@sda21(r2)
+/* 8005926C 000551EC  C0 02 87 40 */	lfs f0, float_800A9AC0@sda21(r2)
 /* 80059270 000551F0  FC 1F 00 40 */	fcmpo cr0, f31, f0
 /* 80059274 000551F4  40 81 00 0C */	ble .L_80059280
 .L_80059278:
@@ -61,10 +61,10 @@
 /* 80059284 00055204  38 80 00 00 */	li r4, 0x0
 /* 80059288 00055208  38 A0 01 C4 */	li r5, 0x1c4
 /* 8005928C 0005520C  4B FA C0 A1 */	bl memset
-/* 80059290 00055210  C0 02 87 44 */	lfs f0, lbl_800A9AC4@sda21(r2)
+/* 80059290 00055210  C0 02 87 44 */	lfs f0, float_800A9AC4@sda21(r2)
 /* 80059294 00055214  3C 60 80 07 */	lis r3, "lens$115"@ha
 /* 80059298 00055218  3A A3 C5 40 */	addi r21, r3, "lens$115"@l
-/* 8005929C 0005521C  C3 C2 87 30 */	lfs f30, lbl_800A9AB0@sda21(r2)
+/* 8005929C 0005521C  C3 C2 87 30 */	lfs f30, float_800A9AB0@sda21(r2)
 /* 800592A0 00055220  EF 80 07 32 */	fmuls f28, f0, f28
 /* 800592A4 00055224  CB A2 87 50 */	lfd f29, lbl_800A9AD0@sda21(r2)
 /* 800592A8 00055228  3B 35 00 00 */	addi r25, r21, 0x0
@@ -131,7 +131,7 @@
 /* 80059384 00055304  2C 00 00 00 */	cmpwi r0, 0x0
 /* 80059388 00055308  41 80 FF E8 */	blt .L_80059370
 /* 8005938C 0005530C  80 1B 00 00 */	lwz r0, 0x0(r27)
-/* 80059390 00055310  C0 22 87 3C */	lfs f1, lbl_800A9ABC@sda21(r2)
+/* 80059390 00055310  C0 22 87 3C */	lfs f1, float_800A9ABC@sda21(r2)
 /* 80059394 00055314  1C 00 FF FD */	mulli r0, r0, -0x3
 /* 80059398 00055318  6C 00 80 00 */	xoris r0, r0, 0x8000
 /* 8005939C 0005531C  90 01 00 3C */	stw r0, 0x3c(r1)
@@ -269,23 +269,23 @@
 /* 8005957C 000554FC  D3 7E 01 A8 */	stfs f27, 0x1a8(r30)
 /* 80059580 00055500  D3 5E 01 A0 */	stfs f26, 0x1a0(r30)
 /* 80059584 00055504  C0 3E 01 A0 */	lfs f1, 0x1a0(r30)
-/* 80059588 00055508  C0 02 87 48 */	lfs f0, lbl_800A9AC8@sda21(r2)
+/* 80059588 00055508  C0 02 87 48 */	lfs f0, float_800A9AC8@sda21(r2)
 /* 8005958C 0005550C  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80059590 00055510  40 80 00 08 */	bge .L_80059598
 /* 80059594 00055514  D0 1E 01 A0 */	stfs f0, 0x1a0(r30)
 .L_80059598:
-/* 80059598 00055518  C0 22 87 4C */	lfs f1, lbl_800A9ACC@sda21(r2)
+/* 80059598 00055518  C0 22 87 4C */	lfs f1, float_800A9ACC@sda21(r2)
 /* 8005959C 0005551C  C0 1E 01 A0 */	lfs f0, 0x1a0(r30)
-/* 800595A0 00055520  C0 42 87 48 */	lfs f2, lbl_800A9AC8@sda21(r2)
+/* 800595A0 00055520  C0 42 87 48 */	lfs f2, float_800A9AC8@sda21(r2)
 /* 800595A4 00055524  EC 01 00 32 */	fmuls f0, f1, f0
-/* 800595A8 00055528  C0 22 87 34 */	lfs f1, lbl_800A9AB4@sda21(r2)
+/* 800595A8 00055528  C0 22 87 34 */	lfs f1, float_800A9AB4@sda21(r2)
 /* 800595AC 0005552C  EC 02 00 2A */	fadds f0, f2, f0
 /* 800595B0 00055530  EC 01 00 28 */	fsubs f0, f1, f0
 /* 800595B4 00055534  D0 1E 01 A0 */	stfs f0, 0x1a0(r30)
-/* 800595B8 00055538  C0 02 87 30 */	lfs f0, lbl_800A9AB0@sda21(r2)
+/* 800595B8 00055538  C0 02 87 30 */	lfs f0, float_800A9AB0@sda21(r2)
 /* 800595BC 0005553C  FC 00 F8 00 */	fcmpu cr0, f0, f31
 /* 800595C0 00055540  41 82 00 6C */	beq .L_8005962C
-/* 800595C4 00055544  C0 02 87 44 */	lfs f0, lbl_800A9AC4@sda21(r2)
+/* 800595C4 00055544  C0 02 87 44 */	lfs f0, float_800A9AC4@sda21(r2)
 /* 800595C8 00055548  3A 3E 00 00 */	addi r17, r30, 0x0
 /* 800595CC 0005554C  3A 00 00 00 */	li r16, 0x0
 /* 800595D0 00055550  EC 00 07 F2 */	fmuls f0, f0, f31
@@ -814,9 +814,9 @@
 /* 80059D4C 00055CCC  3B E0 00 00 */	li r31, 0x0
 /* 80059D50 00055CD0  48 00 00 04 */	b .L_80059D54
 .L_80059D54:
-/* 80059D54 00055CD4  C3 C2 87 68 */	lfs f30, lbl_800A9AE8@sda21(r2)
-/* 80059D58 00055CD8  C3 E2 87 34 */	lfs f31, lbl_800A9AB4@sda21(r2)
-/* 80059D5C 00055CDC  C3 A2 87 30 */	lfs f29, lbl_800A9AB0@sda21(r2)
+/* 80059D54 00055CD4  C3 C2 87 68 */	lfs f30, float_800A9AE8@sda21(r2)
+/* 80059D58 00055CD8  C3 E2 87 34 */	lfs f31, float_800A9AB4@sda21(r2)
+/* 80059D5C 00055CDC  C3 A2 87 30 */	lfs f29, float_800A9AB0@sda21(r2)
 /* 80059D60 00055CE0  48 00 00 04 */	b .L_80059D64
 .L_80059D64:
 /* 80059D64 00055CE4  48 00 00 88 */	b .L_80059DEC
@@ -895,37 +895,37 @@
 .balign 8
 
 
-.obj lbl_800A9AB0, local
+.obj float_800A9AB0, local
 	.4byte 0
-.endobj lbl_800A9AB0
+.endobj float_800A9AB0
 
-.obj lbl_800A9AB4, local
-	.4byte 0x3F800000
-.endobj lbl_800A9AB4
+.obj float_800A9AB4, local
+	.float 1
+.endobj float_800A9AB4
 
-.obj lbl_800A9AB8, local
+.obj float_800A9AB8, local
 	.4byte 0x3C23D70A
-.endobj lbl_800A9AB8
+.endobj float_800A9AB8
 
-.obj lbl_800A9ABC, local
+.obj float_800A9ABC, local
 	.4byte 0x41200000
-.endobj lbl_800A9ABC
+.endobj float_800A9ABC
 
-.obj lbl_800A9AC0, local
-	.4byte 0x3DCCCCCD
-.endobj lbl_800A9AC0
+.obj float_800A9AC0, local
+	.float 0.1
+.endobj float_800A9AC0
 
-.obj lbl_800A9AC4, local
+.obj float_800A9AC4, local
 	.4byte 0x46FA0000
-.endobj lbl_800A9AC4
+.endobj float_800A9AC4
 
-.obj lbl_800A9AC8, local
+.obj float_800A9AC8, local
 	.4byte 0x3D4CCCCD
-.endobj lbl_800A9AC8
+.endobj float_800A9AC8
 
-.obj lbl_800A9ACC, local
+.obj float_800A9ACC, local
 	.4byte 0x3F4CCCCD
-.endobj lbl_800A9ACC
+.endobj float_800A9ACC
 
 .obj lbl_800A9AD0, local
 	.8byte 0x4330000080000000
@@ -943,10 +943,9 @@
 	.4byte 0x3E99999A
 .endobj value0_3
 
-.obj lbl_800A9AE8, local
+.obj float_800A9AE8, local
 	.4byte 0x3F000000
-	.4byte 0
-.endobj lbl_800A9AE8
+.endobj float_800A9AE8
 
 
 .section extab, "a"  # 0x80005520 - 0x80005BC0

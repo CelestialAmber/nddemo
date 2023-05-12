@@ -71,7 +71,7 @@
 .L_8003F32C:
 /* 8003F32C 0003B2AC  38 00 00 00 */	li r0, 0x0
 .L_8003F330:
-/* 8003F330 0003B2B0  C0 42 85 88 */	lfs f2, lbl_800A9908@sda21(r2)
+/* 8003F330 0003B2B0  C0 42 85 88 */	lfs f2, float_800A9908@sda21(r2)
 /* 8003F334 0003B2B4  1C 60 00 03 */	mulli r3, r0, 0x3
 /* 8003F338 0003B2B8  C0 24 00 00 */	lfs f1, 0x0(r4)
 /* 8003F33C 0003B2BC  C0 04 00 0C */	lfs f0, 0xc(r4)
@@ -488,7 +488,7 @@
 .balign 8
 
 
-.obj lbl_800A9908, local
+.obj float_800A9908, local
 	.4byte 0x44800000
 	.4byte 0
-.endobj lbl_800A9908
+.endobj float_800A9908

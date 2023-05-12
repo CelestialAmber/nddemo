@@ -10,7 +10,7 @@
 /* 8004F8D0 0004B850  3C 00 43 30 */	lis r0, 0x4330
 /* 8004F8D4 0004B854  C8 22 86 58 */	lfd f1, lbl_800A99D8@sda21(r2)
 /* 8004F8D8 0004B858  90 01 00 18 */	stw r0, 0x18(r1)
-/* 8004F8DC 0004B85C  C0 42 86 50 */	lfs f2, lbl_800A99D0@sda21(r2)
+/* 8004F8DC 0004B85C  C0 42 86 50 */	lfs f2, float_800A99D0@sda21(r2)
 /* 8004F8E0 0004B860  C8 01 00 18 */	lfd f0, 0x18(r1)
 /* 8004F8E4 0004B864  EC 00 08 28 */	fsubs f0, f0, f1
 /* 8004F8E8 0004B868  EC 02 00 32 */	fmuls f0, f2, f0
@@ -71,7 +71,7 @@
 /* 8004F9A8 0004B928  EC 40 08 28 */	fsubs f2, f0, f1
 .L_8004F9AC:
 /* 8004F9AC 0004B92C  3C 60 80 09 */	lis r3, synthInfo@ha
-/* 8004F9B0 0004B930  C0 02 86 60 */	lfs f0, lbl_800A99E0@sda21(r2)
+/* 8004F9B0 0004B930  C0 02 86 60 */	lfs f0, float_800A99E0@sda21(r2)
 /* 8004F9B4 0004B934  38 63 EC 38 */	addi r3, r3, synthInfo@l
 /* 8004F9B8 0004B938  C8 22 86 58 */	lfd f1, lbl_800A99D8@sda21(r2)
 /* 8004F9BC 0004B93C  80 63 00 00 */	lwz r3, 0x0(r3)
@@ -95,7 +95,7 @@
 
 
 .obj toneup_tab, local
-	.4byte 0x3F800000
+	.float 1
 	.4byte 0x3F879C80
 	.4byte 0x3F8FACD8
 	.4byte 0x3F9837F0
@@ -226,7 +226,7 @@
 .endobj toneup_tab
 
 .obj tonedown_tab, local
-	.4byte 0x3F800000
+	.float 1
 	.4byte 0x3F71A1C0
 	.4byte 0x3F6411F0
 	.4byte 0x3F574500
@@ -360,20 +360,19 @@
 
 .balign 8
 
-.obj lbl_800A99D0, local
+.obj float_800A99D0, local
 	.4byte 0x3F879C7D
-	.4byte 0
-.endobj lbl_800A99D0
+.endobj float_800A99D0
+
+.4byte 0
 
 .obj lbl_800A99D8, local
-	.4byte 0x43300000
-	.4byte 0
+	.8byte 0x4330000000000000
 .endobj lbl_800A99D8
 
-.obj lbl_800A99E0, local
+.obj float_800A99E0, local
 	.4byte 0x45800000
-	.4byte 0
-.endobj lbl_800A99E0
+.endobj float_800A99E0
 
 .section extab, "a"  # 0x80005520 - 0x80005BC0
 

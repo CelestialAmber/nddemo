@@ -137,7 +137,7 @@
 /* 80019578 000154F8  38 C0 00 00 */	li r6, 0x0
 /* 8001957C 000154FC  38 E0 00 00 */	li r7, 0x0
 /* 80019580 00015500  4B FF EF B1 */	bl InitTexObj__8DGTexManFP9_GXTexObjUs14_GXTexWrapMode14_GXTexWrapMode
-/* 80019584 00015504  C0 22 81 C8 */	lfs f1, lbl_800A9548@sda21(r2)
+/* 80019584 00015504  C0 22 81 C8 */	lfs f1, float_800A9548@sda21(r2)
 /* 80019588 00015508  38 61 00 54 */	addi r3, r1, 0x54
 /* 8001958C 0001550C  38 80 00 00 */	li r4, 0x0
 /* 80019590 00015510  FC 40 08 90 */	fmr f2, f1
@@ -207,18 +207,18 @@
 /* 80019688 00015608  38 A0 00 00 */	li r5, 0x0
 /* 8001968C 0001560C  48 02 6F B1 */	bl GXSetZMode
 /* 80019690 00015610  28 1E 00 00 */	cmplwi r30, 0x0
-/* 80019694 00015614  C3 E2 81 CC */	lfs f31, lbl_800A954C@sda21(r2)
+/* 80019694 00015614  C3 E2 81 CC */	lfs f31, float_800A954C@sda21(r2)
 /* 80019698 00015618  41 82 00 0C */	beq .L_800196A4
 /* 8001969C 0001561C  7F C3 F3 78 */	mr r3, r30
 /* 800196A0 00015620  4B FF E4 11 */	bl GetBaseRenderMode__9DGRendManFv
 .L_800196A4:
-/* 800196A4 00015624  C0 22 81 C8 */	lfs f1, lbl_800A9548@sda21(r2)
+/* 800196A4 00015624  C0 22 81 C8 */	lfs f1, float_800A9548@sda21(r2)
 /* 800196A8 00015628  FC 40 F8 90 */	fmr f2, f31
-/* 800196AC 0001562C  C0 82 81 D0 */	lfs f4, lbl_800A9550@sda21(r2)
+/* 800196AC 0001562C  C0 82 81 D0 */	lfs f4, float_800A9550@sda21(r2)
 /* 800196B0 00015630  38 61 00 10 */	addi r3, r1, 0x10
 /* 800196B4 00015634  FC 60 08 90 */	fmr f3, f1
 /* 800196B8 00015638  FC A0 08 90 */	fmr f5, f1
-/* 800196BC 0001563C  C0 C2 81 D4 */	lfs f6, lbl_800A9554@sda21(r2)
+/* 800196BC 0001563C  C0 C2 81 D4 */	lfs f6, float_800A9554@sda21(r2)
 /* 800196C0 00015640  48 01 69 FD */	bl C_MTXOrtho
 /* 800196C4 00015644  38 61 00 10 */	addi r3, r1, 0x10
 /* 800196C8 00015648  38 80 00 01 */	li r4, 0x1
@@ -327,7 +327,7 @@
 /* 80019828 000157A8  3D 40 43 30 */	lis r10, 0x4330
 /* 8001982C 000157AC  C8 02 81 D8 */	lfd f0, lbl_800A9558@sda21(r2)
 /* 80019830 000157B0  B3 AC 80 00 */	sth r29, -0x8000(r12)
-/* 80019834 000157B4  C0 22 81 D4 */	lfs f1, lbl_800A9554@sda21(r2)
+/* 80019834 000157B4  C0 22 81 D4 */	lfs f1, float_800A9554@sda21(r2)
 /* 80019838 000157B8  A1 3F 00 08 */	lhz r9, 0x8(r31)
 /* 8001983C 000157BC  A0 FF 00 06 */	lhz r7, 0x6(r31)
 /* 80019840 000157C0  91 61 00 CC */	stw r11, 0xcc(r1)
@@ -531,23 +531,22 @@
 
 .balign 8
 
-.obj lbl_800A9548, local
+.obj float_800A9548, local
 	.4byte 0
-.endobj lbl_800A9548
+.endobj float_800A9548
 
-.obj lbl_800A954C, local
+.obj float_800A954C, local
 	.4byte 0x43F00000
-.endobj lbl_800A954C
+.endobj float_800A954C
 
-.obj lbl_800A9550, local
+.obj float_800A9550, local
 	.4byte 0x44200000
-.endobj lbl_800A9550
+.endobj float_800A9550
 
-.obj lbl_800A9554, local
-	.4byte 0x3F800000
-.endobj lbl_800A9554
+.obj float_800A9554, local
+	.float 1
+.endobj float_800A9554
 
 .obj lbl_800A9558, local
-	.4byte 0x43300000
-	.4byte 0
+	.8byte 0x4330000000000000
 .endobj lbl_800A9558

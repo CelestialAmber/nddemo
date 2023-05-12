@@ -13,14 +13,14 @@
 /* 80012B18 0000EA98  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 80012B1C 0000EA9C  93 E1 00 14 */	stw r31, 0x14(r1)
 /* 80012B20 0000EAA0  3B E3 00 00 */	addi r31, r3, 0x0
-/* 80012B24 0000EAA4  C0 42 81 10 */	lfs f2, lbl_800A9490@sda21(r2)
+/* 80012B24 0000EAA4  C0 42 81 10 */	lfs f2, float_800A9490@sda21(r2)
 /* 80012B28 0000EAA8  D0 43 00 00 */	stfs f2, 0x0(r3)
 /* 80012B2C 0000EAAC  FC 60 10 90 */	fmr f3, f2
 /* 80012B30 0000EAB0  D0 43 00 04 */	stfs f2, 0x4(r3)
 /* 80012B34 0000EAB4  D0 5F 00 08 */	stfs f2, 0x8(r31)
 /* 80012B38 0000EAB8  D0 5F 00 0C */	stfs f2, 0xc(r31)
 /* 80012B3C 0000EABC  D0 5F 00 10 */	stfs f2, 0x10(r31)
-/* 80012B40 0000EAC0  C0 22 81 14 */	lfs f1, lbl_800A9494@sda21(r2)
+/* 80012B40 0000EAC0  C0 22 81 14 */	lfs f1, float_800A9494@sda21(r2)
 /* 80012B44 0000EAC4  D0 3F 00 14 */	stfs f1, 0x14(r31)
 /* 80012B48 0000EAC8  98 BF 00 18 */	stb r5, 0x18(r31)
 /* 80012B4C 0000EACC  98 BF 00 19 */	stb r5, 0x19(r31)
@@ -30,12 +30,12 @@
 /* 80012B5C 0000EADC  98 1F 00 35 */	stb r0, 0x35(r31)
 /* 80012B60 0000EAE0  98 9F 00 36 */	stb r4, 0x36(r31)
 /* 80012B64 0000EAE4  98 9F 00 37 */	stb r4, 0x37(r31)
-/* 80012B68 0000EAE8  C0 02 81 18 */	lfs f0, lbl_800A9498@sda21(r2)
+/* 80012B68 0000EAE8  C0 02 81 18 */	lfs f0, float_800A9498@sda21(r2)
 /* 80012B6C 0000EAEC  D0 1F 00 38 */	stfs f0, 0x38(r31)
 /* 80012B70 0000EAF0  48 00 03 19 */	bl SetAngleAttenuation__7DGLightFfff
-/* 80012B74 0000EAF4  C0 42 81 10 */	lfs f2, lbl_800A9490@sda21(r2)
+/* 80012B74 0000EAF4  C0 42 81 10 */	lfs f2, float_800A9490@sda21(r2)
 /* 80012B78 0000EAF8  7F E3 FB 78 */	mr r3, r31
-/* 80012B7C 0000EAFC  C0 22 81 14 */	lfs f1, lbl_800A9494@sda21(r2)
+/* 80012B7C 0000EAFC  C0 22 81 14 */	lfs f1, float_800A9494@sda21(r2)
 /* 80012B80 0000EB00  FC 60 10 90 */	fmr f3, f2
 /* 80012B84 0000EB04  48 00 02 95 */	bl SetDistanceAttenuation__7DGLightFfff
 /* 80012B88 0000EB08  80 01 00 1C */	lwz r0, 0x1c(r1)
@@ -122,9 +122,9 @@
 /* 80012CB0 0000EC30  48 02 AF 89 */	bl GXInitLightAttn
 /* 80012CB4 0000EC34  48 00 00 70 */	b .L_80012D24
 .L_80012CB8:
-/* 80012CB8 0000EC38  C0 42 81 10 */	lfs f2, lbl_800A9490@sda21(r2)
+/* 80012CB8 0000EC38  C0 42 81 10 */	lfs f2, float_800A9490@sda21(r2)
 /* 80012CBC 0000EC3C  38 61 00 60 */	addi r3, r1, 0x60
-/* 80012CC0 0000EC40  C0 22 81 14 */	lfs f1, lbl_800A9494@sda21(r2)
+/* 80012CC0 0000EC40  C0 22 81 14 */	lfs f1, float_800A9494@sda21(r2)
 /* 80012CC4 0000EC44  FC 60 10 90 */	fmr f3, f2
 /* 80012CC8 0000EC48  C0 9D 00 1C */	lfs f4, 0x1c(r29)
 /* 80012CCC 0000EC4C  C0 BD 00 20 */	lfs f5, 0x20(r29)
@@ -142,10 +142,10 @@
 /* 80012CF8 0000EC78  48 02 AF 89 */	bl GXInitSpecularDir
 /* 80012CFC 0000EC7C  C0 5D 00 38 */	lfs f2, 0x38(r29)
 /* 80012D00 0000EC80  38 61 00 60 */	addi r3, r1, 0x60
-/* 80012D04 0000EC84  C0 02 81 1C */	lfs f0, lbl_800A949C@sda21(r2)
-/* 80012D08 0000EC88  C0 22 81 10 */	lfs f1, lbl_800A9490@sda21(r2)
+/* 80012D04 0000EC84  C0 02 81 1C */	lfs f0, float_800A949C@sda21(r2)
+/* 80012D08 0000EC88  C0 22 81 10 */	lfs f1, float_800A9490@sda21(r2)
 /* 80012D0C 0000EC8C  EC 82 00 32 */	fmuls f4, f2, f0
-/* 80012D10 0000EC90  C0 62 81 14 */	lfs f3, lbl_800A9494@sda21(r2)
+/* 80012D10 0000EC90  C0 62 81 14 */	lfs f3, float_800A9494@sda21(r2)
 /* 80012D14 0000EC94  FC 40 08 90 */	fmr f2, f1
 /* 80012D18 0000EC98  FC A0 08 90 */	fmr f5, f1
 /* 80012D1C 0000EC9C  EC C3 20 28 */	fsubs f6, f3, f4
@@ -244,14 +244,14 @@
 
 .fn SetDistanceAttenuation_0__7DGLightFf, global
 /* 80012E28 0000EDA8  D0 23 00 1C */	stfs f1, 0x1c(r3)
-/* 80012E2C 0000EDAC  C0 02 81 10 */	lfs f0, lbl_800A9490@sda21(r2)
+/* 80012E2C 0000EDAC  C0 02 81 10 */	lfs f0, float_800A9490@sda21(r2)
 /* 80012E30 0000EDB0  D0 03 00 20 */	stfs f0, 0x20(r3)
 /* 80012E34 0000EDB4  D0 03 00 24 */	stfs f0, 0x24(r3)
 /* 80012E38 0000EDB8  4E 80 00 20 */	blr
 .endfn SetDistanceAttenuation_0__7DGLightFf
 
 .fn SetDistanceAttenuation_1__7DGLightFfff, global
-/* 80012E3C 0000EDBC  C0 82 81 10 */	lfs f4, lbl_800A9490@sda21(r2)
+/* 80012E3C 0000EDBC  C0 82 81 10 */	lfs f4, float_800A9490@sda21(r2)
 /* 80012E40 0000EDC0  FC 04 10 00 */	fcmpu cr0, f4, f2
 /* 80012E44 0000EDC4  4D 82 00 20 */	beqlr
 /* 80012E48 0000EDC8  EC 03 08 28 */	fsubs f0, f3, f1
@@ -263,7 +263,7 @@
 .endfn SetDistanceAttenuation_1__7DGLightFfff
 
 .fn SetDistanceAttenuation_2__7DGLightFfff, global
-/* 80012E60 0000EDE0  C0 82 81 10 */	lfs f4, lbl_800A9490@sda21(r2)
+/* 80012E60 0000EDE0  C0 82 81 10 */	lfs f4, float_800A9490@sda21(r2)
 /* 80012E64 0000EDE4  FC 04 10 00 */	fcmpu cr0, f4, f2
 /* 80012E68 0000EDE8  4D 82 00 20 */	beqlr
 /* 80012E6C 0000EDEC  EC 63 08 28 */	fsubs f3, f3, f1
@@ -290,13 +290,13 @@
 /* 80012EA8 0000EE28  FF E0 10 90 */	fmr f31, f2
 /* 80012EAC 0000EE2C  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 80012EB0 0000EE30  7C 7F 1B 78 */	mr r31, r3
-/* 80012EB4 0000EE34  C0 62 81 20 */	lfs f3, lbl_800A94A0@sda21(r2)
-/* 80012EB8 0000EE38  C0 02 81 24 */	lfs f0, lbl_800A94A4@sda21(r2)
+/* 80012EB4 0000EE34  C0 62 81 20 */	lfs f3, float_800A94A0@sda21(r2)
+/* 80012EB8 0000EE38  C0 02 81 24 */	lfs f0, float_800A94A4@sda21(r2)
 /* 80012EBC 0000EE3C  EC 23 00 72 */	fmuls f1, f3, f1
 /* 80012EC0 0000EE40  EC 21 00 24 */	fdivs f1, f1, f0
 /* 80012EC4 0000EE44  48 04 F8 BD */	bl cosf
-/* 80012EC8 0000EE48  C0 42 81 14 */	lfs f2, lbl_800A9494@sda21(r2)
-/* 80012ECC 0000EE4C  C0 62 81 10 */	lfs f3, lbl_800A9490@sda21(r2)
+/* 80012EC8 0000EE48  C0 42 81 14 */	lfs f2, float_800A9494@sda21(r2)
+/* 80012ECC 0000EE4C  C0 62 81 10 */	lfs f3, float_800A9490@sda21(r2)
 /* 80012ED0 0000EE50  EC 02 08 28 */	fsubs f0, f2, f1
 /* 80012ED4 0000EE54  FC 03 00 00 */	fcmpu cr0, f3, f0
 /* 80012ED8 0000EE58  41 82 00 20 */	beq .L_80012EF8
@@ -324,14 +324,14 @@
 /* 80012F20 0000EEA0  FF E0 10 90 */	fmr f31, f2
 /* 80012F24 0000EEA4  93 E1 00 1C */	stw r31, 0x1c(r1)
 /* 80012F28 0000EEA8  7C 7F 1B 78 */	mr r31, r3
-/* 80012F2C 0000EEAC  C0 62 81 20 */	lfs f3, lbl_800A94A0@sda21(r2)
-/* 80012F30 0000EEB0  C0 02 81 24 */	lfs f0, lbl_800A94A4@sda21(r2)
+/* 80012F2C 0000EEAC  C0 62 81 20 */	lfs f3, float_800A94A0@sda21(r2)
+/* 80012F30 0000EEB0  C0 02 81 24 */	lfs f0, float_800A94A4@sda21(r2)
 /* 80012F34 0000EEB4  EC 23 00 72 */	fmuls f1, f3, f1
 /* 80012F38 0000EEB8  EC 21 00 24 */	fdivs f1, f1, f0
 /* 80012F3C 0000EEBC  48 04 F8 45 */	bl cosf
 /* 80012F40 0000EEC0  EC 21 00 72 */	fmuls f1, f1, f1
-/* 80012F44 0000EEC4  C0 02 81 14 */	lfs f0, lbl_800A9494@sda21(r2)
-/* 80012F48 0000EEC8  C0 42 81 10 */	lfs f2, lbl_800A9490@sda21(r2)
+/* 80012F44 0000EEC4  C0 02 81 14 */	lfs f0, float_800A9494@sda21(r2)
+/* 80012F48 0000EEC8  C0 42 81 10 */	lfs f2, float_800A9490@sda21(r2)
 /* 80012F4C 0000EECC  EC 20 08 28 */	fsubs f1, f0, f1
 /* 80012F50 0000EED0  FC 02 08 00 */	fcmpu cr0, f2, f1
 /* 80012F54 0000EED4  41 82 00 98 */	beq .L_80012FEC
@@ -369,7 +369,7 @@
 /* 80012FD4 0000EF54  C0 81 00 14 */	lfs f4, 0x14(r1)
 .L_80012FD8:
 /* 80012FD8 0000EF58  D0 9F 00 30 */	stfs f4, 0x30(r31)
-/* 80012FDC 0000EF5C  C0 02 81 14 */	lfs f0, lbl_800A9494@sda21(r2)
+/* 80012FDC 0000EF5C  C0 02 81 14 */	lfs f0, float_800A9494@sda21(r2)
 /* 80012FE0 0000EF60  EC 00 28 28 */	fsubs f0, f0, f5
 /* 80012FE4 0000EF64  EC 1F 00 32 */	fmuls f0, f31, f0
 /* 80012FE8 0000EF68  D0 1F 00 28 */	stfs f0, 0x28(r31)
@@ -386,36 +386,34 @@
 
 .balign 8
 
-.obj lbl_800A9490, local
+.obj float_800A9490, local
 	.4byte 0
-.endobj lbl_800A9490
+.endobj float_800A9490
 
-.obj lbl_800A9494, local
-	.4byte 0x3F800000
-.endobj lbl_800A9494
+.obj float_800A9494, local
+	.float 1
+.endobj float_800A9494
 
-.obj lbl_800A9498, local
+.obj float_800A9498, local
 	.4byte 0x42000000
-.endobj lbl_800A9498
+.endobj float_800A9498
 
-.obj lbl_800A949C, local
+.obj float_800A949C, local
 	.4byte 0x3F000000
-.endobj lbl_800A949C
+.endobj float_800A949C
 
-.obj lbl_800A94A0, local
+.obj float_800A94A0, local
 	.4byte 0x40490FDB
-.endobj lbl_800A94A0
+.endobj float_800A94A0
 
-.obj lbl_800A94A4, local
+.obj float_800A94A4, local
 	.4byte 0x43340000
-.endobj lbl_800A94A4
+.endobj float_800A94A4
 
 .obj lbl_800A94A8, local
-	.4byte 0x3FE00000
-	.4byte 0
+	.8byte 0x3FE0000000000000
 .endobj lbl_800A94A8
 
 .obj lbl_800A94B0, local
-	.4byte 0x40080000
-	.4byte 0
+	.8byte 0x4008000000000000
 .endobj lbl_800A94B0

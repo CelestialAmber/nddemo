@@ -5,9 +5,12 @@
 extern "C" {
 #endif // ifdef __cplusplus
 
+extern int __double_min[];
 extern int __double_max[];
+extern int __double_epsilon[];
 extern int __extended_min[];
 extern int __extended_max[];
+extern int __extended_epsilon[];
 extern int __float_max[];
 extern int __float_epsilon[];
 
@@ -18,9 +21,9 @@ extern int __float_epsilon[];
 #define FLT_MAX_EXP 128
 #define FLT_MAX_10_EXP 38
 
-#define FLT_MAX 0x1.fffffeP127F
-#define FLT_EPSILON 0x1.000000P-23F
-#define FLT_MIN 0x1.000000P-126F
+#define FLT_MAX 3.402823466e+38F
+#define FLT_EPSILON 1.192092896e-07F
+#define FLT_MIN 1.175494351e-38F
 
 
 #define DBL_MANT_DIG 53
@@ -30,9 +33,9 @@ extern int __float_epsilon[];
 #define DBL_MAX_EXP 1024
 #define DBL_MAX_10_EXP 308
 
-#define DBL_MAX 0x1.fffffffffffffP1023
-#define DBL_EPSILON 0x1.0000000000000P-52
-#define DBL_MIN 0x1.0000000000000P-1022
+#define DBL_MAX (*(double *)__double_max)
+#define DBL_EPSILON (*(double*)__double_epsilon)
+#define DBL_MIN (*(double*)__double_min)
 
 
 #define LDBL_MANT_DIG 53
@@ -42,9 +45,9 @@ extern int __float_epsilon[];
 #define LDBL_MAX_EXP 1024
 #define LDBL_MAX_10_EXP 308
 
-#define LDBL_MAX 0x1.fffffffffffffP1023L
-#define LDBL_EPSILON 0x1.0000000000000P-52L
-#define LDBL_MIN 0x1.0000000000000P-1022L
+#define LDBL_MAX (*(long double*)__extended_max)
+#define LDBL_EPSILON (* (long double*)__extended_epsilon)
+#define LDBL_MIN (*(long double*)__extended_min)
 
 #ifdef __cplusplus
 };

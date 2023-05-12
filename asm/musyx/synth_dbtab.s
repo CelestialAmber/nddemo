@@ -492,6 +492,6 @@
 	.4byte 0x3F740C63
 	.4byte 0x3F780022
 	.4byte 0x3F7BFC01
-	.4byte 0x3F800000
-	.4byte 0x3F800000
+	.float 1
+	.float 1
 .endobj dspDLSVolTab

@@ -859,9 +859,9 @@
 /* 80017D0C 00013C8C  A0 85 00 08 */	lhz r4, 0x8(r5)
 /* 80017D10 00013C90  A0 05 00 04 */	lhz r0, 0x4(r5)
 /* 80017D14 00013C94  90 81 00 1C */	stw r4, 0x1c(r1)
-/* 80017D18 00013C98  C0 22 81 60 */	lfs f1, lbl_800A94E0@sda21(r2)
+/* 80017D18 00013C98  C0 22 81 60 */	lfs f1, float_800A94E0@sda21(r2)
 /* 80017D1C 00013C9C  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80017D20 00013CA0  C0 02 81 64 */	lfs f0, lbl_800A94E4@sda21(r2)
+/* 80017D20 00013CA0  C0 02 81 64 */	lfs f0, float_800A94E4@sda21(r2)
 /* 80017D24 00013CA4  90 61 00 18 */	stw r3, 0x18(r1)
 /* 80017D28 00013CA8  90 61 00 10 */	stw r3, 0x10(r1)
 /* 80017D2C 00013CAC  C8 61 00 18 */	lfd f3, 0x18(r1)
@@ -1078,15 +1078,15 @@
 .endobj m_ScissorH__9DGRendMan
 
 .obj m_ViewportW__9DGRendMan, global
-	.4byte 0x3F800000
+	.float 1
 .endobj m_ViewportW__9DGRendMan
 
 .obj m_ViewportH__9DGRendMan, global
-	.4byte 0x3F800000
+	.float 1
 .endobj m_ViewportH__9DGRendMan
 
 .obj m_ViewportF__9DGRendMan, global
-	.4byte 0x3F800000
+	.float 1
 .endobj m_ViewportF__9DGRendMan
 
 .obj m_DispCopySrcW__9DGRendMan, global
@@ -1098,7 +1098,7 @@
 .endobj m_DispCopySrcH__9DGRendMan
 
 .obj m_DispCopyYScale__9DGRendMan, global
-	.4byte 0x3F800000
+	.float 1
 .endobj m_DispCopyYScale__9DGRendMan
 
 .obj m_DispCopyDstW__9DGRendMan, global
@@ -1121,17 +1121,16 @@
 
 .balign 8
 
-.obj lbl_800A94E0, local
+.obj float_800A94E0, local
 	.4byte 0
-.endobj lbl_800A94E0
+.endobj float_800A94E0
 
-.obj lbl_800A94E4, local
-	.4byte 0x3F800000
-.endobj lbl_800A94E4
+.obj float_800A94E4, local
+	.float 1
+.endobj float_800A94E4
 
 .obj lbl_800A94E8, local
-	.4byte 0x43300000
-	.4byte 0
+	.8byte 0x4330000000000000
 .endobj lbl_800A94E8
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0

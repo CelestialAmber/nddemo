@@ -614,7 +614,7 @@
 /* 80057D64 00053CE4  93 E1 00 64 */	stw r31, 0x64(r1)
 /* 80057D68 00053CE8  93 C1 00 60 */	stw r30, 0x60(r1)
 /* 80057D6C 00053CEC  3B C5 00 00 */	addi r30, r5, 0x0
-/* 80057D70 00053CF0  C0 02 87 18 */	lfs f0, lbl_800A9A98@sda21(r2)
+/* 80057D70 00053CF0  C0 02 87 18 */	lfs f0, float_800A9A98@sda21(r2)
 /* 80057D74 00053CF4  80 6D 88 34 */	lwz r3, dspVoice@sda21(r13)
 /* 80057D78 00053CF8  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 80057D7C 00053CFC  7F E3 02 14 */	add r31, r3, r0
@@ -622,13 +622,13 @@
 /* 80057D84 00053D04  40 82 00 08 */	bne .L_80057D8C
 /* 80057D88 00053D08  FC 20 00 90 */	fmr f1, f0
 .L_80057D8C:
-/* 80057D8C 00053D0C  C0 02 87 18 */	lfs f0, lbl_800A9A98@sda21(r2)
+/* 80057D8C 00053D0C  C0 02 87 18 */	lfs f0, float_800A9A98@sda21(r2)
 /* 80057D90 00053D10  FC 02 00 40 */	fcmpo cr0, f2, f0
 /* 80057D94 00053D14  4C 41 13 82 */	cror eq, gt, eq
 /* 80057D98 00053D18  40 82 00 08 */	bne .L_80057DA0
 /* 80057D9C 00053D1C  FC 40 00 90 */	fmr f2, f0
 .L_80057DA0:
-/* 80057DA0 00053D20  C0 02 87 18 */	lfs f0, lbl_800A9A98@sda21(r2)
+/* 80057DA0 00053D20  C0 02 87 18 */	lfs f0, float_800A9A98@sda21(r2)
 /* 80057DA4 00053D24  FC 03 00 40 */	fcmpo cr0, f3, f0
 /* 80057DA8 00053D28  4C 41 13 82 */	cror eq, gt, eq
 /* 80057DAC 00053D2C  40 82 00 08 */	bne .L_80057DB4
@@ -652,7 +652,7 @@
 /* 80057DF0 00053D70  38 81 00 24 */	addi r4, r1, 0x24
 /* 80057DF4 00053D74  54 08 D9 7E */	srwi r8, r0, 5
 /* 80057DF8 00053D78  4B FF BA F1 */	bl salCalcVolume
-/* 80057DFC 00053D7C  C0 62 87 1C */	lfs f3, lbl_800A9A9C@sda21(r2)
+/* 80057DFC 00053D7C  C0 62 87 1C */	lfs f3, float_800A9A9C@sda21(r2)
 /* 80057E00 00053D80  C0 41 00 24 */	lfs f2, 0x24(r1)
 /* 80057E04 00053D84  C0 21 00 28 */	lfs f1, 0x28(r1)
 /* 80057E08 00053D88  C0 01 00 2C */	lfs f0, 0x2c(r1)
@@ -693,7 +693,7 @@
 /* 80057E90 00053E10  90 7F 00 24 */	stw r3, 0x24(r31)
 /* 80057E94 00053E14  98 1F 00 E5 */	stb r0, 0xe5(r31)
 .L_80057E98:
-/* 80057E98 00053E18  C0 62 87 1C */	lfs f3, lbl_800A9A9C@sda21(r2)
+/* 80057E98 00053E18  C0 62 87 1C */	lfs f3, float_800A9A9C@sda21(r2)
 /* 80057E9C 00053E1C  C0 41 00 30 */	lfs f2, 0x30(r1)
 /* 80057EA0 00053E20  C0 21 00 34 */	lfs f1, 0x34(r1)
 /* 80057EA4 00053E24  C0 01 00 38 */	lfs f0, 0x38(r1)
@@ -734,7 +734,7 @@
 /* 80057F2C 00053EAC  90 7F 00 24 */	stw r3, 0x24(r31)
 /* 80057F30 00053EB0  98 1F 00 E6 */	stb r0, 0xe6(r31)
 .L_80057F34:
-/* 80057F34 00053EB4  C0 62 87 1C */	lfs f3, lbl_800A9A9C@sda21(r2)
+/* 80057F34 00053EB4  C0 62 87 1C */	lfs f3, float_800A9A9C@sda21(r2)
 /* 80057F38 00053EB8  C0 41 00 3C */	lfs f2, 0x3c(r1)
 /* 80057F3C 00053EBC  C0 21 00 40 */	lfs f1, 0x40(r1)
 /* 80057F40 00053EC0  C0 01 00 44 */	lfs f0, 0x44(r1)
@@ -998,7 +998,7 @@
 /* 800582A4 00054224  C8 01 00 18 */	lfd f0, 0x18(r1)
 /* 800582A8 00054228  90 61 00 10 */	stw r3, 0x10(r1)
 /* 800582AC 0005422C  EC 20 10 28 */	fsubs f1, f0, f2
-/* 800582B0 00054230  C0 62 87 20 */	lfs f3, lbl_800A9AA0@sda21(r2)
+/* 800582B0 00054230  C0 62 87 20 */	lfs f3, float_800A9AA0@sda21(r2)
 /* 800582B4 00054234  C8 01 00 10 */	lfd f0, 0x10(r1)
 /* 800582B8 00054238  EC 23 00 72 */	fmuls f1, f3, f1
 /* 800582BC 0005423C  EC 00 10 28 */	fsubs f0, f0, f2
@@ -1235,22 +1235,22 @@
 .balign 8
 
 
-.obj lbl_800A9A98, local
-	.4byte 0x3F800000
-.endobj lbl_800A9A98
+.obj float_800A9A98, local
+	.float 1
+.endobj float_800A9A98
 
-.obj lbl_800A9A9C, local
+.obj float_800A9A9C, local
 	.4byte 0x46FFFE00
-.endobj lbl_800A9A9C
+.endobj float_800A9A9C
 
-.obj lbl_800A9AA0, local
+.obj float_800A9AA0, local
 	.4byte 0x45800000
-	.4byte 0
-.endobj lbl_800A9AA0
+.endobj float_800A9AA0
+
+.4byte 0
 
 .obj lbl_800A9AA8, local
-	.4byte 0x43300000
-	.4byte 0
+	.8byte 0x4330000000000000
 .endobj lbl_800A9AA8
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
