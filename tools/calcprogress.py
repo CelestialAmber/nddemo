@@ -3,7 +3,7 @@
 ################################################################################
 #                                 Description                                  #
 ################################################################################
-# calcprogress: Used to calculate the progress of the Xenoblade decomp.        #
+# calcprogress: Used to calculate the progress of the NDDEMO decomp.           #
 # Prints to stdout for now, but eventually will have some form of storage,     #
 # i.e. CSV, so that it can be used for a webpage display.                      #
 #                                                                              #
@@ -25,7 +25,6 @@ import math
 import csv
 import json
 import argparse
-from pathlib import Path
 from datetime import datetime
 
 ###############################################
@@ -54,7 +53,7 @@ MW_GC_SYMBOL_REGEX = r"^\s*"\
     r"(?P<Symbol>[0-9A-Za-z_<>$@.*]*)\s*"\
     r"(?P<Object>[\S ]*)"
 
-REGEX_TO_USE = MW_WII_SYMBOL_REGEX
+REGEX_TO_USE = MW_GC_SYMBOL_REGEX
 
 TEXT_SECTIONS = ["init", "text"]
 DATA_SECTIONS = [
@@ -62,8 +61,6 @@ DATA_SECTIONS = [
     "ctors", "_ctors", "dtors", "ctors$99", "_ctors$99", "ctors$00", "dtors$99",
     "extab_", "extabindex_", "_extab", "_exidx", "extab", "extabindex"
 ]
-
-LIBS = ["CriWare", "NdevExi2A", "nw4r", "PowerPC_EABI_Support", "RVL_SDK", "mm", "monolithlib"]
 
 # DOL info
 TEXT_SECTION_COUNT = 7
@@ -73,10 +70,10 @@ SECTION_TEXT = 0
 SECTION_DATA = 1
 
 # Progress flavor
-CODE_FRAC = 200                 # total code "item" amount
-DATA_FRAC = 21                  # total data "item" amount
-CODE_ITEM = "achievements"      # code flavor item
-DATA_ITEM = "collectopaedias"   # data flavor item
+CODE_FRAC = 100          # total code "item" amount
+DATA_FRAC = 8            # total data "item" amount
+CODE_ITEM = "Coins"      # code flavor item
+DATA_ITEM = "areas"      # data flavor item
 
 CSV_FILE_NAME = 'progress.csv'
 CSV_FILE_PATH = f'./tools/{CSV_FILE_NAME}'
@@ -172,7 +169,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Calculate progress.")
     parser.add_argument("dol", help="Path to DOL")
     parser.add_argument("map", help="Path to map")
-    parser.add_argument("build", help="Path to build")
     parser.add_argument("-o", "--output", help="JSON output file")
     args = parser.parse_args()
 
@@ -220,12 +216,6 @@ if __name__ == "__main__":
     mapfile = open(sys.argv[2], "r")
     symbols = mapfile.readlines()
 
-    src_o_files = list(Path(sys.argv[3] + "/src").rglob("*.o"))
-    
-    #Get all the src o files from the libs folder
-    for libName in LIBS:
-        src_o_files.append(list(Path(sys.argv[3] + "/libs/" + libName + "/src").rglob("*.o")))
-
     decomp_code_size = 0
     decomp_data_size = 0
     section_type = None
@@ -270,32 +260,23 @@ if __name__ == "__main__":
             # Has the object file changed?
             last_object = cur_object
             cur_object = match_obj.group("Object").strip()
-            if last_object == cur_object:
+            if last_object != cur_object or cur_object.endswith(" (asm)"):
                 continue
+            # Is the symbol a file-wide section?
             symb = match_obj.group("Symbol")
-            is_file_symbol = (symb.startswith(".") and symb[1:] in TEXT_SECTIONS or symb[1:] in DATA_SECTIONS)
-
-            if (symb.startswith("*fill*")) or not is_file_symbol:
+            if (symb.startswith("*fill*")) or (symb.startswith(".") and symb[1:] in TEXT_SECTIONS or symb[1:] in DATA_SECTIONS):
                 continue
-
-            # Subtract the size of the symbol if the object file is in the asm folder
-            # TODO: see if there's a better way to do this
+            # Subtract size of symbols ending in ".o", as they're assembly.
             if match_obj.group("Object").endswith(".o") == True:
-                in_asm_file = True
-                object_parts = match_obj.group("Object").strip().split(" ")
-                lib_name = object_parts[0].replace(".a","")
-                object_name = object_parts[1]
-
-                #If we find the object file in the src folder, don't subtract the symbol size
-                for src_o_file in src_o_files:
-                    file_path = str(src_o_file)
-                
-                    if lib_name in file_path and object_name in file_path:
-                        in_asm_file = False
-                
-                if in_asm_file == True:
-                    continue
-            
+                if j == i - 1:
+                    if section_type == SECTION_TEXT:
+                        decomp_code_size -= cur_size
+                    else:
+                        decomp_data_size -= cur_size
+                    cur_size = 0
+                    #print(f"Line* {j}: {symbols[j]}")
+                #print(f"Line {i}: {symbols[i]}")
+                continue
             # For sections that don't start with "."
             if (symb in DATA_SECTIONS):
                 continue
@@ -315,7 +296,7 @@ if __name__ == "__main__":
 
     codeCount = math.floor(decomp_code_size / bytesPerCodeItem)
     dataCount = math.floor(decomp_data_size / bytesPerDataItem)
-
+    
     # Math for aligning percentage prints
     codeDigitsD = (countDigits(decomp_code_size))
     dataDigitsD = (countDigits(decomp_data_size))
@@ -337,7 +318,7 @@ if __name__ == "__main__":
     print(f"{dataStrA + ' ' * (maxDigitsD-dataDigitsD) + dataStrB + ' ' * (maxDigits-dataDigits) + dataStrC}")
     # print(f"\tData sections: {decomp_data_size} / {dol_data_size} bytes in src ({dataCompletionPcnt:%})")
 
-    sentence = f"\nYou have {codeCount} out of {CODE_FRAC} {CODE_ITEM} and {dataCount} out of {DATA_FRAC} {DATA_ITEM}."
+    sentence = f"\nYou have {codeCount} out of {CODE_FRAC} {CODE_ITEM} and have visited {dataCount} out of {DATA_FRAC} {DATA_ITEM}."
     print(sentence)
 
     if args.output:

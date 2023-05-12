@@ -26,9 +26,6 @@ VERSION ?= 1
 VERSION := jp
 
 BUILD_DIR := build/$(NAME)
-ifeq ($(EPILOGUE_PROCESS),1)
-EPILOGUE_DIR := epilogue/$(NAME)
-endif
 
 # Inputs
 S_FILES := $(wildcard asm/*.s)
@@ -148,7 +145,7 @@ $(DOL): $(ELF) | $(DTK)
 	$(QUIET) $(ELF2DOL) $< $@
 	$(QUIET) $(SHASUM) -c sha1/$(NAME).sha1
 ifneq ($(findstring -map,$(LDFLAGS)),)
-	$(QUIET) $(PYTHON) tools/calcprogress.py $@ $(MAP)
+	$(QUIET) $(PYTHON) tools/calcprogress.py $(DOL) $(MAP)
 endif
 
 clean:
@@ -173,16 +170,7 @@ $(ELF): $(O_FILES) $(LDSCRIPT_DOL)
 endif
 
 
-%.d.unix: %.d $(TRANSFORM_DEP)
-	@echo Processing $<
-	$(QUIET) $(PYTHON) $(TRANSFORM_DEP) $< $@
-
 -include include_link.mk
-
-DEPENDS := $(DEPENDS:.d=.d.unix)
-ifneq ($(MAKECMDGOALS), clean)
--include $(DEPENDS)
-endif
 
 
 $(BUILD_DIR)/%.o: %.s | $(DTK)

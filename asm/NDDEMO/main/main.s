@@ -233,5 +233,3 @@
 .obj v_flag, global
 	.skip 0x1
 .endobj v_flag
-
-.skip 7
