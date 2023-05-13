@@ -2,6 +2,24 @@
 
 #include "types"
 
+class CSong{
+public:
+    s32 m_SongId;
+    u32 m_SeqId;
+    u8* m_buffer;
+    s32 m_flag;
+
+    GetSongValid__5CSongFv //unused
+    DelayDeleteBuffer__5CSongFv
+    PlaySong__5CSongFUs
+    ReadBuffer__5CSongFlPc
+    DeleteBuffer__5CSongFv
+    InitBuffer__5CSongFl //unused
+
+    __ct__5CSongFv
+    __ct__5CSongFRC5CSong //unused
+};
+
 struct _SND_REVHI_DELAYLINE{
     s32 inPoint; //0x0
     s32 outPoint; //0x4
@@ -66,22 +84,14 @@ struct _SND_CHORUS_WORK{
 };
 
 struct SND_AUX_CHORUS{
-    u8 work[0x90]; //0x0
+    _SND_CHORUS_WORK work; //0x0
     u32 baseDelay; //0x90
     u32 variation; //0x94
     u32 period; //0x98
 };
 
-class CSong{
-public:
-    s32 m_SongId;
-    u32 m_SeqId;
-    u8* m_buffer;
-    s32 m_flag;
-};
-
 class DAudio{
-public:
+private:
     u32 m_aramMemArray[2]; //0x0
     u8* m_poolBuffer; //0x8
     u8* m_projBuffer; //0xC
@@ -95,5 +105,42 @@ public:
     u8 unk21[3]; //filler?
     SND_AUX_REVERBHI revH; //0x24
     SND_AUX_CHORUS cho; //0x204
+
+public:
     s32 m_autoDemoFlag; //0x2A0
+
+
+    ReadDataAlloc__6DAudioFPc
+    Quit__6DAudioFv
+    ResetFade__6DAudioFv
+    GetMuteSe__6DAudioFv
+    GetMuteSequence__6DAudioFv
+    SetMuteSe__6DAudioFl
+    SetMuteSequence__6DAudioFl
+    Manager__6DAudioFv
+    SongStop__6DAudioFv
+    MuteAll__6DAudioFl
+    SetAutoDemo__6DAudioFl
+    SetSongGroupId__6DAudioFUs
+    Fall__6DAudioFv
+    Jump__6DAudioFv
+    DoorKnock__6DAudioFv
+    DoorOpen__6DAudioFv
+    Coin__6DAudioFv
+    PlaySong__6DAudioFP5CSong
+    PlaySongFadeOut__6DAudioFv
+    ReadDataAll__6DAudioFP11DVDFileInfoPv
+    InitSongBuffer__6DAudioFv
+    FreeSampBuffer__6DAudioFv
+    PushGroupData__6DAudioFUs
+    ReadSampData__6DAudioFPc
+    ReadSdirData__6DAudioFPc
+    ReadProjData__6DAudioFPc
+    ReadPoolData__6DAudioFPc
+    ReadMusyXData__6DAudioFPPUcPc
+    Initialize__6DAudioFv
+
+    __dt__6DAudioFv
+    __ct__6DAudioFv
+    __ct__6DAudioFRC6DAudio
 };
