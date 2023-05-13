@@ -4252,8 +4252,9 @@
 	.2byte 0x2000
 .endobj "kf$475"
 
+.2byte 0
+
 .obj midi2TimeTab, local
-	.2byte 0
 	.4byte 0
 	.4byte 0x0000000A
 	.4byte 0x00000014
@@ -4381,10 +4382,9 @@
 	.4byte 0x00029810
 	.4byte 0x0002AB98
 	.4byte 0x0002BF20
-	.2byte 0
+	.4byte 0
 .endobj midi2TimeTab
 
-.2byte 0
 .4byte 0
 
 .obj "mask$792", local

@@ -302,6 +302,5 @@
 
 
 .obj m_InitDVD__5DUDvd, global
-	.4byte 0x01000000
-	.4byte 0
+	.byte 0x01
 .endobj m_InitDVD__5DUDvd

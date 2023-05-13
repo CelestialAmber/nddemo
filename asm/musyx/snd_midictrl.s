@@ -2117,8 +2117,10 @@
 	.4byte 0
 	.4byte 0
 	.4byte 0x40000000
-	.4byte 0x40000000
+	.2byte 0x4000
 .endobj inpColdMIDIDefaults
+
+.2byte 0
 
 .obj inpWarmMIDIDefaults, local
 	.4byte 0xFF00FFFF
@@ -2154,7 +2156,7 @@
 	.4byte 0xFFFFFFFF
 	.4byte 0xFFFFFFFF
 	.4byte 0x40FFFFFF
-	.4byte 0xFFFF0000
+	.2byte 0xFFFF
 .endobj inpWarmMIDIDefaults
 
 .section .data, "wa"  # 0x80065000 - 0x8006D1C0 ; 0x000081C0

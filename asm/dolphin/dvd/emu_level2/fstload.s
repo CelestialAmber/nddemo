@@ -195,8 +195,10 @@
 .balign 8
 
 .obj bb2Buf, local
-	.skip 0x40
+	.skip 0x3f
 .endobj bb2Buf
+
+.skip 1
 
 .obj "block$16", local
 	.skip 0x30
@@ -215,5 +217,5 @@
 .endobj bb2
 
 .obj idTmp, local
-	.skip 0x8
+	.skip 0x4
 .endobj idTmp

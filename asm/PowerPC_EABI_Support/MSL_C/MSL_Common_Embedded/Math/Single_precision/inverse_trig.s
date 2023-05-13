@@ -274,7 +274,6 @@
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0
 .endobj "one_over_xi_lo$102"
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0

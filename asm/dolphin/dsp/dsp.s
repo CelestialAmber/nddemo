@@ -179,5 +179,5 @@
 .balign 8
 
 .obj __DSP_init_flag, local
-	.skip 0x8
+	.skip 0x4
 .endobj __DSP_init_flag

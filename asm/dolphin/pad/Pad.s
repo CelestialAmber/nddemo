@@ -1858,8 +1858,12 @@
 .endobj Type
 
 .obj Origin, local
-	.skip 0x40
+	.skip 0x30
 .endobj Origin
+
+.obj CmdProbeDevice, local
+	.skip 0x10
+.endobj CmdProbeDevice
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 

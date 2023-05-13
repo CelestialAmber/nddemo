@@ -4161,7 +4161,6 @@
 	.float -175
 	.float -110
 	.float 100
-	.4byte 0
 .endobj iSpilCenter
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820

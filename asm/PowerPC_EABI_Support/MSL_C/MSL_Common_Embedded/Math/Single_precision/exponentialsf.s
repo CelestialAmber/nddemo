@@ -675,8 +675,10 @@
 .balign 8
 
 #weak
-"__log2e_m1$localstatic0$__log2f__Ff":	.4byte 0x3ED20000
+.obj "__log2e_m1$localstatic0$__log2f__Ff", local
+	.4byte 0x3ED20000
 	.4byte 0x3D054765
+.endobj "__log2e_m1$localstatic0$__log2f__Ff"
 
 .obj lbl_800A9B68, local
 	.4byte 0xBF38AA80
