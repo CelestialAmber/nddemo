@@ -15,7 +15,6 @@ protected:
 	u16 actNo; //0xA
 	u16 actCount; //0xC
 	u16 actFlag; //0xE
-	u16 unkF; //padding
 	Vec pos; //0x10
 	Vec angle; //0x1C
 	s8 stickX; //0x28
@@ -40,7 +39,6 @@ protected:
 	s8 _ground_hit_flag; //0x2C0
 	s8 _dokan_hit_flag; //0x2C1
 	u16 _wait_timer; //0x2C2
-	u8 unk2C3; //padding
 	u8 rolling; //0x2C4
 	u8 unk2C5[3]; //padding
 

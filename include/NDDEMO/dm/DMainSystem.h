@@ -78,8 +78,8 @@ public:
         DGTexPro* star; //0x130
         DGTexPro* hart; //0x134
         DGTexPro* mirrorpro; //0x138
-        DGCamera cam; //0x13C
-        DGLight light; //0x5EC
+        DGCamera cam[4]; //0x13C
+        DGLight light[3]; //0x5EC
         u8 mirrorbuf[0x20000]; //0x6A0
 
         //These only appear in DTPlayer.cpp in the DWARF info
@@ -88,7 +88,7 @@ public:
         //__dt__Q211DMainSystem22@class$149DTPlayer_cppFv
     } cinema; //0x1290
 
-    DGRendMan rend_man; //0x21930
+    DGRendMan rend_man[2]; //0x21930
     DGModelMan model_man; //0x219c0
     DGFont* sysFont; //0x219d8
     DGFont* title_bg; //0x219dc
