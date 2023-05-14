@@ -28,4 +28,4 @@ public:
 	int IsPush(u16 id, u16 key);
 	int IsStickTrg(u16 id, u16 stk);
 	PADStatus* GetPADStatus(u8 padNo);
-}
+};

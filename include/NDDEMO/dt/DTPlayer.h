@@ -30,6 +30,7 @@ protected:
 	DGTexPro* spilshadowPro; //0x168
 	DGCamera spilshadowCam; //0x16C
 	u8 spilshadowTex; //0x298
+	u8 unk299[3]; //padding
 	float jumppow; //0x29C
 	Vec _door_start; //0x2A0
 	Vec _door_end; //0x2AC

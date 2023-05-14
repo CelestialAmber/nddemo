@@ -124,7 +124,7 @@ public:
 	void SetAdjustForOverscan(u16 w, u16 h);
 	void SetAdjustForOverscanDefault();
 
-	void SetBGColor(GXColor bgcolor)
+	void SetBGColor(GXColor bgcolor);
 	void SetBGZValue(u32 zvalue);
 	u16 GetxfbHeight();
 	void* GetCurrentBuf();

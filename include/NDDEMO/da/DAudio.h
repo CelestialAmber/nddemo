@@ -68,7 +68,7 @@ struct _SND_CHORUS_SRCINFO{
 };
 
 struct _SND_CHORUS_WORK{
-	s32* lastLeft[3] //0x0
+	s32* lastLeft[3]; //0x0
 	s32* lastRight[3]; //0xC
 	s32* lastSur[3]; //0x18
 	u8 currentLast; //0x24
@@ -90,6 +90,7 @@ struct SND_AUX_CHORUS{
 	u32 variation; //0x94
 	u32 period; //0x98
 };
+
 
 class DAudio{
 private:
@@ -116,32 +117,37 @@ public:
 	~DAudio();
 
 	s32 Initialize();
-	s32 ReadMusyXData(u8**, char*);
-	s32 ReadPoolData(char*);
-	s32 ReadProjData(char*);
-	s32 ReadSdirData(char*);
-	s32 ReadSampData(char*);
-	s32 PushGroupData(u16);
+	s32 ReadMusyXData(u8** buffer, char* filename);
+	s32 ReadPoolData(char* filename);
+	s32 ReadProjData(char* filename);
+	s32 ReadSdirData(char* filename);
+	s32 ReadSampData(char* filename);
+	s32 PushGroupData(u16 gid);
 	void FreeSampBuffer();
 	s32 InitSongBuffer();
-	s32 ReadDataAll(DVDFileInfo*, void*);
+	s32 ReadDataAll(DVDFileInfo* fInfo, void* buffer);
 	s32 PlaySongFadeOut();
-	s32 PlaySong(CSong*);
+	s32 PlaySong(CSong* song);
 	void Coin();
 	void DoorOpen();
 	void DoorKnock();
 	void Jump();
 	void Fall();
-	void SetSongGroupId(u16);
-	void SetAutoDemo(s32);
-	void MuteAll(s32);
+
+    //fabricated param name
+	void SetSongGroupId(u16 gid){
+        m_songGroupId = gid;
+    }
+
+	void SetAutoDemo(s32 flag);
+	void MuteAll(s32 flag);
 	s32 SongStop();
 	void Manager();
-	void SetMuteSequence(s32);
-	void SetMuteSe(s32);
+	void SetMuteSequence(s32 flag);
+	void SetMuteSe(s32 flag);
 	s32 GetMuteSequence();
 	s32 GetMuteSe();
 	void ResetFade();
 	void Quit();
-	void* ReadDataAlloc(char*);
+	void* ReadDataAlloc(char* filename);
 };

@@ -67,7 +67,7 @@ public:
         u8 unk1[3]; //filler?
         void* datBGH; //0x4
         void* datMCD; //0x8
-        DGModel model[32]; //0xC
+        DGModel* model[32]; //0xC
         u16 hm[32]; //0x8C
     } stage[8]; //0xc30
 

@@ -132,7 +132,7 @@ private:
 	void _get_spil_eye_pos(Vec* mario_position, Vec* next_position);
 	void _get_pipe_at_pos(Vec* pipe_position, Vec* next_position);
 	void _get_pipe_eye_pos(Vec* pipe_position, float mario_angle, Vec* next_position);
-	vodi init_spline_table(Vec* pos, s8 eyeat);
+	void init_spline_table(Vec* pos, s8 eyeat);
 	s8 _check_abs(float a, float b);
 	s8 _check_bg(Vec* pos);
 	void _get_pad_trg(PADStatus* pad);

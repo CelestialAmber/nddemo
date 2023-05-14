@@ -33,7 +33,7 @@ public:
 	void GetLightMtxYInverse(Mtx& texpromtx);
 	void SetCameraFrustum(float height, float width, float znear, float zfar);
 	void SetCameraFrustumUpper(float height, float width, float znear, float zfar);
-	void SetCameraFrustumLower(float height, float width, float znear, float zfar, float xfbheight)
+	void SetCameraFrustumLower(float height, float width, float znear, float zfar, float xfbheight);
 	void SetCamUp(Vec up);
 	void SetTargetPos(Vec targetpos);
 	Vec GetTargetPos();
