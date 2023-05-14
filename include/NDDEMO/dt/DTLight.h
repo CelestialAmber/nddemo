@@ -5,23 +5,23 @@
 
 class DTLight{
 protected:
-    DGLight light[8]; //0x0
+	DGLight light[8]; //0x0
 
 
-    void SettingMpol();
-    void SettingEnve();
-    void SettingSpil();
-    void SettingCine();
-    void SettingCave();
-    void SettingDome();
-    void SettingHang();
-    void SettingEntr();
+	void SettingMpol();
+	void SettingEnve();
+	void SettingSpil();
+	void SettingCine();
+	void SettingCave();
+	void SettingDome();
+	void SettingHang();
+	void SettingEntr();
 
 public:
-    void SetKuriboLight();
-    void Setting(u8);
+	DTLight(const DTLight&);
+	DTLight();
+	~DTLight();
 
-    ~DTLight();
-    DTLight();
-    DTLight(const DTLight&);
+	void Setting(u8 stageNo);
+	void SetKuriboLight();
 };

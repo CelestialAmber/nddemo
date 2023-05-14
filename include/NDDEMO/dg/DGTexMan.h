@@ -17,24 +17,23 @@ private:
     u8 unk12[2]; //padding
 
 public:
-    void EnableExpensiveMipMap(u8);
-    void EnableMipMap(u8);
-    u16 GetHeight(u16);
-    u16 GetWidth(u16);
-    u8 InitTexObj(GXTexObj*, u16, GXTexWrapMode, GXTexWrapMode);
-    void DetachTexture(u16);
-    u16 AttachTexture(u16);
-    u16 LoadTexture(const char*);
-
-    ~DGTexMan();
-    DGTexMan(u16);
-    DGTexMan();
     DGTexMan(const DGTexMan&);
+    DGTexMan();
+    DGTexMan(u16 MaxTextureNum);
+    ~DGTexMan();
 
-    DGTexture* GetTexture(u16);
+    DGTexture* GetTexture(u16 htex);
+    u16 LoadTexture(const char* szFileName);
+    u16 AttachTexture(u16 htex);
+    void DetachTexture(u16 htex);
+    u8 InitTexObj(GXTexObj* texobj, u16 htex, GXTexWrapMode wrapS, GXTexWrapMode wrapT);
+    u16 GetWidth(u16 htex);
+    u16 GetHeight(u16 htex);
+    void EnableMipMap(u8 mip);
+    void EnableExpensiveMipMap(u8 mip);
 
 private:
-    u16 GetTextureHandle(const char*);
-    void DeleteTexture(u16);
-    u16 AddTexture(const char*, DGTexture*);
+    u16 AddTexture(const char* szFileName, DGTexture* Texture);
+    void DeleteTexture(u16 htex);
+    u16 GetTextureHandle(const char* szFileName);
 };

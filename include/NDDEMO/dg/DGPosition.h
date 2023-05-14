@@ -12,25 +12,25 @@ protected:
 	u8 unk55[3]; //padding
 
 public:
-	void GetDirectionalVec(Vec&, Vec&);
-
-	Vec GetScale();
-	void AddScale(const Vec&);
-	void SetScale(const Vec&);
-
-	void LimitRotation();
-	Vec GetRotation();
-	void AddRotation(const Vec&);
-	void SetRotation(const Vec&);
-
-	Vec GetPosition();
-	void DirectionalAddPosition(Vec&);
-	void AddPosition(const Vec&);
-	void SetPosition(const Vec&);
-
-	void GetTransMtx(Mtx&);
-
-	~DGPosition();
-	DGPosition();
 	DGPosition(const DGPosition&);
+	DGPosition();
+	~DGPosition();
+
+	void GetTransMtx(Mtx& transmtx);
+
+	void SetPosition(const Vec& pos);
+	void AddPosition(const Vec& add);
+	void DirectionalAddPosition(Vec& add);
+	Vec GetPosition();
+
+	void SetRotation(const Vec& rot);
+	void AddRotation(const Vec& add);
+	Vec GetRotation();
+	void LimitRotation();
+
+	void SetScale(const Vec& scale);
+	void AddScale(const Vec& add);
+	Vec GetScale();
+
+	void GetDirectionalVec(Vec& src, Vec& dst);
 };

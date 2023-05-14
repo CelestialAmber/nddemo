@@ -19,24 +19,24 @@ protected:
 	u8 unk15[3]; //padding
 
 public:
-	void EnableExpensiveMipMap(u8);
-	void EnableMipMap(u8);
-	DGTexPro* LoadTexPro(const char*);
-	DGFont* LoadFont(const char*, u8, u8, u8, char, char);
-	void DeleteMasterModel(u16);
-	u16 LoadDuplicateNDM(char*);
-	u16 LoadNDM(char*);
-	DGAniModel* CreateAnimeInstance(u16);
-	DGModel* CreateInstance(u16);
-
-	~DGModelMan();
-	DGModelMan(u16, u16, u16);
-	DGModelMan();
 	DGModelMan(const DGModelMan&);
+	DGModelMan();
+	DGModelMan(u16 MaxMaterModelNum, u16 MaxTextureNum, u16 MaxObjectNum);
+	~DGModelMan();
+
+	DGModel* CreateInstance(u16 ModelHandle);
+	DGAniModel* CreateAnimeInstance(u16 ModelHandle);
+	u16 LoadNDM(char* szFileName);
+	u16 LoadDuplicateNDM(char* szFileName);
+	void DeleteMasterModel(u16 ModelHandle);
+	DGFont* LoadFont(const char* szFileName, u8 width, u8 height, u8 sequence, char start, char end);
+	DGTexPro* LoadTexPro(const char* szFileName);
+	void EnableMipMap(u8 mip);
+	void EnableExpensiveMipMap(u8 mip);
 
 private:
-	u16 DecRefer(u16);
-	u16 IncRefer(u16);
-	void DestroyMasterModel(u16);
-	u16 AddMasterModel(u8*);
+	u16 AddMasterModel(u8* ModelClass);
+	void DestroyMasterModel(u16 ModelHandle);
+	u16 IncRefer(u16 ModelHandle);
+	u16 DecRefer(u16 ModelHandle);
 };

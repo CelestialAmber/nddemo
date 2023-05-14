@@ -10,15 +10,15 @@ public:
 	u8* m_buffer;
 	s32 m_flag;
 
-	s32 GetSongValid(); //unused
-	void DelayDeleteBuffer();
-	s32 PlaySong(u16);
-	s32 ReadBuffer(s32, char*);
-	void DeleteBuffer();
-	s32 InitBuffer(s32); //unused
-
-	CSong();
 	CSong(const CSong&); //unused
+	CSong();
+
+	s32 InitBuffer(s32 size); //unused
+	void DeleteBuffer();
+	s32 ReadBuffer(s32 songId, char* filename);
+	s32 PlaySong(u16 songGroupId);
+	void DelayDeleteBuffer();
+	s32 GetSongValid(); //unused
 };
 
 struct _SND_REVHI_DELAYLINE{
@@ -111,37 +111,37 @@ public:
 	s32 m_autoDemoFlag; //0x2A0
 
 
-	void* ReadDataAlloc(char*);
-	void Quit();
-	void ResetFade();
-	s32 GetMuteSe();
-	s32 GetMuteSequence();
-	void SetMuteSe(s32);
-	void SetMuteSequence(s32);
-	void Manager();
-	s32 SongStop();
-	void MuteAll(s32);
-	void SetAutoDemo(s32);
-	void SetSongGroupId(u16);
-	void Fall();
-	void Jump();
-	void DoorKnock();
-	void DoorOpen();
-	void Coin();
-	s32 PlaySong(CSong*);
-	s32 PlaySongFadeOut();
-	s32 ReadDataAll(DVDFileInfo*, void*);
-	s32 InitSongBuffer();
-	void FreeSampBuffer();
-	s32 PushGroupData(u16);
-	s32 ReadSampData(char*);
-	s32 ReadSdirData(char*);
-	s32 ReadProjData(char*);
-	s32 ReadPoolData(char*);
-	s32 ReadMusyXData(u8**, char*);
-	s32 Initialize();
-
-	~DAudio();
-	DAudio();
 	DAudio(const DAudio&);
+	DAudio();
+	~DAudio();
+
+	s32 Initialize();
+	s32 ReadMusyXData(u8**, char*);
+	s32 ReadPoolData(char*);
+	s32 ReadProjData(char*);
+	s32 ReadSdirData(char*);
+	s32 ReadSampData(char*);
+	s32 PushGroupData(u16);
+	void FreeSampBuffer();
+	s32 InitSongBuffer();
+	s32 ReadDataAll(DVDFileInfo*, void*);
+	s32 PlaySongFadeOut();
+	s32 PlaySong(CSong*);
+	void Coin();
+	void DoorOpen();
+	void DoorKnock();
+	void Jump();
+	void Fall();
+	void SetSongGroupId(u16);
+	void SetAutoDemo(s32);
+	void MuteAll(s32);
+	s32 SongStop();
+	void Manager();
+	void SetMuteSequence(s32);
+	void SetMuteSe(s32);
+	s32 GetMuteSequence();
+	s32 GetMuteSe();
+	void ResetFade();
+	void Quit();
+	void* ReadDataAlloc(char*);
 };

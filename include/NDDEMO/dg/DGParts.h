@@ -12,8 +12,8 @@ struct tagPARTS_LIST{
 	tagPARTS_LIST* prev; //0x4
 	DGParts* parts; //0x8
 
-	tagPARTS_LIST();
 	tagPARTS_LIST(const tagPARTS_LIST&);
+	tagPARTS_LIST();
 };
 
 class DGParts : DGPosition{
@@ -42,25 +42,25 @@ private:
 	Vec m_WorldPosition; //0x80
 
 public:
-	Vec GetWorldPosition();
-	void SetWorldPosition(Mtx&);
-	u8 CreateInstance(u8*&);
-	u8 GetVisibleChild();
-	void SetVisibleChild(u8);
-	u8 GetVisible();
-	void SetVisible(u8);
-	void Draw(DGRendState&);
-	u16 NumOfChild();
-	char* GetNamePtr();
-	DGParts* GetPartsPtr(u16&);
-	DGParts* GetPartsPtr(const char*, u8&);
-	DGParts* CullPartsListNo(u16);
-	DGParts* CullPartsListStr(const char*);
-	void AddPartsList(DGParts*);
-
-	~DGParts();
-	DGParts(DGObjMan*);
 	DGParts(const DGParts&);
+	DGParts(DGObjMan* objman);
+	~DGParts();
+
+	void AddPartsList(DGParts* parts);
+	DGParts* CullPartsListStr(const char* ChildName);
+	DGParts* CullPartsListNo(u16 ChildNo);
+	DGParts* GetPartsPtr(const char* name, u8& flag);
+	DGParts* GetPartsPtr(u16& no);
+	char* GetNamePtr();
+	u16 NumOfChild();
+	void Draw(DGRendState& RendState);
+	void SetVisible(u8 visible);
+	u8 GetVisible();
+	void SetVisibleChild(u8 visible);
+	u8 GetVisibleChild();
+	u8 CreateInstance(u8*& ClassPtr);
+	void SetWorldPosition(Mtx& Trans);
+	Vec GetWorldPosition();
 
 private:
 	void AllDeletePartsList();

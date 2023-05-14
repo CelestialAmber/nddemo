@@ -23,14 +23,13 @@ public:
 	u8 unk7F; //padding
 	DGTexPro* m_TexProjection[8]; //0x80
 
-
-	void SetNumChans(u8);
-	void SetChan1MatColor(GXColor&);
-	void SetChan1AmbColor(GXColor&);
-	void SetChan0MatColor(GXColor&);
-	void SetChan0AmbColor(GXColor&);
-
-	~DGRendState();
-	DGRendState();
 	DGRendState(const DGRendState&);
+	DGRendState();
+	~DGRendState();
+
+	void SetChan0AmbColor(GXColor& AmbColor);
+	void SetChan0MatColor(GXColor& MatColor);
+	void SetChan1AmbColor(GXColor& AmbColor);
+	void SetChan1MatColor(GXColor& MatColor);
+	void SetNumChans(u8 channum);
 };

@@ -97,44 +97,44 @@ public:
     CSong song[9]; //0x21b10
 
 
-    s8 iGetLoadStatus(s8);
-    void iGoNextPipe(u8, Vec*, Vec*);
-    void iMpolDoorClose();
-    void iMpolDoorOpen();
-    void iCheckIn();
-    s8 iCheckReady();
-    void iGoNextRoom(u8, u8, Vec*, Vec*);
-    s8 iIsAllOffCoin();
-    DGAniModel* GetPlayerModel();
-    u16 GetStageHandle(u8, u8);
-    DGModel* GetStageModel(u8, u8);
-    s8 iGetMoviePlayMode();
-    Vec GetSpilShadowCamPos();
-    s8 iGetOldTvMode();
-    void iSystemInitProc();
-    s8 iGetGameMode();
-    u8 GetRoomNumber();
-    u8 GetStimer();
-    DTHit* GetDTHit();
-    DTCamera* GetDTCamera();
-    DTPad* GetDTPad();
-    DGFont* GetDGFontTitle();
-    void iCoinDrop();
-    void iSetFogSw(s8);
-    void GetStageOffset(u8, Vec*, Vec*);
-    void iDoneRender();
-    void iBeforeRender();
-    void iSysInit();
-    void _StepProc();
-    void MainLoop();
-
-    ~DMainSystem();
-    DMainSystem();
     DMainSystem(const DMainSystem&);
+    DMainSystem();
+    ~DMainSystem();
+
+    void MainLoop();
+    void _StepProc();
+    void iSysInit();
+    void iBeforeRender();
+    void iDoneRender();
+    void GetStageOffset(u8 stage_no, Vec* pos, Vec* rol);
+    void iSetFogSw(s8 sw);
+    void iCoinDrop();
+    DGFont* GetDGFontTitle();
+    DTPad* GetDTPad();
+    DTCamera* GetDTCamera();
+    DTHit* GetDTHit();
+    u8 GetStimer();
+    u8 GetRoomNumber();
+    s8 iGetGameMode();
+    void iSystemInitProc();
+    s8 iGetOldTvMode();
+    Vec GetSpilShadowCamPos();
+    s8 iGetMoviePlayMode();
+    DGModel* GetStageModel(u8, u8); //dwarf missing param names
+    u16 GetStageHandle(u8, u8); //dwarf missing param names
+    DGAniModel* GetPlayerModel();
+    s8 iIsAllOffCoin();
+    void iGoNextRoom(u8 next_stage_no, u8 open_door_no, Vec* door_start, Vec* door_end);
+    s8 iCheckReady();
+    void iCheckIn();
+    void iMpolDoorOpen();
+    void iMpolDoorClose();
+    void iGoNextPipe(u8 next_stage_no, Vec* pipe_pos, Vec* next_pipe_pos);
+    s8 iGetLoadStatus(s8); //dwarf missing param names
 
 private:
     void _Reset();
-    void _LoadRequestMpol(s8);
+    void _LoadRequestMpol(s8 mode);
     void _LoadRequestEnve();
     void _LoadRequestSpil();
     void _LoadRequestCine();
@@ -153,14 +153,14 @@ private:
     void _DelHang();
     void _DelEntr();
 
-    void _Draw_Mpol(s8);
-    void _Draw_Enve(s8);
-    void _Draw_Spil(s8);
-    void _Draw_Cine(s8);
-    void _Draw_Cave(s8);
-    void _Draw_Dome(s8);
-    void _Draw_Hang(s8);
-    void _Draw_Entr(s8);
+    void _Draw_Mpol(s8 mario_flag);
+    void _Draw_Enve(s8 mario_flag);
+    void _Draw_Spil(s8 mario_flag);
+    void _Draw_Cine(s8 mario_flag);
+    void _Draw_Cave(s8 mario_flag);
+    void _Draw_Dome(s8 mario_flag);
+    void _Draw_Hang(s8 mario_flag);
+    void _Draw_Entr(s8 mario_flag);
 
     void _Step_Movie_Mpol();
     void _Step_Movie_Enve();
@@ -188,9 +188,9 @@ private:
     void _Step_Init_System();
 
     void _ModifiNumOfCoint();
-    void _FreeRequestRoomFile(s8);
-    void _LoadRequestRoomFile(s8);
-    void _iConsoleDraw(s8);
+    void _FreeRequestRoomFile(s8 stage_no);
+    void _LoadRequestRoomFile(s8 stage_no);
+    void _iConsoleDraw(s8 pas_cnt);
     void _iChangeTvMode();
     void _iSetCaveFog();
     void _iSetKriboPos();
@@ -206,9 +206,9 @@ private:
     s8 _DeleteAllStage();
     void _SetMipMap();
     void _RoomCameraMoveProc();
-    void _iSetStagePos(s8);
-    void _iSetCameraPos(s8);
-    void _iSetMarioPosRol(s8);
+    void _iSetStagePos(s8 stage_no);
+    void _iSetCameraPos(s8 stage_no);
+    void _iSetMarioPosRol(s8 stage_no);
     void _CursolMove(s8 max, s16 y);
     void iCheckLoadStatus();
     void _disp_meter();

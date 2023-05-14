@@ -24,8 +24,8 @@ struct tagRENDERING_LIST{
 	tagRENDERING_LIST* prev; //0x4
 	DGModel* model; //0x8
 
-	tagRENDERING_LIST();
 	tagRENDERING_LIST(const tagRENDERING_LIST&);
+	tagRENDERING_LIST();
 };
 
 class DGRendMan{
@@ -36,8 +36,6 @@ private:
 	DGTexPro* m_TexProjection[8]; //0x28
 
 public:
-	GetCurrentBuf();
-
 	//these variables are referred to as typedefs, but probably are static vars?
 	static VITVMode m_progressive;
 
@@ -84,38 +82,52 @@ public:
 	static u8 m_FirstFrameFlag;
 	static u8 m_InstanceNum;
 
-	u16 GetxfbHeight();
-	void SetBGZValue(u32);
-	void SetBGColor(GXColor)
-	void SetAdjustForOverscanDefault();
-	void SetAdjustForOverscan(u16, u16);
-	GXGamma GetDispCopyGamma();
-	void SetDispCopyGamma(GXGamma);
-	void SetDispCopyDstDefault();
-	void SetDispCopyDst(u16, u16);
-	void SetDispCopyYScaleDefault();
-	void SetDispCopyYScale(float);
-	void SetDispCopySrcDefault();
-	void SetDispCopySrc(u16, u16, u16, u16);
-	GXRenderModeObj* GetBaseRenderMode();
-	void SetRenderMode(GXRenderModeObj*);
-	void SetViewportDefault();
-	void SetViewport(float, float, float, float, float, float);
-	void SetScissorDefault();
-	void SetScissor(u32, u32, u32, u32);
-	void SetTexProjection(u8, DGTexPro*);
-	void AddCamera(DGCamera*);
-	void AddLight(DGLight*);
-	void AddModel(DGModel*);
-	void CopyRenderingBuffer(u8);
-	void Draw(RendManDrawMode);
-	void DrawEnd(u8, u8);
-	void DrawBegin();
 
-	~DGRendMan();
-	DGRendMan(u32);
-	DGRendMan();
 	DGRendMan(const DGRendMan&);
+	DGRendMan();
+	DGRendMan(u32 FifoSize);
+	~DGRendMan();
+
+	void DrawBegin();
+	void DrawEnd(u8 cpy, u8 vsnc);
+	void Draw(RendManDrawMode mode);
+
+	void CopyRenderingBuffer(u8 lower);
+
+	void AddModel(DGModel* model);
+	void AddLight(DGLight* light);
+	void AddCamera(DGCamera* camera);
+
+	void SetTexProjection(u8 no, DGTexPro* texpro);
+
+	void SetScissor(u32 x, u32 y, u32 w, u32 h);
+	void SetScissorDefault();
+
+	void SetViewport(float x, float y, float w, float h, float n, float f);
+	void SetViewportDefault();
+
+	void SetRenderMode(GXRenderModeObj* rendermode);
+	GXRenderModeObj* GetBaseRenderMode();
+
+	void SetDispCopySrc(u16 x, u16 y, u16 w, u16 h);
+	void SetDispCopySrcDefault();
+
+	void SetDispCopyYScale(float s);
+	void SetDispCopyYScaleDefault();
+
+	void SetDispCopyDst(u16 w, u16 h);
+	void SetDispCopyDstDefault();
+
+	void SetDispCopyGamma(GXGamma gamma);
+	GXGamma GetDispCopyGamma();
+
+	void SetAdjustForOverscan(u16 w, u16 h);
+	void SetAdjustForOverscanDefault();
+
+	void SetBGColor(GXColor bgcolor)
+	void SetBGZValue(u32 zvalue);
+	u16 GetxfbHeight();
+	void* GetCurrentBuf();
 
 private:
 	void ClearRenderingList();

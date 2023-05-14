@@ -14,14 +14,14 @@ protected:
 	DGParts* m_Parts; //0x5C
 
 public:
-	Vec GetPartsWorldPosition(const char*);
-	void SetPartsWorldPosition();
-	u8 CreateInstance(u8*);
-	void Draw(DGRendState&);
-	DGParts* GetPartsPtr(u16);
-	DGParts* GetPartsPtr(const char*);
-
-	~DGModel();
-	DGModel(DGObjMan*);
 	DGModel(const DGModel&);
+	DGModel(DGObjMan* objman);
+	~DGModel();
+
+	DGParts* GetPartsPtr(const char* name);
+	DGParts* GetPartsPtr(u16 no);
+	void Draw(DGRendState& RendState);
+	u8 CreateInstance(u8* MasterModel);
+	void SetPartsWorldPosition();
+	Vec GetPartsWorldPosition(const char* PartsName);
 };

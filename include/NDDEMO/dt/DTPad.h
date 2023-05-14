@@ -5,27 +5,27 @@
 
 class DTPad{
 private:
-    u32 ResetReq; //0x0
-    u32 count; //0x4
+	u32 ResetReq; //0x0
+	u32 count; //0x4
 
 protected:
-    PADStatus prepad[3]; //0x8
-    PADStatus pad[3]; //0x38
+	PADStatus prepad[3]; //0x8
+	PADStatus pad[3]; //0x38
 
 public:
-    PADStatus* GetPADStatus(u8);
-    int IsStickTrg(u16, u16);
-    int IsPush(u16, u16);
-    int IsTrp(u16, u16);
-    int IsCnd(u16, u16);
-    int IsTrg(u16, u16);
-    s8 SubStickY(u16);
-    s8 SubStickX(u16);
-    s8 StickY(u16);
-    s8 StickX(u16);
-    void Read();
+	DTPad(const DTPad&);
+	DTPad();
+	~DTPad();
 
-    ~DTPad();
-    DTPad();
-    DTPad(const DTPad&);
+	void Read();
+	s8 StickX(u16 id);
+	s8 StickY(u16 id);
+	s8 SubStickX(u16 id);
+	s8 SubStickY(u16 id);
+	int IsTrg(u16 id, u16 key);
+	int IsCnd(u16 id, u16 key);
+	int IsTrp(u16 id, u16 key);
+	int IsPush(u16 id, u16 key);
+	int IsStickTrg(u16 id, u16 stk);
+	PADStatus* GetPADStatus(u8 padNo);
 }
