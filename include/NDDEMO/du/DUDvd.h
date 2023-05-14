@@ -3,6 +3,14 @@
 #include "types.h"
 #include "dolphin/DVD.h"
 
+
+enum DU_DVD_OPEN_MODE{
+    DUD_OM_SEQUENTIAL_ALIGN,
+    DUD_OM_RANDOM_ALIGN,
+    DUD_OM_SEQUENTIAL_NOALIGN,
+    DUD_OM_RANDOM_NOALIGN
+};
+
 class DUDvd{
 private:
     DVDFileInfo* m_Info; //0x0
@@ -12,7 +20,8 @@ private:
     u8* m_Buf; //0x10
     DU_DVD_OPEN_MODE m_OpenMode; //0x14
 
-    typedef u8 m_InitDVD;
+    //typedef in dwarf, but likely originally a static var?
+    static u8 m_InitDVD;
 
 public:
     void Read(void*, u32, s32);
@@ -28,11 +37,4 @@ public:
 private:
     void InitDVD();
     void Init();
-};
-
-enum DU_DVD_OPEN_MODE{
-    DUD_OM_SEQUENTIAL_ALIGN,
-    DUD_OM_RANDOM_ALIGN,
-    DUD_OM_SEQUENTIAL_NOALIGN,
-    DUD_OM_RANDOM_NOALIGN
 };

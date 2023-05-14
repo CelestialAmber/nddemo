@@ -1,7 +1,9 @@
 #pragma once
 
 #include "types.h"
+#include "dolphin/GX.h"
 #include "NDDEMO/Math.h"
+#include "NDDEMO/dg/DGRendState.h"
 
 class DGLight{
 private:
@@ -17,29 +19,29 @@ private:
     float m_Shininess; //0x38
 
 public:
-    SetAngleAttenuation_Cos2__7DGLightFff
-    SetAngleAttenuation_Cos__7DGLightFff
-    SetAngleAttenuation_Flat__7DGLightFff
-    SetAngleAttenuation__7DGLightFfff
-    SetDistanceAttenuation_3__7DGLightFfffff
-    SetDistanceAttenuation_2__7DGLightFfff
-    SetDistanceAttenuation_1__7DGLightFfff
-    SetDistanceAttenuation_0__7DGLightFf
-    SetDistanceAttenuation__7DGLightFfff
-    EnableSpotLight__7DGLightFUc
-    SetShininess__7DGLightFf
-    EnableSpecularLight__7DGLightFUc
-    GetLightColor__7DGLightFv
-    SetLightColor__7DGLightFRC8_GXColor
-    GetDirection__7DGLightFv
-    SetDirectionFromObserve__7DGLightFR3Vec
-    SetDirection__7DGLightFRC3Vec
-    GetPosition__7DGLightFv
-    AddPosition__7DGLightFRC3Vec
-    SetPosition__7DGLightFRC3Vec
-    SetLight__7DGLightF10_GXLightIDR11DGRendState
+    void SetAngleAttenuation_Cos2(float, float);
+    void SetAngleAttenuation_Cos(float, float);
+    void SetAngleAttenuation_Flat(float, float);
+    void SetAngleAttenuation(float, float, float);
+    void SetDistanceAttenuation_3(float, float, float, float, float);
+    void SetDistanceAttenuation_2(float, float, float);
+    void SetDistanceAttenuation_1(float, float, float);
+    void SetDistanceAttenuation_0(float);
+    void SetDistanceAttenuation(float, float, float);
+    void EnableSpotLight(u8);
+    void SetShininess(float);
+    void EnableSpecularLight(u8);
+    GXColor GetLightColor();
+    void SetLightColor(const GXColor&);
+    Vec GetDirection();
+    void SetDirectionFromObserve(Vec&);
+    void SetDirection(const Vec&);
+    Vec GetPosition();
+    Vec AddPosition(const Vec&);
+    Vec SetPosition(const Vec&);
+    void SetLight(GXLightID, DGRendState&);
 
-    __dt__7DGLightFv
-    __ct__7DGLightFv
-    __ct__7DGLightFRC7DGLight
+    ~DGLight();
+    DGLight();
+    DGLight(const DGLight&);
 };

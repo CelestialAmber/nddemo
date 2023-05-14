@@ -51,43 +51,44 @@ private:
     u8* m_PartsBlock; //0x78
 
 public:
-    IsNull__8DGObjectFv
-    GetPartsBlock__8DGObjectFv
-    MakeTexTransTable__8DGObjectFPUs
-    LoadNDMPartsBlock__8DGObjectFR5DUDvd
-    DecRefer__8DGObjectFv
-    IncRefer__8DGObjectFv
-    Draw__8DGObjectFv
+    u8 IsNull();
+    u8* GetPartsBlock();
+    void MakeTexTransTable(u16*);
+    u8 LoadNDMPartsBlock(DUDvd&);
+    u16 DecRefer();
+    u16 IncRefer();
+    void Draw();
 
-    __dt__8DGObjectFv
-    __ct__8DGObjectFP8DGTexMan
-    __ct__8DGObjectFRC8DGObject
+    ~DGObject();
+    DGObject(DGTexMan*);
+    DGObject(const DGObject&);
 
-    GetLineMode__8DGObjectFv
-    SetLineMode__8DGObjectFi
+    int GetLineMode();
+    void SetLineMode(int);
 
-    typedef u32 lineMode;
+    //referred to as a typedef in dwarf
+    static u32 lineMode;
 
 private:
-    oscmdDrawLine__8DGObjectFRPUc
-    oscmdIndBumpXYZ__8DGObjectFRPUc
-    oscmdZMode__8DGObjectFRPUc
-    oscmdDisplayList__8DGObjectFRPUc
-    oscmdExtendF__8DGObjectFRPUc
-    oscmdIndTexCoordScale__8DGObjectFRPUc
-    oscmdIndTexOrder__8DGObjectFRPUc
-    oscmdIndStages__8DGObjectFRPUc
-    oscmdTexCoordGen__8DGObjectFRPUc
-    oscmdBlendMode__8DGObjectFRPUc
-    oscmdTevColor__8DGObjectFRPUc
-    oscmdTevAlphaInOp__8DGObjectFRPUc
-    oscmdTevColorInOp__8DGObjectFRPUc
-    oscmdTexGens__8DGObjectFRPUc
-    oscmdTevStages__8DGObjectFRPUc
-    oscmdTevOrder__8DGObjectFRPUc
-    oscmdTevDirect__8DGObjectFRPUc
-    oscmdVtxDesc__8DGObjectFRPUc
-    oscmdExtend0__8DGObjectFRPUc
-    ExecuteObjStream__8DGObjectFv
-    SetArrayFormat__8DGObjectFUsUsUsUs
+    void oscmdDrawLine(u8*&);
+    void oscmdIndBumpXYZ(u8*&);
+    void oscmdZMode(u8*&);
+    void oscmdDisplayList(u8*&);
+    void oscmdExtendF(u8*&);
+    void oscmdIndTexCoordScale(u8*&);
+    void oscmdIndTexOrder(u8*&);
+    void oscmdIndStages(u8*&);
+    void oscmdTexCoordGen(u8*&);
+    void oscmdBlendMode(u8*&);
+    void oscmdTevColor(u8*&);
+    void oscmdTevAlphaInOp(u8*&);
+    void oscmdTevColorInOp(u8*&);
+    void oscmdTexGens(u8*&);
+    void oscmdTevStages(u8*&);
+    void oscmdTevOrder(u8*&);
+    void oscmdTevDirect(u8*&);
+    void oscmdVtxDesc(u8*&);
+    void oscmdExtend0(u8*&);
+    void ExecuteObjStream();
+    void SetArrayFormat(u16, u16, u16, u16);
 };

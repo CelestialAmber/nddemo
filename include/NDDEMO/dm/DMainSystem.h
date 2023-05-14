@@ -46,18 +46,14 @@ private:
     DTGimmick _gim; //0x790
     DTPlayer _player; //0x7c8
 
-    //fabricated name
-    //Dwarf name: @class$147DMainSystem_cpp
-    struct GoNextRoom{
+    struct {
         s8 flag; //0x0
         u8 next_room_no; //0x1
         u8 old_room_no; //0x2
         u8 open_door_no; //0x3
         Vec door_start; //0x4
         Vec door_end; //0x10
-    };
-
-    GoNextRoom _go_next_room; //0xa90
+    } _go_next_room; //0xa90
 
 public:
     s32 free_mem_size; //0xaac
@@ -66,22 +62,16 @@ public:
     u16 mario_hm; //0xc2c
     u8 unkC2E[2]; //filler?
 
-    //fabricated name
-    //Dwarf name: @class$148DMainSystem_cpp
-    struct Stage{
+    struct{
         s8 load_status; //0x0
         u8 unk1[3]; //filler?
         void* datBGH; //0x4
         void* datMCD; //0x8
         DGModel model[32]; //0xC
         u16 hm[32]; //0x8C
-    };
+    } stage[8]; //0xc30
 
-    Stage stage[8]; //0xc30
-
-    //fabricated name
-    //Dwarf name: @class$149DMainSystem_cpp
-    struct Cinema{
+    struct{
         s16 film_cnt; //0x0
         u8 unk2[2]; //filler
         DGTexPro* texpro[75]; //0x4
@@ -94,14 +84,10 @@ public:
 
         //These only appear in DTPlayer.cpp in the DWARF info
         //__ct__Q211DMainSystem22@class$149DTPlayer_cppFv
-        Cinema();
         //__ct__Q211DMainSystem22@class$149DTPlayer_cppFRCQ211DMainSystem22@class$149DTPlayer_cpp
-        Cinema(const Cinema&);
         //__dt__Q211DMainSystem22@class$149DTPlayer_cppFv
-        ~Cinema();
-    };
+    } cinema; //0x1290
 
-    Cinema cinema; //0x1290
     DGRendMan rend_man; //0x21930
     DGModelMan model_man; //0x219c0
     DGFont* sysFont; //0x219d8

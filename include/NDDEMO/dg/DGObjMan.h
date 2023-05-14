@@ -10,15 +10,15 @@ private:
     DGObject** m_ObjectTable; //0x4
 
 public:
-    DetachObject__8DGObjManFUs
-    AttachObject__8DGObjManFUs
-    GetObject__8DGObjManFUs
-    AddObject__8DGObjManFP8DGObject
+    void DetachObject(u16);
+    u16 AttachObject(u16);
+    DGObject* GetObject(u16);
+    u16 AddObject(DGObject*);
 
-    __dt__8DGObjManFv
-    __ct__8DGObjManFUs
-    __ct__8DGObjManFRC8DGObjMan
+    ~DGObjMan();
+    DGObjMan(u16);
+    DGObjMan(const DGObjMan&);
 
 private:
-    DeleteObject__8DGObjManFUs
+    void DeleteObject(u16);
 };

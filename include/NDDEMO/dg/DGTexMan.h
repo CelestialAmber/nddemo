@@ -14,26 +14,27 @@ private:
     DGTexture** m_TextureTable; //0xC
     u8 m_EnableMipMap; //0x10
     u8 m_EnableExpensiveMipMap; //0x11
+    u8 unk12[2]; //padding
 
 public:
-    EnableExpensiveMipMap__8DGTexManFUc
-    EnableMipMap__8DGTexManFUc
-    GetHeight__8DGTexManFUs
-    GetWidth__8DGTexManFUs
-    InitTexObj__8DGTexManFP9_GXTexObjUs14_GXTexWrapMode14_GXTexWrapMode
-    DetachTexture__8DGTexManFUs
-    AttachTexture__8DGTexManFUs
-    LoadTexture__8DGTexManFPCc
+    void EnableExpensiveMipMap(u8);
+    void EnableMipMap(u8);
+    u16 GetHeight(u16);
+    u16 GetWidth(u16);
+    u8 InitTexObj(GXTexObj*, u16, GXTexWrapMode, GXTexWrapMode);
+    void DetachTexture(u16);
+    u16 AttachTexture(u16);
+    u16 LoadTexture(const char*);
 
-    __dt__8DGTexManFv
-    __ct__8DGTexManFUs
-    __ct__8DGTexManFv
-    __ct__8DGTexManFRC8DGTexMan
+    ~DGTexMan();
+    DGTexMan(u16);
+    DGTexMan();
+    DGTexMan(const DGTexMan&);
 
-    GetTexture__8DGTexManFUs
+    DGTexture* GetTexture(u16);
 
 private:
-    GetTextureHandle__8DGTexManFPCc
-    DeleteTexture__8DGTexManFUs
-    AddTexture__8DGTexManFPCcP9DGTexture
+    u16 GetTextureHandle(const char*);
+    void DeleteTexture(u16);
+    u16 AddTexture(const char*, DGTexture*);
 };

@@ -44,67 +44,66 @@ protected:
     u8 unk2C5[3]; //padding
 
 
-    act_movie_spil__8DTPlayerFv
-    act_movie_spil_init__8DTPlayerFv
-    act_spil__8DTPlayerFv
-    act_spil_init__8DTPlayerFv
-    act_mpol__8DTPlayerFv
-    act_mpol_init__8DTPlayerFv
-    act_opening__8DTPlayerFv
-    act_opening_init__8DTPlayerFv
-    act_go_enter_next__8DTPlayerFv
-    act_go_enter_init__8DTPlayerFv
-    act_dokan_in__8DTPlayerFv
-    act_dokan_in_init__8DTPlayerFv
-    act_dokan_out__8DTPlayerFv
-    act_dokan_out_init__8DTPlayerFv
-    act_open__8DTPlayerFv
-    act_open_init__8DTPlayerFv
-    act_walk__8DTPlayerFv
-    act_walk_init__8DTPlayerFv
-    act_idle2__8DTPlayerFv
-    act_idle2_init__8DTPlayerFv
-    act_idle__8DTPlayerFv
-    act_idle_init__8DTPlayerFv
-    act_init__8DTPlayerFv
+    void act_movie_spil();
+    void act_movie_spil_init();
+    void act_spil();
+    void act_spil_init();
+    void act_mpol();
+    void act_mpol_init();
+    void act_opening();
+    void act_opening_init();
+    void act_go_enter_next();
+    void act_go_enter_init();
+    void act_dokan_in();
+    void act_dokan_in_init();
+    void act_dokan_out();
+    void act_dokan_out_init();
+    void act_open();
+    void act_open_init();
+    void act_walk();
+    void act_walk_init();
+    void act_idle2();
+    void act_idle2_init();
+    void act_idle();
+    void act_idle_init();
+    void act_init();
 
-    DirectionalAddPosition__8DTPlayerFR3Vec
-    HitFloor__8DTPlayerFv
-    Rolling__8DTPlayerFUc
+    void DirectionalAddPosition(Vec&);
+    u8 HitFloor();
+    void Rolling(u8);
+    void normalize(Vec*, Vec*);
 
-    normalize__8DTPlayerFP3VecP3Vec
+    void _iSetDoorStartEnd(float*);
+    s8 _iCheckDoor();
+    s8 _iPointMove(Vec*, float);
+    void _iSetDokanCenter(float*, float*);
+    s8 _iCheckDokan();
 
-    _iSetDoorStartEnd__8DTPlayerFPf
-    _iCheckDoor__8DTPlayerFv
-    _iPointMove__8DTPlayerFP3Vecf
-    _iSetDokanCenter__8DTPlayerFPfPf
-    _iCheckDokan__8DTPlayerFv
-
-    GetCamAngle__8DTPlayerFv
-    Vec2Angle__8DTPlayerFff
-    stickCheck__8DTPlayerFv
-    PlayerMove__8DTPlayerFf
-    RevAnimation__8DTPlayerFi
-    Animation__8DTPlayerFi
-    SetAnimation__8DTPlayerFUc
+    float GetCamAngle();
+    float Vec2Angle(float, float);
+    void stickCheck();
+    void PlayerMove(float);
+    int RevAnimation(int);
+    int Animation(int);
+    void SetAnimation(u8);
 
 public:
-    GetSpilShadowCamPos__8DTPlayerFv
-    Action__8DTPlayerFv
-    GetSpilShadowPro__8DTPlayerFi
-    CreateSpilShadow__8DTPlayerFv
-    GetShadowPro__8DTPlayerFi
-    CreateShadow__8DTPlayerFv
-    GetAngle__8DTPlayerFv
-    SetRotation__8DTPlayerF3Vec
-    SetPosition__8DTPlayerF3Vec
-    GetPosition__8DTPlayerFv
-    SpilModeInit__8DTPlayerFv
-    MpolModeInit__8DTPlayerFv
-    OpeningInit__8DTPlayerFv
-    InitAction__8DTPlayerFv
+    Vec GetSpilShadowCamPos();
+    u8 Action();
+    DGTexPro* GetSpilShadowPro(int);
+    void CreateSpilShadow();
+    DGTexPro* GetShadowPro(int);
+    void CreateShadow();
+    float GetAngle();
+    void SetRotation(Vec);
+    void SetPosition(Vec);
+    Vec* GetPosition();
+    void SpilModeInit();
+    void MpolModeInit();
+    void OpeningInit();
+    void InitAction();
 
-    __dt__8DTPlayerFv
-    __ct__8DTPlayerFv
-    __ct__8DTPlayerFRC8DTPlayer
+    ~DTPlayer();
+    DTPlayer();
+    DTPlayer(const DTPlayer&);
 };

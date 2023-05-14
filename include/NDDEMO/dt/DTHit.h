@@ -7,11 +7,9 @@ class DTHit{
 private:
     s8 _step; //0x0
     s8 _room_number; //0x1
-    u8 unk2[2];
+    u8 unk2[2]; //padding
 
-    //fabricated name
-    //Dwarf name: @class$19DTHit_cpp
-    struct Hit{
+    struct{
         void* _ground_hit_data; //0x0
         u32 _ground_status; //0x4
         void* _roof_hit_data; //0x8
@@ -20,13 +18,9 @@ private:
         u32 _wall_status[8]; //0x30
         u8 _wall_wp; //0x50
         u8 unk51[3]; //padding
-    };
+    } _last_hit; //0x4
 
-    Hit _last_hit; //0x4
-
-    //fabricated name
-    //Dwarf name: @class$20DTHit_cpp
-    struct HitData{
+    struct{
         void* _bgh_top; //0x0
         void* _header_top; //0x4
         u32 _num_of_status; //0x8
@@ -34,34 +28,32 @@ private:
         float _area_size; //0x10
         u32 _num_of_area[2]; //0x14
         float _area_offset[2]; //0x1C
-    };
-
-    HitData _hit_data[8]; //0x58
+    } _hit_data[8]; //0x58
 
 public:
-    get_wall_data__5DTHitFv
-    get_wall_status__5DTHitFv
-    get_wall_hit_count__5DTHitFv
-    get_roof_data__5DTHitFv
-    get_roof_status__5DTHitFv
-    get_ground_data__5DTHitFv
-    get_ground_status__5DTHitFv
-    check_wall__5DTHitFP3VecfP3VecSc
-    check_roof__5DTHitFP3VecPf
-    check_ground__5DTHitFP3VecPf
-    get_hit_data__5DTHitFSc
-    set_hit_data__5DTHitFScPv
-    get_current_room_number__5DTHitFv
-    set_current_room_number__5DTHitFSc
+    void* get_wall_data();
+    u32* get_wall_status();
+    u8 get_wall_hit_count();
+    void* get_roof_data();
+    u32 get_roof_status();
+    void* get_ground_data();
+    u32 get_ground_status();
+    s8 check_wall(Vec*, float, Vec*, s8);
+    s8 check_roof(Vec*, float*);
+    s8 check_ground(Vec*, float*);
+    void* get_hit_data(s8);
+    s8 set_hit_data(s8, void*);
+    s8 get_current_room_number();
+    s8 set_current_room_number(s8);
 
-    __dt__5DTHitFv
-    __ct__5DTHitFv
-    __ct__5DTHitFRC5DTHit
+    ~DTHit();
+    DTHit();
+    DTHit(const DTHit&);
 
 private:
-    _wall_check_one_area__5DTHitFfScUlP3Vec
-    _check_range__5DTHitFP3VecfUlPvSc
-    _check_roof_y_pos__5DTHitFP3VecPfPv
-    _check_y_pos__5DTHitFP3VecPfPv
+    s8 _wall_check_one_area(float, s8, u32, Vec*);
+    s8 _check_range(Vec*, float, u32, void*, s8);
+    s8 _check_roof_y_pos(Vec*, float*, void*);
+    s8 _check_y_pos(Vec*, float*, void*);
 };
 

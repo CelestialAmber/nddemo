@@ -17,17 +17,17 @@ private:
     u16 m_NowPatNo; //0x72
 
 public:
-    GetNowAniPat__10DGAniModelFv
-    GetNowAniType__10DGAniModelFv
-    SetAniPat__10DGAniModelFUsUs
-    NumOfAniTypePat__10DGAniModelFUs
-    GetAniType__10DGAniModelFPCc
-    ReconstructToAnimodelStruct__10DGAniModelFv
+    u16 GetNowAniPat();
+    u16 GetNowAniType();
+    void SetAniPat(u16, u16);
+    u16 NumOfAniTypePat(u16);
+    u16 GetAniType(const char*);
+    u8 ReconstructToAnimodelStruct();
 
-    __dt__10DGAniModelFv
-    __ct__10DGAniModelFP8DGObjMan
-    __ct__10DGAniModelFRC10DGAniModel
+    ~DGAniModel();
+    DGAniModel(DGObjMan*);
+    DGAniModel(const DGAniModel&);
 
 private:
-    DeleteAniModelArray__10DGAniModelFv
+    void DeleteAniModelArray();
 };

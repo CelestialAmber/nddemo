@@ -22,13 +22,13 @@ private:
     u8 unk21[3]; //padding
 
 public:
-    SetDirectTex__8DGTexProFPvUsUs9_GXTexFmtUc
-    GetLightMtx__8DGTexProFRA3_A4_f
-    InitTexObj__8DGTexProFP9_GXTexObj
-    SetCamera__8DGTexProFP8DGCamera
+    void SetDirectTex(void*, u16, u16, GXTexFmt, u8);
+    void GetLightMtx(Mtx&);
+    u8 InitTexObj(GXTexObj*);
+    void SetCamera(DGCamera*);
 
-    __dt__8DGTexProFv
-    __ct__8DGTexProFP8DGTexManPCc
-    __ct__8DGTexProFP8DGTexMan
-    __ct__8DGTexProFRC8DGTexPro
+    ~DGTexPro();
+    DGTexPro(DGTexMan*, const char*);
+    DGTexPro(DGTexMan*);
+    DGTexPro(const DGTexPro&);
 };
