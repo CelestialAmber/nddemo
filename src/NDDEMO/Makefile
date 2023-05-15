@@ -18,7 +18,7 @@ NDDEMO_FILES :=\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGTexPro.o\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGAniModel.o\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGTexture.o\
-	$(BUILD_DIR)/asm/NDDEMO/dt/DTPad.o\
+	$(BUILD_DIR)/src/NDDEMO/dt/DTPad.o\
 	$(BUILD_DIR)/asm/NDDEMO/dt/DTHit.o\
 	$(BUILD_DIR)/asm/NDDEMO/dt/DTLight.o\
 	$(BUILD_DIR)/asm/NDDEMO/dt/DTGimmick.o\

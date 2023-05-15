@@ -11,7 +11,9 @@ private:
 
 protected:
 	PADStatus prepad[3]; //0x8
+	u8 unk24[0xC]; //padding
 	PADStatus pad[3]; //0x38
+	u8 unk5C[0xC]; //padding
 
 public:
 	DTPad(const DTPad&);
@@ -19,16 +21,17 @@ public:
 	~DTPad();
 
 	void Read();
+	PADStatus* GetPADStatus(u8 padNo);
+
 	s8 StickX(u16 id);
 	s8 StickY(u16 id);
 	s8 SubStickX(u16 id);
 	s8 SubStickY(u16 id);
-	int IsTrg(u16 id, u16 key);
-	int IsCnd(u16 id, u16 key);
-	int IsTrp(u16 id, u16 key);
-	int IsPush(u16 id, u16 key);
-	int IsStickTrg(u16 id, u16 stk);
-	PADStatus* GetPADStatus(u8 padNo);
+	BOOL IsTrg(u16 id, u16 key);
+	BOOL IsCnd(u16 id, u16 key);
+	BOOL IsTrp(u16 id, u16 key);
+	BOOL IsPush(u16 id, u16 key);
+	BOOL IsStickTrg(u16 id, u16 stk);
 };
 
 #endif

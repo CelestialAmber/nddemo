@@ -1,11 +1,9 @@
 #ifndef DOLPHIN_PAD_H
 #define DOLPHIN_PAD_H
-
+#include "types.h"
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include "types.h"
 
 typedef struct PADStatus{
 	u16 button;      // Or-ed PAD_BUTTON_* bits
@@ -18,7 +16,7 @@ typedef struct PADStatus{
 	u8 analogA;      //    0 <= analogA      <= 255
 	u8 analogB;      //    0 <= analogB      <= 255
 	s8 err;          // one of PAD_ERR_* number
-	u8 unkB[5]; //padding?
+	u8 unkB; //padding
 } PADStatus;
 
 #define PAD_MAX_CONTROLLERS 4
