@@ -26,9 +26,7 @@ NDDEMO_FILES :=\
 	$(BUILD_DIR)/asm/NDDEMO/dt/DTCamera.o\
 	$(BUILD_DIR)/asm/NDDEMO/da/DAudio.o
 
-$(NDDEMO_FILES): CFLAGS = -O4,p -enum int -inline on -proc gekko -fp hard -nodefaults -Cpp_exceptions off -RTTI off $(INCLUDES)
-
-$(BUILD_DIR)/src/NDDEMO/main/main.o: CFLAGS += -inline deferred
+$(NDDEMO_FILES): CFLAGS = -O4,p -g -enum int -inline on -proc gekko -fp hard -nodefaults -Cpp_exceptions off -RTTI off $(INCLUDES)
 
 DEPENDS += $(NDDEMO_FILES:.o=.d)
 
