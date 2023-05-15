@@ -6,6 +6,8 @@ extern "C" {
 
 #include "dolphin/os/OS.h"
 #include "dolphin/os/OSAddress.h"
+#include "dolphin/os/OSAlloc.h"
+#include "dolphin/os/OSArena.h"
 #include "dolphin/os/OSContext.h"
 #include "dolphin/os/OSError.h"
 #include "dolphin/os/OSExec.h"

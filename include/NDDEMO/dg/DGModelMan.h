@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DGMODELMAN_H
+#define NDDEMO_DGMODELMAN_H
 
 #include "types.h"
 #include "NDDEMO/dg/DGObjMan.h"
@@ -40,3 +41,5 @@ private:
 	u16 IncRefer(u16 ModelHandle);
 	u16 DecRefer(u16 ModelHandle);
 };
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DTHIT_H
+#define NDDEMO_DTHIT_H
 
 #include "types.h"
 #include "NDDEMO/Math.h"
@@ -57,3 +58,4 @@ private:
 	s8 _check_y_pos(Vec* check_position, float* graund_y, void* hit); //typo
 };
 
+#endif

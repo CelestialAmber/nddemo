@@ -218,6 +218,15 @@
 	.skip 0x2A4
 .endobj audio
 
+.obj dmThread, global
+	.skip 0x310
+.endobj dmThread
+
+#8006d780
+.obj dmThreadStack, global
+	.skip 0x8000
+.endobj dmThreadStack
+
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380 ; 0x000005C0
 
 .balign 8

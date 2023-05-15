@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DGFONT_H
+#define NDDEMO_DGFONT_H
 
 #include "types.h"
 #include "dolphin/GX.h"
@@ -41,3 +42,4 @@ private:
 	void CharOut(char character);
 };
 
+#endif

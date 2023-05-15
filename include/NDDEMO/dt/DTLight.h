@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DTLIGHT_H
+#define NDDEMO_DTLIGHT_H
 
 #include "types.h"
 #include "NDDEMO/dg/DGLight.h"
@@ -25,3 +26,5 @@ public:
 	void Setting(u8 stageNo);
 	void SetKuriboLight();
 };
+
+#endif

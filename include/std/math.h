@@ -9,6 +9,12 @@ extern "C" {
 
 #include "PowerPC_EABI_Support/MSL_C/MSL_Common/math_api.h"
 
+#ifndef __MWERKS__
+// Get clangd to shut up about __fabs being undefined.
+#define __fabs(x)    (x)
+#define __frsqrte(x) (x)
+#endif
+
 extern int __float_nan[];
 extern int __float_huge[];
 extern int __double_huge[];
@@ -23,7 +29,6 @@ extern int __double_huge[];
 #define FP_ZERO 3
 #define FP_NORMAL 4
 #define FP_SUBNORMAL 5
-
 
 
 inline int __fpclassifyf(f32 x)
@@ -77,6 +82,25 @@ inline long double fabsl(long double x) {
     return  __fabs((double)x);
 }
 
+
+inline f32 sqrtf(f32 x)
+{
+	static const double _half  = .5;
+	static const double _three = 3.0;
+	volatile float y;
+	if (x > 0.0f) {
+
+		double guess = __frsqrte((double)x);                         // returns an approximation to
+		guess        = _half * guess * (_three - guess * guess * x); // now have 12 sig bits
+		guess        = _half * guess * (_three - guess * guess * x); // now have 24 sig bits
+		guess        = _half * guess * (_three - guess * guess * x); // now have 32 sig bits
+        guess        = _half * guess * (_three - guess * guess * x); // now have 48 sig bits
+		y            = (float)(x * guess);
+		return y;
+	}
+	return x;
+}
+
 double acos(double);
 double asin(double);
 double atan(double);
@@ -113,7 +137,6 @@ double __kernel_tan(double, double, int);
 
 int __ieee754_rem_pio2(double, double *);
 
-float sqrtf(float);
 float cosf(float);
 float sinf(float);
 float tanf(float);

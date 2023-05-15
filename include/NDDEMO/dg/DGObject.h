@@ -1,8 +1,10 @@
-#pragma once
+#ifndef NDDEMO_DGOBJECT_H
+#define NDDEMO_DGOBJECT_H
 
 #include "types.h"
 #include "dolphin/GX.h"
 #include "NDDEMO/dg/DGTexMan.h"
+#include "NDDEMO/du/DUDvd.h"
 
 class DGObject{
 private:
@@ -91,3 +93,5 @@ private:
 	void oscmdIndBumpXYZ(u8*& OSPtr);
 	void oscmdDrawLine(u8*& OSPtr);
 };
+
+#endif

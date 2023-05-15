@@ -1,23 +1,14 @@
-#pragma once
+#ifndef NDDEMO_DGRENDMAN_H
+#define NDDEMO_DGRENDMAN_H
 
 #include "types.h"
 #include "dolphin/GX.h"
 #include "dolphin/VI.h"
-#include "NDDEMO/dg/DGCamera.h"
+#include "NDDEMO/dg/DGRendManEnums.h"
 #include "NDDEMO/dg/DGLight.h"
+#include "NDDEMO/dg/DGCamera.h"
 #include "NDDEMO/dg/DGModel.h"
 #include "NDDEMO/dg/DGTexPro.h"
-
-
-enum DG_RENDMAN_TARGET_MODE{
-	DGR_TARGET_POSITION,
-	DGR_TARGET_VECTOR
-};
-
-enum RendManDrawMode{
-	RMDM_ONCE,
-	RMDM_MORE
-};
 
 struct tagRENDERING_LIST{
 	tagRENDERING_LIST* next; //0x0
@@ -133,3 +124,5 @@ private:
 	void ClearRenderingList();
 	void DisplaySetting();
 };
+
+#endif

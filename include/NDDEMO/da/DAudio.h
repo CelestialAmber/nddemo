@@ -1,6 +1,7 @@
-#pragma once
+#ifndef NDDEMO_AUDIO_H
+#define NDDEMO_AUDIO_H
 
-#include "types"
+#include "types.h"
 #include "dolphin/DVD.h"
 
 class CSong{
@@ -18,20 +19,20 @@ public:
 	s32 ReadBuffer(s32 songId, char* filename);
 	s32 PlaySong(u16 songGroupId);
 	void DelayDeleteBuffer();
-	s32 GetSongValid(); //unused
+	s32 GetSongValid();
 };
 
-struct _SND_REVHI_DELAYLINE{
+typedef struct _SND_REVHI_DELAYLINE{
 	s32 inPoint; //0x0
 	s32 outPoint; //0x4
 	s32 length; //0x8
 	float* inputs; //0xC
 	float lastOutput; //0x10
-};
+} SND_REVHI_DELAYLINE;
 
 struct _SND_REVHI_WORK{
-	_SND_REVHI_DELAYLINE AP[9]; //0x0
-	_SND_REVHI_DELAYLINE C[9]; //0xB4
+	SND_REVHI_DELAYLINE AP[9]; //0x0
+	SND_REVHI_DELAYLINE C[9]; //0xB4
 	float allPassCoeff; //0x168
 	float combCoef[9]; //0x16C
 	float lpLastout[3]; //0x190
@@ -55,7 +56,7 @@ struct SND_AUX_REVERBHI{
 	float crosstalk; //0x1DC
 };
 
-struct _SND_CHORUS_SRCINFO{
+typedef struct _SND_CHORUS_SRCINFO{
 	s32* dest; //0x0
 	s32* smpBase; //0x4
 	s32* old; //0x8
@@ -65,9 +66,9 @@ struct _SND_CHORUS_SRCINFO{
 	u32 pitchHi; //0x18
 	u32 trigger; //0x1C
 	u32 target; //0x20
-};
+} SND_CHORUS_SRCINFO;
 
-struct _SND_CHORUS_WORK{
+typedef struct _SND_CHORUS_WORK{
 	s32* lastLeft[3]; //0x0
 	s32* lastRight[3]; //0xC
 	s32* lastSur[3]; //0x18
@@ -81,11 +82,11 @@ struct _SND_CHORUS_WORK{
 	s32 pitchOffset; //0x60
 	u32 pitchOffsetPeriodCount; //0x64
 	u32 pitchOffsetPeriod; //0x68
-	_SND_CHORUS_SRCINFO src; //0x6C
-};
+	SND_CHORUS_SRCINFO src; //0x6C
+} SND_CHORUS_WORK;
 
 struct SND_AUX_CHORUS{
-	_SND_CHORUS_WORK work; //0x0
+	SND_CHORUS_WORK work; //0x0
 	u32 baseDelay; //0x90
 	u32 variation; //0x94
 	u32 period; //0x98
@@ -151,3 +152,5 @@ public:
 	void Quit();
 	void* ReadDataAlloc(char* filename);
 };
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DUDVD_H
+#define NDDEMO_DUDVD_H
 
 #include "types.h"
 #include "dolphin/DVD.h"
@@ -38,3 +39,5 @@ private:
 	void InitDVD();
 	void Init();
 };
+
+#endif

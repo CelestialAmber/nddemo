@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DTCAMERA_H
+#define NDDEMO_DTCAMERA_H
 
 #include "types.h"
 #include "dolphin/PAD.h"
@@ -153,3 +154,5 @@ private:
 	void shift_pos_r(Vec* next_position, s8 eyeat);
 	void shift_pos(Vec* next_position, s8 eyeat);
 };
+
+#endif

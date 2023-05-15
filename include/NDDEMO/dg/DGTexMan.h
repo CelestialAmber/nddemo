@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DGTEXMAN_H
+#define NDDEMO_DGTEXMAN_H
 
 #include "types.h"
 #include "dolphin/GX.h"
@@ -37,3 +38,5 @@ private:
     void DeleteTexture(u16 htex);
     u16 GetTextureHandle(const char* szFileName);
 };
+
+#endif

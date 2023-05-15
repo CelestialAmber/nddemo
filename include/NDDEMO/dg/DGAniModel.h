@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DGANIMODEL_H
+#define NDDEMO_DGANIMODEL_H
 
 #include "types.h"
 #include "NDDEMO/dg/DGModel.h"
@@ -31,3 +32,5 @@ public:
 private:
 	void DeleteAniModelArray();
 };
+
+#endif

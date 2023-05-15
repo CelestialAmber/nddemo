@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DTGIMMICK_H
+#define NDDEMO_DTGIMMICK_H
 
 #include "types.h"
 #include "NDDEMO/Math.h"
@@ -78,3 +79,5 @@ public:
 	void OpeningTitleAction();
 	void MovieAction(u32 offsetY);
 };
+
+#endif

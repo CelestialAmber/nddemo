@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DGPOSITION_H
+#define NDDEMO_DGPOSITION_H
 
 #include "NDDEMO/Math.h"
 
@@ -34,3 +35,5 @@ public:
 
 	void GetDirectionalVec(Vec& src, Vec& dst);
 };
+
+#endif

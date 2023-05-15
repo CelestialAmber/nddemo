@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DGMODEL_H
+#define NDDEMO_DGMODEL_H
 
 #include "types.h"
 #include "NDDEMO/dg/DGObjMan.h"
@@ -25,3 +26,5 @@ public:
 	void SetPartsWorldPosition();
 	Vec GetPartsWorldPosition(const char* PartsName);
 };
+
+#endif

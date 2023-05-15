@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DGOBJMAN_H
+#define NDDEMO_DGOBJMAN_H
 
 #include "types.h"
 #include "NDDEMO/dg/DGObject.h"
@@ -22,3 +23,5 @@ public:
 private:
 	void DeleteObject(u16 hobj);
 };
+
+#endif

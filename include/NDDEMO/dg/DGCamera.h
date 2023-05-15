@@ -1,9 +1,10 @@
-#pragma once
+#ifndef NDDEMO_DGCAMERA_H
+#define NDDEMO_DGCAMERA_H
 
 #include "types.h"
 #include "dolphin/GX.h"
 #include "NDDEMO/dg/DGPosition.h"
-#include "NDDEMO/dg/DGRendMan.h"
+#include "NDDEMO/dg/DGRendManEnums.h"
 
 class DGCamera : DGPosition{
 private:
@@ -43,3 +44,5 @@ public:
 	void SetFogRangeRatio(float fognear, float fogfar);
 	void SetFogColor(const GXColor& color);
 };
+
+#endif

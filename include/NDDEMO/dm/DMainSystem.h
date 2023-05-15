@@ -1,7 +1,12 @@
+#ifndef NDDEMO_DGMAINSYSTEM_H
+#define NDDEMO_DGMAINSYSTEM_H
+
+#include "types.h"
 #include "NDDEMO/Math.h"
 #include "NDDEMO/da/DAudio.h"
 #include "NDDEMO/dg/DGAniModel.h"
 #include "NDDEMO/dg/DGCamera.h"
+#include "NDDEMO/dg/DGFont.h"
 #include "NDDEMO/dg/DGLight.h"
 #include "NDDEMO/dg/DGModel.h"
 #include "NDDEMO/dg/DGModelMan.h"
@@ -213,3 +218,8 @@ private:
     void iCheckLoadStatus();
     void _disp_meter();
 };
+
+//extern OSThread dmThread;
+//extern u8 dmThreadStack[0x8000];
+
+#endif

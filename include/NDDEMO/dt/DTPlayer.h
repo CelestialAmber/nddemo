@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DTPLAYER_H
+#define NDDEMO_DTPLAYER_H
 
 #include "types.h"
 #include "NDDEMO/Math.h"
@@ -106,3 +107,5 @@ public:
 	u8 Action();
 	Vec GetSpilShadowCamPos();
 };
+
+#endif

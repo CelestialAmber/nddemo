@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DGTEXPRO_H
+#define NDDEMO_DGTEXPRO_H
 
 #include "types.h"
 #include "dolphin/GX.h"
@@ -32,3 +33,5 @@ public:
 	void GetLightMtx(Mtx& LightMtx);
 	void SetDirectTex(void* image, u16 width, u16 height, GXTexFmt fmt, u8 miplevel);
 };
+
+#endif

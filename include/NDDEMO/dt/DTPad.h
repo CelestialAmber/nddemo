@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DTPAD_H
+#define NDDEMO_DTPAD_H
 
 #include "types.h"
 #include "dolphin/PAD.h"
@@ -29,3 +30,5 @@ public:
 	int IsStickTrg(u16 id, u16 stk);
 	PADStatus* GetPADStatus(u8 padNo);
 };
+
+#endif

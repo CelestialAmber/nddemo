@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DGLIGHT_H
+#define NDDEMO_DGLIGHT_H
 
 #include "types.h"
 #include "dolphin/GX.h"
@@ -45,3 +46,5 @@ public:
 	void SetAngleAttenuation_Cos(float cutoff, float p0);
 	void SetAngleAttenuation_Cos2(float cutoff, float p0);
 };
+
+#endif

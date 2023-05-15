@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DGPARTS_H
+#define NDDEMO_DGPARTS_H
 
 #include "types.h"
 #include "dolphin/GX.h"
@@ -6,6 +7,8 @@
 #include "NDDEMO/dg/DGObjMan.h"
 #include "NDDEMO/dg/DGPosition.h"
 #include "NDDEMO/dg/DGRendState.h"
+
+class DGParts;
 
 struct tagPARTS_LIST{
 	tagPARTS_LIST* next; //0x0
@@ -65,3 +68,5 @@ public:
 private:
 	void AllDeletePartsList();
 };
+
+#endif

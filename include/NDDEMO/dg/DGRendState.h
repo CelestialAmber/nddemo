@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NDDEMO_DGRENDSTATE_H
+#define NDDEMO_DGRENDSTATE_H
 
 #include "types.h"
 #include "dolphin/GX.h"
@@ -33,3 +34,5 @@ public:
 	void SetChan1MatColor(GXColor& MatColor);
 	void SetNumChans(u8 channum);
 };
+
+#endif

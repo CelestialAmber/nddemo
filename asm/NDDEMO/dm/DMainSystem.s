@@ -14849,16 +14849,6 @@
 
 .balign 8
 
-#might be in main.cpp
-.obj dmThread, global
-	.skip 0x310
-.endobj dmThread
-
-#8006d780
-.obj dmThreadStack, global
-	.skip 0x8000
-.endobj dmThreadStack
-
 .obj SwMsec, local
 	.skip 0x38
 .endobj SwMsec

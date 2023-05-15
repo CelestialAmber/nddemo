@@ -1,6 +1,8 @@
-#pragma once
+#ifndef NDDEMO_DGTEXTURE_H
+#define NDDEMO_DGTEXTURE_H
 
 #include "types.h"
+#include "dolphin/GX.h"
 
 class DGTexture{
 private:
@@ -27,3 +29,5 @@ public:
 	GXTexFmt GetFormat();
 	u8 GetMipLevel();
 };
+
+#endif
