@@ -3,7 +3,6 @@
 
 #include "types.h"
 #include "NDDEMO/Math.h"
-#include "NDDEMO/da/DAudio.h"
 #include "NDDEMO/dg/DGAniModel.h"
 #include "NDDEMO/dg/DGCamera.h"
 #include "NDDEMO/dg/DGFont.h"
@@ -18,6 +17,7 @@
 #include "NDDEMO/dt/DTLight.h"
 #include "NDDEMO/dt/DTPad.h"
 #include "NDDEMO/dt/DTPlayer.h"
+#include "NDDEMO/da/DAudio.h"
 
 class DMainSystem{
 private:
@@ -219,7 +219,10 @@ private:
     void _disp_meter();
 };
 
-//extern OSThread dmThread;
-//extern u8 dmThreadStack[0x8000];
+extern OSThread dmThread;
+extern u8 dmThreadStack[0x8000];
+extern DMainSystem* dm;
+extern BOOL autoDemoFlag;
+extern bool v_flag;
 
 #endif

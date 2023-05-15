@@ -153,4 +153,6 @@ public:
 	void* ReadDataAlloc(char* filename);
 };
 
+extern DAudio audio;
+
 #endif

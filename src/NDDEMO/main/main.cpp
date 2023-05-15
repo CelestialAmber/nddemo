@@ -2,7 +2,9 @@
 #include "dolphin/DVD.h"
 #include "dolphin/VI.h"
 #include "dolphin/PAD.h"
-#include "NDDEMO/main/main.h"
+#include "NDDEMO/dm/DMainSystem.h"
+#include "NDDEMO/da/DAudio.h"
+#include "NDDEMO/du/DUMacro.h"
 
 //These three variables might belong to DMainSystem.cpp
 DMainSystem* dm;
@@ -13,6 +15,8 @@ DAudio audio;
 OSThread dmThread;
 u8 dmThreadStack[0x8000];
 
+//int largeHeap(){}
+//int smallHeap(){}
 
 extern "C" void main();
 
