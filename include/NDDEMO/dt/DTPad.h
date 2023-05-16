@@ -10,10 +10,8 @@ private:
 	u32 count; //0x4
 
 protected:
-	PADStatus prepad[3]; //0x8
-	u8 unk24[0xC]; //padding
-	PADStatus pad[3]; //0x38
-	u8 unk5C[0xC]; //padding
+	PADStatus prepad[4]; //0x8
+	PADStatus pad[4]; //0x38
 
 public:
 	DTPad(const DTPad&);

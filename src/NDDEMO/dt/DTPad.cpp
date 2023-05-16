@@ -21,7 +21,7 @@ DTPad::~DTPad(){
 void DTPad::Read(){
 	ResetReq = 0;
 	//copy the current pad status array to the previous one
-	memcpy(prepad, pad, sizeof(pad) + 0xC);
+	memcpy(prepad, pad, sizeof(pad));
 	PADRead(pad);
 	PADClamp(pad);
 	
@@ -84,7 +84,7 @@ BOOL DTPad::IsTrp(u16 id, u16 key){
 //nonmatching
 //Checks whether the specified button is being held
 BOOL DTPad::IsPush(u16 id, u16 key){
-	if((pad[id].button & key) == pad[id].button){
+	if((key & pad[id].button) == key){
 		return true;
 	}
 
