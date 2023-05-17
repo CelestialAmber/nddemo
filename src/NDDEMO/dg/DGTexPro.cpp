@@ -44,6 +44,7 @@ void DGTexPro::SetCamera(DGCamera* camera){
 	m_Camera = camera;
 }
 
+//https://decomp.me/scratch/r6ZGY
 u8 DGTexPro::InitTexObj(GXTexObj* texobj){
 	if(m_DirectTexImage != nullptr){
 		u8 mipmap = false;
@@ -52,7 +53,7 @@ u8 DGTexPro::InitTexObj(GXTexObj* texobj){
 		}
 
 		GXInitTexObj(texobj, m_DirectTexImage, m_DirectTexWidth, m_DirectTexHeight, m_DirectTexFormat, m_WrapS, m_WrapT, mipmap);
-		return mipmap;
+		return ++mipmap - 1; //has to be a fakematch
 	}else{
 		return m_TexMan->InitTexObj(texobj, m_HTex, m_WrapS, m_WrapT);
 	}

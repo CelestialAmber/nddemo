@@ -20,9 +20,11 @@ public:
 	DGTexture();
 	~DGTexture();
 
-	u8 LoadDTX(char* szFileName);
 	u16 IncRefer();
 	u16 DecRefer();
+
+	u8 LoadDTX(char* szFileName);
+	
 	void* GetImagePtr();
 	u16 GetWidth();
 	u16 GetHeight();
