@@ -27,16 +27,7 @@ struct Vec{
 		return x*x + y*y + z*z + EPSILON;
 	}
 
-	/*
-	Vec& operator=(Vec& vec){
-		x = vec.x;
-		y = vec.y;
-		z = vec.z;
-		return *this;
-	}
-	*/
-
-	Vec& operator+=(Vec& add){
+	Vec& operator+=(const Vec& add){
 		x += add.x;
 		y += add.y;
 		z += add.z;
