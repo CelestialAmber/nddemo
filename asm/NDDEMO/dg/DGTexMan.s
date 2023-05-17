@@ -593,14 +593,8 @@
 .endobj lbl_80066B88
 
 .obj lbl_80066BAC, local
-	.4byte 0x4572726F
-	.4byte 0x72204447
-	.4byte 0x5465784D
-	.4byte 0x616E3A3A
-	.4byte 0x44656C65
-	.4byte 0x74655465
-	.4byte 0x78747572
-	.4byte 0x653E8140
+	.ascii "Error DGTexMan::DeleteTexture>"
+	.2byte 0x8140 #shift-jis space
 	.asciz "Invalid Handle\n"
 	.asciz "Already Exist Texture [%s]\n"
 	.asciz "Error DGTexMan::LoadTexture> Load Failed\n"

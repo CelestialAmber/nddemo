@@ -904,11 +904,11 @@
 .endobj float_800A9AB4
 
 .obj float_800A9AB8, local
-	.4byte 0x3C23D70A
+	.float 0.01
 .endobj float_800A9AB8
 
 .obj float_800A9ABC, local
-	.4byte 0x41200000
+	.float 10
 .endobj float_800A9ABC
 
 .obj float_800A9AC0, local
@@ -936,15 +936,15 @@
 .endobj i2fMagic
 
 .obj value0_6, local
-	.4byte 0x3F19999A
+	.float 0.6
 .endobj value0_6
 
 .obj value0_3, local
-	.4byte 0x3E99999A
+	.float 0.3
 .endobj value0_3
 
 .obj float_800A9AE8, local
-	.4byte 0x3F000000
+	.float 0.5
 .endobj float_800A9AE8
 
 

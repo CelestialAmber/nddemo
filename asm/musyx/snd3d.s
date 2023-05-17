@@ -1581,15 +1581,15 @@
 .endobj float_800A9A70
 
 .obj float_800A9A74, local
-	.4byte 0x3DA3D70A
+	.float 0.08
 .endobj float_800A9A74
 
 .obj float_800A9A78, local
-	.4byte 0x3E19999A
+	.float 0.15
 .endobj float_800A9A78
 
 .obj float_800A9A7C, local
-	.4byte 0x3E99999A
+	.float 0.3
 .endobj float_800A9A7C
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80

@@ -2,7 +2,7 @@ NDDEMO_FILES :=\
 	$(BUILD_DIR)/src/NDDEMO/main/main.o\
 	$(BUILD_DIR)/asm/NDDEMO/dm/DMainSystem.o\
 	$(BUILD_DIR)/asm/NDDEMO/du/DUDvd.o\
-	$(BUILD_DIR)/asm/NDDEMO/du/DUMacro.o\
+	$(BUILD_DIR)/src/NDDEMO/du/DUMacro.o\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGLight.o\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGModel.o\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGModelMan.o\
@@ -12,7 +12,7 @@ NDDEMO_FILES :=\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGRendMan.o\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGTexMan.o\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGCamera.o\
-	$(BUILD_DIR)/asm/NDDEMO/dg/DGPosition.o\
+	$(BUILD_DIR)/src/NDDEMO/dg/DGPosition.o\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGFont.o\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGRendState.o\
 	$(BUILD_DIR)/asm/NDDEMO/dg/DGTexPro.o\

@@ -1,0 +1,14 @@
+#ifndef DOLPHIN_OS_AUDIOSYSTEM_H
+#define DOLPHIN_OS_AUDIOSYSTEM_H
+#include "types.h"
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void __OSInitAudioSystem(void);
+void __OSStopAudioSystem(void);
+
+#ifdef __cplusplus
+}
+#endif
+#endif

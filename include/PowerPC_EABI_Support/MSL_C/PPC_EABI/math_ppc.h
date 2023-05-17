@@ -3,9 +3,9 @@
 
 #include "types.h"
 
-f64 nan(const char*);
-f32 cosf(f32 __x);
-f32 sinf(f32 __x);
-f32 tanf(f32 __x);
+double nan(const char*);
+float cosf(float __x);
+float sinf(float __x);
+float tanf(float __x);
 
 #endif

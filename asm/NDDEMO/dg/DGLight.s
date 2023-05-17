@@ -395,19 +395,19 @@
 .endobj float_800A9494
 
 .obj float_800A9498, local
-	.4byte 0x42000000
+	.float 32
 .endobj float_800A9498
 
 .obj float_800A949C, local
-	.4byte 0x3F000000
+	.float 0.5
 .endobj float_800A949C
 
 .obj float_800A94A0, local
-	.4byte 0x40490FDB
+	.float 3.1415927
 .endobj float_800A94A0
 
 .obj float_800A94A4, local
-	.4byte 0x43340000
+	.float 180
 .endobj float_800A94A4
 
 .obj lbl_800A94A8, local

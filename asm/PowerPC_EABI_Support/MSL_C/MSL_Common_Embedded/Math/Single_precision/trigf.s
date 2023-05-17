@@ -271,15 +271,15 @@
 .balign 8
 
 .obj float_800A9B48, local
-	.4byte 0x3F22F983
+	.float 0.63661974
 .endobj float_800A9B48
 
 .obj float_800A9B4C, local
-	.4byte 0x3F000000
+	.float 0.5
 .endobj float_800A9B4C
 
 .obj float_800A9B50, local
-	.4byte 0x39B504F3
+	.float 0.00034526697
 .endobj float_800A9B50
 
 .4byte 0

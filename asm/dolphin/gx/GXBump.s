@@ -489,6 +489,5 @@
 
 
 .obj float_800A9908, local
-	.4byte 0x44800000
-	.4byte 0
+	.float 1024
 .endobj float_800A9908

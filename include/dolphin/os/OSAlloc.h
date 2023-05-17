@@ -12,6 +12,7 @@ void OSFreeToHeap(s32 handle, void* p);
 s32 OSSetCurrentHeap(s32 handle);
 void* OSInitAlloc(void* start, void* end, s32 numHeaps);
 s32 OSCreateHeap(void* start, void* end);
+s32 OSCheckHeap(s32 handle);
 
 #ifdef __cplusplus
 }

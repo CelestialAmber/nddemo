@@ -1392,5 +1392,4 @@
 
 .obj float_800A94D8, local
 	.4byte 0x40C90FD8
-	.4byte 0
 .endobj float_800A94D8

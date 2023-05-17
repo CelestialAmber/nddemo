@@ -2820,13 +2820,13 @@
 
 .obj "@180", local
 	.4byte 0
-	.4byte 0x40000000
+	.float 2
 	.4byte 0
 .endobj "@180"
 
 .obj "@181", local
 	.4byte 0
-	.4byte 0xC0000000
+	.float -2
 	.4byte 0
 .endobj "@181"
 
@@ -2838,13 +2838,13 @@
 
 .obj "@191", local
 	.4byte 0
-	.4byte 0x3F000000
+	.float 0.5
 	.4byte 0
 .endobj "@191"
 
 .obj "@192", local
 	.4byte 0
-	.4byte 0x40000000
+	.float 2
 	.4byte 0
 .endobj "@192"
 
@@ -2880,7 +2880,7 @@
 
 .obj "@442", local
 	.4byte 0
-	.4byte 0x3E800000
+	.float 0.25
 	.4byte 0
 .endobj "@442"
 
@@ -2962,14 +2962,14 @@
 .endobj lbl_80066E18
 
 .obj "iti0$197", local
-	.4byte 0x40800000
-	.4byte 0x40800000
-	.4byte 0x40800000
+	.float 4
+	.float 4
+	.float 4
 .endobj "iti0$197"
 
 .obj "vec0$198", local
-	.4byte 0x40000000
-	.4byte 0xC0000000
+	.float 2
+	.float -2
 	.float 1
 .endobj "vec0$198"
 
@@ -3236,7 +3236,7 @@
 .balign 8
 
 .obj float_800A9640, local
-	.4byte 0x41200000
+	.float 10
 .endobj float_800A9640
 
 .obj float_800A9644, local
@@ -3244,15 +3244,15 @@
 .endobj float_800A9644
 
 .obj float_800A9648, local
-	.4byte 0x42B40000
+	.float 90
 .endobj float_800A9648
 
 .obj float_800A964C, local
-	.4byte 0x40800000
+	.float 4
 .endobj float_800A964C
 
 .obj float_800A9650, local
-	.4byte 0x43340000
+	.float 180
 .endobj float_800A9650
 
 .obj float_800A9654, local
@@ -3276,7 +3276,7 @@
 .endobj float_800A9664
 
 .obj float_800A9668, local
-	.4byte 0x40000000
+	.float 2
 .endobj float_800A9668
 
 .obj float_800A966C, local
@@ -3296,31 +3296,31 @@
 .endobj float_800A9678
 
 .obj float_800A967C, local
-	.4byte 0x42F00000
+	.float 120
 .endobj float_800A967C
 
 .obj float_800A9680, local
-	.4byte 0x41C80000
+	.float 25
 .endobj float_800A9680
 
 .obj float_800A9684, local
-	.4byte 0x3F000000
+	.float 0.5
 .endobj float_800A9684
 
 .obj float_800A9688, local
-	.4byte 0x3E800000
+	.float 0.25
 .endobj float_800A9688
 
 .obj float_800A968C, local
-	.4byte 0x3A800000
+	.float 0.0009765625
 .endobj float_800A968C
 
 .obj float_800A9690, local
-	.4byte 0x3FC00000
+	.float 1.5
 .endobj float_800A9690
 
 .obj float_800A9694, local
-	.4byte 0x3B000000
+	.float 0.001953125
 .endobj float_800A9694
 
 .obj float_800A9698, local
@@ -3328,11 +3328,11 @@
 .endobj float_800A9698
 
 .obj float_800A969C, local
-	.4byte 0x41800000
+	.float 16
 .endobj float_800A969C
 
 .obj float_800A96A0, local
-	.4byte 0x42200000
+	.float 40
 .endobj float_800A96A0
 
 .obj float_800A96A4, local

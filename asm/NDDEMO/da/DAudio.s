@@ -950,7 +950,7 @@
 
 
 .obj float_800A9840, local
-	.4byte 0x40A00000
+	.float 5
 .endobj float_800A9840
 
 .obj float_800A9844, local
@@ -958,11 +958,11 @@
 .endobj float_800A9844
 
 .obj float_800A9848, local
-	.4byte 0x3F19999A
+	.float 0.6
 .endobj float_800A9848
 
 .obj float_800A984C, local
-	.4byte 0x3F666666
+	.float 0.9
 .endobj float_800A984C
 
 .obj float_800A9850, local
@@ -970,5 +970,5 @@
 .endobj float_800A9850
 
 .obj float_800A9854, local
-	.4byte 0x3F000000
+	.float 0.5
 .endobj float_800A9854

@@ -500,7 +500,7 @@
 .endobj float_800A99E8
 
 .obj float_800A99EC, local
-	.4byte 0x40000000
+	.float 2
 .endobj float_800A99EC
 
 .obj float_800A99F0, local

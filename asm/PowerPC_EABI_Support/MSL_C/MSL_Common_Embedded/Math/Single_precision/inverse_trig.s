@@ -212,63 +212,63 @@
 
 .obj "atan_coeff$96", local
 	.float 1
-	.4byte 0xBEAAAAAA
-	.4byte 0x3E4CCC81
-	.4byte 0xBE123E7D
-	.4byte 0x3DE21F95
-	.4byte 0xBDAD417C
-	.4byte 0x3D41186D
+	.float -0.333333313
+	.float 0.19999887
+	.float -0.142816499
+	.float 0.1104118
+	.float -0.0845975578
+	.float 0.0471424349
 .endobj "atan_coeff$96"
 
 .obj "onep_one_over_xisqr_hi$97", local
-	.4byte 0x40DA826B
-	.4byte 0x404F5958
-	.4byte 0x40000000
-	.4byte 0x3FB925AB
-	.4byte 0x3F95F61A
-	.4byte 0x3F851081
+	.float 6.82842016
+	.float 3.23982811
+	.float 2
+	.float 1.44646204
+	.float 1.17157292
+	.float 1.03956616
 .endobj "onep_one_over_xisqr_hi$97"
 
 .obj "onep_one_over_xisqr_lo$98", local
-	.4byte 0x36EF692F
-	.4byte 0x355C1DF9
-	.4byte 0
-	.4byte 0x35291D45
-	.4byte 0
-	.4byte 0
+	.float 7.13500003E-06
+	.float 8.20000025E-07
+	.float 0
+	.float 6.29999988E-07
+	.float 0
+	.float 0
 .endobj "onep_one_over_xisqr_lo$98"
 
 .obj "atan_xi_hi$99", local
-	.4byte 0
-	.4byte 0x3EC90EAA
-	.4byte 0x3F16CBE4
-	.4byte 0x3F490FDA
-	.4byte 0x3F7B53C5
-	.4byte 0x3F96CBE2
-	.4byte 0x3FAFEDD9
+	.float 0
+	.float 0.392690003
+	.float 0.589048624
+	.float 0.785398126
+	.float 0.981746972
+	.float 1.17809701
+	.float 1.37444603
 .endobj "atan_xi_hi$99"
 
 .obj "atan_xi_lo$100", local
-	.4byte 0
-	.4byte 0x37185D99
-	.4byte 0x32C59189
-	.4byte 0x33874A9E
-	.4byte 0x353CFA83
-	.4byte 0x348637BD
-	.4byte 0x35541063
+	.float 0
+	.float 9.08169841E-06
+	.float 2.30000001E-08
+	.float 6.30000017E-08
+	.float 7.04000001E-07
+	.float 2.49999999E-07
+	.float 7.90000001E-07
 .endobj "atan_xi_lo$100"
 
 .obj "one_over_xi_hi$101", local
-	.4byte 0x401A8277
-	.4byte 0x3FBF90C7
+	.float 2.4142129
+	.float 1.4966057
 	.float 1
-	.4byte 0x3F2B0DC1
-	.4byte 0x3ED413CD
-	.4byte 0x3E4BAFAF
+	.float 0.6681786
+	.float 0.41421356
+	.float 0.19891236
 .endobj "one_over_xi_hi$101"
 
 .obj "one_over_xi_lo$102", local
-	.4byte 0x3516DC59
+	.float 0.000000562
 	.4byte 0
 	.4byte 0
 	.4byte 0
@@ -281,7 +281,7 @@
 .balign 8
 
 .obj float_800A9B30, local
-	.4byte 0x401A827A
+	.float 2.4142136
 .endobj float_800A9B30
 
 .obj float_800A9B34, local
@@ -289,11 +289,11 @@
 .endobj float_800A9B34
 
 .obj float_800A9B38, local
-	.4byte 0x3ED413CD
+	.float 0.41421356
 .endobj float_800A9B38
 
 .obj float_800A9B3C, local
-	.4byte 0x3FC90FDB
+	.float 1.57079637
 .endobj float_800A9B3C
 
 .obj float_800A9B40, local
@@ -301,5 +301,5 @@
 .endobj float_800A9B40
 
 .obj float_800A9B44, local
-	.4byte 0x40490FDB
+	.float 3.1415927
 .endobj float_800A9B44

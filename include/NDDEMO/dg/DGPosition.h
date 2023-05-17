@@ -9,7 +9,7 @@ protected:
 	Vec m_Rotation; //0xC
 	Vec m_Scale; //0x18
 	Mtx m_Trans; //0x24
-	u8 m_TransFlag; //0x54
+	bool m_TransFlag; //0x54
 	u8 unk55[3]; //padding
 
 public:
@@ -26,8 +26,8 @@ public:
 
 	void SetRotation(const Vec& rot);
 	void AddRotation(const Vec& add);
-	Vec GetRotation();
 	void LimitRotation();
+	Vec GetRotation();
 
 	void SetScale(const Vec& scale);
 	void AddScale(const Vec& add);

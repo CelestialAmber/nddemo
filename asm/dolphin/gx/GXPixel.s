@@ -542,7 +542,7 @@
 .endobj float_800A9910
 
 .obj float_800A9914, local
-	.4byte 0x3F000000
+	.float 0.5
 .endobj float_800A9914
 
 .obj lbl_800A9918, local
@@ -550,7 +550,7 @@
 .endobj lbl_800A9918
 
 .obj float_800A9920, local
-	.4byte 0x40000000
+	.float 2
 .endobj float_800A9920
 
 .4byte 0

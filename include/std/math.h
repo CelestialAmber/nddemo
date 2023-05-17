@@ -31,7 +31,7 @@ extern int __double_huge[];
 #define FP_SUBNORMAL 5
 
 
-inline int __fpclassifyf(f32 x)
+inline int __fpclassifyf(float x)
 {
 	switch ((*(s32*)&x) & 0x7f800000) {
 	case 0x7f800000: {
@@ -51,7 +51,7 @@ inline int __fpclassifyf(f32 x)
 	}
 	return FP_NORMAL;
 }
-inline int __fpclassifyd(f64 x)
+inline int __fpclassifyd(double x)
 {
 	switch (__HI(x) & 0x7ff00000) {
 	case 0x7ff00000: {
@@ -83,7 +83,7 @@ inline long double fabsl(long double x) {
 }
 
 
-inline f32 sqrtf(f32 x)
+inline float sqrtf(float x)
 {
 	static const double _half  = .5;
 	static const double _three = 3.0;
