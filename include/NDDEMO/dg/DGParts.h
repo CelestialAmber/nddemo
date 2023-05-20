@@ -19,7 +19,7 @@ struct tagPARTS_LIST{
 	tagPARTS_LIST();
 };
 
-class DGParts : DGPosition{
+class DGParts : public DGPosition{
 private:
 	DGObjMan* m_ObjMan; //0x58
 	tagPARTS_LIST* m_PartsList; //0x5C

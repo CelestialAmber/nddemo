@@ -7,7 +7,7 @@
 #include "NDDEMO/dg/DGParts.h"
 #include "NDDEMO/dg/DGRendState.h"
 
-class DGModel : DGPosition {
+class DGModel : public DGPosition {
 private:
 	DGObjMan* m_ObjMan; //0x58
 

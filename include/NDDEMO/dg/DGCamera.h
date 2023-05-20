@@ -6,7 +6,7 @@
 #include "NDDEMO/dg/DGPosition.h"
 #include "NDDEMO/dg/DGRendManEnums.h"
 
-class DGCamera : DGPosition{
+class DGCamera : public DGPosition{
 private:
 	Mtx44 m_ProjectionMtx; //0x58
 	Mtx m_LightProjectionMtx; //0x98

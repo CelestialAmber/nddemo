@@ -6,7 +6,7 @@
 #include "NDDEMO/Math.h"
 #include "NDDEMO/dg/DGCamera.h"
 
-class DTCamera : DGCamera{
+class DTCamera : public DGCamera{
 private:
 	s8 _mode; //0x12C
 	s8 _step; //0x12D

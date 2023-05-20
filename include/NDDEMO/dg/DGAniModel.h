@@ -6,7 +6,7 @@
 #include "NDDEMO/dg/DGObjMan.h"
 #include "NDDEMO/dg/DGParts.h"
 
-class DGAniModel : DGModel {
+class DGAniModel : public DGModel {
 private:
 	u8 m_UseAniModel; //0x60
 	u8 unk61; //padding

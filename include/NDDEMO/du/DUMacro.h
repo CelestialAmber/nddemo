@@ -15,4 +15,10 @@ void operator delete(void* block){
 	mFree(block);
 }
 
+#define Delete(block) \
+	if(block != nullptr){ \
+		delete block; \
+		block = nullptr; \
+	} \
+
 #endif
