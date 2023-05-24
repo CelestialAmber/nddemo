@@ -9,6 +9,7 @@
 class DGObject{
 private:
 	u16 m_ReferCount; //0x0
+	u8 unk2[2]; //padding
 	DGTexMan* m_TexMan; //0x4
 
 	GXAttrType m_VIAT; //0x8
@@ -66,14 +67,23 @@ public:
 	u8 LoadNDMPartsBlock(DUDvd& File);
 	void MakeTexTransTable(u16* GlobalTexTable);
 	u8* GetPartsBlock();
-	u8 IsNull();
-	void SetLineMode(int); //not in the cpp file according to dwarf
-	int GetLineMode(); //not in the cpp file according to dwarf
+	bool IsNull();
+
+	//fabricated param name
+	void SetLineMode(int mode){
+		lineMode = mode;
+	}
+
+	int GetLineMode(){
+		return lineMode;
+	}
 
 private:
 	void SetArrayFormat(u16 VertexArrayFormat, u16 NormalArrayFormat, u16 ColorArrayFormat, u16 TexUVArrayFormat);
 	void ExecuteObjStream();
+	
 	void oscmdExtend0(u8*& OSPtr);
+	void oscmdExtendF(u8*& OSPtr);
 	void oscmdVtxDesc(u8*& OSPtr);
 	void oscmdTevDirect(u8*& OSPtr);
 	void oscmdTevOrder(u8*& OSPtr);
@@ -87,11 +97,10 @@ private:
 	void oscmdIndStages(u8*& OSPtr);
 	void oscmdIndTexOrder(u8*& OSPtr);
 	void oscmdIndTexCoordScale(u8*& OSPtr);
-	void oscmdExtendF(u8*& OSPtr);
+	void oscmdDrawLine(u8*& OSPtr);
 	void oscmdDisplayList(u8*& OSPtr);
 	void oscmdZMode(u8*& OSPtr);
 	void oscmdIndBumpXYZ(u8*& OSPtr);
-	void oscmdDrawLine(u8*& OSPtr);
 };
 
 #endif

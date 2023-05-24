@@ -15,10 +15,19 @@ void operator delete(void* block){
 	mFree(block);
 }
 
-#define Delete(block) \
+void operator delete[](void* block){
+	mFree(block);
+}
+
+#define McrFree(block) \
 	if(block != nullptr){ \
 		delete block; \
 		block = nullptr; \
+	} \
+
+#define McrDelete(block) \
+	if(block != nullptr){ \
+		delete block; \
 	} \
 
 #endif

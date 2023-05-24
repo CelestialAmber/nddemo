@@ -20,14 +20,22 @@ DGModelMan::~DGModelMan(){
 		DestroyMasterModel(i);
 	}
 
-	Delete(m_MasterModelTable);
-	Delete(m_ObjMan);
-	Delete(m_TexMan);
+	McrFree(m_MasterModelTable);
+	McrFree(m_ObjMan);
+	McrFree(m_TexMan);
 }
 
-//unused
 u16 DGModelMan::AddMasterModel(u8* ModelClass){
-	return 0;
+    for(u16 i = 0; i < m_MaxMaterModelNum; i++){
+		if(m_MasterModelTable[i] == nullptr){
+			m_MasterModelTable[i] = ModelClass;
+			IncRefer(i);
+			m_MsterModelNum++;
+			return i;
+		}
+	}
+
+	return 0xFFFF;
 }
 
 void DGModelMan::DeleteMasterModel(u16 ModelHandle){
@@ -84,7 +92,7 @@ void DGModelMan::DestroyMasterModel(u16 ModelHandle){
 			}
 
 			m_MsterModelNum--;
-			Delete(m_MasterModelTable[ModelHandle]);
+			McrFree(m_MasterModelTable[ModelHandle]);
 		}
 	}
 }
@@ -108,7 +116,7 @@ DGModel* DGModelMan::CreateInstance(u16 ModelHandle){
 			}
 			
 			OSReport("Error DGModelMan::CreateInstance False\n");
-			Delete(TempModel);
+			McrFree(TempModel);
 		}
 	}
 
@@ -127,12 +135,13 @@ DGAniModel* DGModelMan::CreateAnimeInstance(u16 ModelHandle){
 			}
 			
 			OSReport("Error DGModelMan::CreateAnimeInstance False\n");
-			Delete(TempAniModel);
+			McrFree(TempAniModel);
 		}
 	}
 
 	return nullptr; //CreateInstance failed, so just return null
 }
+
 
 u16 DGModelMan::LoadNDM(char* szFileName){
 	//BUG?: If the lock is already enabled, the code prints a message, but doesn't
@@ -186,9 +195,7 @@ u16 DGModelMan::LoadNDM(char* szFileName){
 					GlobalTexTable[i] = m_TexMan->LoadTexture(TexTabale + i*0x10);
 				}
 
-				if(TexTabale != nullptr){
-					delete TexTabale;
-				}
+				McrDelete(TexTabale);
 			}
 
 			u8* ClassBlock = (u8*)mAlloc(*ClassBlockSize);
@@ -200,7 +207,7 @@ u16 DGModelMan::LoadNDM(char* szFileName){
 			File.Read(ClassBlock, *ClassBlockSize, 0);
 			u8* ClassPointer = ClassBlock;
 
-			for(u16 i = 0; i < *ClassBlockSize; i++){
+			for(u16 i = 0; i < *(u16*)ClassBlockSize; i++){
 				while(*ClassPointer != 0xFF){
 					ClassPointer++;
 				}
@@ -211,7 +218,7 @@ u16 DGModelMan::LoadNDM(char* szFileName){
 					OSReport("DGModelMan::LoadNDM >TempObject==NULL\n");
 				}
 
-				if(TempObject->LoadNDMPartsBlock(File) == 1){
+				if(TempObject->LoadNDMPartsBlock(File) == true){
 					if (GlobalTexTable != nullptr) {
 						TempObject->MakeTexTransTable(GlobalTexTable);
 					}
@@ -220,26 +227,19 @@ u16 DGModelMan::LoadNDM(char* szFileName){
 					ObjHandle = m_ObjMan->AttachObject(ObjHandle);
 
 					if (ObjHandle == 0xFFFF) {
-						if (TempObject != nullptr) {
-							delete TempObject;
-						}
+						McrDelete(TempObject);
 						OSReport("DGModelMan::LoadNDM >McrDeleteTempObject(ObjHandle ==0xffff)\n");
 					}
 
-					*ClassPointer = ObjHandle;
+					*(u16*)ClassPointer = ObjHandle;
 					ClassPointer += 2;
 				}else{
-					if (TempObject != nullptr) {
-						delete TempObject;
-					}
-
+					McrDelete(TempObject);
 					OSReport("DGModelMan::LoadNDM >McrDeleteTempObject\n");
 				}
 			}
 
-			if (GlobalTexTable != nullptr) {
-				delete GlobalTexTable;
-			}
+			McrDelete(GlobalTexTable);
 
 			u32 ModelClassSize = (*ClassBlockNum)*4 + 0x12; //r20
 			ModelClassSize += (0x20 - (ModelClassSize & 0x1f) & 0x1f);
@@ -248,40 +248,20 @@ u16 DGModelMan::LoadNDM(char* szFileName){
 			strcpy((char*)(ModelClass + 2),szFileName);
 			memcpy(ModelClass + 0x12, ClassBlock, (*ClassBlockNum) << 2);
 
-			if (ClassBlock != nullptr) {
-				delete ClassBlock;
-			}
+			McrDelete(ClassBlock);
 
-			u16 i;
-
-			for(i = 0; i < m_MaxMaterModelNum; i++){
-				if(m_MasterModelTable[i] == nullptr){
-					m_MasterModelTable[i] = ModelClass;
-					IncRefer(i);
-					m_MsterModelNum++;
-					goto lbl_380;
-				}
-			}
-
-			i = 0xFFFF;
-
-			lbl_380:
-			hModel = i;
+			hModel = AddMasterModel(ModelClass);
 
 			if(hModel == 0xFFFF) {
 				OSReport("Error DGModelMan::LoadNDM>AddMasterModel False\n");
 
-				if(ModelClass != nullptr){
-					delete ModelClass;
-				}
+				McrDelete(ModelClass);
 			}
 		}else{
 			OSReport("NDM Version Error\n");
 		}
 
-		if(ndmHeader != nullptr){
-			delete ndmHeader;
-		}
+		McrDelete(ndmHeader);
 	}else{
 		OSReport("Error DGModelMan::LoadNDM>OpenFalse [%s]\n", szFileName);
 	}

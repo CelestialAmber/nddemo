@@ -75,13 +75,14 @@ BOOL DTPad::IsTrg(u16 id, u16 key){
 
 //unused
 BOOL DTPad::IsCnd(u16 id, u16 key){
+	return false;
 }
 
 //unused
 BOOL DTPad::IsTrp(u16 id, u16 key){
+	return false;
 }
 
-//nonmatching
 //Checks whether the specified button is being held
 BOOL DTPad::IsPush(u16 id, u16 key){
 	if((key & pad[id].button) == key){
@@ -93,4 +94,5 @@ BOOL DTPad::IsPush(u16 id, u16 key){
 
 //unused
 BOOL DTPad::IsStickTrg(u16 id, u16 key){
+	return false;
 }
