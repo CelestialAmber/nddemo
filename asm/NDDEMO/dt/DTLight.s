@@ -1619,7 +1619,7 @@
 
 .obj "@186", local
 	.4byte 0
-	.4byte 0xC2F00000
+	.float -120
 	.4byte 0
 .endobj "@186"
 
@@ -1642,7 +1642,7 @@
 .endobj "@190"
 
 .obj "@192", local
-	.4byte 0xC3160000
+	.float -150
 	.float 150
 	.float 150
 .endobj "@192"
@@ -1686,7 +1686,7 @@
 .obj "@210", local
 	.float 17
 	.float 40
-	.4byte 0x42700000
+	.float 60
 .endobj "@210"
 
 .obj "@212", local
@@ -1716,13 +1716,13 @@
 .obj "@288", local
 	.4byte 0
 	.float 30
-	.4byte 0xC2480000
+	.float -50
 .endobj "@288"
 
 .obj "@290", local
 	.4byte 0
 	.float 30
-	.4byte 0xC2A00000
+	.float -80
 .endobj "@290"
 
 .obj "@291", local
@@ -1757,7 +1757,7 @@
 
 .obj "@313", local
 	.4byte 0
-	.4byte 0xC3160000
+	.float -150
 	.4byte 0
 .endobj "@313"
 
@@ -1924,7 +1924,7 @@
 .endobj lbl_800A95C0
 
 .obj float_800A95C4, local
-	.4byte 0x42800000
+	.float 64
 .endobj float_800A95C4
 
 .obj lbl_800A95C8, local

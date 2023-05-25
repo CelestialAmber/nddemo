@@ -3712,72 +3712,72 @@
 .endobj PlyAnimName
 
 .obj iVec_ENTR_doorC, local
-	.4byte 0xC258EE98
+	.float -54.233
 	.float 40
-	.4byte 0xC3250000
-	.4byte 0xC258EE98
+	.float -165
+	.float -54.233
 	.float 40
-	.4byte 0xC3490000
+	.float -201
 .endobj iVec_ENTR_doorC
 
 .obj iVec_ENTR_doorG, local
-	.4byte 0x4258EE98
+	.float 54.233
 	.float 40
-	.4byte 0xC3250000
-	.4byte 0x422CEE98
+	.float -165
+	.float 43.233
 	.float 40
-	.4byte 0xC3490000
+	.float -201
 .endobj iVec_ENTR_doorG
 
 .obj iVec_ENTR_doorB, local
-	.4byte 0xC2A0C831
+	.float -80.391
 	.float 40
-	.4byte 0xC2FF449C
-	.4byte 0xC2E8C831
+	.float -127.634
+	.float -116.391
 	.float 40
-	.4byte 0xC2FF449C
+	.float -127.634
 .endobj iVec_ENTR_doorB
 
 .obj iVec_ENTR_doorF, local
-	.4byte 0x42A0C831
+	.float 80.391
 	.float 40
-	.4byte 0xC2FF449C
-	.4byte 0x42E8C831
+	.float -127.634
+	.float 116.391
 	.float 40
-	.4byte 0xC2FF449C
+	.float -127.634
 .endobj iVec_ENTR_doorF
 
 .obj iVec_ENTR_doorE, local
-	.4byte 0x42BFD3F8
+	.float 95.914
 	.4byte 0
-	.4byte 0x425DB53F
-	.4byte 0x42F81EB8
+	.float 55.427
+	.float 124.06
 	.4byte 0
-	.4byte 0x428F28F6
+	.float 71.58
 .endobj iVec_ENTR_doorE
 
 .obj iVec_ENTR_doorD, local
-	.4byte 0xC2BFD3F8
+	.float -95.914
 	.4byte 0
-	.4byte 0x425DB53F
-	.4byte 0xC2FE2E98
+	.float 55.427
+	.float -127.091
 	.4byte 0
-	.4byte 0x4292DAA0
+	.float 73.427
 .endobj iVec_ENTR_doorD
 
 .obj iVec_HANG_doorA, local
-	.4byte 0xC380BC08
-	.4byte 0xC2DAF6C9
-	.4byte 0x4314028F
-	.4byte 0xC3624AC1
-	.4byte 0xC2DAF6C9
-	.4byte 0x4302028F
+	.float -257.469
+	.float -109.482
+	.float 148.01
+	.float -226.292
+	.float -109.482
+	.float 130.01
 .endobj iVec_HANG_doorA
 
 .obj iVec_HANG_dokanA, local
-	.4byte 0xC3A69666
-	.4byte 0xC30CBD71
-	.4byte 0x432FCD91
+	.float -333.175
+	.float -140.74
+	.float 175.803
 .endobj iVec_HANG_dokanA
 
 .obj iVec_DOME_doorA, local
@@ -3823,39 +3823,39 @@
 .endobj iVec_SPIL_doorB
 
 .obj iVec_ENVE_doorA, local
-	.4byte 0xC2580000
+	.float -54
 	.4byte 0x422E374C
 	.4byte 0xC33187AE
-	.4byte 0xC2580000
+	.float -54
 	.4byte 0x422E374C
 	.4byte 0xC30D87AE
 .endobj iVec_ENVE_doorA
 
 .obj iVec_MPOL_doorA, local
-	.4byte 0xC2B30000
+	.float -89.5
 	.float 40
-	.4byte 0xC2FD0000
-	.4byte 0xC2560000
+	.float -126.5
+	.float -53.5
 	.float 40
-	.4byte 0xC2FD0000
+	.float -126.5
 .endobj iVec_MPOL_doorA
 
 .obj iVec_MPOL_movie, local
-	.4byte 0xC2B30000
+	.float -89.5
 	.float 40
-	.4byte 0xC2FD0000
-	.4byte 0xC3398000
+	.float -126.5
+	.float -185.5
 	.float 40
-	.4byte 0xC2FF0000
+	.float -127.5
 .endobj iVec_MPOL_movie
 
 .obj iVec_OPEN_doorA, local
 	.4byte 0
 	.4byte 0
-	.4byte 0x434F0000
+	.float 207
 	.4byte 0
 	.4byte 0
-	.4byte 0x432B0000
+	.float 171
 .endobj iVec_OPEN_doorA
 
 .obj iVec_OPEN_movie, local

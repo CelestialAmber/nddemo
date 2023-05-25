@@ -13192,8 +13192,8 @@
 
 .obj "@838", local
 	.float 85
-	.4byte 0x42DC0000
-	.4byte 0xC35E0000
+	.float 110
+	.float -222
 .endobj "@838"
 
 .obj "@840", local
@@ -13205,13 +13205,13 @@
 .obj "@841", local
 	.float 85
 	.float 70
-	.4byte 0xC3880000
+	.float -272
 .endobj "@841"
 
 .obj "@843", local
 	.float 85
 	.float 70
-	.4byte 0xC3970000
+	.float -302
 .endobj "@843"
 
 .obj "@844", local
@@ -14038,30 +14038,30 @@
 	.float -264.268
 	.float -108.74
     .float 171.35299
-    .4byte 0x42700000
-	.4byte 0x43059127
+    .float 60
+	.float 133.567
 	.4byte 0
-	.4byte 0x429A3852
-	.4byte 0xC2480000
-	.4byte 0x42CE0000
-	.4byte 0xC2D90000
-	.4byte 0xC2600000
+	.float 77.11
+	.float -50
+	.float 103
+	.float -108.5
+	.float -56
 	.float 180
-	.4byte 0x42700000
+	.float 60
 	.float 40
-	.4byte 0xC3440000
+	.float -196
 	.float -60
-	.4byte 0xC301F78D
+	.float -129.967
 	.float 1
-	.4byte 0x42940000
+	.float 74
 	.float 180
-	.4byte 0xC2580000
-	.4byte 0x42300000
-	.4byte 0xC34A0000
+	.float -54
+	.float 44
+	.float -202
 	.float -90
-	.4byte 0xC2F90000
+	.float -124.5
 	.float 40
-	.4byte 0xC2FD0000
+	.float -126.5
 .endobj iMarioInitPosDat
 
 .obj iCameraInitPosDat, local
@@ -14073,46 +14073,46 @@
 	.float 95
 	.float -257.44299
 	.float -73.74
-	.4byte 0x43189333
+	.float 152.575
 	.float -264.268
-	.4byte 0xC2B77AE1
+	.float -91.74
 	.float 171.35299
-	.4byte 0x42D72C08
+	.float 107.586
 	.float 35
-	.4byte 0x42786666
-	.4byte 0x43059127
+	.float 62.1
+	.float 133.567
 	.float 17
-	.4byte 0x429A3852
-	.4byte 0x42FC0000
-	.4byte 0xC29D0000
-	.4byte 0xC2956666
-	.4byte 0x42CE0000
-	.4byte 0xC2B70000
-	.4byte 0xC2600000
+	.float 77.11
+	.float 126
+	.float -78.5
+	.float -74.7
+	.float 103
+	.float -91.5
+	.float -56
 	.float 85
 	.float 70
-	.4byte 0xC2C20000
+	.float -97
 	.float 85
-	.4byte 0x42640000
-	.4byte 0xC2FE0000
-	.4byte 0xC2E14AC1
-	.4byte 0x42100000
-	.4byte 0x42800000
-	.4byte 0xC2EFEF1B
-	.4byte 0x41900000
-	.4byte 0x42B6A45A
-	.4byte 0xC2580000
-	.4byte 0x42A80000
-	.4byte 0xC3360000
-	.4byte 0xC2580000
-	.4byte 0x42740000
-	.4byte 0xC34A0000
-	.4byte 0xC2BD0000
+	.float 57
+	.float -127
+	.float -112.646
+	.float 36
+	.float 64
+	.float -119.967
+	.float 18
+	.float 91.321
+	.float -54
+	.float 84
+	.float -182
+	.float -54
+	.float 61
+	.float -202
+	.float -94.5
 	.float 70
-	.4byte 0xC2FD0000
-	.4byte 0xC2F90000
-	.4byte 0x42640000
-	.4byte 0xC2FD0000
+	.float -126.5
+	.float -124.5
+	.float 57
+	.float -126.5
 .endobj iCameraInitPosDat
 
 .obj iRoomInitPosDat, local
@@ -14121,13 +14121,13 @@
 	.4byte 0
 	.4byte 0
 	.float 120
-	.4byte 0xC39A3852
-	.4byte 0xC319428F
-	.4byte 0x43625EB8
+	.float -308.44
+	.float -153.26
+	.float 226.37
 	.float 150
-	.4byte 0x432149A0
+	.float 161.287597
 	.4byte 0
-	.4byte 0x42BA3931
+	.float 93.1117
 	.4byte 0
 	.float 50
 	.float -110
@@ -14135,19 +14135,19 @@
 	.4byte 0
 	.float 85
 	.float 40
-	.4byte 0xC35E0000
+	.float -222
 	.float -60
 	.float -175
 	.float -110
 	.float 100
 	.4byte 0
-	.4byte 0xC2580000
+	.float -54
 	.float 40
-	.4byte 0xC3720000
+	.float -242
 	.4byte 0
-	.4byte 0xC3398000
+	.float -185.5
 	.float 40
-	.4byte 0xC2FF0000
+	.float -127.5
 .endobj iRoomInitPosDat
 
 .obj lbl_80065C44, local

@@ -1,7 +1,15 @@
 #include "NDDEMO/dt/DTGimmick.h"
+#include "NDDEMO/dg/DGAniModel.h"
 
 static u16 RandomNo = 12345;
 
+struct tagMPOL_COIN{
+	DGAniModel* model; //0x0
+	Vec Vec; //0x4
+	Vec Rot; //0x10
+	u8 Mode; //0x1c
+	u8 unk1D[3]; //padding
+};
 
 u8 DTGimmick::Random() {
     RandomNo = (RandomNo * 5) + 1;

@@ -1573,7 +1573,7 @@
 .endobj float_800A9A68
 
 .obj float_800A9A6C, local
-	.4byte 0x42800000
+	.float 64
 .endobj float_800A9A6C
 
 .obj float_800A9A70, local

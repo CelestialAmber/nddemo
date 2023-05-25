@@ -18,6 +18,7 @@
 #include "NDDEMO/dt/DTPad.h"
 #include "NDDEMO/dt/DTPlayer.h"
 #include "NDDEMO/da/DAudio.h"
+#include "dolphin/OS.h"
 
 class DMainSystem{
 private:
@@ -86,11 +87,6 @@ public:
         DGCamera cam[4]; //0x13C
         DGLight light[3]; //0x5EC
         u8 mirrorbuf[0x20000]; //0x6A0
-
-        //These only appear in DTPlayer.cpp in the DWARF info
-        //__ct__Q211DMainSystem22@class$149DTPlayer_cppFv
-        //__ct__Q211DMainSystem22@class$149DTPlayer_cppFRCQ211DMainSystem22@class$149DTPlayer_cpp
-        //__dt__Q211DMainSystem22@class$149DTPlayer_cppFv
     } cinema; //0x1290
 
     DGRendMan rend_man[2]; //0x21930
@@ -208,14 +204,16 @@ private:
     void _FileManager();
     void _DispSysInfo();
     void _CheckSubMenu();
+
+	void iCheckLoadStatus();
+	void _CursolMove(s8 max, s16 y);
+	void _iSetMarioPosRol(s8 stage_no);
+	void _iSetCameraPos(s8 stage_no);
+	void _iSetStagePos(s8 stage_no);
+	void _RoomCameraMoveProc();
+	void _SetMipMap();
     s8 _DeleteAllStage();
-    void _SetMipMap();
-    void _RoomCameraMoveProc();
-    void _iSetStagePos(s8 stage_no);
-    void _iSetCameraPos(s8 stage_no);
-    void _iSetMarioPosRol(s8 stage_no);
-    void _CursolMove(s8 max, s16 y);
-    void iCheckLoadStatus();
+
     void _disp_meter();
 };
 

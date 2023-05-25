@@ -23,6 +23,12 @@ struct Vec{
 		this->z = z;
 	}
 
+	inline void set(Vec* v){
+		this->x = v->x;
+		this->y = v->y;
+		this->z = v->z;
+	}
+
 	inline float magnitude(){
 		return x*x + y*y + z*z + EPSILON;
 	}
