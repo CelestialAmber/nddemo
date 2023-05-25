@@ -20,6 +20,8 @@ DOLPHIN_FILES :=\
 
 DEPENDS += $(DOLPHIN_FILES:.o=.d)
 
+$(DOLPHIN_FILES): CFLAGS += -g
+
 $(BUILD_DIR)/src/dolphin/dolphin.a: $(DOLPHIN_FILES)
 	@echo Linking... $@
 	$(QUIET) mkdir -p $(dir $@)

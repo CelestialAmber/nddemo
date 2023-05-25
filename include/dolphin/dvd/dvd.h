@@ -27,13 +27,13 @@ typedef struct DVDDriveInfo {
 } DVDDriveInfo;
 
 typedef struct DVDDiskID {
-  char gameName[4];
-  char company[2];
-  u8 diskNumber;
-  u8 gameVersion;
-  u8 streaming;
-  u8 streamingBufSize;
-  u8 padding[22];
+	char gameName[4];
+	char company[2];
+	u8 diskNumber;
+	u8 gameVersion;
+	u8 streaming;
+	u8 streamingBufSize;
+	u8 padding[22];
 } DVDDiskID;
 
 typedef struct DVDCommandBlock {
@@ -52,10 +52,10 @@ typedef struct DVDCommandBlock {
 } DVDCommandBlock;
 
 typedef struct DVDFileInfo{
-    DVDCommandBlock cb;
-    u32 startAddr;
-    u32 length;
-    DVDCallback callback;
+	DVDCommandBlock cb;
+	u32 startAddr;
+	u32 length;
+	DVDCallback callback;
 } DVDFileInfo;
 
 // Struct for directory information (size 0xC).
@@ -110,6 +110,7 @@ BOOL DVDFastOpen(s32 entryNum, DVDFileInfo* fileInfo);
 s32 DVDReadPrio(DVDFileInfo* fileInfo, void* addr, s32 length, s32 offset, s32 prio);
 BOOL DVDReadAsyncPrio(DVDFileInfo* fileInfo, void* addr, s32 length, s32 offset, DVDCallback callback, s32 prio);
 BOOL DVDClose(DVDFileInfo* fileInfo);
+BOOL DVDReadAbsAsyncForBS(DVDCommandBlock* block, void* addr, s32 length, s32 offset, DVDCBCallback callback);
 
 void DVDResume();
 void DVDReset();

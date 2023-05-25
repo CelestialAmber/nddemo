@@ -83,22 +83,27 @@ inline long double fabsl(long double x) {
 }
 
 
-inline float sqrtf(float x)
+inline double sqrt(double x)
 {
 	static const double _half  = .5;
 	static const double _three = 3.0;
-	volatile float y;
+	volatile double y;
 	if (x > 0.0f) {
 
-		double guess = __frsqrte((double)x);                         // returns an approximation to
+		double guess = __frsqrte(x);                         // returns an approximation to
 		guess        = _half * guess * (_three - guess * guess * x); // now have 12 sig bits
 		guess        = _half * guess * (_three - guess * guess * x); // now have 24 sig bits
 		guess        = _half * guess * (_three - guess * guess * x); // now have 32 sig bits
         guess        = _half * guess * (_three - guess * guess * x); // now have 48 sig bits
-		y            = (float)(x * guess);
+		y            = x * guess;
 		return y;
 	}
 	return x;
+}
+
+inline float sqrtf(float x)
+{
+	return (float)sqrt((double)x);
 }
 
 double acos(double);
@@ -109,7 +114,6 @@ double ceil(double);
 double floor(double);
 double frexp(double, int *);
 double ldexp(double, int);
-double sqrt(double);
 double pow(double, double);
 double log(double);
 double log10(double);

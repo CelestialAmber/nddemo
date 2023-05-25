@@ -4,7 +4,7 @@ DVD_FILES :=\
 	$(BUILD_DIR)/asm/dolphin/dvd/dvd.o\
 	$(BUILD_DIR)/asm/dolphin/dvd/dvdqueue.o\
 	$(BUILD_DIR)/asm/dolphin/dvd/dvderror.o\
-	$(BUILD_DIR)/asm/dolphin/dvd/emu_level2/fstload.o
+	$(BUILD_DIR)/src/dolphin/dvd/emu_level2/fstload.o
 
 DEPENDS += $(DVD_FILES:.o=.d)
 

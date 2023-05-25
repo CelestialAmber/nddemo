@@ -1,5 +1,5 @@
 AMCSTUBS_FILES :=\
-	$(BUILD_DIR)/asm/dolphin/amcstubs/AmcExi2Stubs.o
+	$(BUILD_DIR)/src/dolphin/amcstubs/AmcExi2Stubs.o
 
 DEPENDS += $(AMCSTUBS_FILES:.o=.d)
 

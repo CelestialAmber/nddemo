@@ -18,10 +18,10 @@ DGPosition::~DGPosition(){
 void DGPosition::GetTransMtx(Mtx& transmtx){
 	if(!m_TransFlag){
 		Mtx tempA, tempB; //0x40, 0x10
-		PSMTXRotRad(tempA, m_Rotation.x * DEG2RAD, 0x58);
-		PSMTXRotRad(m_Trans, m_Rotation.y * DEG2RAD, 0x59);
+		PSMTXRotRad(tempA, 'X', m_Rotation.x * DEG2RAD);
+		PSMTXRotRad(m_Trans, 'Y', m_Rotation.y * DEG2RAD);
 		PSMTXConcat(m_Trans, tempA, tempB);
-		PSMTXRotRad(m_Trans, m_Rotation.z * DEG2RAD, 0x5A);
+		PSMTXRotRad(m_Trans, 'Z', m_Rotation.z * DEG2RAD);
 		PSMTXConcat(m_Trans, tempB, tempA);
 		PSMTXTrans(m_Trans, m_Position.x, m_Position.y, m_Position.z);
 		PSMTXConcat(m_Trans, tempA, tempB);
@@ -118,10 +118,10 @@ void DGPosition::GetDirectionalVec(Vec& src, Vec& dst){
 	Mtx dummy; //0x44
 	Mtx temp; //0x14
 
-	PSMTXRotRad(temp, m_Rotation.x * DEG2RAD, 0x58);
-	PSMTXRotRad(dummy, m_Rotation.y * DEG2RAD, 0x59);
+	PSMTXRotRad(temp, 'X', m_Rotation.x * DEG2RAD);
+	PSMTXRotRad(dummy, 'Y', m_Rotation.y * DEG2RAD);
 	PSMTXConcat(dummy, temp, temp);
-	PSMTXRotRad(dummy, m_Rotation.z * DEG2RAD, 0x5A);
+	PSMTXRotRad(dummy, 'Z', m_Rotation.z * DEG2RAD);
 	PSMTXConcat(dummy, temp, temp);
 	PSMTXMultVecSR(temp, (Vector*)&src, (Vector*)&dst);
 }

@@ -802,8 +802,7 @@ void DGObject::oscmdDrawLine(u8*& OSPtr){
 	u32 colOffset = vtxByteSize[m_VIAT] + vtxByteSize[m_NIAT];
 
 	vtxStride = colOffset;
-	vtxStride += vtxByteSize[attrList[12].type];
-	vtxStride += vtxByteSize[attrList[11].type];
+	vtxStride += vtxByteSize[attrList[11].type] + vtxByteSize[attrList[12].type];
 	vtxStride += vtxByteSize[attrList[13].type];
 	vtxStride += vtxByteSize[attrList[14].type];
 	vtxStride += vtxByteSize[attrList[15].type];
@@ -819,7 +818,7 @@ void DGObject::oscmdDrawLine(u8*& OSPtr){
 	GXSetNumChans(1);
 
 	GXColor matCol = {0, 144, 0, 255}; //0x60, not in dwarf
-	u32 filler[21];
+    u32 filler[21];
 
 	GXSetChanMatColor(GX_COLOR0A0, matCol);
 	GXSetChanCtrl(GX_COLOR0A0, false, GX_SRC_VTX, GX_SRC_REG, GX_LIGHT_NULL, GX_DF_NONE, GX_AF_NONE);
@@ -851,135 +850,45 @@ void DGObject::oscmdDrawLine(u8*& OSPtr){
 			for (u32 cnt = 0; cnt < nverts; cnt += 4) {
 				GXBegin(GX_LINESTRIP, (GXVtxFmt)vtxFmt, 5);
 
-				//Line 1
-				if (m_VIAT == GX_INDEX8) {
-					WGPIPE.uc = *ptr;
-				}else if (m_VIAT == GX_INDEX16) {
-					WGPIPE.us = *(u16*)ptr;
-				}
+				//Point 1
+                drawPoint(ptr, colOffset);
 
-				if (m_CIAT == GX_INDEX8) {
-					WGPIPE.uc = *(ptr + colOffset);
-				}else if (m_CIAT == GX_INDEX16) {
-					WGPIPE.us = *(u16*)(ptr + colOffset);
-				}
+				//Point 2
+				drawPoint(ptr + vtxStride, colOffset);
 
-				//Line 2
-				if (m_VIAT == GX_INDEX8) {
-					WGPIPE.uc = *(ptr + vtxStride);
-				}else if (m_VIAT == GX_INDEX16) {
-					WGPIPE.us = *(u16*)(ptr + vtxStride);
-				}
+				//Point 3
+				drawPoint(ptr + (vtxStride * 2), colOffset);
 
-				if (m_CIAT == GX_INDEX8) {
-					WGPIPE.uc = *(ptr + (vtxStride + colOffset));
-				}else if (m_CIAT == GX_INDEX16) {
-					WGPIPE.us = *(u16*)(ptr + (vtxStride + colOffset));
-				}
+				//Point 4
+				drawPoint(ptr + (vtxStride * 3), colOffset);
 
-				//Line 3
-				if (m_VIAT == GX_INDEX8) {
-					WGPIPE.uc = *(ptr + (vtxStride * 2));
-				}else if (m_VIAT == GX_INDEX16) {
-					WGPIPE.us = *(u16*)(ptr + (vtxStride * 2));
-				}
+				//Point 5
+				drawPoint(ptr, colOffset);
 
-				if (m_CIAT == GX_INDEX8) {
-					WGPIPE.uc = *(ptr + ((vtxStride * 2) + colOffset));
-				}else if (m_CIAT == GX_INDEX16) {
-					WGPIPE.us = *(u16*)(ptr + ((vtxStride * 2) + colOffset));
-				}
-
-				//Line 4
-				if (m_VIAT == GX_INDEX8) {
-					WGPIPE.uc = *(ptr + (vtxStride * 3));
-				}else if (m_VIAT == GX_INDEX16) {
-					WGPIPE.us = *(u16*)(ptr + (vtxStride * 3));
-				}
-
-				if (m_CIAT == GX_INDEX8) {
-					WGPIPE.uc = *(ptr + ((vtxStride * 3) + colOffset));
-				}else if (m_CIAT == GX_INDEX16) {
-					WGPIPE.us = *(u16*)(ptr + ((vtxStride * 3) + colOffset));
-				}
-
-				//Line 5
-				if (m_VIAT == GX_INDEX8) {
-					WGPIPE.uc = *ptr;
-				}else if (m_VIAT == GX_INDEX16) {
-					WGPIPE.us = *(u16*)ptr;
-				}
-
-				if (m_CIAT == GX_INDEX8) {
-					WGPIPE.uc = *(ptr + colOffset);
-				}else if (m_CIAT == GX_INDEX16) {
-					WGPIPE.us = *(u16*)(ptr + colOffset);
-				}
-
-				GXEnd();
-
+                GXEnd();
+                
 				ptr += vtxStride * 4;
 			}
 		} else if (primType == GX_TRIANGLES) {
-				for (u32 cnt = 0; cnt < nverts; cnt += 3) {
-					GXBegin(GX_LINESTRIP, (GXVtxFmt)vtxFmt, 4);
+			for (u32 cnt = 0; cnt < nverts; cnt += 3) {
+				GXBegin(GX_LINESTRIP, (GXVtxFmt)vtxFmt, 4);
 
-					//Line 1
-					if (m_VIAT == GX_INDEX8) {
-						WGPIPE.uc = *ptr;
-					}else if (m_VIAT == GX_INDEX16) {
-						WGPIPE.us = *(u16*)ptr;
-					}
+				//Point 1
+				drawPoint1(ptr, colOffset);
 
-					if (m_CIAT == GX_INDEX8) {
-						WGPIPE.uc = *(ptr + colOffset);
-					}else if (m_CIAT == GX_INDEX16) {
-						WGPIPE.us = ((u16*)ptr)[colOffset];
-					}
+				//Point 2
+				drawPoint(ptr + vtxStride, colOffset);
 
-					//Line 2
-					if (m_VIAT == GX_INDEX8) {
-						WGPIPE.uc = *(ptr + vtxStride);
-					}else if (m_VIAT == GX_INDEX16) {
-						WGPIPE.us = *(u16*)(ptr + vtxStride);
-					}
+				//Point 3
+				drawPoint(ptr + (vtxStride * 2), colOffset);
 
-					if (m_CIAT == GX_INDEX8) {
-						WGPIPE.uc = *(ptr + (vtxStride + colOffset));
-					}else if (m_CIAT == GX_INDEX16) {
-						WGPIPE.us = *(u16*)(ptr + (vtxStride + colOffset));
-					}
+				//Point 4
+				drawPoint1(ptr, colOffset);
 
-					//Line 3
-					if (m_VIAT == GX_INDEX8) {
-						WGPIPE.uc = *(ptr + (vtxStride * 2));
-					}else if (m_VIAT == GX_INDEX16) {
-						WGPIPE.us = *(u16*)(ptr + (vtxStride * 2));
-					}
+                GXEnd();
 
-					if (m_CIAT == GX_INDEX8) {
-						WGPIPE.uc = *(ptr + ((vtxStride * 2) + colOffset));
-					}else if (m_CIAT == GX_INDEX16) {
-						WGPIPE.us = *(u16*)(ptr + ((vtxStride * 2) + colOffset));
-					}
-
-					//Line 4
-					if (m_VIAT == GX_INDEX8) {
-						WGPIPE.uc = *ptr;
-					}else if (m_VIAT == GX_INDEX16) {
-						WGPIPE.us = *(u16*)ptr;
-					}
-
-					if (m_CIAT == GX_INDEX8) {
-						WGPIPE.uc = *(ptr + colOffset);
-					}else if (m_CIAT == GX_INDEX16) {
-						WGPIPE.us = ((u16*)ptr)[colOffset];
-					}
-
-					GXEnd();
-
-					ptr += vtxStride * 3;
-				}
+				ptr += vtxStride * 3;
+			}
 		}else{
 			OSReport("Primitive error\n");
 			break;

@@ -1,5 +1,5 @@
 BASE_FILES :=\
-	$(BUILD_DIR)/asm/dolphin/base/PPCArch.o
+	$(BUILD_DIR)/src/dolphin/base/PPCArch.o
 
 DEPENDS += $(BASE_FILES:.o=.d)
 

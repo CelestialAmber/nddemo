@@ -19,6 +19,7 @@ extern "C" {
 #include "dolphin/gx/GXLight.h"
 #include "dolphin/gx/GXMisc.h"
 #include "dolphin/gx/GXPixel.h"
+#include "dolphin/gx/GXStubs.h"
 #include "dolphin/gx/GXTev.h"
 #include "dolphin/gx/GXTexture.h"
 #include "dolphin/gx/GXTransform.h"

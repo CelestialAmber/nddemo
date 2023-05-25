@@ -1,8 +1,8 @@
 MTX_FILES :=\
-	$(BUILD_DIR)/asm/dolphin/mtx/mtx.o\
-	$(BUILD_DIR)/asm/dolphin/mtx/mtxvec.o\
-	$(BUILD_DIR)/asm/dolphin/mtx/mtx44.o\
-	$(BUILD_DIR)/asm/dolphin/mtx/vec.o
+	$(BUILD_DIR)/src/dolphin/mtx/mtx.o\
+	$(BUILD_DIR)/src/dolphin/mtx/mtxvec.o\
+	$(BUILD_DIR)/src/dolphin/mtx/mtx44.o\
+	$(BUILD_DIR)/src/dolphin/mtx/vec.o
 
 DEPENDS += $(MTX_FILES:.o=.d)
 

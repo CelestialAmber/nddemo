@@ -5,6 +5,7 @@ extern "C" {
 #endif
 
 #include "dolphin/dvd/dvd.h"
+#include "dolphin/dvd/emu_level2/fstload.h"
 
 #ifdef __cplusplus
 }

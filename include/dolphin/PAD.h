@@ -5,6 +5,7 @@ extern "C" {
 #endif
 
 #include "dolphin/pad/Pad.h"
+#include "dolphin/pad/Padclamp.h"
 
 #ifdef __cplusplus
 }

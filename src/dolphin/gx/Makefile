@@ -10,7 +10,7 @@ GX_FILES :=\
 	$(BUILD_DIR)/asm/dolphin/gx/GXBump.o\
 	$(BUILD_DIR)/asm/dolphin/gx/GXTev.o\
 	$(BUILD_DIR)/asm/dolphin/gx/GXPixel.o\
-	$(BUILD_DIR)/asm/dolphin/gx/GXStubs.o\
+	$(BUILD_DIR)/src/dolphin/gx/GXStubs.o\
 	$(BUILD_DIR)/asm/dolphin/gx/GXDisplayList.o\
 	$(BUILD_DIR)/asm/dolphin/gx/GXTransform.o\
 	$(BUILD_DIR)/asm/dolphin/gx/GXPerf.o

@@ -1,5 +1,5 @@
 PAD_FILES :=\
-	$(BUILD_DIR)/asm/dolphin/pad/Padclamp.o\
+	$(BUILD_DIR)/src/dolphin/pad/Padclamp.o\
 	$(BUILD_DIR)/asm/dolphin/pad/Pad.o
 
 DEPENDS += $(PAD_FILES:.o=.d)

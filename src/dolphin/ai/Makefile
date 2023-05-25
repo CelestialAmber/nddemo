@@ -1,5 +1,5 @@
 AI_FILES :=\
-	$(BUILD_DIR)/asm/dolphin/ai/ai.o
+	$(BUILD_DIR)/src/dolphin/ai/ai.o
 
 DEPENDS += $(AI_FILES:.o=.d)
 

@@ -1,5 +1,5 @@
 ODENOTSTUB_FILES :=\
-	$(BUILD_DIR)/asm/dolphin/odenotstub/odenotstub.o
+	$(BUILD_DIR)/src/dolphin/odenotstub/odenotstub.o
 
 DEPENDS += $(ODENOTSTUB_FILES:.o=.d)
 

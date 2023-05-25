@@ -109,7 +109,7 @@ ifeq ($(VERBOSE),0)
 LDFLAGS := $(MAPGEN) -fp hard -nodefaults -w off
 endif
 LIBRARY_LDFLAGS := -nodefaults -fp hard -proc gekko
-CFLAGS   = -Cpp_exceptions off -enum int -inline auto -use_lmw_stmw on -proc gekko -fp hard -O4,p -nodefaults $(INCLUDES)
+CFLAGS   = -O4,p -enum int -inline auto -proc gekko -fp hard -nodefaults -Cpp_exceptions off -use_lmw_stmw on $(INCLUDES)
 
 ifeq ($(VERBOSE),0)
 # this set of ASFLAGS generates no warnings.

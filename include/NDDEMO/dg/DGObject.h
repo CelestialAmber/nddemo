@@ -101,6 +101,34 @@ private:
 	void oscmdDisplayList(u8*& OSPtr);
 	void oscmdZMode(u8*& OSPtr);
 	void oscmdIndBumpXYZ(u8*& OSPtr);
+
+	 inline void drawPoint(u8* ptr, u32 colOffset){
+        if (m_VIAT == GX_INDEX8) {
+		    WGPIPE.uc = *ptr;
+	    }else if (m_VIAT == GX_INDEX16) {
+		    WGPIPE.us = *(u16*)ptr;
+	    }
+
+	    if (m_CIAT == GX_INDEX8) {
+		    WGPIPE.uc = *(ptr + colOffset);
+	    }else if (m_CIAT == GX_INDEX16) {
+		    WGPIPE.us = *(u16*)(ptr + colOffset);
+	    }
+    }
+
+    inline void drawPoint1(u8* ptr, u32 colOffset){
+        if (m_VIAT == GX_INDEX8) {
+		    WGPIPE.uc = ptr[0];
+	    }else if (m_VIAT == GX_INDEX16) {
+		    WGPIPE.us = ((u16*)ptr)[0];
+	    }
+
+	    if (m_CIAT == GX_INDEX8) {
+		    WGPIPE.uc = ptr[colOffset];
+	    }else if (m_CIAT == GX_INDEX16) {
+		    WGPIPE.us = ((u16*)ptr)[colOffset];
+	    }
+    }
 };
 
 #endif
