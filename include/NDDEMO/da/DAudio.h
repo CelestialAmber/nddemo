@@ -6,10 +6,10 @@
 
 class CSong{
 public:
-	s32 m_SongId;
-	u32 m_SeqId;
-	u8* m_buffer;
-	s32 m_flag;
+	s32 m_SongId; //0x0
+	u32 m_SeqId; //0x4
+	u8* m_buffer; //0x8
+	s32 m_flag; //0xC
 
 	CSong(const CSong&); //unused
 	CSong();
@@ -144,10 +144,18 @@ public:
 	void MuteAll(s32 flag);
 	s32 SongStop();
 	void Manager();
+
 	void SetMuteSequence(s32 flag);
 	void SetMuteSe(s32 flag);
-	s32 GetMuteSequence();
-	s32 GetMuteSe();
+
+	s32 GetMuteSequence(){
+		return m_sequenceMute;
+	}
+
+	s32 GetMuteSe(){
+		return m_seMute;
+	}
+	
 	void ResetFade();
 	void Quit();
 	void* ReadDataAlloc(char* filename);

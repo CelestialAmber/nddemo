@@ -276,7 +276,7 @@
 /* 80006C08 00002B88  3B 03 00 00 */	addi r24, r3, 0x0
 /* 80006C0C 00002B8C  48 03 48 05 */	bl GXSetCurrentGXThread
 /* 80006C10 00002B90  3C 60 80 00 */	lis r3, 0x800000F8@ha
-/* 80006C14 00002B94  CB E2 80 10 */	lfd f31, lbl_800A9390@sda21(r2)
+/* 80006C14 00002B94  CB E2 80 10 */	lfd f31, double_800A9390@sda21(r2)
 /* 80006C18 00002B98  80 03 00 F8 */	lwz r0, 0x800000F8@l(r3)
 /* 80006C1C 00002B9C  3C 60 43 1C */	lis r3, 0x431c
 /* 80006C20 00002BA0  3C 80 00 08 */	lis r4, 0x8
@@ -4419,7 +4419,7 @@
 /* 8000A7B8 00006738  48 00 86 49 */	bl EnableSpecularLight__7DGLightFUc
 /* 8000A7BC 0000673C  88 9D 00 00 */	lbz r4, 0x0(r29)
 /* 8000A7C0 00006740  3F C0 43 30 */	lis r30, 0x4330
-/* 8000A7C4 00006744  C8 62 80 A8 */	lfd f3, lbl_800A9428@sda21(r2)
+/* 8000A7C4 00006744  C8 62 80 A8 */	lfd f3, double_800A9428@sda21(r2)
 /* 8000A7C8 00006748  38 7D 18 B8 */	addi r3, r29, 0x18b8
 /* 8000A7CC 0000674C  7C 80 1E 70 */	srawi r0, r4, 3
 /* 8000A7D0 00006750  7C 00 01 94 */	addze r0, r0
@@ -4439,7 +4439,7 @@
 /* 8000A808 00006788  48 00 86 59 */	bl SetDistanceAttenuation_2__7DGLightFfff
 /* 8000A80C 0000678C  88 9D 00 00 */	lbz r4, 0x0(r29)
 /* 8000A810 00006790  38 7D 18 B8 */	addi r3, r29, 0x18b8
-/* 8000A814 00006794  C8 22 80 A8 */	lfd f1, lbl_800A9428@sda21(r2)
+/* 8000A814 00006794  C8 22 80 A8 */	lfd f1, double_800A9428@sda21(r2)
 /* 8000A818 00006798  7C 80 1E 70 */	srawi r0, r4, 3
 /* 8000A81C 0000679C  C0 62 80 A0 */	lfs f3, float_800A9420@sda21(r2)
 /* 8000A820 000067A0  7C 00 01 94 */	addze r0, r0
@@ -4457,7 +4457,7 @@
 /* 8000A850 000067D0  48 00 86 49 */	bl SetAngleAttenuation_Cos__7DGLightFff
 /* 8000A854 000067D4  88 9D 00 00 */	lbz r4, 0x0(r29)
 /* 8000A858 000067D8  38 7D 18 F4 */	addi r3, r29, 0x18f4
-/* 8000A85C 000067DC  C8 62 80 A8 */	lfd f3, lbl_800A9428@sda21(r2)
+/* 8000A85C 000067DC  C8 62 80 A8 */	lfd f3, double_800A9428@sda21(r2)
 /* 8000A860 000067E0  7C 80 1E 70 */	srawi r0, r4, 3
 /* 8000A864 000067E4  C0 82 80 38 */	lfs f4, float_800A93B8@sda21(r2)
 /* 8000A868 000067E8  7C 00 01 94 */	addze r0, r0
@@ -4474,7 +4474,7 @@
 /* 8000A894 00006814  48 00 85 CD */	bl SetDistanceAttenuation_2__7DGLightFfff
 /* 8000A898 00006818  88 9D 00 00 */	lbz r4, 0x0(r29)
 /* 8000A89C 0000681C  38 7D 18 F4 */	addi r3, r29, 0x18f4
-/* 8000A8A0 00006820  C8 22 80 A8 */	lfd f1, lbl_800A9428@sda21(r2)
+/* 8000A8A0 00006820  C8 22 80 A8 */	lfd f1, double_800A9428@sda21(r2)
 /* 8000A8A4 00006824  7C 80 1E 70 */	srawi r0, r4, 3
 /* 8000A8A8 00006828  C0 62 80 9C */	lfs f3, float_800A941C@sda21(r2)
 /* 8000A8AC 0000682C  7C 00 01 94 */	addze r0, r0
@@ -11355,7 +11355,7 @@
 /* 80010C04 0000CB84  48 01 D7 19 */	bl OSCheckStopwatch
 /* 80010C08 0000CB88  48 04 EB C9 */	bl __cvt_sll_flt
 /* 80010C0C 0000CB8C  3C 60 80 00 */	lis r3, 0x800000F8@ha
-/* 80010C10 0000CB90  C8 62 80 10 */	lfd f3, lbl_800A9390@sda21(r2)
+/* 80010C10 0000CB90  C8 62 80 10 */	lfd f3, double_800A9390@sda21(r2)
 /* 80010C14 0000CB94  80 03 00 F8 */	lwz r0, 0x800000F8@l(r3)
 /* 80010C18 0000CB98  3C 60 10 62 */	lis r3, 0x1062
 /* 80010C1C 0000CB9C  38 63 4D D3 */	addi r3, r3, 0x4dd3
@@ -11387,7 +11387,7 @@
 /* 80010C78 0000CBF8  48 01 D6 A5 */	bl OSCheckStopwatch
 /* 80010C7C 0000CBFC  48 04 EB 55 */	bl __cvt_sll_flt
 /* 80010C80 0000CC00  3C 60 80 00 */	lis r3, 0x800000F8@ha
-/* 80010C84 0000CC04  C8 42 80 10 */	lfd f2, lbl_800A9390@sda21(r2)
+/* 80010C84 0000CC04  C8 42 80 10 */	lfd f2, double_800A9390@sda21(r2)
 /* 80010C88 0000CC08  80 03 00 F8 */	lwz r0, 0x800000F8@l(r3)
 /* 80010C8C 0000CC0C  3C 60 10 62 */	lis r3, 0x1062
 /* 80010C90 0000CC10  38 63 4D D3 */	addi r3, r3, 0x4dd3
@@ -14516,7 +14516,8 @@
 .endobj lbl_800A8B18
 
 .obj lbl_800A8B20, local
-	.4byte 0x3D3E0000
+	.asciz "=>"
+	.balign 4
 .endobj lbl_800A8B20
 
 .obj lbl_800A8B24, local
@@ -14529,7 +14530,7 @@
 .endobj lbl_800A8B2C
 
 .obj lbl_800A8B34, local
-	.4byte 0x4F4E0A00
+	.asciz "ON\n"
 .endobj lbl_800A8B34
 
 .obj textOnOff, local
@@ -14571,12 +14572,12 @@
 .endobj lbl_800A8B6C
 
 .obj lbl_800A8B74, local
-	.4byte 0x25730000
+	.asciz "%s"
+	.balign 4
 .endobj lbl_800A8B74
 
 .obj lbl_800A8B78, local
-	.4byte 0x25730A00
-	.4byte 0
+	.asciz "%s\n"
 .endobj lbl_800A8B78
 
 .section .sdata2, "wa"  # 0x800A9380 - 0x800A9BA0 ; 0x00000820
@@ -14597,9 +14598,9 @@
 
 .4byte 0
 
-.obj lbl_800A9390, local
+.obj double_800A9390, local
 	.8byte 0x4330000000000000
-.endobj lbl_800A9390
+.endobj double_800A9390
 
 .obj lbl_800A9398, local
 	.4byte 0
@@ -14618,7 +14619,7 @@
 .endobj float_800A93A4
 
 .obj float_800A93A8, local
-	.4byte 0
+	.float 0
 .endobj float_800A93A8
 
 .obj float_800A93AC, local
@@ -14682,11 +14683,11 @@
 .endobj lbl_800A93E4
 
 .obj float_800A93E8, local
-	.4byte 0x43400000
+	.float 192
 .endobj float_800A93E8
 
 .obj float_800A93EC, local
-	.4byte 0x44000000
+	.float 512
 .endobj float_800A93EC
 
 .obj lbl_800A93F0, local
@@ -14706,7 +14707,7 @@
 .endobj float_800A93FC
 
 .obj float_800A9400, local
-	.4byte 0x40490FD8
+	.float 3.141592
 .endobj float_800A9400
 
 .obj float_800A9404, local
@@ -14714,7 +14715,7 @@
 .endobj float_800A9404
 
 .obj float_800A9408, local
-	.4byte 0x40400000
+	.float 3
 .endobj float_800A9408
 
 .obj float_800A940C, local
@@ -14734,7 +14735,7 @@
 .endobj float_800A9418
 
 .obj float_800A941C, local
-	.4byte 0x40200000
+	.float 2.5
 .endobj float_800A941C
 
 .obj float_800A9420, local
@@ -14745,9 +14746,9 @@
 	.float 80
 .endobj float_800A9424
 
-.obj lbl_800A9428, local
+.obj double_800A9428, local
 	.8byte 0x4330000080000000
-.endobj lbl_800A9428
+.endobj double_800A9428
 
 .obj lbl_800A9430, local
 	.4byte 0
@@ -14762,7 +14763,7 @@
 .endobj lbl_800A9438
 
 .obj float_800A943C, local
-	.4byte 0x3CCCCCCD
+	.float 0.025
 .endobj float_800A943C
 
 .obj float_800A9440, local
@@ -14770,7 +14771,7 @@
 .endobj float_800A9440
 
 .obj float_800A9444, local
-	.4byte 0x3C888889
+	.float 0.01666666666
 .endobj float_800A9444
 
 .obj lbl_800A9448, local
@@ -14826,11 +14827,11 @@
 .endobj float_800A9478
 
 .obj float_800A947C, local
-	.4byte 0xC1000000
+	.float -8
 .endobj float_800A947C
 
 .obj float_800A9480, local
-	.4byte 0x3B4CCCCD
+	.float 0.003125
 .endobj float_800A9480
 
 .obj float_800A9484, local

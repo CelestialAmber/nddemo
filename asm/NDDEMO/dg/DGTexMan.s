@@ -532,7 +532,7 @@
 /* 80018614 00014594  C0 22 81 70 */	lfs f1, float_800A94F0@sda21(r2)
 /* 80018618 00014598  90 01 00 24 */	stw r0, 0x24(r1)
 /* 8001861C 0001459C  3C 00 43 30 */	lis r0, 0x4330
-/* 80018620 000145A0  C8 42 81 78 */	lfd f2, lbl_800A94F8@sda21(r2)
+/* 80018620 000145A0  C8 42 81 78 */	lfd f2, double_800A94F8@sda21(r2)
 /* 80018624 000145A4  FC 60 08 90 */	fmr f3, f1
 /* 80018628 000145A8  90 01 00 20 */	stw r0, 0x20(r1)
 /* 8001862C 000145AC  7F E3 FB 78 */	mr r3, r31
@@ -549,7 +549,7 @@
 /* 80018654 000145D4  7F 43 D3 78 */	mr r3, r26
 /* 80018658 000145D8  48 00 26 D5 */	bl GetMipLevel__9DGTextureFv
 /* 8001865C 000145DC  54 60 06 3E */	clrlwi r0, r3, 24
-/* 80018660 000145E0  C8 42 81 78 */	lfd f2, lbl_800A94F8@sda21(r2)
+/* 80018660 000145E0  C8 42 81 78 */	lfd f2, double_800A94F8@sda21(r2)
 /* 80018664 000145E4  90 01 00 24 */	stw r0, 0x24(r1)
 /* 80018668 000145E8  3C 00 43 30 */	lis r0, 0x4330
 /* 8001866C 000145EC  C0 22 81 70 */	lfs f1, float_800A94F0@sda21(r2)
@@ -631,13 +631,13 @@
 .balign 8
 
 .obj float_800A94F0, local
-	.4byte 0
+	.float 0
 .endobj float_800A94F0
 
 .obj float_800A94F4, local
-	.4byte 0xC0600000
+	.float -3.5
 .endobj float_800A94F4
 
-.obj lbl_800A94F8, local
+.obj double_800A94F8, local
 	.8byte 0x4330000000000000
-.endobj lbl_800A94F8
+.endobj double_800A94F8

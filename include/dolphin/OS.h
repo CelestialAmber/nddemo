@@ -19,6 +19,7 @@ extern "C" {
 #include "dolphin/os/OSLink.h"
 #include "dolphin/os/OSMutex.h"
 #include "dolphin/os/OSReset.h"
+#include "dolphin/os/OSResetSW.h"
 #include "dolphin/os/OSRtc.h"
 #include "dolphin/os/OSStopwatch.h"
 #include "dolphin/os/OSSync.h"

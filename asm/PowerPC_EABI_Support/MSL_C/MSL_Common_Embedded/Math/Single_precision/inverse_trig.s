@@ -297,7 +297,7 @@
 .endobj float_800A9B3C
 
 .obj float_800A9B40, local
-	.4byte 0
+	.float 0
 .endobj float_800A9B40
 
 .obj float_800A9B44, local

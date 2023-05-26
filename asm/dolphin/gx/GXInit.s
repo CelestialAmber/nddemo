@@ -755,7 +755,7 @@
 /* 8003A85C 000367DC  90 81 00 6C */	stw r4, 0x6c(r1)
 /* 8003A860 000367E0  C0 22 85 20 */	lfs f1, float_800A98A0@sda21(r2)
 /* 8003A864 000367E4  90 01 00 64 */	stw r0, 0x64(r1)
-/* 8003A868 000367E8  C8 82 85 28 */	lfd f4, lbl_800A98A8@sda21(r2)
+/* 8003A868 000367E8  C8 82 85 28 */	lfd f4, double_800A98A8@sda21(r2)
 /* 8003A86C 000367EC  FC 40 08 90 */	fmr f2, f1
 /* 8003A870 000367F0  90 61 00 68 */	stw r3, 0x68(r1)
 /* 8003A874 000367F4  FC A0 08 90 */	fmr f5, f1
@@ -1062,7 +1062,7 @@
 /* 8003AD08 00036C88  3C 60 43 30 */	lis r3, 0x4330
 /* 8003AD0C 00036C8C  A0 1F 00 06 */	lhz r0, 0x6(r31)
 /* 8003AD10 00036C90  90 81 00 64 */	stw r4, 0x64(r1)
-/* 8003AD14 00036C94  C8 42 85 28 */	lfd f2, lbl_800A98A8@sda21(r2)
+/* 8003AD14 00036C94  C8 42 85 28 */	lfd f2, double_800A98A8@sda21(r2)
 /* 8003AD18 00036C98  90 01 00 6C */	stw r0, 0x6c(r1)
 /* 8003AD1C 00036C9C  90 61 00 60 */	stw r3, 0x60(r1)
 /* 8003AD20 00036CA0  90 61 00 68 */	stw r3, 0x68(r1)
@@ -1148,16 +1148,16 @@
 .endobj float_800A989C
 
 .obj float_800A98A0, local
-	.4byte 0
+	.float 0
 .endobj float_800A98A0
 
 .obj float_800A98A4, local
 	.float 0.1
 .endobj float_800A98A4
 
-.obj lbl_800A98A8, local
+.obj double_800A98A8, local
 	.8byte 0x4330000000000000
-.endobj lbl_800A98A8
+.endobj double_800A98A8
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

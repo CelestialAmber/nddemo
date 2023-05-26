@@ -81,7 +81,7 @@ public:
 
 	void DrawBegin();
 	void DrawEnd(u8 cpy, u8 vsnc);
-	void Draw(RendManDrawMode mode);
+	void Draw(enumRendManDrawMode mode);
 
 	void CopyRenderingBuffer(u8 lower);
 

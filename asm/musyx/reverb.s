@@ -66,7 +66,7 @@
 /* 80059298 00055218  3A A3 C5 40 */	addi r21, r3, "lens$115"@l
 /* 8005929C 0005521C  C3 C2 87 30 */	lfs f30, float_800A9AB0@sda21(r2)
 /* 800592A0 00055220  EF 80 07 32 */	fmuls f28, f0, f28
-/* 800592A4 00055224  CB A2 87 50 */	lfd f29, lbl_800A9AD0@sda21(r2)
+/* 800592A4 00055224  CB A2 87 50 */	lfd f29, double_800A9AD0@sda21(r2)
 /* 800592A8 00055228  3B 35 00 00 */	addi r25, r21, 0x0
 /* 800592AC 0005522C  3B 1E 00 00 */	addi r24, r30, 0x0
 /* 800592B0 00055230  3A FE 00 00 */	addi r23, r30, 0x0
@@ -896,7 +896,7 @@
 
 
 .obj float_800A9AB0, local
-	.4byte 0
+	.float 0
 .endobj float_800A9AB0
 
 .obj float_800A9AB4, local
@@ -916,20 +916,20 @@
 .endobj float_800A9AC0
 
 .obj float_800A9AC4, local
-	.4byte 0x46FA0000
+	.float 32000
 .endobj float_800A9AC4
 
 .obj float_800A9AC8, local
-	.4byte 0x3D4CCCCD
+	.float 0.05
 .endobj float_800A9AC8
 
 .obj float_800A9ACC, local
-	.4byte 0x3F4CCCCD
+	.float 0.8
 .endobj float_800A9ACC
 
-.obj lbl_800A9AD0, local
+.obj double_800A9AD0, local
 	.8byte 0x4330000080000000
-.endobj lbl_800A9AD0
+.endobj double_800A9AD0
 
 .obj i2fMagic, local
 	.8byte 0x4330000080000000

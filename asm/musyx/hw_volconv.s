@@ -61,7 +61,7 @@
 .L_800539A4:
 /* 800539A4 0004F924  90 61 00 BC */	stw r3, 0xbc(r1)
 /* 800539A8 0004F928  3C 00 43 30 */	lis r0, 0x4330
-/* 800539AC 0004F92C  C8 42 86 A0 */	lfd f2, lbl_800A9A20@sda21(r2)
+/* 800539AC 0004F92C  C8 42 86 A0 */	lfd f2, double_800A9A20@sda21(r2)
 /* 800539B0 0004F930  28 1C 00 00 */	cmplwi r28, 0x0
 /* 800539B4 0004F934  90 81 00 B4 */	stw r4, 0xb4(r1)
 /* 800539B8 0004F938  C0 62 86 A8 */	lfs f3, float_800A9A28@sda21(r2)
@@ -208,7 +208,7 @@
 /* 80053BB4 0004FB34  C0 C2 86 94 */	lfs f6, float_800A9A14@sda21(r2)
 /* 80053BB8 0004FB38  92 41 00 B0 */	stw r18, 0xb0(r1)
 /* 80053BBC 0004FB3C  56 A4 10 3A */	slwi r4, r21, 2
-/* 80053BC0 0004FB40  C8 22 86 A0 */	lfd f1, lbl_800A9A20@sda21(r2)
+/* 80053BC0 0004FB40  C8 22 86 A0 */	lfd f1, double_800A9A20@sda21(r2)
 /* 80053BC4 0004FB44  C8 01 00 B0 */	lfd f0, 0xb0(r1)
 /* 80053BC8 0004FB48  56 66 10 3A */	slwi r6, r19, 2
 /* 80053BCC 0004FB4C  38 BE 02 08 */	addi r5, r30, 0x208
@@ -275,7 +275,7 @@
 /* 80053CC0 0004FC40  92 41 00 B8 */	stw r18, 0xb8(r1)
 /* 80053CC4 0004FC44  C0 13 00 00 */	lfs f0, 0x0(r19)
 /* 80053CC8 0004FC48  EC 38 00 72 */	fmuls f1, f24, f1
-/* 80053CCC 0004FC4C  C8 62 86 A0 */	lfd f3, lbl_800A9A20@sda21(r2)
+/* 80053CCC 0004FC4C  C8 62 86 A0 */	lfd f3, double_800A9A20@sda21(r2)
 /* 80053CD0 0004FC50  C8 41 00 B8 */	lfd f2, 0xb8(r1)
 /* 80053CD4 0004FC54  EC 1B 00 32 */	fmuls f0, f27, f0
 /* 80053CD8 0004FC58  C0 82 86 94 */	lfs f4, float_800A9A14@sda21(r2)
@@ -323,7 +323,7 @@
 /* 80053D80 0004FD00  92 41 00 A8 */	stw r18, 0xa8(r1)
 /* 80053D84 0004FD04  C0 13 00 00 */	lfs f0, 0x0(r19)
 /* 80053D88 0004FD08  EC 38 00 72 */	fmuls f1, f24, f1
-/* 80053D8C 0004FD0C  C8 62 86 A0 */	lfd f3, lbl_800A9A20@sda21(r2)
+/* 80053D8C 0004FD0C  C8 62 86 A0 */	lfd f3, double_800A9A20@sda21(r2)
 /* 80053D90 0004FD10  C8 41 00 A8 */	lfd f2, 0xa8(r1)
 /* 80053D94 0004FD14  EC 1B 00 32 */	fmuls f0, f27, f0
 /* 80053D98 0004FD18  C0 82 86 94 */	lfs f4, float_800A9A14@sda21(r2)
@@ -372,7 +372,7 @@
 /* 80053E40 0004FDC0  C0 02 86 94 */	lfs f0, float_800A9A14@sda21(r2)
 /* 80053E44 0004FDC4  93 81 00 A8 */	stw r28, 0xa8(r1)
 /* 80053E48 0004FDC8  56 A4 10 3A */	slwi r4, r21, 2
-/* 80053E4C 0004FDCC  C8 42 86 A0 */	lfd f2, lbl_800A9A20@sda21(r2)
+/* 80053E4C 0004FDCC  C8 42 86 A0 */	lfd f2, double_800A9A20@sda21(r2)
 /* 80053E50 0004FDD0  C8 21 00 A8 */	lfd f1, 0xa8(r1)
 /* 80053E54 0004FDD4  56 66 10 3A */	slwi r6, r19, 2
 /* 80053E58 0004FDD8  38 BE 02 08 */	addi r5, r30, 0x208
@@ -456,7 +456,7 @@
 /* 80053F90 0004FF10  93 81 00 B0 */	stw r28, 0xb0(r1)
 /* 80053F94 0004FF14  C0 19 00 00 */	lfs f0, 0x0(r25)
 /* 80053F98 0004FF18  EC 36 00 72 */	fmuls f1, f22, f1
-/* 80053F9C 0004FF1C  C8 62 86 A0 */	lfd f3, lbl_800A9A20@sda21(r2)
+/* 80053F9C 0004FF1C  C8 62 86 A0 */	lfd f3, double_800A9A20@sda21(r2)
 /* 80053FA0 0004FF20  C8 41 00 B0 */	lfd f2, 0xb0(r1)
 /* 80053FA4 0004FF24  EC 1B 00 32 */	fmuls f0, f27, f0
 /* 80053FA8 0004FF28  C0 82 86 94 */	lfs f4, float_800A9A14@sda21(r2)
@@ -655,14 +655,14 @@
 
 .obj pan_tab, local
 	.4byte 0
-	.4byte 0x3F3538EF
+	.float 0.7079
 	.float 1
 	.float 1
 .endobj pan_tab
 
 .obj pan_tab_dpl2, local
-	.4byte 0x3F133333
-	.4byte 0x3F3538EF
+	.float 0.575
+	.float 0.7079
 	.float 1
 	.float 1
 .endobj pan_tab_dpl2
@@ -673,7 +673,7 @@
 
 
 .obj float_800A9A10, local
-	.4byte 0x42FE0000
+	.float 127
 .endobj float_800A9A10
 
 .obj float_800A9A14, local
@@ -681,17 +681,17 @@
 .endobj float_800A9A14
 
 .obj float_800A9A18, local
-	.4byte 0x3F3538EF
+	.float 0.7079
 .endobj float_800A9A18
 
 .4byte 0
 
-.obj lbl_800A9A20, local
+.obj double_800A9A20, local
 	.8byte 0x4330000000000000
-.endobj lbl_800A9A20
+.endobj double_800A9A20
 
 .obj float_800A9A28, local
-	.4byte 0x34820821
+	.float 0.00000024220301
 .endobj float_800A9A28
 
 .obj float_800A9A2C, local
@@ -699,11 +699,11 @@
 .endobj float_800A9A2C
 
 .obj float_800A9A30, local
-	.4byte 0x3F441B33
+	.float 0.76604002
 .endobj float_800A9A30
 
 .obj float_800A9A34, local
-	.4byte 0
+	.float 0
 .endobj float_800A9A34
 
 .section extab, "a"  # 0x80005520 - 0x80005BC0

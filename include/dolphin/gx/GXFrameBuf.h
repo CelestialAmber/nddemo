@@ -1,6 +1,9 @@
-#ifndef RVL_SDK_GX_FRAMEBUF_H
-#define RVL_SDK_GX_FRAMEBUF_H
+#ifndef DOLPHIN_GX_FRAMEBUF_H
+#define DOLPHIN_GX_FRAMEBUF_H
+
 #include "types.h"
+#include "dolphin/gx/GXTypes.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -20,6 +23,10 @@ typedef struct _GXRenderModeObj {
     u8 sample_pattern[12][2]; // at 0x1A
     u8 vfilter[7];            // at 0x32
 } GXRenderModeObj;
+
+void GXCopyTex(void* dst, GXBool clear);
+void GXSetTexCopySrc(u16 left, u16 top, u16 width, u16 height);
+void GXSetTexCopyDst(u16 width, u16 height, GXTexFmt fmt, GXBool mipmap);
 
 #ifdef __cplusplus
 }

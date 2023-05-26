@@ -993,7 +993,7 @@
 /* 80058290 00054210  3C 60 43 30 */	lis r3, 0x4330
 /* 80058294 00054214  80 04 EC 38 */	lwz r0, synthInfo@l(r4)
 /* 80058298 00054218  90 61 00 18 */	stw r3, 0x18(r1)
-/* 8005829C 0005421C  C8 42 87 28 */	lfd f2, lbl_800A9AA8@sda21(r2)
+/* 8005829C 0005421C  C8 42 87 28 */	lfd f2, double_800A9AA8@sda21(r2)
 /* 800582A0 00054220  90 01 00 14 */	stw r0, 0x14(r1)
 /* 800582A4 00054224  C8 01 00 18 */	lfd f0, 0x18(r1)
 /* 800582A8 00054228  90 61 00 10 */	stw r3, 0x10(r1)
@@ -1240,18 +1240,18 @@
 .endobj float_800A9A98
 
 .obj float_800A9A9C, local
-	.4byte 0x46FFFE00
+	.float 32767
 .endobj float_800A9A9C
 
 .obj float_800A9AA0, local
-	.4byte 0x45800000
+	.float 4096
 .endobj float_800A9AA0
 
 .4byte 0
 
-.obj lbl_800A9AA8, local
+.obj double_800A9AA8, local
 	.8byte 0x4330000000000000
-.endobj lbl_800A9AA8
+.endobj double_800A9AA8
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 

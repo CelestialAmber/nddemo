@@ -17,6 +17,8 @@ void GXSetZCompLoc(GXBool before_tex);
 void GXSetDither(GXBool enable);
 void GXSetDstAlpha(GXBool enable, u8 alpha);
 
+void GXPixModeSync();
+
 #ifdef __cplusplus
 }
 #endif

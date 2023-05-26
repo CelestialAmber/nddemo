@@ -10,7 +10,7 @@
 /* 8004F9FC 0004B97C  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 8004FA00 0004B980  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8004FA04 0004B984  3C 00 43 30 */	lis r0, 0x4330
-/* 8004FA08 0004B988  C8 42 86 78 */	lfd f2, lbl_800A99F8@sda21(r2)
+/* 8004FA08 0004B988  C8 42 86 78 */	lfd f2, double_800A99F8@sda21(r2)
 /* 8004FA0C 0004B98C  90 01 00 10 */	stw r0, 0x10(r1)
 /* 8004FA10 0004B990  C0 62 86 70 */	lfs f3, float_800A99F0@sda21(r2)
 /* 8004FA14 0004B994  C8 01 00 10 */	lfd f0, 0x10(r1)
@@ -265,11 +265,11 @@
 /* 8004FD88 0004BD08  3C 00 43 30 */	lis r0, 0x4330
 /* 8004FD8C 0004BD0C  90 81 00 14 */	stw r4, 0x14(r1)
 /* 8004FD90 0004BD10  6C 63 80 00 */	xoris r3, r3, 0x8000
-/* 8004FD94 0004BD14  C8 42 86 78 */	lfd f2, lbl_800A99F8@sda21(r2)
+/* 8004FD94 0004BD14  C8 42 86 78 */	lfd f2, double_800A99F8@sda21(r2)
 /* 8004FD98 0004BD18  90 61 00 1C */	stw r3, 0x1c(r1)
 /* 8004FD9C 0004BD1C  C0 62 86 80 */	lfs f3, float_800A9A00@sda21(r2)
 /* 8004FDA0 0004BD20  90 01 00 18 */	stw r0, 0x18(r1)
-/* 8004FDA4 0004BD24  C8 22 86 88 */	lfd f1, lbl_800A9A08@sda21(r2)
+/* 8004FDA4 0004BD24  C8 22 86 88 */	lfd f1, double_800A9A08@sda21(r2)
 /* 8004FDA8 0004BD28  C8 01 00 18 */	lfd f0, 0x18(r1)
 /* 8004FDAC 0004BD2C  90 01 00 10 */	stw r0, 0x10(r1)
 /* 8004FDB0 0004BD30  EC 40 10 28 */	fsubs f2, f0, f2
@@ -496,7 +496,7 @@
 
 
 .obj float_800A99E8, local
-	.4byte 0x447A0000
+	.float 1000
 .endobj float_800A99E8
 
 .obj float_800A99EC, local
@@ -504,24 +504,24 @@
 .endobj float_800A99EC
 
 .obj float_800A99F0, local
-	.4byte 0x325A740E
+	.float 0.00000001271565786
 .endobj float_800A99F0
 
 .4byte 0
 
-.obj lbl_800A99F8, local
+.obj double_800A99F8, local
 	.8byte 0x4330000080000000
-.endobj lbl_800A99F8
+.endobj double_800A99F8
 
 .obj float_800A9A00, local
-	.4byte 0x39A9C84A
+	.float 0.00032383418 #1/3088
 .endobj float_800A9A00
 
 .4byte 0
 
-.obj lbl_800A9A08, local
+.obj double_800A9A08, local
 	.8byte 0x4330000000000000
-.endobj lbl_800A9A08
+.endobj double_800A9A08
 
 .section extab, "a"  # 0x80005520 - 0x80005BC0
 

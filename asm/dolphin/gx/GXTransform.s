@@ -64,7 +64,7 @@
 /* 80040A98 0003CA18  94 21 FF E8 */	stwu r1, -0x18(r1)
 /* 80040A9C 0003CA1C  3C 00 43 30 */	lis r0, 0x4330
 /* 80040AA0 0003CA20  80 8D 82 90 */	lwz r4, gx@sda21(r13)
-/* 80040AA4 0003CA24  C8 22 85 C8 */	lfd f1, lbl_800A9948@sda21(r2)
+/* 80040AA4 0003CA24  C8 22 85 C8 */	lfd f1, double_800A9948@sda21(r2)
 /* 80040AA8 0003CA28  80 84 04 20 */	lwz r4, 0x420(r4)
 /* 80040AAC 0003CA2C  90 81 00 14 */	stw r4, 0x14(r1)
 /* 80040AB0 0003CA30  90 01 00 10 */	stw r0, 0x10(r1)
@@ -451,14 +451,14 @@
 
 .4byte 0
 
-.obj lbl_800A9948, local
+.obj double_800A9948, local
 	.8byte 0x4330000000000000
-.endobj lbl_800A9948
+.endobj double_800A9948
 
 .obj float_800A9950, local
-	.4byte 0x43AB0000
+	.float 342
 .endobj float_800A9950
 
 .obj float_800A9954, local
-	.4byte 0x4B7FFFFF
+	.float 16777215
 .endobj float_800A9954

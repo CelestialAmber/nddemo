@@ -1,6 +1,7 @@
 #ifndef RVL_SDK_GX_FIFO_H
 #define RVL_SDK_GX_FIFO_H
 #include "dolphin/gx/GXInternal.h"
+#include "dolphin/OS.h"
 #include "types.h"
 #ifdef __cplusplus
 extern "C" {
@@ -13,6 +14,8 @@ BOOL GXGetCPUFifo(GXFifoObj*);
 
 u32 GXGetFifoCount(GXFifoObj*);
 u8 GXGetFifoWrap(GXFifoObj*);
+
+OSThread* GXSetCurrentGXThread();
 
 #ifdef __cplusplus
 }

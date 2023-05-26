@@ -80,7 +80,7 @@
 /* 800483D0 00044350  88 AD 87 71 */	lbz r5, streamCallDelay@sda21(r13)
 /* 800483D4 00044354  3C 60 80 09 */	lis r3, streamInfo@ha
 /* 800483D8 00044358  38 03 F9 90 */	addi r0, r3, streamInfo@l
-/* 800483DC 0004435C  CB A2 86 20 */	lfd f29, lbl_800A99A0@sda21(r2)
+/* 800483DC 0004435C  CB A2 86 20 */	lfd f29, double_800A99A0@sda21(r2)
 /* 800483E0 00044360  3C 60 24 92 */	lis r3, 0x2492
 /* 800483E4 00044364  3C 80 80 09 */	lis r4, synthInfo@ha
 /* 800483E8 00044368  98 AD 87 70 */	stb r5, streamCallCnt@sda21(r13)
@@ -602,16 +602,16 @@
 .balign 8
 
 .obj float_800A9998, local
-	.4byte 0x45800000
+	.float 4096
 .endobj float_800A9998
 
 .obj float_800A999C, local
-	.4byte 0x3C010204
+	.float 0.0078740157
 .endobj float_800A999C
 
-.obj lbl_800A99A0, local
+.obj double_800A99A0, local
 	.8byte 0x4330000000000000
-.endobj lbl_800A99A0
+.endobj double_800A99A0
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80
 

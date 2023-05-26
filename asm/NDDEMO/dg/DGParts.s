@@ -1383,13 +1383,13 @@
 .endobj lbl_800A94CC
 
 .obj float_800A94D0, local
-	.4byte 0
+	.float 0
 .endobj float_800A94D0
 
 .obj float_800A94D4, local
-	.4byte 0x40490FD8
+	.float 3.141592
 .endobj float_800A94D4
 
 .obj float_800A94D8, local
-	.4byte 0x40C90FD8
+	.float 6.283184
 .endobj float_800A94D8

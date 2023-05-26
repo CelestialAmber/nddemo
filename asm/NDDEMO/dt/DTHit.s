@@ -993,7 +993,7 @@
 .balign 8
 
 .obj float_800A9560, local
-	.4byte 0
+	.float 0
 .endobj float_800A9560
 
 .obj float_800A9564, local

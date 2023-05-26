@@ -855,7 +855,7 @@
 /* 80017CFC 00013C7C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80017D00 00013C80  3C 60 43 30 */	lis r3, 0x4330
 /* 80017D04 00013C84  80 AD 83 8C */	lwz r5, m_RenderMode__9DGRendMan@sda21(r13)
-/* 80017D08 00013C88  C8 82 81 68 */	lfd f4, lbl_800A94E8@sda21(r2)
+/* 80017D08 00013C88  C8 82 81 68 */	lfd f4, double_800A94E8@sda21(r2)
 /* 80017D0C 00013C8C  A0 85 00 08 */	lhz r4, 0x8(r5)
 /* 80017D10 00013C90  A0 05 00 04 */	lhz r0, 0x4(r5)
 /* 80017D14 00013C94  90 81 00 1C */	stw r4, 0x1c(r1)
@@ -912,7 +912,7 @@
 .L_80017DC4:
 /* 80017DC4 00013D44  80 AD 83 8C */	lwz r5, m_RenderMode__9DGRendMan@sda21(r13)
 /* 80017DC8 00013D48  3C 60 43 30 */	lis r3, 0x4330
-/* 80017DCC 00013D4C  C8 42 81 68 */	lfd f2, lbl_800A94E8@sda21(r2)
+/* 80017DCC 00013D4C  C8 42 81 68 */	lfd f2, double_800A94E8@sda21(r2)
 /* 80017DD0 00013D50  A0 85 00 08 */	lhz r4, 0x8(r5)
 /* 80017DD4 00013D54  A0 05 00 06 */	lhz r0, 0x6(r5)
 /* 80017DD8 00013D58  90 81 00 1C */	stw r4, 0x1c(r1)
@@ -1122,16 +1122,16 @@
 .balign 8
 
 .obj float_800A94E0, local
-	.4byte 0
+	.float 0
 .endobj float_800A94E0
 
 .obj float_800A94E4, local
 	.float 1
 .endobj float_800A94E4
 
-.obj lbl_800A94E8, local
+.obj double_800A94E8, local
 	.8byte 0x4330000000000000
-.endobj lbl_800A94E8
+.endobj double_800A94E8
 
 .section .bss, "", @nobits  # 0x8006D1C0 - 0x800A8A80 ; 0x0003B8C0
 

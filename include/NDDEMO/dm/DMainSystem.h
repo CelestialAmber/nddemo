@@ -33,7 +33,7 @@ private:
     s8 _mipmap_mode; //0xC
     s8 _tv_mode; //0xD
     s8 _old_tv_mode; //0xE
-    s8 _fog_sw; //0xf
+    s8 _fog_sw; //0xF
     s8 _movie_camera_rcd; //0x10
     s8 _sys_inf_disp_flag; //0x11
     s8 _meter_disp_flag; //0x12
@@ -222,5 +222,44 @@ extern u8 dmThreadStack[0x8000];
 extern DMainSystem* dm;
 extern BOOL autoDemoFlag;
 extern bool v_flag;
+
+
+//Misc game define values
+
+//Area values
+#define STG_ENTR 0
+#define STG_HANG 1
+#define STG_DOME 2
+#define STG_CAVE 3
+#define STG_CINE 4
+#define STG_SPIL 5
+#define STG_ENVE 6
+#define STG_MPOL 7
+
+//Step state values
+#define STEP_INIT_SYS 0
+#define STEP_MAIN_MENU 1
+#define STEP_ROOM_SELECT_MENU 2
+#define STEP_MOVIE_SELECT_MENU 3
+#define STEP_PAUSE_MENU 4
+#define STEP_ENTR 5
+#define STEP_HANG 6
+#define STEP_DOME 7
+#define STEP_CAVE 8
+#define STEP_CINE 9
+#define STEP_SPIL 10
+#define STEP_ENVE 11
+#define STEP_MPOL 12
+#define STEP_OPENING 13
+#define STEP_ENDING 14
+#define STEP_MOVIE_ALL 15
+#define STEP_MOVIE_ENTR 16
+#define STEP_MOVIE_HANG 17
+#define STEP_MOVIE_DOME 18
+#define STEP_MOVIE_CAVE 19
+#define STEP_MOVIE_CINE 20
+#define STEP_MOVIE_SPIL 21
+#define STEP_MOVIE_ENVE 22
+#define STEP_MOVIE_MPOL 23
 
 #endif

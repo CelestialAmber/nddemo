@@ -881,11 +881,11 @@
 /* 8004B428 000473A8  6D 20 80 00 */	xoris r0, r9, 0x8000
 /* 8004B42C 000473AC  3C 60 43 30 */	lis r3, 0x4330
 /* 8004B430 000473B0  90 01 00 34 */	stw r0, 0x34(r1)
-/* 8004B434 000473B4  C8 42 86 38 */	lfd f2, lbl_800A99B8@sda21(r2)
+/* 8004B434 000473B4  C8 42 86 38 */	lfd f2, double_800A99B8@sda21(r2)
 /* 8004B438 000473B8  90 81 00 3C */	stw r4, 0x3c(r1)
 /* 8004B43C 000473BC  C0 62 86 2C */	lfs f3, float_800A99AC@sda21(r2)
 /* 8004B440 000473C0  90 61 00 38 */	stw r3, 0x38(r1)
-/* 8004B444 000473C4  C8 22 86 40 */	lfd f1, lbl_800A99C0@sda21(r2)
+/* 8004B444 000473C4  C8 22 86 40 */	lfd f1, double_800A99C0@sda21(r2)
 /* 8004B448 000473C8  C8 01 00 38 */	lfd f0, 0x38(r1)
 /* 8004B44C 000473CC  90 61 00 30 */	stw r3, 0x30(r1)
 /* 8004B450 000473D0  EC 40 10 28 */	fsubs f2, f0, f2
@@ -907,11 +907,11 @@
 /* 8004B48C 0004740C  6C A0 80 00 */	xoris r0, r5, 0x8000
 /* 8004B490 00047410  3C 60 43 30 */	lis r3, 0x4330
 /* 8004B494 00047414  90 01 00 34 */	stw r0, 0x34(r1)
-/* 8004B498 00047418  C8 42 86 38 */	lfd f2, lbl_800A99B8@sda21(r2)
+/* 8004B498 00047418  C8 42 86 38 */	lfd f2, double_800A99B8@sda21(r2)
 /* 8004B49C 0004741C  90 81 00 2C */	stw r4, 0x2c(r1)
 /* 8004B4A0 00047420  C0 62 86 30 */	lfs f3, float_800A99B0@sda21(r2)
 /* 8004B4A4 00047424  90 61 00 28 */	stw r3, 0x28(r1)
-/* 8004B4A8 00047428  C8 22 86 40 */	lfd f1, lbl_800A99C0@sda21(r2)
+/* 8004B4A8 00047428  C8 22 86 40 */	lfd f1, double_800A99C0@sda21(r2)
 /* 8004B4AC 0004742C  C8 01 00 28 */	lfd f0, 0x28(r1)
 /* 8004B4B0 00047430  90 61 00 30 */	stw r3, 0x30(r1)
 /* 8004B4B4 00047434  EC 40 10 28 */	fsubs f2, f0, f2
@@ -1037,11 +1037,11 @@
 /* 8004B674 000475F4  6C 83 80 00 */	xoris r3, r4, 0x8000
 /* 8004B678 000475F8  3C 80 43 30 */	lis r4, 0x4330
 /* 8004B67C 000475FC  90 61 00 34 */	stw r3, 0x34(r1)
-/* 8004B680 00047600  C8 42 86 38 */	lfd f2, lbl_800A99B8@sda21(r2)
+/* 8004B680 00047600  C8 42 86 38 */	lfd f2, double_800A99B8@sda21(r2)
 /* 8004B684 00047604  90 A1 00 3C */	stw r5, 0x3c(r1)
 /* 8004B688 00047608  C0 62 86 2C */	lfs f3, float_800A99AC@sda21(r2)
 /* 8004B68C 0004760C  90 81 00 38 */	stw r4, 0x38(r1)
-/* 8004B690 00047610  C8 22 86 40 */	lfd f1, lbl_800A99C0@sda21(r2)
+/* 8004B690 00047610  C8 22 86 40 */	lfd f1, double_800A99C0@sda21(r2)
 /* 8004B694 00047614  C8 01 00 38 */	lfd f0, 0x38(r1)
 /* 8004B698 00047618  90 81 00 30 */	stw r4, 0x30(r1)
 /* 8004B69C 0004761C  EC 40 10 28 */	fsubs f2, f0, f2
@@ -1061,11 +1061,11 @@
 /* 8004B6D0 00047650  6C C3 80 00 */	xoris r3, r6, 0x8000
 /* 8004B6D4 00047654  3C 80 43 30 */	lis r4, 0x4330
 /* 8004B6D8 00047658  90 61 00 34 */	stw r3, 0x34(r1)
-/* 8004B6DC 0004765C  C8 42 86 38 */	lfd f2, lbl_800A99B8@sda21(r2)
+/* 8004B6DC 0004765C  C8 42 86 38 */	lfd f2, double_800A99B8@sda21(r2)
 /* 8004B6E0 00047660  90 A1 00 2C */	stw r5, 0x2c(r1)
 /* 8004B6E4 00047664  C0 62 86 30 */	lfs f3, float_800A99B0@sda21(r2)
 /* 8004B6E8 00047668  90 81 00 28 */	stw r4, 0x28(r1)
-/* 8004B6EC 0004766C  C8 22 86 40 */	lfd f1, lbl_800A99C0@sda21(r2)
+/* 8004B6EC 0004766C  C8 22 86 40 */	lfd f1, double_800A99C0@sda21(r2)
 /* 8004B6F0 00047670  C8 01 00 28 */	lfd f0, 0x28(r1)
 /* 8004B6F4 00047674  90 81 00 30 */	stw r4, 0x30(r1)
 /* 8004B6F8 00047678  EC 40 10 28 */	fsubs f2, f0, f2
@@ -4546,29 +4546,29 @@
 
 
 .obj float_800A99A8, local
-	.4byte 0x45800000
+	.float 4096
 .endobj float_800A99A8
 
 .obj float_800A99AC, local
-	.4byte 0x34000000
+	.float 0.000000119209289 #1/2^23
 .endobj float_800A99AC
 
 .obj float_800A99B0, local
-	.4byte 0x3C000000
+	.float 0.0078125
 .endobj float_800A99B0
 
 .4byte 0
 
-.obj lbl_800A99B8, local
+.obj double_800A99B8, local
 	.8byte 0x4330000000000000
-.endobj lbl_800A99B8
+.endobj double_800A99B8
 
-.obj lbl_800A99C0, local
+.obj double_800A99C0, local
 	.8byte 0x4330000080000000
-.endobj lbl_800A99C0
+.endobj double_800A99C0
 
 .obj float_800A99C8, local
-	.4byte 0x447FC000
+	.float 1023
 .endobj float_800A99C8
 
 .obj float_800A99CC, local

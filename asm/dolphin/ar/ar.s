@@ -111,7 +111,7 @@
 /* 80037EE0 00033E60  3C 60 02 00 */	lis r3, 0x200
 /* 80037EE4 00033E64  4B FF 35 51 */	bl __OSUnmaskInterrupts
 /* 80037EE8 00033E68  3C 60 80 00 */	lis r3, 0x800000F8@ha
-/* 80037EEC 00033E6C  C8 42 85 08 */	lfd f2, lbl_800A9888@sda21(r2)
+/* 80037EEC 00033E6C  C8 42 85 08 */	lfd f2, double_800A9888@sda21(r2)
 /* 80037EF0 00033E70  80 03 00 F8 */	lwz r0, 0x800000F8@l(r3)
 /* 80037EF4 00033E74  38 80 40 00 */	li r4, 0x4000
 /* 80037EF8 00033E78  3C 60 CC 00 */	lis r3, 0xCC005000@ha
@@ -1184,16 +1184,16 @@
 .balign 8
 
 .obj float_800A9880, local
-	.4byte 0x43440000
+	.float 196
 .endobj float_800A9880
 
 .obj float_800A9884, local
-	.4byte 0x4D411E7A
+	.float 202500000
 .endobj float_800A9884
 
-.obj lbl_800A9888, local
+.obj double_800A9888, local
 	.8byte 0x4330000000000000
-.endobj lbl_800A9888
+.endobj double_800A9888
 
 .section .sbss, "", @nobits  # 0x800A8DC0 - 0x800A9380
 

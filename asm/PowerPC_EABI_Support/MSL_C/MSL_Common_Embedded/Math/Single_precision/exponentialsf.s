@@ -53,7 +53,7 @@
 /* 80062BA0 0005EB20  EC 68 02 32 */	fmuls f3, f8, f8
 /* 80062BA4 0005EB24  90 01 00 88 */	stw r0, 0x88(r1)
 /* 80062BA8 0005EB28  EC 08 00 7A */	fmadds f0, f8, f1, f0
-/* 80062BAC 0005EB2C  C8 C2 88 10 */	lfd f6, lbl_800A9B90@sda21(r2)
+/* 80062BAC 0005EB2C  C8 C2 88 10 */	lfd f6, double_800A9B90@sda21(r2)
 /* 80062BB0 0005EB30  C8 21 00 88 */	lfd f1, 0x88(r1)
 /* 80062BB4 0005EB34  EC 03 00 32 */	fmuls f0, f3, f0
 /* 80062BB8 0005EB38  C0 E2 87 FC */	lfs f7, float_800A9B7C@sda21(r2)
@@ -68,7 +68,7 @@
 /* 80062BDC 0005EB5C  48 00 00 34 */	b .L_80062C10
 .L_80062BE0:
 /* 80062BE0 0005EB60  6D 00 80 00 */	xoris r0, r8, 0x8000
-/* 80062BE4 0005EB64  C8 62 88 10 */	lfd f3, lbl_800A9B90@sda21(r2)
+/* 80062BE4 0005EB64  C8 62 88 10 */	lfd f3, double_800A9B90@sda21(r2)
 /* 80062BE8 0005EB68  90 01 00 8C */	stw r0, 0x8c(r1)
 /* 80062BEC 0005EB6C  3C 80 43 30 */	lis r4, 0x4330
 /* 80062BF0 0005EB70  54 E0 10 3A */	slwi r0, r7, 2
@@ -82,7 +82,7 @@
 .L_80062C10:
 /* 80062C10 0005EB90  EC 42 00 32 */	fmuls f2, f2, f0
 /* 80062C14 0005EB94  3C 00 43 30 */	lis r0, 0x4330
-/* 80062C18 0005EB98  C8 22 88 10 */	lfd f1, lbl_800A9B90@sda21(r2)
+/* 80062C18 0005EB98  C8 22 88 10 */	lfd f1, double_800A9B90@sda21(r2)
 /* 80062C1C 0005EB9C  FC 00 10 1E */	fctiwz f0, f2
 /* 80062C20 0005EBA0  D8 01 00 88 */	stfd f0, 0x88(r1)
 /* 80062C24 0005EBA4  80 81 00 8C */	lwz r4, 0x8c(r1)
@@ -138,7 +138,7 @@
 /* 80062CE0 0005EC60  40 80 04 18 */	bge .L_800630F8
 /* 80062CE4 0005EC64  FC 00 10 1E */	fctiwz f0, f2
 /* 80062CE8 0005EC68  3C A0 43 30 */	lis r5, 0x4330
-/* 80062CEC 0005EC6C  C8 82 88 10 */	lfd f4, lbl_800A9B90@sda21(r2)
+/* 80062CEC 0005EC6C  C8 82 88 10 */	lfd f4, double_800A9B90@sda21(r2)
 /* 80062CF0 0005EC70  D8 01 00 88 */	stfd f0, 0x88(r1)
 /* 80062CF4 0005EC74  80 01 00 8C */	lwz r0, 0x8c(r1)
 /* 80062CF8 0005EC78  D8 01 00 80 */	stfd f0, 0x80(r1)
@@ -204,7 +204,7 @@
 /* 80062DE0 0005ED60  EC 68 02 32 */	fmuls f3, f8, f8
 /* 80062DE4 0005ED64  90 01 00 78 */	stw r0, 0x78(r1)
 /* 80062DE8 0005ED68  EC 08 00 7A */	fmadds f0, f8, f1, f0
-/* 80062DEC 0005ED6C  C8 C2 88 10 */	lfd f6, lbl_800A9B90@sda21(r2)
+/* 80062DEC 0005ED6C  C8 C2 88 10 */	lfd f6, double_800A9B90@sda21(r2)
 /* 80062DF0 0005ED70  C8 21 00 78 */	lfd f1, 0x78(r1)
 /* 80062DF4 0005ED74  EC 03 00 32 */	fmuls f0, f3, f0
 /* 80062DF8 0005ED78  C0 E2 87 FC */	lfs f7, float_800A9B7C@sda21(r2)
@@ -231,7 +231,7 @@
 .L_80062E48:
 /* 80062E48 0005EDC8  EC 42 00 32 */	fmuls f2, f2, f0
 /* 80062E4C 0005EDCC  3C 00 43 30 */	lis r0, 0x4330
-/* 80062E50 0005EDD0  C8 22 88 10 */	lfd f1, lbl_800A9B90@sda21(r2)
+/* 80062E50 0005EDD0  C8 22 88 10 */	lfd f1, double_800A9B90@sda21(r2)
 /* 80062E54 0005EDD4  FC 00 10 1E */	fctiwz f0, f2
 /* 80062E58 0005EDD8  D8 01 00 78 */	stfd f0, 0x78(r1)
 /* 80062E5C 0005EDDC  80 81 00 7C */	lwz r4, 0x7c(r1)
@@ -331,7 +331,7 @@
 /* 80062FC0 0005EF40  EC 68 02 32 */	fmuls f3, f8, f8
 /* 80062FC4 0005EF44  90 01 00 78 */	stw r0, 0x78(r1)
 /* 80062FC8 0005EF48  EC 08 00 7A */	fmadds f0, f8, f1, f0
-/* 80062FCC 0005EF4C  C8 C2 88 10 */	lfd f6, lbl_800A9B90@sda21(r2)
+/* 80062FCC 0005EF4C  C8 C2 88 10 */	lfd f6, double_800A9B90@sda21(r2)
 /* 80062FD0 0005EF50  C8 21 00 78 */	lfd f1, 0x78(r1)
 /* 80062FD4 0005EF54  EC 03 00 32 */	fmuls f0, f3, f0
 /* 80062FD8 0005EF58  C0 E2 87 FC */	lfs f7, float_800A9B7C@sda21(r2)
@@ -358,7 +358,7 @@
 .L_80063028:
 /* 80063028 0005EFA8  EC 42 00 32 */	fmuls f2, f2, f0
 /* 8006302C 0005EFAC  3C 00 43 30 */	lis r0, 0x4330
-/* 80063030 0005EFB0  C8 22 88 10 */	lfd f1, lbl_800A9B90@sda21(r2)
+/* 80063030 0005EFB0  C8 22 88 10 */	lfd f1, double_800A9B90@sda21(r2)
 /* 80063034 0005EFB4  FC 00 10 1E */	fctiwz f0, f2
 /* 80063038 0005EFB8  D8 01 00 78 */	stfd f0, 0x78(r1)
 /* 8006303C 0005EFBC  80 81 00 7C */	lwz r4, 0x7c(r1)
@@ -697,15 +697,15 @@
 .endobj _nan
 
 .obj float_800A9B78, local
-	.4byte 0
+	.float 0
 .endobj float_800A9B78
 
 .obj float_800A9B7C, local
-	.4byte 0x3FB00000
+	.float 1.375
 .endobj float_800A9B7C
 
 .obj float_800A9B80, local
-	.4byte 0x3F400000
+	.float 0.75
 .endobj float_800A9B80
 
 .obj float_800A9B84, local
@@ -717,10 +717,10 @@
 .endobj float_800A9B88
 
 .obj float_800A9B8C, local
-	.4byte 0x80000000
+	.float -0
 .endobj float_800A9B8C
 
-.obj lbl_800A9B90, local
+.obj double_800A9B90, local
 	.8byte 0x4330000080000000
-.endobj lbl_800A9B90
+.endobj double_800A9B90
 

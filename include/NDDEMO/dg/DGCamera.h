@@ -15,7 +15,7 @@ private:
 	float m_ZFar; //0xFC
 	Vec m_CamUp; //0x100
 	Vec m_TargetPos; //0x10C
-	DG_RENDMAN_TARGET_MODE m_TargetMode; //0x118
+	enumDG_RENDMAN_TARGET_MODE m_TargetMode; //0x118
 	GXColor m_FogColor; //0x11C
 	GXFogType m_FogType; //0x120
 	float m_FogNear; //0x124
@@ -38,7 +38,7 @@ public:
 	void SetCamUp(Vec up);
 	void SetTargetPos(Vec targetpos);
 	Vec GetTargetPos();
-	void SetTargetMode(DG_RENDMAN_TARGET_MODE mode);
+	void SetTargetMode(enumDG_RENDMAN_TARGET_MODE mode);
 	void SetFogType(GXFogType type);
 	void SetFogRange(float fognear, float fogfar);
 	void SetFogRangeRatio(float fognear, float fogfar);

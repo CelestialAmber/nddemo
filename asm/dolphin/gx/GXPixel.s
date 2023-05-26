@@ -31,7 +31,7 @@
 .L_80040264:
 /* 80040264 0003C1E4  C0 22 85 94 */	lfs f1, float_800A9914@sda21(r2)
 /* 80040268 0003C1E8  38 60 00 00 */	li r3, 0x0
-/* 8004026C 0003C1EC  C8 02 85 98 */	lfd f0, lbl_800A9918@sda21(r2)
+/* 8004026C 0003C1EC  C8 02 85 98 */	lfd f0, double_800A9918@sda21(r2)
 /* 80040270 0003C1F0  48 00 00 0C */	b .L_8004027C
 .L_80040274:
 /* 80040274 0003C1F4  EC 84 00 72 */	fmuls f4, f4, f1
@@ -39,7 +39,7 @@
 .L_8004027C:
 /* 8004027C 0003C1FC  FC 04 00 40 */	fcmpo cr0, f4, f0
 /* 80040280 0003C200  41 81 FF F4 */	bgt .L_80040274
-/* 80040284 0003C204  C8 02 85 A8 */	lfd f0, lbl_800A9928@sda21(r2)
+/* 80040284 0003C204  C8 02 85 A8 */	lfd f0, double_800A9928@sda21(r2)
 /* 80040288 0003C208  C0 42 85 A0 */	lfs f2, float_800A9920@sda21(r2)
 /* 8004028C 0003C20C  C0 22 85 90 */	lfs f1, float_800A9910@sda21(r2)
 /* 80040290 0003C210  48 00 00 0C */	b .L_8004029C
@@ -55,7 +55,7 @@
 /* 800402AC 0003C22C  3B C3 00 01 */	addi r30, r3, 0x1
 /* 800402B0 0003C230  C0 02 85 B0 */	lfs f0, float_800A9930@sda21(r2)
 /* 800402B4 0003C234  38 00 00 01 */	li r0, 0x1
-/* 800402B8 0003C238  C8 42 85 B8 */	lfd f2, lbl_800A9938@sda21(r2)
+/* 800402B8 0003C238  C8 42 85 B8 */	lfd f2, double_800A9938@sda21(r2)
 /* 800402BC 0003C23C  7C 00 F0 30 */	slw r0, r0, r30
 /* 800402C0 0003C240  EC 20 01 32 */	fmuls f1, f0, f4
 /* 800402C4 0003C244  6C 03 80 00 */	xoris r3, r0, 0x8000
@@ -538,16 +538,16 @@
 .balign 8
 
 .obj float_800A9910, local
-	.4byte 0
+	.float 0
 .endobj float_800A9910
 
 .obj float_800A9914, local
 	.float 0.5
 .endobj float_800A9914
 
-.obj lbl_800A9918, local
+.obj double_800A9918, local
 	.8byte 0x3FF0000000000000
-.endobj lbl_800A9918
+.endobj double_800A9918
 
 .obj float_800A9920, local
 	.float 2
@@ -555,16 +555,16 @@
 
 .4byte 0
 
-.obj lbl_800A9928, local
-	.8byte 0x3FE0000000000000
-.endobj lbl_800A9928
+.obj double_800A9928, local
+	.double 0.5
+.endobj double_800A9928
 
 .obj float_800A9930, local
-	.4byte 0x4B00001E
+	.float 8388638
 .endobj float_800A9930
 
 .4byte 0
 
-.obj lbl_800A9938, local
+.obj double_800A9938, local
 	.8byte 0x4330000080000000
-.endobj lbl_800A9938
+.endobj double_800A9938
