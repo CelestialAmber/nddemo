@@ -111,19 +111,47 @@ public:
     void iSetFogSw(s8 sw);
     void iCoinDrop();
     DGFont* GetDGFontTitle();
-    DTPad* GetDTPad();
-    DTCamera* GetDTCamera();
-    DTHit* GetDTHit();
-    u8 GetStimer();
-    u8 GetRoomNumber();
-    s8 iGetGameMode();
-    void iSystemInitProc();
-    s8 iGetOldTvMode();
-    Vec GetSpilShadowCamPos();
+
+    DTPad* GetDTPad(){
+		return &_pad;
+	}
+
+    DTCamera* GetDTCamera(){
+		return &_cam;
+	}
+
+    DTHit* GetDTHit(){
+		return &_hit;
+	}
+
+    u8 GetStimer(){
+		return _stimer;
+	}
+	
+    u8 GetRoomNumber(){
+		return _stage_no; //need to confirm what this returns
+	}
+
+    s8 iGetGameMode(){
+		return _mode_no;
+	}
+
+    s8 iGetOldTvMode(){
+		return _old_tv_mode;
+	}
+
+    Vec GetSpilShadowCamPos(){
+		return _player.GetSpilShadowCamPos();
+	}
+
     s8 iGetMoviePlayMode();
+
     DGModel* GetStageModel(u8, u8); //dwarf missing param names
     u16 GetStageHandle(u8, u8); //dwarf missing param names
+   
     DGAniModel* GetPlayerModel();
+
+	void iSystemInitProc();
     s8 iIsAllOffCoin();
     void iGoNextRoom(u8 next_stage_no, u8 open_door_no, Vec* door_start, Vec* door_end);
     s8 iCheckReady();
@@ -261,5 +289,10 @@ extern bool v_flag;
 #define STEP_MOVIE_SPIL 21
 #define STEP_MOVIE_ENVE 22
 #define STEP_MOVIE_MPOL 23
+
+//Area load status values
+#define STG_NOT_LOADED 0
+#define STG_LOADING 1
+#define STG_LOADED 3
 
 #endif

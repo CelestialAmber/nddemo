@@ -24,9 +24,22 @@ typedef struct _GXRenderModeObj {
     u8 vfilter[7];            // at 0x32
 } GXRenderModeObj;
 
+
+extern GXRenderModeObj GXNtsc240Ds;
+extern GXRenderModeObj GXNtsc240DsAa;
+extern GXRenderModeObj GXNtsc240Int;
+extern GXRenderModeObj GXNtsc240IntAa;
+extern GXRenderModeObj GXNtsc480IntDf;
+extern GXRenderModeObj GXNtsc480Int;
+extern GXRenderModeObj GXNtsc480IntAa;
+extern GXRenderModeObj GXNtsc480Prog;
+extern GXRenderModeObj GXNtsc480ProgAa;
+
+
 void GXCopyTex(void* dst, GXBool clear);
 void GXSetTexCopySrc(u16 left, u16 top, u16 width, u16 height);
 void GXSetTexCopyDst(u16 width, u16 height, GXTexFmt fmt, GXBool mipmap);
+void GXSetCopyClear(GXColor clearColor, u32 clearZ);
 
 #ifdef __cplusplus
 }

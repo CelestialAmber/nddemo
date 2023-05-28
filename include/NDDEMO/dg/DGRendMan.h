@@ -75,7 +75,11 @@ public:
 
 
 	DGRendMan(const DGRendMan&);
-	DGRendMan();
+
+	DGRendMan(){
+		DGRendMan(0x40000);
+	}
+
 	DGRendMan(u32 FifoSize);
 	~DGRendMan();
 

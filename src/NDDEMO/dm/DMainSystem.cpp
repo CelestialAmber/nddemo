@@ -22,9 +22,11 @@ struct iBGTHREAD{
 	s16 write_p; //0x1592
 	struct{
 		s8 wait_count; //0x0
+		u8 unk1; //padding
 		s16 wait_table[128]; //0x2
 	} stage[8]; //0x1594
 	u8 delete_flag[9]; //0x1da4
+	u8 unk1DAD[3]; //padding
 };
 
 iBGTHREAD bgThread;
@@ -168,9 +170,11 @@ StructPerf stPerf1[22] = {
 	{22, ""}
 };
 
+static void CheckRenderingTime();
 static void DrawFrameBar(float mSecCPU, float mSecGX);
 static s16 iBgLoadRequest(u16 file_no, u8 request_flag, s8 stage_no, s8 model_no);
 static s8 iBgCheckLoadEnd(s8 stg_no);
+static void iBgThreadInit();
 
 
 DMainSystem::DMainSystem() : model_man(16, 512, 2048) {
@@ -179,7 +183,7 @@ DMainSystem::DMainSystem() : model_man(16, 512, 2048) {
 	_step[1] = 0;
 
 	for(s8 i = 0; i < 8; i++){
-		stage[i].load_status = 0;
+		stage[i].load_status = STG_NOT_LOADED;
 		stage[i].datBGH = NULL;
 		stage[i].datMCD = NULL;
 
@@ -210,151 +214,151 @@ DMainSystem::~DMainSystem(){
 }
 
 void DMainSystem::MainLoop(){
-    GXSetCurrentGXThread();
+	GXSetCurrentGXThread();
 
-    while(true){
+	while(true){
 		//Wait for vblank
-        if(!v_flag) continue;
+		if(!v_flag) continue;
 
-        v_flag = false;
+		v_flag = false;
 
 		//Start the stopwatch
-        OSStartStopwatch(&SwMsec);
+		OSStartStopwatch(&SwMsec);
 
 		//Read controller inputs
-        _pad.Read();
+		_pad.Read();
 
-        dm->rend_man[0].DrawBegin();
+		dm->rend_man[0].DrawBegin();
 
-        GXClearGPMetric();
-        GXSetGPMetric(stPerf0[_perf0_type].type, stPerf1[_perf1_type].type);
+		GXClearGPMetric();
+		GXSetGPMetric(stPerf0[_perf0_type].type, stPerf1[_perf1_type].type);
 
 		//Perform a game state step
-        _StepProc();
+		_StepProc();
 
-        if (_pad.IsTrg(PAD_CHAN0,PAD_BUTTON_Y)) {
-            if ((s32)DGObject::lineMode != 0) DGObject::lineMode = 0;
-            else DGObject::lineMode = 1;
-        }
+		if (_pad.IsTrg(PAD_CHAN0,PAD_BUTTON_Y)) {
+			if ((s32)DGObject::lineMode != 0) DGObject::lineMode = 0;
+			else DGObject::lineMode = 1;
+		}
 
 		//Check if the reset button combo was entered
-        if (_pad.IsPush(PAD_CHAN0, PAD_BUTTON_START | PAD_BUTTON_X | PAD_BUTTON_B)) {
+		if (_pad.IsPush(PAD_CHAN0, PAD_BUTTON_START | PAD_BUTTON_X | PAD_BUTTON_B)) {
 			//If 
 			if (_resetFlag == 0) {
 				_resetTime = OSTicksToMicroseconds(OSGetTime());
-            	_resetFlag++;
+				_resetFlag++;
 			}
 		}else if (_resetFlag == 1) {
 			u32 curTime = OSTicksToMicroseconds(OSGetTime());
 			//If the button combo was entered before, and it's been at least 0.5s since the last reset,
 			//queue a reset (resetFlag = 2)
-            if (curTime - _resetTime > 500000) {
+			if (curTime - _resetTime > 500000) {
 				_resetFlag++;
 			}else{
-                if (OSGetResetSwitchState()) {
-                    _resetFlag = 0;
-                }
-            }
-        }
+				if (OSGetResetSwitchState()) {
+					_resetFlag = 0;
+				}
+			}
+		}
 
-        if (_resetButton == 0) {
-            if (OSGetResetSwitchState()) {
-                _resetButton++;
-            }
-        }else if (_resetButton == 1 && !OSGetResetSwitchState()) {
-            _resetFlag = 2;
-        }
+		if (_resetButton == 0) {
+			if (OSGetResetSwitchState()) {
+				_resetButton++;
+			}
+		}else if (_resetButton == 1 && !OSGetResetSwitchState()) {
+			_resetFlag = 2;
+		}
 
 		//If the requirements for a reset are met (resetFlag == 2), reset
-        if (_resetFlag == 2) {
-            _Reset();
-        }
+		if (_resetFlag == 2) {
+			_Reset();
+		}
 
-        if (_old_tv_mode == 6 || _old_tv_mode == 8) {
-            _cam.SetCameraFrustumUpper(1.5f, 2, 2, 1024);
+		if (_old_tv_mode == 6 || _old_tv_mode == 8) {
+			_cam.SetCameraFrustumUpper(1.5f, 2, 2, 1024);
 
-            rend_man[1].Draw(RMDM_MORE);
-            rend_man[0].Draw(RMDM_MORE);
+			rend_man[1].Draw(RMDM_MORE);
+			rend_man[0].Draw(RMDM_MORE);
 
-            _gim.TitleAction();
-            _iConsoleDraw(0);
-            rend_man[0].CopyRenderingBuffer(0);
+			_gim.TitleAction();
+			_iConsoleDraw(0);
+			rend_man[0].CopyRenderingBuffer(0);
 
-            iMSecGX = MSecGX;
+			iMSecGX = MSecGX;
 
-            _cam.SetCameraFrustumLower(1.5f, 2, 2, 1024, rend_man[0].GetxfbHeight());
-            
+			_cam.SetCameraFrustumLower(1.5f, 2, 2, 1024, rend_man[0].GetxfbHeight());
+			
 			rend_man[1].Draw(RMDM_ONCE);
-            rend_man[0].Draw(RMDM_ONCE);
-            
+			rend_man[0].Draw(RMDM_ONCE);
+			
 			_iConsoleDraw(1);
 
-            if(_sys_inf_disp_flag) _DispSysInfo();
+			if(_sys_inf_disp_flag) _DispSysInfo();
 
-            MSecGX = MSecGX + iMSecGX;
+			MSecGX = MSecGX + iMSecGX;
 
-            if(_meter_disp_flag) _disp_meter();
+			if(_meter_disp_flag) _disp_meter();
 
-            rend_man[0].CopyRenderingBuffer(1);
-            rend_man[0].DrawEnd(false, false);
+			rend_man[0].CopyRenderingBuffer(1);
+			rend_man[0].DrawEnd(false, false);
 
-            _cam.SetCameraFrustumUpper(1.5f, 2, 2, 1024);
-        } else {
-            rend_man[1].Draw(RMDM_ONCE);
-            rend_man[0].Draw(RMDM_ONCE);
+			_cam.SetCameraFrustumUpper(1.5f, 2, 2, 1024);
+		} else {
+			rend_man[1].Draw(RMDM_ONCE);
+			rend_man[0].Draw(RMDM_ONCE);
 
-            _gim.TitleAction();
+			_gim.TitleAction();
 
-            _iConsoleDraw(0);
+			_iConsoleDraw(0);
 
-            if (_sys_inf_disp_flag) _DispSysInfo();
-            if (_meter_disp_flag) _disp_meter();
+			if (_sys_inf_disp_flag) _DispSysInfo();
+			if (_meter_disp_flag) _disp_meter();
 
-            rend_man[0].DrawEnd(true, false);
-        }
+			rend_man[0].DrawEnd(true, false);
+		}
 
-        _iChangeTvMode();
+		_iChangeTvMode();
 
 		//Stop the stopwatch, and reset it
-        OSStopStopwatch(&SwMsec);
-        OSResetStopwatch(&SwMsec);
+		OSStopStopwatch(&SwMsec);
+		OSResetStopwatch(&SwMsec);
 
-        _stimer++;
+		_stimer++;
 
-        OSSuspendThread(&dmThread);
-    }
+		OSSuspendThread(&dmThread);
+	}
 }
 
 void DMainSystem::_Reset(){
 	u32 cnt;
-    u8* xfb = (u8*)DGRendMan::m_CurrentBuf;
-    audio.ResetFade();
-    OSReport("xfb %X\n", xfb);
+	u8* xfb = (u8*)DGRendMan::m_CurrentBuf;
+	audio.ResetFade();
+	OSReport("xfb %X\n", xfb);
 
 
-    u8* ptr = xfb;
+	u8* ptr = xfb;
 
-    for(u32 i = 0; i < 480; i += 2){
+	for(u32 i = 0; i < 480; i += 2){
 		for(u32 j = 0; j < 1280; j += 2){
-            ptr[j] = 0;
-        }
+			ptr[j] = 0;
+		}
 
-        ptr += 640 * 4;
-    }
+		ptr += 640 * 4;
+	}
 
-    for(cnt = 0; cnt < 50; cnt++){
-        VIWaitForRetrace();
-        DCStoreRange(xfb,0x96000);
-        VISetNextFrameBuffer(xfb);
-        VIFlush();
-    }
+	for(cnt = 0; cnt < 50; cnt++){
+		VIWaitForRetrace();
+		DCStoreRange(xfb,0x96000);
+		VISetNextFrameBuffer(xfb);
+		VIFlush();
+	}
 
-    audio.Quit();
-    GXDrawDone();
-    VISetBlack(true);
-    VIFlush();
-    VIWaitForRetrace();
-    OSResetSystem(0,0,0);
+	audio.Quit();
+	GXDrawDone();
+	VISetBlack(true);
+	VIFlush();
+	VIWaitForRetrace();
+	OSResetSystem(0,0,0);
 }
 
 
@@ -451,14 +455,152 @@ void DMainSystem::_Step_Init_System(){
 }
 
 void DMainSystem::iSystemInitProc(){
-	s16 i; //r5
-	Vec camup; //r1_60
-	Vec campos; //r1_54
-	Vec camtagpos; //r1_48
-	GXColor fogcolor; //r1_44
+	//s16 i; //r5
+	//Vec camup; //r1_60
+	//Vec campos; //r1_54
+	//Vec camtagpos; //r1_48
+	//GXColor fogcolor; //r1_44
+
+		
+	GXColor black = {0,0,0,0};
+
+	GXSetCopyClear(black, 0xffffff);
+	GXClearVtxDesc();
+
+	sysFont = model_man.LoadFont("fontY4a",8,10,0x10,' ','\x7f');
+	sysFont->SetSize(2);
+	title_bg = model_man.LoadFont("title01",0x80,0x40,2,'A','P');
+	title_bg->SetSize(2);
+	title_bg->SetColor(0xff,0xff,0xff,0xff);
+	movie_icon = model_man.LoadFont("title01",0x20,0x20,8,'A','H');
+	movie_icon->SetSize(1);
+	movie_icon->SetColor(0xff,0xff,0xff,0xff);
+
+	Vec camup = {0,1,0};
+	Vec campos = {0,0,50};
+	Vec camtagpos = {0,0,0};
+	GXColor fogcolor = {0,0,0,0};
+
+	sysCam.SetCameraFrustum(1.5,2.0,2.0,1024.0);
+	sysCam.SetCamUp(camup);
+	sysCam.SetPosition(campos);
+	sysCam.SetTargetPos(camtagpos);
+	sysCam.SetTargetMode(DGR_TARGET_POSITION);
+	sysCam.SetFogColor(fogcolor);
+	sysCam.SetFogRange(50.0,256.0);
+
+	_fog_sw = false;
+
+	camup.set(0,1,0);
+	campos.set(0,0,50);
+	camtagpos.set(0,0,0);
+
+	fogcolor.r = 0;
+	fogcolor.g = 0;
+	fogcolor.b = 0;
+	fogcolor.a = 0;
+
+	_cam.SetCameraFrustum(1.5,2.0,2.0,1024.0);
+	_cam.SetCamUp(camup);
+	_cam.SetPosition(campos);
+	_cam.SetTargetPos(camtagpos);
+	_cam.SetTargetMode(DGR_TARGET_POSITION);
+	_cam.SetFogColor(fogcolor);
+	_cam.SetFogRange(50.0,256.0);
+	_cam.set_eye_offset(9.0,25.0);
+	_cam.set_at_offset(10.0,0.0);
+	_cam.set_bgh_handle(&_hit);
+	_cam.set_speed(0.7,0.7,1.0,0.125);
+
+	OSInitStopwatch(&SwMsec, "render");
+	GXSetDrawDoneCallback(CheckRenderingTime);
+	mario_hm = model_man.LoadDuplicateNDM((char*)iFileNameData[0]);
+	mario_model = model_man.CreateAnimeInstance(mario_hm);
+	model_man.DeleteMasterModel(mario_hm);
+
+	for (s16 i = 0; i < 75; i++) {
+		cinema.texpro[i] = NULL;
+	}
+
+	cinema.star = NULL;
+	cinema.hart = NULL;
+	cinema.mirrorpro = NULL;
+	_go_next_room.flag = 0;
+	_go_next_room.next_room_no = 0;
+	_go_next_room.old_room_no = 0;
+	_go_next_room.open_door_no = 0;
+
+	iBgThreadInit();
+
+	_cursol_pos[0] = 0;
+	_cursol_pos[1] = 0;
+	_cursol_wait = 0;
+	_old_stick[0] = 0;
+	_old_stick[1] = 0;
+	_sys_inf_disp_flag = 0;
+	_meter_disp_flag = 1;
+
+	rend_man[0].SetRenderMode(&GXNtsc480IntDf);
 }
 
 void DMainSystem::_Step_Main_Menu(){
+	switch(_step[1]){
+		case 0:
+		_route_counter = 0;
+		_old_route_counter = _route_counter;
+		_console_step = STEP_MAIN_MENU;
+		_step[1]++;
+		audio.SetAutoDemo(0);
+		autoDemoFlag = false;
+		audio.SongStop();
+		audio.MuteAll(false);
+		break;
+		case 1:
+		if (_pad.IsTrg(0,0x100)) {
+			switch(_cursol_pos[0]){
+				case 0:
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_ENVE;
+				_mode_no = 4;
+				_step[0] = STEP_OPENING;
+				_step[1] = 0;
+				_cursol_pos[1] = _cursol_pos[0];
+				_cursol_pos[0] = 0;
+				break;
+				case 1:
+				_console_step = STEP_INIT_SYS;
+				_step[0] = STEP_MOVIE_ALL;
+				_step[1] = 0;
+				_cursol_pos[1] = _cursol_pos[0];
+				_cursol_pos[0] = 0;
+				audio.SetAutoDemo(true);
+				autoDemoFlag = 1;
+				break;
+				case 3:
+				_console_step = STEP_INIT_SYS;
+				_step[0] = STEP_ROOM_SELECT_MENU;
+				_step[1] = 0;
+				_cursol_pos[1] = _cursol_pos[0];
+				_cursol_pos[0] = 0;
+				break;
+				case 4:
+				_console_step = STEP_INIT_SYS;
+				_step[0] = STEP_MOVIE_SELECT_MENU;
+				_step[1] = 0;
+				_cursol_pos[1] = _cursol_pos[0];
+				_cursol_pos[0] = 0;
+				break;
+			}
+		}
+		break;
+		case 2:
+		_DispNowLoding();
+		if (_DeleteAllStage()) {
+			_player.InitAction();
+			_step[1] = 0;
+		}
+		break;
+	}
 }
 
 void DMainSystem::_DispSysInfo(){
@@ -489,9 +631,9 @@ void DMainSystem::_DispSysInfo(){
 	//Print the load status character for each stage
 	//X: not loaded, +: loading, O: loaded
 	for (i = 0; i < 8; i++) {
-		if(stage[i].load_status == 0) {
+		if(stage[i].load_status == STG_NOT_LOADED) {
 			sysFont->StrOut("X");
-		}else if(stage[i].load_status == 1) {
+		}else if(stage[i].load_status == STG_LOADING) {
 			sysFont->StrOut("+");
 		} else {
 			sysFont->StrOut("O");
@@ -501,28 +643,28 @@ void DMainSystem::_DispSysInfo(){
 	sysFont->StrOut(" ");
 
 	switch(_cam.get_mode()) {
-	case 0:
+		case 0:
 		sysFont->StrOut("CAM_MODE_STANDBY");
 		break;
-	case 1:
+		case 1:
 		sysFont->StrOut("CAM_MODE_TRAIL");
 		break;
-	case 2:
+		case 2:
 		sysFont->StrOut("CAM_MODE_MOVIE");
 		break;
-	case 3:
+		case 3:
 		sysFont->StrOut("CAM_MODE_MARIO_VIEW");
 		break;
-	case 4:
+		case 4:
 		sysFont->StrOut("CAM_MODE_DETACH");
 		break;
-	case 5:
+		case 5:
 		sysFont->StrOut("CAM_MODE_DOOR");
 		break;
-	case 6:
+		case 6:
 		sysFont->StrOut("CAM_MODE_DOKAN");
 		break;
-	case 7:
+		case 7:
 		sysFont->StrOut("CAM_MODE_SPIL");
 		break;
 	}
@@ -536,275 +678,275 @@ void DMainSystem::_DispSysInfo(){
 void DMainSystem::_Step_Room_Select_Menu(){
 	switch(_step[1]){
 		case 0:
-			_console_step = STEP_ROOM_SELECT_MENU;
-			_step[1]++;
-			audio.MuteAll(1);
-			break;
+		_console_step = STEP_ROOM_SELECT_MENU;
+		_step[1]++;
+		audio.MuteAll(1);
+		break;
 		case 1:
-			if (_pad.IsTrg(PAD_CHAN0, PAD_BUTTON_A)) {
+		if (_pad.IsTrg(PAD_CHAN0, PAD_BUTTON_A)) {
 			switch(_cursol_pos[0]) {
 				case 0:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_ENTR;
-					_mode_no = 2;
-					_step[0] = STEP_ENTR;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.PlaySongFadeOut();
-					autoDemoFlag = false;
-					audio.MuteAll(0);
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_ENTR;
+				_mode_no = 2;
+				_step[0] = STEP_ENTR;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.PlaySongFadeOut();
+				autoDemoFlag = false;
+				audio.MuteAll(0);
+				break;
 				case 1:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_DOME;
-					_mode_no = 2;
-					_step[0] = STEP_DOME;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.PlaySongFadeOut();
-					autoDemoFlag = false;
-					audio.MuteAll(0);
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_DOME;
+				_mode_no = 2;
+				_step[0] = STEP_DOME;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.PlaySongFadeOut();
+				autoDemoFlag = false;
+				audio.MuteAll(0);
+				break;
 				case 2:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_SPIL;
-					_mode_no = 2;
-					_step[0] = STEP_SPIL;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.PlaySongFadeOut();
-					autoDemoFlag = false;
-					audio.MuteAll(0);
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_SPIL;
+				_mode_no = 2;
+				_step[0] = STEP_SPIL;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.PlaySongFadeOut();
+				autoDemoFlag = false;
+				audio.MuteAll(0);
+				break;
 				case 3:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_HANG;
-					_mode_no = 2;
-					_step[0] = STEP_HANG;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.PlaySongFadeOut();
-					autoDemoFlag = false;
-					audio.MuteAll(0);
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_HANG;
+				_mode_no = 2;
+				_step[0] = STEP_HANG;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.PlaySongFadeOut();
+				autoDemoFlag = false;
+				audio.MuteAll(0);
+				break;
 				case 4:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_CAVE;
-					_mode_no = 2;
-					_step[0] = STEP_CAVE;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.PlaySongFadeOut();
-					autoDemoFlag = false;
-					audio.MuteAll(0);
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_CAVE;
+				_mode_no = 2;
+				_step[0] = STEP_CAVE;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.PlaySongFadeOut();
+				autoDemoFlag = false;
+				audio.MuteAll(0);
+				break;
 				case 5:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_CINE;
-					_mode_no = 2;
-					_step[0] = STEP_CINE;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.PlaySongFadeOut();
-					autoDemoFlag = false;
-					audio.MuteAll(0);
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_CINE;
+				_mode_no = 2;
+				_step[0] = STEP_CINE;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.PlaySongFadeOut();
+				autoDemoFlag = false;
+				audio.MuteAll(0);
+				break;
 				case 6:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_ENVE;
-					_mode_no = 2;
-					_step[0] = STEP_ENVE;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.PlaySongFadeOut();
-					autoDemoFlag = false;
-					audio.MuteAll(0);
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_ENVE;
+				_mode_no = 2;
+				_step[0] = STEP_ENVE;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.PlaySongFadeOut();
+				autoDemoFlag = false;
+				audio.MuteAll(0);
+				break;
 				case 7:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_MPOL;
-					_mode_no = 2;
-					_step[0] = STEP_MPOL;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.PlaySongFadeOut();
-					autoDemoFlag = false;
-					audio.MuteAll(0);
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_MPOL;
+				_mode_no = 2;
+				_step[0] = STEP_MPOL;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.PlaySongFadeOut();
+				autoDemoFlag = false;
+				audio.MuteAll(0);
+				break;
 				case 9:
-					_console_step = STEP_INIT_SYS;
-					_step[0] = STEP_MAIN_MENU;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.MuteAll(0);
-					break;
-				}
+				_console_step = STEP_INIT_SYS;
+				_step[0] = STEP_MAIN_MENU;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.MuteAll(0);
+				break;
 			}
-			break;
+		}
+		break;
 	}
 }
 
 void DMainSystem::_Step_Movie_Select_Menu(){
 	switch(_step[1]){
 		case 0:
-			_console_step = STEP_MOVIE_SELECT_MENU;
-			_step[1]++;
-			break;
+		_console_step = STEP_MOVIE_SELECT_MENU;
+		_step[1]++;
+		break;
 		case 1:
-			if (_pad.IsTrg(PAD_CHAN0, PAD_BUTTON_A)) {
-				switch(_cursol_pos[0]) {
+		if (_pad.IsTrg(PAD_CHAN0, PAD_BUTTON_A)) {
+			switch(_cursol_pos[0]) {
 				case 0:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_ENTR;
-					_mode_no = 3;
-					_step[0] = STEP_MOVIE_ENTR;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.SetAutoDemo(true);
-					autoDemoFlag = true;
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_ENTR;
+				_mode_no = 3;
+				_step[0] = STEP_MOVIE_ENTR;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.SetAutoDemo(true);
+				autoDemoFlag = true;
+				break;
 				case 1:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_DOME;
-					_mode_no = 3;
-					_step[0] = STEP_MOVIE_DOME;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.SetAutoDemo(true);
-					autoDemoFlag = true;
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_DOME;
+				_mode_no = 3;
+				_step[0] = STEP_MOVIE_DOME;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.SetAutoDemo(true);
+				autoDemoFlag = true;
+				break;
 				case 2:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_SPIL;
-					_mode_no = 3;
-					_step[0] = STEP_MOVIE_SPIL;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.SetAutoDemo(true);
-					autoDemoFlag = true;
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_SPIL;
+				_mode_no = 3;
+				_step[0] = STEP_MOVIE_SPIL;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.SetAutoDemo(true);
+				autoDemoFlag = true;
+				break;
 				case 3:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_HANG;
-					_mode_no = 3;
-					_step[0] = STEP_MOVIE_HANG;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.SetAutoDemo(true);
-					autoDemoFlag = true;
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_HANG;
+				_mode_no = 3;
+				_step[0] = STEP_MOVIE_HANG;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.SetAutoDemo(true);
+				autoDemoFlag = true;
+				break;
 				case 4:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_CAVE;
-					_mode_no = 3;
-					_step[0] = STEP_MOVIE_CAVE;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.SetAutoDemo(true);
-					autoDemoFlag = true;
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_CAVE;
+				_mode_no = 3;
+				_step[0] = STEP_MOVIE_CAVE;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.SetAutoDemo(true);
+				autoDemoFlag = true;
+				break;
 				case 5:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_CINE;
-					_mode_no = 3;
-					_step[0] = STEP_MOVIE_CINE;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.SetAutoDemo(true);
-					autoDemoFlag = true;
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_CINE;
+				_mode_no = 3;
+				_step[0] = STEP_MOVIE_CINE;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.SetAutoDemo(true);
+				autoDemoFlag = true;
+				break;
 				case 6:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_ENVE;
-					_mode_no = 3;
-					_step[0] = STEP_MOVIE_ENVE;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.SetAutoDemo(true);
-					autoDemoFlag = true;
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_ENVE;
+				_mode_no = 3;
+				_step[0] = STEP_MOVIE_ENVE;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.SetAutoDemo(true);
+				autoDemoFlag = true;
+				break;
 				case 7:
-					_console_step = STEP_INIT_SYS;
-					_stage_no = STG_MPOL;
-					_mode_no = 3;
-					_step[0] = STEP_MOVIE_MPOL;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					audio.SetAutoDemo(true);
-					autoDemoFlag = true;
-					break;
+				_console_step = STEP_INIT_SYS;
+				_stage_no = STG_MPOL;
+				_mode_no = 3;
+				_step[0] = STEP_MOVIE_MPOL;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				audio.SetAutoDemo(true);
+				autoDemoFlag = true;
+				break;
 				case 9:
-					_console_step = STEP_INIT_SYS;
-					_step[0] = STEP_MAIN_MENU;
-					_step[1] = 0;
-					_cursol_pos[0] = _cursol_pos[1];
-					break;
-				}
+				_console_step = STEP_INIT_SYS;
+				_step[0] = STEP_MAIN_MENU;
+				_step[1] = 0;
+				_cursol_pos[0] = _cursol_pos[1];
+				break;
 			}
-			break;
+		}
+		break;
 	}
 }
 
 void DMainSystem::_Step_Pause_Menu(){
 	switch(_step[1]){
 		case 0:
-			switch(_stage_no) {
+		switch(_stage_no) {
 			case 0:
-				_Draw_Entr(false);
-				break;
+			_Draw_Entr(false);
+			break;
 			case 1:
-				_Draw_Hang(false);
-				break;
+			_Draw_Hang(false);
+			break;
 			case 2:
-				_Draw_Dome(false);
-				break;
+			_Draw_Dome(false);
+			break;
 			case 3:
-				_Draw_Cave(false);
-				break;
+			_Draw_Cave(false);
+			break;
 			case 4:
-				_Draw_Cine(false);
-				break;
+			_Draw_Cine(false);
+			break;
 			case 5:
-				_Draw_Spil(false);
-				break;
+			_Draw_Spil(false);
+			break;
 			case 6:
-				_Draw_Enve(false);
-				break;
+			_Draw_Enve(false);
+			break;
 			case 7:
-				_Draw_Mpol(false);
-				break;
+			_Draw_Mpol(false);
+			break;
 		}
 		
 		audio.MuteAll(true);
 		_step[1]++;
 		_console_step = 4;
 		break;
-	case 1:
+		case 1:
 		switch(_stage_no) {
 			case 0:
-				_Draw_Entr(false);
-				break;
+			_Draw_Entr(false);
+			break;
 			case 1:
-				_Draw_Hang(false);
-				break;
+			_Draw_Hang(false);
+			break;
 			case 2:
-				_Draw_Dome(false);
-				break;
+			_Draw_Dome(false);
+			break;
 			case 3:
-				_Draw_Cave(false);
-				break;
+			_Draw_Cave(false);
+			break;
 			case 4:
-				_Draw_Cine(false);
-				break;
+			_Draw_Cine(false);
+			break;
 			case 5:
-				_Draw_Spil(false);
-				break;
+			_Draw_Spil(false);
+			break;
 			case 6:
-				_Draw_Enve(false);
-				break;
+			_Draw_Enve(false);
+			break;
 			case 7:
-				_Draw_Mpol(false);
-				break;
+			_Draw_Mpol(false);
+			break;
 		}
 
 		if (_cursol_pos[0] == 3 && !_sys_inf_disp_flag) {
@@ -818,101 +960,105 @@ void DMainSystem::_Step_Pause_Menu(){
 		if (_pad.IsTrg(0, 0x100)) {
 			switch(_cursol_pos[0]) {
 				case 0:
-					_mipmap_mode++;
-					if (_mipmap_mode > 2) {
-						_mipmap_mode = 0;
-					}
-					_SetMipMap();
-					break;
+				_mipmap_mode++;
+
+				if (_mipmap_mode > 2) {
+					_mipmap_mode = 0;
+				}
+
+				_SetMipMap();
+				break;
 				case 1:
-					_tv_mode++;
+				_tv_mode++;
 
-					if (VIGetDTVStatus() != 0) {
-						if (_tv_mode > 8) {
-							_tv_mode = 0;
-						}
-					}else if (_tv_mode > 6) {
-						_tv_mode = 0;
-					}
-					break;
+				if(VIGetDTVStatus() != 0){
+					if(_tv_mode > 8) _tv_mode = 0;
+				}else if(_tv_mode > 6){
+					_tv_mode = 0;
+				}
+				break;
 				case 2:
-					_sys_inf_disp_flag ^= 1;
-					break;
+				_sys_inf_disp_flag ^= 1;
+				break;
 				case 3:
-					_perf0_type++;
-					if (stPerf0[_perf0_type].type == 35) {
-						_perf0_type = 0;
-					}
-					break;
+				_perf0_type++;
+
+				if (stPerf0[_perf0_type].type == 35) {
+					_perf0_type = 0;
+				}
+				break;
 				case 4:
-					_perf1_type++;
-					if (stPerf1[_perf1_type].type == 22) {
-						_perf1_type = 0;
-					}
-					break;
+				_perf1_type++;
+				
+				if (stPerf1[_perf1_type].type == 22) {
+					_perf1_type = 0;
+				}
+				break;
 				case 5:
-					_meter_disp_flag ^= 1;
-					break;
+				_meter_disp_flag ^= 1;
+				break;
 				case 6:
-					s32 gamma_mode = DGRendMan::m_DispCopyGamma + 1;
-					if (gamma_mode > 2) {
-						gamma_mode = 0;
-					}
-					rend_man[1].SetDispCopyGamma((GXGamma)gamma_mode);
-					break;
+				s32 gamma_mode = DGRendMan::m_DispCopyGamma + 1;
+				if (gamma_mode > 2) {
+					gamma_mode = 0;
+				}
+				rend_man[1].SetDispCopyGamma((GXGamma)gamma_mode);
+				break;
 				case 7:
-					s32 flag = audio.GetMuteSequence() ^ 1;
-					audio.SetMuteSequence(flag);
-					break;
+				s32 flag = audio.GetMuteSequence() ^ 1;
+				audio.SetMuteSequence(flag);
+				break;
 				case 8:
-					flag = audio.GetMuteSe() ^ 1;
-					audio.SetMuteSe(flag);
-					break;
+				flag = audio.GetMuteSe() ^ 1;
+				audio.SetMuteSe(flag);
+				break;
 				case 10:
-					GXColor black = {0,0,0,0};
-					rend_man[0].SetBGColor(black);
-					_console_step = 0;
+				GXColor black = {0,0,0,0};
+				rend_man[0].SetBGColor(black);
+				_console_step = 0;
 
-					if (_stage_no == 7) {
-						_gim.CoinExit();
-					}
+				if (_stage_no == 7) {
+					_gim.CoinExit();
+				}
 
-					_step[0] = 1;
-					_step[1] = 2;
-					break;
+				_step[0] = 1;
+				_step[1] = 2;
+				break;
 			}
 		}else if (_pad.IsTrg(0, 0x200)) {
 			switch(_cursol_pos[0]){
 				case 0:
-					_mipmap_mode--;
-					if (_mipmap_mode < 0) {
-						_mipmap_mode = 2;
-					}
-					_SetMipMap();
-					break;
-				case 1:
-					_tv_mode--;
+				_mipmap_mode--;
 
-					if (VIGetDTVStatus() == 0) {
-						_tv_mode = 6;
-					}
-					else {
-						_tv_mode = 8;
-					}
-					break;
+				if (_mipmap_mode < 0) {
+					_mipmap_mode = 2;
+				}
+
+				_SetMipMap();
+				break;
+				case 1:
+				_tv_mode--;
+
+				if (VIGetDTVStatus() == 0) {
+					_tv_mode = 6;
+				}
+				else {
+					_tv_mode = 8;
+				}
+				break;
 				case 2:
-					_sys_inf_disp_flag ^= 1;
-					break;
+				_sys_inf_disp_flag ^= 1;
+				break;
 				case 5:
-					_meter_disp_flag ^= 1;
-					break;
+				_meter_disp_flag ^= 1;
+				break;
 				case 6:
-					s32 gamma_mode = DGRendMan::m_DispCopyGamma - 1;
-					if (gamma_mode < 0) {
-						gamma_mode = 2;
-					}
-					rend_man[1].SetDispCopyGamma((GXGamma)gamma_mode);
-					break;
+				s32 gamma_mode = DGRendMan::m_DispCopyGamma - 1;
+				if (gamma_mode < 0) {
+					gamma_mode = 2;
+				}
+				rend_man[1].SetDispCopyGamma((GXGamma)gamma_mode);
+				break;
 			}
 		}else if (_pad.IsTrg(0, 0x1000)) {
 			_console_step = 0;
@@ -928,199 +1074,7 @@ void DMainSystem::_Step_Pause_Menu(){
 //Entrance area functions
 
 void DMainSystem::_Step_Entr(){
-	/*
 	Vec pos; //r1_24
-
-		byte bVar1;
-	char cVar2;
-	int iVar3;
-	Vec local_3c;
-	undefined4 local_30;
-	undefined4 local_2c;
-	undefined4 local_28;
-	Vec local_24 [2];
-	
-	if (true) {
-		cVar2 = (char)&stack0xffffffb8;
-		switch(_step[1]) {
-		case 0:
-			_LoadRequestEntr();
-			_step[1]++;
-			break;
-		case 1:
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[0].load_status == 3) {
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-			}
-			break;
-		case 2:
-			_iSetStagePos(_stage_no);
-			_cam.set_current_room_number(_stage_no);
-			if (_mode_no == 2) {
-				_iSetMarioPosRol(_stage_no);
-				_iSetCameraPos(_stage_no);
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_cam.set_speed(@394,@394,@390,@395);
-				_mode_no = 0;
-			}
-			_hit.set_current_room_number(_stage_no);
-			iVar3 = _hit.get_hit_data(_stage_no);
-
-			if (iVar3 == 0) {
-				_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-			}
-
-			audio.PlaySong(song);
-			_step[1]++;
-			break;
-		case 3:
-			_RoomCameraMoveProc();
-			_gim.Action(_stage_no);
-			_player.Action();
-			_Draw_Entr(1);
-			_FileManager();
-			_CheckSubMenu();
-			_CheckMoveRoom();
-			break;
-		case 0x14:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_player.Action();
-			_DrawOldStage();
-			iCheckLoadStatus();
-			if (stage[_go_next_room.next_room_no].load_status == 3) {
-				_go_next_room.flag = 3;
-				_stage_no = _go_next_room.next_room_no;
-				_iSetStagePos(_stage_no);
-				_cam.set_current_room_number(_stage_no);
-				_hit.set_current_room_number(_stage_no);
-				iVar3 = _hit.get_hit_data(_stage_no);
-				if (iVar3 == 0) {
-					_hit.set_hit_data(_stage_no,
-										stage[_stage_no].datBGH);
-				}
-				bVar1 = _go_next_room.old_room_no;
-				if (bVar1 == 7) {
-					_step[1]++;
-				}
-				else {
-					_gim.DoorOpen(bVar1,_go_next_room.open_door_no);
-					_step[1] = _step[1] + 3;
-				}
-			}
-			break;
-		case 0x15:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_gim.Action(_go_next_room.next_room_no);
-			_player.Action();
-			_DrawOldStage();
-			_Draw_Entr(0);
-			if (_go_next_room.flag == 5) {
-				local_28 = @602;
-				rend_man[0].SetBGColor((_GXColor)(cVar2 + ' '));
-				_gim.DoorOpen(_go_next_room.old_room_no,
-									_go_next_room.open_door_no);
-				_step[1]++;
-			}
-			break;
-		case 0x16:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_gim.Action(_go_next_room.next_room_no);
-			_player.Action();
-			_DrawOldStage();
-			local_2c = @605;
-			rend_man[0].SetBGColor((_GXColor)(cVar2 + 0x1c));
-			_Draw_Entr(0);
-			if (_go_next_room.flag == 6) {
-				_gim.DoorClose(_go_next_room.old_room_no, _go_next_room.open_door_no);
-				_step[1]++;
-			}
-			break;
-		case 0x17:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_gim.Action(_go_next_room.next_room_no);
-			_player.Action();
-			_DrawOldStage();
-			local_30 = @610;
-			rend_man[0].SetBGColor((_GXColor)(cVar2 + 0x18));
-			_Draw_Entr(0);
-			if (_go_next_room.flag == 4) {
-				bVar1 = _go_next_room.old_room_no;
-				if (bVar1 != 7) {
-					_gim.DoorClose(bVar1,_go_next_room.open_door_no);
-				}
-				_go_next_room.flag = 0;
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_cam.set_speed(@394,@394,@390,@395);
-				_gim.TitleOn(_stage_no);
-				_old_route_counter = _go_next_room.old_room_no;
-				audio.PlaySong(song);
-				_step[1] = 3;
-			}
-			break;
-		case 0x1e:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_player.Action();
-			_DrawOldStage();
-			iCheckLoadStatus();
-			if (stage[_go_next_room.next_room_no].load_status == 3) {
-				_go_next_room.flag = 3;
-				_stage_no = _go_next_room.next_room_no;
-				_iSetStagePos(_stage_no);
-				_cam.set_current_room_number(_stage_no);
-				_hit.set_current_room_number(_stage_no);
-				iVar3 = _hit.get_hit_data(_stage_no);
-				if (iVar3 == 0) {
-					_hit.set_hit_data(_stage_no,
-										stage[_stage_no].datBGH);
-				}
-				_step[1]++;
-			}
-			break;
-		case 0x1f:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_player.Action();
-			_DrawOldStage();
-			if (_go_next_room.flag == 4) {
-				_gim.FadeOut();
-				_step[1]++;
-			}
-			break;
-		case 0x20:
-			_gim.Action(_go_next_room.next_room_no);
-			iVar3 = _gim.IsFadeOut();
-			if (iVar3 != 0) {
-				_gim.FadeIn();
-				_iSetMarioPosRol(_stage_no);
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_go_next_room.flag = 0;
-				local_24[0].x = @643;
-				local_24[0].y = @644;
-				local_24[0].z = @645;
-				local_3c.x = @643;
-				local_3c.y = @644;
-				local_3c.z = @645;
-				_cam.SetTargetPos(&local_3c);
-				local_24[0].x = local_24[0].x - @646;
-				local_24[0].y = local_24[0].y + @646;
-				_cam.SetPosition(local_24);
-				_gim.TitleOn(_stage_no);
-				_old_route_counter = _go_next_room.old_room_no;
-				_step[1] = 2;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Draw_Entr(s8 mario_flag){
@@ -1161,7 +1115,7 @@ void DMainSystem::_LoadRequestEntr(){
 	iBgLoadRequest(2, 3, STG_ENTR, 0);
 	iBgLoadRequest(3, 4, STG_ENTR, 0);
 	iBgLoadRequest(1, 6, STG_ENTR, 0);
-	stage[STG_ENTR].load_status = 1;
+	stage[STG_ENTR].load_status = STG_LOADING;
 	return;
 }
 
@@ -1173,104 +1127,6 @@ void DMainSystem::_DelEntr(){
 //Hangar area functions
 
 void DMainSystem::_Step_Hang(){
-	/*
-		int iVar1;
-	
-	if (true) {
-		switch(_step[1]) {
-		case 0:
-			_LoadRequestHang();
-			_step[1]++;
-			break;
-		case 1:
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[1].load_status == 3) {
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-			}
-			break;
-		case 2:
-			_iSetStagePos(_stage_no);
-			_iSetPlanePos();
-			_cam.set_current_room_number(_stage_no);
-			if (_mode_no == 2) {
-				_iSetMarioPosRol(_stage_no);
-				_iSetCameraPos(_stage_no);
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_cam.set_speed(@394,@394,@390,@395);
-				_mode_no = 0;
-			}
-			_hit.set_current_room_number(_stage_no);
-			iVar1 = _hit.get_hit_data(_stage_no);
-
-			if (iVar1 == 0) {
-				_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-			}
-
-			audio.PlaySong(song[1]);
-			_step[1]++;
-			break;
-		case 3:
-			_RoomCameraMoveProc();
-			_gim.Action(_stage_no);
-			_player.Action();
-			_Draw_Hang(1);
-			_FileManager();
-			_pad.IsTrg(0,0x1000);
-			if (iVar1 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-			_CheckMoveRoom();
-			break;
-		case 0x14:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_player.Action();
-			_DrawOldStage();
-			iCheckLoadStatus();
-			if (stage[_go_next_room.next_room_no].load_status == 3) {
-				_go_next_room.flag = 3;
-				_gim.DoorOpen(_go_next_room.old_room_no,_go_next_room.open_door_no);
-				_stage_no = _go_next_room.next_room_no;
-				_iSetStagePos(_stage_no);
-				_iSetPlanePos();
-				_cam.set_current_room_number(_stage_no);
-				_hit.set_current_room_number(_stage_no);
-				iVar1 = _hit.get_hit_data(_stage_no);
-
-				if (iVar1 == 0) {
-					_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-				}
-				
-				audio.PlaySong(song[1]);
-				_step[1]++;
-			}
-			break;
-		case 0x15:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_gim.Action(_go_next_room.next_room_no);
-			_player.Action();
-			_DrawOldStage();
-			_Draw_Hang(0);
-			if (_go_next_room.flag == 4) {
-				_gim.DoorClose(_go_next_room.old_room_no,_go_next_room.open_door_no);
-				_go_next_room.flag = 0;
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_gim.TitleOn(_stage_no);
-				_old_route_counter = _go_next_room.old_room_no;
-				_step[1] = 3;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Draw_Hang(s8 mario_flag){
@@ -1296,7 +1152,7 @@ void DMainSystem::_LoadRequestHang(){
 	iBgLoadRequest(5, 3, STG_HANG, 0);
 	iBgLoadRequest(6, 4, STG_HANG, 0);
 	iBgLoadRequest(4, 6, STG_HANG, 0);
-	stage[STG_HANG].load_status = 1;
+	stage[STG_HANG].load_status = STG_LOADING;
 }
 
 //unused
@@ -1314,102 +1170,6 @@ void DMainSystem::_iSetPlanePos(){
 //Dome area functions
 
 void DMainSystem::_Step_Dome(){
-	/*
-		int iVar1;
-	
-	if (true) {
-		switch(_step[1]) {
-		case 0:
-			_LoadRequestDome();
-			_step[1]++;
-			break;
-		case 1:
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[_stage_no].load_status == 3) {
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-			}
-			break;
-		case 2:
-			_iSetStagePos(_stage_no);
-			_cam.set_current_room_number(_stage_no);
-			if (_mode_no == 2) {
-				_iSetMarioPosRol(_stage_no);
-				_iSetCameraPos(_stage_no);
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_cam.set_speed(@394,@394,@390,@395);
-				_mode_no = 0;
-			}
-			_hit.set_current_room_number(_stage_no);
-			iVar1 = _hit.get_hit_data(_stage_no);
-
-			if (iVar1 == 0) {
-				_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-			}
-
-			audio.PlaySong(song[2]);
-			_step[1]++;
-			break;
-		case 3:
-			_RoomCameraMoveProc();
-			_gim.Action(_stage_no);
-			_player.Action();
-			_Draw_Dome(1);
-			_FileManager();
-			_pad.IsTrg(0,0x1000);
-			if (iVar1 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-			_CheckMoveRoom();
-			break;
-		case 0x14:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_player.Action();
-			_DrawOldStage();
-			iCheckLoadStatus();
-			if (stage[_go_next_room.next_room_no].load_status == 3) {
-				_go_next_room.flag = 3;
-				_gim.DoorOpen(_go_next_room.old_room_no,_go_next_room.open_door_no);
-				_stage_no = _go_next_room.next_room_no;
-				_iSetStagePos(_stage_no);
-				_cam.set_current_room_number(_stage_no);
-				_hit.set_current_room_number(_stage_no);
-				iVar1 = _hit.get_hit_data(_stage_no);
-
-				if (iVar1 == 0) {
-					_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-				}
-
-				audio.PlaySong(song[2]);
-				_step[1]++;
-			}
-			break;
-		case 0x15:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_gim.Action(_go_next_room.next_room_no);
-			_player.Action();
-			_DrawOldStage();
-			_Draw_Dome(0);
-			if (_go_next_room.flag == 4) {
-				_gim.DoorClose(_go_next_room.old_room_no,_go_next_room.open_door_no);
-				_go_next_room.flag = 0;
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_gim.TitleOn(_stage_no);
-				_old_route_counter = _go_next_room.old_room_no;
-				_step[1] = 3;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Draw_Dome(s8 mario_flag){
@@ -1431,7 +1191,7 @@ void DMainSystem::_LoadRequestDome(){
 	iBgLoadRequest(9, 3, STG_DOME, 0);
 	iBgLoadRequest(10, 4, STG_DOME, 0);
 	iBgLoadRequest(2, 6, STG_DOME, 0);
-	stage[STG_DOME].load_status = 1;
+	stage[STG_DOME].load_status = STG_LOADING;
 }
 
 //unused
@@ -1442,114 +1202,6 @@ void DMainSystem::_DelDome(){
 //Cave area functions
 
 void DMainSystem::_Step_Cave(){
-	/*    byte bVar1;
-	int iVar2;
-	
-	bVar1 = _step[1];
-	if (bVar1 == 3) {
-		_RoomCameraMoveProc();
-		_gim.Action(_stage_no);
-		_player.Action();
-		_Draw_Cave(1);
-		_FileManager();
-		_pad.IsTrg(0,0x1000);
-		if (iVar2 != 0) {
-			_save_step[0] = _step[0];
-			_save_step[1] = _step[1];
-			_cursol_pos[0] = 0;
-			_step[0] = 4;
-			_step[1] = 0;
-		}
-		_CheckMoveRoom();
-	}
-	else if (bVar1 < 3) {
-		if (bVar1 == 1) {
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[_stage_no].load_status == 3) {
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-			}
-		}
-		else if (bVar1 == 0) {
-			if (true) {
-				_LoadRequestCave();
-				_step[1]++;
-			}
-		}
-		else {
-			_iSetStagePos(_stage_no);
-			_iSetKriboPos();
-			_iSetCaveFog();
-			_cam.set_current_room_number(_stage_no);
-			if (_mode_no == 2) {
-				_iSetMarioPosRol(_stage_no);
-				_iSetCameraPos(_stage_no);
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_cam.set_speed(@394,@394,@390,@395);
-				_mode_no = 0;
-			}
-			_hit.set_current_room_number(_stage_no);
-			iVar2 = _hit.get_hit_data(_stage_no);
-
-			if (iVar2 == 0) {
-				_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-			}
-
-			audio.PlaySong(song[3]);
-			_step[1]++;
-		}
-	}
-	else if (bVar1 == 0x1f) {
-		_RoomCameraMoveProc();
-		_gim.Action(_go_next_room.old_room_no);
-		_player.Action();
-		_DrawOldStage();
-		if (_go_next_room.flag == 4) {
-			_gim.FadeOut();
-			_step[1]++;
-		}
-	}
-	else if (bVar1 < 0x1f) {
-		if (0x1d < bVar1) {
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_player.Action();
-			_DrawOldStage();
-			iCheckLoadStatus();
-			if (stage[_go_next_room.next_room_no].load_status == 3) {
-				_go_next_room.flag = 3;
-				_stage_no = _go_next_room.next_room_no;
-				_iSetStagePos(_stage_no);
-				_cam.set_current_room_number(_stage_no);
-				_hit.set_current_room_number(_stage_no);
-				iVar2 = _hit.get_hit_data(_stage_no);
-				if (iVar2 == 0) {
-					_hit.set_hit_data(_stage_no,
-										stage[_stage_no].datBGH);
-				}
-				audio.PlaySong(song[3]);
-				_step[1]++;
-			}
-		}
-	}
-	else if (bVar1 < 0x21) {
-		_gim.Action(_go_next_room.next_room_no);
-		iVar2 = _gim.IsFadeOut();
-		if (iVar2 != 0) {
-			_gim.FadeIn();
-			_iSetMarioPosRol(_stage_no);
-			_iSetCameraPos(_stage_no);
-			_cam.set_mode(1);
-			_cam.set_hit_enable_flag(1);
-			_go_next_room.flag = 0;
-			_gim.TitleOn(_stage_no);
-			_iSetCaveFog();
-			_old_route_counter = _go_next_room.old_room_no;
-			_step[1] = 2;
-		}
-	}*/
 }
 
 void DMainSystem::_Draw_Cave(s8 mario_flag){
@@ -1583,7 +1235,7 @@ void DMainSystem::_LoadRequestCave(){
 	iBgLoadRequest(0xc, 3, STG_CAVE, 0);
 	iBgLoadRequest(0xd, 4, STG_CAVE, 0);
 	iBgLoadRequest(5, 6, STG_CAVE, 0);
-	stage[STG_CAVE].load_status = 1;
+	stage[STG_CAVE].load_status = STG_LOADING;
 }
 
 //unused
@@ -1601,113 +1253,10 @@ void DMainSystem::_iSetCaveFog(){
 //Cinema area functions
 
 void DMainSystem::_Step_Cine(){
-	/*    int iVar1;
-	
-	if (true) {
-		switch(_step[1]) {
-		case 0:
-			_LoadRequestCine();
-			_step[1]++;
-			break;
-		case 1:
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[_stage_no].load_status == 3) {
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-			}
-			break;
-		case 2:
-			_iSetStagePos(_stage_no);
-			_cam.set_current_room_number(_stage_no);
-			if (_mode_no == 2) {
-				_iSetMarioPosRol(_stage_no);
-				_iSetCameraPos(_stage_no);
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_cam.set_speed(@394,@394,@390,@395);
-				_mode_no = 0;
-			}
-			_hit.set_current_room_number(_stage_no);
-			iVar1 = _hit.get_hit_data(_stage_no);
-
-			if (iVar1 == 0) {
-				_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-			}
-
-			_iCineProInit();
-			audio.PlaySong(song[4]);
-			_step[1]++;
-			break;
-		case 3:
-			_iCinemaProjectionProc();
-			_RoomCameraMoveProc();
-			_gim.Action(_stage_no);
-			_player.Action();
-			_Draw_Cine(1);
-			_FileManager();
-			_pad.IsTrg(0,0x1000);
-			if (iVar1 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-			_CheckMoveRoom();
-			if ((_stimer & 3) == 0) {
-				cinema.film_cnt = cinema.film_cnt + 1;
-			}
-			if (0x4a < cinema.film_cnt) {
-				cinema.film_cnt = 0;
-			}
-			break;
-		case 0x14:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_player.Action();
-			_DrawOldStage();
-			iCheckLoadStatus();
-			if (stage[_go_next_room.next_room_no].load_status == 3) {
-				_go_next_room.flag = 3;
-				_gim.DoorOpen(_go_next_room.old_room_no,_go_next_room.open_door_no);
-				_stage_no = _go_next_room.next_room_no;
-				_iSetStagePos(_stage_no);
-				_cam.set_current_room_number(_stage_no);
-				_hit.set_current_room_number(_stage_no);
-				iVar1 = _hit.get_hit_data(_stage_no);
-				if (iVar1 == 0) {
-					_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-				}
-				_iCineProInit();
-				audio.PlaySong(song[4]);
-				_step[1]++;
-			}
-			break;
-		case 0x15:
-			_RoomCameraMoveProc();
-			_iCinemaProjectionProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_gim.Action(_go_next_room.next_room_no);
-			_player.Action();
-			_DrawOldStage();
-			_Draw_Cine(0);
-			if (_go_next_room.flag == 4) {
-				_gim.DoorClose(_go_next_room.old_room_no, _go_next_room.open_door_no);
-				_go_next_room.flag = 0;
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_gim.TitleOn(_stage_no);
-				_old_route_counter = _go_next_room.old_room_no;
-				_step[1] = 3;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_iCinemaProjectionProc(){
-	/*Vec wpos; //r1_c4
+	Vec wpos; //r1_c4
 	DGParts* j_movie;
 	float kakudo; //f2
 	Vec camrot; //r1_b8
@@ -1724,173 +1273,6 @@ void DMainSystem::_iCinemaProjectionProc(){
 	Vec lp2; //r1_64
 	Vec lt2; //r1_58
 	Vec campos; //r1_4c
-
-
-		DGPosition *pDVar1;
-	float fVar2;
-	Vec local_f0;
-	float local_e4;
-	float local_e0;
-	float local_dc;
-	Vec local_d8;
-	Vec local_cc;
-	Vec local_c0;
-	Vec local_b4;
-	Vec local_a8;
-	Vec local_9c;
-	undefined4 local_90;
-	Vec local_8c;
-	Vec local_80;
-	undefined4 local_74;
-	Vec local_70;
-	undefined4 local_64;
-	Vec local_60;
-	Vec local_54;
-	Vec local_48;
-	Vec local_3c;
-	undefined4 local_30;
-	uint uStack_2c;
-	undefined4 local_28;
-	uint uStack_24;
-	undefined4 local_20;
-	uint uStack_1c;
-	undefined4 local_18;
-	uint uStack_14;
-	
-	stage[_stage_no].model[0]->SetPartsWorldPosition();
-	pDVar1 = stage[_stage_no].model[0]->GetPartsPtr("j_movie");
-	if (pDVar1 != NULL) {
-		if (init$810 == 0) {
-			cammode$809 = 0;
-			init$810 = 1;
-		}
-		if (init$813 == 0) {
-			init$813 = 1;
-			time$812 = @389;
-		}
-		time$812 = time$812 + @390;
-		if (@863 <= time$812) {
-			cammode$809 = cammode$809 + 1;
-			time$812 = @389;
-			if (3 < cammode$809) {
-				cammode$809 = 0;
-			}
-		}
-		fVar2 = sinf((@864 * time$812) / @865);
-		local_48.x = 0.0;
-		fVar2 = @646 * fVar2;
-		local_48.y = 0.0;
-		local_48.z = 0.0;
-		if (cammode$809 == 1) {
-			local_48.x = fVar2 / @297 + 0.0;
-		}
-		else if (cammode$809 == 2) {
-			local_48.y = fVar2 + 0.0;
-		}
-		else if (cammode$809 == 3) {
-			local_48.z = @866 * fVar2 + 0.0;
-		}
-		pDVar1->SetRotation(&local_48);
-	}
-	(DGModel *)&local_3c->GetPartsWorldPosition((char *)stage[_stage_no].model[0]);
-	cinema.cam[0].SetPosition(&local_3c);
-	(DGModel *)&local_3c->GetPartsWorldPosition((char *)stage[_stage_no].model[0]);
-	local_c0.x = local_3c.x;
-	local_c0.y = local_3c.y;
-	local_c0.z = local_3c.z;
-	cinema.cam[0].SetTargetPos(&local_c0);
-	stage[_stage_no].model[0]->GetPartsPtr("j_star");
-	if (pDVar1 != NULL) {
-		local_54.x = 0.0;
-		local_54.y = 0.0;
-		local_54.z = 1.0;
-		pDVar1->AddRotation(&local_54);
-	}
-	DGModel::GetPartsWorldPosition((DGModel *)&local_3c,(char *)stage[_stage_no].model[0]);
-	(cinema.cam[1])->SetPosition(&local_3c);
-	DGModel::GetPartsWorldPosition((DGModel *)&local_3c,(char *)stage[_stage_no].model[0]);
-	local_cc.x = local_3c.x;
-	local_cc.y = local_3c.y;
-	local_cc.z = local_3c.z;
-	cinema.cam[1].SetTargetPos(&local_cc);
-	stage[_stage_no].model[0]->GetPartsPtr("j_hart");
-	if (pDVar1 != NULL) {
-		local_60.x = 0.0;
-		local_60.y = 0.0;
-		local_60.z = 1.0;
-		pDVar1->AddRotation(&local_60);
-	}
-	DGModel::GetPartsWorldPosition((DGModel *)&local_3c,(char *)stage[_stage_no].model[0]);
-	(cinema.cam[2])->SetPosition(&local_3c);
-	DGModel::GetPartsWorldPosition((DGModel *)&local_3c,(char *)stage[_stage_no].model[0]);
-	local_d8.x = local_3c.x;
-	local_d8.y = local_3c.y;
-	local_d8.z = local_3c.z;
-	cinema.cam[2].SetTargetPos(&local_d8);
-	local_64 = @837;
-	local_70.x = 85.0;
-	local_70.y = 110.0;
-	local_70.z = -222.0;
-	cinema.light[0].SetLightColor((_GXColor *)&local_64);
-	cinema.light[0].SetPosition(&local_70);
-	cinema.light[0].SetDistanceAttenuation_0(@390);
-	cinema.light[0].SetDistanceAttenuation_2(@390,@872,@873);
-	cinema.light[0].SetAngleAttenuation_Cos(@387,@390);
-	cinema.light[0].EnableSpotLight(0);
-	cinema.light[0].EnableSpecularLight(0);
-	local_74 = @839;
-	local_80.x = 95.0;
-	local_80.y = 80.0;
-	local_80.z = -172.0;
-	local_8c.x = 85.0;
-	local_8c.y = 70.0;
-	local_8c.z = -272.0;
-	cinema.light[1].SetLightColor((_GXColor *)&local_74);
-	cinema.light[1].SetPosition(&local_80);
-	cinema.light[1].SetDirectionFromObserve(&local_8c);
-	cinema.light[1].SetDistanceAttenuation_2(@390,@874,@392);
-	cinema.light[1].SetAngleAttenuation_Cos(@875,@390);
-	cinema.light[1].EnableSpotLight(0);
-	cinema.light[1].EnableSpecularLight(0);
-	local_90 = @842;
-	local_9c.x = 85.0;
-	local_9c.y = 70.0;
-	local_9c.z = -302.0;
-	local_a8.x = 95.0;
-	local_a8.y = 80.0;
-	local_a8.z = -172.0;
-	cinema.light[2].SetLightColor((_GXColor *)&local_90);
-	cinema.light[2].SetPosition(&local_9c);
-	cinema.light[2].SetDirectionFromObserve(&local_a8);
-	cinema.light[2].SetDistanceAttenuation_0(@390);
-	cinema.light[2].SetAngleAttenuation_Cos(@387,@390);
-	cinema.light[2].EnableSpotLight(1);
-	cinema.light[2].EnableSpecularLight(0);
-	uStack_14 = (uint)_stimer + ((int)(uint)_stimer >> 3) * -8 ^ 0x80000000;
-	local_18 = 0x43300000;
-	DGLight::SetDistanceAttenuation_2(cinema.light[1],@390,@874,@392 + @876 * (float)((double)CONCAT44(0x43300000,uStack_14) - @881));
-	uStack_1c = (uint)_stimer + ((int)(uint)_stimer >> 3) * -8 ^ 0x80000000;
-	local_20 = 0x43300000;
-	DGLight::SetAngleAttenuation_Cos(cinema.light[1],@875 - @877 * (float)((double)CONCAT44(0x43300000,uStack_1c) - @881),@390);
-	uStack_24 = (uint)_stimer + ((int)(uint)_stimer >> 3) * -8 ^ 0x80000000;
-	local_28 = 0x43300000;
-	DGLight::SetDistanceAttenuation_2(cinema.light[2],@390,@874,@393 + (float)((double)CONCAT44(0x43300000,uStack_24) - @881));
-	uStack_2c = (uint)_stimer + ((int)(uint)_stimer >> 3) * -8 ^ 0x80000000;
-	local_30 = 0x43300000;
-	DGLight::SetAngleAttenuation_Cos(cinema.light[2],@878 - @876 * (float)((double)CONCAT44(0x43300000,uStack_2c) - @881),@390);
-	(DGModel *)&local_3c->GetPartsWorldPosition((char *)stage[4].model[0]);
-	&local_e4->GetPosition();
-	local_b4.x = local_e4;
-	local_b4.y = local_e0;
-	local_b4.z = @298 * local_3c.z - local_dc;
-	cinema.cam[3].SetPosition(&local_b4);
-	(DGCamera *)&local_b4->GetTargetPos();
-	local_f0.z = @298 * local_3c.z - local_b4.z;
-	local_f0.x = local_b4.x;
-	local_f0.y = local_b4.y;
-	local_b4.z = local_f0.z;
-	cinema.cam[3].SetTargetPos(&local_f0);
-	*/
 }
 
 void DMainSystem::_Draw_Cine(s8 mario_flag){
@@ -1966,7 +1348,7 @@ void DMainSystem::_LoadRequestCine(){
 	iBgLoadRequest(0x11, 4, STG_CINE, 0);
 	iBgLoadRequest(0, 5, STG_CINE, 0);
 	iBgLoadRequest(6, 6, STG_CINE, 0);
-	stage[STG_CINE].load_status = 1;
+	stage[STG_CINE].load_status = STG_LOADING;
 }
 
 //unused
@@ -1974,180 +1356,17 @@ void DMainSystem::_DelCine(){
 }
 
 void DMainSystem::_iCineProInit(){
-	/*s16 i; //r29
+	s16 i; //r29
 	Vec camup; //r1_58
 	Vec campos; //r1_4c
 	Vec camrot; //r1_40
 	GXColor fogcolor; //r1_3c
-
-
-		short sVar1;
-	DMainSystem *pDVar2;
-	Vec local_6c;
-	Vec local_60;
-	Vec local_54;
-	Vec local_48;
-	undefined4 local_3c;
-	Vec local_38;
-	Vec local_2c;
-	float local_20;
-	float local_1c;
-	float local_18;
-	
-	local_20 = 0.0;
-	local_1c = 1.0;
-	local_18 = 0.0;
-	local_2c.x = 10.0;
-	local_2c.y = 40.0;
-	local_2c.z = 50.0;
-	local_38.x = -5.0;
-	local_38.y = 5.0;
-	local_38.z = 0.0;
-	cinema.cam[0].SetLightFrustum(@392,@387,@874);
-	local_48.x = local_20;
-	local_48.y = local_1c;
-	local_48.z = local_18;
-	cinema.cam[0].SetCamUp(&local_48);
-	cinema.cam[0].SetTargetMode(0);
-	cinema.cam[0].SetPosition(&local_2c);
-	cinema.cam[1].SetLightFrustum(@392,@392,@874);
-	local_54.x = local_20;
-	local_54.y = local_1c;
-	local_54.z = local_18;
-	cinema.cam[1].SetCamUp(&local_54);
-	cinema.cam[1].SetTargetMode(0);
-	cinema.cam[1].SetPosition(&local_2c);
-	cinema.cam[1].SetRotation(&local_38);
-	cinema.cam[2].SetLightFrustum(@392,@392,@874);
-	local_60.x = local_20;
-	local_60.y = local_1c;
-	local_60.z = local_18;
-	cinema.cam[2].SetCamUp(&local_60);
-	cinema.cam[2].SetTargetMode(0);
-	cinema.cam[2].SetPosition(&local_2c);
-	cinema.cam[2].SetRotation(&local_38);
-	cinema.cam[3].SetTargetMode(0);
-	cinema.cam[3].SetCameraFrustum(@297,@298,@298,@299);
-	cinema.cam[3].SetLightFrustum(@297,@298,@298);
-	local_6c.x = local_20;
-	local_6c.y = local_1c;
-	local_6c.z = local_18;
-	cinema.cam[3].SetCamUp(&local_6c);
-	local_3c = @911;
-	cinema.cam[3].SetFogColor((_GXColor *)&local_3c);
-	cinema.cam[3].SetFogRange(@387,@388);
-	cinema.cam[3].SetFogType(GX_FOG_NONE);
-	pDVar2 = this;
-	for (sVar1 = 0; sVar1 < 0x4b; sVar1 = sVar1 + 1) {
-		pDVar2->cinema.texpro[0]->SetCamera(cinema.cam[0]);
-		pDVar2 = (DMainSystem *)(pDVar2->_save_step + 1);
-	}
-	cinema.star->SetCamera(cinema.cam[1]);
-	cinema.hart->SetCamera(cinema.cam[2]);
-	cinema.mirrorpro->SetCamera(cinema.cam[3]);
-	cinema.mirrorpro->SetDirectTex(cinema.mirrorbuf,0x100,0x100,4,0);
-	cinema.film_cnt = 0;
-	*/
 }
 
 
 //Spiral Staircase area functions
 
 void DMainSystem::_Step_Spil(){
-	/*
-		int iVar1;
-	
-	if (true) {
-		switch(_step[1]) {
-		case 0:
-			_LoadRequestSpil();
-			_step[1]++;
-			break;
-		case 1:
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[_stage_no].load_status == 3) {
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-			}
-			break;
-		case 2:
-			_iSetStagePos(_stage_no);
-			_cam.set_current_room_number(_stage_no);
-			if (_mode_no == 2) {
-				_iSetMarioPosRol(_stage_no);
-				_iSetCameraPos(_stage_no);
-				_cam.set_mode('\a');
-				_cam.set_hit_enable_flag(0);
-				_cam.set_speed(@394,@394,@390,@395);
-				_mode_no = 0;
-			}
-			_hit.set_current_room_number(_stage_no);
-			iVar1 = _hit.get_hit_data(_stage_no);
-
-			if (iVar1 == 0) {
-				_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-			}
-
-			audio.PlaySong(song[5]);
-			_step[1]++;
-			break;
-		case 3:
-			_RoomCameraMoveProc();
-			_gim.Action(_stage_no);
-			_player.Action();
-			_Draw_Spil(1);
-			_FileManager();
-			_pad.IsTrg(0,0x1000);
-			if (iVar1 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-			_CheckMoveRoom();
-			break;
-		case 0x14:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_player.Action();
-			_DrawOldStage();
-			iCheckLoadStatus();
-			if (stage[_go_next_room.next_room_no].load_status == 3) {
-				_go_next_room.flag = 3;
-				_gim.DoorOpen(_go_next_room.old_room_no,_go_next_room.open_door_no);
-				_stage_no = _go_next_room.next_room_no;
-				_iSetStagePos(_stage_no);
-				_cam.set_current_room_number(_stage_no);
-				_hit.set_current_room_number(_stage_no);
-				iVar1 = _hit.get_hit_data(_stage_no);
-				if (iVar1 == 0) {
-					_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-				}
-				audio.PlaySong(song[5]);
-				_step[1]++;
-			}
-			break;
-		case 0x15:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_gim.Action(_go_next_room.next_room_no);
-			_player.Action();
-			_DrawOldStage();
-			_Draw_Spil(0);
-			if (_go_next_room.flag == 4) {
-				_gim.DoorClose(_go_next_room.old_room_no,_go_next_room.open_door_no);
-				_go_next_room.flag = 0;
-				_cam.set_mode('\a');
-				_cam.set_hit_enable_flag(0);
-				_gim.TitleOn(_stage_no);
-				_old_route_counter = _go_next_room.old_room_no;
-				_step[1] = 3;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Draw_Spil(s8 mario_flag){
@@ -2175,7 +1394,7 @@ void DMainSystem::_LoadRequestSpil(){
 	iBgLoadRequest(0x16, 3, STG_SPIL, 0);
 	iBgLoadRequest(0x17, 4, STG_SPIL, 0);
 	iBgLoadRequest(3, 6, STG_SPIL, 0);
-	stage[5].load_status = 1;
+	stage[5].load_status = STG_LOADING;
 }
 
 //unused
@@ -2186,101 +1405,6 @@ void DMainSystem::_DelSpil(){
 //Metal Mario area functions
 
 void DMainSystem::_Step_Enve(){
-	/*
-		int iVar1;
-	
-	if (true) {
-		switch(_step[1]) {
-		case 0:
-			_LoadRequestEnve();
-			_step[1]++;
-			break;
-		case 1:
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[_stage_no].load_status == 3) {
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-			}
-			break;
-		case 2:
-			_iSetStagePos(_stage_no);
-			_cam.set_current_room_number(_stage_no);
-			if (_mode_no == 2) {
-				_iSetMarioPosRol(_stage_no);
-				_iSetCameraPos(_stage_no);
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_cam.set_speed(@394,@394,@390,@395);
-				_mode_no = 0;
-			}
-			_hit.set_current_room_number(_stage_no);
-			iVar1 = _hit.get_hit_data(_stage_no);
-
-			if (iVar1 == 0) {
-				_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-			}
-			audio.PlaySong(song[6]);
-			_step[1]++;
-			break;
-		case 3:
-			_RoomCameraMoveProc();
-			_gim.Action(_stage_no);
-			_player.Action();
-			_Draw_Enve(1);
-			_FileManager();
-			_pad.IsTrg(0,0x1000);
-			if (iVar1 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-			_CheckMoveRoom();
-			break;
-		case 0x14:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_player.Action();
-			_DrawOldStage();
-			iCheckLoadStatus();
-			if (stage[_go_next_room.next_room_no].load_status == 3) {
-				_go_next_room.flag = 3;
-				_gim.DoorOpen(_go_next_room.old_room_no,
-									_go_next_room.open_door_no);
-				_stage_no = _go_next_room.next_room_no;
-				_iSetStagePos(_stage_no);
-				_cam.set_current_room_number(_stage_no);
-				_hit.set_current_room_number(_stage_no);
-				iVar1 = _hit.get_hit_data(_stage_no);
-				if (iVar1 == 0) {
-					_hit.set_hit_data(_stage_no,
-										stage[_stage_no].datBGH);
-				}
-				audio.PlaySong(song[6]);
-				_step[1]++;
-			}
-			break;
-		case 0x15:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_gim.Action(_go_next_room.next_room_no);
-			_player.Action();
-			_DrawOldStage();
-			_Draw_Enve(0);
-			if (_go_next_room.flag == 4) {
-				_gim.DoorClose(_go_next_room.old_room_no,_go_next_room.open_door_no);
-				_go_next_room.flag = 0;
-				_cam.set_mode(1);
-				_cam.set_hit_enable_flag(1);
-				_gim.TitleOn(_stage_no);
-				_old_route_counter = _go_next_room.old_room_no;
-				_step[1] = 3;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Draw_Enve(s8 mario_flag){
@@ -2304,7 +1428,7 @@ void DMainSystem::_LoadRequestEnve(){
 	iBgLoadRequest(0x19, 3, STG_ENVE, 0);
 	iBgLoadRequest(0x1a, 4, STG_ENVE, 0);
 	iBgLoadRequest(7, 6, STG_ENVE, 0);
-	stage[STG_ENVE].load_status = 1;
+	stage[STG_ENVE].load_status = STG_LOADING;
 }
 
 //unused
@@ -2316,117 +1440,6 @@ void DMainSystem::_DelEnve(){
 //How Many Coins? area functions
 
 void DMainSystem::_Step_Mpol(){
-	/*
-		char cVar2;
-	int iVar1;
-	
-	if (true) {
-		switch(_step[1]) {
-		case 0:
-			_LoadRequestMpol(1);
-			_step[1]++;
-			break;
-		case 1:
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[_stage_no].load_status == 3) {
-				rend_man[0].SetBGColor((_GXColor)0xe8);
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-			}
-			break;
-		case 2:
-			_iSetStagePos(_stage_no);
-			_cam.set_current_room_number(_stage_no);
-			if (_mode_no == 2) {
-				_iSetMarioPosRol(_stage_no);
-				_iSetCameraPos(_stage_no);
-				_cam.set_mode(2);
-				_cam.set_hit_enable_flag(0);
-				_cam.set_mcd_data(_stage_no,stage[_stage_no].datMCD);
-				_cam.set_speed(@1038,@1038,@1039,@1040);
-				_mode_no = 0;
-			}
-			_hit.set_current_room_number(_stage_no);
-			iVar1 = _hit.get_hit_data(_stage_no);
-
-			if (iVar1 == 0) {
-				_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-			}
-
-			_gim.CoinInit();
-			_player.MpolModeInit();
-			audio.PlaySong(song[7]);
-			_step[1]++;
-			break;
-		case 3:
-			_RoomCameraMoveProc();
-			_gim.Action(_stage_no);
-			_player.Action();
-			_pad.IsTrg(0,0x100);
-			_cam.get_mode( cVar2 == 4)) {
-				_gim.CoinDrop();
-			}
-			_Draw_Mpol(1);
-			_FileManager();
-			_ModifiNumOfCoint();
-			_pad.IsTrg(0,0x1000);
-			if (iVar1 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-			_CheckMoveRoom();
-			break;
-		case 0x14:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_player.Action();
-			_DrawOldStage();
-			rend_man[0].SetBGColor((_GXColor)0xe4);
-			iCheckLoadStatus();
-			if (stage[_go_next_room.next_room_no].load_status == 3) {
-				_go_next_room.flag = 3;
-				_gim.DoorOpen(_go_next_room.old_room_no,
-									_go_next_room.open_door_no);
-				_stage_no = _go_next_room.next_room_no;
-				_iSetStagePos(_stage_no);
-				_cam.set_current_room_number(_stage_no);
-				_hit.set_current_room_number(_stage_no);
-				iVar1 = _hit.get_hit_data(_stage_no);
-				if (iVar1 == 0) {
-					_hit.set_hit_data(_stage_no,
-										stage[_stage_no].datBGH);
-				}
-				_gim.CoinInit();
-				audio.PlaySong(song[7]);
-				_step[1]++;
-			}
-			break;
-		case 0x15:
-			_RoomCameraMoveProc();
-			_gim.Action(_go_next_room.old_room_no);
-			_gim.Action(_go_next_room.next_room_no);
-			_player.Action();
-			_DrawOldStage();
-			_Draw_Mpol(0);
-			if (_go_next_room.flag == 4) {
-				_gim.DoorClose(_go_next_room.old_room_no, _go_next_room.open_door_no);
-				_go_next_room.flag = 0;
-				_gim.TitleOn(_stage_no);
-				_cam.set_mode(2);
-				_cam.set_hit_enable_flag(0);
-				_cam.set_mcd_data(_stage_no,stage[_stage_no].datMCD);
-				_cam.set_speed(@1038,@1038,@1039,@1040);
-				_player.MpolModeInit();
-				_old_route_counter = _go_next_room.old_room_no;
-				_step[1] = 3;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Draw_Mpol(s8 mario_flag){
@@ -2456,7 +1469,7 @@ void DMainSystem::_LoadRequestMpol(s8 mode){
 		iBgLoadRequest(0x1e, 4, STG_MPOL, 0);
 	}
 	iBgLoadRequest(8, 6, STG_MPOL, 0);
-	stage[STG_MPOL].load_status = 1;
+	stage[STG_MPOL].load_status = STG_LOADING;
 }
 
 //unused
@@ -2481,158 +1494,7 @@ void DMainSystem::_ModifiNumOfCoint(){
 //Opening/Ending functions
 
 void DMainSystem::_Step_Opening(){
-	/*
 	Vec pos; //r1_24
-
-
-		int iVar1;
-	DGTexPro *pDVar2;
-	DGModel *this_00;
-	void *pvVar3;
-	Vec local_2c;
-	Vec local_20;
-	Vec local_14;
-	
-	switch(_step[1]) {
-	case 0:
-		iBgLoadRequest(0x20, 1, 6, 0);
-		iBgLoadRequest(0x21, 4, 6, 0);
-		stage[6].load_status = 1;
-		audio.PlaySongFadeOut();
-		_step[1]++;
-		break;
-	case 1:
-		_DispNowLoding();
-		iCheckLoadStatus();
-		if (stage[6].load_status == 3) {
-			iBgLoadRequest(1, 1, 0x0, 0);
-			iBgLoadRequest(2, 3, 0x0, 0);
-			iBgLoadRequest(3, 4, 0x0, 0);
-			iBgLoadRequest(1, 6, 0x0, 0);
-			stage[0].load_status = 1;
-			_step[1]++;
-		}
-		break;
-	case 2:
-		local_14.x = @389;
-		local_14.y = @389;
-		local_14.z = @1114;
-		stage[_stage_no].model[0]->SetPosition(&local_14);
-		local_14.x = @389;
-		local_14.y = @389;
-		local_14.z = @389;
-		stage[_stage_no].model[0]->SetRotation(&local_14);
-		_cam.set_current_room_number(_stage_no);
-		_cam.set_mode(2);
-		_cam.set_hit_enable_flag(0);
-		_cam.set_mcd_data(_stage_no,stage[_stage_no].datMCD);
-		_cam.set_speed(@1038,@1038,@1039,@1040);
-		local_14.x = @389;
-		local_14.y = @389;
-		local_14.z = @1115;
-		local_20.x = @389;
-		local_20.y = @389;
-		local_20.z = @1115;
-		_player.SetPosition(&local_20);
-		local_14.x = @389;
-		local_14.y = @865;
-		local_14.z = @389;
-		local_2c.x = @389;
-		local_2c.y = @865;
-		local_2c.z = @389;
-		_player.SetRotation(&local_2c);
-		_player.OpeningInit();
-		_gim.OpeningTitleOn();
-		_step[1]++;
-		break;
-	case 3:
-		_RoomCameraMoveProc();
-		_player.Action();
-		_Draw_Opening();
-		if (_movie_camera_rcd == 0) {
-			_cam.set_mode(1);
-			_cam.set_hit_enable_flag(0);
-			_cam.set_speed(@1116,@1116,@390,@395);
-			_step[1]++;
-		}
-		break;
-	case 4:
-		_RoomCameraMoveProc();
-		_player.Action();
-		_Draw_Opening();
-		if (_go_next_room.flag == 1) {
-			_cam.set_mode(5);
-			_cam.set_hit_enable_flag(0);
-			_step[1]++;
-		}
-		break;
-	case 5:
-		_RoomCameraMoveProc();
-		_player.Action();
-		_Draw_Opening();
-		iCheckLoadStatus();
-		if (stage[_go_next_room.next_room_no].load_status == 3) {
-			_go_next_room.flag = 3;
-
-			_gim.DoorOpen(_go_next_room.old_room_no,_go_next_room.open_door_no + 1);
-			_stage_no = _go_next_room.next_room_no;
-			_iSetStagePos(_stage_no);
-			
-			_cam.set_current_room_number(_stage_no);
-			_hit.set_current_room_number(_stage_no);
-
-			iVar1 = _hit.get_hit_data(_stage_no);
-
-			if (iVar1 == 0) {
-				_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-			}
-
-			audio.PlaySong(song);
-			_step[1]++;
-		}
-		break;
-	case 6:
-		_RoomCameraMoveProc();
-		_gim.Action(_go_next_room.next_room_no);
-		_player.Action();
-		_Draw_Opening();
-		_light.Setting(0);
-		if (_fog_sw == 0) {
-			_cam.SetFogType(GX_FOG_NONE);
-		}
-		else {
-			_cam.SetFogType(GX_FOG_LIN);
-		}
-		rend_man[0].AddCamera(&_cam);
-		pDVar2 = (DGTexPro *)_player.GetShadowPro(0);
-		rend_man[0].SetTexProjection(pDVar2);
-		rend_man[0].AddModel(stage[0].model[0]);
-		if (_go_next_room.flag == 4) {
-			_gim.DoorClose(_go_next_room.old_room_no,_go_next_room.open_door_no + 1);
-			this_00 = stage[6].model[0];
-			if (this_00 != NULL) {
-				this_00->~DGModel();
-			}
-			stage[6].model[0] = NULL;
-			pvVar3 = stage[6].datMCD;
-			if (pvVar3 != NULL) {
-				mFree(pvVar3);
-			}
-			stage[6].datMCD = NULL;
-			bgThread[7072] = 0;
-			stage[6].load_status = 0;
-			_go_next_room.flag = 0;
-			_gim.TitleOn(_stage_no);
-			_stage_no = 0;
-			_step[0] = 5;
-			_step[1] = 3;
-			_cam.set_mode(1);
-			_cam.set_hit_enable_flag(1);
-			_cam.set_speed(@394,@394,@390,@395);
-			_mode_no = 0;
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Draw_Opening(){
@@ -2660,894 +1522,28 @@ void DMainSystem::_Step_Movie_All(){
 }
 
 void DMainSystem::_Step_Movie_Entr(){
-	/*
-		byte bVar1;
-	DGTexPro *pDVar2;
-	int iVar3;
-	
-	bVar1 = _step[1];
-	if (bVar1 == 2) {
-		_iSetStagePos(_stage_no);
-		_cam.set_current_room_number(_stage_no);
-		_cam.set_mode(2);
-		_cam.set_hit_enable_flag(0);
-		_cam.set_mcd_data(_stage_no,stage[_stage_no].datMCD);
-		_cam.set_speed(@1038,@1038,@1039,@1040);
-		iVar3 = _hit.get_hit_data(_stage_no);
-		if (iVar3 == 0) {
-			_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-		}
-		_hit.set_current_room_number(_stage_no);
-		_step[1]++;
-	}
-	else if (bVar1 < 2) {
-		if (bVar1 == 0) {
-			iBgLoadRequest(1, 1, 0x0, 0);
-			iBgLoadRequest(2, 3, 0x0, 0);
-			iBgLoadRequest(3, 4, 0x0, 0);
-			iBgLoadRequest(1, 6, 0x0, 0);
-			stage[0].load_status = 1;
-			_step[1]++;
-		}
-		else if (true) {
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[0].load_status == 3) {
-				if (stage[1].load_status == 3) {
-					bgThread[7589] = 1;
-					stage[1].load_status = 2;
-				}
-				if (stage[2].load_status == 3) {
-					bgThread[7590] = 1;
-					stage[2].load_status = 2;
-				}
-				if (stage[3].load_status == 3) {
-					bgThread[7591] = 1;
-					stage[3].load_status = 2;
-				}
-				if (stage[4].load_status == 3) {
-					bgThread[7592] = 1;
-					stage[4].load_status = 2;
-				}
-				if (stage[5].load_status == 3) {
-					bgThread[7593] = 1;
-					stage[5].load_status = 2;
-				}
-				if (stage[6].load_status == 3) {
-					bgThread[7594] = 1;
-					stage[6].load_status = 2;
-				}
-				if (stage[7].load_status == 3) {
-					bgThread[7595] = 1;
-					stage[7].load_status = 2;
-				}
-				iBgLoadRequest(8, 1, 2, 0);
-				iBgLoadRequest(9, 3, 2, 0);
-				iBgLoadRequest(10, 4, 2, 0);
-				iBgLoadRequest(2, 6, 2, 0);
-				stage[2].load_status = 1;
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-				audio.PlaySong(song[8]);
-			}
-		}
-	}
-	else if (bVar1 < 4) {
-		_RoomCameraMoveProc();
-		_gim.Action(_stage_no);
-		_light.Setting(0);
-		if (_fog_sw == 0) {
-			_cam.SetFogType(GX_FOG_NONE);
-		}
-		else {
-			_cam.SetFogType(GX_FOG_LIN);
-		}
-		rend_man[0].AddCamera(&_cam);
-		pDVar2 = (DGTexPro *)_player.GetShadowPro(0);
-		rend_man[0].SetTexProjection(pDVar2);
-		rend_man[0].AddModel(stage[0].model[0]);
-		if (_movie_camera_rcd == 0) {
-			_stage_no = 2;
-			_step[0] = 0x12;
-			_step[1] = 1;
-		}
-		else {
-			_pad.IsTrg(0,0x1000);
-			if (iVar3 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Step_Movie_Hang(){
-	/*
-		byte bVar1;
-	DGTexPro *pDVar2;
-	int iVar3;
-	Vec VStack_14;
-	
-	bVar1 = _step[1];
-	if (bVar1 == 2) {
-		_iSetStagePos(_stage_no);
-		&VStack_14->GetPosition();
-		stage[_stage_no].model[1]->SetPosition(&VStack_14);
-		&VStack_14->GetRotation();
-		stage[_stage_no].model[1]->SetRotation(&VStack_14);
-		_cam.set_current_room_number(_stage_no);
-		_cam.set_mode(2);
-		_cam.set_hit_enable_flag(0);
-		_cam.set_mcd_data(_stage_no,stage[_stage_no].datMCD);
-		_cam.set_speed(@1038,@1038,@1039,@1040);
-		iVar3 = _hit.get_hit_data(_stage_no);
-		if (iVar3 == 0) {
-			_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-		}
-		_hit.set_current_room_number(_stage_no);
-		_step[1]++;
-	}
-	else if (bVar1 < 2) {
-		if (bVar1 == 0) {
-			iBgLoadRequest(4, 1, 1, 0);
-			iBgLoadRequest(7, 1, 1, 1);
-			iBgLoadRequest(5, 3, 1, 0);
-			iBgLoadRequest(6, 4, 1, 0);
-			iBgLoadRequest(4, 6, 1, 0);
-			stage[1].load_status = 1;
-			_step[1]++;
-		}
-		else if (true) {
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[1].load_status == 3) {
-				if (stage[0].load_status == 3) {
-					bgThread[7588] = 1;
-					stage[0].load_status = 2;
-				}
-				if (stage[2].load_status == 3) {
-					bgThread[7590] = 1;
-					stage[2].load_status = 2;
-				}
-				if (stage[3].load_status == 3) {
-					bgThread[7591] = 1;
-					stage[3].load_status = 2;
-				}
-				if (stage[4].load_status == 3) {
-					bgThread[7592] = 1;
-					stage[4].load_status = 2;
-				}
-				if (stage[5].load_status == 3) {
-					bgThread[7593] = 1;
-					stage[5].load_status = 2;
-				}
-				if (stage[6].load_status == 3) {
-					bgThread[7594] = 1;
-					stage[6].load_status = 2;
-				}
-				if (stage[7].load_status == 3) {
-					bgThread[7595] = 1;
-					stage[7].load_status = 2;
-				}
-				iBgLoadRequest(0xb, 1, 3, 0);
-				iBgLoadRequest(0xe, 1, 3, 1);
-				iBgLoadRequest(0xc, 3, 3, 0);
-				iBgLoadRequest(0xd, 4, 3, 0);
-				iBgLoadRequest(5, 6, 3, 0);
-				stage[3].load_status = 1;
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-				audio.PlaySong(song[8]);
-			}
-		}
-	}
-	else if (bVar1 < 4) {
-		_RoomCameraMoveProc();
-		_gim.Action(_stage_no);
-		if (_fog_sw == 0) {
-			_cam.SetFogType(GX_FOG_NONE);
-		}
-		else {
-			_cam.SetFogType(GX_FOG_LIN);
-		}
-		_light.Setting(1);
-		rend_man[0].AddCamera(&_cam);
-		pDVar2 = (DGTexPro *)_player.GetShadowPro(0);
-		rend_man[0].SetTexProjection(pDVar2);
-		rend_man[0].AddModel(stage[1].model[1]);
-		rend_man[0].AddModel(stage[1].model[0]);
-		if (_movie_camera_rcd == 0) {
-			_stage_no = 3;
-			_step[0] = 0x13;
-			_step[1] = 1;
-		}
-		else {
-			_pad.IsTrg(0,0x1000);
-			if (iVar3 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Step_Movie_Dome(){
-	/*
-		byte bVar1;
-	DGTexPro *pDVar2;
-	int iVar3;
-	
-	bVar1 = _step[1];
-	if (bVar1 == 2) {
-		_iSetStagePos(_stage_no);
-		_cam.set_current_room_number(_stage_no);
-		_cam.set_mode(2);
-		_cam.set_hit_enable_flag(0);
-		_cam.set_mcd_data(_stage_no,stage[_stage_no].datMCD);
-		_cam.set_speed(@1038,@1038,@1039,@1040);
-		iVar3 = _hit.get_hit_data(_stage_no);
-		if (iVar3 == 0) {
-			_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-		}
-		_hit.set_current_room_number(_stage_no);
-		_step[1]++;
-	}
-	else if (bVar1 < 2) {
-		if (bVar1 == 0) {
-			iBgLoadRequest(8, 1, 2, 0);
-			iBgLoadRequest(9, 3, 2, 0);
-			iBgLoadRequest(10, 4, 2, 0);
-			iBgLoadRequest(2, 6, 2, 0);
-			stage[2].load_status = 1;
-			_step[1]++;
-		}
-		else if (true) {
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[2].load_status == 3) {
-				if (stage[0].load_status == 3) {
-					bgThread[7588] = 1;
-					stage[0].load_status = 2;
-				}
-				if (stage[1].load_status == 3) {
-					bgThread[7589] = 1;
-					stage[1].load_status = 2;
-				}
-				if (stage[3].load_status == 3) {
-					bgThread[7591] = 1;
-					stage[3].load_status = 2;
-				}
-				if (stage[4].load_status == 3) {
-					bgThread[7592] = 1;
-					stage[4].load_status = 2;
-				}
-				if (stage[5].load_status == 3) {
-					bgThread[7593] = 1;
-					stage[5].load_status = 2;
-				}
-				if (stage[6].load_status == 3) {
-					bgThread[7594] = 1;
-					stage[6].load_status = 2;
-				}
-				if (stage[7].load_status == 3) {
-					bgThread[7595] = 1;
-					stage[7].load_status = 2;
-				}
-				iBgLoadRequest(0x15, 1, 5, 0);
-				iBgLoadRequest(0x16, 3, 5, 0);
-				iBgLoadRequest(0x17, 4, 5, 0);
-				iBgLoadRequest(3, 6, 5, 0);
-				stage[5].load_status = 1;
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-				audio.PlaySong(song[8]);
-			}
-		}
-	}
-	else if (bVar1 < 4) {
-		_RoomCameraMoveProc();
-		_gim.Action(_stage_no);
-		_light.Setting(2);
-		if (_fog_sw == 0) {
-			_cam.SetFogType(GX_FOG_NONE);
-		}
-		else {
-			_cam.SetFogType(GX_FOG_LIN);
-		}
-		rend_man[0].AddCamera(&_cam);
-		pDVar2 = (DGTexPro *)_player.GetShadowPro(0);
-		rend_man[0].SetTexProjection(pDVar2);
-		rend_man[0].AddModel(stage[2].model[0]);
-		if (_movie_camera_rcd == 0) {
-			_stage_no = 5;
-			_step[0] = 0x15;
-			_step[1] = 1;
-		}
-		else {
-			_pad.IsTrg(0,0x1000);
-			if (iVar3 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Step_Movie_Cave(){
-	/*
-		byte bVar1;
-	int iVar2;
-	undefined4 local_1c;
-	Vec VStack_18;
-	
-	bVar1 = _step[1];
-	if (bVar1 == 2) {
-		_iSetStagePos(_stage_no);
-		&VStack_18->GetPosition();
-		stage[_stage_no].model[1]->SetPosition(&VStack_18);
-		&VStack_18->GetRotation();
-		stage[_stage_no].model[1]->SetRotation(&VStack_18);
-		local_1c = @773;
-		_cam.SetFogColor((_GXColor *)&local_1c);
-		_cam.SetFogRange(@775,@776);
-		_cam.set_current_room_number(_stage_no);
-		_cam.set_mode(2);
-		_cam.set_hit_enable_flag(0);
-		_cam.set_mcd_data(_stage_no,stage[_stage_no].datMCD);
-		_cam.set_speed(@1038,@1038,@1039,@1040);
-		iVar2 = _hit.get_hit_data(_stage_no);
-		if (iVar2 == 0) {
-			_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-		}
-		_hit.set_current_room_number(_stage_no);
-		_step[1]++;
-	}
-	else if (bVar1 < 2) {
-		if (bVar1 == 0) {
-			iBgLoadRequest(0xb, 1, 3, 0);
-			iBgLoadRequest(0xe, 1, 3, 1);
-			iBgLoadRequest(0xc, 3, 3, 0);
-			iBgLoadRequest(0xd, 4, 3, 0);
-			iBgLoadRequest(5, 6, 3, 0);
-			stage[3].load_status = 1;
-			_step[1]++;
-		}
-		else if (true) {
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[3].load_status == 3) {
-				if (stage[0].load_status == 3) {
-					bgThread[7588] = 1;
-					stage[0].load_status = 2;
-				}
-				if (stage[1].load_status == 3) {
-					bgThread[7589] = 1;
-					stage[1].load_status = 2;
-				}
-				if (stage[2].load_status == 3) {
-					bgThread[7590] = 1;
-					stage[2].load_status = 2;
-				}
-				if (stage[4].load_status == 3) {
-					bgThread[7592] = 1;
-					stage[4].load_status = 2;
-				}
-				if (stage[5].load_status == 3) {
-					bgThread[7593] = 1;
-					stage[5].load_status = 2;
-				}
-				if (stage[6].load_status == 3) {
-					bgThread[7594] = 1;
-					stage[6].load_status = 2;
-				}
-				if (stage[7].load_status == 3) {
-					bgThread[7595] = 1;
-					stage[7].load_status = 2;
-				}
-				iBgLoadRequest(0xf, 1, 4, 0);
-				iBgLoadRequest(0x10, 3, 4, 0);
-				iBgLoadRequest(0x11, 4, 4, 0);
-				iBgLoadRequest(0, 5, 4, 0);
-				iBgLoadRequest(6, 6, 4, 0);
-				stage[4].load_status = 1;
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-				audio.PlaySong(song[8]);
-			}
-		}
-	}
-	else if (bVar1 < 4) {
-		_RoomCameraMoveProc();
-		_gim.Action(_stage_no);
-		_Draw_Cave(0);
-		if (_movie_camera_rcd == 0) {
-			_stage_no = 4;
-			_step[0] = 0x14;
-			_step[1] = 1;
-		}
-		else {
-			_pad.IsTrg(0,0x1000);
-			if (iVar2 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Step_Movie_Cine(){
-	/*
-		byte bVar1;
-	int iVar2;
-	
-	bVar1 = _step[1];
-	if (bVar1 == 2) {
-		_iSetStagePos(_stage_no);
-		_cam.set_current_room_number(_stage_no);
-		_cam.set_mode(2);
-		_cam.set_hit_enable_flag(0);
-		_cam.set_mcd_data(_stage_no,stage[_stage_no].datMCD);
-		_cam.set_speed(@1038,@1038,@1039,@1040);
-		iVar2 = _hit.get_hit_data(_stage_no);
-		if (iVar2 == 0) {
-			_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-		}
-		_hit.set_current_room_number(_stage_no);
-		_iCineProInit();
-		_step[1]++;
-	}
-	else if (bVar1 < 2) {
-		if (bVar1 == 0) {
-			iBgLoadRequest(0xf, 1, 4, 0);
-			iBgLoadRequest(0x10, 3, 4, 0);
-			iBgLoadRequest(0x11, 4, 4, 0);
-			iBgLoadRequest(0, 5, 4, 0);
-			iBgLoadRequest(6, 6, 4, 0);
-			stage[4].load_status = 1;
-			_step[1]++;
-		}
-		else if (true) {
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[4].load_status == 3) {
-				if (stage[0].load_status == 3) {
-					bgThread[7588] = 1;
-					stage[0].load_status = 2;
-				}
-				if (stage[1].load_status == 3) {
-					bgThread[7589] = 1;
-					stage[1].load_status = 2;
-				}
-				if (stage[2].load_status == 3) {
-					bgThread[7590] = 1;
-					stage[2].load_status = 2;
-				}
-				if (stage[3].load_status == 3) {
-					bgThread[7591] = 1;
-					stage[3].load_status = 2;
-				}
-				if (stage[5].load_status == 3) {
-					bgThread[7593] = 1;
-					stage[5].load_status = 2;
-				}
-				if (stage[6].load_status == 3) {
-					bgThread[7594] = 1;
-					stage[6].load_status = 2;
-				}
-				if (stage[7].load_status == 3) {
-					bgThread[7595] = 1;
-					stage[7].load_status = 2;
-				}
-				iBgLoadRequest(0x18, 1, 6, 0);
-				iBgLoadRequest(0x19, 3, 6, 0);
-				iBgLoadRequest(0x1a, 4, 6, 0);
-				iBgLoadRequest(7, 6, 6, 0);
-				stage[6].load_status = 1;
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-				audio.PlaySong(song[8]);
-			}
-		}
-	}
-	else if (bVar1 < 4) {
-		_RoomCameraMoveProc();
-		_gim.Action(_stage_no);
-		_iCinemaProjectionProc();
-		if ((_stimer & 3) == 0) {
-			cinema.film_cnt = cinema.film_cnt + 1;
-		}
-		if (0x4a < cinema.film_cnt) {
-			cinema.film_cnt = 0;
-		}
-		_Draw_Cine(0);
-		if (_movie_camera_rcd == 0) {
-			_stage_no = 6;
-			_step[0] = 0x16;
-			_step[1] = 1;
-		}
-		else {
-			_pad.IsTrg(0,0x1000);
-			if (iVar2 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Step_Movie_Spil(){
-	/*
 	Vec player_rol; //r1_24
-
-		byte bVar1;
-	DGTexPro *pDVar2;
-	int iVar3;
-	Vec local_3c;
-	Vec local_30;
-	float local_24;
-	float local_20;
-	float local_1c;
-	
-	bVar1 = _step[1];
-	if (bVar1 == 2) {
-		_iSetStagePos(_stage_no);
-		_cam.set_current_room_number(_stage_no);
-		_cam.set_mode(2);
-		_cam.set_hit_enable_flag(0);
-		_cam.set_mcd_data(_stage_no,stage[_stage_no].datMCD);
-		_cam.set_speed(@1038,@1038,@1039,@1040);
-		local_24 = 0.0;
-		local_20 = 0.0;
-		local_1c = 0.0;
-		local_30.x = -158.68;
-		local_30.y = -95.0;
-		local_30.z = 88.26;
-		_player.SetPosition(&local_30);
-		local_3c.x = local_24;
-		local_3c.y = local_20;
-		local_3c.z = local_1c;
-		_player.SetRotation(&local_3c);
-		_player.SpilModeInit();
-		iVar3 = _hit.get_hit_data(_stage_no);
-		if (iVar3 == 0) {
-			_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-		}
-		_hit.set_current_room_number(_stage_no);
-		_step[1]++;
-	}
-	else if (bVar1 < 2) {
-		if (bVar1 == 0) {
-			iBgLoadRequest(0x15, 1, 5, 0);
-			iBgLoadRequest(0x16, 3, 5, 0);
-			iBgLoadRequest(0x17, 4, 5, 0);
-			iBgLoadRequest(3, 6, 5, 0);
-			stage[5].load_status = 1;
-			_step[1]++;
-		}
-		else if (true) {
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[5].load_status == 3) {
-				if (stage[0].load_status == 3) {
-					bgThread[7588] = 1;
-					stage[0].load_status = 2;
-				}
-				if (stage[1].load_status == 3) {
-					bgThread[7589] = 1;
-					stage[1].load_status = 2;
-				}
-				if (stage[2].load_status == 3) {
-					bgThread[7590] = 1;
-					stage[2].load_status = 2;
-				}
-				if (stage[3].load_status == 3) {
-					bgThread[7591] = 1;
-					stage[3].load_status = 2;
-				}
-				if (stage[4].load_status == 3) {
-					bgThread[7592] = 1;
-					stage[4].load_status = 2;
-				}
-				if (stage[6].load_status == 3) {
-					bgThread[7594] = 1;
-					stage[6].load_status = 2;
-				}
-				if (stage[7].load_status == 3) {
-					bgThread[7595] = 1;
-					stage[7].load_status = 2;
-				}
-				iBgLoadRequest(4, 1, 1, 0);
-				iBgLoadRequest(7, 1, 1, 1);
-				iBgLoadRequest(5, 3, 1, 0);
-				iBgLoadRequest(6, 4, 1, 0);
-				iBgLoadRequest(4, 6, 1, 0);
-				stage[1].load_status = 1;
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-				audio.PlaySong(song[8]);
-			}
-		}
-	}
-	else if (bVar1 < 4) {
-		_RoomCameraMoveProc();
-		_gim.Action(_stage_no);
-		_player.Action();
-		_player.CreateShadow();
-		_player.CreateSpilShadow();
-		_light.Setting(5);
-		if (_fog_sw == 0) {
-			_cam.SetFogType(GX_FOG_NONE);
-		}
-		else {
-			_cam.SetFogType(GX_FOG_LIN);
-		}
-		rend_man[0].AddCamera(&_cam);
-		rend_man[0].AddModel(mario_model);
-		pDVar2 = (DGTexPro *)_player.GetShadowPro(1);
-		rend_man[0].SetTexProjection(pDVar2);
-		pDVar2 = (DGTexPro *)_player.GetSpilShadowPro(1);
-		rend_man[0].SetTexProjection(1, pDVar2);
-		rend_man[0].AddModel(stage[5].model[0]);
-		if (_movie_camera_rcd == 0) {
-			_stage_no = 1;
-			_step[0] = 0x11;
-			_step[1] = 1;
-		}
-		else {
-			_pad.IsTrg(0,0x1000);
-			if (iVar3 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Step_Movie_Enve(){
-	/*
-		byte bVar1;
-	DGTexPro *pDVar2;
-	int iVar3;
-	
-	bVar1 = _step[1];
-	if (bVar1 == 2) {
-		_iSetStagePos(_stage_no);
-		_cam.set_current_room_number(_stage_no);
-		_cam.set_mode(2);
-		_cam.set_hit_enable_flag(0);
-		_cam.set_mcd_data(_stage_no,stage[_stage_no].datMCD);
-		_cam.set_speed(@1038,@1038,@1039,@1040);
-		iVar3 = _hit.get_hit_data(_stage_no);
-		if (iVar3 == 0) {
-			_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-		}
-		_hit.set_current_room_number(_stage_no);
-		_step[1]++;
-	}
-	else if (bVar1 < 2) {
-		if (bVar1 == 0) {
-			iBgLoadRequest(0x18, 1, 6, 0);
-			iBgLoadRequest(0x19, 3, 6, 0);
-			iBgLoadRequest(0x1a, 4, 6, 0);
-			iBgLoadRequest(7, 6, 6, 0);
-			stage[6].load_status = 1;
-			_step[1]++;
-		}
-		else if (true) {
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[6].load_status == 3) {
-				if (stage[0].load_status == 3) {
-					bgThread[7588] = 1;
-					stage[0].load_status = 2;
-				}
-				if (stage[1].load_status == 3) {
-					bgThread[7589] = 1;
-					stage[1].load_status = 2;
-				}
-				if (stage[2].load_status == 3) {
-					bgThread[7590] = 1;
-					stage[2].load_status = 2;
-				}
-				if (stage[3].load_status == 3) {
-					bgThread[7591] = 1;
-					stage[3].load_status = 2;
-				}
-				if (stage[4].load_status == 3) {
-					bgThread[7592] = 1;
-					stage[4].load_status = 2;
-				}
-				if (stage[5].load_status == 3) {
-					bgThread[7593] = 1;
-					stage[5].load_status = 2;
-				}
-				if (stage[7].load_status == 3) {
-					bgThread[7595] = 1;
-					stage[7].load_status = 2;
-				}
-				iBgLoadRequest(0x1b, 1, 0xa, 0);
-				iBgLoadRequest(0x1f, 2, 0xa, 1);
-				iBgLoadRequest(0x1c, 3, 0xa, 0);
-				iBgLoadRequest(0x1d, 4, 0xa, 0);
-				iBgLoadRequest(8, 6, 0xa, 0);
-				stage[7].load_status = 1;
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-				audio.PlaySong(song[8]);
-			}
-		}
-	}
-	else if (bVar1 < 4) {
-		_RoomCameraMoveProc();
-		_gim.Action(_stage_no);
-		_light.Setting(6);
-		if (_fog_sw == 0) {
-			_cam.SetFogType(GX_FOG_NONE);
-		}
-		else {
-			_cam.SetFogType(GX_FOG_LIN);
-		}
-		rend_man[0].AddCamera(&_cam);
-		pDVar2 = (DGTexPro *)_player.GetShadowPro(0);
-		rend_man[0].SetTexProjection(pDVar2);
-		rend_man[0].AddModel(stage[6].model[0]);
-		if (_movie_camera_rcd == 0) {
-			_stage_no = 7;
-			_step[0] = 0x17;
-			_step[1] = 1;
-		}
-		else {
-			_pad.IsTrg(0,0x1000);
-			if (iVar3 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-		}
-	}
-	*/
 }
 
 void DMainSystem::_Step_Movie_Mpol(){
-	/*
-		byte bVar1;
-	int iVar2;
-	DGTexPro *pDVar3;
-	
-	bVar1 = _step[1];
-	if (bVar1 == 2) {
-		_iSetStagePos(_stage_no);
-		_cam.set_current_room_number(_stage_no);
-		_cam.set_mode(2);
-		_cam.set_hit_enable_flag(0);
-		_cam.set_mcd_data(_stage_no,stage[_stage_no].datMCD);
-		_cam.set_speed(@1038,@1038,@1039,@1040);
-		_gim.CoinInit();
-		iVar2 = _hit.get_hit_data(_stage_no);
-		if (iVar2 == 0) {
-			_hit.set_hit_data(_stage_no,stage[_stage_no].datBGH);
-		}
-		_hit.set_current_room_number(_stage_no);
-		_step[1]++;
-	}
-	else if (bVar1 < 2) {
-		if (bVar1 == 0) {
-			iBgLoadRequest(0x1b, 1, 0xa, 0);
-			iBgLoadRequest(0x1f, 2, 0xa, 1);
-			iBgLoadRequest(0x1c, 3, 0xa, 0);
-			iBgLoadRequest(0x1d, 4, 0xa, 0);
-			iBgLoadRequest(8, 6, 0xa, 0);
-			stage[7].load_status = 1;
-			_step[1]++;
-		}
-		else if (true) {
-			_DispNowLoding();
-			iCheckLoadStatus();
-			if (stage[7].load_status == 3) {
-				if (stage[0].load_status == 3) {
-					bgThread[7588] = 1;
-					stage[0].load_status = 2;
-				}
-				if (stage[1].load_status == 3) {
-					bgThread[7589] = 1;
-					stage[1].load_status = 2;
-				}
-				if (stage[2].load_status == 3) {
-					bgThread[7590] = 1;
-					stage[2].load_status = 2;
-				}
-				if (stage[3].load_status == 3) {
-					bgThread[7591] = 1;
-					stage[3].load_status = 2;
-				}
-				if (stage[4].load_status == 3) {
-					bgThread[7592] = 1;
-					stage[4].load_status = 2;
-				}
-				if (stage[5].load_status == 3) {
-					bgThread[7593] = 1;
-					stage[5].load_status = 2;
-				}
-				if (stage[6].load_status == 3) {
-					bgThread[7594] = 1;
-					stage[6].load_status = 2;
-				}
-				iBgLoadRequest(1, 1, 0x0, 0);
-				iBgLoadRequest(2, 3, 0x0, 0);
-				iBgLoadRequest(3, 4, 0x0, 0);
-				iBgLoadRequest(1, 6, 0x0, 0);
-				stage[0].load_status = 1;
-				_gim.TitleOn(_stage_no);
-				_step[1]++;
-				audio.PlaySong(song[8]);
-			}
-		}
-	}
-	else if (bVar1 < 4) {
-		_RoomCameraMoveProc();
-		_gim.Action(_stage_no);
-		if ((_stimer & 0x1f) == 0) {
-			_gim.CoinDrop();
-		}
-		if (_movie_camera_rcd == 0) {
-			rend_man[0].SetBGColor((_GXColor)0xec);
-			_gim.CoinExit();
-			_stage_no = 0;
-			_step[0] = 0x10;
-			_step[1] = 1;
-			audio.PlaySongFadeOut();
-		}
-		else {
-			_pad.IsTrg(0,0x1000);
-			if (iVar2 != 0) {
-				_save_step[0] = _step[0];
-				_save_step[1] = _step[1];
-				_cursol_pos[0] = 0;
-				_step[0] = 4;
-				_step[1] = 0;
-			}
-			rend_man[0].SetBGColor((_GXColor)0xe8);
-			_gim.CoinDraw();
-			_light.Setting('\a');
-			if (_fog_sw == 0) {
-				_cam.SetFogType(GX_FOG_NONE);
-			}
-			else {
-				_cam.SetFogType(GX_FOG_LIN);
-			}
-			rend_man[0].AddCamera(&_cam);
-			pDVar3 = (DGTexPro *)_player.GetShadowPro(0);
-			rend_man[0].SetTexProjection(pDVar3);
-			rend_man[0].AddModel(stage[7].model[0]);
-		}
-	}
-	*/
 }
 
 
@@ -3555,8 +1551,8 @@ void DMainSystem::_Step_Movie_Mpol(){
 
 void DMainSystem::iCheckLoadStatus(){
 	for (s8 i = 0; i < 8; i++) {
-		if (stage[i].load_status == 1 && iBgCheckLoadEnd(i)){
-			stage[i].load_status = 3;
+		if (stage[i].load_status == STG_LOADING && iBgCheckLoadEnd(i)){
+			stage[i].load_status = STG_LOADED;
 		}
 	}
 }
@@ -3676,6 +1672,19 @@ void DMainSystem::iDoneRender(){
 }
 
 void DMainSystem::_SetMipMap(){
+	switch(_mipmap_mode){
+		case 0:
+		model_man.EnableMipMap(false);
+		break;
+		case 1:
+		model_man.EnableMipMap(true);
+		model_man.EnableExpensiveMipMap(false);
+		break;
+		case 2:
+		model_man.EnableMipMap(true);
+		model_man.EnableExpensiveMipMap(true);
+		break;
+	}
 }
 
 s8 DMainSystem::_DeleteAllStage(){
@@ -3684,7 +1693,44 @@ s8 DMainSystem::_DeleteAllStage(){
 }
 
 void DMainSystem::_FileManager(){
-	s8 i; //r29
+	if (iCourseData[_route_counter + 1] == _stage_no) {
+		_route_counter++;
+		if (iCourseData[_route_counter + 1] < 0) {
+			_route_counter = 0;
+		}
+	}
+
+	for(s8 i = 0; i < 8; i++){
+		if (i == STG_CINE) {
+			if (_stage_no == STG_CAVE || _stage_no == STG_ENTR){
+				if(iCourseData[_route_counter] == 3 || iCourseData[_route_counter + 1] == 0){
+					if (stage[STG_CINE].load_status == STG_NOT_LOADED) {
+						_LoadRequestRoomFile(STG_CINE);
+					}
+					continue;
+				}
+			}
+		}
+
+		if (_stage_no == i) {
+			if (stage[i].load_status == STG_NOT_LOADED) {
+				_LoadRequestRoomFile(i);
+			}
+		}else {
+			if (_old_route_counter == i && stage[i].load_status == 3) {
+				_FreeRequestRoomFile(i);
+			}
+
+			if (iCourseData[_route_counter + 1] == i) {
+				if (stage[i].load_status == STG_NOT_LOADED) {
+					_LoadRequestRoomFile(i);
+					OSReport("Next room %d\n", i);
+				}
+			}else if (stage[i].load_status == 3) {
+				_FreeRequestRoomFile(i);
+			}
+		}
+	}
 }
 
 void DMainSystem::_LoadRequestRoomFile(s8 stage_no){
@@ -3729,9 +1775,121 @@ void DMainSystem::iCheckIn(){
 }
 
 void DMainSystem::_DrawOldStage(){
+	switch(_go_next_room.old_room_no) {
+		case 0:
+		_Draw_Entr(true);
+		break;
+		case 1:
+		_Draw_Hang(true);
+		break;
+		case 2:
+		_Draw_Dome(true);
+		break;
+		case 3:
+		_Draw_Cave(true);
+		break;
+		case 4:
+		_Draw_Cine(true);
+		break;
+		case 5:
+		_Draw_Spil(true);
+		break;
+		case 6:
+		_Draw_Enve(true);
+		break;
+		case 7:
+		_Draw_Mpol(true);
+		break;
+	}
 }
 
 void DMainSystem::_CheckMoveRoom(){
+	if (_go_next_room.flag == 1) {
+		_cam.set_mode(5);
+		_cam.set_hit_enable_flag(false);
+
+		_step[0] = _go_next_room.next_room_no + 5;
+		_step[1] = 0x14;
+
+		if (_stage_no == STG_MPOL) {
+			_gim.CoinExit();
+		}
+
+		iCheckLoadStatus();
+
+		if (stage[_go_next_room.next_room_no].load_status == STG_NOT_LOADED) {
+			if (_tv_mode == 6) {
+				_tv_mode = 4;
+			}
+
+			switch(_go_next_room.next_room_no) {
+				case 0:
+				_LoadRequestEntr();
+				break;
+				case 1:
+				_LoadRequestHang();
+				break;
+				case 2:
+				_LoadRequestDome();
+				break;
+				case 3:
+				_LoadRequestCave();
+				break;
+				case 4:
+				_LoadRequestCine();
+				break;
+				case 5:
+				_LoadRequestSpil();
+				break;
+				case 6:
+				_LoadRequestEnve();
+				break;
+				case 7:
+				_LoadRequestMpol(1);
+				break;
+			}
+		}
+		audio.PlaySongFadeOut();
+	}else if(_go_next_room.flag == 2) {
+		_cam.set_mode(6);
+		_cam.set_hit_enable_flag(false);
+
+		_step[0] = _go_next_room.next_room_no + 5;
+		_step[1] = 0x1e;
+
+		iCheckLoadStatus();
+
+		if (stage[_go_next_room.next_room_no].load_status == STG_NOT_LOADED) {
+			switch(_go_next_room.next_room_no) {
+				case 0:
+				_LoadRequestEntr();
+				break;
+				case 1:
+				_LoadRequestHang();
+				break;
+				case 2:
+				_LoadRequestDome();
+				break;
+				case 3:
+				_LoadRequestCave();
+				break;
+				case 4:
+				_LoadRequestCine();
+				break;
+				case 5:
+				_LoadRequestSpil();
+				break;
+				case 6:
+				_LoadRequestEnve();
+				break;
+				case 7:
+				_LoadRequestMpol(1);
+				break;
+			}
+		}
+
+		audio.PlaySongFadeOut();
+	}
 }
 
 //unused
@@ -3739,6 +1897,38 @@ void DMainSystem::iSetFogSw(s8 sw){
 }
 
 void DMainSystem::_iChangeTvMode(){
+	if (_tv_mode != _old_tv_mode) {
+		switch(_tv_mode) {
+			case 0:
+			rend_man[0].SetRenderMode(&GXNtsc240Ds);
+			break;
+			case 1:
+			rend_man[0].SetRenderMode(&GXNtsc240DsAa);
+			break;
+			case 2:
+			rend_man[0].SetRenderMode(&GXNtsc240Int);
+			break;
+			case 3:
+			rend_man[0].SetRenderMode(&GXNtsc240IntAa);
+			break;
+			case 4:
+			rend_man[0].SetRenderMode(&GXNtsc480IntDf);
+			break;
+			case 5:
+			rend_man[0].SetRenderMode(&GXNtsc480Int);
+			break;
+			case 6:
+			rend_man[0].SetRenderMode(&GXNtsc480IntAa);
+			break;
+			case 7:
+			rend_man[0].SetRenderMode(&GXNtsc480Prog);
+			break;
+			case 8:
+			rend_man[0].SetRenderMode(&GXNtsc480ProgAa);
+		}
+
+		_old_tv_mode = _tv_mode;
+	}
 }
 
 s8 DMainSystem::iIsAllOffCoin(){
@@ -3794,122 +1984,122 @@ void DMainSystem::_iConsoleDraw(s8 pas_cnt){
 
 	switch(_console_step){
 		case STEP_PAUSE_MENU:
-			sysFont->Begin(&(rend_man[0]));
+		sysFont->Begin(&(rend_man[0]));
 
-			sysFont->SetPosition(0x30, y + 0x28);
-			sysFont->StrOut("PAUSE MENU");
+		sysFont->SetPosition(0x30, y + 0x28);
+		sysFont->StrOut("PAUSE MENU");
 
-			sysFont->SetPosition(0x30, y + 0x50);
-			sysFont->StrOut("MIP MAP     :");
-			sysFont->StrOut(textMipmap[_mipmap_mode]);
+		sysFont->SetPosition(0x30, y + 0x50);
+		sysFont->StrOut("MIP MAP     :");
+		sysFont->StrOut(textMipmap[_mipmap_mode]);
 
-			sysFont->StrOut("RENDER MODE :");
-			sysFont->StrOut(textRenderMode[_tv_mode]);
+		sysFont->StrOut("RENDER MODE :");
+		sysFont->StrOut(textRenderMode[_tv_mode]);
 
-			sysFont->StrOut("SYSTEM INFO :");
-			sysFont->StrOut(textOnOff[_sys_inf_disp_flag]);
+		sysFont->StrOut("SYSTEM INFO :");
+		sysFont->StrOut(textOnOff[_sys_inf_disp_flag]);
 
-			if(!_sys_inf_disp_flag){
-				sysFont->SetColor(128, 128, 128, 255);
-			}
+		if(!_sys_inf_disp_flag){
+			sysFont->SetColor(128, 128, 128, 255);
+		}
 
-			sysFont->StrOut("      Perf0 :");
-			sysFont->StrOut(stPerf0[_perf0_type].text);
-			sysFont->StrOut("\n");
+		sysFont->StrOut("      Perf0 :");
+		sysFont->StrOut(stPerf0[_perf0_type].text);
+		sysFont->StrOut("\n");
 
-			sysFont->StrOut("      Perf1: ");
-			sysFont->StrOut(stPerf1[_perf1_type].text);
-			sysFont->StrOut("\n");
+		sysFont->StrOut("      Perf1: ");
+		sysFont->StrOut(stPerf1[_perf1_type].text);
+		sysFont->StrOut("\n");
 
-			sysFont->SetColor(255, 255, 255, 255);
+		sysFont->SetColor(255, 255, 255, 255);
 
-			sysFont->StrOut("METER       :");
-			sysFont->StrOut(textOnOff[_meter_disp_flag]);
+		sysFont->StrOut("METER       :");
+		sysFont->StrOut(textOnOff[_meter_disp_flag]);
 
-			s32 gamma_type = DGRendMan::m_DispCopyGamma;
+		s32 gamma_type = DGRendMan::m_DispCopyGamma;
 
-			sysFont->StrOut("GAMMA       :");
-			sysFont->StrOut(textGamma[gamma_type]);
+		sysFont->StrOut("GAMMA       :");
+		sysFont->StrOut(textGamma[gamma_type]);
 
-			sysFont->StrOut("Sequence    :");
-			if(audio.GetMuteSequence() == 0){
-				sysFont->StrOut(textOnOff[1]);
-			}else{
-				sysFont->StrOut(textOnOff[0]);
-			}
+		sysFont->StrOut("Sequence    :");
+		if(audio.GetMuteSequence() == 0){
+			sysFont->StrOut(textOnOff[1]);
+		}else{
+			sysFont->StrOut(textOnOff[0]);
+		}
 
-			sysFont->StrOut("SE          :");
-			if(audio.GetMuteSe() == 0){
-				sysFont->StrOut(textOnOff[1]);
-			}else{
-				sysFont->StrOut(textOnOff[0]);
-			}
+		sysFont->StrOut("SE          :");
+		if(audio.GetMuteSe() == 0){
+			sysFont->StrOut(textOnOff[1]);
+		}else{
+			sysFont->StrOut(textOnOff[0]);
+		}
 
-			sysFont->StrOut("\n");
-			sysFont->StrOut("Return -MAIN MENU\n");
+		sysFont->StrOut("\n");
+		sysFont->StrOut("Return -MAIN MENU\n");
 
-			_CursolMove(11, y);
-			sysFont->End();
-			break;
+		_CursolMove(11, y);
+		sysFont->End();
+		break;
 		case STEP_MOVIE_SELECT_MENU:
-			sysFont->Begin(&(rend_man[0]));
+		sysFont->Begin(&(rend_man[0]));
 
-			sysFont->SetPosition(0x30, y + 0x28);
-			sysFont->StrOut("AUTO DEMO STAGE SELECT MENU");
+		sysFont->SetPosition(0x30, y + 0x28);
+		sysFont->StrOut("AUTO DEMO STAGE SELECT MENU");
 
-			sysFont->SetPosition(0x50, y + 0x50);
-			sysFont->StrOut("ENTRANCE\n");
-			sysFont->StrOut("DOME\n");
-			sysFont->StrOut("SPIRAL STAIRCASE\n");
-			sysFont->StrOut("HANGAR\n");
-			sysFont->StrOut("CAVE\n");
-			sysFont->StrOut("CINEMA THEATER\n");
-			sysFont->StrOut("METAL MARIO!\n");
-			sysFont->StrOut("How Many COINS?\n");
-			sysFont->StrOut("\n");
-			sysFont->StrOut("Return -MAIN MENU\n");
+		sysFont->SetPosition(0x50, y + 0x50);
+		sysFont->StrOut("ENTRANCE\n");
+		sysFont->StrOut("DOME\n");
+		sysFont->StrOut("SPIRAL STAIRCASE\n");
+		sysFont->StrOut("HANGAR\n");
+		sysFont->StrOut("CAVE\n");
+		sysFont->StrOut("CINEMA THEATER\n");
+		sysFont->StrOut("METAL MARIO!\n");
+		sysFont->StrOut("How Many COINS?\n");
+		sysFont->StrOut("\n");
+		sysFont->StrOut("Return -MAIN MENU\n");
 
-			_CursolMove(10, y);
-			sysFont->End();
-			break;
+		_CursolMove(10, y);
+		sysFont->End();
+		break;
 		case STEP_ROOM_SELECT_MENU:
-			sysFont->Begin(&(rend_man[0]));
+		sysFont->Begin(&(rend_man[0]));
 
-			sysFont->SetPosition(0x30, y + 0x28);
-			sysFont->StrOut("STAGE SELECT MENU");
+		sysFont->SetPosition(0x30, y + 0x28);
+		sysFont->StrOut("STAGE SELECT MENU");
 
-			sysFont->SetPosition(0x50, y + 0x50);
-			sysFont->StrOut("ENTRANCE\n");
-			sysFont->StrOut("DOME\n");
-			sysFont->StrOut("SPIRAL STAIRCASE\n");
-			sysFont->StrOut("HANGAR\n");
-			sysFont->StrOut("CAVE\n");
-			sysFont->StrOut("CINEMA THEATER\n");
-			sysFont->StrOut("METAL MARIO!\n");
-			sysFont->StrOut("How Many COINS?\n");
-			sysFont->StrOut("\n");
-			sysFont->StrOut("Return -MAIN MENU\n");
+		sysFont->SetPosition(0x50, y + 0x50);
+		sysFont->StrOut("ENTRANCE\n");
+		sysFont->StrOut("DOME\n");
+		sysFont->StrOut("SPIRAL STAIRCASE\n");
+		sysFont->StrOut("HANGAR\n");
+		sysFont->StrOut("CAVE\n");
+		sysFont->StrOut("CINEMA THEATER\n");
+		sysFont->StrOut("METAL MARIO!\n");
+		sysFont->StrOut("How Many COINS?\n");
+		sysFont->StrOut("\n");
+		sysFont->StrOut("Return -MAIN MENU\n");
 
-			_CursolMove(10, y);
-			sysFont->End();
-			break;
+		_CursolMove(10, y);
+		sysFont->End();
+		break;
 		case STEP_MAIN_MENU:
-			sysFont->Begin(&(rend_man[0]));
+		sysFont->Begin(&(rend_man[0]));
 
-			sysFont->SetPosition(0x30, y + 0x28);
-		
-			sysFont->StrOut("MAIN MENU");
-			sysFont->SetPosition(0x50, y + 0x50);
-			sysFont->StrOut("NORMAL DEMO -START\n");
-			sysFont->StrOut("AUTO DEMO -START\n");
-			sysFont->StrOut("\n");
+		sysFont->SetPosition(0x30, y + 0x28);
+	
+		sysFont->StrOut("MAIN MENU");
+		sysFont->SetPosition(0x50, y + 0x50);
+		sysFont->StrOut("NORMAL DEMO -START\n");
+		sysFont->StrOut("AUTO DEMO -START\n");
+		sysFont->StrOut("\n");
 
-			sysFont->StrOut("NORMAL DEMO  -STAGE SELECT MENU\n");
-			sysFont->StrOut("AUTO DEMO -STAGE SELECT MENU\n");
+		sysFont->StrOut("NORMAL DEMO  -STAGE SELECT MENU\n");
+		sysFont->StrOut("AUTO DEMO -STAGE SELECT MENU\n");
 
-			_CursolMove(5, y);
-			sysFont->End();
-			break;
+		_CursolMove(5, y);
+		sysFont->End();
+		break;
 		case STEP_INIT_SYS:
 		default:
 		break;
@@ -3932,44 +2122,258 @@ static void CheckRenderingTime(){
 	GXReadGPMetric(&triCnt, &verCnt);
 }
 
-static void DrawFrameBar(float mSecCPU, float mSecGX){
-	GXColor frmClr; //r1_22c
-	float frmPts[28]; //r1_1bc
-	u8 frmLineWid; //r1_8
-	GXColor bkdClr; //r1_1b8
-	float bkdPts[4]; //r1_1a8
-	u8 bkdLineWid; //r1_8
-	GXColor cpuClr; //r1_1a4
-	float cpuPts[4]; //r1_194
-	u8 cpuLineWid; //r1_8
-	GXColor gxClr; //r1_190
-	float gxPts[4]; //r1_180
-	u8 gxLineWid; //r1_8
+//Draws the debbuging profiler, showing both the CPU and GPU frame times.
+static void DrawFrameBar(f32 mSecCPU, f32 mSecGX) {
+	GXColor frmClr = {0,0,0,255}; //0x22c
+	float frmPts[28] = { //0x1bc
+		0,0,0,16,
+		0,0,616,0,
+		616,0,616,16,
+		0,16,616,16,
+		154,0,154,16,
+		308,0,308,16,
+		462,0,462,16
+	};
+	u8 frmLineWid = 12;
+	
+	GXColor bkdClr = {0x40,0x40,0x40,0xFF};
+	float bkdPts[4] = {0,0,616,0};
+	u8 bkdLineWid = 96;
+	
+	GXColor cpuClr = {0x4B,0x19,0x00,0xFF};
+	float cpuPts[4] = {0,0,616,0};
+	u8 cpuLineWid = 24;
+	
+	GXColor gxClr = {0x00,0x32,0x7D,0xFF};
+	float gxPts[4] = {0,0,616,0};
+	u8 gxLineWid = 24;
 
-	float SCRN_Y_OFFSET; //f15
-	Mtx44 mProj; //r1_124
-	float pSave[7]; //r1_108
-	u32 i; //r1_8
-	float scale; //f2
-	Mtx mID; //r1_cc
+	float pixelScaleY = 1.0f/240.0f;
+	float pixelScaleX = 1.0f/320.0f;
+
+	float SCRN_X_OFFSET = -304 * pixelScaleX;
+	float SCRN_Y_OFFSET = 216 * pixelScaleY;
+
+	float bkdOffset = 0;
+	float cpuOffset = -2;
+	float gxOffset = 2;
+	float frmOffset = -8;
+
+	Mtx44 mProj;
+	float pSave[7];
+	u32 i,j;
+	float maxFPS = 16.67f * 4;
+	float length = 1;
+	float scale = 0;
+	Mtx mID;
+	
+	
+	if (dm->iGetOldTvMode() == 6 || dm->iGetOldTvMode() == 8) {
+		SCRN_Y_OFFSET = 40 * pixelScaleY;
+	} else {
+		SCRN_Y_OFFSET = -200 * pixelScaleY;
+	}
+
+	//Scale the end points of the GX and CPU bars by ms/66.68,
+	//clamping the scale value at 1
+	
+	scale = mSecGX/maxFPS;
+	if (scale > 1) scale = 1;
+	
+	gxPts[2] *= scale;
+	
+	scale = mSecCPU/maxFPS;
+	if (scale > 1) scale = 1;
+	
+	cpuPts[2] *= scale;
+	
+	cpuPts[1] += cpuOffset;
+	cpuPts[3] += cpuOffset;
+	
+	gxPts[1] += gxOffset;
+	gxPts[3] += gxOffset;
+
+	frmPts[1] += frmOffset;
+	frmPts[3] += frmOffset;
+	frmPts[5] += frmOffset;
+	frmPts[7] += frmOffset;
+	frmPts[9] += frmOffset;
+	frmPts[11] += frmOffset;
+	frmPts[13] += frmOffset;
+	frmPts[15] += frmOffset;
+	frmPts[17] += frmOffset;
+	frmPts[19] += frmOffset;
+	frmPts[21] += frmOffset;
+	frmPts[23] += frmOffset;
+	frmPts[25] += frmOffset;
+	frmPts[27] += frmOffset;
+	
+	GXGetProjectionv(pSave);
+
+	for(i = 0; i < 4; i++){
+		for(j = 0; j < 4; j++){
+			mProj[i][j] = 0;
+		}
+	}
+	
+	mProj[0][0] = pixelScaleX;
+	mProj[1][1] = pixelScaleY;
+	mProj[2][2] = length;
+	mProj[3][3] = length;
+	
+	mProj[0][3] = SCRN_X_OFFSET;
+	mProj[1][3] = SCRN_Y_OFFSET;
+
+	
+	//Setup GX
+	GXSetProjection(mProj, GX_ORTHOGRAPHIC);
+	GXSetNumChans(1);
+	GXSetChanCtrl(GX_COLOR0A0, false, GX_SRC_REG, GX_SRC_REG, GX_LIGHT_NULL, GX_DF_NONE, GX_AF_NONE);
+	GXSetTevOrder(GX_TEVSTAGE0, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR0A0);
+	GXSetTevOp(GX_TEVSTAGE0, GX_PASSCLR);
+	GXSetNumTexGens(0);
+	GXSetNumTevStages(1);
+	GXSetZMode(false, GX_ALWAYS, false);
+	GXClearVtxDesc();
+	GXSetVtxDesc(GX_VA_POS, GX_DIRECT);
+	GXSetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
+	PSMTXIdentity(mID);
+	GXLoadPosMtxImm(mID, 0);
+
+	//Draw the background
+	GXSetChanMatColor(GX_COLOR0, bkdClr);
+	GXSetLineWidth(bkdLineWid, 0);
+	GXBegin(GX_LINES, GX_VTXFMT0, 2);
+	
+	GXPosition3f32(bkdPts[0],bkdPts[1],-1);
+	GXPosition3f32(bkdPts[2],bkdPts[3],-1);
+
+	GXEnd();
+
+	//Draw the cpu bar
+	GXSetChanMatColor(GX_COLOR0, cpuClr);
+	GXSetLineWidth(cpuLineWid, 0);
+	GXBegin(GX_LINES, GX_VTXFMT0, 2);
+	
+	GXPosition3f32(cpuPts[0],cpuPts[1],-1);
+	GXPosition3f32(cpuPts[2],cpuPts[3],-1);
+
+	GXEnd();
+
+	//Draw the gx bar
+	GXSetChanMatColor(GX_COLOR0, gxClr);
+	GXSetLineWidth(gxLineWid, 0);
+	GXBegin(GX_LINES, GX_VTXFMT0, 2);
+	
+	GXPosition3f32(gxPts[0],gxPts[1],-1);
+	GXPosition3f32(gxPts[2],gxPts[3],-1);
+
+	GXEnd();
+
+	//Draw the frame lines
+	GXSetChanMatColor(GX_COLOR0, frmClr);
+	GXSetLineWidth(frmLineWid, 0);
+	
+	GXBegin(GX_LINES, GX_VTXFMT0, 14);
+	
+	GXPosition3f32(frmPts[0],frmPts[1],-1);
+	GXPosition3f32(frmPts[2],frmPts[3],-1);
+	GXPosition3f32(frmPts[4],frmPts[5],-1);
+	GXPosition3f32(frmPts[6],frmPts[7],-1);
+	GXPosition3f32(frmPts[8],frmPts[9],-1);
+	GXPosition3f32(frmPts[10],frmPts[11],-1);
+	GXPosition3f32(frmPts[12],frmPts[13],-1);
+	GXPosition3f32(frmPts[14],frmPts[15],-1);
+	GXPosition3f32(frmPts[16],frmPts[17],-1);
+	GXPosition3f32(frmPts[18],frmPts[19],-1);
+	GXPosition3f32(frmPts[20],frmPts[21],-1);
+	GXPosition3f32(frmPts[22],frmPts[23],-1);
+	GXPosition3f32(frmPts[24],frmPts[25],-1);
+	GXPosition3f32(frmPts[26],frmPts[27],-1);
+
+	GXEnd();
+	
+	GXSetZMode(true, GX_LEQUAL, true);
+
+	
+	for(i = 0; i < 4; i++){
+		for(j = 0; j < 4; j++){
+			mProj[i][j] = 0;
+		}
+	}
+	
+	mProj[0][0] = pSave[1];
+	mProj[0][2] = pSave[2];
+	mProj[1][1] = pSave[3];
+	mProj[1][2] = pSave[4];
+	mProj[2][2] = pSave[5];
+	mProj[2][3] = pSave[6];
+	mProj[3][2] = -1;
+	
+	GXSetProjection(mProj, GX_PERSPECTIVE);
 }
 
+static void* iBgThread(void* arg0);
+
 static void iBgThreadInit(){
-	s32 i; //r1_8
+	s32 i;
+	
+	for(i = 0; i < 0x80; i++){
+		bgThread.request_flag[i] = 0;
+		bgThread.request_file_number[i] = 0;
+	}
+
+	bgThread.read_p = 0;
+	bgThread.write_p = 0;
+
+	for(i = 0; i < 8; i++){
+		bgThread.stage[i].wait_count = 0;
+	}
+
+	for(i = 0; i < 9; i++){
+		bgThread.delete_flag[i] = 0;
+	}
+
+	OSCreateThread(&bgThread.SMThread, iBgThread, 0, (void*)bgThread.request_flag, 0x1000, 0x1f, 1);
+	OSResumeThread(&bgThread.SMThread);
 }
 
 static s16 iBgLoadRequest(u16 file_no, u8 request_flag, s8 stage_no, s8 model_no){
-	s16 rcd; //r3
+	bgThread.request_flag[bgThread.write_p] = request_flag;
+	bgThread.request_file_number[bgThread.write_p] = file_no;
+	bgThread.request_stage_no[bgThread.write_p] = stage_no;
+	bgThread.request_model_no[bgThread.write_p] = model_no;
+	
+	s16 rcd = bgThread.write_p;
+	bgThread.write_p++;
+	if (bgThread.write_p >= 0x80) {
+		bgThread.write_p = 0;
+	}
+
+	bgThread.stage[stage_no].wait_table[bgThread.stage[stage_no].wait_count] = rcd;
+	bgThread.stage[stage_no].wait_count++;
 }
 
 static s8 iBgCheckLoadEnd(s8 stg_no){
-	s8 rcd; //r3
-	s8 i; //r8
+	s8 rcd = 1;
+	//s8 i = 0;
+
+	for(s8 i = 0; i < bgThread.stage[stg_no].wait_count; i++){
+		if(bgThread.request_flag[bgThread.stage[stg_no].wait_table[i]] != 7){
+			rcd = 0;
+		}
+	}
+
+	if(rcd != 0){
+		bgThread.stage[stg_no].wait_count = 0;
+	}
 }
 
 //unused
 static s16 iBgClearRequest(){
 }
+
+static s16 iBgDeleteRequest();
 
 //param name not in dwarf
 static void* iBgThread(void* arg0){
@@ -3978,9 +2382,346 @@ static void* iBgThread(void* arg0){
 	DVDFileInfo fp; //r1_1c
 	u8* dat; //r4
 	char buf[16]; //r1_c
+
+	s16 iVar10;
+
+	while(true){
+		do {
+			bg_stimer++;
+			iBgDeleteRequest();
+			iVar10 = bgThread.read_p;
+		} while (iVar10 == bgThread.write_p);
+
+		switch(bgThread.request_flag[iVar10]){
+			case 1:
+			OSReport("load %s : start : rp=%d wp=%d\n",iFileNameData[bgThread.request_file_number[iVar10]]);
+
+			dm->stage[bgThread.request_stage_no[bgThread.read_p]].hm[bgThread.request_model_no[bgThread.read_p]] =
+			dm->model_man.LoadDuplicateNDM((char*)iFileNameData[bgThread.request_file_number[bgThread.read_p]]);
+
+			dm->stage[bgThread.request_stage_no[bgThread.read_p]].model[bgThread.request_model_no[bgThread.read_p]] =
+			dm->model_man.CreateInstance(dm->stage[bgThread.request_stage_no[bgThread.read_p]].hm[bgThread.request_model_no[bgThread.read_p]]);
+			
+			dm->model_man.DeleteMasterModel(dm->stage[bgThread.request_stage_no[bgThread.read_p]].hm[bgThread.request_model_no[bgThread.read_p]]);
+			
+			OSSetThreadPriority(&bgThread.SMThread,0xf);
+			bgThread.request_flag[bgThread.read_p] = 7;
+			bgThread.read_p = bgThread.read_p + 1;
+
+			if (0x7f < bgThread.read_p) {
+				bgThread.read_p = 0;
+			}
+
+			OSSetThreadPriority(&bgThread.SMThread,0x1f);
+			OSReport("load : end\n");
+			break;
+			case 2:
+			OSReport("load %s : start : rp=%d wp=%d\n",iFileNameData[bgThread.request_file_number[iVar10]]);
+			
+			dm->stage[bgThread.request_stage_no[bgThread.read_p]].hm[bgThread.request_model_no[bgThread.read_p]] =
+			dm->model_man.LoadDuplicateNDM((char*)iFileNameData[bgThread.request_file_number[bgThread.read_p]]);
+
+			dm->stage[bgThread.request_stage_no[bgThread.read_p]].model[bgThread.request_model_no[bgThread.read_p]] =
+			dm->model_man.CreateInstance(dm->stage[bgThread.request_stage_no[bgThread.read_p]].hm[bgThread.request_model_no[bgThread.read_p]]);
+
+			OSSetThreadPriority(&bgThread.SMThread,0xf);
+			bgThread.request_flag[bgThread.read_p] = 7;
+			bgThread.read_p++;
+
+			if (0x7f < bgThread.read_p) {
+				bgThread.read_p = 0;
+			}
+
+			OSSetThreadPriority(&bgThread.SMThread,0x1f);
+			OSReport("load : end\n");
+			break;
+			case 3:
+			OSReport("load %s : start : rp=%d wp=%d\n",(&iFileNameData)[bgThread.request_file_number[iVar10]]);
+			
+			iVar10 = DVDOpen((char*)iFileNameData[bgThread.request_file_number[bgThread.read_p]],&fp);
+				
+			if (iVar10 == 0) {
+				OSReport("iBgThread> File op0en error. (%s)\n",iFileNameData[bgThread.request_file_number[bgThread.read_p]]);
+			}else {
+				u32 uVar4 = fp.length + 0x1f & 0xffffffe0;
+				void* pvVar6 = mAlloc(uVar4);
+				DVDReadPrio(&fp, pvVar6, uVar4, 0, 2);
+				DVDClose(&fp);
+				dm->stage[bgThread.request_stage_no[bgThread.read_p]].datBGH = pvVar6;
+			}
+				
+			OSSetThreadPriority(&bgThread.SMThread,0xf);
+			bgThread.request_flag[bgThread.read_p] = 7;
+			bgThread.read_p = bgThread.read_p + 1;
+
+			if (0x7f < bgThread.read_p) {
+				bgThread.read_p = 0;
+			}
+
+			OSSetThreadPriority(&bgThread.SMThread,0x1f);
+			OSReport("load : end\n");
+			break;
+			case 4:
+			OSReport("load %s : start : rp=%d wp=%d\n",(&iFileNameData)[bgThread.request_file_number[iVar10]]);
+			
+			iVar10 = DVDOpen((char*)iFileNameData[bgThread.request_file_number[bgThread.read_p]],&fp);
+			
+			if (iVar10 == 0) {
+				OSReport("iBgThread> File op0en error. (%s)\n",iFileNameData[bgThread.request_file_number[bgThread.read_p]]);
+			}else {
+				u32 uVar4 = fp.length + 0x1f & 0xffffffe0;
+				void* pvVar6 = mAlloc(uVar4);
+				DVDReadPrio(&fp,pvVar6,uVar4,0,2);
+				DVDClose(&fp);
+				dm->stage[bgThread.request_stage_no[bgThread.read_p]].datMCD = pvVar6;
+			}
+
+			OSSetThreadPriority(&bgThread.SMThread,0xf);
+			bgThread.request_flag[bgThread.read_p] = 7;
+			bgThread.read_p++;
+
+			if (0x7f < bgThread.read_p) {
+				bgThread.read_p = 0;
+			}
+			OSSetThreadPriority(&bgThread.SMThread,0x1f);
+			OSReport("load : end\n");
+			break;
+			case 5:
+			OSReport("load : start : rp=%d wp=%d\n",iVar10,(int)bgThread.write_p);
+			dm->cinema.star = dm->model_man.LoadTexPro("T_STAR");
+			dm->cinema.hart = dm->model_man.LoadTexPro("T_HART");
+			dm->cinema.mirrorpro = dm->model_man.LoadTexPro("T_STAR");
+
+			sprintf(buf,"%s","MARIO00");
+			iVar10 = 0;
+			
+			for (i = 0; i < 0x4b; i = i + 1) {
+				u32 iVar9 = (int)i / 10 + ((int)i >> 0x1f);
+				u32 cVar2 = (char)iVar9;
+				u32 cVar3 = (char)(iVar9 >> 0x1f);
+
+				buf[5] = (cVar2 - cVar3) + '0';
+				buf[6] = (char)i + (cVar2 - cVar3) * -10 + '0';
+
+				OSReport("%s\n",buf);
+				dm->cinema.texpro[iVar10] = dm->model_man.LoadTexPro(buf);
+				iVar10 += 4;
+			}
+
+			OSSetThreadPriority(&bgThread.SMThread,0xf);
+			bgThread.request_flag[bgThread.read_p] = 7;
+			bgThread.read_p = bgThread.read_p + 1;
+
+			if (0x7f < bgThread.read_p) {
+				bgThread.read_p = 0;
+			}
+
+			OSSetThreadPriority(&bgThread.SMThread,0x1f);
+			OSReport("load : end\n");
+			break;
+			case 6:
+			if (!autoDemoFlag) {
+				OSReport("load %s : start : rp=%d wp=%d\n",songFilenameTable[bgThread.request_file_number[iVar10]]);
+
+				if (dm->song[bgThread.request_stage_no[bgThread.read_p]].ReadBuffer(bgThread.request_file_number[bgThread.read_p],songFilenameTable[bgThread.request_file_number[bgThread.read_p]]) == 0) {
+					OSReport("Song file read error %s\n",iFileNameData[bgThread.request_file_number[bgThread.read_p]]);
+				}
+
+				OSReport("load : end\n");
+			}else {
+				if (dm->song[8].ReadBuffer(0,(char*)songFilenameTable[8]) == 0) {
+					OSReport("Song file read error %s\n",(&iFileNameData)[bgThread.request_file_number[bgThread.read_p]]);
+				}
+			}
+
+			OSSetThreadPriority(&bgThread.SMThread,0xf);
+			bgThread.request_flag[bgThread.read_p] = 7;
+			bgThread.read_p = bgThread.read_p + 1;
+
+			if (0x7f < bgThread.read_p) {
+				bgThread.read_p = 0;
+			}
+			OSSetThreadPriority(&bgThread.SMThread,0x1f);
+			break;
+			default:
+			OSReport("iBgThread>File load error.\n");
+			break;
+		}
+
+		dm->free_mem_size = OSCheckHeap(0);
+	}
 }
 
 static s16 iBgDeleteRequest(){
 	s16 i; //r31
+	
+	for (i = 0; i < 9; i = i + 1) {
+		if (i < 8 && i < 0) {
+			dm->song[i].DelayDeleteBuffer();
+		}
+
+		if (bgThread.delete_flag[i] != 0) {
+			switch(i) {
+			case 0:
+				OSReport("del STG_ENTR : start\n");
+				McrDelete(dm->stage[0].model[0]);
+				dm->stage[0].model[0] = NULL;
+				McrDelete(dm->stage[0].datBGH);
+				dm->_hit.set_hit_data(0,NULL);
+				dm->stage[0].datBGH = NULL;
+				McrDelete(dm->stage[0].datMCD);
+				dm->stage[0].datMCD = NULL;
+				dm->song[0].DeleteBuffer();
+
+				bgThread.stage[0].wait_count = 0;
+				dm->stage[0].load_status = 0;
+				bgThread.delete_flag[0] = 0;
+				dm->free_mem_size = OSCheckHeap(0);
+				OSReport("del STG_ENTR : end\n");
+				break;
+			case 1:
+				OSReport("del STG_HANG : start\n");
+				McrDelete(dm->stage[1].model[0]);
+				dm->stage[1].model[0] = NULL;
+				McrDelete(dm->stage[1].model[1]);
+				dm->stage[1].model[1] = NULL;
+				McrDelete(dm->stage[1].datBGH);
+				dm->_hit.set_hit_data(1,NULL);
+				dm->stage[1].datBGH = NULL;
+				McrDelete(dm->stage[1].datMCD);
+				dm->stage[1].datMCD = NULL;
+				dm->song[1].DeleteBuffer();
+
+				bgThread.stage[1].wait_count = 0;
+				dm->stage[1].load_status = 0;
+				bgThread.delete_flag[1] = 0;
+				dm->free_mem_size = OSCheckHeap(0);
+				OSReport("del STG_HANG : end\n");
+				break;
+			case 2:
+				OSReport("del STG_DOME : start\n");
+				McrDelete(dm->stage[2].model[0]);
+				dm->stage[2].model[0] = NULL;
+				McrDelete(dm->stage[2].datBGH);
+				dm->_hit.set_hit_data(2,NULL);
+				dm->stage[2].datBGH = NULL;
+				McrDelete(dm->stage[2].datMCD);
+				dm->stage[2].datMCD = NULL;
+				dm->song[2].DeleteBuffer();
+
+				bgThread.stage[2].wait_count = 0;
+				dm->stage[2].load_status = 0;
+				bgThread.delete_flag[2] = 0;
+				dm->free_mem_size = OSCheckHeap(0);
+				OSReport("del STG_DOME : end\n");
+				break;
+			case 3:
+				OSReport("del STG_CAVE : start\n");
+				McrDelete(dm->stage[3].model[0]);
+				dm->stage[1].model[0] = NULL;
+				McrDelete(dm->stage[3].model[1]);
+				dm->stage[3].model[1] = NULL;
+				McrDelete(dm->stage[3].datBGH);
+				dm->_hit.set_hit_data(3,NULL);
+				dm->stage[3].datBGH = NULL;
+				McrDelete(dm->stage[3].datMCD);
+				dm->stage[3].datMCD = NULL;
+				dm->song[3].DeleteBuffer();
+
+				bgThread.stage[3].wait_count = 0;
+				dm->stage[3].load_status = 0;
+				bgThread.delete_flag[3] = 0;
+				dm->free_mem_size = OSCheckHeap(0);
+				OSReport("del STG_CAVE : end\n");
+				break;
+			case 4:
+				OSReport("del STG_CINE : start\n");
+				McrDelete(dm->stage[4].model[0]);
+				dm->stage[4].model[0] = NULL;
+				McrDelete(dm->stage[4].datBGH);
+				dm->_hit.set_hit_data(4,NULL);
+				dm->stage[4].datBGH = NULL;
+				McrDelete(dm->stage[4].datMCD);
+				dm->stage[4].datMCD = NULL;
+
+				for (i = 0; i < 75; i++) {
+					McrDelete(dm->cinema.texpro[i]);
+					dm->cinema.texpro[i] = NULL;
+				}
+
+				McrDelete(dm->cinema.star);
+				dm->cinema.star = NULL;
+				McrDelete(dm->cinema.hart);
+				dm->cinema.hart = NULL;
+				McrDelete(dm->cinema.mirrorpro);
+				dm->cinema.mirrorpro = NULL;
+
+				dm->song[4].DeleteBuffer();
+
+				bgThread.stage[4].wait_count = 0;
+				dm->stage[4].load_status = 0;
+				bgThread.delete_flag[4] = 0;
+				dm->free_mem_size = OSCheckHeap(0);
+				OSReport("del STG_CINE : end\n");
+				break;
+			case 5:
+				OSReport("del STG_SPIL : start\n");
+				McrDelete(dm->stage[5].model[0]);
+				dm->stage[5].model[0] = NULL;
+				McrDelete(dm->stage[5].datBGH);
+				dm->_hit.set_hit_data(5,NULL);
+				dm->stage[5].datBGH = NULL;
+				McrDelete(dm->stage[5].datMCD);
+				dm->stage[5].datMCD = NULL;
+				dm->song[5].DeleteBuffer();
+
+				bgThread.stage[5].wait_count = 0;
+				dm->stage[5].load_status = 0;
+				bgThread.delete_flag[5] = 0;
+				dm->free_mem_size = OSCheckHeap(0);
+				OSReport("del STG_SPIL : end\n");
+				break;
+			case 6:
+				OSReport("del STG_ENVE : start\n");
+				McrDelete(dm->stage[6].model[0]);
+				dm->stage[6].model[0] = NULL;
+				McrDelete(dm->stage[6].datBGH);
+				dm->_hit.set_hit_data(6,NULL);
+				dm->stage[6].datBGH = NULL;
+				McrDelete(dm->stage[6].datMCD);
+				dm->stage[6].datMCD = NULL;
+				dm->song[6].DeleteBuffer();
+
+				bgThread.stage[6].wait_count = 0;
+				dm->stage[6].load_status = 0;
+				bgThread.delete_flag[6] = 0;
+				dm->free_mem_size = OSCheckHeap(0);
+				OSReport("del STG_ENVE : end\n");
+				break;
+			case 7:
+				OSReport("del STG_MPOL : start\n");
+				McrDelete(dm->stage[7].model[0]);
+				dm->stage[7].model[0] = NULL;
+				dm->model_man.DeleteMasterModel(dm->stage[7].hm[1]);
+				McrDelete(dm->stage[7].model[1]);
+				dm->stage[7].model[1] = NULL;
+				McrDelete(dm->stage[7].datBGH);
+				dm->_hit.set_hit_data(7,NULL);
+				dm->stage[7].datBGH = NULL;
+				McrDelete(dm->stage[7].datMCD);
+				dm->stage[7].datMCD = NULL;
+				dm->song[7].DeleteBuffer();
+
+				bgThread.stage[7].wait_count = 0;
+				dm->stage[7].load_status = 0;
+				bgThread.delete_flag[7] = 0;
+				dm->free_mem_size = OSCheckHeap(0);
+				OSReport("del STG_MPOL : end\n");
+				break;
+			case 8:
+				bgThread.delete_flag[8] = 0;
+			}
+		}
+	}
 }
 

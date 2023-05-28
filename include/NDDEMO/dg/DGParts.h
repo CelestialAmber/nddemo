@@ -42,6 +42,7 @@ private:
 	u8 m_TextureProjection; //0x7A
 	u8 m_EnableLightingD; //0x7B
 	u8 m_EnableLightingS; //0x7C
+	u8 unk7D[3]; //padding
 	Vec m_WorldPosition; //0x80
 
 public:

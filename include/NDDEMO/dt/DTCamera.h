@@ -72,7 +72,7 @@ private:
 	struct{
 		u16 _old; //0x0
 		u16 _trg; //0x2
-	} _pad; //0x408
+	} _pad; //0x508
 
 	struct{
 		s8 _enable_flag; //0x0

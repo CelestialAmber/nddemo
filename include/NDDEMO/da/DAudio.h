@@ -12,7 +12,13 @@ public:
 	s32 m_flag; //0xC
 
 	CSong(const CSong&); //unused
-	CSong();
+	
+	CSong(){
+		m_buffer = NULL;
+		m_SongId = -1;
+		m_SeqId = -1;
+		m_flag = false;
+	}
 
 	s32 InitBuffer(s32 size); //unused
 	void DeleteBuffer();
